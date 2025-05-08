@@ -1,20 +1,24 @@
 """
 Type annotations for pinpoint service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_pinpoint.type_defs import ADMChannelRequestTypeDef
 
-    data: ADMChannelRequestTypeDef = {...}
+    data: ADMChannelRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -29,6 +33,7 @@ from .literals import (
     DeliveryStatusType,
     DimensionTypeType,
     DurationType,
+    EndpointTypesElementType,
     FilterTypeType,
     FormatType,
     FrequencyType,
@@ -44,15 +49,20 @@ from .literals import (
     SourceTypeType,
     StateType,
     TemplateTypeType,
+    TimezoneEstimationMethodsElementType,
     TypeType,
-    __EndpointTypesElementType,
-    __TimezoneEstimationMethodsElementType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ADMChannelRequestTypeDef",
@@ -69,8 +79,10 @@ __all__ = (
     "APNSVoipSandboxChannelRequestTypeDef",
     "APNSVoipSandboxChannelResponseTypeDef",
     "ActivitiesResponseTypeDef",
+    "ActivityOutputTypeDef",
     "ActivityResponseTypeDef",
     "ActivityTypeDef",
+    "ActivityUnionTypeDef",
     "AddressConfigurationTypeDef",
     "AndroidPushNotificationTemplateTypeDef",
     "ApplicationDateRangeKpiResponseTypeDef",
@@ -78,18 +90,27 @@ __all__ = (
     "ApplicationSettingsJourneyLimitsTypeDef",
     "ApplicationSettingsResourceTypeDef",
     "ApplicationsResponseTypeDef",
+    "AttributeDimensionOutputTypeDef",
     "AttributeDimensionTypeDef",
+    "AttributeDimensionUnionTypeDef",
     "AttributesResourceTypeDef",
     "BaiduChannelRequestTypeDef",
     "BaiduChannelResponseTypeDef",
     "BaiduMessageTypeDef",
     "BaseKpiResultTypeDef",
+    "BlobTypeDef",
     "CampaignCustomMessageTypeDef",
     "CampaignDateRangeKpiResponseTypeDef",
+    "CampaignEmailMessageOutputTypeDef",
     "CampaignEmailMessageTypeDef",
+    "CampaignEmailMessageUnionTypeDef",
+    "CampaignEventFilterOutputTypeDef",
     "CampaignEventFilterTypeDef",
+    "CampaignEventFilterUnionTypeDef",
     "CampaignHookTypeDef",
+    "CampaignInAppMessageOutputTypeDef",
     "CampaignInAppMessageTypeDef",
+    "CampaignInAppMessageUnionTypeDef",
     "CampaignLimitsTypeDef",
     "CampaignResponseTypeDef",
     "CampaignSmsMessageTypeDef",
@@ -97,89 +118,99 @@ __all__ = (
     "CampaignsResponseTypeDef",
     "ChannelResponseTypeDef",
     "ChannelsResponseTypeDef",
+    "ClosedDaysOutputTypeDef",
     "ClosedDaysRuleTypeDef",
     "ClosedDaysTypeDef",
+    "ClosedDaysUnionTypeDef",
+    "ConditionOutputTypeDef",
     "ConditionTypeDef",
+    "ConditionUnionTypeDef",
+    "ConditionalSplitActivityOutputTypeDef",
     "ConditionalSplitActivityTypeDef",
+    "ConditionalSplitActivityUnionTypeDef",
     "ContactCenterActivityTypeDef",
-    "CreateAppRequestRequestTypeDef",
+    "CreateAppRequestTypeDef",
     "CreateAppResponseTypeDef",
     "CreateApplicationRequestTypeDef",
-    "CreateCampaignRequestRequestTypeDef",
+    "CreateCampaignRequestTypeDef",
     "CreateCampaignResponseTypeDef",
-    "CreateEmailTemplateRequestRequestTypeDef",
+    "CreateEmailTemplateRequestTypeDef",
     "CreateEmailTemplateResponseTypeDef",
-    "CreateExportJobRequestRequestTypeDef",
+    "CreateExportJobRequestTypeDef",
     "CreateExportJobResponseTypeDef",
-    "CreateImportJobRequestRequestTypeDef",
+    "CreateImportJobRequestTypeDef",
     "CreateImportJobResponseTypeDef",
-    "CreateInAppTemplateRequestRequestTypeDef",
+    "CreateInAppTemplateRequestTypeDef",
     "CreateInAppTemplateResponseTypeDef",
-    "CreateJourneyRequestRequestTypeDef",
+    "CreateJourneyRequestTypeDef",
     "CreateJourneyResponseTypeDef",
-    "CreatePushTemplateRequestRequestTypeDef",
+    "CreatePushTemplateRequestTypeDef",
     "CreatePushTemplateResponseTypeDef",
-    "CreateRecommenderConfigurationRequestRequestTypeDef",
+    "CreateRecommenderConfigurationRequestTypeDef",
     "CreateRecommenderConfigurationResponseTypeDef",
     "CreateRecommenderConfigurationTypeDef",
-    "CreateSegmentRequestRequestTypeDef",
+    "CreateSegmentRequestTypeDef",
     "CreateSegmentResponseTypeDef",
-    "CreateSmsTemplateRequestRequestTypeDef",
+    "CreateSmsTemplateRequestTypeDef",
     "CreateSmsTemplateResponseTypeDef",
     "CreateTemplateMessageBodyTypeDef",
-    "CreateVoiceTemplateRequestRequestTypeDef",
+    "CreateVoiceTemplateRequestTypeDef",
     "CreateVoiceTemplateResponseTypeDef",
+    "CustomDeliveryConfigurationOutputTypeDef",
     "CustomDeliveryConfigurationTypeDef",
+    "CustomDeliveryConfigurationUnionTypeDef",
+    "CustomMessageActivityOutputTypeDef",
     "CustomMessageActivityTypeDef",
+    "CustomMessageActivityUnionTypeDef",
     "DefaultButtonConfigurationTypeDef",
     "DefaultMessageTypeDef",
     "DefaultPushNotificationMessageTypeDef",
     "DefaultPushNotificationTemplateTypeDef",
-    "DeleteAdmChannelRequestRequestTypeDef",
+    "DeleteAdmChannelRequestTypeDef",
     "DeleteAdmChannelResponseTypeDef",
-    "DeleteApnsChannelRequestRequestTypeDef",
+    "DeleteApnsChannelRequestTypeDef",
     "DeleteApnsChannelResponseTypeDef",
-    "DeleteApnsSandboxChannelRequestRequestTypeDef",
+    "DeleteApnsSandboxChannelRequestTypeDef",
     "DeleteApnsSandboxChannelResponseTypeDef",
-    "DeleteApnsVoipChannelRequestRequestTypeDef",
+    "DeleteApnsVoipChannelRequestTypeDef",
     "DeleteApnsVoipChannelResponseTypeDef",
-    "DeleteApnsVoipSandboxChannelRequestRequestTypeDef",
+    "DeleteApnsVoipSandboxChannelRequestTypeDef",
     "DeleteApnsVoipSandboxChannelResponseTypeDef",
-    "DeleteAppRequestRequestTypeDef",
+    "DeleteAppRequestTypeDef",
     "DeleteAppResponseTypeDef",
-    "DeleteBaiduChannelRequestRequestTypeDef",
+    "DeleteBaiduChannelRequestTypeDef",
     "DeleteBaiduChannelResponseTypeDef",
-    "DeleteCampaignRequestRequestTypeDef",
+    "DeleteCampaignRequestTypeDef",
     "DeleteCampaignResponseTypeDef",
-    "DeleteEmailChannelRequestRequestTypeDef",
+    "DeleteEmailChannelRequestTypeDef",
     "DeleteEmailChannelResponseTypeDef",
-    "DeleteEmailTemplateRequestRequestTypeDef",
+    "DeleteEmailTemplateRequestTypeDef",
     "DeleteEmailTemplateResponseTypeDef",
-    "DeleteEndpointRequestRequestTypeDef",
+    "DeleteEndpointRequestTypeDef",
     "DeleteEndpointResponseTypeDef",
-    "DeleteEventStreamRequestRequestTypeDef",
+    "DeleteEventStreamRequestTypeDef",
     "DeleteEventStreamResponseTypeDef",
-    "DeleteGcmChannelRequestRequestTypeDef",
+    "DeleteGcmChannelRequestTypeDef",
     "DeleteGcmChannelResponseTypeDef",
-    "DeleteInAppTemplateRequestRequestTypeDef",
+    "DeleteInAppTemplateRequestTypeDef",
     "DeleteInAppTemplateResponseTypeDef",
-    "DeleteJourneyRequestRequestTypeDef",
+    "DeleteJourneyRequestTypeDef",
     "DeleteJourneyResponseTypeDef",
-    "DeletePushTemplateRequestRequestTypeDef",
+    "DeletePushTemplateRequestTypeDef",
     "DeletePushTemplateResponseTypeDef",
-    "DeleteRecommenderConfigurationRequestRequestTypeDef",
+    "DeleteRecommenderConfigurationRequestTypeDef",
     "DeleteRecommenderConfigurationResponseTypeDef",
-    "DeleteSegmentRequestRequestTypeDef",
+    "DeleteSegmentRequestTypeDef",
     "DeleteSegmentResponseTypeDef",
-    "DeleteSmsChannelRequestRequestTypeDef",
+    "DeleteSmsChannelRequestTypeDef",
     "DeleteSmsChannelResponseTypeDef",
-    "DeleteSmsTemplateRequestRequestTypeDef",
+    "DeleteSmsTemplateRequestTypeDef",
     "DeleteSmsTemplateResponseTypeDef",
-    "DeleteUserEndpointsRequestRequestTypeDef",
+    "DeleteUserEndpointsRequestTypeDef",
     "DeleteUserEndpointsResponseTypeDef",
-    "DeleteVoiceChannelRequestRequestTypeDef",
+    "DeleteVoiceChannelRequestTypeDef",
     "DeleteVoiceChannelResponseTypeDef",
-    "DeleteVoiceTemplateRequestRequestTypeDef",
+    "DeleteVoiceTemplateRequestTypeDef",
     "DeleteVoiceTemplateResponseTypeDef",
     "DirectMessageConfigurationTypeDef",
     "EmailChannelRequestTypeDef",
@@ -188,6 +219,7 @@ __all__ = (
     "EmailMessageTypeDef",
     "EmailTemplateRequestTypeDef",
     "EmailTemplateResponseTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EndpointBatchItemTypeDef",
     "EndpointBatchRequestTypeDef",
     "EndpointDemographicTypeDef",
@@ -197,13 +229,23 @@ __all__ = (
     "EndpointRequestTypeDef",
     "EndpointResponseTypeDef",
     "EndpointSendConfigurationTypeDef",
+    "EndpointUserOutputTypeDef",
     "EndpointUserTypeDef",
+    "EndpointUserUnionTypeDef",
     "EndpointsResponseTypeDef",
+    "EventConditionOutputTypeDef",
     "EventConditionTypeDef",
+    "EventConditionUnionTypeDef",
+    "EventDimensionsOutputTypeDef",
     "EventDimensionsTypeDef",
+    "EventDimensionsUnionTypeDef",
+    "EventFilterOutputTypeDef",
     "EventFilterTypeDef",
+    "EventFilterUnionTypeDef",
     "EventItemResponseTypeDef",
+    "EventStartConditionOutputTypeDef",
     "EventStartConditionTypeDef",
+    "EventStartConditionUnionTypeDef",
     "EventStreamTypeDef",
     "EventTypeDef",
     "EventsBatchTypeDef",
@@ -218,103 +260,103 @@ __all__ = (
     "GCMMessageTypeDef",
     "GPSCoordinatesTypeDef",
     "GPSPointDimensionTypeDef",
-    "GetAdmChannelRequestRequestTypeDef",
+    "GetAdmChannelRequestTypeDef",
     "GetAdmChannelResponseTypeDef",
-    "GetApnsChannelRequestRequestTypeDef",
+    "GetApnsChannelRequestTypeDef",
     "GetApnsChannelResponseTypeDef",
-    "GetApnsSandboxChannelRequestRequestTypeDef",
+    "GetApnsSandboxChannelRequestTypeDef",
     "GetApnsSandboxChannelResponseTypeDef",
-    "GetApnsVoipChannelRequestRequestTypeDef",
+    "GetApnsVoipChannelRequestTypeDef",
     "GetApnsVoipChannelResponseTypeDef",
-    "GetApnsVoipSandboxChannelRequestRequestTypeDef",
+    "GetApnsVoipSandboxChannelRequestTypeDef",
     "GetApnsVoipSandboxChannelResponseTypeDef",
-    "GetAppRequestRequestTypeDef",
+    "GetAppRequestTypeDef",
     "GetAppResponseTypeDef",
-    "GetApplicationDateRangeKpiRequestRequestTypeDef",
+    "GetApplicationDateRangeKpiRequestTypeDef",
     "GetApplicationDateRangeKpiResponseTypeDef",
-    "GetApplicationSettingsRequestRequestTypeDef",
+    "GetApplicationSettingsRequestTypeDef",
     "GetApplicationSettingsResponseTypeDef",
-    "GetAppsRequestRequestTypeDef",
+    "GetAppsRequestTypeDef",
     "GetAppsResponseTypeDef",
-    "GetBaiduChannelRequestRequestTypeDef",
+    "GetBaiduChannelRequestTypeDef",
     "GetBaiduChannelResponseTypeDef",
-    "GetCampaignActivitiesRequestRequestTypeDef",
+    "GetCampaignActivitiesRequestTypeDef",
     "GetCampaignActivitiesResponseTypeDef",
-    "GetCampaignDateRangeKpiRequestRequestTypeDef",
+    "GetCampaignDateRangeKpiRequestTypeDef",
     "GetCampaignDateRangeKpiResponseTypeDef",
-    "GetCampaignRequestRequestTypeDef",
+    "GetCampaignRequestTypeDef",
     "GetCampaignResponseTypeDef",
-    "GetCampaignVersionRequestRequestTypeDef",
+    "GetCampaignVersionRequestTypeDef",
     "GetCampaignVersionResponseTypeDef",
-    "GetCampaignVersionsRequestRequestTypeDef",
+    "GetCampaignVersionsRequestTypeDef",
     "GetCampaignVersionsResponseTypeDef",
-    "GetCampaignsRequestRequestTypeDef",
+    "GetCampaignsRequestTypeDef",
     "GetCampaignsResponseTypeDef",
-    "GetChannelsRequestRequestTypeDef",
+    "GetChannelsRequestTypeDef",
     "GetChannelsResponseTypeDef",
-    "GetEmailChannelRequestRequestTypeDef",
+    "GetEmailChannelRequestTypeDef",
     "GetEmailChannelResponseTypeDef",
-    "GetEmailTemplateRequestRequestTypeDef",
+    "GetEmailTemplateRequestTypeDef",
     "GetEmailTemplateResponseTypeDef",
-    "GetEndpointRequestRequestTypeDef",
+    "GetEndpointRequestTypeDef",
     "GetEndpointResponseTypeDef",
-    "GetEventStreamRequestRequestTypeDef",
+    "GetEventStreamRequestTypeDef",
     "GetEventStreamResponseTypeDef",
-    "GetExportJobRequestRequestTypeDef",
+    "GetExportJobRequestTypeDef",
     "GetExportJobResponseTypeDef",
-    "GetExportJobsRequestRequestTypeDef",
+    "GetExportJobsRequestTypeDef",
     "GetExportJobsResponseTypeDef",
-    "GetGcmChannelRequestRequestTypeDef",
+    "GetGcmChannelRequestTypeDef",
     "GetGcmChannelResponseTypeDef",
-    "GetImportJobRequestRequestTypeDef",
+    "GetImportJobRequestTypeDef",
     "GetImportJobResponseTypeDef",
-    "GetImportJobsRequestRequestTypeDef",
+    "GetImportJobsRequestTypeDef",
     "GetImportJobsResponseTypeDef",
-    "GetInAppMessagesRequestRequestTypeDef",
+    "GetInAppMessagesRequestTypeDef",
     "GetInAppMessagesResponseTypeDef",
-    "GetInAppTemplateRequestRequestTypeDef",
+    "GetInAppTemplateRequestTypeDef",
     "GetInAppTemplateResponseTypeDef",
-    "GetJourneyDateRangeKpiRequestRequestTypeDef",
+    "GetJourneyDateRangeKpiRequestTypeDef",
     "GetJourneyDateRangeKpiResponseTypeDef",
-    "GetJourneyExecutionActivityMetricsRequestRequestTypeDef",
+    "GetJourneyExecutionActivityMetricsRequestTypeDef",
     "GetJourneyExecutionActivityMetricsResponseTypeDef",
-    "GetJourneyExecutionMetricsRequestRequestTypeDef",
+    "GetJourneyExecutionMetricsRequestTypeDef",
     "GetJourneyExecutionMetricsResponseTypeDef",
-    "GetJourneyRequestRequestTypeDef",
+    "GetJourneyRequestTypeDef",
     "GetJourneyResponseTypeDef",
-    "GetJourneyRunExecutionActivityMetricsRequestRequestTypeDef",
+    "GetJourneyRunExecutionActivityMetricsRequestTypeDef",
     "GetJourneyRunExecutionActivityMetricsResponseTypeDef",
-    "GetJourneyRunExecutionMetricsRequestRequestTypeDef",
+    "GetJourneyRunExecutionMetricsRequestTypeDef",
     "GetJourneyRunExecutionMetricsResponseTypeDef",
-    "GetJourneyRunsRequestRequestTypeDef",
+    "GetJourneyRunsRequestTypeDef",
     "GetJourneyRunsResponseTypeDef",
-    "GetPushTemplateRequestRequestTypeDef",
+    "GetPushTemplateRequestTypeDef",
     "GetPushTemplateResponseTypeDef",
-    "GetRecommenderConfigurationRequestRequestTypeDef",
+    "GetRecommenderConfigurationRequestTypeDef",
     "GetRecommenderConfigurationResponseTypeDef",
-    "GetRecommenderConfigurationsRequestRequestTypeDef",
+    "GetRecommenderConfigurationsRequestTypeDef",
     "GetRecommenderConfigurationsResponseTypeDef",
-    "GetSegmentExportJobsRequestRequestTypeDef",
+    "GetSegmentExportJobsRequestTypeDef",
     "GetSegmentExportJobsResponseTypeDef",
-    "GetSegmentImportJobsRequestRequestTypeDef",
+    "GetSegmentImportJobsRequestTypeDef",
     "GetSegmentImportJobsResponseTypeDef",
-    "GetSegmentRequestRequestTypeDef",
+    "GetSegmentRequestTypeDef",
     "GetSegmentResponseTypeDef",
-    "GetSegmentVersionRequestRequestTypeDef",
+    "GetSegmentVersionRequestTypeDef",
     "GetSegmentVersionResponseTypeDef",
-    "GetSegmentVersionsRequestRequestTypeDef",
+    "GetSegmentVersionsRequestTypeDef",
     "GetSegmentVersionsResponseTypeDef",
-    "GetSegmentsRequestRequestTypeDef",
+    "GetSegmentsRequestTypeDef",
     "GetSegmentsResponseTypeDef",
-    "GetSmsChannelRequestRequestTypeDef",
+    "GetSmsChannelRequestTypeDef",
     "GetSmsChannelResponseTypeDef",
-    "GetSmsTemplateRequestRequestTypeDef",
+    "GetSmsTemplateRequestTypeDef",
     "GetSmsTemplateResponseTypeDef",
-    "GetUserEndpointsRequestRequestTypeDef",
+    "GetUserEndpointsRequestTypeDef",
     "GetUserEndpointsResponseTypeDef",
-    "GetVoiceChannelRequestRequestTypeDef",
+    "GetVoiceChannelRequestTypeDef",
     "GetVoiceChannelResponseTypeDef",
-    "GetVoiceTemplateRequestRequestTypeDef",
+    "GetVoiceTemplateRequestTypeDef",
     "GetVoiceTemplateResponseTypeDef",
     "HoldoutActivityTypeDef",
     "ImportJobRequestTypeDef",
@@ -346,51 +388,63 @@ __all__ = (
     "JourneyRunResponseTypeDef",
     "JourneyRunsResponseTypeDef",
     "JourneySMSMessageTypeDef",
+    "JourneyScheduleOutputTypeDef",
     "JourneyScheduleTypeDef",
+    "JourneyScheduleUnionTypeDef",
     "JourneyStateRequestTypeDef",
     "JourneyTimeframeCapTypeDef",
     "JourneysResponseTypeDef",
-    "ListJourneysRequestRequestTypeDef",
+    "ListJourneysRequestTypeDef",
     "ListJourneysResponseTypeDef",
     "ListRecommenderConfigurationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTemplateVersionsRequestRequestTypeDef",
+    "ListTemplateVersionsRequestTypeDef",
     "ListTemplateVersionsResponseTypeDef",
-    "ListTemplatesRequestRequestTypeDef",
+    "ListTemplatesRequestTypeDef",
     "ListTemplatesResponseTypeDef",
     "MessageBodyTypeDef",
+    "MessageConfigurationOutputTypeDef",
     "MessageConfigurationTypeDef",
+    "MessageConfigurationUnionTypeDef",
     "MessageHeaderTypeDef",
     "MessageRequestTypeDef",
     "MessageResponseTypeDef",
     "MessageResultTypeDef",
     "MessageTypeDef",
     "MetricDimensionTypeDef",
+    "MultiConditionalBranchOutputTypeDef",
     "MultiConditionalBranchTypeDef",
+    "MultiConditionalBranchUnionTypeDef",
+    "MultiConditionalSplitActivityOutputTypeDef",
     "MultiConditionalSplitActivityTypeDef",
+    "MultiConditionalSplitActivityUnionTypeDef",
     "NumberValidateRequestTypeDef",
     "NumberValidateResponseTypeDef",
+    "OpenHoursOutputTypeDef",
     "OpenHoursRuleTypeDef",
     "OpenHoursTypeDef",
+    "OpenHoursUnionTypeDef",
     "OverrideButtonConfigurationTypeDef",
-    "PhoneNumberValidateRequestRequestTypeDef",
+    "PhoneNumberValidateRequestTypeDef",
     "PhoneNumberValidateResponseTypeDef",
     "PublicEndpointTypeDef",
     "PushMessageActivityTypeDef",
     "PushNotificationTemplateRequestTypeDef",
     "PushNotificationTemplateResponseTypeDef",
-    "PutEventStreamRequestRequestTypeDef",
+    "PutEventStreamRequestTypeDef",
     "PutEventStreamResponseTypeDef",
-    "PutEventsRequestRequestTypeDef",
+    "PutEventsRequestTypeDef",
     "PutEventsResponseTypeDef",
     "QuietTimeTypeDef",
+    "RandomSplitActivityOutputTypeDef",
     "RandomSplitActivityTypeDef",
+    "RandomSplitActivityUnionTypeDef",
     "RandomSplitEntryTypeDef",
     "RawEmailTypeDef",
     "RecencyDimensionTypeDef",
     "RecommenderConfigurationResponseTypeDef",
-    "RemoveAttributesRequestRequestTypeDef",
+    "RemoveAttributesRequestTypeDef",
     "RemoveAttributesResponseTypeDef",
     "ResponseMetadataTypeDef",
     "ResultRowTypeDef",
@@ -401,35 +455,55 @@ __all__ = (
     "SMSMessageTypeDef",
     "SMSTemplateRequestTypeDef",
     "SMSTemplateResponseTypeDef",
+    "ScheduleOutputTypeDef",
     "ScheduleTypeDef",
+    "ScheduleUnionTypeDef",
     "SegmentBehaviorsTypeDef",
     "SegmentConditionTypeDef",
+    "SegmentDemographicsOutputTypeDef",
     "SegmentDemographicsTypeDef",
+    "SegmentDemographicsUnionTypeDef",
+    "SegmentDimensionsOutputTypeDef",
     "SegmentDimensionsTypeDef",
+    "SegmentDimensionsUnionTypeDef",
+    "SegmentGroupListOutputTypeDef",
     "SegmentGroupListTypeDef",
+    "SegmentGroupListUnionTypeDef",
+    "SegmentGroupOutputTypeDef",
     "SegmentGroupTypeDef",
+    "SegmentGroupUnionTypeDef",
     "SegmentImportResourceTypeDef",
+    "SegmentLocationOutputTypeDef",
     "SegmentLocationTypeDef",
+    "SegmentLocationUnionTypeDef",
     "SegmentReferenceTypeDef",
     "SegmentResponseTypeDef",
     "SegmentsResponseTypeDef",
-    "SendMessagesRequestRequestTypeDef",
+    "SendMessagesRequestTypeDef",
     "SendMessagesResponseTypeDef",
     "SendOTPMessageRequestParametersTypeDef",
-    "SendOTPMessageRequestRequestTypeDef",
+    "SendOTPMessageRequestTypeDef",
     "SendOTPMessageResponseTypeDef",
     "SendUsersMessageRequestTypeDef",
     "SendUsersMessageResponseTypeDef",
-    "SendUsersMessagesRequestRequestTypeDef",
+    "SendUsersMessagesRequestTypeDef",
     "SendUsersMessagesResponseTypeDef",
     "SessionTypeDef",
+    "SetDimensionOutputTypeDef",
     "SetDimensionTypeDef",
+    "SetDimensionUnionTypeDef",
+    "SimpleConditionOutputTypeDef",
     "SimpleConditionTypeDef",
+    "SimpleConditionUnionTypeDef",
     "SimpleEmailPartTypeDef",
     "SimpleEmailTypeDef",
+    "StartConditionOutputTypeDef",
     "StartConditionTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StartConditionUnionTypeDef",
+    "TagResourceRequestTypeDef",
+    "TagsModelOutputTypeDef",
     "TagsModelTypeDef",
+    "TagsModelUnionTypeDef",
     "TemplateActiveVersionRequestTypeDef",
     "TemplateConfigurationTypeDef",
     "TemplateCreateMessageBodyTypeDef",
@@ -438,61 +512,62 @@ __all__ = (
     "TemplateVersionResponseTypeDef",
     "TemplateVersionsResponseTypeDef",
     "TemplatesResponseTypeDef",
+    "TimestampTypeDef",
     "TreatmentResourceTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAdmChannelRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAdmChannelRequestTypeDef",
     "UpdateAdmChannelResponseTypeDef",
-    "UpdateApnsChannelRequestRequestTypeDef",
+    "UpdateApnsChannelRequestTypeDef",
     "UpdateApnsChannelResponseTypeDef",
-    "UpdateApnsSandboxChannelRequestRequestTypeDef",
+    "UpdateApnsSandboxChannelRequestTypeDef",
     "UpdateApnsSandboxChannelResponseTypeDef",
-    "UpdateApnsVoipChannelRequestRequestTypeDef",
+    "UpdateApnsVoipChannelRequestTypeDef",
     "UpdateApnsVoipChannelResponseTypeDef",
-    "UpdateApnsVoipSandboxChannelRequestRequestTypeDef",
+    "UpdateApnsVoipSandboxChannelRequestTypeDef",
     "UpdateApnsVoipSandboxChannelResponseTypeDef",
-    "UpdateApplicationSettingsRequestRequestTypeDef",
+    "UpdateApplicationSettingsRequestTypeDef",
     "UpdateApplicationSettingsResponseTypeDef",
     "UpdateAttributesRequestTypeDef",
-    "UpdateBaiduChannelRequestRequestTypeDef",
+    "UpdateBaiduChannelRequestTypeDef",
     "UpdateBaiduChannelResponseTypeDef",
-    "UpdateCampaignRequestRequestTypeDef",
+    "UpdateCampaignRequestTypeDef",
     "UpdateCampaignResponseTypeDef",
-    "UpdateEmailChannelRequestRequestTypeDef",
+    "UpdateEmailChannelRequestTypeDef",
     "UpdateEmailChannelResponseTypeDef",
-    "UpdateEmailTemplateRequestRequestTypeDef",
+    "UpdateEmailTemplateRequestTypeDef",
     "UpdateEmailTemplateResponseTypeDef",
-    "UpdateEndpointRequestRequestTypeDef",
+    "UpdateEndpointRequestTypeDef",
     "UpdateEndpointResponseTypeDef",
-    "UpdateEndpointsBatchRequestRequestTypeDef",
+    "UpdateEndpointsBatchRequestTypeDef",
     "UpdateEndpointsBatchResponseTypeDef",
-    "UpdateGcmChannelRequestRequestTypeDef",
+    "UpdateGcmChannelRequestTypeDef",
     "UpdateGcmChannelResponseTypeDef",
-    "UpdateInAppTemplateRequestRequestTypeDef",
+    "UpdateInAppTemplateRequestTypeDef",
     "UpdateInAppTemplateResponseTypeDef",
-    "UpdateJourneyRequestRequestTypeDef",
+    "UpdateJourneyRequestTypeDef",
     "UpdateJourneyResponseTypeDef",
-    "UpdateJourneyStateRequestRequestTypeDef",
+    "UpdateJourneyStateRequestTypeDef",
     "UpdateJourneyStateResponseTypeDef",
-    "UpdatePushTemplateRequestRequestTypeDef",
+    "UpdatePushTemplateRequestTypeDef",
     "UpdatePushTemplateResponseTypeDef",
-    "UpdateRecommenderConfigurationRequestRequestTypeDef",
+    "UpdateRecommenderConfigurationRequestTypeDef",
     "UpdateRecommenderConfigurationResponseTypeDef",
     "UpdateRecommenderConfigurationTypeDef",
-    "UpdateSegmentRequestRequestTypeDef",
+    "UpdateSegmentRequestTypeDef",
     "UpdateSegmentResponseTypeDef",
-    "UpdateSmsChannelRequestRequestTypeDef",
+    "UpdateSmsChannelRequestTypeDef",
     "UpdateSmsChannelResponseTypeDef",
-    "UpdateSmsTemplateRequestRequestTypeDef",
+    "UpdateSmsTemplateRequestTypeDef",
     "UpdateSmsTemplateResponseTypeDef",
-    "UpdateTemplateActiveVersionRequestRequestTypeDef",
+    "UpdateTemplateActiveVersionRequestTypeDef",
     "UpdateTemplateActiveVersionResponseTypeDef",
-    "UpdateVoiceChannelRequestRequestTypeDef",
+    "UpdateVoiceChannelRequestTypeDef",
     "UpdateVoiceChannelResponseTypeDef",
-    "UpdateVoiceTemplateRequestRequestTypeDef",
+    "UpdateVoiceTemplateRequestTypeDef",
     "UpdateVoiceTemplateResponseTypeDef",
     "VerificationResponseTypeDef",
     "VerifyOTPMessageRequestParametersTypeDef",
-    "VerifyOTPMessageRequestRequestTypeDef",
+    "VerifyOTPMessageRequestTypeDef",
     "VerifyOTPMessageResponseTypeDef",
     "VoiceChannelRequestTypeDef",
     "VoiceChannelResponseTypeDef",
@@ -509,4277 +584,1114 @@ __all__ = (
     "WriteTreatmentResourceTypeDef",
 )
 
-_RequiredADMChannelRequestTypeDef = TypedDict(
-    "_RequiredADMChannelRequestTypeDef",
-    {
-        "ClientId": str,
-        "ClientSecret": str,
-    },
-)
-_OptionalADMChannelRequestTypeDef = TypedDict(
-    "_OptionalADMChannelRequestTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-class ADMChannelRequestTypeDef(
-    _RequiredADMChannelRequestTypeDef, _OptionalADMChannelRequestTypeDef
-):
-    pass
-
-_RequiredADMChannelResponseTypeDef = TypedDict(
-    "_RequiredADMChannelResponseTypeDef",
-    {
-        "Platform": str,
-    },
-)
-_OptionalADMChannelResponseTypeDef = TypedDict(
-    "_OptionalADMChannelResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "Enabled": bool,
-        "HasCredential": bool,
-        "Id": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "Version": int,
-    },
-    total=False,
-)
-
-class ADMChannelResponseTypeDef(
-    _RequiredADMChannelResponseTypeDef, _OptionalADMChannelResponseTypeDef
-):
-    pass
-
-ADMMessageTypeDef = TypedDict(
-    "ADMMessageTypeDef",
-    {
-        "Action": ActionType,
-        "Body": str,
-        "ConsolidationKey": str,
-        "Data": Dict[str, str],
-        "ExpiresAfter": str,
-        "IconReference": str,
-        "ImageIconUrl": str,
-        "ImageUrl": str,
-        "MD5": str,
-        "RawContent": str,
-        "SilentPush": bool,
-        "SmallImageIconUrl": str,
-        "Sound": str,
-        "Substitutions": Dict[str, List[str]],
-        "Title": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-APNSChannelRequestTypeDef = TypedDict(
-    "APNSChannelRequestTypeDef",
-    {
-        "BundleId": str,
-        "Certificate": str,
-        "DefaultAuthenticationMethod": str,
-        "Enabled": bool,
-        "PrivateKey": str,
-        "TeamId": str,
-        "TokenKey": str,
-        "TokenKeyId": str,
-    },
-    total=False,
-)
-
-_RequiredAPNSChannelResponseTypeDef = TypedDict(
-    "_RequiredAPNSChannelResponseTypeDef",
-    {
-        "Platform": str,
-    },
-)
-_OptionalAPNSChannelResponseTypeDef = TypedDict(
-    "_OptionalAPNSChannelResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "DefaultAuthenticationMethod": str,
-        "Enabled": bool,
-        "HasCredential": bool,
-        "HasTokenKey": bool,
-        "Id": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "Version": int,
-    },
-    total=False,
-)
-
-class APNSChannelResponseTypeDef(
-    _RequiredAPNSChannelResponseTypeDef, _OptionalAPNSChannelResponseTypeDef
-):
-    pass
-
-APNSMessageTypeDef = TypedDict(
-    "APNSMessageTypeDef",
-    {
-        "APNSPushType": str,
-        "Action": ActionType,
-        "Badge": int,
-        "Body": str,
-        "Category": str,
-        "CollapseId": str,
-        "Data": Dict[str, str],
-        "MediaUrl": str,
-        "PreferredAuthenticationMethod": str,
-        "Priority": str,
-        "RawContent": str,
-        "SilentPush": bool,
-        "Sound": str,
-        "Substitutions": Dict[str, List[str]],
-        "ThreadId": str,
-        "TimeToLive": int,
-        "Title": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-APNSPushNotificationTemplateTypeDef = TypedDict(
-    "APNSPushNotificationTemplateTypeDef",
-    {
-        "Action": ActionType,
-        "Body": str,
-        "MediaUrl": str,
-        "RawContent": str,
-        "Sound": str,
-        "Title": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-APNSSandboxChannelRequestTypeDef = TypedDict(
-    "APNSSandboxChannelRequestTypeDef",
-    {
-        "BundleId": str,
-        "Certificate": str,
-        "DefaultAuthenticationMethod": str,
-        "Enabled": bool,
-        "PrivateKey": str,
-        "TeamId": str,
-        "TokenKey": str,
-        "TokenKeyId": str,
-    },
-    total=False,
-)
-
-_RequiredAPNSSandboxChannelResponseTypeDef = TypedDict(
-    "_RequiredAPNSSandboxChannelResponseTypeDef",
-    {
-        "Platform": str,
-    },
-)
-_OptionalAPNSSandboxChannelResponseTypeDef = TypedDict(
-    "_OptionalAPNSSandboxChannelResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "DefaultAuthenticationMethod": str,
-        "Enabled": bool,
-        "HasCredential": bool,
-        "HasTokenKey": bool,
-        "Id": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "Version": int,
-    },
-    total=False,
-)
-
-class APNSSandboxChannelResponseTypeDef(
-    _RequiredAPNSSandboxChannelResponseTypeDef, _OptionalAPNSSandboxChannelResponseTypeDef
-):
-    pass
-
-APNSVoipChannelRequestTypeDef = TypedDict(
-    "APNSVoipChannelRequestTypeDef",
-    {
-        "BundleId": str,
-        "Certificate": str,
-        "DefaultAuthenticationMethod": str,
-        "Enabled": bool,
-        "PrivateKey": str,
-        "TeamId": str,
-        "TokenKey": str,
-        "TokenKeyId": str,
-    },
-    total=False,
-)
-
-_RequiredAPNSVoipChannelResponseTypeDef = TypedDict(
-    "_RequiredAPNSVoipChannelResponseTypeDef",
-    {
-        "Platform": str,
-    },
-)
-_OptionalAPNSVoipChannelResponseTypeDef = TypedDict(
-    "_OptionalAPNSVoipChannelResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "DefaultAuthenticationMethod": str,
-        "Enabled": bool,
-        "HasCredential": bool,
-        "HasTokenKey": bool,
-        "Id": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "Version": int,
-    },
-    total=False,
-)
-
-class APNSVoipChannelResponseTypeDef(
-    _RequiredAPNSVoipChannelResponseTypeDef, _OptionalAPNSVoipChannelResponseTypeDef
-):
-    pass
-
-APNSVoipSandboxChannelRequestTypeDef = TypedDict(
-    "APNSVoipSandboxChannelRequestTypeDef",
-    {
-        "BundleId": str,
-        "Certificate": str,
-        "DefaultAuthenticationMethod": str,
-        "Enabled": bool,
-        "PrivateKey": str,
-        "TeamId": str,
-        "TokenKey": str,
-        "TokenKeyId": str,
-    },
-    total=False,
-)
-
-_RequiredAPNSVoipSandboxChannelResponseTypeDef = TypedDict(
-    "_RequiredAPNSVoipSandboxChannelResponseTypeDef",
-    {
-        "Platform": str,
-    },
-)
-_OptionalAPNSVoipSandboxChannelResponseTypeDef = TypedDict(
-    "_OptionalAPNSVoipSandboxChannelResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "DefaultAuthenticationMethod": str,
-        "Enabled": bool,
-        "HasCredential": bool,
-        "HasTokenKey": bool,
-        "Id": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "Version": int,
-    },
-    total=False,
-)
-
-class APNSVoipSandboxChannelResponseTypeDef(
-    _RequiredAPNSVoipSandboxChannelResponseTypeDef, _OptionalAPNSVoipSandboxChannelResponseTypeDef
-):
-    pass
-
-_RequiredActivitiesResponseTypeDef = TypedDict(
-    "_RequiredActivitiesResponseTypeDef",
-    {
-        "Item": List["ActivityResponseTypeDef"],
-    },
-)
-_OptionalActivitiesResponseTypeDef = TypedDict(
-    "_OptionalActivitiesResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ActivitiesResponseTypeDef(
-    _RequiredActivitiesResponseTypeDef, _OptionalActivitiesResponseTypeDef
-):
-    pass
-
-_RequiredActivityResponseTypeDef = TypedDict(
-    "_RequiredActivityResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CampaignId": str,
-        "Id": str,
-    },
-)
-_OptionalActivityResponseTypeDef = TypedDict(
-    "_OptionalActivityResponseTypeDef",
-    {
-        "End": str,
-        "Result": str,
-        "ScheduledStart": str,
-        "Start": str,
-        "State": str,
-        "SuccessfulEndpointCount": int,
-        "TimezonesCompletedCount": int,
-        "TimezonesTotalCount": int,
-        "TotalEndpointCount": int,
-        "TreatmentId": str,
-        "ExecutionMetrics": Dict[str, str],
-    },
-    total=False,
-)
-
-class ActivityResponseTypeDef(_RequiredActivityResponseTypeDef, _OptionalActivityResponseTypeDef):
-    pass
-
-ActivityTypeDef = TypedDict(
-    "ActivityTypeDef",
-    {
-        "CUSTOM": "CustomMessageActivityTypeDef",
-        "ConditionalSplit": "ConditionalSplitActivityTypeDef",
-        "Description": str,
-        "EMAIL": "EmailMessageActivityTypeDef",
-        "Holdout": "HoldoutActivityTypeDef",
-        "MultiCondition": "MultiConditionalSplitActivityTypeDef",
-        "PUSH": "PushMessageActivityTypeDef",
-        "RandomSplit": "RandomSplitActivityTypeDef",
-        "SMS": "SMSMessageActivityTypeDef",
-        "Wait": "WaitActivityTypeDef",
-        "ContactCenter": "ContactCenterActivityTypeDef",
-    },
-    total=False,
-)
-
-AddressConfigurationTypeDef = TypedDict(
-    "AddressConfigurationTypeDef",
-    {
-        "BodyOverride": str,
-        "ChannelType": ChannelTypeType,
-        "Context": Dict[str, str],
-        "RawContent": str,
-        "Substitutions": Dict[str, List[str]],
-        "TitleOverride": str,
-    },
-    total=False,
-)
-
-AndroidPushNotificationTemplateTypeDef = TypedDict(
-    "AndroidPushNotificationTemplateTypeDef",
-    {
-        "Action": ActionType,
-        "Body": str,
-        "ImageIconUrl": str,
-        "ImageUrl": str,
-        "RawContent": str,
-        "SmallImageIconUrl": str,
-        "Sound": str,
-        "Title": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-_RequiredApplicationDateRangeKpiResponseTypeDef = TypedDict(
-    "_RequiredApplicationDateRangeKpiResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "EndTime": datetime,
-        "KpiName": str,
-        "KpiResult": "BaseKpiResultTypeDef",
-        "StartTime": datetime,
-    },
-)
-_OptionalApplicationDateRangeKpiResponseTypeDef = TypedDict(
-    "_OptionalApplicationDateRangeKpiResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ApplicationDateRangeKpiResponseTypeDef(
-    _RequiredApplicationDateRangeKpiResponseTypeDef, _OptionalApplicationDateRangeKpiResponseTypeDef
-):
-    pass
-
-_RequiredApplicationResponseTypeDef = TypedDict(
-    "_RequiredApplicationResponseTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-    },
-)
-_OptionalApplicationResponseTypeDef = TypedDict(
-    "_OptionalApplicationResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "CreationDate": str,
-    },
-    total=False,
-)
-
-class ApplicationResponseTypeDef(
-    _RequiredApplicationResponseTypeDef, _OptionalApplicationResponseTypeDef
-):
-    pass
-
-ApplicationSettingsJourneyLimitsTypeDef = TypedDict(
-    "ApplicationSettingsJourneyLimitsTypeDef",
-    {
-        "DailyCap": int,
-        "TimeframeCap": "JourneyTimeframeCapTypeDef",
-        "TotalCap": int,
-    },
-    total=False,
-)
-
-_RequiredApplicationSettingsResourceTypeDef = TypedDict(
-    "_RequiredApplicationSettingsResourceTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalApplicationSettingsResourceTypeDef = TypedDict(
-    "_OptionalApplicationSettingsResourceTypeDef",
-    {
-        "CampaignHook": "CampaignHookTypeDef",
-        "LastModifiedDate": str,
-        "Limits": "CampaignLimitsTypeDef",
-        "QuietTime": "QuietTimeTypeDef",
-        "JourneyLimits": "ApplicationSettingsJourneyLimitsTypeDef",
-    },
-    total=False,
-)
-
-class ApplicationSettingsResourceTypeDef(
-    _RequiredApplicationSettingsResourceTypeDef, _OptionalApplicationSettingsResourceTypeDef
-):
-    pass
-
-ApplicationsResponseTypeDef = TypedDict(
-    "ApplicationsResponseTypeDef",
-    {
-        "Item": List["ApplicationResponseTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredAttributeDimensionTypeDef = TypedDict(
-    "_RequiredAttributeDimensionTypeDef",
-    {
-        "Values": List[str],
-    },
-)
-_OptionalAttributeDimensionTypeDef = TypedDict(
-    "_OptionalAttributeDimensionTypeDef",
-    {
-        "AttributeType": AttributeTypeType,
-    },
-    total=False,
-)
-
-class AttributeDimensionTypeDef(
-    _RequiredAttributeDimensionTypeDef, _OptionalAttributeDimensionTypeDef
-):
-    pass
-
-_RequiredAttributesResourceTypeDef = TypedDict(
-    "_RequiredAttributesResourceTypeDef",
-    {
-        "ApplicationId": str,
-        "AttributeType": str,
-    },
-)
-_OptionalAttributesResourceTypeDef = TypedDict(
-    "_OptionalAttributesResourceTypeDef",
-    {
-        "Attributes": List[str],
-    },
-    total=False,
-)
-
-class AttributesResourceTypeDef(
-    _RequiredAttributesResourceTypeDef, _OptionalAttributesResourceTypeDef
-):
-    pass
-
-_RequiredBaiduChannelRequestTypeDef = TypedDict(
-    "_RequiredBaiduChannelRequestTypeDef",
-    {
-        "ApiKey": str,
-        "SecretKey": str,
-    },
-)
-_OptionalBaiduChannelRequestTypeDef = TypedDict(
-    "_OptionalBaiduChannelRequestTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-class BaiduChannelRequestTypeDef(
-    _RequiredBaiduChannelRequestTypeDef, _OptionalBaiduChannelRequestTypeDef
-):
-    pass
-
-_RequiredBaiduChannelResponseTypeDef = TypedDict(
-    "_RequiredBaiduChannelResponseTypeDef",
-    {
-        "Credential": str,
-        "Platform": str,
-    },
-)
-_OptionalBaiduChannelResponseTypeDef = TypedDict(
-    "_OptionalBaiduChannelResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "Enabled": bool,
-        "HasCredential": bool,
-        "Id": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "Version": int,
-    },
-    total=False,
-)
-
-class BaiduChannelResponseTypeDef(
-    _RequiredBaiduChannelResponseTypeDef, _OptionalBaiduChannelResponseTypeDef
-):
-    pass
-
-BaiduMessageTypeDef = TypedDict(
-    "BaiduMessageTypeDef",
-    {
-        "Action": ActionType,
-        "Body": str,
-        "Data": Dict[str, str],
-        "IconReference": str,
-        "ImageIconUrl": str,
-        "ImageUrl": str,
-        "RawContent": str,
-        "SilentPush": bool,
-        "SmallImageIconUrl": str,
-        "Sound": str,
-        "Substitutions": Dict[str, List[str]],
-        "TimeToLive": int,
-        "Title": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-BaseKpiResultTypeDef = TypedDict(
-    "BaseKpiResultTypeDef",
-    {
-        "Rows": List["ResultRowTypeDef"],
-    },
-)
-
-CampaignCustomMessageTypeDef = TypedDict(
-    "CampaignCustomMessageTypeDef",
-    {
-        "Data": str,
-    },
-    total=False,
-)
-
-_RequiredCampaignDateRangeKpiResponseTypeDef = TypedDict(
-    "_RequiredCampaignDateRangeKpiResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CampaignId": str,
-        "EndTime": datetime,
-        "KpiName": str,
-        "KpiResult": "BaseKpiResultTypeDef",
-        "StartTime": datetime,
-    },
-)
-_OptionalCampaignDateRangeKpiResponseTypeDef = TypedDict(
-    "_OptionalCampaignDateRangeKpiResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class CampaignDateRangeKpiResponseTypeDef(
-    _RequiredCampaignDateRangeKpiResponseTypeDef, _OptionalCampaignDateRangeKpiResponseTypeDef
-):
-    pass
-
-CampaignEmailMessageTypeDef = TypedDict(
-    "CampaignEmailMessageTypeDef",
-    {
-        "Body": str,
-        "FromAddress": str,
-        "Headers": List["MessageHeaderTypeDef"],
-        "HtmlBody": str,
-        "Title": str,
-    },
-    total=False,
-)
-
-CampaignEventFilterTypeDef = TypedDict(
-    "CampaignEventFilterTypeDef",
-    {
-        "Dimensions": "EventDimensionsTypeDef",
-        "FilterType": FilterTypeType,
-    },
-)
-
-CampaignHookTypeDef = TypedDict(
-    "CampaignHookTypeDef",
-    {
-        "LambdaFunctionName": str,
-        "Mode": ModeType,
-        "WebUrl": str,
-    },
-    total=False,
-)
-
-CampaignInAppMessageTypeDef = TypedDict(
-    "CampaignInAppMessageTypeDef",
-    {
-        "Body": str,
-        "Content": List["InAppMessageContentTypeDef"],
-        "CustomConfig": Dict[str, str],
-        "Layout": LayoutType,
-    },
-    total=False,
-)
-
-CampaignLimitsTypeDef = TypedDict(
-    "CampaignLimitsTypeDef",
-    {
-        "Daily": int,
-        "MaximumDuration": int,
-        "MessagesPerSecond": int,
-        "Total": int,
-        "Session": int,
-    },
-    total=False,
-)
-
-_RequiredCampaignResponseTypeDef = TypedDict(
-    "_RequiredCampaignResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "Arn": str,
-        "CreationDate": str,
-        "Id": str,
-        "LastModifiedDate": str,
-        "SegmentId": str,
-        "SegmentVersion": int,
-    },
-)
-_OptionalCampaignResponseTypeDef = TypedDict(
-    "_OptionalCampaignResponseTypeDef",
-    {
-        "AdditionalTreatments": List["TreatmentResourceTypeDef"],
-        "CustomDeliveryConfiguration": "CustomDeliveryConfigurationTypeDef",
-        "DefaultState": "CampaignStateTypeDef",
-        "Description": str,
-        "HoldoutPercent": int,
-        "Hook": "CampaignHookTypeDef",
-        "IsPaused": bool,
-        "Limits": "CampaignLimitsTypeDef",
-        "MessageConfiguration": "MessageConfigurationTypeDef",
-        "Name": str,
-        "Schedule": "ScheduleTypeDef",
-        "State": "CampaignStateTypeDef",
-        "tags": Dict[str, str],
-        "TemplateConfiguration": "TemplateConfigurationTypeDef",
-        "TreatmentDescription": str,
-        "TreatmentName": str,
-        "Version": int,
-        "Priority": int,
-    },
-    total=False,
-)
-
-class CampaignResponseTypeDef(_RequiredCampaignResponseTypeDef, _OptionalCampaignResponseTypeDef):
-    pass
-
-CampaignSmsMessageTypeDef = TypedDict(
-    "CampaignSmsMessageTypeDef",
-    {
-        "Body": str,
-        "MessageType": MessageTypeType,
-        "OriginationNumber": str,
-        "SenderId": str,
-        "EntityId": str,
-        "TemplateId": str,
-    },
-    total=False,
-)
-
-CampaignStateTypeDef = TypedDict(
-    "CampaignStateTypeDef",
-    {
-        "CampaignStatus": CampaignStatusType,
-    },
-    total=False,
-)
-
-_RequiredCampaignsResponseTypeDef = TypedDict(
-    "_RequiredCampaignsResponseTypeDef",
-    {
-        "Item": List["CampaignResponseTypeDef"],
-    },
-)
-_OptionalCampaignsResponseTypeDef = TypedDict(
-    "_OptionalCampaignsResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class CampaignsResponseTypeDef(
-    _RequiredCampaignsResponseTypeDef, _OptionalCampaignsResponseTypeDef
-):
-    pass
-
-ChannelResponseTypeDef = TypedDict(
-    "ChannelResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "Enabled": bool,
-        "HasCredential": bool,
-        "Id": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "Version": int,
-    },
-    total=False,
-)
-
-ChannelsResponseTypeDef = TypedDict(
-    "ChannelsResponseTypeDef",
-    {
-        "Channels": Dict[str, "ChannelResponseTypeDef"],
-    },
-)
-
-ClosedDaysRuleTypeDef = TypedDict(
-    "ClosedDaysRuleTypeDef",
-    {
-        "Name": str,
-        "StartDateTime": str,
-        "EndDateTime": str,
-    },
-    total=False,
-)
-
-ClosedDaysTypeDef = TypedDict(
-    "ClosedDaysTypeDef",
-    {
-        "EMAIL": List["ClosedDaysRuleTypeDef"],
-        "SMS": List["ClosedDaysRuleTypeDef"],
-        "PUSH": List["ClosedDaysRuleTypeDef"],
-        "VOICE": List["ClosedDaysRuleTypeDef"],
-        "CUSTOM": List["ClosedDaysRuleTypeDef"],
-    },
-    total=False,
-)
-
-ConditionTypeDef = TypedDict(
-    "ConditionTypeDef",
-    {
-        "Conditions": List["SimpleConditionTypeDef"],
-        "Operator": OperatorType,
-    },
-    total=False,
-)
-
-ConditionalSplitActivityTypeDef = TypedDict(
-    "ConditionalSplitActivityTypeDef",
-    {
-        "Condition": "ConditionTypeDef",
-        "EvaluationWaitTime": "WaitTimeTypeDef",
-        "FalseActivity": str,
-        "TrueActivity": str,
-    },
-    total=False,
-)
-
-ContactCenterActivityTypeDef = TypedDict(
-    "ContactCenterActivityTypeDef",
-    {
-        "NextActivity": str,
-    },
-    total=False,
-)
-
-CreateAppRequestRequestTypeDef = TypedDict(
-    "CreateAppRequestRequestTypeDef",
-    {
-        "CreateApplicationRequest": "CreateApplicationRequestTypeDef",
-    },
-)
-
-CreateAppResponseTypeDef = TypedDict(
-    "CreateAppResponseTypeDef",
-    {
-        "ApplicationResponse": "ApplicationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateApplicationRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateApplicationRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateApplicationRequestTypeDef(
-    _RequiredCreateApplicationRequestTypeDef, _OptionalCreateApplicationRequestTypeDef
-):
-    pass
-
-CreateCampaignRequestRequestTypeDef = TypedDict(
-    "CreateCampaignRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "WriteCampaignRequest": "WriteCampaignRequestTypeDef",
-    },
-)
-
-CreateCampaignResponseTypeDef = TypedDict(
-    "CreateCampaignResponseTypeDef",
-    {
-        "CampaignResponse": "CampaignResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateEmailTemplateRequestRequestTypeDef = TypedDict(
-    "CreateEmailTemplateRequestRequestTypeDef",
-    {
-        "EmailTemplateRequest": "EmailTemplateRequestTypeDef",
-        "TemplateName": str,
-    },
-)
-
-CreateEmailTemplateResponseTypeDef = TypedDict(
-    "CreateEmailTemplateResponseTypeDef",
-    {
-        "CreateTemplateMessageBody": "CreateTemplateMessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateExportJobRequestRequestTypeDef = TypedDict(
-    "CreateExportJobRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "ExportJobRequest": "ExportJobRequestTypeDef",
-    },
-)
-
-CreateExportJobResponseTypeDef = TypedDict(
-    "CreateExportJobResponseTypeDef",
-    {
-        "ExportJobResponse": "ExportJobResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateImportJobRequestRequestTypeDef = TypedDict(
-    "CreateImportJobRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "ImportJobRequest": "ImportJobRequestTypeDef",
-    },
-)
-
-CreateImportJobResponseTypeDef = TypedDict(
-    "CreateImportJobResponseTypeDef",
-    {
-        "ImportJobResponse": "ImportJobResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateInAppTemplateRequestRequestTypeDef = TypedDict(
-    "CreateInAppTemplateRequestRequestTypeDef",
-    {
-        "InAppTemplateRequest": "InAppTemplateRequestTypeDef",
-        "TemplateName": str,
-    },
-)
-
-CreateInAppTemplateResponseTypeDef = TypedDict(
-    "CreateInAppTemplateResponseTypeDef",
-    {
-        "TemplateCreateMessageBody": "TemplateCreateMessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateJourneyRequestRequestTypeDef = TypedDict(
-    "CreateJourneyRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "WriteJourneyRequest": "WriteJourneyRequestTypeDef",
-    },
-)
-
-CreateJourneyResponseTypeDef = TypedDict(
-    "CreateJourneyResponseTypeDef",
-    {
-        "JourneyResponse": "JourneyResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreatePushTemplateRequestRequestTypeDef = TypedDict(
-    "CreatePushTemplateRequestRequestTypeDef",
-    {
-        "PushNotificationTemplateRequest": "PushNotificationTemplateRequestTypeDef",
-        "TemplateName": str,
-    },
-)
-
-CreatePushTemplateResponseTypeDef = TypedDict(
-    "CreatePushTemplateResponseTypeDef",
-    {
-        "CreateTemplateMessageBody": "CreateTemplateMessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateRecommenderConfigurationRequestRequestTypeDef = TypedDict(
-    "CreateRecommenderConfigurationRequestRequestTypeDef",
-    {
-        "CreateRecommenderConfiguration": "CreateRecommenderConfigurationTypeDef",
-    },
-)
-
-CreateRecommenderConfigurationResponseTypeDef = TypedDict(
-    "CreateRecommenderConfigurationResponseTypeDef",
-    {
-        "RecommenderConfigurationResponse": "RecommenderConfigurationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRecommenderConfigurationTypeDef = TypedDict(
-    "_RequiredCreateRecommenderConfigurationTypeDef",
-    {
-        "RecommendationProviderRoleArn": str,
-        "RecommendationProviderUri": str,
-    },
-)
-_OptionalCreateRecommenderConfigurationTypeDef = TypedDict(
-    "_OptionalCreateRecommenderConfigurationTypeDef",
-    {
-        "Attributes": Dict[str, str],
-        "Description": str,
-        "Name": str,
-        "RecommendationProviderIdType": str,
-        "RecommendationTransformerUri": str,
-        "RecommendationsDisplayName": str,
-        "RecommendationsPerMessage": int,
-    },
-    total=False,
-)
-
-class CreateRecommenderConfigurationTypeDef(
-    _RequiredCreateRecommenderConfigurationTypeDef, _OptionalCreateRecommenderConfigurationTypeDef
-):
-    pass
-
-CreateSegmentRequestRequestTypeDef = TypedDict(
-    "CreateSegmentRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "WriteSegmentRequest": "WriteSegmentRequestTypeDef",
-    },
-)
-
-CreateSegmentResponseTypeDef = TypedDict(
-    "CreateSegmentResponseTypeDef",
-    {
-        "SegmentResponse": "SegmentResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateSmsTemplateRequestRequestTypeDef = TypedDict(
-    "CreateSmsTemplateRequestRequestTypeDef",
-    {
-        "SMSTemplateRequest": "SMSTemplateRequestTypeDef",
-        "TemplateName": str,
-    },
-)
-
-CreateSmsTemplateResponseTypeDef = TypedDict(
-    "CreateSmsTemplateResponseTypeDef",
-    {
-        "CreateTemplateMessageBody": "CreateTemplateMessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTemplateMessageBodyTypeDef = TypedDict(
-    "CreateTemplateMessageBodyTypeDef",
-    {
-        "Arn": str,
-        "Message": str,
-        "RequestID": str,
-    },
-    total=False,
-)
-
-CreateVoiceTemplateRequestRequestTypeDef = TypedDict(
-    "CreateVoiceTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-        "VoiceTemplateRequest": "VoiceTemplateRequestTypeDef",
-    },
-)
-
-CreateVoiceTemplateResponseTypeDef = TypedDict(
-    "CreateVoiceTemplateResponseTypeDef",
-    {
-        "CreateTemplateMessageBody": "CreateTemplateMessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCustomDeliveryConfigurationTypeDef = TypedDict(
-    "_RequiredCustomDeliveryConfigurationTypeDef",
-    {
-        "DeliveryUri": str,
-    },
-)
-_OptionalCustomDeliveryConfigurationTypeDef = TypedDict(
-    "_OptionalCustomDeliveryConfigurationTypeDef",
-    {
-        "EndpointTypes": List[__EndpointTypesElementType],
-    },
-    total=False,
-)
-
-class CustomDeliveryConfigurationTypeDef(
-    _RequiredCustomDeliveryConfigurationTypeDef, _OptionalCustomDeliveryConfigurationTypeDef
-):
-    pass
-
-CustomMessageActivityTypeDef = TypedDict(
-    "CustomMessageActivityTypeDef",
-    {
-        "DeliveryUri": str,
-        "EndpointTypes": List[__EndpointTypesElementType],
-        "MessageConfig": "JourneyCustomMessageTypeDef",
-        "NextActivity": str,
-        "TemplateName": str,
-        "TemplateVersion": str,
-    },
-    total=False,
-)
-
-_RequiredDefaultButtonConfigurationTypeDef = TypedDict(
-    "_RequiredDefaultButtonConfigurationTypeDef",
+class ADMChannelRequestTypeDef(TypedDict):
+    ClientId: str
+    ClientSecret: str
+    Enabled: NotRequired[bool]
+
+class ADMChannelResponseTypeDef(TypedDict):
+    Platform: str
+    ApplicationId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    Enabled: NotRequired[bool]
+    HasCredential: NotRequired[bool]
+    Id: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Version: NotRequired[int]
+
+class ADMMessageTypeDef(TypedDict):
+    Action: NotRequired[ActionType]
+    Body: NotRequired[str]
+    ConsolidationKey: NotRequired[str]
+    Data: NotRequired[Mapping[str, str]]
+    ExpiresAfter: NotRequired[str]
+    IconReference: NotRequired[str]
+    ImageIconUrl: NotRequired[str]
+    ImageUrl: NotRequired[str]
+    MD5: NotRequired[str]
+    RawContent: NotRequired[str]
+    SilentPush: NotRequired[bool]
+    SmallImageIconUrl: NotRequired[str]
+    Sound: NotRequired[str]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+    Title: NotRequired[str]
+    Url: NotRequired[str]
+
+class APNSChannelRequestTypeDef(TypedDict):
+    BundleId: NotRequired[str]
+    Certificate: NotRequired[str]
+    DefaultAuthenticationMethod: NotRequired[str]
+    Enabled: NotRequired[bool]
+    PrivateKey: NotRequired[str]
+    TeamId: NotRequired[str]
+    TokenKey: NotRequired[str]
+    TokenKeyId: NotRequired[str]
+
+class APNSChannelResponseTypeDef(TypedDict):
+    Platform: str
+    ApplicationId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    DefaultAuthenticationMethod: NotRequired[str]
+    Enabled: NotRequired[bool]
+    HasCredential: NotRequired[bool]
+    HasTokenKey: NotRequired[bool]
+    Id: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Version: NotRequired[int]
+
+class APNSMessageTypeDef(TypedDict):
+    APNSPushType: NotRequired[str]
+    Action: NotRequired[ActionType]
+    Badge: NotRequired[int]
+    Body: NotRequired[str]
+    Category: NotRequired[str]
+    CollapseId: NotRequired[str]
+    Data: NotRequired[Mapping[str, str]]
+    MediaUrl: NotRequired[str]
+    PreferredAuthenticationMethod: NotRequired[str]
+    Priority: NotRequired[str]
+    RawContent: NotRequired[str]
+    SilentPush: NotRequired[bool]
+    Sound: NotRequired[str]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+    ThreadId: NotRequired[str]
+    TimeToLive: NotRequired[int]
+    Title: NotRequired[str]
+    Url: NotRequired[str]
+
+class APNSPushNotificationTemplateTypeDef(TypedDict):
+    Action: NotRequired[ActionType]
+    Body: NotRequired[str]
+    MediaUrl: NotRequired[str]
+    RawContent: NotRequired[str]
+    Sound: NotRequired[str]
+    Title: NotRequired[str]
+    Url: NotRequired[str]
+
+class APNSSandboxChannelRequestTypeDef(TypedDict):
+    BundleId: NotRequired[str]
+    Certificate: NotRequired[str]
+    DefaultAuthenticationMethod: NotRequired[str]
+    Enabled: NotRequired[bool]
+    PrivateKey: NotRequired[str]
+    TeamId: NotRequired[str]
+    TokenKey: NotRequired[str]
+    TokenKeyId: NotRequired[str]
+
+class APNSSandboxChannelResponseTypeDef(TypedDict):
+    Platform: str
+    ApplicationId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    DefaultAuthenticationMethod: NotRequired[str]
+    Enabled: NotRequired[bool]
+    HasCredential: NotRequired[bool]
+    HasTokenKey: NotRequired[bool]
+    Id: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Version: NotRequired[int]
+
+class APNSVoipChannelRequestTypeDef(TypedDict):
+    BundleId: NotRequired[str]
+    Certificate: NotRequired[str]
+    DefaultAuthenticationMethod: NotRequired[str]
+    Enabled: NotRequired[bool]
+    PrivateKey: NotRequired[str]
+    TeamId: NotRequired[str]
+    TokenKey: NotRequired[str]
+    TokenKeyId: NotRequired[str]
+
+class APNSVoipChannelResponseTypeDef(TypedDict):
+    Platform: str
+    ApplicationId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    DefaultAuthenticationMethod: NotRequired[str]
+    Enabled: NotRequired[bool]
+    HasCredential: NotRequired[bool]
+    HasTokenKey: NotRequired[bool]
+    Id: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Version: NotRequired[int]
+
+class APNSVoipSandboxChannelRequestTypeDef(TypedDict):
+    BundleId: NotRequired[str]
+    Certificate: NotRequired[str]
+    DefaultAuthenticationMethod: NotRequired[str]
+    Enabled: NotRequired[bool]
+    PrivateKey: NotRequired[str]
+    TeamId: NotRequired[str]
+    TokenKey: NotRequired[str]
+    TokenKeyId: NotRequired[str]
+
+class APNSVoipSandboxChannelResponseTypeDef(TypedDict):
+    Platform: str
+    ApplicationId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    DefaultAuthenticationMethod: NotRequired[str]
+    Enabled: NotRequired[bool]
+    HasCredential: NotRequired[bool]
+    HasTokenKey: NotRequired[bool]
+    Id: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Version: NotRequired[int]
+
+class ActivityResponseTypeDef(TypedDict):
+    ApplicationId: str
+    CampaignId: str
+    Id: str
+    End: NotRequired[str]
+    Result: NotRequired[str]
+    ScheduledStart: NotRequired[str]
+    Start: NotRequired[str]
+    State: NotRequired[str]
+    SuccessfulEndpointCount: NotRequired[int]
+    TimezonesCompletedCount: NotRequired[int]
+    TimezonesTotalCount: NotRequired[int]
+    TotalEndpointCount: NotRequired[int]
+    TreatmentId: NotRequired[str]
+    ExecutionMetrics: NotRequired[Dict[str, str]]
+
+class ContactCenterActivityTypeDef(TypedDict):
+    NextActivity: NotRequired[str]
+
+class HoldoutActivityTypeDef(TypedDict):
+    Percentage: int
+    NextActivity: NotRequired[str]
+
+class AddressConfigurationTypeDef(TypedDict):
+    BodyOverride: NotRequired[str]
+    ChannelType: NotRequired[ChannelTypeType]
+    Context: NotRequired[Mapping[str, str]]
+    RawContent: NotRequired[str]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+    TitleOverride: NotRequired[str]
+
+class AndroidPushNotificationTemplateTypeDef(TypedDict):
+    Action: NotRequired[ActionType]
+    Body: NotRequired[str]
+    ImageIconUrl: NotRequired[str]
+    ImageUrl: NotRequired[str]
+    RawContent: NotRequired[str]
+    SmallImageIconUrl: NotRequired[str]
+    Sound: NotRequired[str]
+    Title: NotRequired[str]
+    Url: NotRequired[str]
+
+class ApplicationResponseTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Name: str
+    tags: NotRequired[Dict[str, str]]
+    CreationDate: NotRequired[str]
+
+class JourneyTimeframeCapTypeDef(TypedDict):
+    Cap: NotRequired[int]
+    Days: NotRequired[int]
+
+class CampaignHookTypeDef(TypedDict):
+    LambdaFunctionName: NotRequired[str]
+    Mode: NotRequired[ModeType]
+    WebUrl: NotRequired[str]
+
+class CampaignLimitsTypeDef(TypedDict):
+    Daily: NotRequired[int]
+    MaximumDuration: NotRequired[int]
+    MessagesPerSecond: NotRequired[int]
+    Total: NotRequired[int]
+    Session: NotRequired[int]
+
+class QuietTimeTypeDef(TypedDict):
+    End: NotRequired[str]
+    Start: NotRequired[str]
+
+class AttributeDimensionOutputTypeDef(TypedDict):
+    Values: List[str]
+    AttributeType: NotRequired[AttributeTypeType]
+
+class AttributeDimensionTypeDef(TypedDict):
+    Values: Sequence[str]
+    AttributeType: NotRequired[AttributeTypeType]
+
+class AttributesResourceTypeDef(TypedDict):
+    ApplicationId: str
+    AttributeType: str
+    Attributes: NotRequired[List[str]]
+
+class BaiduChannelRequestTypeDef(TypedDict):
+    ApiKey: str
+    SecretKey: str
+    Enabled: NotRequired[bool]
+
+class BaiduChannelResponseTypeDef(TypedDict):
+    Credential: str
+    Platform: str
+    ApplicationId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    Enabled: NotRequired[bool]
+    HasCredential: NotRequired[bool]
+    Id: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Version: NotRequired[int]
+
+class BaiduMessageTypeDef(TypedDict):
+    Action: NotRequired[ActionType]
+    Body: NotRequired[str]
+    Data: NotRequired[Mapping[str, str]]
+    IconReference: NotRequired[str]
+    ImageIconUrl: NotRequired[str]
+    ImageUrl: NotRequired[str]
+    RawContent: NotRequired[str]
+    SilentPush: NotRequired[bool]
+    SmallImageIconUrl: NotRequired[str]
+    Sound: NotRequired[str]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+    TimeToLive: NotRequired[int]
+    Title: NotRequired[str]
+    Url: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class CampaignCustomMessageTypeDef(TypedDict):
+    Data: NotRequired[str]
+
+class MessageHeaderTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+
+class CampaignStateTypeDef(TypedDict):
+    CampaignStatus: NotRequired[CampaignStatusType]
+
+class CustomDeliveryConfigurationOutputTypeDef(TypedDict):
+    DeliveryUri: str
+    EndpointTypes: NotRequired[List[EndpointTypesElementType]]
+
+class CampaignSmsMessageTypeDef(TypedDict):
+    Body: NotRequired[str]
+    MessageType: NotRequired[MessageTypeType]
+    OriginationNumber: NotRequired[str]
+    SenderId: NotRequired[str]
+    EntityId: NotRequired[str]
+    TemplateId: NotRequired[str]
+
+class ChannelResponseTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    Enabled: NotRequired[bool]
+    HasCredential: NotRequired[bool]
+    Id: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Version: NotRequired[int]
+
+class ClosedDaysRuleTypeDef(TypedDict):
+    Name: NotRequired[str]
+    StartDateTime: NotRequired[str]
+    EndDateTime: NotRequired[str]
+
+class WaitTimeTypeDef(TypedDict):
+    WaitFor: NotRequired[str]
+    WaitUntil: NotRequired[str]
+
+class CreateApplicationRequestTypeDef(TypedDict):
+    Name: str
+    tags: NotRequired[Mapping[str, str]]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateTemplateMessageBodyTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Message: NotRequired[str]
+    RequestID: NotRequired[str]
+
+class ExportJobRequestTypeDef(TypedDict):
+    RoleArn: str
+    S3UrlPrefix: str
+    SegmentId: NotRequired[str]
+    SegmentVersion: NotRequired[int]
+
+class ImportJobRequestTypeDef(TypedDict):
+    Format: FormatType
+    RoleArn: str
+    S3Url: str
+    DefineSegment: NotRequired[bool]
+    ExternalId: NotRequired[str]
+    RegisterEndpoints: NotRequired[bool]
+    SegmentId: NotRequired[str]
+    SegmentName: NotRequired[str]
+
+class TemplateCreateMessageBodyTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Message: NotRequired[str]
+    RequestID: NotRequired[str]
+
+class CreateRecommenderConfigurationTypeDef(TypedDict):
+    RecommendationProviderRoleArn: str
+    RecommendationProviderUri: str
+    Attributes: NotRequired[Mapping[str, str]]
+    Description: NotRequired[str]
+    Name: NotRequired[str]
+    RecommendationProviderIdType: NotRequired[str]
+    RecommendationTransformerUri: NotRequired[str]
+    RecommendationsDisplayName: NotRequired[str]
+    RecommendationsPerMessage: NotRequired[int]
+
+class RecommenderConfigurationResponseTypeDef(TypedDict):
+    CreationDate: str
+    Id: str
+    LastModifiedDate: str
+    RecommendationProviderRoleArn: str
+    RecommendationProviderUri: str
+    Attributes: NotRequired[Dict[str, str]]
+    Description: NotRequired[str]
+    Name: NotRequired[str]
+    RecommendationProviderIdType: NotRequired[str]
+    RecommendationTransformerUri: NotRequired[str]
+    RecommendationsDisplayName: NotRequired[str]
+    RecommendationsPerMessage: NotRequired[int]
+
+class SMSTemplateRequestTypeDef(TypedDict):
+    Body: NotRequired[str]
+    DefaultSubstitutions: NotRequired[str]
+    RecommenderId: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    TemplateDescription: NotRequired[str]
+
+class VoiceTemplateRequestTypeDef(TypedDict):
+    Body: NotRequired[str]
+    DefaultSubstitutions: NotRequired[str]
+    LanguageCode: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    TemplateDescription: NotRequired[str]
+    VoiceId: NotRequired[str]
+
+class CustomDeliveryConfigurationTypeDef(TypedDict):
+    DeliveryUri: str
+    EndpointTypes: NotRequired[Sequence[EndpointTypesElementType]]
+
+class JourneyCustomMessageTypeDef(TypedDict):
+    Data: NotRequired[str]
+
+DefaultButtonConfigurationTypeDef = TypedDict(
+    "DefaultButtonConfigurationTypeDef",
     {
         "ButtonAction": ButtonActionType,
         "Text": str,
-    },
-)
-_OptionalDefaultButtonConfigurationTypeDef = TypedDict(
-    "_OptionalDefaultButtonConfigurationTypeDef",
-    {
-        "BackgroundColor": str,
-        "BorderRadius": int,
-        "Link": str,
-        "TextColor": str,
-    },
-    total=False,
-)
-
-class DefaultButtonConfigurationTypeDef(
-    _RequiredDefaultButtonConfigurationTypeDef, _OptionalDefaultButtonConfigurationTypeDef
-):
-    pass
-
-DefaultMessageTypeDef = TypedDict(
-    "DefaultMessageTypeDef",
-    {
-        "Body": str,
-        "Substitutions": Dict[str, List[str]],
-    },
-    total=False,
-)
-
-DefaultPushNotificationMessageTypeDef = TypedDict(
-    "DefaultPushNotificationMessageTypeDef",
-    {
-        "Action": ActionType,
-        "Body": str,
-        "Data": Dict[str, str],
-        "SilentPush": bool,
-        "Substitutions": Dict[str, List[str]],
-        "Title": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-DefaultPushNotificationTemplateTypeDef = TypedDict(
-    "DefaultPushNotificationTemplateTypeDef",
-    {
-        "Action": ActionType,
-        "Body": str,
-        "Sound": str,
-        "Title": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-DeleteAdmChannelRequestRequestTypeDef = TypedDict(
-    "DeleteAdmChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteAdmChannelResponseTypeDef = TypedDict(
-    "DeleteAdmChannelResponseTypeDef",
-    {
-        "ADMChannelResponse": "ADMChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteApnsChannelRequestRequestTypeDef = TypedDict(
-    "DeleteApnsChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteApnsChannelResponseTypeDef = TypedDict(
-    "DeleteApnsChannelResponseTypeDef",
-    {
-        "APNSChannelResponse": "APNSChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteApnsSandboxChannelRequestRequestTypeDef = TypedDict(
-    "DeleteApnsSandboxChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteApnsSandboxChannelResponseTypeDef = TypedDict(
-    "DeleteApnsSandboxChannelResponseTypeDef",
-    {
-        "APNSSandboxChannelResponse": "APNSSandboxChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteApnsVoipChannelRequestRequestTypeDef = TypedDict(
-    "DeleteApnsVoipChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteApnsVoipChannelResponseTypeDef = TypedDict(
-    "DeleteApnsVoipChannelResponseTypeDef",
-    {
-        "APNSVoipChannelResponse": "APNSVoipChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteApnsVoipSandboxChannelRequestRequestTypeDef = TypedDict(
-    "DeleteApnsVoipSandboxChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteApnsVoipSandboxChannelResponseTypeDef = TypedDict(
-    "DeleteApnsVoipSandboxChannelResponseTypeDef",
-    {
-        "APNSVoipSandboxChannelResponse": "APNSVoipSandboxChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteAppRequestRequestTypeDef = TypedDict(
-    "DeleteAppRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteAppResponseTypeDef = TypedDict(
-    "DeleteAppResponseTypeDef",
-    {
-        "ApplicationResponse": "ApplicationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteBaiduChannelRequestRequestTypeDef = TypedDict(
-    "DeleteBaiduChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteBaiduChannelResponseTypeDef = TypedDict(
-    "DeleteBaiduChannelResponseTypeDef",
-    {
-        "BaiduChannelResponse": "BaiduChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteCampaignRequestRequestTypeDef = TypedDict(
-    "DeleteCampaignRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "CampaignId": str,
-    },
-)
-
-DeleteCampaignResponseTypeDef = TypedDict(
-    "DeleteCampaignResponseTypeDef",
-    {
-        "CampaignResponse": "CampaignResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEmailChannelRequestRequestTypeDef = TypedDict(
-    "DeleteEmailChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteEmailChannelResponseTypeDef = TypedDict(
-    "DeleteEmailChannelResponseTypeDef",
-    {
-        "EmailChannelResponse": "EmailChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteEmailTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteEmailTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-    },
-)
-_OptionalDeleteEmailTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteEmailTemplateRequestRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-class DeleteEmailTemplateRequestRequestTypeDef(
-    _RequiredDeleteEmailTemplateRequestRequestTypeDef,
-    _OptionalDeleteEmailTemplateRequestRequestTypeDef,
-):
-    pass
-
-DeleteEmailTemplateResponseTypeDef = TypedDict(
-    "DeleteEmailTemplateResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEndpointRequestRequestTypeDef = TypedDict(
-    "DeleteEndpointRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "EndpointId": str,
-    },
-)
-
-DeleteEndpointResponseTypeDef = TypedDict(
-    "DeleteEndpointResponseTypeDef",
-    {
-        "EndpointResponse": "EndpointResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEventStreamRequestRequestTypeDef = TypedDict(
-    "DeleteEventStreamRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteEventStreamResponseTypeDef = TypedDict(
-    "DeleteEventStreamResponseTypeDef",
-    {
-        "EventStream": "EventStreamTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteGcmChannelRequestRequestTypeDef = TypedDict(
-    "DeleteGcmChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteGcmChannelResponseTypeDef = TypedDict(
-    "DeleteGcmChannelResponseTypeDef",
-    {
-        "GCMChannelResponse": "GCMChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteInAppTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteInAppTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-    },
-)
-_OptionalDeleteInAppTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteInAppTemplateRequestRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-class DeleteInAppTemplateRequestRequestTypeDef(
-    _RequiredDeleteInAppTemplateRequestRequestTypeDef,
-    _OptionalDeleteInAppTemplateRequestRequestTypeDef,
-):
-    pass
-
-DeleteInAppTemplateResponseTypeDef = TypedDict(
-    "DeleteInAppTemplateResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteJourneyRequestRequestTypeDef = TypedDict(
-    "DeleteJourneyRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyId": str,
-    },
-)
-
-DeleteJourneyResponseTypeDef = TypedDict(
-    "DeleteJourneyResponseTypeDef",
-    {
-        "JourneyResponse": "JourneyResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeletePushTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredDeletePushTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-    },
-)
-_OptionalDeletePushTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalDeletePushTemplateRequestRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-class DeletePushTemplateRequestRequestTypeDef(
-    _RequiredDeletePushTemplateRequestRequestTypeDef,
-    _OptionalDeletePushTemplateRequestRequestTypeDef,
-):
-    pass
-
-DeletePushTemplateResponseTypeDef = TypedDict(
-    "DeletePushTemplateResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteRecommenderConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteRecommenderConfigurationRequestRequestTypeDef",
-    {
-        "RecommenderId": str,
-    },
-)
-
-DeleteRecommenderConfigurationResponseTypeDef = TypedDict(
-    "DeleteRecommenderConfigurationResponseTypeDef",
-    {
-        "RecommenderConfigurationResponse": "RecommenderConfigurationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSegmentRequestRequestTypeDef = TypedDict(
-    "DeleteSegmentRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SegmentId": str,
-    },
-)
-
-DeleteSegmentResponseTypeDef = TypedDict(
-    "DeleteSegmentResponseTypeDef",
-    {
-        "SegmentResponse": "SegmentResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSmsChannelRequestRequestTypeDef = TypedDict(
-    "DeleteSmsChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteSmsChannelResponseTypeDef = TypedDict(
-    "DeleteSmsChannelResponseTypeDef",
-    {
-        "SMSChannelResponse": "SMSChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteSmsTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteSmsTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-    },
-)
-_OptionalDeleteSmsTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteSmsTemplateRequestRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-class DeleteSmsTemplateRequestRequestTypeDef(
-    _RequiredDeleteSmsTemplateRequestRequestTypeDef, _OptionalDeleteSmsTemplateRequestRequestTypeDef
-):
-    pass
-
-DeleteSmsTemplateResponseTypeDef = TypedDict(
-    "DeleteSmsTemplateResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteUserEndpointsRequestRequestTypeDef = TypedDict(
-    "DeleteUserEndpointsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "UserId": str,
-    },
-)
-
-DeleteUserEndpointsResponseTypeDef = TypedDict(
-    "DeleteUserEndpointsResponseTypeDef",
-    {
-        "EndpointsResponse": "EndpointsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteVoiceChannelRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-DeleteVoiceChannelResponseTypeDef = TypedDict(
-    "DeleteVoiceChannelResponseTypeDef",
-    {
-        "VoiceChannelResponse": "VoiceChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteVoiceTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteVoiceTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-    },
-)
-_OptionalDeleteVoiceTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteVoiceTemplateRequestRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-class DeleteVoiceTemplateRequestRequestTypeDef(
-    _RequiredDeleteVoiceTemplateRequestRequestTypeDef,
-    _OptionalDeleteVoiceTemplateRequestRequestTypeDef,
-):
-    pass
-
-DeleteVoiceTemplateResponseTypeDef = TypedDict(
-    "DeleteVoiceTemplateResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DirectMessageConfigurationTypeDef = TypedDict(
-    "DirectMessageConfigurationTypeDef",
-    {
-        "ADMMessage": "ADMMessageTypeDef",
-        "APNSMessage": "APNSMessageTypeDef",
-        "BaiduMessage": "BaiduMessageTypeDef",
-        "DefaultMessage": "DefaultMessageTypeDef",
-        "DefaultPushNotificationMessage": "DefaultPushNotificationMessageTypeDef",
-        "EmailMessage": "EmailMessageTypeDef",
-        "GCMMessage": "GCMMessageTypeDef",
-        "SMSMessage": "SMSMessageTypeDef",
-        "VoiceMessage": "VoiceMessageTypeDef",
-    },
-    total=False,
-)
-
-_RequiredEmailChannelRequestTypeDef = TypedDict(
-    "_RequiredEmailChannelRequestTypeDef",
-    {
-        "FromAddress": str,
-        "Identity": str,
-    },
-)
-_OptionalEmailChannelRequestTypeDef = TypedDict(
-    "_OptionalEmailChannelRequestTypeDef",
-    {
-        "ConfigurationSet": str,
-        "Enabled": bool,
-        "RoleArn": str,
-        "OrchestrationSendingRoleArn": str,
-    },
-    total=False,
-)
-
-class EmailChannelRequestTypeDef(
-    _RequiredEmailChannelRequestTypeDef, _OptionalEmailChannelRequestTypeDef
-):
-    pass
-
-_RequiredEmailChannelResponseTypeDef = TypedDict(
-    "_RequiredEmailChannelResponseTypeDef",
-    {
-        "Platform": str,
-    },
-)
-_OptionalEmailChannelResponseTypeDef = TypedDict(
-    "_OptionalEmailChannelResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "ConfigurationSet": str,
-        "CreationDate": str,
-        "Enabled": bool,
-        "FromAddress": str,
-        "HasCredential": bool,
-        "Id": str,
-        "Identity": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "MessagesPerSecond": int,
-        "RoleArn": str,
-        "OrchestrationSendingRoleArn": str,
-        "Version": int,
-    },
-    total=False,
-)
-
-class EmailChannelResponseTypeDef(
-    _RequiredEmailChannelResponseTypeDef, _OptionalEmailChannelResponseTypeDef
-):
-    pass
-
-EmailMessageActivityTypeDef = TypedDict(
-    "EmailMessageActivityTypeDef",
-    {
-        "MessageConfig": "JourneyEmailMessageTypeDef",
-        "NextActivity": str,
-        "TemplateName": str,
-        "TemplateVersion": str,
-    },
-    total=False,
-)
-
-EmailMessageTypeDef = TypedDict(
-    "EmailMessageTypeDef",
-    {
-        "Body": str,
-        "FeedbackForwardingAddress": str,
-        "FromAddress": str,
-        "RawEmail": "RawEmailTypeDef",
-        "ReplyToAddresses": List[str],
-        "SimpleEmail": "SimpleEmailTypeDef",
-        "Substitutions": Dict[str, List[str]],
-    },
-    total=False,
-)
-
-EmailTemplateRequestTypeDef = TypedDict(
-    "EmailTemplateRequestTypeDef",
-    {
-        "DefaultSubstitutions": str,
-        "HtmlPart": str,
-        "RecommenderId": str,
-        "Subject": str,
-        "Headers": List["MessageHeaderTypeDef"],
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-        "TextPart": str,
-    },
-    total=False,
-)
-
-_RequiredEmailTemplateResponseTypeDef = TypedDict(
-    "_RequiredEmailTemplateResponseTypeDef",
-    {
-        "CreationDate": str,
-        "LastModifiedDate": str,
-        "TemplateName": str,
-        "TemplateType": TemplateTypeType,
-    },
-)
-_OptionalEmailTemplateResponseTypeDef = TypedDict(
-    "_OptionalEmailTemplateResponseTypeDef",
-    {
-        "Arn": str,
-        "DefaultSubstitutions": str,
-        "HtmlPart": str,
-        "RecommenderId": str,
-        "Subject": str,
-        "Headers": List["MessageHeaderTypeDef"],
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-        "TextPart": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-class EmailTemplateResponseTypeDef(
-    _RequiredEmailTemplateResponseTypeDef, _OptionalEmailTemplateResponseTypeDef
-):
-    pass
-
-EndpointBatchItemTypeDef = TypedDict(
-    "EndpointBatchItemTypeDef",
-    {
-        "Address": str,
-        "Attributes": Dict[str, List[str]],
-        "ChannelType": ChannelTypeType,
-        "Demographic": "EndpointDemographicTypeDef",
-        "EffectiveDate": str,
-        "EndpointStatus": str,
-        "Id": str,
-        "Location": "EndpointLocationTypeDef",
-        "Metrics": Dict[str, float],
-        "OptOut": str,
-        "RequestId": str,
-        "User": "EndpointUserTypeDef",
-    },
-    total=False,
-)
-
-EndpointBatchRequestTypeDef = TypedDict(
-    "EndpointBatchRequestTypeDef",
-    {
-        "Item": List["EndpointBatchItemTypeDef"],
-    },
-)
-
-EndpointDemographicTypeDef = TypedDict(
-    "EndpointDemographicTypeDef",
-    {
-        "AppVersion": str,
-        "Locale": str,
-        "Make": str,
-        "Model": str,
-        "ModelVersion": str,
-        "Platform": str,
-        "PlatformVersion": str,
-        "Timezone": str,
-    },
-    total=False,
-)
-
-EndpointItemResponseTypeDef = TypedDict(
-    "EndpointItemResponseTypeDef",
-    {
-        "Message": str,
-        "StatusCode": int,
-    },
-    total=False,
-)
-
-EndpointLocationTypeDef = TypedDict(
-    "EndpointLocationTypeDef",
-    {
-        "City": str,
-        "Country": str,
-        "Latitude": float,
-        "Longitude": float,
-        "PostalCode": str,
-        "Region": str,
-    },
-    total=False,
-)
-
-_RequiredEndpointMessageResultTypeDef = TypedDict(
-    "_RequiredEndpointMessageResultTypeDef",
-    {
-        "DeliveryStatus": DeliveryStatusType,
-        "StatusCode": int,
-    },
-)
-_OptionalEndpointMessageResultTypeDef = TypedDict(
-    "_OptionalEndpointMessageResultTypeDef",
-    {
-        "Address": str,
-        "MessageId": str,
-        "StatusMessage": str,
-        "UpdatedToken": str,
-    },
-    total=False,
-)
-
-class EndpointMessageResultTypeDef(
-    _RequiredEndpointMessageResultTypeDef, _OptionalEndpointMessageResultTypeDef
-):
-    pass
-
-EndpointRequestTypeDef = TypedDict(
-    "EndpointRequestTypeDef",
-    {
-        "Address": str,
-        "Attributes": Dict[str, List[str]],
-        "ChannelType": ChannelTypeType,
-        "Demographic": "EndpointDemographicTypeDef",
-        "EffectiveDate": str,
-        "EndpointStatus": str,
-        "Location": "EndpointLocationTypeDef",
-        "Metrics": Dict[str, float],
-        "OptOut": str,
-        "RequestId": str,
-        "User": "EndpointUserTypeDef",
-    },
-    total=False,
-)
-
-EndpointResponseTypeDef = TypedDict(
-    "EndpointResponseTypeDef",
-    {
-        "Address": str,
-        "ApplicationId": str,
-        "Attributes": Dict[str, List[str]],
-        "ChannelType": ChannelTypeType,
-        "CohortId": str,
-        "CreationDate": str,
-        "Demographic": "EndpointDemographicTypeDef",
-        "EffectiveDate": str,
-        "EndpointStatus": str,
-        "Id": str,
-        "Location": "EndpointLocationTypeDef",
-        "Metrics": Dict[str, float],
-        "OptOut": str,
-        "RequestId": str,
-        "User": "EndpointUserTypeDef",
-    },
-    total=False,
-)
-
-EndpointSendConfigurationTypeDef = TypedDict(
-    "EndpointSendConfigurationTypeDef",
-    {
-        "BodyOverride": str,
-        "Context": Dict[str, str],
-        "RawContent": str,
-        "Substitutions": Dict[str, List[str]],
-        "TitleOverride": str,
-    },
-    total=False,
-)
-
-EndpointUserTypeDef = TypedDict(
-    "EndpointUserTypeDef",
-    {
-        "UserAttributes": Dict[str, List[str]],
-        "UserId": str,
-    },
-    total=False,
-)
-
-EndpointsResponseTypeDef = TypedDict(
-    "EndpointsResponseTypeDef",
-    {
-        "Item": List["EndpointResponseTypeDef"],
-    },
-)
-
-EventConditionTypeDef = TypedDict(
-    "EventConditionTypeDef",
-    {
-        "Dimensions": "EventDimensionsTypeDef",
-        "MessageActivity": str,
-    },
-    total=False,
-)
-
-EventDimensionsTypeDef = TypedDict(
-    "EventDimensionsTypeDef",
-    {
-        "Attributes": Dict[str, "AttributeDimensionTypeDef"],
-        "EventType": "SetDimensionTypeDef",
-        "Metrics": Dict[str, "MetricDimensionTypeDef"],
-    },
-    total=False,
-)
-
-EventFilterTypeDef = TypedDict(
-    "EventFilterTypeDef",
-    {
-        "Dimensions": "EventDimensionsTypeDef",
-        "FilterType": FilterTypeType,
-    },
-)
-
-EventItemResponseTypeDef = TypedDict(
-    "EventItemResponseTypeDef",
-    {
-        "Message": str,
-        "StatusCode": int,
-    },
-    total=False,
-)
-
-EventStartConditionTypeDef = TypedDict(
-    "EventStartConditionTypeDef",
-    {
-        "EventFilter": "EventFilterTypeDef",
-        "SegmentId": str,
-    },
-    total=False,
-)
-
-_RequiredEventStreamTypeDef = TypedDict(
-    "_RequiredEventStreamTypeDef",
-    {
-        "ApplicationId": str,
-        "DestinationStreamArn": str,
-        "RoleArn": str,
-    },
-)
-_OptionalEventStreamTypeDef = TypedDict(
-    "_OptionalEventStreamTypeDef",
-    {
-        "ExternalId": str,
-        "LastModifiedDate": str,
-        "LastUpdatedBy": str,
-    },
-    total=False,
-)
-
-class EventStreamTypeDef(_RequiredEventStreamTypeDef, _OptionalEventStreamTypeDef):
-    pass
-
-_RequiredEventTypeDef = TypedDict(
-    "_RequiredEventTypeDef",
-    {
-        "EventType": str,
-        "Timestamp": str,
-    },
-)
-_OptionalEventTypeDef = TypedDict(
-    "_OptionalEventTypeDef",
-    {
-        "AppPackageName": str,
-        "AppTitle": str,
-        "AppVersionCode": str,
-        "Attributes": Dict[str, str],
-        "ClientSdkVersion": str,
-        "Metrics": Dict[str, float],
-        "SdkName": str,
-        "Session": "SessionTypeDef",
-    },
-    total=False,
-)
-
-class EventTypeDef(_RequiredEventTypeDef, _OptionalEventTypeDef):
-    pass
-
-EventsBatchTypeDef = TypedDict(
-    "EventsBatchTypeDef",
-    {
-        "Endpoint": "PublicEndpointTypeDef",
-        "Events": Dict[str, "EventTypeDef"],
-    },
-)
-
-EventsRequestTypeDef = TypedDict(
-    "EventsRequestTypeDef",
-    {
-        "BatchItem": Dict[str, "EventsBatchTypeDef"],
-    },
-)
-
-EventsResponseTypeDef = TypedDict(
-    "EventsResponseTypeDef",
-    {
-        "Results": Dict[str, "ItemResponseTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredExportJobRequestTypeDef = TypedDict(
-    "_RequiredExportJobRequestTypeDef",
-    {
-        "RoleArn": str,
-        "S3UrlPrefix": str,
-    },
-)
-_OptionalExportJobRequestTypeDef = TypedDict(
-    "_OptionalExportJobRequestTypeDef",
-    {
-        "SegmentId": str,
-        "SegmentVersion": int,
-    },
-    total=False,
-)
-
-class ExportJobRequestTypeDef(_RequiredExportJobRequestTypeDef, _OptionalExportJobRequestTypeDef):
-    pass
-
-_RequiredExportJobResourceTypeDef = TypedDict(
-    "_RequiredExportJobResourceTypeDef",
-    {
-        "RoleArn": str,
-        "S3UrlPrefix": str,
-    },
-)
-_OptionalExportJobResourceTypeDef = TypedDict(
-    "_OptionalExportJobResourceTypeDef",
-    {
-        "SegmentId": str,
-        "SegmentVersion": int,
-    },
-    total=False,
-)
-
-class ExportJobResourceTypeDef(
-    _RequiredExportJobResourceTypeDef, _OptionalExportJobResourceTypeDef
-):
-    pass
-
-_RequiredExportJobResponseTypeDef = TypedDict(
-    "_RequiredExportJobResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "Definition": "ExportJobResourceTypeDef",
-        "Id": str,
-        "JobStatus": JobStatusType,
-        "Type": str,
-    },
-)
-_OptionalExportJobResponseTypeDef = TypedDict(
-    "_OptionalExportJobResponseTypeDef",
-    {
-        "CompletedPieces": int,
-        "CompletionDate": str,
-        "FailedPieces": int,
-        "Failures": List[str],
-        "TotalFailures": int,
-        "TotalPieces": int,
-        "TotalProcessed": int,
-    },
-    total=False,
-)
-
-class ExportJobResponseTypeDef(
-    _RequiredExportJobResponseTypeDef, _OptionalExportJobResponseTypeDef
-):
-    pass
-
-_RequiredExportJobsResponseTypeDef = TypedDict(
-    "_RequiredExportJobsResponseTypeDef",
-    {
-        "Item": List["ExportJobResponseTypeDef"],
-    },
-)
-_OptionalExportJobsResponseTypeDef = TypedDict(
-    "_OptionalExportJobsResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ExportJobsResponseTypeDef(
-    _RequiredExportJobsResponseTypeDef, _OptionalExportJobsResponseTypeDef
-):
-    pass
-
-GCMChannelRequestTypeDef = TypedDict(
-    "GCMChannelRequestTypeDef",
-    {
-        "ApiKey": str,
-        "DefaultAuthenticationMethod": str,
-        "Enabled": bool,
-        "ServiceJson": str,
-    },
-    total=False,
-)
-
-_RequiredGCMChannelResponseTypeDef = TypedDict(
-    "_RequiredGCMChannelResponseTypeDef",
-    {
-        "Platform": str,
-    },
-)
-_OptionalGCMChannelResponseTypeDef = TypedDict(
-    "_OptionalGCMChannelResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "Credential": str,
-        "DefaultAuthenticationMethod": str,
-        "Enabled": bool,
-        "HasCredential": bool,
-        "HasFcmServiceCredentials": bool,
-        "Id": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "Version": int,
-    },
-    total=False,
-)
-
-class GCMChannelResponseTypeDef(
-    _RequiredGCMChannelResponseTypeDef, _OptionalGCMChannelResponseTypeDef
-):
-    pass
-
-GCMMessageTypeDef = TypedDict(
-    "GCMMessageTypeDef",
-    {
-        "Action": ActionType,
-        "Body": str,
-        "CollapseKey": str,
-        "Data": Dict[str, str],
-        "IconReference": str,
-        "ImageIconUrl": str,
-        "ImageUrl": str,
-        "PreferredAuthenticationMethod": str,
-        "Priority": str,
-        "RawContent": str,
-        "RestrictedPackageName": str,
-        "SilentPush": bool,
-        "SmallImageIconUrl": str,
-        "Sound": str,
-        "Substitutions": Dict[str, List[str]],
-        "TimeToLive": int,
-        "Title": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-GPSCoordinatesTypeDef = TypedDict(
-    "GPSCoordinatesTypeDef",
-    {
-        "Latitude": float,
-        "Longitude": float,
-    },
-)
-
-_RequiredGPSPointDimensionTypeDef = TypedDict(
-    "_RequiredGPSPointDimensionTypeDef",
-    {
-        "Coordinates": "GPSCoordinatesTypeDef",
-    },
-)
-_OptionalGPSPointDimensionTypeDef = TypedDict(
-    "_OptionalGPSPointDimensionTypeDef",
-    {
-        "RangeInKilometers": float,
-    },
-    total=False,
-)
-
-class GPSPointDimensionTypeDef(
-    _RequiredGPSPointDimensionTypeDef, _OptionalGPSPointDimensionTypeDef
-):
-    pass
-
-GetAdmChannelRequestRequestTypeDef = TypedDict(
-    "GetAdmChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetAdmChannelResponseTypeDef = TypedDict(
-    "GetAdmChannelResponseTypeDef",
-    {
-        "ADMChannelResponse": "ADMChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetApnsChannelRequestRequestTypeDef = TypedDict(
-    "GetApnsChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetApnsChannelResponseTypeDef = TypedDict(
-    "GetApnsChannelResponseTypeDef",
-    {
-        "APNSChannelResponse": "APNSChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetApnsSandboxChannelRequestRequestTypeDef = TypedDict(
-    "GetApnsSandboxChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetApnsSandboxChannelResponseTypeDef = TypedDict(
-    "GetApnsSandboxChannelResponseTypeDef",
-    {
-        "APNSSandboxChannelResponse": "APNSSandboxChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetApnsVoipChannelRequestRequestTypeDef = TypedDict(
-    "GetApnsVoipChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetApnsVoipChannelResponseTypeDef = TypedDict(
-    "GetApnsVoipChannelResponseTypeDef",
-    {
-        "APNSVoipChannelResponse": "APNSVoipChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetApnsVoipSandboxChannelRequestRequestTypeDef = TypedDict(
-    "GetApnsVoipSandboxChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetApnsVoipSandboxChannelResponseTypeDef = TypedDict(
-    "GetApnsVoipSandboxChannelResponseTypeDef",
-    {
-        "APNSVoipSandboxChannelResponse": "APNSVoipSandboxChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAppRequestRequestTypeDef = TypedDict(
-    "GetAppRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetAppResponseTypeDef = TypedDict(
-    "GetAppResponseTypeDef",
-    {
-        "ApplicationResponse": "ApplicationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetApplicationDateRangeKpiRequestRequestTypeDef = TypedDict(
-    "_RequiredGetApplicationDateRangeKpiRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "KpiName": str,
-    },
-)
-_OptionalGetApplicationDateRangeKpiRequestRequestTypeDef = TypedDict(
-    "_OptionalGetApplicationDateRangeKpiRequestRequestTypeDef",
-    {
-        "EndTime": Union[datetime, str],
-        "NextToken": str,
-        "PageSize": str,
-        "StartTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-class GetApplicationDateRangeKpiRequestRequestTypeDef(
-    _RequiredGetApplicationDateRangeKpiRequestRequestTypeDef,
-    _OptionalGetApplicationDateRangeKpiRequestRequestTypeDef,
-):
-    pass
-
-GetApplicationDateRangeKpiResponseTypeDef = TypedDict(
-    "GetApplicationDateRangeKpiResponseTypeDef",
-    {
-        "ApplicationDateRangeKpiResponse": "ApplicationDateRangeKpiResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetApplicationSettingsRequestRequestTypeDef = TypedDict(
-    "GetApplicationSettingsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetApplicationSettingsResponseTypeDef = TypedDict(
-    "GetApplicationSettingsResponseTypeDef",
-    {
-        "ApplicationSettingsResource": "ApplicationSettingsResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAppsRequestRequestTypeDef = TypedDict(
-    "GetAppsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-GetAppsResponseTypeDef = TypedDict(
-    "GetAppsResponseTypeDef",
-    {
-        "ApplicationsResponse": "ApplicationsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBaiduChannelRequestRequestTypeDef = TypedDict(
-    "GetBaiduChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetBaiduChannelResponseTypeDef = TypedDict(
-    "GetBaiduChannelResponseTypeDef",
-    {
-        "BaiduChannelResponse": "BaiduChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCampaignActivitiesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCampaignActivitiesRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "CampaignId": str,
-    },
-)
-_OptionalGetCampaignActivitiesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCampaignActivitiesRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class GetCampaignActivitiesRequestRequestTypeDef(
-    _RequiredGetCampaignActivitiesRequestRequestTypeDef,
-    _OptionalGetCampaignActivitiesRequestRequestTypeDef,
-):
-    pass
-
-GetCampaignActivitiesResponseTypeDef = TypedDict(
-    "GetCampaignActivitiesResponseTypeDef",
-    {
-        "ActivitiesResponse": "ActivitiesResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCampaignDateRangeKpiRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCampaignDateRangeKpiRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "CampaignId": str,
-        "KpiName": str,
-    },
-)
-_OptionalGetCampaignDateRangeKpiRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCampaignDateRangeKpiRequestRequestTypeDef",
-    {
-        "EndTime": Union[datetime, str],
-        "NextToken": str,
-        "PageSize": str,
-        "StartTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-class GetCampaignDateRangeKpiRequestRequestTypeDef(
-    _RequiredGetCampaignDateRangeKpiRequestRequestTypeDef,
-    _OptionalGetCampaignDateRangeKpiRequestRequestTypeDef,
-):
-    pass
-
-GetCampaignDateRangeKpiResponseTypeDef = TypedDict(
-    "GetCampaignDateRangeKpiResponseTypeDef",
-    {
-        "CampaignDateRangeKpiResponse": "CampaignDateRangeKpiResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCampaignRequestRequestTypeDef = TypedDict(
-    "GetCampaignRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "CampaignId": str,
-    },
-)
-
-GetCampaignResponseTypeDef = TypedDict(
-    "GetCampaignResponseTypeDef",
-    {
-        "CampaignResponse": "CampaignResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCampaignVersionRequestRequestTypeDef = TypedDict(
-    "GetCampaignVersionRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "CampaignId": str,
-        "Version": str,
-    },
-)
-
-GetCampaignVersionResponseTypeDef = TypedDict(
-    "GetCampaignVersionResponseTypeDef",
-    {
-        "CampaignResponse": "CampaignResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCampaignVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCampaignVersionsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "CampaignId": str,
-    },
-)
-_OptionalGetCampaignVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCampaignVersionsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class GetCampaignVersionsRequestRequestTypeDef(
-    _RequiredGetCampaignVersionsRequestRequestTypeDef,
-    _OptionalGetCampaignVersionsRequestRequestTypeDef,
-):
-    pass
-
-GetCampaignVersionsResponseTypeDef = TypedDict(
-    "GetCampaignVersionsResponseTypeDef",
-    {
-        "CampaignsResponse": "CampaignsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCampaignsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCampaignsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalGetCampaignsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCampaignsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class GetCampaignsRequestRequestTypeDef(
-    _RequiredGetCampaignsRequestRequestTypeDef, _OptionalGetCampaignsRequestRequestTypeDef
-):
-    pass
-
-GetCampaignsResponseTypeDef = TypedDict(
-    "GetCampaignsResponseTypeDef",
-    {
-        "CampaignsResponse": "CampaignsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetChannelsRequestRequestTypeDef = TypedDict(
-    "GetChannelsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetChannelsResponseTypeDef = TypedDict(
-    "GetChannelsResponseTypeDef",
-    {
-        "ChannelsResponse": "ChannelsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEmailChannelRequestRequestTypeDef = TypedDict(
-    "GetEmailChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetEmailChannelResponseTypeDef = TypedDict(
-    "GetEmailChannelResponseTypeDef",
-    {
-        "EmailChannelResponse": "EmailChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetEmailTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredGetEmailTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-    },
-)
-_OptionalGetEmailTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalGetEmailTemplateRequestRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-class GetEmailTemplateRequestRequestTypeDef(
-    _RequiredGetEmailTemplateRequestRequestTypeDef, _OptionalGetEmailTemplateRequestRequestTypeDef
-):
-    pass
-
-GetEmailTemplateResponseTypeDef = TypedDict(
-    "GetEmailTemplateResponseTypeDef",
-    {
-        "EmailTemplateResponse": "EmailTemplateResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEndpointRequestRequestTypeDef = TypedDict(
-    "GetEndpointRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "EndpointId": str,
-    },
-)
-
-GetEndpointResponseTypeDef = TypedDict(
-    "GetEndpointResponseTypeDef",
-    {
-        "EndpointResponse": "EndpointResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEventStreamRequestRequestTypeDef = TypedDict(
-    "GetEventStreamRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetEventStreamResponseTypeDef = TypedDict(
-    "GetEventStreamResponseTypeDef",
-    {
-        "EventStream": "EventStreamTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetExportJobRequestRequestTypeDef = TypedDict(
-    "GetExportJobRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JobId": str,
-    },
-)
-
-GetExportJobResponseTypeDef = TypedDict(
-    "GetExportJobResponseTypeDef",
-    {
-        "ExportJobResponse": "ExportJobResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetExportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetExportJobsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalGetExportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetExportJobsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class GetExportJobsRequestRequestTypeDef(
-    _RequiredGetExportJobsRequestRequestTypeDef, _OptionalGetExportJobsRequestRequestTypeDef
-):
-    pass
-
-GetExportJobsResponseTypeDef = TypedDict(
-    "GetExportJobsResponseTypeDef",
-    {
-        "ExportJobsResponse": "ExportJobsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGcmChannelRequestRequestTypeDef = TypedDict(
-    "GetGcmChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetGcmChannelResponseTypeDef = TypedDict(
-    "GetGcmChannelResponseTypeDef",
-    {
-        "GCMChannelResponse": "GCMChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetImportJobRequestRequestTypeDef = TypedDict(
-    "GetImportJobRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JobId": str,
-    },
-)
-
-GetImportJobResponseTypeDef = TypedDict(
-    "GetImportJobResponseTypeDef",
-    {
-        "ImportJobResponse": "ImportJobResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetImportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetImportJobsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalGetImportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetImportJobsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class GetImportJobsRequestRequestTypeDef(
-    _RequiredGetImportJobsRequestRequestTypeDef, _OptionalGetImportJobsRequestRequestTypeDef
-):
-    pass
-
-GetImportJobsResponseTypeDef = TypedDict(
-    "GetImportJobsResponseTypeDef",
-    {
-        "ImportJobsResponse": "ImportJobsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInAppMessagesRequestRequestTypeDef = TypedDict(
-    "GetInAppMessagesRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "EndpointId": str,
-    },
-)
-
-GetInAppMessagesResponseTypeDef = TypedDict(
-    "GetInAppMessagesResponseTypeDef",
-    {
-        "InAppMessagesResponse": "InAppMessagesResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetInAppTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredGetInAppTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-    },
-)
-_OptionalGetInAppTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalGetInAppTemplateRequestRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-class GetInAppTemplateRequestRequestTypeDef(
-    _RequiredGetInAppTemplateRequestRequestTypeDef, _OptionalGetInAppTemplateRequestRequestTypeDef
-):
-    pass
-
-GetInAppTemplateResponseTypeDef = TypedDict(
-    "GetInAppTemplateResponseTypeDef",
-    {
-        "InAppTemplateResponse": "InAppTemplateResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetJourneyDateRangeKpiRequestRequestTypeDef = TypedDict(
-    "_RequiredGetJourneyDateRangeKpiRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyId": str,
-        "KpiName": str,
-    },
-)
-_OptionalGetJourneyDateRangeKpiRequestRequestTypeDef = TypedDict(
-    "_OptionalGetJourneyDateRangeKpiRequestRequestTypeDef",
-    {
-        "EndTime": Union[datetime, str],
-        "NextToken": str,
-        "PageSize": str,
-        "StartTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-class GetJourneyDateRangeKpiRequestRequestTypeDef(
-    _RequiredGetJourneyDateRangeKpiRequestRequestTypeDef,
-    _OptionalGetJourneyDateRangeKpiRequestRequestTypeDef,
-):
-    pass
-
-GetJourneyDateRangeKpiResponseTypeDef = TypedDict(
-    "GetJourneyDateRangeKpiResponseTypeDef",
-    {
-        "JourneyDateRangeKpiResponse": "JourneyDateRangeKpiResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetJourneyExecutionActivityMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetJourneyExecutionActivityMetricsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyActivityId": str,
-        "JourneyId": str,
-    },
-)
-_OptionalGetJourneyExecutionActivityMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetJourneyExecutionActivityMetricsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "PageSize": str,
-    },
-    total=False,
-)
-
-class GetJourneyExecutionActivityMetricsRequestRequestTypeDef(
-    _RequiredGetJourneyExecutionActivityMetricsRequestRequestTypeDef,
-    _OptionalGetJourneyExecutionActivityMetricsRequestRequestTypeDef,
-):
-    pass
-
-GetJourneyExecutionActivityMetricsResponseTypeDef = TypedDict(
-    "GetJourneyExecutionActivityMetricsResponseTypeDef",
-    {
-        "JourneyExecutionActivityMetricsResponse": "JourneyExecutionActivityMetricsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetJourneyExecutionMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetJourneyExecutionMetricsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyId": str,
-    },
-)
-_OptionalGetJourneyExecutionMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetJourneyExecutionMetricsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "PageSize": str,
-    },
-    total=False,
-)
-
-class GetJourneyExecutionMetricsRequestRequestTypeDef(
-    _RequiredGetJourneyExecutionMetricsRequestRequestTypeDef,
-    _OptionalGetJourneyExecutionMetricsRequestRequestTypeDef,
-):
-    pass
-
-GetJourneyExecutionMetricsResponseTypeDef = TypedDict(
-    "GetJourneyExecutionMetricsResponseTypeDef",
-    {
-        "JourneyExecutionMetricsResponse": "JourneyExecutionMetricsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetJourneyRequestRequestTypeDef = TypedDict(
-    "GetJourneyRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyId": str,
-    },
-)
-
-GetJourneyResponseTypeDef = TypedDict(
-    "GetJourneyResponseTypeDef",
-    {
-        "JourneyResponse": "JourneyResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyActivityId": str,
-        "JourneyId": str,
-        "RunId": str,
-    },
-)
-_OptionalGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "PageSize": str,
-    },
-    total=False,
-)
-
-class GetJourneyRunExecutionActivityMetricsRequestRequestTypeDef(
-    _RequiredGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef,
-    _OptionalGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef,
-):
-    pass
-
-GetJourneyRunExecutionActivityMetricsResponseTypeDef = TypedDict(
-    "GetJourneyRunExecutionActivityMetricsResponseTypeDef",
-    {
-        "JourneyRunExecutionActivityMetricsResponse": "JourneyRunExecutionActivityMetricsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetJourneyRunExecutionMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetJourneyRunExecutionMetricsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyId": str,
-        "RunId": str,
-    },
-)
-_OptionalGetJourneyRunExecutionMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetJourneyRunExecutionMetricsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "PageSize": str,
-    },
-    total=False,
-)
-
-class GetJourneyRunExecutionMetricsRequestRequestTypeDef(
-    _RequiredGetJourneyRunExecutionMetricsRequestRequestTypeDef,
-    _OptionalGetJourneyRunExecutionMetricsRequestRequestTypeDef,
-):
-    pass
-
-GetJourneyRunExecutionMetricsResponseTypeDef = TypedDict(
-    "GetJourneyRunExecutionMetricsResponseTypeDef",
-    {
-        "JourneyRunExecutionMetricsResponse": "JourneyRunExecutionMetricsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetJourneyRunsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetJourneyRunsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyId": str,
-    },
-)
-_OptionalGetJourneyRunsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetJourneyRunsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class GetJourneyRunsRequestRequestTypeDef(
-    _RequiredGetJourneyRunsRequestRequestTypeDef, _OptionalGetJourneyRunsRequestRequestTypeDef
-):
-    pass
-
-GetJourneyRunsResponseTypeDef = TypedDict(
-    "GetJourneyRunsResponseTypeDef",
-    {
-        "JourneyRunsResponse": "JourneyRunsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetPushTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPushTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-    },
-)
-_OptionalGetPushTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPushTemplateRequestRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-class GetPushTemplateRequestRequestTypeDef(
-    _RequiredGetPushTemplateRequestRequestTypeDef, _OptionalGetPushTemplateRequestRequestTypeDef
-):
-    pass
-
-GetPushTemplateResponseTypeDef = TypedDict(
-    "GetPushTemplateResponseTypeDef",
-    {
-        "PushNotificationTemplateResponse": "PushNotificationTemplateResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRecommenderConfigurationRequestRequestTypeDef = TypedDict(
-    "GetRecommenderConfigurationRequestRequestTypeDef",
-    {
-        "RecommenderId": str,
-    },
-)
-
-GetRecommenderConfigurationResponseTypeDef = TypedDict(
-    "GetRecommenderConfigurationResponseTypeDef",
-    {
-        "RecommenderConfigurationResponse": "RecommenderConfigurationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRecommenderConfigurationsRequestRequestTypeDef = TypedDict(
-    "GetRecommenderConfigurationsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-GetRecommenderConfigurationsResponseTypeDef = TypedDict(
-    "GetRecommenderConfigurationsResponseTypeDef",
-    {
-        "ListRecommenderConfigurationsResponse": "ListRecommenderConfigurationsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSegmentExportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSegmentExportJobsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SegmentId": str,
-    },
-)
-_OptionalGetSegmentExportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSegmentExportJobsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class GetSegmentExportJobsRequestRequestTypeDef(
-    _RequiredGetSegmentExportJobsRequestRequestTypeDef,
-    _OptionalGetSegmentExportJobsRequestRequestTypeDef,
-):
-    pass
-
-GetSegmentExportJobsResponseTypeDef = TypedDict(
-    "GetSegmentExportJobsResponseTypeDef",
-    {
-        "ExportJobsResponse": "ExportJobsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSegmentImportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSegmentImportJobsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SegmentId": str,
-    },
-)
-_OptionalGetSegmentImportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSegmentImportJobsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class GetSegmentImportJobsRequestRequestTypeDef(
-    _RequiredGetSegmentImportJobsRequestRequestTypeDef,
-    _OptionalGetSegmentImportJobsRequestRequestTypeDef,
-):
-    pass
-
-GetSegmentImportJobsResponseTypeDef = TypedDict(
-    "GetSegmentImportJobsResponseTypeDef",
-    {
-        "ImportJobsResponse": "ImportJobsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSegmentRequestRequestTypeDef = TypedDict(
-    "GetSegmentRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SegmentId": str,
-    },
-)
-
-GetSegmentResponseTypeDef = TypedDict(
-    "GetSegmentResponseTypeDef",
-    {
-        "SegmentResponse": "SegmentResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSegmentVersionRequestRequestTypeDef = TypedDict(
-    "GetSegmentVersionRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SegmentId": str,
-        "Version": str,
-    },
-)
-
-GetSegmentVersionResponseTypeDef = TypedDict(
-    "GetSegmentVersionResponseTypeDef",
-    {
-        "SegmentResponse": "SegmentResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSegmentVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSegmentVersionsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SegmentId": str,
-    },
-)
-_OptionalGetSegmentVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSegmentVersionsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class GetSegmentVersionsRequestRequestTypeDef(
-    _RequiredGetSegmentVersionsRequestRequestTypeDef,
-    _OptionalGetSegmentVersionsRequestRequestTypeDef,
-):
-    pass
-
-GetSegmentVersionsResponseTypeDef = TypedDict(
-    "GetSegmentVersionsResponseTypeDef",
-    {
-        "SegmentsResponse": "SegmentsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSegmentsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSegmentsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalGetSegmentsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSegmentsRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class GetSegmentsRequestRequestTypeDef(
-    _RequiredGetSegmentsRequestRequestTypeDef, _OptionalGetSegmentsRequestRequestTypeDef
-):
-    pass
-
-GetSegmentsResponseTypeDef = TypedDict(
-    "GetSegmentsResponseTypeDef",
-    {
-        "SegmentsResponse": "SegmentsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSmsChannelRequestRequestTypeDef = TypedDict(
-    "GetSmsChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetSmsChannelResponseTypeDef = TypedDict(
-    "GetSmsChannelResponseTypeDef",
-    {
-        "SMSChannelResponse": "SMSChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSmsTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSmsTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-    },
-)
-_OptionalGetSmsTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSmsTemplateRequestRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-class GetSmsTemplateRequestRequestTypeDef(
-    _RequiredGetSmsTemplateRequestRequestTypeDef, _OptionalGetSmsTemplateRequestRequestTypeDef
-):
-    pass
-
-GetSmsTemplateResponseTypeDef = TypedDict(
-    "GetSmsTemplateResponseTypeDef",
-    {
-        "SMSTemplateResponse": "SMSTemplateResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUserEndpointsRequestRequestTypeDef = TypedDict(
-    "GetUserEndpointsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "UserId": str,
-    },
-)
-
-GetUserEndpointsResponseTypeDef = TypedDict(
-    "GetUserEndpointsResponseTypeDef",
-    {
-        "EndpointsResponse": "EndpointsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceChannelRequestRequestTypeDef = TypedDict(
-    "GetVoiceChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetVoiceChannelResponseTypeDef = TypedDict(
-    "GetVoiceChannelResponseTypeDef",
-    {
-        "VoiceChannelResponse": "VoiceChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetVoiceTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredGetVoiceTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-    },
-)
-_OptionalGetVoiceTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalGetVoiceTemplateRequestRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-class GetVoiceTemplateRequestRequestTypeDef(
-    _RequiredGetVoiceTemplateRequestRequestTypeDef, _OptionalGetVoiceTemplateRequestRequestTypeDef
-):
-    pass
-
-GetVoiceTemplateResponseTypeDef = TypedDict(
-    "GetVoiceTemplateResponseTypeDef",
-    {
-        "VoiceTemplateResponse": "VoiceTemplateResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredHoldoutActivityTypeDef = TypedDict(
-    "_RequiredHoldoutActivityTypeDef",
-    {
-        "Percentage": int,
-    },
-)
-_OptionalHoldoutActivityTypeDef = TypedDict(
-    "_OptionalHoldoutActivityTypeDef",
-    {
-        "NextActivity": str,
-    },
-    total=False,
-)
-
-class HoldoutActivityTypeDef(_RequiredHoldoutActivityTypeDef, _OptionalHoldoutActivityTypeDef):
-    pass
-
-_RequiredImportJobRequestTypeDef = TypedDict(
-    "_RequiredImportJobRequestTypeDef",
-    {
-        "Format": FormatType,
-        "RoleArn": str,
-        "S3Url": str,
-    },
-)
-_OptionalImportJobRequestTypeDef = TypedDict(
-    "_OptionalImportJobRequestTypeDef",
-    {
-        "DefineSegment": bool,
-        "ExternalId": str,
-        "RegisterEndpoints": bool,
-        "SegmentId": str,
-        "SegmentName": str,
-    },
-    total=False,
-)
-
-class ImportJobRequestTypeDef(_RequiredImportJobRequestTypeDef, _OptionalImportJobRequestTypeDef):
-    pass
-
-_RequiredImportJobResourceTypeDef = TypedDict(
-    "_RequiredImportJobResourceTypeDef",
-    {
-        "Format": FormatType,
-        "RoleArn": str,
-        "S3Url": str,
-    },
-)
-_OptionalImportJobResourceTypeDef = TypedDict(
-    "_OptionalImportJobResourceTypeDef",
-    {
-        "DefineSegment": bool,
-        "ExternalId": str,
-        "RegisterEndpoints": bool,
-        "SegmentId": str,
-        "SegmentName": str,
-    },
-    total=False,
-)
-
-class ImportJobResourceTypeDef(
-    _RequiredImportJobResourceTypeDef, _OptionalImportJobResourceTypeDef
-):
-    pass
-
-_RequiredImportJobResponseTypeDef = TypedDict(
-    "_RequiredImportJobResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "Definition": "ImportJobResourceTypeDef",
-        "Id": str,
-        "JobStatus": JobStatusType,
-        "Type": str,
-    },
-)
-_OptionalImportJobResponseTypeDef = TypedDict(
-    "_OptionalImportJobResponseTypeDef",
-    {
-        "CompletedPieces": int,
-        "CompletionDate": str,
-        "FailedPieces": int,
-        "Failures": List[str],
-        "TotalFailures": int,
-        "TotalPieces": int,
-        "TotalProcessed": int,
-    },
-    total=False,
-)
-
-class ImportJobResponseTypeDef(
-    _RequiredImportJobResponseTypeDef, _OptionalImportJobResponseTypeDef
-):
-    pass
-
-_RequiredImportJobsResponseTypeDef = TypedDict(
-    "_RequiredImportJobsResponseTypeDef",
-    {
-        "Item": List["ImportJobResponseTypeDef"],
-    },
-)
-_OptionalImportJobsResponseTypeDef = TypedDict(
-    "_OptionalImportJobsResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ImportJobsResponseTypeDef(
-    _RequiredImportJobsResponseTypeDef, _OptionalImportJobsResponseTypeDef
-):
-    pass
-
-InAppCampaignScheduleTypeDef = TypedDict(
-    "InAppCampaignScheduleTypeDef",
-    {
-        "EndDate": str,
-        "EventFilter": "CampaignEventFilterTypeDef",
-        "QuietTime": "QuietTimeTypeDef",
-    },
-    total=False,
-)
-
-InAppMessageBodyConfigTypeDef = TypedDict(
-    "InAppMessageBodyConfigTypeDef",
-    {
-        "Alignment": AlignmentType,
-        "Body": str,
-        "TextColor": str,
-    },
-)
-
-InAppMessageButtonTypeDef = TypedDict(
-    "InAppMessageButtonTypeDef",
-    {
-        "Android": "OverrideButtonConfigurationTypeDef",
-        "DefaultConfig": "DefaultButtonConfigurationTypeDef",
-        "IOS": "OverrideButtonConfigurationTypeDef",
-        "Web": "OverrideButtonConfigurationTypeDef",
-    },
-    total=False,
-)
-
-InAppMessageCampaignTypeDef = TypedDict(
-    "InAppMessageCampaignTypeDef",
-    {
-        "CampaignId": str,
-        "DailyCap": int,
-        "InAppMessage": "InAppMessageTypeDef",
-        "Priority": int,
-        "Schedule": "InAppCampaignScheduleTypeDef",
-        "SessionCap": int,
-        "TotalCap": int,
-        "TreatmentId": str,
-    },
-    total=False,
-)
-
-InAppMessageContentTypeDef = TypedDict(
-    "InAppMessageContentTypeDef",
-    {
-        "BackgroundColor": str,
-        "BodyConfig": "InAppMessageBodyConfigTypeDef",
-        "HeaderConfig": "InAppMessageHeaderConfigTypeDef",
-        "ImageUrl": str,
-        "PrimaryBtn": "InAppMessageButtonTypeDef",
-        "SecondaryBtn": "InAppMessageButtonTypeDef",
-    },
-    total=False,
-)
-
-InAppMessageHeaderConfigTypeDef = TypedDict(
-    "InAppMessageHeaderConfigTypeDef",
-    {
-        "Alignment": AlignmentType,
-        "Header": str,
-        "TextColor": str,
-    },
-)
-
-InAppMessageTypeDef = TypedDict(
-    "InAppMessageTypeDef",
-    {
-        "Content": List["InAppMessageContentTypeDef"],
-        "CustomConfig": Dict[str, str],
-        "Layout": LayoutType,
-    },
-    total=False,
-)
-
-InAppMessagesResponseTypeDef = TypedDict(
-    "InAppMessagesResponseTypeDef",
-    {
-        "InAppMessageCampaigns": List["InAppMessageCampaignTypeDef"],
-    },
-    total=False,
-)
-
-InAppTemplateRequestTypeDef = TypedDict(
-    "InAppTemplateRequestTypeDef",
-    {
-        "Content": List["InAppMessageContentTypeDef"],
-        "CustomConfig": Dict[str, str],
-        "Layout": LayoutType,
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-    },
-    total=False,
-)
-
-_RequiredInAppTemplateResponseTypeDef = TypedDict(
-    "_RequiredInAppTemplateResponseTypeDef",
-    {
-        "CreationDate": str,
-        "LastModifiedDate": str,
-        "TemplateName": str,
-        "TemplateType": TemplateTypeType,
-    },
-)
-_OptionalInAppTemplateResponseTypeDef = TypedDict(
-    "_OptionalInAppTemplateResponseTypeDef",
-    {
-        "Arn": str,
-        "Content": List["InAppMessageContentTypeDef"],
-        "CustomConfig": Dict[str, str],
-        "Layout": LayoutType,
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-class InAppTemplateResponseTypeDef(
-    _RequiredInAppTemplateResponseTypeDef, _OptionalInAppTemplateResponseTypeDef
-):
-    pass
-
-ItemResponseTypeDef = TypedDict(
-    "ItemResponseTypeDef",
-    {
-        "EndpointItemResponse": "EndpointItemResponseTypeDef",
-        "EventsItemResponse": Dict[str, "EventItemResponseTypeDef"],
-    },
-    total=False,
-)
-
-JourneyChannelSettingsTypeDef = TypedDict(
-    "JourneyChannelSettingsTypeDef",
-    {
-        "ConnectCampaignArn": str,
-        "ConnectCampaignExecutionRoleArn": str,
-    },
-    total=False,
-)
-
-JourneyCustomMessageTypeDef = TypedDict(
-    "JourneyCustomMessageTypeDef",
-    {
-        "Data": str,
-    },
-    total=False,
-)
-
-_RequiredJourneyDateRangeKpiResponseTypeDef = TypedDict(
-    "_RequiredJourneyDateRangeKpiResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "EndTime": datetime,
-        "JourneyId": str,
-        "KpiName": str,
-        "KpiResult": "BaseKpiResultTypeDef",
-        "StartTime": datetime,
-    },
-)
-_OptionalJourneyDateRangeKpiResponseTypeDef = TypedDict(
-    "_OptionalJourneyDateRangeKpiResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class JourneyDateRangeKpiResponseTypeDef(
-    _RequiredJourneyDateRangeKpiResponseTypeDef, _OptionalJourneyDateRangeKpiResponseTypeDef
-):
-    pass
-
-JourneyEmailMessageTypeDef = TypedDict(
-    "JourneyEmailMessageTypeDef",
-    {
-        "FromAddress": str,
-    },
-    total=False,
-)
-
-JourneyExecutionActivityMetricsResponseTypeDef = TypedDict(
-    "JourneyExecutionActivityMetricsResponseTypeDef",
-    {
-        "ActivityType": str,
-        "ApplicationId": str,
-        "JourneyActivityId": str,
-        "JourneyId": str,
-        "LastEvaluatedTime": str,
-        "Metrics": Dict[str, str],
-    },
-)
-
-JourneyExecutionMetricsResponseTypeDef = TypedDict(
-    "JourneyExecutionMetricsResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyId": str,
-        "LastEvaluatedTime": str,
-        "Metrics": Dict[str, str],
-    },
-)
-
-JourneyLimitsTypeDef = TypedDict(
-    "JourneyLimitsTypeDef",
-    {
-        "DailyCap": int,
-        "EndpointReentryCap": int,
-        "MessagesPerSecond": int,
-        "EndpointReentryInterval": str,
-        "TimeframeCap": "JourneyTimeframeCapTypeDef",
-        "TotalCap": int,
-    },
-    total=False,
-)
-
-JourneyPushMessageTypeDef = TypedDict(
-    "JourneyPushMessageTypeDef",
-    {
-        "TimeToLive": str,
-    },
-    total=False,
-)
-
-_RequiredJourneyResponseTypeDef = TypedDict(
-    "_RequiredJourneyResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "Id": str,
-        "Name": str,
-    },
-)
-_OptionalJourneyResponseTypeDef = TypedDict(
-    "_OptionalJourneyResponseTypeDef",
-    {
-        "Activities": Dict[str, "ActivityTypeDef"],
-        "CreationDate": str,
-        "LastModifiedDate": str,
-        "Limits": "JourneyLimitsTypeDef",
-        "LocalTime": bool,
-        "QuietTime": "QuietTimeTypeDef",
-        "RefreshFrequency": str,
-        "Schedule": "JourneyScheduleTypeDef",
-        "StartActivity": str,
-        "StartCondition": "StartConditionTypeDef",
-        "State": StateType,
-        "tags": Dict[str, str],
-        "WaitForQuietTime": bool,
-        "RefreshOnSegmentUpdate": bool,
-        "JourneyChannelSettings": "JourneyChannelSettingsTypeDef",
-        "SendingSchedule": bool,
-        "OpenHours": "OpenHoursTypeDef",
-        "ClosedDays": "ClosedDaysTypeDef",
-        "TimezoneEstimationMethods": List[__TimezoneEstimationMethodsElementType],
-    },
-    total=False,
-)
-
-class JourneyResponseTypeDef(_RequiredJourneyResponseTypeDef, _OptionalJourneyResponseTypeDef):
-    pass
-
-JourneyRunExecutionActivityMetricsResponseTypeDef = TypedDict(
-    "JourneyRunExecutionActivityMetricsResponseTypeDef",
-    {
-        "ActivityType": str,
-        "ApplicationId": str,
-        "JourneyActivityId": str,
-        "JourneyId": str,
-        "LastEvaluatedTime": str,
-        "Metrics": Dict[str, str],
-        "RunId": str,
-    },
-)
-
-JourneyRunExecutionMetricsResponseTypeDef = TypedDict(
-    "JourneyRunExecutionMetricsResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyId": str,
-        "LastEvaluatedTime": str,
-        "Metrics": Dict[str, str],
-        "RunId": str,
-    },
-)
-
-JourneyRunResponseTypeDef = TypedDict(
-    "JourneyRunResponseTypeDef",
-    {
-        "CreationTime": str,
-        "LastUpdateTime": str,
-        "RunId": str,
-        "Status": JourneyRunStatusType,
-    },
-)
-
-_RequiredJourneyRunsResponseTypeDef = TypedDict(
-    "_RequiredJourneyRunsResponseTypeDef",
-    {
-        "Item": List["JourneyRunResponseTypeDef"],
-    },
-)
-_OptionalJourneyRunsResponseTypeDef = TypedDict(
-    "_OptionalJourneyRunsResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class JourneyRunsResponseTypeDef(
-    _RequiredJourneyRunsResponseTypeDef, _OptionalJourneyRunsResponseTypeDef
-):
-    pass
-
-JourneySMSMessageTypeDef = TypedDict(
-    "JourneySMSMessageTypeDef",
-    {
-        "MessageType": MessageTypeType,
-        "OriginationNumber": str,
-        "SenderId": str,
-        "EntityId": str,
-        "TemplateId": str,
-    },
-    total=False,
-)
-
-JourneyScheduleTypeDef = TypedDict(
-    "JourneyScheduleTypeDef",
-    {
-        "EndTime": Union[datetime, str],
-        "StartTime": Union[datetime, str],
-        "Timezone": str,
-    },
-    total=False,
-)
-
-JourneyStateRequestTypeDef = TypedDict(
-    "JourneyStateRequestTypeDef",
-    {
-        "State": StateType,
-    },
-    total=False,
-)
-
-JourneyTimeframeCapTypeDef = TypedDict(
-    "JourneyTimeframeCapTypeDef",
-    {
-        "Cap": int,
-        "Days": int,
-    },
-    total=False,
-)
-
-_RequiredJourneysResponseTypeDef = TypedDict(
-    "_RequiredJourneysResponseTypeDef",
-    {
-        "Item": List["JourneyResponseTypeDef"],
-    },
-)
-_OptionalJourneysResponseTypeDef = TypedDict(
-    "_OptionalJourneysResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class JourneysResponseTypeDef(_RequiredJourneysResponseTypeDef, _OptionalJourneysResponseTypeDef):
-    pass
-
-_RequiredListJourneysRequestRequestTypeDef = TypedDict(
-    "_RequiredListJourneysRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalListJourneysRequestRequestTypeDef = TypedDict(
-    "_OptionalListJourneysRequestRequestTypeDef",
-    {
-        "PageSize": str,
-        "Token": str,
-    },
-    total=False,
-)
-
-class ListJourneysRequestRequestTypeDef(
-    _RequiredListJourneysRequestRequestTypeDef, _OptionalListJourneysRequestRequestTypeDef
-):
-    pass
-
-ListJourneysResponseTypeDef = TypedDict(
-    "ListJourneysResponseTypeDef",
-    {
-        "JourneysResponse": "JourneysResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRecommenderConfigurationsResponseTypeDef = TypedDict(
-    "_RequiredListRecommenderConfigurationsResponseTypeDef",
-    {
-        "Item": List["RecommenderConfigurationResponseTypeDef"],
-    },
-)
-_OptionalListRecommenderConfigurationsResponseTypeDef = TypedDict(
-    "_OptionalListRecommenderConfigurationsResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListRecommenderConfigurationsResponseTypeDef(
-    _RequiredListRecommenderConfigurationsResponseTypeDef,
-    _OptionalListRecommenderConfigurationsResponseTypeDef,
-):
-    pass
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "TagsModel": "TagsModelTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTemplateVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTemplateVersionsRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-        "TemplateType": str,
-    },
-)
-_OptionalListTemplateVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTemplateVersionsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "PageSize": str,
-    },
-    total=False,
-)
-
-class ListTemplateVersionsRequestRequestTypeDef(
-    _RequiredListTemplateVersionsRequestRequestTypeDef,
-    _OptionalListTemplateVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListTemplateVersionsResponseTypeDef = TypedDict(
-    "ListTemplateVersionsResponseTypeDef",
-    {
-        "TemplateVersionsResponse": "TemplateVersionsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTemplatesRequestRequestTypeDef = TypedDict(
-    "ListTemplatesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "PageSize": str,
-        "Prefix": str,
-        "TemplateType": str,
-    },
-    total=False,
-)
-
-ListTemplatesResponseTypeDef = TypedDict(
-    "ListTemplatesResponseTypeDef",
-    {
-        "TemplatesResponse": "TemplatesResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MessageBodyTypeDef = TypedDict(
-    "MessageBodyTypeDef",
-    {
-        "Message": str,
-        "RequestID": str,
-    },
-    total=False,
-)
-
-MessageConfigurationTypeDef = TypedDict(
-    "MessageConfigurationTypeDef",
-    {
-        "ADMMessage": "MessageTypeDef",
-        "APNSMessage": "MessageTypeDef",
-        "BaiduMessage": "MessageTypeDef",
-        "CustomMessage": "CampaignCustomMessageTypeDef",
-        "DefaultMessage": "MessageTypeDef",
-        "EmailMessage": "CampaignEmailMessageTypeDef",
-        "GCMMessage": "MessageTypeDef",
-        "SMSMessage": "CampaignSmsMessageTypeDef",
-        "InAppMessage": "CampaignInAppMessageTypeDef",
-    },
-    total=False,
-)
-
-MessageHeaderTypeDef = TypedDict(
-    "MessageHeaderTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-_RequiredMessageRequestTypeDef = TypedDict(
-    "_RequiredMessageRequestTypeDef",
-    {
-        "MessageConfiguration": "DirectMessageConfigurationTypeDef",
-    },
-)
-_OptionalMessageRequestTypeDef = TypedDict(
-    "_OptionalMessageRequestTypeDef",
-    {
-        "Addresses": Dict[str, "AddressConfigurationTypeDef"],
-        "Context": Dict[str, str],
-        "Endpoints": Dict[str, "EndpointSendConfigurationTypeDef"],
-        "TemplateConfiguration": "TemplateConfigurationTypeDef",
-        "TraceId": str,
-    },
-    total=False,
-)
-
-class MessageRequestTypeDef(_RequiredMessageRequestTypeDef, _OptionalMessageRequestTypeDef):
-    pass
-
-_RequiredMessageResponseTypeDef = TypedDict(
-    "_RequiredMessageResponseTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalMessageResponseTypeDef = TypedDict(
-    "_OptionalMessageResponseTypeDef",
-    {
-        "EndpointResult": Dict[str, "EndpointMessageResultTypeDef"],
-        "RequestId": str,
-        "Result": Dict[str, "MessageResultTypeDef"],
-    },
-    total=False,
-)
-
-class MessageResponseTypeDef(_RequiredMessageResponseTypeDef, _OptionalMessageResponseTypeDef):
-    pass
-
-_RequiredMessageResultTypeDef = TypedDict(
-    "_RequiredMessageResultTypeDef",
-    {
-        "DeliveryStatus": DeliveryStatusType,
-        "StatusCode": int,
-    },
-)
-_OptionalMessageResultTypeDef = TypedDict(
-    "_OptionalMessageResultTypeDef",
-    {
-        "MessageId": str,
-        "StatusMessage": str,
-        "UpdatedToken": str,
-    },
-    total=False,
-)
-
-class MessageResultTypeDef(_RequiredMessageResultTypeDef, _OptionalMessageResultTypeDef):
-    pass
-
-MessageTypeDef = TypedDict(
-    "MessageTypeDef",
-    {
-        "Action": ActionType,
-        "Body": str,
-        "ImageIconUrl": str,
-        "ImageSmallIconUrl": str,
-        "ImageUrl": str,
-        "JsonBody": str,
-        "MediaUrl": str,
-        "RawContent": str,
-        "SilentPush": bool,
-        "TimeToLive": int,
-        "Title": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-MetricDimensionTypeDef = TypedDict(
-    "MetricDimensionTypeDef",
-    {
-        "ComparisonOperator": str,
-        "Value": float,
-    },
-)
-
-MultiConditionalBranchTypeDef = TypedDict(
-    "MultiConditionalBranchTypeDef",
-    {
-        "Condition": "SimpleConditionTypeDef",
-        "NextActivity": str,
-    },
-    total=False,
-)
-
-MultiConditionalSplitActivityTypeDef = TypedDict(
-    "MultiConditionalSplitActivityTypeDef",
-    {
-        "Branches": List["MultiConditionalBranchTypeDef"],
-        "DefaultActivity": str,
-        "EvaluationWaitTime": "WaitTimeTypeDef",
-    },
-    total=False,
-)
-
-NumberValidateRequestTypeDef = TypedDict(
-    "NumberValidateRequestTypeDef",
-    {
-        "IsoCountryCode": str,
-        "PhoneNumber": str,
-    },
-    total=False,
-)
-
-NumberValidateResponseTypeDef = TypedDict(
-    "NumberValidateResponseTypeDef",
-    {
-        "Carrier": str,
-        "City": str,
-        "CleansedPhoneNumberE164": str,
-        "CleansedPhoneNumberNational": str,
-        "Country": str,
-        "CountryCodeIso2": str,
-        "CountryCodeNumeric": str,
-        "County": str,
-        "OriginalCountryCodeIso2": str,
-        "OriginalPhoneNumber": str,
-        "PhoneType": str,
-        "PhoneTypeCode": int,
-        "Timezone": str,
-        "ZipCode": str,
-    },
-    total=False,
-)
-
-OpenHoursRuleTypeDef = TypedDict(
-    "OpenHoursRuleTypeDef",
-    {
-        "StartTime": str,
-        "EndTime": str,
-    },
-    total=False,
-)
-
-OpenHoursTypeDef = TypedDict(
-    "OpenHoursTypeDef",
-    {
-        "EMAIL": Dict[DayOfWeekType, List["OpenHoursRuleTypeDef"]],
-        "SMS": Dict[DayOfWeekType, List["OpenHoursRuleTypeDef"]],
-        "PUSH": Dict[DayOfWeekType, List["OpenHoursRuleTypeDef"]],
-        "VOICE": Dict[DayOfWeekType, List["OpenHoursRuleTypeDef"]],
-        "CUSTOM": Dict[DayOfWeekType, List["OpenHoursRuleTypeDef"]],
-    },
-    total=False,
-)
-
-_RequiredOverrideButtonConfigurationTypeDef = TypedDict(
-    "_RequiredOverrideButtonConfigurationTypeDef",
-    {
-        "ButtonAction": ButtonActionType,
-    },
-)
-_OptionalOverrideButtonConfigurationTypeDef = TypedDict(
-    "_OptionalOverrideButtonConfigurationTypeDef",
-    {
-        "Link": str,
-    },
-    total=False,
-)
-
-class OverrideButtonConfigurationTypeDef(
-    _RequiredOverrideButtonConfigurationTypeDef, _OptionalOverrideButtonConfigurationTypeDef
-):
-    pass
-
-PhoneNumberValidateRequestRequestTypeDef = TypedDict(
-    "PhoneNumberValidateRequestRequestTypeDef",
-    {
-        "NumberValidateRequest": "NumberValidateRequestTypeDef",
-    },
-)
-
-PhoneNumberValidateResponseTypeDef = TypedDict(
-    "PhoneNumberValidateResponseTypeDef",
-    {
-        "NumberValidateResponse": "NumberValidateResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PublicEndpointTypeDef = TypedDict(
-    "PublicEndpointTypeDef",
-    {
-        "Address": str,
-        "Attributes": Dict[str, List[str]],
-        "ChannelType": ChannelTypeType,
-        "Demographic": "EndpointDemographicTypeDef",
-        "EffectiveDate": str,
-        "EndpointStatus": str,
-        "Location": "EndpointLocationTypeDef",
-        "Metrics": Dict[str, float],
-        "OptOut": str,
-        "RequestId": str,
-        "User": "EndpointUserTypeDef",
-    },
-    total=False,
-)
-
-PushMessageActivityTypeDef = TypedDict(
-    "PushMessageActivityTypeDef",
-    {
-        "MessageConfig": "JourneyPushMessageTypeDef",
-        "NextActivity": str,
-        "TemplateName": str,
-        "TemplateVersion": str,
-    },
-    total=False,
-)
-
-PushNotificationTemplateRequestTypeDef = TypedDict(
-    "PushNotificationTemplateRequestTypeDef",
-    {
-        "ADM": "AndroidPushNotificationTemplateTypeDef",
-        "APNS": "APNSPushNotificationTemplateTypeDef",
-        "Baidu": "AndroidPushNotificationTemplateTypeDef",
-        "Default": "DefaultPushNotificationTemplateTypeDef",
-        "DefaultSubstitutions": str,
-        "GCM": "AndroidPushNotificationTemplateTypeDef",
-        "RecommenderId": str,
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-    },
-    total=False,
-)
-
-_RequiredPushNotificationTemplateResponseTypeDef = TypedDict(
-    "_RequiredPushNotificationTemplateResponseTypeDef",
-    {
-        "CreationDate": str,
-        "LastModifiedDate": str,
-        "TemplateName": str,
-        "TemplateType": TemplateTypeType,
-    },
-)
-_OptionalPushNotificationTemplateResponseTypeDef = TypedDict(
-    "_OptionalPushNotificationTemplateResponseTypeDef",
-    {
-        "ADM": "AndroidPushNotificationTemplateTypeDef",
-        "APNS": "APNSPushNotificationTemplateTypeDef",
-        "Arn": str,
-        "Baidu": "AndroidPushNotificationTemplateTypeDef",
-        "Default": "DefaultPushNotificationTemplateTypeDef",
-        "DefaultSubstitutions": str,
-        "GCM": "AndroidPushNotificationTemplateTypeDef",
-        "RecommenderId": str,
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-class PushNotificationTemplateResponseTypeDef(
-    _RequiredPushNotificationTemplateResponseTypeDef,
-    _OptionalPushNotificationTemplateResponseTypeDef,
-):
-    pass
-
-PutEventStreamRequestRequestTypeDef = TypedDict(
-    "PutEventStreamRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "WriteEventStream": "WriteEventStreamTypeDef",
-    },
-)
-
-PutEventStreamResponseTypeDef = TypedDict(
-    "PutEventStreamResponseTypeDef",
-    {
-        "EventStream": "EventStreamTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutEventsRequestRequestTypeDef = TypedDict(
-    "PutEventsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "EventsRequest": "EventsRequestTypeDef",
-    },
-)
-
-PutEventsResponseTypeDef = TypedDict(
-    "PutEventsResponseTypeDef",
-    {
-        "EventsResponse": "EventsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-QuietTimeTypeDef = TypedDict(
-    "QuietTimeTypeDef",
-    {
-        "End": str,
-        "Start": str,
-    },
-    total=False,
-)
-
-RandomSplitActivityTypeDef = TypedDict(
-    "RandomSplitActivityTypeDef",
-    {
-        "Branches": List["RandomSplitEntryTypeDef"],
-    },
-    total=False,
-)
-
-RandomSplitEntryTypeDef = TypedDict(
-    "RandomSplitEntryTypeDef",
-    {
-        "NextActivity": str,
-        "Percentage": int,
-    },
-    total=False,
-)
-
-RawEmailTypeDef = TypedDict(
-    "RawEmailTypeDef",
-    {
-        "Data": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
-
-RecencyDimensionTypeDef = TypedDict(
-    "RecencyDimensionTypeDef",
-    {
-        "Duration": DurationType,
-        "RecencyType": RecencyTypeType,
-    },
-)
-
-_RequiredRecommenderConfigurationResponseTypeDef = TypedDict(
-    "_RequiredRecommenderConfigurationResponseTypeDef",
-    {
-        "CreationDate": str,
-        "Id": str,
-        "LastModifiedDate": str,
-        "RecommendationProviderRoleArn": str,
-        "RecommendationProviderUri": str,
-    },
-)
-_OptionalRecommenderConfigurationResponseTypeDef = TypedDict(
-    "_OptionalRecommenderConfigurationResponseTypeDef",
-    {
-        "Attributes": Dict[str, str],
-        "Description": str,
-        "Name": str,
-        "RecommendationProviderIdType": str,
-        "RecommendationTransformerUri": str,
-        "RecommendationsDisplayName": str,
-        "RecommendationsPerMessage": int,
-    },
-    total=False,
-)
-
-class RecommenderConfigurationResponseTypeDef(
-    _RequiredRecommenderConfigurationResponseTypeDef,
-    _OptionalRecommenderConfigurationResponseTypeDef,
-):
-    pass
-
-RemoveAttributesRequestRequestTypeDef = TypedDict(
-    "RemoveAttributesRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "AttributeType": str,
-        "UpdateAttributesRequest": "UpdateAttributesRequestTypeDef",
-    },
-)
-
-RemoveAttributesResponseTypeDef = TypedDict(
-    "RemoveAttributesResponseTypeDef",
-    {
-        "AttributesResource": "AttributesResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ResultRowTypeDef = TypedDict(
-    "ResultRowTypeDef",
-    {
-        "GroupedBys": List["ResultRowValueTypeDef"],
-        "Values": List["ResultRowValueTypeDef"],
-    },
-)
+        "BackgroundColor": NotRequired[str],
+        "BorderRadius": NotRequired[int],
+        "Link": NotRequired[str],
+        "TextColor": NotRequired[str],
+    },
+)
+
+class DefaultMessageTypeDef(TypedDict):
+    Body: NotRequired[str]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+
+class DefaultPushNotificationMessageTypeDef(TypedDict):
+    Action: NotRequired[ActionType]
+    Body: NotRequired[str]
+    Data: NotRequired[Mapping[str, str]]
+    SilentPush: NotRequired[bool]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+    Title: NotRequired[str]
+    Url: NotRequired[str]
+
+class DefaultPushNotificationTemplateTypeDef(TypedDict):
+    Action: NotRequired[ActionType]
+    Body: NotRequired[str]
+    Sound: NotRequired[str]
+    Title: NotRequired[str]
+    Url: NotRequired[str]
+
+class DeleteAdmChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class DeleteApnsChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class DeleteApnsSandboxChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class DeleteApnsVoipChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class DeleteApnsVoipSandboxChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class DeleteAppRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class DeleteBaiduChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class DeleteCampaignRequestTypeDef(TypedDict):
+    ApplicationId: str
+    CampaignId: str
+
+class DeleteEmailChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class EmailChannelResponseTypeDef(TypedDict):
+    Platform: str
+    ApplicationId: NotRequired[str]
+    ConfigurationSet: NotRequired[str]
+    CreationDate: NotRequired[str]
+    Enabled: NotRequired[bool]
+    FromAddress: NotRequired[str]
+    HasCredential: NotRequired[bool]
+    Id: NotRequired[str]
+    Identity: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    MessagesPerSecond: NotRequired[int]
+    RoleArn: NotRequired[str]
+    OrchestrationSendingRoleArn: NotRequired[str]
+    Version: NotRequired[int]
+
+class DeleteEmailTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    Version: NotRequired[str]
+
+class MessageBodyTypeDef(TypedDict):
+    Message: NotRequired[str]
+    RequestID: NotRequired[str]
+
+class DeleteEndpointRequestTypeDef(TypedDict):
+    ApplicationId: str
+    EndpointId: str
+
+class DeleteEventStreamRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class EventStreamTypeDef(TypedDict):
+    ApplicationId: str
+    DestinationStreamArn: str
+    RoleArn: str
+    ExternalId: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    LastUpdatedBy: NotRequired[str]
+
+class DeleteGcmChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GCMChannelResponseTypeDef(TypedDict):
+    Platform: str
+    ApplicationId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    Credential: NotRequired[str]
+    DefaultAuthenticationMethod: NotRequired[str]
+    Enabled: NotRequired[bool]
+    HasCredential: NotRequired[bool]
+    HasFcmServiceCredentials: NotRequired[bool]
+    Id: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Version: NotRequired[int]
+
+class DeleteInAppTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    Version: NotRequired[str]
+
+class DeleteJourneyRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyId: str
+
+class DeletePushTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    Version: NotRequired[str]
+
+class DeleteRecommenderConfigurationRequestTypeDef(TypedDict):
+    RecommenderId: str
+
+class DeleteSegmentRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SegmentId: str
+
+class DeleteSmsChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class SMSChannelResponseTypeDef(TypedDict):
+    Platform: str
+    ApplicationId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    Enabled: NotRequired[bool]
+    HasCredential: NotRequired[bool]
+    Id: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    PromotionalMessagesPerSecond: NotRequired[int]
+    SenderId: NotRequired[str]
+    ShortCode: NotRequired[str]
+    TransactionalMessagesPerSecond: NotRequired[int]
+    Version: NotRequired[int]
+
+class DeleteSmsTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    Version: NotRequired[str]
+
+class DeleteUserEndpointsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    UserId: str
+
+class DeleteVoiceChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class VoiceChannelResponseTypeDef(TypedDict):
+    Platform: str
+    ApplicationId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    Enabled: NotRequired[bool]
+    HasCredential: NotRequired[bool]
+    Id: NotRequired[str]
+    IsArchived: NotRequired[bool]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Version: NotRequired[int]
+
+class DeleteVoiceTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    Version: NotRequired[str]
+
+class GCMMessageTypeDef(TypedDict):
+    Action: NotRequired[ActionType]
+    Body: NotRequired[str]
+    CollapseKey: NotRequired[str]
+    Data: NotRequired[Mapping[str, str]]
+    IconReference: NotRequired[str]
+    ImageIconUrl: NotRequired[str]
+    ImageUrl: NotRequired[str]
+    PreferredAuthenticationMethod: NotRequired[str]
+    Priority: NotRequired[str]
+    RawContent: NotRequired[str]
+    RestrictedPackageName: NotRequired[str]
+    SilentPush: NotRequired[bool]
+    SmallImageIconUrl: NotRequired[str]
+    Sound: NotRequired[str]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+    TimeToLive: NotRequired[int]
+    Title: NotRequired[str]
+    Url: NotRequired[str]
+
+class SMSMessageTypeDef(TypedDict):
+    Body: NotRequired[str]
+    Keyword: NotRequired[str]
+    MediaUrl: NotRequired[str]
+    MessageType: NotRequired[MessageTypeType]
+    OriginationNumber: NotRequired[str]
+    SenderId: NotRequired[str]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+    EntityId: NotRequired[str]
+    TemplateId: NotRequired[str]
+
+class VoiceMessageTypeDef(TypedDict):
+    Body: NotRequired[str]
+    LanguageCode: NotRequired[str]
+    OriginationNumber: NotRequired[str]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+    VoiceId: NotRequired[str]
+
+class EmailChannelRequestTypeDef(TypedDict):
+    FromAddress: str
+    Identity: str
+    ConfigurationSet: NotRequired[str]
+    Enabled: NotRequired[bool]
+    RoleArn: NotRequired[str]
+    OrchestrationSendingRoleArn: NotRequired[str]
+
+class JourneyEmailMessageTypeDef(TypedDict):
+    FromAddress: NotRequired[str]
+
+class EndpointDemographicTypeDef(TypedDict):
+    AppVersion: NotRequired[str]
+    Locale: NotRequired[str]
+    Make: NotRequired[str]
+    Model: NotRequired[str]
+    ModelVersion: NotRequired[str]
+    Platform: NotRequired[str]
+    PlatformVersion: NotRequired[str]
+    Timezone: NotRequired[str]
+
+class EndpointLocationTypeDef(TypedDict):
+    City: NotRequired[str]
+    Country: NotRequired[str]
+    Latitude: NotRequired[float]
+    Longitude: NotRequired[float]
+    PostalCode: NotRequired[str]
+    Region: NotRequired[str]
+
+class EndpointItemResponseTypeDef(TypedDict):
+    Message: NotRequired[str]
+    StatusCode: NotRequired[int]
+
+class EndpointMessageResultTypeDef(TypedDict):
+    DeliveryStatus: DeliveryStatusType
+    StatusCode: int
+    Address: NotRequired[str]
+    MessageId: NotRequired[str]
+    StatusMessage: NotRequired[str]
+    UpdatedToken: NotRequired[str]
+
+class EndpointUserOutputTypeDef(TypedDict):
+    UserAttributes: NotRequired[Dict[str, List[str]]]
+    UserId: NotRequired[str]
+
+class EndpointSendConfigurationTypeDef(TypedDict):
+    BodyOverride: NotRequired[str]
+    Context: NotRequired[Mapping[str, str]]
+    RawContent: NotRequired[str]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+    TitleOverride: NotRequired[str]
+
+class EndpointUserTypeDef(TypedDict):
+    UserAttributes: NotRequired[Mapping[str, Sequence[str]]]
+    UserId: NotRequired[str]
+
+class MetricDimensionTypeDef(TypedDict):
+    ComparisonOperator: str
+    Value: float
+
+class SetDimensionOutputTypeDef(TypedDict):
+    Values: List[str]
+    DimensionType: NotRequired[DimensionTypeType]
+
+class EventItemResponseTypeDef(TypedDict):
+    Message: NotRequired[str]
+    StatusCode: NotRequired[int]
+
+class SessionTypeDef(TypedDict):
+    Id: str
+    StartTimestamp: str
+    Duration: NotRequired[int]
+    StopTimestamp: NotRequired[str]
+
+class ExportJobResourceTypeDef(TypedDict):
+    RoleArn: str
+    S3UrlPrefix: str
+    SegmentId: NotRequired[str]
+    SegmentVersion: NotRequired[int]
+
+class GCMChannelRequestTypeDef(TypedDict):
+    ApiKey: NotRequired[str]
+    DefaultAuthenticationMethod: NotRequired[str]
+    Enabled: NotRequired[bool]
+    ServiceJson: NotRequired[str]
+
+class GPSCoordinatesTypeDef(TypedDict):
+    Latitude: float
+    Longitude: float
+
+class GetAdmChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetApnsChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetApnsSandboxChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetApnsVoipChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetApnsVoipSandboxChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetAppRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+TimestampTypeDef = Union[datetime, str]
+
+class GetApplicationSettingsRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetAppsRequestTypeDef(TypedDict):
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetBaiduChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetCampaignActivitiesRequestTypeDef(TypedDict):
+    ApplicationId: str
+    CampaignId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetCampaignRequestTypeDef(TypedDict):
+    ApplicationId: str
+    CampaignId: str
+
+class GetCampaignVersionRequestTypeDef(TypedDict):
+    ApplicationId: str
+    CampaignId: str
+    Version: str
+
+class GetCampaignVersionsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    CampaignId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetCampaignsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetChannelsRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetEmailChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetEmailTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    Version: NotRequired[str]
+
+class GetEndpointRequestTypeDef(TypedDict):
+    ApplicationId: str
+    EndpointId: str
+
+class GetEventStreamRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetExportJobRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JobId: str
+
+class GetExportJobsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetGcmChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetImportJobRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JobId: str
+
+class GetImportJobsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetInAppMessagesRequestTypeDef(TypedDict):
+    ApplicationId: str
+    EndpointId: str
+
+class GetInAppTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    Version: NotRequired[str]
+
+class GetJourneyExecutionActivityMetricsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyActivityId: str
+    JourneyId: str
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[str]
+
+class JourneyExecutionActivityMetricsResponseTypeDef(TypedDict):
+    ActivityType: str
+    ApplicationId: str
+    JourneyActivityId: str
+    JourneyId: str
+    LastEvaluatedTime: str
+    Metrics: Dict[str, str]
+
+class GetJourneyExecutionMetricsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyId: str
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[str]
+
+class JourneyExecutionMetricsResponseTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyId: str
+    LastEvaluatedTime: str
+    Metrics: Dict[str, str]
+
+class GetJourneyRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyId: str
+
+class GetJourneyRunExecutionActivityMetricsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyActivityId: str
+    JourneyId: str
+    RunId: str
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[str]
+
+class JourneyRunExecutionActivityMetricsResponseTypeDef(TypedDict):
+    ActivityType: str
+    ApplicationId: str
+    JourneyActivityId: str
+    JourneyId: str
+    LastEvaluatedTime: str
+    Metrics: Dict[str, str]
+    RunId: str
+
+class GetJourneyRunExecutionMetricsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyId: str
+    RunId: str
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[str]
+
+class JourneyRunExecutionMetricsResponseTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyId: str
+    LastEvaluatedTime: str
+    Metrics: Dict[str, str]
+    RunId: str
+
+class GetJourneyRunsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetPushTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    Version: NotRequired[str]
+
+class GetRecommenderConfigurationRequestTypeDef(TypedDict):
+    RecommenderId: str
+
+class GetRecommenderConfigurationsRequestTypeDef(TypedDict):
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetSegmentExportJobsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SegmentId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetSegmentImportJobsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SegmentId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetSegmentRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SegmentId: str
+
+class GetSegmentVersionRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SegmentId: str
+    Version: str
+
+class GetSegmentVersionsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SegmentId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetSegmentsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class GetSmsChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetSmsTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    Version: NotRequired[str]
+
+class SMSTemplateResponseTypeDef(TypedDict):
+    CreationDate: str
+    LastModifiedDate: str
+    TemplateName: str
+    TemplateType: TemplateTypeType
+    Arn: NotRequired[str]
+    Body: NotRequired[str]
+    DefaultSubstitutions: NotRequired[str]
+    RecommenderId: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    TemplateDescription: NotRequired[str]
+    Version: NotRequired[str]
+
+class GetUserEndpointsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    UserId: str
+
+class GetVoiceChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetVoiceTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    Version: NotRequired[str]
+
+class VoiceTemplateResponseTypeDef(TypedDict):
+    CreationDate: str
+    LastModifiedDate: str
+    TemplateName: str
+    TemplateType: TemplateTypeType
+    Arn: NotRequired[str]
+    Body: NotRequired[str]
+    DefaultSubstitutions: NotRequired[str]
+    LanguageCode: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    TemplateDescription: NotRequired[str]
+    Version: NotRequired[str]
+    VoiceId: NotRequired[str]
+
+class ImportJobResourceTypeDef(TypedDict):
+    Format: FormatType
+    RoleArn: str
+    S3Url: str
+    DefineSegment: NotRequired[bool]
+    ExternalId: NotRequired[str]
+    RegisterEndpoints: NotRequired[bool]
+    SegmentId: NotRequired[str]
+    SegmentName: NotRequired[str]
+
+class InAppMessageBodyConfigTypeDef(TypedDict):
+    Alignment: AlignmentType
+    Body: str
+    TextColor: str
+
+class OverrideButtonConfigurationTypeDef(TypedDict):
+    ButtonAction: ButtonActionType
+    Link: NotRequired[str]
+
+class InAppMessageHeaderConfigTypeDef(TypedDict):
+    Alignment: AlignmentType
+    Header: str
+    TextColor: str
+
+class JourneyChannelSettingsTypeDef(TypedDict):
+    ConnectCampaignArn: NotRequired[str]
+    ConnectCampaignExecutionRoleArn: NotRequired[str]
+
+class JourneyPushMessageTypeDef(TypedDict):
+    TimeToLive: NotRequired[str]
+
+class JourneyScheduleOutputTypeDef(TypedDict):
+    EndTime: NotRequired[datetime]
+    StartTime: NotRequired[datetime]
+    Timezone: NotRequired[str]
+
+class JourneyRunResponseTypeDef(TypedDict):
+    CreationTime: str
+    LastUpdateTime: str
+    RunId: str
+    Status: JourneyRunStatusType
+
+class JourneySMSMessageTypeDef(TypedDict):
+    MessageType: NotRequired[MessageTypeType]
+    OriginationNumber: NotRequired[str]
+    SenderId: NotRequired[str]
+    EntityId: NotRequired[str]
+    TemplateId: NotRequired[str]
+
+class JourneyStateRequestTypeDef(TypedDict):
+    State: NotRequired[StateType]
+
+class ListJourneysRequestTypeDef(TypedDict):
+    ApplicationId: str
+    PageSize: NotRequired[str]
+    Token: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class TagsModelOutputTypeDef(TypedDict):
+    tags: Dict[str, str]
+
+class ListTemplateVersionsRequestTypeDef(TypedDict):
+    TemplateName: str
+    TemplateType: str
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[str]
+
+class ListTemplatesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[str]
+    Prefix: NotRequired[str]
+    TemplateType: NotRequired[str]
+
+class MessageTypeDef(TypedDict):
+    Action: NotRequired[ActionType]
+    Body: NotRequired[str]
+    ImageIconUrl: NotRequired[str]
+    ImageSmallIconUrl: NotRequired[str]
+    ImageUrl: NotRequired[str]
+    JsonBody: NotRequired[str]
+    MediaUrl: NotRequired[str]
+    RawContent: NotRequired[str]
+    SilentPush: NotRequired[bool]
+    TimeToLive: NotRequired[int]
+    Title: NotRequired[str]
+    Url: NotRequired[str]
+
+class MessageResultTypeDef(TypedDict):
+    DeliveryStatus: DeliveryStatusType
+    StatusCode: int
+    MessageId: NotRequired[str]
+    StatusMessage: NotRequired[str]
+    UpdatedToken: NotRequired[str]
+
+class NumberValidateRequestTypeDef(TypedDict):
+    IsoCountryCode: NotRequired[str]
+    PhoneNumber: NotRequired[str]
+
+class NumberValidateResponseTypeDef(TypedDict):
+    Carrier: NotRequired[str]
+    City: NotRequired[str]
+    CleansedPhoneNumberE164: NotRequired[str]
+    CleansedPhoneNumberNational: NotRequired[str]
+    Country: NotRequired[str]
+    CountryCodeIso2: NotRequired[str]
+    CountryCodeNumeric: NotRequired[str]
+    County: NotRequired[str]
+    OriginalCountryCodeIso2: NotRequired[str]
+    OriginalPhoneNumber: NotRequired[str]
+    PhoneType: NotRequired[str]
+    PhoneTypeCode: NotRequired[int]
+    Timezone: NotRequired[str]
+    ZipCode: NotRequired[str]
+
+class OpenHoursRuleTypeDef(TypedDict):
+    StartTime: NotRequired[str]
+    EndTime: NotRequired[str]
+
+class WriteEventStreamTypeDef(TypedDict):
+    DestinationStreamArn: str
+    RoleArn: str
+
+class RandomSplitEntryTypeDef(TypedDict):
+    NextActivity: NotRequired[str]
+    Percentage: NotRequired[int]
+
+class RecencyDimensionTypeDef(TypedDict):
+    Duration: DurationType
+    RecencyType: RecencyTypeType
+
+class UpdateAttributesRequestTypeDef(TypedDict):
+    Blacklist: NotRequired[Sequence[str]]
 
 ResultRowValueTypeDef = TypedDict(
     "ResultRowValueTypeDef",
@@ -4790,1405 +1702,1761 @@ ResultRowValueTypeDef = TypedDict(
     },
 )
 
-SMSChannelRequestTypeDef = TypedDict(
-    "SMSChannelRequestTypeDef",
-    {
-        "Enabled": bool,
-        "SenderId": str,
-        "ShortCode": str,
-    },
-    total=False,
-)
+class SMSChannelRequestTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    SenderId: NotRequired[str]
+    ShortCode: NotRequired[str]
 
-_RequiredSMSChannelResponseTypeDef = TypedDict(
-    "_RequiredSMSChannelResponseTypeDef",
-    {
-        "Platform": str,
-    },
-)
-_OptionalSMSChannelResponseTypeDef = TypedDict(
-    "_OptionalSMSChannelResponseTypeDef",
+class SegmentConditionTypeDef(TypedDict):
+    SegmentId: str
+
+class SegmentReferenceTypeDef(TypedDict):
+    Id: str
+    Version: NotRequired[int]
+
+class SegmentImportResourceTypeDef(TypedDict):
+    ExternalId: str
+    Format: FormatType
+    RoleArn: str
+    S3Url: str
+    Size: int
+    ChannelCounts: NotRequired[Dict[str, int]]
+
+class SendOTPMessageRequestParametersTypeDef(TypedDict):
+    BrandName: str
+    Channel: str
+    DestinationIdentity: str
+    OriginationIdentity: str
+    ReferenceId: str
+    AllowedAttempts: NotRequired[int]
+    CodeLength: NotRequired[int]
+    EntityId: NotRequired[str]
+    Language: NotRequired[str]
+    TemplateId: NotRequired[str]
+    ValidityPeriod: NotRequired[int]
+
+class SetDimensionTypeDef(TypedDict):
+    Values: Sequence[str]
+    DimensionType: NotRequired[DimensionTypeType]
+
+class SimpleEmailPartTypeDef(TypedDict):
+    Charset: NotRequired[str]
+    Data: NotRequired[str]
+
+class TagsModelTypeDef(TypedDict):
+    tags: Mapping[str, str]
+
+class TemplateActiveVersionRequestTypeDef(TypedDict):
+    Version: NotRequired[str]
+
+class TemplateTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Version: NotRequired[str]
+
+class TemplateResponseTypeDef(TypedDict):
+    CreationDate: str
+    LastModifiedDate: str
+    TemplateName: str
+    TemplateType: TemplateTypeType
+    Arn: NotRequired[str]
+    DefaultSubstitutions: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    TemplateDescription: NotRequired[str]
+    Version: NotRequired[str]
+
+class TemplateVersionResponseTypeDef(TypedDict):
+    CreationDate: str
+    LastModifiedDate: str
+    TemplateName: str
+    TemplateType: str
+    DefaultSubstitutions: NotRequired[str]
+    TemplateDescription: NotRequired[str]
+    Version: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateRecommenderConfigurationTypeDef(TypedDict):
+    RecommendationProviderRoleArn: str
+    RecommendationProviderUri: str
+    Attributes: NotRequired[Mapping[str, str]]
+    Description: NotRequired[str]
+    Name: NotRequired[str]
+    RecommendationProviderIdType: NotRequired[str]
+    RecommendationTransformerUri: NotRequired[str]
+    RecommendationsDisplayName: NotRequired[str]
+    RecommendationsPerMessage: NotRequired[int]
+
+class VoiceChannelRequestTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class VerificationResponseTypeDef(TypedDict):
+    Valid: NotRequired[bool]
+
+class VerifyOTPMessageRequestParametersTypeDef(TypedDict):
+    DestinationIdentity: str
+    Otp: str
+    ReferenceId: str
+
+class UpdateAdmChannelRequestTypeDef(TypedDict):
+    ADMChannelRequest: ADMChannelRequestTypeDef
+    ApplicationId: str
+
+class UpdateApnsChannelRequestTypeDef(TypedDict):
+    APNSChannelRequest: APNSChannelRequestTypeDef
+    ApplicationId: str
+
+class UpdateApnsSandboxChannelRequestTypeDef(TypedDict):
+    APNSSandboxChannelRequest: APNSSandboxChannelRequestTypeDef
+    ApplicationId: str
+
+class UpdateApnsVoipChannelRequestTypeDef(TypedDict):
+    APNSVoipChannelRequest: APNSVoipChannelRequestTypeDef
+    ApplicationId: str
+
+class UpdateApnsVoipSandboxChannelRequestTypeDef(TypedDict):
+    APNSVoipSandboxChannelRequest: APNSVoipSandboxChannelRequestTypeDef
+    ApplicationId: str
+
+class ActivitiesResponseTypeDef(TypedDict):
+    Item: List[ActivityResponseTypeDef]
+    NextToken: NotRequired[str]
+
+class ApplicationsResponseTypeDef(TypedDict):
+    Item: NotRequired[List[ApplicationResponseTypeDef]]
+    NextToken: NotRequired[str]
+
+class ApplicationSettingsJourneyLimitsTypeDef(TypedDict):
+    DailyCap: NotRequired[int]
+    TimeframeCap: NotRequired[JourneyTimeframeCapTypeDef]
+    TotalCap: NotRequired[int]
+
+class JourneyLimitsTypeDef(TypedDict):
+    DailyCap: NotRequired[int]
+    EndpointReentryCap: NotRequired[int]
+    MessagesPerSecond: NotRequired[int]
+    EndpointReentryInterval: NotRequired[str]
+    TimeframeCap: NotRequired[JourneyTimeframeCapTypeDef]
+    TotalCap: NotRequired[int]
+
+AttributeDimensionUnionTypeDef = Union[AttributeDimensionTypeDef, AttributeDimensionOutputTypeDef]
+
+class UpdateBaiduChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+    BaiduChannelRequest: BaiduChannelRequestTypeDef
+
+class RawEmailTypeDef(TypedDict):
+    Data: NotRequired[BlobTypeDef]
+
+class CampaignEmailMessageOutputTypeDef(TypedDict):
+    Body: NotRequired[str]
+    FromAddress: NotRequired[str]
+    Headers: NotRequired[List[MessageHeaderTypeDef]]
+    HtmlBody: NotRequired[str]
+    Title: NotRequired[str]
+
+class CampaignEmailMessageTypeDef(TypedDict):
+    Body: NotRequired[str]
+    FromAddress: NotRequired[str]
+    Headers: NotRequired[Sequence[MessageHeaderTypeDef]]
+    HtmlBody: NotRequired[str]
+    Title: NotRequired[str]
+
+class EmailTemplateRequestTypeDef(TypedDict):
+    DefaultSubstitutions: NotRequired[str]
+    HtmlPart: NotRequired[str]
+    RecommenderId: NotRequired[str]
+    Subject: NotRequired[str]
+    Headers: NotRequired[Sequence[MessageHeaderTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
+    TemplateDescription: NotRequired[str]
+    TextPart: NotRequired[str]
+
+class EmailTemplateResponseTypeDef(TypedDict):
+    CreationDate: str
+    LastModifiedDate: str
+    TemplateName: str
+    TemplateType: TemplateTypeType
+    Arn: NotRequired[str]
+    DefaultSubstitutions: NotRequired[str]
+    HtmlPart: NotRequired[str]
+    RecommenderId: NotRequired[str]
+    Subject: NotRequired[str]
+    Headers: NotRequired[List[MessageHeaderTypeDef]]
+    tags: NotRequired[Dict[str, str]]
+    TemplateDescription: NotRequired[str]
+    TextPart: NotRequired[str]
+    Version: NotRequired[str]
+
+class ChannelsResponseTypeDef(TypedDict):
+    Channels: Dict[str, ChannelResponseTypeDef]
+
+class ClosedDaysOutputTypeDef(TypedDict):
+    EMAIL: NotRequired[List[ClosedDaysRuleTypeDef]]
+    SMS: NotRequired[List[ClosedDaysRuleTypeDef]]
+    PUSH: NotRequired[List[ClosedDaysRuleTypeDef]]
+    VOICE: NotRequired[List[ClosedDaysRuleTypeDef]]
+    CUSTOM: NotRequired[List[ClosedDaysRuleTypeDef]]
+
+class ClosedDaysTypeDef(TypedDict):
+    EMAIL: NotRequired[Sequence[ClosedDaysRuleTypeDef]]
+    SMS: NotRequired[Sequence[ClosedDaysRuleTypeDef]]
+    PUSH: NotRequired[Sequence[ClosedDaysRuleTypeDef]]
+    VOICE: NotRequired[Sequence[ClosedDaysRuleTypeDef]]
+    CUSTOM: NotRequired[Sequence[ClosedDaysRuleTypeDef]]
+
+class WaitActivityTypeDef(TypedDict):
+    NextActivity: NotRequired[str]
+    WaitTime: NotRequired[WaitTimeTypeDef]
+
+class CreateAppRequestTypeDef(TypedDict):
+    CreateApplicationRequest: CreateApplicationRequestTypeDef
+
+class CreateAppResponseTypeDef(TypedDict):
+    ApplicationResponse: ApplicationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAdmChannelResponseTypeDef(TypedDict):
+    ADMChannelResponse: ADMChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteApnsChannelResponseTypeDef(TypedDict):
+    APNSChannelResponse: APNSChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteApnsSandboxChannelResponseTypeDef(TypedDict):
+    APNSSandboxChannelResponse: APNSSandboxChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteApnsVoipChannelResponseTypeDef(TypedDict):
+    APNSVoipChannelResponse: APNSVoipChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteApnsVoipSandboxChannelResponseTypeDef(TypedDict):
+    APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAppResponseTypeDef(TypedDict):
+    ApplicationResponse: ApplicationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBaiduChannelResponseTypeDef(TypedDict):
+    BaiduChannelResponse: BaiduChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAdmChannelResponseTypeDef(TypedDict):
+    ADMChannelResponse: ADMChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApnsChannelResponseTypeDef(TypedDict):
+    APNSChannelResponse: APNSChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApnsSandboxChannelResponseTypeDef(TypedDict):
+    APNSSandboxChannelResponse: APNSSandboxChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApnsVoipChannelResponseTypeDef(TypedDict):
+    APNSVoipChannelResponse: APNSVoipChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApnsVoipSandboxChannelResponseTypeDef(TypedDict):
+    APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAppResponseTypeDef(TypedDict):
+    ApplicationResponse: ApplicationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBaiduChannelResponseTypeDef(TypedDict):
+    BaiduChannelResponse: BaiduChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RemoveAttributesResponseTypeDef(TypedDict):
+    AttributesResource: AttributesResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAdmChannelResponseTypeDef(TypedDict):
+    ADMChannelResponse: ADMChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApnsChannelResponseTypeDef(TypedDict):
+    APNSChannelResponse: APNSChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApnsSandboxChannelResponseTypeDef(TypedDict):
+    APNSSandboxChannelResponse: APNSSandboxChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApnsVoipChannelResponseTypeDef(TypedDict):
+    APNSVoipChannelResponse: APNSVoipChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApnsVoipSandboxChannelResponseTypeDef(TypedDict):
+    APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBaiduChannelResponseTypeDef(TypedDict):
+    BaiduChannelResponse: BaiduChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateEmailTemplateResponseTypeDef(TypedDict):
+    CreateTemplateMessageBody: CreateTemplateMessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePushTemplateResponseTypeDef(TypedDict):
+    CreateTemplateMessageBody: CreateTemplateMessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSmsTemplateResponseTypeDef(TypedDict):
+    CreateTemplateMessageBody: CreateTemplateMessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVoiceTemplateResponseTypeDef(TypedDict):
+    CreateTemplateMessageBody: CreateTemplateMessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateExportJobRequestTypeDef(TypedDict):
+    ApplicationId: str
+    ExportJobRequest: ExportJobRequestTypeDef
+
+class CreateImportJobRequestTypeDef(TypedDict):
+    ApplicationId: str
+    ImportJobRequest: ImportJobRequestTypeDef
+
+class CreateInAppTemplateResponseTypeDef(TypedDict):
+    TemplateCreateMessageBody: TemplateCreateMessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRecommenderConfigurationRequestTypeDef(TypedDict):
+    CreateRecommenderConfiguration: CreateRecommenderConfigurationTypeDef
+
+class CreateRecommenderConfigurationResponseTypeDef(TypedDict):
+    RecommenderConfigurationResponse: RecommenderConfigurationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRecommenderConfigurationResponseTypeDef(TypedDict):
+    RecommenderConfigurationResponse: RecommenderConfigurationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRecommenderConfigurationResponseTypeDef(TypedDict):
+    RecommenderConfigurationResponse: RecommenderConfigurationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRecommenderConfigurationsResponseTypeDef(TypedDict):
+    Item: List[RecommenderConfigurationResponseTypeDef]
+    NextToken: NotRequired[str]
+
+class UpdateRecommenderConfigurationResponseTypeDef(TypedDict):
+    RecommenderConfigurationResponse: RecommenderConfigurationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSmsTemplateRequestTypeDef(TypedDict):
+    SMSTemplateRequest: SMSTemplateRequestTypeDef
+    TemplateName: str
+
+class UpdateSmsTemplateRequestTypeDef(TypedDict):
+    SMSTemplateRequest: SMSTemplateRequestTypeDef
+    TemplateName: str
+    CreateNewVersion: NotRequired[bool]
+    Version: NotRequired[str]
+
+class CreateVoiceTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    VoiceTemplateRequest: VoiceTemplateRequestTypeDef
+
+class UpdateVoiceTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    VoiceTemplateRequest: VoiceTemplateRequestTypeDef
+    CreateNewVersion: NotRequired[bool]
+    Version: NotRequired[str]
+
+CustomDeliveryConfigurationUnionTypeDef = Union[
+    CustomDeliveryConfigurationTypeDef, CustomDeliveryConfigurationOutputTypeDef
+]
+
+class CustomMessageActivityOutputTypeDef(TypedDict):
+    DeliveryUri: NotRequired[str]
+    EndpointTypes: NotRequired[List[EndpointTypesElementType]]
+    MessageConfig: NotRequired[JourneyCustomMessageTypeDef]
+    NextActivity: NotRequired[str]
+    TemplateName: NotRequired[str]
+    TemplateVersion: NotRequired[str]
+
+class CustomMessageActivityTypeDef(TypedDict):
+    DeliveryUri: NotRequired[str]
+    EndpointTypes: NotRequired[Sequence[EndpointTypesElementType]]
+    MessageConfig: NotRequired[JourneyCustomMessageTypeDef]
+    NextActivity: NotRequired[str]
+    TemplateName: NotRequired[str]
+    TemplateVersion: NotRequired[str]
+
+class PushNotificationTemplateRequestTypeDef(TypedDict):
+    ADM: NotRequired[AndroidPushNotificationTemplateTypeDef]
+    APNS: NotRequired[APNSPushNotificationTemplateTypeDef]
+    Baidu: NotRequired[AndroidPushNotificationTemplateTypeDef]
+    Default: NotRequired[DefaultPushNotificationTemplateTypeDef]
+    DefaultSubstitutions: NotRequired[str]
+    GCM: NotRequired[AndroidPushNotificationTemplateTypeDef]
+    RecommenderId: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    TemplateDescription: NotRequired[str]
+
+class PushNotificationTemplateResponseTypeDef(TypedDict):
+    CreationDate: str
+    LastModifiedDate: str
+    TemplateName: str
+    TemplateType: TemplateTypeType
+    ADM: NotRequired[AndroidPushNotificationTemplateTypeDef]
+    APNS: NotRequired[APNSPushNotificationTemplateTypeDef]
+    Arn: NotRequired[str]
+    Baidu: NotRequired[AndroidPushNotificationTemplateTypeDef]
+    Default: NotRequired[DefaultPushNotificationTemplateTypeDef]
+    DefaultSubstitutions: NotRequired[str]
+    GCM: NotRequired[AndroidPushNotificationTemplateTypeDef]
+    RecommenderId: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    TemplateDescription: NotRequired[str]
+    Version: NotRequired[str]
+
+class DeleteEmailChannelResponseTypeDef(TypedDict):
+    EmailChannelResponse: EmailChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEmailChannelResponseTypeDef(TypedDict):
+    EmailChannelResponse: EmailChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEmailChannelResponseTypeDef(TypedDict):
+    EmailChannelResponse: EmailChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteEmailTemplateResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteInAppTemplateResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeletePushTemplateResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSmsTemplateResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVoiceTemplateResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEmailTemplateResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEndpointResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEndpointsBatchResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateInAppTemplateResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePushTemplateResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSmsTemplateResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTemplateActiveVersionResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVoiceTemplateResponseTypeDef(TypedDict):
+    MessageBody: MessageBodyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteEventStreamResponseTypeDef(TypedDict):
+    EventStream: EventStreamTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEventStreamResponseTypeDef(TypedDict):
+    EventStream: EventStreamTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutEventStreamResponseTypeDef(TypedDict):
+    EventStream: EventStreamTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteGcmChannelResponseTypeDef(TypedDict):
+    GCMChannelResponse: GCMChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGcmChannelResponseTypeDef(TypedDict):
+    GCMChannelResponse: GCMChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGcmChannelResponseTypeDef(TypedDict):
+    GCMChannelResponse: GCMChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSmsChannelResponseTypeDef(TypedDict):
+    SMSChannelResponse: SMSChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSmsChannelResponseTypeDef(TypedDict):
+    SMSChannelResponse: SMSChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSmsChannelResponseTypeDef(TypedDict):
+    SMSChannelResponse: SMSChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVoiceChannelResponseTypeDef(TypedDict):
+    VoiceChannelResponse: VoiceChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceChannelResponseTypeDef(TypedDict):
+    VoiceChannelResponse: VoiceChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVoiceChannelResponseTypeDef(TypedDict):
+    VoiceChannelResponse: VoiceChannelResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEmailChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+    EmailChannelRequest: EmailChannelRequestTypeDef
+
+class EmailMessageActivityTypeDef(TypedDict):
+    MessageConfig: NotRequired[JourneyEmailMessageTypeDef]
+    NextActivity: NotRequired[str]
+    TemplateName: NotRequired[str]
+    TemplateVersion: NotRequired[str]
+
+class SendUsersMessageResponseTypeDef(TypedDict):
+    ApplicationId: str
+    RequestId: NotRequired[str]
+    Result: NotRequired[Dict[str, Dict[str, EndpointMessageResultTypeDef]]]
+
+class EndpointResponseTypeDef(TypedDict):
+    Address: NotRequired[str]
+    ApplicationId: NotRequired[str]
+    Attributes: NotRequired[Dict[str, List[str]]]
+    ChannelType: NotRequired[ChannelTypeType]
+    CohortId: NotRequired[str]
+    CreationDate: NotRequired[str]
+    Demographic: NotRequired[EndpointDemographicTypeDef]
+    EffectiveDate: NotRequired[str]
+    EndpointStatus: NotRequired[str]
+    Id: NotRequired[str]
+    Location: NotRequired[EndpointLocationTypeDef]
+    Metrics: NotRequired[Dict[str, float]]
+    OptOut: NotRequired[str]
+    RequestId: NotRequired[str]
+    User: NotRequired[EndpointUserOutputTypeDef]
+
+EndpointUserUnionTypeDef = Union[EndpointUserTypeDef, EndpointUserOutputTypeDef]
+
+class EventDimensionsOutputTypeDef(TypedDict):
+    Attributes: NotRequired[Dict[str, AttributeDimensionOutputTypeDef]]
+    EventType: NotRequired[SetDimensionOutputTypeDef]
+    Metrics: NotRequired[Dict[str, MetricDimensionTypeDef]]
+
+class SegmentDemographicsOutputTypeDef(TypedDict):
+    AppVersion: NotRequired[SetDimensionOutputTypeDef]
+    Channel: NotRequired[SetDimensionOutputTypeDef]
+    DeviceType: NotRequired[SetDimensionOutputTypeDef]
+    Make: NotRequired[SetDimensionOutputTypeDef]
+    Model: NotRequired[SetDimensionOutputTypeDef]
+    Platform: NotRequired[SetDimensionOutputTypeDef]
+
+class ItemResponseTypeDef(TypedDict):
+    EndpointItemResponse: NotRequired[EndpointItemResponseTypeDef]
+    EventsItemResponse: NotRequired[Dict[str, EventItemResponseTypeDef]]
+
+class EventTypeDef(TypedDict):
+    EventType: str
+    Timestamp: str
+    AppPackageName: NotRequired[str]
+    AppTitle: NotRequired[str]
+    AppVersionCode: NotRequired[str]
+    Attributes: NotRequired[Mapping[str, str]]
+    ClientSdkVersion: NotRequired[str]
+    Metrics: NotRequired[Mapping[str, float]]
+    SdkName: NotRequired[str]
+    Session: NotRequired[SessionTypeDef]
+
+ExportJobResponseTypeDef = TypedDict(
+    "ExportJobResponseTypeDef",
     {
         "ApplicationId": str,
         "CreationDate": str,
-        "Enabled": bool,
-        "HasCredential": bool,
+        "Definition": ExportJobResourceTypeDef,
         "Id": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "PromotionalMessagesPerSecond": int,
-        "SenderId": str,
-        "ShortCode": str,
-        "TransactionalMessagesPerSecond": int,
-        "Version": int,
+        "JobStatus": JobStatusType,
+        "Type": str,
+        "CompletedPieces": NotRequired[int],
+        "CompletionDate": NotRequired[str],
+        "FailedPieces": NotRequired[int],
+        "Failures": NotRequired[List[str]],
+        "TotalFailures": NotRequired[int],
+        "TotalPieces": NotRequired[int],
+        "TotalProcessed": NotRequired[int],
     },
-    total=False,
 )
 
-class SMSChannelResponseTypeDef(
-    _RequiredSMSChannelResponseTypeDef, _OptionalSMSChannelResponseTypeDef
-):
-    pass
+class UpdateGcmChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+    GCMChannelRequest: GCMChannelRequestTypeDef
 
-SMSMessageActivityTypeDef = TypedDict(
-    "SMSMessageActivityTypeDef",
-    {
-        "MessageConfig": "JourneySMSMessageTypeDef",
-        "NextActivity": str,
-        "TemplateName": str,
-        "TemplateVersion": str,
-    },
-    total=False,
-)
+class GPSPointDimensionTypeDef(TypedDict):
+    Coordinates: GPSCoordinatesTypeDef
+    RangeInKilometers: NotRequired[float]
 
-SMSMessageTypeDef = TypedDict(
-    "SMSMessageTypeDef",
-    {
-        "Body": str,
-        "Keyword": str,
-        "MediaUrl": str,
-        "MessageType": MessageTypeType,
-        "OriginationNumber": str,
-        "SenderId": str,
-        "Substitutions": Dict[str, List[str]],
-        "EntityId": str,
-        "TemplateId": str,
-    },
-    total=False,
-)
+class GetApplicationDateRangeKpiRequestTypeDef(TypedDict):
+    ApplicationId: str
+    KpiName: str
+    EndTime: NotRequired[TimestampTypeDef]
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[str]
+    StartTime: NotRequired[TimestampTypeDef]
 
-SMSTemplateRequestTypeDef = TypedDict(
-    "SMSTemplateRequestTypeDef",
-    {
-        "Body": str,
-        "DefaultSubstitutions": str,
-        "RecommenderId": str,
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-    },
-    total=False,
-)
+class GetCampaignDateRangeKpiRequestTypeDef(TypedDict):
+    ApplicationId: str
+    CampaignId: str
+    KpiName: str
+    EndTime: NotRequired[TimestampTypeDef]
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[str]
+    StartTime: NotRequired[TimestampTypeDef]
 
-_RequiredSMSTemplateResponseTypeDef = TypedDict(
-    "_RequiredSMSTemplateResponseTypeDef",
+class GetJourneyDateRangeKpiRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyId: str
+    KpiName: str
+    EndTime: NotRequired[TimestampTypeDef]
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[str]
+    StartTime: NotRequired[TimestampTypeDef]
+
+class JourneyScheduleTypeDef(TypedDict):
+    EndTime: NotRequired[TimestampTypeDef]
+    StartTime: NotRequired[TimestampTypeDef]
+    Timezone: NotRequired[str]
+
+class GetJourneyExecutionActivityMetricsResponseTypeDef(TypedDict):
+    JourneyExecutionActivityMetricsResponse: JourneyExecutionActivityMetricsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetJourneyExecutionMetricsResponseTypeDef(TypedDict):
+    JourneyExecutionMetricsResponse: JourneyExecutionMetricsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetJourneyRunExecutionActivityMetricsResponseTypeDef(TypedDict):
+    JourneyRunExecutionActivityMetricsResponse: JourneyRunExecutionActivityMetricsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetJourneyRunExecutionMetricsResponseTypeDef(TypedDict):
+    JourneyRunExecutionMetricsResponse: JourneyRunExecutionMetricsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSmsTemplateResponseTypeDef(TypedDict):
+    SMSTemplateResponse: SMSTemplateResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceTemplateResponseTypeDef(TypedDict):
+    VoiceTemplateResponse: VoiceTemplateResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ImportJobResponseTypeDef = TypedDict(
+    "ImportJobResponseTypeDef",
     {
+        "ApplicationId": str,
         "CreationDate": str,
-        "LastModifiedDate": str,
-        "TemplateName": str,
-        "TemplateType": TemplateTypeType,
-    },
-)
-_OptionalSMSTemplateResponseTypeDef = TypedDict(
-    "_OptionalSMSTemplateResponseTypeDef",
-    {
-        "Arn": str,
-        "Body": str,
-        "DefaultSubstitutions": str,
-        "RecommenderId": str,
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-class SMSTemplateResponseTypeDef(
-    _RequiredSMSTemplateResponseTypeDef, _OptionalSMSTemplateResponseTypeDef
-):
-    pass
-
-_RequiredScheduleTypeDef = TypedDict(
-    "_RequiredScheduleTypeDef",
-    {
-        "StartTime": str,
-    },
-)
-_OptionalScheduleTypeDef = TypedDict(
-    "_OptionalScheduleTypeDef",
-    {
-        "EndTime": str,
-        "EventFilter": "CampaignEventFilterTypeDef",
-        "Frequency": FrequencyType,
-        "IsLocalTime": bool,
-        "QuietTime": "QuietTimeTypeDef",
-        "Timezone": str,
-    },
-    total=False,
-)
-
-class ScheduleTypeDef(_RequiredScheduleTypeDef, _OptionalScheduleTypeDef):
-    pass
-
-SegmentBehaviorsTypeDef = TypedDict(
-    "SegmentBehaviorsTypeDef",
-    {
-        "Recency": "RecencyDimensionTypeDef",
-    },
-    total=False,
-)
-
-SegmentConditionTypeDef = TypedDict(
-    "SegmentConditionTypeDef",
-    {
-        "SegmentId": str,
+        "Definition": ImportJobResourceTypeDef,
+        "Id": str,
+        "JobStatus": JobStatusType,
+        "Type": str,
+        "CompletedPieces": NotRequired[int],
+        "CompletionDate": NotRequired[str],
+        "FailedPieces": NotRequired[int],
+        "Failures": NotRequired[List[str]],
+        "TotalFailures": NotRequired[int],
+        "TotalPieces": NotRequired[int],
+        "TotalProcessed": NotRequired[int],
     },
 )
 
-SegmentDemographicsTypeDef = TypedDict(
-    "SegmentDemographicsTypeDef",
+class InAppMessageButtonTypeDef(TypedDict):
+    Android: NotRequired[OverrideButtonConfigurationTypeDef]
+    DefaultConfig: NotRequired[DefaultButtonConfigurationTypeDef]
+    IOS: NotRequired[OverrideButtonConfigurationTypeDef]
+    Web: NotRequired[OverrideButtonConfigurationTypeDef]
+
+class PushMessageActivityTypeDef(TypedDict):
+    MessageConfig: NotRequired[JourneyPushMessageTypeDef]
+    NextActivity: NotRequired[str]
+    TemplateName: NotRequired[str]
+    TemplateVersion: NotRequired[str]
+
+class JourneyRunsResponseTypeDef(TypedDict):
+    Item: List[JourneyRunResponseTypeDef]
+    NextToken: NotRequired[str]
+
+class SMSMessageActivityTypeDef(TypedDict):
+    MessageConfig: NotRequired[JourneySMSMessageTypeDef]
+    NextActivity: NotRequired[str]
+    TemplateName: NotRequired[str]
+    TemplateVersion: NotRequired[str]
+
+class UpdateJourneyStateRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyId: str
+    JourneyStateRequest: JourneyStateRequestTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    TagsModel: TagsModelOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MessageResponseTypeDef(TypedDict):
+    ApplicationId: str
+    EndpointResult: NotRequired[Dict[str, EndpointMessageResultTypeDef]]
+    RequestId: NotRequired[str]
+    Result: NotRequired[Dict[str, MessageResultTypeDef]]
+
+class PhoneNumberValidateRequestTypeDef(TypedDict):
+    NumberValidateRequest: NumberValidateRequestTypeDef
+
+class PhoneNumberValidateResponseTypeDef(TypedDict):
+    NumberValidateResponse: NumberValidateResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OpenHoursOutputTypeDef(TypedDict):
+    EMAIL: NotRequired[Dict[DayOfWeekType, List[OpenHoursRuleTypeDef]]]
+    SMS: NotRequired[Dict[DayOfWeekType, List[OpenHoursRuleTypeDef]]]
+    PUSH: NotRequired[Dict[DayOfWeekType, List[OpenHoursRuleTypeDef]]]
+    VOICE: NotRequired[Dict[DayOfWeekType, List[OpenHoursRuleTypeDef]]]
+    CUSTOM: NotRequired[Dict[DayOfWeekType, List[OpenHoursRuleTypeDef]]]
+
+class OpenHoursTypeDef(TypedDict):
+    EMAIL: NotRequired[Mapping[DayOfWeekType, Sequence[OpenHoursRuleTypeDef]]]
+    SMS: NotRequired[Mapping[DayOfWeekType, Sequence[OpenHoursRuleTypeDef]]]
+    PUSH: NotRequired[Mapping[DayOfWeekType, Sequence[OpenHoursRuleTypeDef]]]
+    VOICE: NotRequired[Mapping[DayOfWeekType, Sequence[OpenHoursRuleTypeDef]]]
+    CUSTOM: NotRequired[Mapping[DayOfWeekType, Sequence[OpenHoursRuleTypeDef]]]
+
+class PutEventStreamRequestTypeDef(TypedDict):
+    ApplicationId: str
+    WriteEventStream: WriteEventStreamTypeDef
+
+class RandomSplitActivityOutputTypeDef(TypedDict):
+    Branches: NotRequired[List[RandomSplitEntryTypeDef]]
+
+class RandomSplitActivityTypeDef(TypedDict):
+    Branches: NotRequired[Sequence[RandomSplitEntryTypeDef]]
+
+class SegmentBehaviorsTypeDef(TypedDict):
+    Recency: NotRequired[RecencyDimensionTypeDef]
+
+class RemoveAttributesRequestTypeDef(TypedDict):
+    ApplicationId: str
+    AttributeType: str
+    UpdateAttributesRequest: UpdateAttributesRequestTypeDef
+
+class ResultRowTypeDef(TypedDict):
+    GroupedBys: List[ResultRowValueTypeDef]
+    Values: List[ResultRowValueTypeDef]
+
+class UpdateSmsChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SMSChannelRequest: SMSChannelRequestTypeDef
+
+class SendOTPMessageRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SendOTPMessageRequestParameters: SendOTPMessageRequestParametersTypeDef
+
+SetDimensionUnionTypeDef = Union[SetDimensionTypeDef, SetDimensionOutputTypeDef]
+
+class SimpleEmailTypeDef(TypedDict):
+    HtmlPart: NotRequired[SimpleEmailPartTypeDef]
+    Subject: NotRequired[SimpleEmailPartTypeDef]
+    TextPart: NotRequired[SimpleEmailPartTypeDef]
+    Headers: NotRequired[Sequence[MessageHeaderTypeDef]]
+
+TagsModelUnionTypeDef = Union[TagsModelTypeDef, TagsModelOutputTypeDef]
+
+class UpdateTemplateActiveVersionRequestTypeDef(TypedDict):
+    TemplateActiveVersionRequest: TemplateActiveVersionRequestTypeDef
+    TemplateName: str
+    TemplateType: str
+
+class TemplateConfigurationTypeDef(TypedDict):
+    EmailTemplate: NotRequired[TemplateTypeDef]
+    PushTemplate: NotRequired[TemplateTypeDef]
+    SMSTemplate: NotRequired[TemplateTypeDef]
+    VoiceTemplate: NotRequired[TemplateTypeDef]
+    InAppTemplate: NotRequired[TemplateTypeDef]
+
+class TemplatesResponseTypeDef(TypedDict):
+    Item: List[TemplateResponseTypeDef]
+    NextToken: NotRequired[str]
+
+class TemplateVersionsResponseTypeDef(TypedDict):
+    Item: List[TemplateVersionResponseTypeDef]
+    Message: NotRequired[str]
+    NextToken: NotRequired[str]
+    RequestID: NotRequired[str]
+
+class UpdateRecommenderConfigurationRequestTypeDef(TypedDict):
+    RecommenderId: str
+    UpdateRecommenderConfiguration: UpdateRecommenderConfigurationTypeDef
+
+class UpdateVoiceChannelRequestTypeDef(TypedDict):
+    ApplicationId: str
+    VoiceChannelRequest: VoiceChannelRequestTypeDef
+
+class VerifyOTPMessageResponseTypeDef(TypedDict):
+    VerificationResponse: VerificationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class VerifyOTPMessageRequestTypeDef(TypedDict):
+    ApplicationId: str
+    VerifyOTPMessageRequestParameters: VerifyOTPMessageRequestParametersTypeDef
+
+class GetCampaignActivitiesResponseTypeDef(TypedDict):
+    ActivitiesResponse: ActivitiesResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAppsResponseTypeDef(TypedDict):
+    ApplicationsResponse: ApplicationsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ApplicationSettingsResourceTypeDef(TypedDict):
+    ApplicationId: str
+    CampaignHook: NotRequired[CampaignHookTypeDef]
+    LastModifiedDate: NotRequired[str]
+    Limits: NotRequired[CampaignLimitsTypeDef]
+    QuietTime: NotRequired[QuietTimeTypeDef]
+    JourneyLimits: NotRequired[ApplicationSettingsJourneyLimitsTypeDef]
+
+class WriteApplicationSettingsRequestTypeDef(TypedDict):
+    CampaignHook: NotRequired[CampaignHookTypeDef]
+    CloudWatchMetricsEnabled: NotRequired[bool]
+    EventTaggingEnabled: NotRequired[bool]
+    Limits: NotRequired[CampaignLimitsTypeDef]
+    QuietTime: NotRequired[QuietTimeTypeDef]
+    JourneyLimits: NotRequired[ApplicationSettingsJourneyLimitsTypeDef]
+
+CampaignEmailMessageUnionTypeDef = Union[
+    CampaignEmailMessageTypeDef, CampaignEmailMessageOutputTypeDef
+]
+
+class CreateEmailTemplateRequestTypeDef(TypedDict):
+    EmailTemplateRequest: EmailTemplateRequestTypeDef
+    TemplateName: str
+
+class UpdateEmailTemplateRequestTypeDef(TypedDict):
+    EmailTemplateRequest: EmailTemplateRequestTypeDef
+    TemplateName: str
+    CreateNewVersion: NotRequired[bool]
+    Version: NotRequired[str]
+
+class GetEmailTemplateResponseTypeDef(TypedDict):
+    EmailTemplateResponse: EmailTemplateResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetChannelsResponseTypeDef(TypedDict):
+    ChannelsResponse: ChannelsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ClosedDaysUnionTypeDef = Union[ClosedDaysTypeDef, ClosedDaysOutputTypeDef]
+
+class GetRecommenderConfigurationsResponseTypeDef(TypedDict):
+    ListRecommenderConfigurationsResponse: ListRecommenderConfigurationsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CustomMessageActivityUnionTypeDef = Union[
+    CustomMessageActivityTypeDef, CustomMessageActivityOutputTypeDef
+]
+
+class CreatePushTemplateRequestTypeDef(TypedDict):
+    PushNotificationTemplateRequest: PushNotificationTemplateRequestTypeDef
+    TemplateName: str
+
+class UpdatePushTemplateRequestTypeDef(TypedDict):
+    PushNotificationTemplateRequest: PushNotificationTemplateRequestTypeDef
+    TemplateName: str
+    CreateNewVersion: NotRequired[bool]
+    Version: NotRequired[str]
+
+class GetPushTemplateResponseTypeDef(TypedDict):
+    PushNotificationTemplateResponse: PushNotificationTemplateResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SendUsersMessagesResponseTypeDef(TypedDict):
+    SendUsersMessageResponse: SendUsersMessageResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteEndpointResponseTypeDef(TypedDict):
+    EndpointResponse: EndpointResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EndpointsResponseTypeDef(TypedDict):
+    Item: List[EndpointResponseTypeDef]
+
+class GetEndpointResponseTypeDef(TypedDict):
+    EndpointResponse: EndpointResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EndpointBatchItemTypeDef(TypedDict):
+    Address: NotRequired[str]
+    Attributes: NotRequired[Mapping[str, Sequence[str]]]
+    ChannelType: NotRequired[ChannelTypeType]
+    Demographic: NotRequired[EndpointDemographicTypeDef]
+    EffectiveDate: NotRequired[str]
+    EndpointStatus: NotRequired[str]
+    Id: NotRequired[str]
+    Location: NotRequired[EndpointLocationTypeDef]
+    Metrics: NotRequired[Mapping[str, float]]
+    OptOut: NotRequired[str]
+    RequestId: NotRequired[str]
+    User: NotRequired[EndpointUserUnionTypeDef]
+
+class EndpointRequestTypeDef(TypedDict):
+    Address: NotRequired[str]
+    Attributes: NotRequired[Mapping[str, Sequence[str]]]
+    ChannelType: NotRequired[ChannelTypeType]
+    Demographic: NotRequired[EndpointDemographicTypeDef]
+    EffectiveDate: NotRequired[str]
+    EndpointStatus: NotRequired[str]
+    Location: NotRequired[EndpointLocationTypeDef]
+    Metrics: NotRequired[Mapping[str, float]]
+    OptOut: NotRequired[str]
+    RequestId: NotRequired[str]
+    User: NotRequired[EndpointUserUnionTypeDef]
+
+class PublicEndpointTypeDef(TypedDict):
+    Address: NotRequired[str]
+    Attributes: NotRequired[Mapping[str, Sequence[str]]]
+    ChannelType: NotRequired[ChannelTypeType]
+    Demographic: NotRequired[EndpointDemographicTypeDef]
+    EffectiveDate: NotRequired[str]
+    EndpointStatus: NotRequired[str]
+    Location: NotRequired[EndpointLocationTypeDef]
+    Metrics: NotRequired[Mapping[str, float]]
+    OptOut: NotRequired[str]
+    RequestId: NotRequired[str]
+    User: NotRequired[EndpointUserUnionTypeDef]
+
+class CampaignEventFilterOutputTypeDef(TypedDict):
+    Dimensions: EventDimensionsOutputTypeDef
+    FilterType: FilterTypeType
+
+class EventConditionOutputTypeDef(TypedDict):
+    Dimensions: NotRequired[EventDimensionsOutputTypeDef]
+    MessageActivity: NotRequired[str]
+
+class EventFilterOutputTypeDef(TypedDict):
+    Dimensions: EventDimensionsOutputTypeDef
+    FilterType: FilterTypeType
+
+class EventsResponseTypeDef(TypedDict):
+    Results: NotRequired[Dict[str, ItemResponseTypeDef]]
+
+class CreateExportJobResponseTypeDef(TypedDict):
+    ExportJobResponse: ExportJobResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportJobsResponseTypeDef(TypedDict):
+    Item: List[ExportJobResponseTypeDef]
+    NextToken: NotRequired[str]
+
+class GetExportJobResponseTypeDef(TypedDict):
+    ExportJobResponse: ExportJobResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SegmentLocationOutputTypeDef(TypedDict):
+    Country: NotRequired[SetDimensionOutputTypeDef]
+    GPSPoint: NotRequired[GPSPointDimensionTypeDef]
+
+JourneyScheduleUnionTypeDef = Union[JourneyScheduleTypeDef, JourneyScheduleOutputTypeDef]
+
+class CreateImportJobResponseTypeDef(TypedDict):
+    ImportJobResponse: ImportJobResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetImportJobResponseTypeDef(TypedDict):
+    ImportJobResponse: ImportJobResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportJobsResponseTypeDef(TypedDict):
+    Item: List[ImportJobResponseTypeDef]
+    NextToken: NotRequired[str]
+
+class InAppMessageContentTypeDef(TypedDict):
+    BackgroundColor: NotRequired[str]
+    BodyConfig: NotRequired[InAppMessageBodyConfigTypeDef]
+    HeaderConfig: NotRequired[InAppMessageHeaderConfigTypeDef]
+    ImageUrl: NotRequired[str]
+    PrimaryBtn: NotRequired[InAppMessageButtonTypeDef]
+    SecondaryBtn: NotRequired[InAppMessageButtonTypeDef]
+
+class GetJourneyRunsResponseTypeDef(TypedDict):
+    JourneyRunsResponse: JourneyRunsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SendMessagesResponseTypeDef(TypedDict):
+    MessageResponse: MessageResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SendOTPMessageResponseTypeDef(TypedDict):
+    MessageResponse: MessageResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+OpenHoursUnionTypeDef = Union[OpenHoursTypeDef, OpenHoursOutputTypeDef]
+RandomSplitActivityUnionTypeDef = Union[
+    RandomSplitActivityTypeDef, RandomSplitActivityOutputTypeDef
+]
+
+class BaseKpiResultTypeDef(TypedDict):
+    Rows: List[ResultRowTypeDef]
+
+class EventDimensionsTypeDef(TypedDict):
+    Attributes: NotRequired[Mapping[str, AttributeDimensionUnionTypeDef]]
+    EventType: NotRequired[SetDimensionUnionTypeDef]
+    Metrics: NotRequired[Mapping[str, MetricDimensionTypeDef]]
+
+class SegmentDemographicsTypeDef(TypedDict):
+    AppVersion: NotRequired[SetDimensionUnionTypeDef]
+    Channel: NotRequired[SetDimensionUnionTypeDef]
+    DeviceType: NotRequired[SetDimensionUnionTypeDef]
+    Make: NotRequired[SetDimensionUnionTypeDef]
+    Model: NotRequired[SetDimensionUnionTypeDef]
+    Platform: NotRequired[SetDimensionUnionTypeDef]
+
+class SegmentLocationTypeDef(TypedDict):
+    Country: NotRequired[SetDimensionUnionTypeDef]
+    GPSPoint: NotRequired[GPSPointDimensionTypeDef]
+
+class EmailMessageTypeDef(TypedDict):
+    Body: NotRequired[str]
+    FeedbackForwardingAddress: NotRequired[str]
+    FromAddress: NotRequired[str]
+    RawEmail: NotRequired[RawEmailTypeDef]
+    ReplyToAddresses: NotRequired[Sequence[str]]
+    SimpleEmail: NotRequired[SimpleEmailTypeDef]
+    Substitutions: NotRequired[Mapping[str, Sequence[str]]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagsModel: TagsModelUnionTypeDef
+
+class ListTemplatesResponseTypeDef(TypedDict):
+    TemplatesResponse: TemplatesResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTemplateVersionsResponseTypeDef(TypedDict):
+    TemplateVersionsResponse: TemplateVersionsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApplicationSettingsResponseTypeDef(TypedDict):
+    ApplicationSettingsResource: ApplicationSettingsResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApplicationSettingsResponseTypeDef(TypedDict):
+    ApplicationSettingsResource: ApplicationSettingsResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApplicationSettingsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    WriteApplicationSettingsRequest: WriteApplicationSettingsRequestTypeDef
+
+class DeleteUserEndpointsResponseTypeDef(TypedDict):
+    EndpointsResponse: EndpointsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUserEndpointsResponseTypeDef(TypedDict):
+    EndpointsResponse: EndpointsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EndpointBatchRequestTypeDef(TypedDict):
+    Item: Sequence[EndpointBatchItemTypeDef]
+
+class UpdateEndpointRequestTypeDef(TypedDict):
+    ApplicationId: str
+    EndpointId: str
+    EndpointRequest: EndpointRequestTypeDef
+
+class EventsBatchTypeDef(TypedDict):
+    Endpoint: PublicEndpointTypeDef
+    Events: Mapping[str, EventTypeDef]
+
+class InAppCampaignScheduleTypeDef(TypedDict):
+    EndDate: NotRequired[str]
+    EventFilter: NotRequired[CampaignEventFilterOutputTypeDef]
+    QuietTime: NotRequired[QuietTimeTypeDef]
+
+class ScheduleOutputTypeDef(TypedDict):
+    StartTime: str
+    EndTime: NotRequired[str]
+    EventFilter: NotRequired[CampaignEventFilterOutputTypeDef]
+    Frequency: NotRequired[FrequencyType]
+    IsLocalTime: NotRequired[bool]
+    QuietTime: NotRequired[QuietTimeTypeDef]
+    Timezone: NotRequired[str]
+
+class EventStartConditionOutputTypeDef(TypedDict):
+    EventFilter: NotRequired[EventFilterOutputTypeDef]
+    SegmentId: NotRequired[str]
+
+class PutEventsResponseTypeDef(TypedDict):
+    EventsResponse: EventsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetExportJobsResponseTypeDef(TypedDict):
+    ExportJobsResponse: ExportJobsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSegmentExportJobsResponseTypeDef(TypedDict):
+    ExportJobsResponse: ExportJobsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SegmentDimensionsOutputTypeDef(TypedDict):
+    Attributes: NotRequired[Dict[str, AttributeDimensionOutputTypeDef]]
+    Behavior: NotRequired[SegmentBehaviorsTypeDef]
+    Demographic: NotRequired[SegmentDemographicsOutputTypeDef]
+    Location: NotRequired[SegmentLocationOutputTypeDef]
+    Metrics: NotRequired[Dict[str, MetricDimensionTypeDef]]
+    UserAttributes: NotRequired[Dict[str, AttributeDimensionOutputTypeDef]]
+
+class GetImportJobsResponseTypeDef(TypedDict):
+    ImportJobsResponse: ImportJobsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSegmentImportJobsResponseTypeDef(TypedDict):
+    ImportJobsResponse: ImportJobsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CampaignInAppMessageOutputTypeDef(TypedDict):
+    Body: NotRequired[str]
+    Content: NotRequired[List[InAppMessageContentTypeDef]]
+    CustomConfig: NotRequired[Dict[str, str]]
+    Layout: NotRequired[LayoutType]
+
+class CampaignInAppMessageTypeDef(TypedDict):
+    Body: NotRequired[str]
+    Content: NotRequired[Sequence[InAppMessageContentTypeDef]]
+    CustomConfig: NotRequired[Mapping[str, str]]
+    Layout: NotRequired[LayoutType]
+
+class InAppMessageTypeDef(TypedDict):
+    Content: NotRequired[List[InAppMessageContentTypeDef]]
+    CustomConfig: NotRequired[Dict[str, str]]
+    Layout: NotRequired[LayoutType]
+
+class InAppTemplateRequestTypeDef(TypedDict):
+    Content: NotRequired[Sequence[InAppMessageContentTypeDef]]
+    CustomConfig: NotRequired[Mapping[str, str]]
+    Layout: NotRequired[LayoutType]
+    tags: NotRequired[Mapping[str, str]]
+    TemplateDescription: NotRequired[str]
+
+class InAppTemplateResponseTypeDef(TypedDict):
+    CreationDate: str
+    LastModifiedDate: str
+    TemplateName: str
+    TemplateType: TemplateTypeType
+    Arn: NotRequired[str]
+    Content: NotRequired[List[InAppMessageContentTypeDef]]
+    CustomConfig: NotRequired[Dict[str, str]]
+    Layout: NotRequired[LayoutType]
+    tags: NotRequired[Dict[str, str]]
+    TemplateDescription: NotRequired[str]
+    Version: NotRequired[str]
+
+class ApplicationDateRangeKpiResponseTypeDef(TypedDict):
+    ApplicationId: str
+    EndTime: datetime
+    KpiName: str
+    KpiResult: BaseKpiResultTypeDef
+    StartTime: datetime
+    NextToken: NotRequired[str]
+
+class CampaignDateRangeKpiResponseTypeDef(TypedDict):
+    ApplicationId: str
+    CampaignId: str
+    EndTime: datetime
+    KpiName: str
+    KpiResult: BaseKpiResultTypeDef
+    StartTime: datetime
+    NextToken: NotRequired[str]
+
+class JourneyDateRangeKpiResponseTypeDef(TypedDict):
+    ApplicationId: str
+    EndTime: datetime
+    JourneyId: str
+    KpiName: str
+    KpiResult: BaseKpiResultTypeDef
+    StartTime: datetime
+    NextToken: NotRequired[str]
+
+EventDimensionsUnionTypeDef = Union[EventDimensionsTypeDef, EventDimensionsOutputTypeDef]
+SegmentDemographicsUnionTypeDef = Union[
+    SegmentDemographicsTypeDef, SegmentDemographicsOutputTypeDef
+]
+SegmentLocationUnionTypeDef = Union[SegmentLocationTypeDef, SegmentLocationOutputTypeDef]
+
+class DirectMessageConfigurationTypeDef(TypedDict):
+    ADMMessage: NotRequired[ADMMessageTypeDef]
+    APNSMessage: NotRequired[APNSMessageTypeDef]
+    BaiduMessage: NotRequired[BaiduMessageTypeDef]
+    DefaultMessage: NotRequired[DefaultMessageTypeDef]
+    DefaultPushNotificationMessage: NotRequired[DefaultPushNotificationMessageTypeDef]
+    EmailMessage: NotRequired[EmailMessageTypeDef]
+    GCMMessage: NotRequired[GCMMessageTypeDef]
+    SMSMessage: NotRequired[SMSMessageTypeDef]
+    VoiceMessage: NotRequired[VoiceMessageTypeDef]
+
+class UpdateEndpointsBatchRequestTypeDef(TypedDict):
+    ApplicationId: str
+    EndpointBatchRequest: EndpointBatchRequestTypeDef
+
+class EventsRequestTypeDef(TypedDict):
+    BatchItem: Mapping[str, EventsBatchTypeDef]
+
+class StartConditionOutputTypeDef(TypedDict):
+    Description: NotRequired[str]
+    EventStartCondition: NotRequired[EventStartConditionOutputTypeDef]
+    SegmentStartCondition: NotRequired[SegmentConditionTypeDef]
+
+SegmentGroupOutputTypeDef = TypedDict(
+    "SegmentGroupOutputTypeDef",
     {
-        "AppVersion": "SetDimensionTypeDef",
-        "Channel": "SetDimensionTypeDef",
-        "DeviceType": "SetDimensionTypeDef",
-        "Make": "SetDimensionTypeDef",
-        "Model": "SetDimensionTypeDef",
-        "Platform": "SetDimensionTypeDef",
+        "Dimensions": NotRequired[List[SegmentDimensionsOutputTypeDef]],
+        "SourceSegments": NotRequired[List[SegmentReferenceTypeDef]],
+        "SourceType": NotRequired[SourceTypeType],
+        "Type": NotRequired[TypeType],
     },
-    total=False,
 )
 
-SegmentDimensionsTypeDef = TypedDict(
-    "SegmentDimensionsTypeDef",
-    {
-        "Attributes": Dict[str, "AttributeDimensionTypeDef"],
-        "Behavior": "SegmentBehaviorsTypeDef",
-        "Demographic": "SegmentDemographicsTypeDef",
-        "Location": "SegmentLocationTypeDef",
-        "Metrics": Dict[str, "MetricDimensionTypeDef"],
-        "UserAttributes": Dict[str, "AttributeDimensionTypeDef"],
-    },
-    total=False,
-)
+class SimpleConditionOutputTypeDef(TypedDict):
+    EventCondition: NotRequired[EventConditionOutputTypeDef]
+    SegmentCondition: NotRequired[SegmentConditionTypeDef]
+    SegmentDimensions: NotRequired[SegmentDimensionsOutputTypeDef]
 
-SegmentGroupListTypeDef = TypedDict(
-    "SegmentGroupListTypeDef",
-    {
-        "Groups": List["SegmentGroupTypeDef"],
-        "Include": IncludeType,
-    },
-    total=False,
-)
+class MessageConfigurationOutputTypeDef(TypedDict):
+    ADMMessage: NotRequired[MessageTypeDef]
+    APNSMessage: NotRequired[MessageTypeDef]
+    BaiduMessage: NotRequired[MessageTypeDef]
+    CustomMessage: NotRequired[CampaignCustomMessageTypeDef]
+    DefaultMessage: NotRequired[MessageTypeDef]
+    EmailMessage: NotRequired[CampaignEmailMessageOutputTypeDef]
+    GCMMessage: NotRequired[MessageTypeDef]
+    SMSMessage: NotRequired[CampaignSmsMessageTypeDef]
+    InAppMessage: NotRequired[CampaignInAppMessageOutputTypeDef]
+
+CampaignInAppMessageUnionTypeDef = Union[
+    CampaignInAppMessageTypeDef, CampaignInAppMessageOutputTypeDef
+]
+
+class InAppMessageCampaignTypeDef(TypedDict):
+    CampaignId: NotRequired[str]
+    DailyCap: NotRequired[int]
+    InAppMessage: NotRequired[InAppMessageTypeDef]
+    Priority: NotRequired[int]
+    Schedule: NotRequired[InAppCampaignScheduleTypeDef]
+    SessionCap: NotRequired[int]
+    TotalCap: NotRequired[int]
+    TreatmentId: NotRequired[str]
+
+class CreateInAppTemplateRequestTypeDef(TypedDict):
+    InAppTemplateRequest: InAppTemplateRequestTypeDef
+    TemplateName: str
+
+class UpdateInAppTemplateRequestTypeDef(TypedDict):
+    InAppTemplateRequest: InAppTemplateRequestTypeDef
+    TemplateName: str
+    CreateNewVersion: NotRequired[bool]
+    Version: NotRequired[str]
+
+class GetInAppTemplateResponseTypeDef(TypedDict):
+    InAppTemplateResponse: InAppTemplateResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApplicationDateRangeKpiResponseTypeDef(TypedDict):
+    ApplicationDateRangeKpiResponse: ApplicationDateRangeKpiResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCampaignDateRangeKpiResponseTypeDef(TypedDict):
+    CampaignDateRangeKpiResponse: CampaignDateRangeKpiResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetJourneyDateRangeKpiResponseTypeDef(TypedDict):
+    JourneyDateRangeKpiResponse: JourneyDateRangeKpiResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CampaignEventFilterTypeDef(TypedDict):
+    Dimensions: EventDimensionsUnionTypeDef
+    FilterType: FilterTypeType
+
+class EventConditionTypeDef(TypedDict):
+    Dimensions: NotRequired[EventDimensionsUnionTypeDef]
+    MessageActivity: NotRequired[str]
+
+class EventFilterTypeDef(TypedDict):
+    Dimensions: EventDimensionsUnionTypeDef
+    FilterType: FilterTypeType
+
+class SegmentDimensionsTypeDef(TypedDict):
+    Attributes: NotRequired[Mapping[str, AttributeDimensionUnionTypeDef]]
+    Behavior: NotRequired[SegmentBehaviorsTypeDef]
+    Demographic: NotRequired[SegmentDemographicsUnionTypeDef]
+    Location: NotRequired[SegmentLocationUnionTypeDef]
+    Metrics: NotRequired[Mapping[str, MetricDimensionTypeDef]]
+    UserAttributes: NotRequired[Mapping[str, AttributeDimensionUnionTypeDef]]
+
+class MessageRequestTypeDef(TypedDict):
+    MessageConfiguration: DirectMessageConfigurationTypeDef
+    Addresses: NotRequired[Mapping[str, AddressConfigurationTypeDef]]
+    Context: NotRequired[Mapping[str, str]]
+    Endpoints: NotRequired[Mapping[str, EndpointSendConfigurationTypeDef]]
+    TemplateConfiguration: NotRequired[TemplateConfigurationTypeDef]
+    TraceId: NotRequired[str]
+
+class SendUsersMessageRequestTypeDef(TypedDict):
+    MessageConfiguration: DirectMessageConfigurationTypeDef
+    Users: Mapping[str, EndpointSendConfigurationTypeDef]
+    Context: NotRequired[Mapping[str, str]]
+    TemplateConfiguration: NotRequired[TemplateConfigurationTypeDef]
+    TraceId: NotRequired[str]
+
+class PutEventsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    EventsRequest: EventsRequestTypeDef
+
+class SegmentGroupListOutputTypeDef(TypedDict):
+    Groups: NotRequired[List[SegmentGroupOutputTypeDef]]
+    Include: NotRequired[IncludeType]
+
+class ConditionOutputTypeDef(TypedDict):
+    Conditions: NotRequired[List[SimpleConditionOutputTypeDef]]
+    Operator: NotRequired[OperatorType]
+
+class MultiConditionalBranchOutputTypeDef(TypedDict):
+    Condition: NotRequired[SimpleConditionOutputTypeDef]
+    NextActivity: NotRequired[str]
+
+class TreatmentResourceTypeDef(TypedDict):
+    Id: str
+    SizePercent: int
+    CustomDeliveryConfiguration: NotRequired[CustomDeliveryConfigurationOutputTypeDef]
+    MessageConfiguration: NotRequired[MessageConfigurationOutputTypeDef]
+    Schedule: NotRequired[ScheduleOutputTypeDef]
+    State: NotRequired[CampaignStateTypeDef]
+    TemplateConfiguration: NotRequired[TemplateConfigurationTypeDef]
+    TreatmentDescription: NotRequired[str]
+    TreatmentName: NotRequired[str]
+
+class MessageConfigurationTypeDef(TypedDict):
+    ADMMessage: NotRequired[MessageTypeDef]
+    APNSMessage: NotRequired[MessageTypeDef]
+    BaiduMessage: NotRequired[MessageTypeDef]
+    CustomMessage: NotRequired[CampaignCustomMessageTypeDef]
+    DefaultMessage: NotRequired[MessageTypeDef]
+    EmailMessage: NotRequired[CampaignEmailMessageUnionTypeDef]
+    GCMMessage: NotRequired[MessageTypeDef]
+    SMSMessage: NotRequired[CampaignSmsMessageTypeDef]
+    InAppMessage: NotRequired[CampaignInAppMessageUnionTypeDef]
+
+class InAppMessagesResponseTypeDef(TypedDict):
+    InAppMessageCampaigns: NotRequired[List[InAppMessageCampaignTypeDef]]
+
+CampaignEventFilterUnionTypeDef = Union[
+    CampaignEventFilterTypeDef, CampaignEventFilterOutputTypeDef
+]
+EventConditionUnionTypeDef = Union[EventConditionTypeDef, EventConditionOutputTypeDef]
+EventFilterUnionTypeDef = Union[EventFilterTypeDef, EventFilterOutputTypeDef]
+SegmentDimensionsUnionTypeDef = Union[SegmentDimensionsTypeDef, SegmentDimensionsOutputTypeDef]
+
+class SendMessagesRequestTypeDef(TypedDict):
+    ApplicationId: str
+    MessageRequest: MessageRequestTypeDef
+
+class SendUsersMessagesRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SendUsersMessageRequest: SendUsersMessageRequestTypeDef
+
+class SegmentResponseTypeDef(TypedDict):
+    ApplicationId: str
+    Arn: str
+    CreationDate: str
+    Id: str
+    SegmentType: SegmentTypeType
+    Dimensions: NotRequired[SegmentDimensionsOutputTypeDef]
+    ImportDefinition: NotRequired[SegmentImportResourceTypeDef]
+    LastModifiedDate: NotRequired[str]
+    Name: NotRequired[str]
+    SegmentGroups: NotRequired[SegmentGroupListOutputTypeDef]
+    tags: NotRequired[Dict[str, str]]
+    Version: NotRequired[int]
+
+class ConditionalSplitActivityOutputTypeDef(TypedDict):
+    Condition: NotRequired[ConditionOutputTypeDef]
+    EvaluationWaitTime: NotRequired[WaitTimeTypeDef]
+    FalseActivity: NotRequired[str]
+    TrueActivity: NotRequired[str]
+
+class MultiConditionalSplitActivityOutputTypeDef(TypedDict):
+    Branches: NotRequired[List[MultiConditionalBranchOutputTypeDef]]
+    DefaultActivity: NotRequired[str]
+    EvaluationWaitTime: NotRequired[WaitTimeTypeDef]
+
+class CampaignResponseTypeDef(TypedDict):
+    ApplicationId: str
+    Arn: str
+    CreationDate: str
+    Id: str
+    LastModifiedDate: str
+    SegmentId: str
+    SegmentVersion: int
+    AdditionalTreatments: NotRequired[List[TreatmentResourceTypeDef]]
+    CustomDeliveryConfiguration: NotRequired[CustomDeliveryConfigurationOutputTypeDef]
+    DefaultState: NotRequired[CampaignStateTypeDef]
+    Description: NotRequired[str]
+    HoldoutPercent: NotRequired[int]
+    Hook: NotRequired[CampaignHookTypeDef]
+    IsPaused: NotRequired[bool]
+    Limits: NotRequired[CampaignLimitsTypeDef]
+    MessageConfiguration: NotRequired[MessageConfigurationOutputTypeDef]
+    Name: NotRequired[str]
+    Schedule: NotRequired[ScheduleOutputTypeDef]
+    State: NotRequired[CampaignStateTypeDef]
+    tags: NotRequired[Dict[str, str]]
+    TemplateConfiguration: NotRequired[TemplateConfigurationTypeDef]
+    TreatmentDescription: NotRequired[str]
+    TreatmentName: NotRequired[str]
+    Version: NotRequired[int]
+    Priority: NotRequired[int]
+
+MessageConfigurationUnionTypeDef = Union[
+    MessageConfigurationTypeDef, MessageConfigurationOutputTypeDef
+]
+
+class GetInAppMessagesResponseTypeDef(TypedDict):
+    InAppMessagesResponse: InAppMessagesResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ScheduleTypeDef(TypedDict):
+    StartTime: str
+    EndTime: NotRequired[str]
+    EventFilter: NotRequired[CampaignEventFilterUnionTypeDef]
+    Frequency: NotRequired[FrequencyType]
+    IsLocalTime: NotRequired[bool]
+    QuietTime: NotRequired[QuietTimeTypeDef]
+    Timezone: NotRequired[str]
+
+class EventStartConditionTypeDef(TypedDict):
+    EventFilter: NotRequired[EventFilterUnionTypeDef]
+    SegmentId: NotRequired[str]
 
 SegmentGroupTypeDef = TypedDict(
     "SegmentGroupTypeDef",
     {
-        "Dimensions": List["SegmentDimensionsTypeDef"],
-        "SourceSegments": List["SegmentReferenceTypeDef"],
-        "SourceType": SourceTypeType,
-        "Type": TypeType,
-    },
-    total=False,
-)
-
-_RequiredSegmentImportResourceTypeDef = TypedDict(
-    "_RequiredSegmentImportResourceTypeDef",
-    {
-        "ExternalId": str,
-        "Format": FormatType,
-        "RoleArn": str,
-        "S3Url": str,
-        "Size": int,
-    },
-)
-_OptionalSegmentImportResourceTypeDef = TypedDict(
-    "_OptionalSegmentImportResourceTypeDef",
-    {
-        "ChannelCounts": Dict[str, int],
-    },
-    total=False,
-)
-
-class SegmentImportResourceTypeDef(
-    _RequiredSegmentImportResourceTypeDef, _OptionalSegmentImportResourceTypeDef
-):
-    pass
-
-SegmentLocationTypeDef = TypedDict(
-    "SegmentLocationTypeDef",
-    {
-        "Country": "SetDimensionTypeDef",
-        "GPSPoint": "GPSPointDimensionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredSegmentReferenceTypeDef = TypedDict(
-    "_RequiredSegmentReferenceTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalSegmentReferenceTypeDef = TypedDict(
-    "_OptionalSegmentReferenceTypeDef",
-    {
-        "Version": int,
-    },
-    total=False,
-)
-
-class SegmentReferenceTypeDef(_RequiredSegmentReferenceTypeDef, _OptionalSegmentReferenceTypeDef):
-    pass
-
-_RequiredSegmentResponseTypeDef = TypedDict(
-    "_RequiredSegmentResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "Arn": str,
-        "CreationDate": str,
-        "Id": str,
-        "SegmentType": SegmentTypeType,
-    },
-)
-_OptionalSegmentResponseTypeDef = TypedDict(
-    "_OptionalSegmentResponseTypeDef",
-    {
-        "Dimensions": "SegmentDimensionsTypeDef",
-        "ImportDefinition": "SegmentImportResourceTypeDef",
-        "LastModifiedDate": str,
-        "Name": str,
-        "SegmentGroups": "SegmentGroupListTypeDef",
-        "tags": Dict[str, str],
-        "Version": int,
-    },
-    total=False,
-)
-
-class SegmentResponseTypeDef(_RequiredSegmentResponseTypeDef, _OptionalSegmentResponseTypeDef):
-    pass
-
-_RequiredSegmentsResponseTypeDef = TypedDict(
-    "_RequiredSegmentsResponseTypeDef",
-    {
-        "Item": List["SegmentResponseTypeDef"],
-    },
-)
-_OptionalSegmentsResponseTypeDef = TypedDict(
-    "_OptionalSegmentsResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class SegmentsResponseTypeDef(_RequiredSegmentsResponseTypeDef, _OptionalSegmentsResponseTypeDef):
-    pass
-
-SendMessagesRequestRequestTypeDef = TypedDict(
-    "SendMessagesRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "MessageRequest": "MessageRequestTypeDef",
-    },
-)
-
-SendMessagesResponseTypeDef = TypedDict(
-    "SendMessagesResponseTypeDef",
-    {
-        "MessageResponse": "MessageResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSendOTPMessageRequestParametersTypeDef = TypedDict(
-    "_RequiredSendOTPMessageRequestParametersTypeDef",
-    {
-        "BrandName": str,
-        "Channel": str,
-        "DestinationIdentity": str,
-        "OriginationIdentity": str,
-        "ReferenceId": str,
-    },
-)
-_OptionalSendOTPMessageRequestParametersTypeDef = TypedDict(
-    "_OptionalSendOTPMessageRequestParametersTypeDef",
-    {
-        "AllowedAttempts": int,
-        "CodeLength": int,
-        "EntityId": str,
-        "Language": str,
-        "TemplateId": str,
-        "ValidityPeriod": int,
-    },
-    total=False,
-)
-
-class SendOTPMessageRequestParametersTypeDef(
-    _RequiredSendOTPMessageRequestParametersTypeDef, _OptionalSendOTPMessageRequestParametersTypeDef
-):
-    pass
-
-SendOTPMessageRequestRequestTypeDef = TypedDict(
-    "SendOTPMessageRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SendOTPMessageRequestParameters": "SendOTPMessageRequestParametersTypeDef",
-    },
-)
-
-SendOTPMessageResponseTypeDef = TypedDict(
-    "SendOTPMessageResponseTypeDef",
-    {
-        "MessageResponse": "MessageResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSendUsersMessageRequestTypeDef = TypedDict(
-    "_RequiredSendUsersMessageRequestTypeDef",
-    {
-        "MessageConfiguration": "DirectMessageConfigurationTypeDef",
-        "Users": Dict[str, "EndpointSendConfigurationTypeDef"],
-    },
-)
-_OptionalSendUsersMessageRequestTypeDef = TypedDict(
-    "_OptionalSendUsersMessageRequestTypeDef",
-    {
-        "Context": Dict[str, str],
-        "TemplateConfiguration": "TemplateConfigurationTypeDef",
-        "TraceId": str,
-    },
-    total=False,
-)
-
-class SendUsersMessageRequestTypeDef(
-    _RequiredSendUsersMessageRequestTypeDef, _OptionalSendUsersMessageRequestTypeDef
-):
-    pass
-
-_RequiredSendUsersMessageResponseTypeDef = TypedDict(
-    "_RequiredSendUsersMessageResponseTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalSendUsersMessageResponseTypeDef = TypedDict(
-    "_OptionalSendUsersMessageResponseTypeDef",
-    {
-        "RequestId": str,
-        "Result": Dict[str, Dict[str, "EndpointMessageResultTypeDef"]],
-    },
-    total=False,
-)
-
-class SendUsersMessageResponseTypeDef(
-    _RequiredSendUsersMessageResponseTypeDef, _OptionalSendUsersMessageResponseTypeDef
-):
-    pass
-
-SendUsersMessagesRequestRequestTypeDef = TypedDict(
-    "SendUsersMessagesRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SendUsersMessageRequest": "SendUsersMessageRequestTypeDef",
-    },
-)
-
-SendUsersMessagesResponseTypeDef = TypedDict(
-    "SendUsersMessagesResponseTypeDef",
-    {
-        "SendUsersMessageResponse": "SendUsersMessageResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSessionTypeDef = TypedDict(
-    "_RequiredSessionTypeDef",
-    {
-        "Id": str,
-        "StartTimestamp": str,
-    },
-)
-_OptionalSessionTypeDef = TypedDict(
-    "_OptionalSessionTypeDef",
-    {
-        "Duration": int,
-        "StopTimestamp": str,
-    },
-    total=False,
-)
-
-class SessionTypeDef(_RequiredSessionTypeDef, _OptionalSessionTypeDef):
-    pass
-
-_RequiredSetDimensionTypeDef = TypedDict(
-    "_RequiredSetDimensionTypeDef",
-    {
-        "Values": List[str],
-    },
-)
-_OptionalSetDimensionTypeDef = TypedDict(
-    "_OptionalSetDimensionTypeDef",
-    {
-        "DimensionType": DimensionTypeType,
-    },
-    total=False,
-)
-
-class SetDimensionTypeDef(_RequiredSetDimensionTypeDef, _OptionalSetDimensionTypeDef):
-    pass
-
-SimpleConditionTypeDef = TypedDict(
-    "SimpleConditionTypeDef",
-    {
-        "EventCondition": "EventConditionTypeDef",
-        "SegmentCondition": "SegmentConditionTypeDef",
-        "SegmentDimensions": "SegmentDimensionsTypeDef",
-    },
-    total=False,
-)
-
-SimpleEmailPartTypeDef = TypedDict(
-    "SimpleEmailPartTypeDef",
-    {
-        "Charset": str,
-        "Data": str,
-    },
-    total=False,
-)
-
-SimpleEmailTypeDef = TypedDict(
-    "SimpleEmailTypeDef",
-    {
-        "HtmlPart": "SimpleEmailPartTypeDef",
-        "Subject": "SimpleEmailPartTypeDef",
-        "TextPart": "SimpleEmailPartTypeDef",
-        "Headers": List["MessageHeaderTypeDef"],
-    },
-    total=False,
-)
-
-StartConditionTypeDef = TypedDict(
-    "StartConditionTypeDef",
-    {
-        "Description": str,
-        "EventStartCondition": "EventStartConditionTypeDef",
-        "SegmentStartCondition": "SegmentConditionTypeDef",
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagsModel": "TagsModelTypeDef",
-    },
-)
-
-TagsModelTypeDef = TypedDict(
-    "TagsModelTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-)
-
-TemplateActiveVersionRequestTypeDef = TypedDict(
-    "TemplateActiveVersionRequestTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-TemplateConfigurationTypeDef = TypedDict(
-    "TemplateConfigurationTypeDef",
-    {
-        "EmailTemplate": "TemplateTypeDef",
-        "PushTemplate": "TemplateTypeDef",
-        "SMSTemplate": "TemplateTypeDef",
-        "VoiceTemplate": "TemplateTypeDef",
-        "InAppTemplate": "TemplateTypeDef",
-    },
-    total=False,
-)
-
-TemplateCreateMessageBodyTypeDef = TypedDict(
-    "TemplateCreateMessageBodyTypeDef",
-    {
-        "Arn": str,
-        "Message": str,
-        "RequestID": str,
-    },
-    total=False,
-)
-
-_RequiredTemplateResponseTypeDef = TypedDict(
-    "_RequiredTemplateResponseTypeDef",
-    {
-        "CreationDate": str,
-        "LastModifiedDate": str,
-        "TemplateName": str,
-        "TemplateType": TemplateTypeType,
-    },
-)
-_OptionalTemplateResponseTypeDef = TypedDict(
-    "_OptionalTemplateResponseTypeDef",
-    {
-        "Arn": str,
-        "DefaultSubstitutions": str,
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-class TemplateResponseTypeDef(_RequiredTemplateResponseTypeDef, _OptionalTemplateResponseTypeDef):
-    pass
-
-TemplateTypeDef = TypedDict(
-    "TemplateTypeDef",
-    {
-        "Name": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-_RequiredTemplateVersionResponseTypeDef = TypedDict(
-    "_RequiredTemplateVersionResponseTypeDef",
-    {
-        "CreationDate": str,
-        "LastModifiedDate": str,
-        "TemplateName": str,
-        "TemplateType": str,
-    },
-)
-_OptionalTemplateVersionResponseTypeDef = TypedDict(
-    "_OptionalTemplateVersionResponseTypeDef",
-    {
-        "DefaultSubstitutions": str,
-        "TemplateDescription": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-class TemplateVersionResponseTypeDef(
-    _RequiredTemplateVersionResponseTypeDef, _OptionalTemplateVersionResponseTypeDef
-):
-    pass
-
-_RequiredTemplateVersionsResponseTypeDef = TypedDict(
-    "_RequiredTemplateVersionsResponseTypeDef",
-    {
-        "Item": List["TemplateVersionResponseTypeDef"],
-    },
-)
-_OptionalTemplateVersionsResponseTypeDef = TypedDict(
-    "_OptionalTemplateVersionsResponseTypeDef",
-    {
-        "Message": str,
-        "NextToken": str,
-        "RequestID": str,
-    },
-    total=False,
-)
-
-class TemplateVersionsResponseTypeDef(
-    _RequiredTemplateVersionsResponseTypeDef, _OptionalTemplateVersionsResponseTypeDef
-):
-    pass
-
-_RequiredTemplatesResponseTypeDef = TypedDict(
-    "_RequiredTemplatesResponseTypeDef",
-    {
-        "Item": List["TemplateResponseTypeDef"],
-    },
-)
-_OptionalTemplatesResponseTypeDef = TypedDict(
-    "_OptionalTemplatesResponseTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class TemplatesResponseTypeDef(
-    _RequiredTemplatesResponseTypeDef, _OptionalTemplatesResponseTypeDef
-):
-    pass
-
-_RequiredTreatmentResourceTypeDef = TypedDict(
-    "_RequiredTreatmentResourceTypeDef",
-    {
-        "Id": str,
-        "SizePercent": int,
-    },
-)
-_OptionalTreatmentResourceTypeDef = TypedDict(
-    "_OptionalTreatmentResourceTypeDef",
-    {
-        "CustomDeliveryConfiguration": "CustomDeliveryConfigurationTypeDef",
-        "MessageConfiguration": "MessageConfigurationTypeDef",
-        "Schedule": "ScheduleTypeDef",
-        "State": "CampaignStateTypeDef",
-        "TemplateConfiguration": "TemplateConfigurationTypeDef",
-        "TreatmentDescription": str,
-        "TreatmentName": str,
-    },
-    total=False,
-)
-
-class TreatmentResourceTypeDef(
-    _RequiredTreatmentResourceTypeDef, _OptionalTreatmentResourceTypeDef
-):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-UpdateAdmChannelRequestRequestTypeDef = TypedDict(
-    "UpdateAdmChannelRequestRequestTypeDef",
-    {
-        "ADMChannelRequest": "ADMChannelRequestTypeDef",
-        "ApplicationId": str,
-    },
-)
-
-UpdateAdmChannelResponseTypeDef = TypedDict(
-    "UpdateAdmChannelResponseTypeDef",
-    {
-        "ADMChannelResponse": "ADMChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateApnsChannelRequestRequestTypeDef = TypedDict(
-    "UpdateApnsChannelRequestRequestTypeDef",
-    {
-        "APNSChannelRequest": "APNSChannelRequestTypeDef",
-        "ApplicationId": str,
-    },
-)
-
-UpdateApnsChannelResponseTypeDef = TypedDict(
-    "UpdateApnsChannelResponseTypeDef",
-    {
-        "APNSChannelResponse": "APNSChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateApnsSandboxChannelRequestRequestTypeDef = TypedDict(
-    "UpdateApnsSandboxChannelRequestRequestTypeDef",
-    {
-        "APNSSandboxChannelRequest": "APNSSandboxChannelRequestTypeDef",
-        "ApplicationId": str,
-    },
-)
-
-UpdateApnsSandboxChannelResponseTypeDef = TypedDict(
-    "UpdateApnsSandboxChannelResponseTypeDef",
-    {
-        "APNSSandboxChannelResponse": "APNSSandboxChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateApnsVoipChannelRequestRequestTypeDef = TypedDict(
-    "UpdateApnsVoipChannelRequestRequestTypeDef",
-    {
-        "APNSVoipChannelRequest": "APNSVoipChannelRequestTypeDef",
-        "ApplicationId": str,
-    },
-)
-
-UpdateApnsVoipChannelResponseTypeDef = TypedDict(
-    "UpdateApnsVoipChannelResponseTypeDef",
-    {
-        "APNSVoipChannelResponse": "APNSVoipChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateApnsVoipSandboxChannelRequestRequestTypeDef = TypedDict(
-    "UpdateApnsVoipSandboxChannelRequestRequestTypeDef",
-    {
-        "APNSVoipSandboxChannelRequest": "APNSVoipSandboxChannelRequestTypeDef",
-        "ApplicationId": str,
-    },
-)
-
-UpdateApnsVoipSandboxChannelResponseTypeDef = TypedDict(
-    "UpdateApnsVoipSandboxChannelResponseTypeDef",
-    {
-        "APNSVoipSandboxChannelResponse": "APNSVoipSandboxChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateApplicationSettingsRequestRequestTypeDef = TypedDict(
-    "UpdateApplicationSettingsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "WriteApplicationSettingsRequest": "WriteApplicationSettingsRequestTypeDef",
-    },
-)
-
-UpdateApplicationSettingsResponseTypeDef = TypedDict(
-    "UpdateApplicationSettingsResponseTypeDef",
-    {
-        "ApplicationSettingsResource": "ApplicationSettingsResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateAttributesRequestTypeDef = TypedDict(
-    "UpdateAttributesRequestTypeDef",
-    {
-        "Blacklist": List[str],
-    },
-    total=False,
-)
-
-UpdateBaiduChannelRequestRequestTypeDef = TypedDict(
-    "UpdateBaiduChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "BaiduChannelRequest": "BaiduChannelRequestTypeDef",
-    },
-)
-
-UpdateBaiduChannelResponseTypeDef = TypedDict(
-    "UpdateBaiduChannelResponseTypeDef",
-    {
-        "BaiduChannelResponse": "BaiduChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateCampaignRequestRequestTypeDef = TypedDict(
-    "UpdateCampaignRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "CampaignId": str,
-        "WriteCampaignRequest": "WriteCampaignRequestTypeDef",
-    },
-)
-
-UpdateCampaignResponseTypeDef = TypedDict(
-    "UpdateCampaignResponseTypeDef",
-    {
-        "CampaignResponse": "CampaignResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateEmailChannelRequestRequestTypeDef = TypedDict(
-    "UpdateEmailChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "EmailChannelRequest": "EmailChannelRequestTypeDef",
-    },
-)
-
-UpdateEmailChannelResponseTypeDef = TypedDict(
-    "UpdateEmailChannelResponseTypeDef",
-    {
-        "EmailChannelResponse": "EmailChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEmailTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEmailTemplateRequestRequestTypeDef",
-    {
-        "EmailTemplateRequest": "EmailTemplateRequestTypeDef",
-        "TemplateName": str,
-    },
-)
-_OptionalUpdateEmailTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEmailTemplateRequestRequestTypeDef",
-    {
-        "CreateNewVersion": bool,
-        "Version": str,
-    },
-    total=False,
-)
-
-class UpdateEmailTemplateRequestRequestTypeDef(
-    _RequiredUpdateEmailTemplateRequestRequestTypeDef,
-    _OptionalUpdateEmailTemplateRequestRequestTypeDef,
-):
-    pass
-
-UpdateEmailTemplateResponseTypeDef = TypedDict(
-    "UpdateEmailTemplateResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateEndpointRequestRequestTypeDef = TypedDict(
-    "UpdateEndpointRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "EndpointId": str,
-        "EndpointRequest": "EndpointRequestTypeDef",
-    },
-)
-
-UpdateEndpointResponseTypeDef = TypedDict(
-    "UpdateEndpointResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateEndpointsBatchRequestRequestTypeDef = TypedDict(
-    "UpdateEndpointsBatchRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "EndpointBatchRequest": "EndpointBatchRequestTypeDef",
-    },
-)
-
-UpdateEndpointsBatchResponseTypeDef = TypedDict(
-    "UpdateEndpointsBatchResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateGcmChannelRequestRequestTypeDef = TypedDict(
-    "UpdateGcmChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "GCMChannelRequest": "GCMChannelRequestTypeDef",
-    },
-)
-
-UpdateGcmChannelResponseTypeDef = TypedDict(
-    "UpdateGcmChannelResponseTypeDef",
-    {
-        "GCMChannelResponse": "GCMChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateInAppTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateInAppTemplateRequestRequestTypeDef",
-    {
-        "InAppTemplateRequest": "InAppTemplateRequestTypeDef",
-        "TemplateName": str,
-    },
-)
-_OptionalUpdateInAppTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateInAppTemplateRequestRequestTypeDef",
-    {
-        "CreateNewVersion": bool,
-        "Version": str,
-    },
-    total=False,
-)
-
-class UpdateInAppTemplateRequestRequestTypeDef(
-    _RequiredUpdateInAppTemplateRequestRequestTypeDef,
-    _OptionalUpdateInAppTemplateRequestRequestTypeDef,
-):
-    pass
-
-UpdateInAppTemplateResponseTypeDef = TypedDict(
-    "UpdateInAppTemplateResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateJourneyRequestRequestTypeDef = TypedDict(
-    "UpdateJourneyRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyId": str,
-        "WriteJourneyRequest": "WriteJourneyRequestTypeDef",
-    },
-)
-
-UpdateJourneyResponseTypeDef = TypedDict(
-    "UpdateJourneyResponseTypeDef",
-    {
-        "JourneyResponse": "JourneyResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateJourneyStateRequestRequestTypeDef = TypedDict(
-    "UpdateJourneyStateRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "JourneyId": str,
-        "JourneyStateRequest": "JourneyStateRequestTypeDef",
-    },
-)
-
-UpdateJourneyStateResponseTypeDef = TypedDict(
-    "UpdateJourneyStateResponseTypeDef",
-    {
-        "JourneyResponse": "JourneyResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePushTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePushTemplateRequestRequestTypeDef",
-    {
-        "PushNotificationTemplateRequest": "PushNotificationTemplateRequestTypeDef",
-        "TemplateName": str,
-    },
-)
-_OptionalUpdatePushTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePushTemplateRequestRequestTypeDef",
-    {
-        "CreateNewVersion": bool,
-        "Version": str,
-    },
-    total=False,
-)
-
-class UpdatePushTemplateRequestRequestTypeDef(
-    _RequiredUpdatePushTemplateRequestRequestTypeDef,
-    _OptionalUpdatePushTemplateRequestRequestTypeDef,
-):
-    pass
-
-UpdatePushTemplateResponseTypeDef = TypedDict(
-    "UpdatePushTemplateResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateRecommenderConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateRecommenderConfigurationRequestRequestTypeDef",
-    {
-        "RecommenderId": str,
-        "UpdateRecommenderConfiguration": "UpdateRecommenderConfigurationTypeDef",
-    },
-)
-
-UpdateRecommenderConfigurationResponseTypeDef = TypedDict(
-    "UpdateRecommenderConfigurationResponseTypeDef",
-    {
-        "RecommenderConfigurationResponse": "RecommenderConfigurationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateRecommenderConfigurationTypeDef = TypedDict(
-    "_RequiredUpdateRecommenderConfigurationTypeDef",
-    {
-        "RecommendationProviderRoleArn": str,
-        "RecommendationProviderUri": str,
-    },
-)
-_OptionalUpdateRecommenderConfigurationTypeDef = TypedDict(
-    "_OptionalUpdateRecommenderConfigurationTypeDef",
-    {
-        "Attributes": Dict[str, str],
-        "Description": str,
-        "Name": str,
-        "RecommendationProviderIdType": str,
-        "RecommendationTransformerUri": str,
-        "RecommendationsDisplayName": str,
-        "RecommendationsPerMessage": int,
-    },
-    total=False,
-)
-
-class UpdateRecommenderConfigurationTypeDef(
-    _RequiredUpdateRecommenderConfigurationTypeDef, _OptionalUpdateRecommenderConfigurationTypeDef
-):
-    pass
-
-UpdateSegmentRequestRequestTypeDef = TypedDict(
-    "UpdateSegmentRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SegmentId": str,
-        "WriteSegmentRequest": "WriteSegmentRequestTypeDef",
-    },
-)
-
-UpdateSegmentResponseTypeDef = TypedDict(
-    "UpdateSegmentResponseTypeDef",
-    {
-        "SegmentResponse": "SegmentResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateSmsChannelRequestRequestTypeDef = TypedDict(
-    "UpdateSmsChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SMSChannelRequest": "SMSChannelRequestTypeDef",
-    },
-)
-
-UpdateSmsChannelResponseTypeDef = TypedDict(
-    "UpdateSmsChannelResponseTypeDef",
-    {
-        "SMSChannelResponse": "SMSChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSmsTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSmsTemplateRequestRequestTypeDef",
-    {
-        "SMSTemplateRequest": "SMSTemplateRequestTypeDef",
-        "TemplateName": str,
-    },
-)
-_OptionalUpdateSmsTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSmsTemplateRequestRequestTypeDef",
-    {
-        "CreateNewVersion": bool,
-        "Version": str,
-    },
-    total=False,
-)
-
-class UpdateSmsTemplateRequestRequestTypeDef(
-    _RequiredUpdateSmsTemplateRequestRequestTypeDef, _OptionalUpdateSmsTemplateRequestRequestTypeDef
-):
-    pass
-
-UpdateSmsTemplateResponseTypeDef = TypedDict(
-    "UpdateSmsTemplateResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateTemplateActiveVersionRequestRequestTypeDef = TypedDict(
-    "UpdateTemplateActiveVersionRequestRequestTypeDef",
-    {
-        "TemplateActiveVersionRequest": "TemplateActiveVersionRequestTypeDef",
-        "TemplateName": str,
-        "TemplateType": str,
-    },
-)
-
-UpdateTemplateActiveVersionResponseTypeDef = TypedDict(
-    "UpdateTemplateActiveVersionResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateVoiceChannelRequestRequestTypeDef = TypedDict(
-    "UpdateVoiceChannelRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "VoiceChannelRequest": "VoiceChannelRequestTypeDef",
-    },
-)
-
-UpdateVoiceChannelResponseTypeDef = TypedDict(
-    "UpdateVoiceChannelResponseTypeDef",
-    {
-        "VoiceChannelResponse": "VoiceChannelResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateVoiceTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVoiceTemplateRequestRequestTypeDef",
-    {
-        "TemplateName": str,
-        "VoiceTemplateRequest": "VoiceTemplateRequestTypeDef",
-    },
-)
-_OptionalUpdateVoiceTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVoiceTemplateRequestRequestTypeDef",
-    {
-        "CreateNewVersion": bool,
-        "Version": str,
-    },
-    total=False,
-)
-
-class UpdateVoiceTemplateRequestRequestTypeDef(
-    _RequiredUpdateVoiceTemplateRequestRequestTypeDef,
-    _OptionalUpdateVoiceTemplateRequestRequestTypeDef,
-):
-    pass
-
-UpdateVoiceTemplateResponseTypeDef = TypedDict(
-    "UpdateVoiceTemplateResponseTypeDef",
-    {
-        "MessageBody": "MessageBodyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VerificationResponseTypeDef = TypedDict(
-    "VerificationResponseTypeDef",
-    {
-        "Valid": bool,
-    },
-    total=False,
-)
-
-VerifyOTPMessageRequestParametersTypeDef = TypedDict(
-    "VerifyOTPMessageRequestParametersTypeDef",
-    {
-        "DestinationIdentity": str,
-        "Otp": str,
-        "ReferenceId": str,
-    },
-)
-
-VerifyOTPMessageRequestRequestTypeDef = TypedDict(
-    "VerifyOTPMessageRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "VerifyOTPMessageRequestParameters": "VerifyOTPMessageRequestParametersTypeDef",
-    },
-)
-
-VerifyOTPMessageResponseTypeDef = TypedDict(
-    "VerifyOTPMessageResponseTypeDef",
-    {
-        "VerificationResponse": "VerificationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VoiceChannelRequestTypeDef = TypedDict(
-    "VoiceChannelRequestTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-_RequiredVoiceChannelResponseTypeDef = TypedDict(
-    "_RequiredVoiceChannelResponseTypeDef",
-    {
-        "Platform": str,
-    },
-)
-_OptionalVoiceChannelResponseTypeDef = TypedDict(
-    "_OptionalVoiceChannelResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationDate": str,
-        "Enabled": bool,
-        "HasCredential": bool,
-        "Id": str,
-        "IsArchived": bool,
-        "LastModifiedBy": str,
-        "LastModifiedDate": str,
-        "Version": int,
-    },
-    total=False,
-)
-
-class VoiceChannelResponseTypeDef(
-    _RequiredVoiceChannelResponseTypeDef, _OptionalVoiceChannelResponseTypeDef
-):
-    pass
-
-VoiceMessageTypeDef = TypedDict(
-    "VoiceMessageTypeDef",
-    {
-        "Body": str,
-        "LanguageCode": str,
-        "OriginationNumber": str,
-        "Substitutions": Dict[str, List[str]],
-        "VoiceId": str,
-    },
-    total=False,
-)
-
-VoiceTemplateRequestTypeDef = TypedDict(
-    "VoiceTemplateRequestTypeDef",
-    {
-        "Body": str,
-        "DefaultSubstitutions": str,
-        "LanguageCode": str,
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-        "VoiceId": str,
-    },
-    total=False,
-)
-
-_RequiredVoiceTemplateResponseTypeDef = TypedDict(
-    "_RequiredVoiceTemplateResponseTypeDef",
-    {
-        "CreationDate": str,
-        "LastModifiedDate": str,
-        "TemplateName": str,
-        "TemplateType": TemplateTypeType,
-    },
-)
-_OptionalVoiceTemplateResponseTypeDef = TypedDict(
-    "_OptionalVoiceTemplateResponseTypeDef",
-    {
-        "Arn": str,
-        "Body": str,
-        "DefaultSubstitutions": str,
-        "LanguageCode": str,
-        "tags": Dict[str, str],
-        "TemplateDescription": str,
-        "Version": str,
-        "VoiceId": str,
-    },
-    total=False,
-)
-
-class VoiceTemplateResponseTypeDef(
-    _RequiredVoiceTemplateResponseTypeDef, _OptionalVoiceTemplateResponseTypeDef
-):
-    pass
-
-WaitActivityTypeDef = TypedDict(
-    "WaitActivityTypeDef",
-    {
-        "NextActivity": str,
-        "WaitTime": "WaitTimeTypeDef",
-    },
-    total=False,
-)
-
-WaitTimeTypeDef = TypedDict(
-    "WaitTimeTypeDef",
-    {
-        "WaitFor": str,
-        "WaitUntil": str,
-    },
-    total=False,
-)
-
-WriteApplicationSettingsRequestTypeDef = TypedDict(
-    "WriteApplicationSettingsRequestTypeDef",
-    {
-        "CampaignHook": "CampaignHookTypeDef",
-        "CloudWatchMetricsEnabled": bool,
-        "EventTaggingEnabled": bool,
-        "Limits": "CampaignLimitsTypeDef",
-        "QuietTime": "QuietTimeTypeDef",
-        "JourneyLimits": "ApplicationSettingsJourneyLimitsTypeDef",
-    },
-    total=False,
-)
-
-WriteCampaignRequestTypeDef = TypedDict(
-    "WriteCampaignRequestTypeDef",
-    {
-        "AdditionalTreatments": List["WriteTreatmentResourceTypeDef"],
-        "CustomDeliveryConfiguration": "CustomDeliveryConfigurationTypeDef",
-        "Description": str,
-        "HoldoutPercent": int,
-        "Hook": "CampaignHookTypeDef",
-        "IsPaused": bool,
-        "Limits": "CampaignLimitsTypeDef",
-        "MessageConfiguration": "MessageConfigurationTypeDef",
-        "Name": str,
-        "Schedule": "ScheduleTypeDef",
-        "SegmentId": str,
-        "SegmentVersion": int,
-        "tags": Dict[str, str],
-        "TemplateConfiguration": "TemplateConfigurationTypeDef",
-        "TreatmentDescription": str,
-        "TreatmentName": str,
-        "Priority": int,
-    },
-    total=False,
-)
-
-WriteEventStreamTypeDef = TypedDict(
-    "WriteEventStreamTypeDef",
-    {
-        "DestinationStreamArn": str,
-        "RoleArn": str,
-    },
-)
-
-_RequiredWriteJourneyRequestTypeDef = TypedDict(
-    "_RequiredWriteJourneyRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalWriteJourneyRequestTypeDef = TypedDict(
-    "_OptionalWriteJourneyRequestTypeDef",
-    {
-        "Activities": Dict[str, "ActivityTypeDef"],
-        "CreationDate": str,
-        "LastModifiedDate": str,
-        "Limits": "JourneyLimitsTypeDef",
-        "LocalTime": bool,
-        "QuietTime": "QuietTimeTypeDef",
-        "RefreshFrequency": str,
-        "Schedule": "JourneyScheduleTypeDef",
-        "StartActivity": str,
-        "StartCondition": "StartConditionTypeDef",
-        "State": StateType,
-        "WaitForQuietTime": bool,
-        "RefreshOnSegmentUpdate": bool,
-        "JourneyChannelSettings": "JourneyChannelSettingsTypeDef",
-        "SendingSchedule": bool,
-        "OpenHours": "OpenHoursTypeDef",
-        "ClosedDays": "ClosedDaysTypeDef",
-        "TimezoneEstimationMethods": List[__TimezoneEstimationMethodsElementType],
-    },
-    total=False,
-)
-
-class WriteJourneyRequestTypeDef(
-    _RequiredWriteJourneyRequestTypeDef, _OptionalWriteJourneyRequestTypeDef
-):
-    pass
-
-WriteSegmentRequestTypeDef = TypedDict(
-    "WriteSegmentRequestTypeDef",
-    {
-        "Dimensions": "SegmentDimensionsTypeDef",
-        "Name": str,
-        "SegmentGroups": "SegmentGroupListTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredWriteTreatmentResourceTypeDef = TypedDict(
-    "_RequiredWriteTreatmentResourceTypeDef",
-    {
-        "SizePercent": int,
-    },
-)
-_OptionalWriteTreatmentResourceTypeDef = TypedDict(
-    "_OptionalWriteTreatmentResourceTypeDef",
-    {
-        "CustomDeliveryConfiguration": "CustomDeliveryConfigurationTypeDef",
-        "MessageConfiguration": "MessageConfigurationTypeDef",
-        "Schedule": "ScheduleTypeDef",
-        "TemplateConfiguration": "TemplateConfigurationTypeDef",
-        "TreatmentDescription": str,
-        "TreatmentName": str,
-    },
-    total=False,
-)
-
-class WriteTreatmentResourceTypeDef(
-    _RequiredWriteTreatmentResourceTypeDef, _OptionalWriteTreatmentResourceTypeDef
-):
-    pass
+        "Dimensions": NotRequired[Sequence[SegmentDimensionsUnionTypeDef]],
+        "SourceSegments": NotRequired[Sequence[SegmentReferenceTypeDef]],
+        "SourceType": NotRequired[SourceTypeType],
+        "Type": NotRequired[TypeType],
+    },
+)
+
+class SimpleConditionTypeDef(TypedDict):
+    EventCondition: NotRequired[EventConditionUnionTypeDef]
+    SegmentCondition: NotRequired[SegmentConditionTypeDef]
+    SegmentDimensions: NotRequired[SegmentDimensionsUnionTypeDef]
+
+class CreateSegmentResponseTypeDef(TypedDict):
+    SegmentResponse: SegmentResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSegmentResponseTypeDef(TypedDict):
+    SegmentResponse: SegmentResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSegmentResponseTypeDef(TypedDict):
+    SegmentResponse: SegmentResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSegmentVersionResponseTypeDef(TypedDict):
+    SegmentResponse: SegmentResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SegmentsResponseTypeDef(TypedDict):
+    Item: List[SegmentResponseTypeDef]
+    NextToken: NotRequired[str]
+
+class UpdateSegmentResponseTypeDef(TypedDict):
+    SegmentResponse: SegmentResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ActivityOutputTypeDef(TypedDict):
+    CUSTOM: NotRequired[CustomMessageActivityOutputTypeDef]
+    ConditionalSplit: NotRequired[ConditionalSplitActivityOutputTypeDef]
+    Description: NotRequired[str]
+    EMAIL: NotRequired[EmailMessageActivityTypeDef]
+    Holdout: NotRequired[HoldoutActivityTypeDef]
+    MultiCondition: NotRequired[MultiConditionalSplitActivityOutputTypeDef]
+    PUSH: NotRequired[PushMessageActivityTypeDef]
+    RandomSplit: NotRequired[RandomSplitActivityOutputTypeDef]
+    SMS: NotRequired[SMSMessageActivityTypeDef]
+    Wait: NotRequired[WaitActivityTypeDef]
+    ContactCenter: NotRequired[ContactCenterActivityTypeDef]
+
+class CampaignsResponseTypeDef(TypedDict):
+    Item: List[CampaignResponseTypeDef]
+    NextToken: NotRequired[str]
+
+class CreateCampaignResponseTypeDef(TypedDict):
+    CampaignResponse: CampaignResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCampaignResponseTypeDef(TypedDict):
+    CampaignResponse: CampaignResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCampaignResponseTypeDef(TypedDict):
+    CampaignResponse: CampaignResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCampaignVersionResponseTypeDef(TypedDict):
+    CampaignResponse: CampaignResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCampaignResponseTypeDef(TypedDict):
+    CampaignResponse: CampaignResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ScheduleUnionTypeDef = Union[ScheduleTypeDef, ScheduleOutputTypeDef]
+EventStartConditionUnionTypeDef = Union[
+    EventStartConditionTypeDef, EventStartConditionOutputTypeDef
+]
+SegmentGroupUnionTypeDef = Union[SegmentGroupTypeDef, SegmentGroupOutputTypeDef]
+SimpleConditionUnionTypeDef = Union[SimpleConditionTypeDef, SimpleConditionOutputTypeDef]
+
+class GetSegmentVersionsResponseTypeDef(TypedDict):
+    SegmentsResponse: SegmentsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSegmentsResponseTypeDef(TypedDict):
+    SegmentsResponse: SegmentsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class JourneyResponseTypeDef(TypedDict):
+    ApplicationId: str
+    Id: str
+    Name: str
+    Activities: NotRequired[Dict[str, ActivityOutputTypeDef]]
+    CreationDate: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Limits: NotRequired[JourneyLimitsTypeDef]
+    LocalTime: NotRequired[bool]
+    QuietTime: NotRequired[QuietTimeTypeDef]
+    RefreshFrequency: NotRequired[str]
+    Schedule: NotRequired[JourneyScheduleOutputTypeDef]
+    StartActivity: NotRequired[str]
+    StartCondition: NotRequired[StartConditionOutputTypeDef]
+    State: NotRequired[StateType]
+    tags: NotRequired[Dict[str, str]]
+    WaitForQuietTime: NotRequired[bool]
+    RefreshOnSegmentUpdate: NotRequired[bool]
+    JourneyChannelSettings: NotRequired[JourneyChannelSettingsTypeDef]
+    SendingSchedule: NotRequired[bool]
+    OpenHours: NotRequired[OpenHoursOutputTypeDef]
+    ClosedDays: NotRequired[ClosedDaysOutputTypeDef]
+    TimezoneEstimationMethods: NotRequired[List[TimezoneEstimationMethodsElementType]]
+
+class GetCampaignVersionsResponseTypeDef(TypedDict):
+    CampaignsResponse: CampaignsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCampaignsResponseTypeDef(TypedDict):
+    CampaignsResponse: CampaignsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WriteTreatmentResourceTypeDef(TypedDict):
+    SizePercent: int
+    CustomDeliveryConfiguration: NotRequired[CustomDeliveryConfigurationUnionTypeDef]
+    MessageConfiguration: NotRequired[MessageConfigurationUnionTypeDef]
+    Schedule: NotRequired[ScheduleUnionTypeDef]
+    TemplateConfiguration: NotRequired[TemplateConfigurationTypeDef]
+    TreatmentDescription: NotRequired[str]
+    TreatmentName: NotRequired[str]
+
+class StartConditionTypeDef(TypedDict):
+    Description: NotRequired[str]
+    EventStartCondition: NotRequired[EventStartConditionUnionTypeDef]
+    SegmentStartCondition: NotRequired[SegmentConditionTypeDef]
+
+class SegmentGroupListTypeDef(TypedDict):
+    Groups: NotRequired[Sequence[SegmentGroupUnionTypeDef]]
+    Include: NotRequired[IncludeType]
+
+class ConditionTypeDef(TypedDict):
+    Conditions: NotRequired[Sequence[SimpleConditionUnionTypeDef]]
+    Operator: NotRequired[OperatorType]
+
+class MultiConditionalBranchTypeDef(TypedDict):
+    Condition: NotRequired[SimpleConditionUnionTypeDef]
+    NextActivity: NotRequired[str]
+
+class CreateJourneyResponseTypeDef(TypedDict):
+    JourneyResponse: JourneyResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteJourneyResponseTypeDef(TypedDict):
+    JourneyResponse: JourneyResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetJourneyResponseTypeDef(TypedDict):
+    JourneyResponse: JourneyResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class JourneysResponseTypeDef(TypedDict):
+    Item: List[JourneyResponseTypeDef]
+    NextToken: NotRequired[str]
+
+class UpdateJourneyResponseTypeDef(TypedDict):
+    JourneyResponse: JourneyResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateJourneyStateResponseTypeDef(TypedDict):
+    JourneyResponse: JourneyResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WriteCampaignRequestTypeDef(TypedDict):
+    AdditionalTreatments: NotRequired[Sequence[WriteTreatmentResourceTypeDef]]
+    CustomDeliveryConfiguration: NotRequired[CustomDeliveryConfigurationUnionTypeDef]
+    Description: NotRequired[str]
+    HoldoutPercent: NotRequired[int]
+    Hook: NotRequired[CampaignHookTypeDef]
+    IsPaused: NotRequired[bool]
+    Limits: NotRequired[CampaignLimitsTypeDef]
+    MessageConfiguration: NotRequired[MessageConfigurationUnionTypeDef]
+    Name: NotRequired[str]
+    Schedule: NotRequired[ScheduleUnionTypeDef]
+    SegmentId: NotRequired[str]
+    SegmentVersion: NotRequired[int]
+    tags: NotRequired[Mapping[str, str]]
+    TemplateConfiguration: NotRequired[TemplateConfigurationTypeDef]
+    TreatmentDescription: NotRequired[str]
+    TreatmentName: NotRequired[str]
+    Priority: NotRequired[int]
+
+StartConditionUnionTypeDef = Union[StartConditionTypeDef, StartConditionOutputTypeDef]
+SegmentGroupListUnionTypeDef = Union[SegmentGroupListTypeDef, SegmentGroupListOutputTypeDef]
+ConditionUnionTypeDef = Union[ConditionTypeDef, ConditionOutputTypeDef]
+MultiConditionalBranchUnionTypeDef = Union[
+    MultiConditionalBranchTypeDef, MultiConditionalBranchOutputTypeDef
+]
+
+class ListJourneysResponseTypeDef(TypedDict):
+    JourneysResponse: JourneysResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCampaignRequestTypeDef(TypedDict):
+    ApplicationId: str
+    WriteCampaignRequest: WriteCampaignRequestTypeDef
+
+class UpdateCampaignRequestTypeDef(TypedDict):
+    ApplicationId: str
+    CampaignId: str
+    WriteCampaignRequest: WriteCampaignRequestTypeDef
+
+class WriteSegmentRequestTypeDef(TypedDict):
+    Dimensions: NotRequired[SegmentDimensionsUnionTypeDef]
+    Name: NotRequired[str]
+    SegmentGroups: NotRequired[SegmentGroupListUnionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class ConditionalSplitActivityTypeDef(TypedDict):
+    Condition: NotRequired[ConditionUnionTypeDef]
+    EvaluationWaitTime: NotRequired[WaitTimeTypeDef]
+    FalseActivity: NotRequired[str]
+    TrueActivity: NotRequired[str]
+
+class MultiConditionalSplitActivityTypeDef(TypedDict):
+    Branches: NotRequired[Sequence[MultiConditionalBranchUnionTypeDef]]
+    DefaultActivity: NotRequired[str]
+    EvaluationWaitTime: NotRequired[WaitTimeTypeDef]
+
+class CreateSegmentRequestTypeDef(TypedDict):
+    ApplicationId: str
+    WriteSegmentRequest: WriteSegmentRequestTypeDef
+
+class UpdateSegmentRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SegmentId: str
+    WriteSegmentRequest: WriteSegmentRequestTypeDef
+
+ConditionalSplitActivityUnionTypeDef = Union[
+    ConditionalSplitActivityTypeDef, ConditionalSplitActivityOutputTypeDef
+]
+MultiConditionalSplitActivityUnionTypeDef = Union[
+    MultiConditionalSplitActivityTypeDef, MultiConditionalSplitActivityOutputTypeDef
+]
+
+class ActivityTypeDef(TypedDict):
+    CUSTOM: NotRequired[CustomMessageActivityUnionTypeDef]
+    ConditionalSplit: NotRequired[ConditionalSplitActivityUnionTypeDef]
+    Description: NotRequired[str]
+    EMAIL: NotRequired[EmailMessageActivityTypeDef]
+    Holdout: NotRequired[HoldoutActivityTypeDef]
+    MultiCondition: NotRequired[MultiConditionalSplitActivityUnionTypeDef]
+    PUSH: NotRequired[PushMessageActivityTypeDef]
+    RandomSplit: NotRequired[RandomSplitActivityUnionTypeDef]
+    SMS: NotRequired[SMSMessageActivityTypeDef]
+    Wait: NotRequired[WaitActivityTypeDef]
+    ContactCenter: NotRequired[ContactCenterActivityTypeDef]
+
+ActivityUnionTypeDef = Union[ActivityTypeDef, ActivityOutputTypeDef]
+
+class WriteJourneyRequestTypeDef(TypedDict):
+    Name: str
+    Activities: NotRequired[Mapping[str, ActivityUnionTypeDef]]
+    CreationDate: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Limits: NotRequired[JourneyLimitsTypeDef]
+    LocalTime: NotRequired[bool]
+    QuietTime: NotRequired[QuietTimeTypeDef]
+    RefreshFrequency: NotRequired[str]
+    Schedule: NotRequired[JourneyScheduleUnionTypeDef]
+    StartActivity: NotRequired[str]
+    StartCondition: NotRequired[StartConditionUnionTypeDef]
+    State: NotRequired[StateType]
+    WaitForQuietTime: NotRequired[bool]
+    RefreshOnSegmentUpdate: NotRequired[bool]
+    JourneyChannelSettings: NotRequired[JourneyChannelSettingsTypeDef]
+    SendingSchedule: NotRequired[bool]
+    OpenHours: NotRequired[OpenHoursUnionTypeDef]
+    ClosedDays: NotRequired[ClosedDaysUnionTypeDef]
+    TimezoneEstimationMethods: NotRequired[Sequence[TimezoneEstimationMethodsElementType]]
+
+class CreateJourneyRequestTypeDef(TypedDict):
+    ApplicationId: str
+    WriteJourneyRequest: WriteJourneyRequestTypeDef
+
+class UpdateJourneyRequestTypeDef(TypedDict):
+    ApplicationId: str
+    JourneyId: str
+    WriteJourneyRequest: WriteJourneyRequestTypeDef

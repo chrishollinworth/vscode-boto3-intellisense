@@ -1,10 +1,14 @@
 """
 Main interface for route53-recovery-readiness service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_route53_recovery_readiness import (
         Client,
         GetCellReadinessSummaryPaginator,
@@ -20,10 +24,8 @@ Usage::
         Route53RecoveryReadinessClient,
     )
 
-    session = boto3.Session()
-
-    client: Route53RecoveryReadinessClient = boto3.client("route53-recovery-readiness")
-    session_client: Route53RecoveryReadinessClient = session.client("route53-recovery-readiness")
+    session = Session()
+    client: Route53RecoveryReadinessClient = session.client("route53-recovery-readiness")
 
     get_cell_readiness_summary_paginator: GetCellReadinessSummaryPaginator = client.get_paginator("get_cell_readiness_summary")
     get_readiness_check_resource_status_paginator: GetReadinessCheckResourceStatusPaginator = client.get_paginator("get_readiness_check_resource_status")

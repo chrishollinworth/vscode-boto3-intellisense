@@ -1,20 +1,24 @@
 """
 Type annotations for medical-imaging service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_medical_imaging.type_defs import CopyDestinationImageSetPropertiesTypeDef
+    from mypy_boto3_medical_imaging.type_defs import BlobTypeDef
 
-    data: CopyDestinationImageSetPropertiesTypeDef = {...}
+    data: BlobTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -28,20 +32,27 @@ from .literals import (
     SortOrderType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
+    "BlobTypeDef",
     "CopyDestinationImageSetPropertiesTypeDef",
     "CopyDestinationImageSetTypeDef",
     "CopyImageSetInformationTypeDef",
-    "CopyImageSetRequestRequestTypeDef",
+    "CopyImageSetRequestTypeDef",
     "CopyImageSetResponseTypeDef",
     "CopySourceImageSetInformationTypeDef",
     "CopySourceImageSetPropertiesTypeDef",
-    "CreateDatastoreRequestRequestTypeDef",
+    "CreateDatastoreRequestTypeDef",
     "CreateDatastoreResponseTypeDef",
     "DICOMImportJobPropertiesTypeDef",
     "DICOMImportJobSummaryTypeDef",
@@ -50,803 +61,428 @@ __all__ = (
     "DICOMUpdatesTypeDef",
     "DatastorePropertiesTypeDef",
     "DatastoreSummaryTypeDef",
-    "DeleteDatastoreRequestRequestTypeDef",
+    "DeleteDatastoreRequestTypeDef",
     "DeleteDatastoreResponseTypeDef",
-    "DeleteImageSetRequestRequestTypeDef",
+    "DeleteImageSetRequestTypeDef",
     "DeleteImageSetResponseTypeDef",
-    "GetDICOMImportJobRequestRequestTypeDef",
+    "GetDICOMImportJobRequestTypeDef",
     "GetDICOMImportJobResponseTypeDef",
-    "GetDatastoreRequestRequestTypeDef",
+    "GetDatastoreRequestTypeDef",
     "GetDatastoreResponseTypeDef",
-    "GetImageFrameRequestRequestTypeDef",
+    "GetImageFrameRequestTypeDef",
     "GetImageFrameResponseTypeDef",
-    "GetImageSetMetadataRequestRequestTypeDef",
+    "GetImageSetMetadataRequestTypeDef",
     "GetImageSetMetadataResponseTypeDef",
-    "GetImageSetRequestRequestTypeDef",
+    "GetImageSetRequestTypeDef",
     "GetImageSetResponseTypeDef",
     "ImageFrameInformationTypeDef",
     "ImageSetPropertiesTypeDef",
     "ImageSetsMetadataSummaryTypeDef",
-    "ListDICOMImportJobsRequestRequestTypeDef",
+    "ListDICOMImportJobsRequestPaginateTypeDef",
+    "ListDICOMImportJobsRequestTypeDef",
     "ListDICOMImportJobsResponseTypeDef",
-    "ListDatastoresRequestRequestTypeDef",
+    "ListDatastoresRequestPaginateTypeDef",
+    "ListDatastoresRequestTypeDef",
     "ListDatastoresResponseTypeDef",
-    "ListImageSetVersionsRequestRequestTypeDef",
+    "ListImageSetVersionsRequestPaginateTypeDef",
+    "ListImageSetVersionsRequestTypeDef",
     "ListImageSetVersionsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MetadataCopiesTypeDef",
     "MetadataUpdatesTypeDef",
+    "OverridesTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
     "SearchByAttributeValueTypeDef",
     "SearchCriteriaTypeDef",
     "SearchFilterTypeDef",
-    "SearchImageSetsRequestRequestTypeDef",
+    "SearchImageSetsRequestPaginateTypeDef",
+    "SearchImageSetsRequestTypeDef",
     "SearchImageSetsResponseTypeDef",
     "SortTypeDef",
-    "StartDICOMImportJobRequestRequestTypeDef",
+    "StartDICOMImportJobRequestTypeDef",
     "StartDICOMImportJobResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateImageSetMetadataRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateImageSetMetadataRequestTypeDef",
     "UpdateImageSetMetadataResponseTypeDef",
 )
 
-_RequiredCopyDestinationImageSetPropertiesTypeDef = TypedDict(
-    "_RequiredCopyDestinationImageSetPropertiesTypeDef",
-    {
-        "imageSetId": str,
-        "latestVersionId": str,
-    },
-)
-_OptionalCopyDestinationImageSetPropertiesTypeDef = TypedDict(
-    "_OptionalCopyDestinationImageSetPropertiesTypeDef",
-    {
-        "imageSetState": ImageSetStateType,
-        "imageSetWorkflowStatus": ImageSetWorkflowStatusType,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "imageSetArn": str,
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-class CopyDestinationImageSetPropertiesTypeDef(
-    _RequiredCopyDestinationImageSetPropertiesTypeDef,
-    _OptionalCopyDestinationImageSetPropertiesTypeDef,
-):
-    pass
+class CopyDestinationImageSetPropertiesTypeDef(TypedDict):
+    imageSetId: str
+    latestVersionId: str
+    imageSetState: NotRequired[ImageSetStateType]
+    imageSetWorkflowStatus: NotRequired[ImageSetWorkflowStatusType]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+    imageSetArn: NotRequired[str]
 
-CopyDestinationImageSetTypeDef = TypedDict(
-    "CopyDestinationImageSetTypeDef",
-    {
-        "imageSetId": str,
-        "latestVersionId": str,
-    },
-)
+class CopyDestinationImageSetTypeDef(TypedDict):
+    imageSetId: str
+    latestVersionId: str
 
-_RequiredCopyImageSetInformationTypeDef = TypedDict(
-    "_RequiredCopyImageSetInformationTypeDef",
-    {
-        "sourceImageSet": "CopySourceImageSetInformationTypeDef",
-    },
-)
-_OptionalCopyImageSetInformationTypeDef = TypedDict(
-    "_OptionalCopyImageSetInformationTypeDef",
-    {
-        "destinationImageSet": "CopyDestinationImageSetTypeDef",
-    },
-    total=False,
-)
+class CopySourceImageSetPropertiesTypeDef(TypedDict):
+    imageSetId: str
+    latestVersionId: str
+    imageSetState: NotRequired[ImageSetStateType]
+    imageSetWorkflowStatus: NotRequired[ImageSetWorkflowStatusType]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+    imageSetArn: NotRequired[str]
 
-class CopyImageSetInformationTypeDef(
-    _RequiredCopyImageSetInformationTypeDef, _OptionalCopyImageSetInformationTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CopyImageSetRequestRequestTypeDef = TypedDict(
-    "CopyImageSetRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-        "sourceImageSetId": str,
-        "copyImageSetInformation": "CopyImageSetInformationTypeDef",
-    },
-)
+class MetadataCopiesTypeDef(TypedDict):
+    copiableAttributes: str
 
-CopyImageSetResponseTypeDef = TypedDict(
-    "CopyImageSetResponseTypeDef",
-    {
-        "datastoreId": str,
-        "sourceImageSetProperties": "CopySourceImageSetPropertiesTypeDef",
-        "destinationImageSetProperties": "CopyDestinationImageSetPropertiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateDatastoreRequestTypeDef(TypedDict):
+    clientToken: str
+    datastoreName: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    kmsKeyArn: NotRequired[str]
 
-CopySourceImageSetInformationTypeDef = TypedDict(
-    "CopySourceImageSetInformationTypeDef",
-    {
-        "latestVersionId": str,
-    },
-)
+class DICOMImportJobPropertiesTypeDef(TypedDict):
+    jobId: str
+    jobName: str
+    jobStatus: JobStatusType
+    datastoreId: str
+    dataAccessRoleArn: str
+    inputS3Uri: str
+    outputS3Uri: str
+    endedAt: NotRequired[datetime]
+    submittedAt: NotRequired[datetime]
+    message: NotRequired[str]
 
-_RequiredCopySourceImageSetPropertiesTypeDef = TypedDict(
-    "_RequiredCopySourceImageSetPropertiesTypeDef",
-    {
-        "imageSetId": str,
-        "latestVersionId": str,
-    },
-)
-_OptionalCopySourceImageSetPropertiesTypeDef = TypedDict(
-    "_OptionalCopySourceImageSetPropertiesTypeDef",
-    {
-        "imageSetState": ImageSetStateType,
-        "imageSetWorkflowStatus": ImageSetWorkflowStatusType,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "imageSetArn": str,
-    },
-    total=False,
-)
+class DICOMImportJobSummaryTypeDef(TypedDict):
+    jobId: str
+    jobName: str
+    jobStatus: JobStatusType
+    datastoreId: str
+    dataAccessRoleArn: NotRequired[str]
+    endedAt: NotRequired[datetime]
+    submittedAt: NotRequired[datetime]
+    message: NotRequired[str]
 
-class CopySourceImageSetPropertiesTypeDef(
-    _RequiredCopySourceImageSetPropertiesTypeDef, _OptionalCopySourceImageSetPropertiesTypeDef
-):
-    pass
+class DICOMStudyDateAndTimeTypeDef(TypedDict):
+    DICOMStudyDate: str
+    DICOMStudyTime: NotRequired[str]
 
-_RequiredCreateDatastoreRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDatastoreRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-)
-_OptionalCreateDatastoreRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDatastoreRequestRequestTypeDef",
-    {
-        "datastoreName": str,
-        "tags": Dict[str, str],
-        "kmsKeyArn": str,
-    },
-    total=False,
-)
+class DICOMTagsTypeDef(TypedDict):
+    DICOMPatientId: NotRequired[str]
+    DICOMPatientName: NotRequired[str]
+    DICOMPatientBirthDate: NotRequired[str]
+    DICOMPatientSex: NotRequired[str]
+    DICOMStudyInstanceUID: NotRequired[str]
+    DICOMStudyId: NotRequired[str]
+    DICOMStudyDescription: NotRequired[str]
+    DICOMNumberOfStudyRelatedSeries: NotRequired[int]
+    DICOMNumberOfStudyRelatedInstances: NotRequired[int]
+    DICOMAccessionNumber: NotRequired[str]
+    DICOMSeriesInstanceUID: NotRequired[str]
+    DICOMSeriesModality: NotRequired[str]
+    DICOMSeriesBodyPart: NotRequired[str]
+    DICOMSeriesNumber: NotRequired[int]
+    DICOMStudyDate: NotRequired[str]
+    DICOMStudyTime: NotRequired[str]
 
-class CreateDatastoreRequestRequestTypeDef(
-    _RequiredCreateDatastoreRequestRequestTypeDef, _OptionalCreateDatastoreRequestRequestTypeDef
-):
-    pass
+class DatastorePropertiesTypeDef(TypedDict):
+    datastoreId: str
+    datastoreName: str
+    datastoreStatus: DatastoreStatusType
+    kmsKeyArn: NotRequired[str]
+    datastoreArn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
 
-CreateDatastoreResponseTypeDef = TypedDict(
-    "CreateDatastoreResponseTypeDef",
-    {
-        "datastoreId": str,
-        "datastoreStatus": DatastoreStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DatastoreSummaryTypeDef(TypedDict):
+    datastoreId: str
+    datastoreName: str
+    datastoreStatus: DatastoreStatusType
+    datastoreArn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
 
-_RequiredDICOMImportJobPropertiesTypeDef = TypedDict(
-    "_RequiredDICOMImportJobPropertiesTypeDef",
-    {
-        "jobId": str,
-        "jobName": str,
-        "jobStatus": JobStatusType,
-        "datastoreId": str,
-        "dataAccessRoleArn": str,
-        "inputS3Uri": str,
-        "outputS3Uri": str,
-    },
-)
-_OptionalDICOMImportJobPropertiesTypeDef = TypedDict(
-    "_OptionalDICOMImportJobPropertiesTypeDef",
-    {
-        "endedAt": datetime,
-        "submittedAt": datetime,
-        "message": str,
-    },
-    total=False,
-)
+class DeleteDatastoreRequestTypeDef(TypedDict):
+    datastoreId: str
 
-class DICOMImportJobPropertiesTypeDef(
-    _RequiredDICOMImportJobPropertiesTypeDef, _OptionalDICOMImportJobPropertiesTypeDef
-):
-    pass
+class DeleteImageSetRequestTypeDef(TypedDict):
+    datastoreId: str
+    imageSetId: str
 
-_RequiredDICOMImportJobSummaryTypeDef = TypedDict(
-    "_RequiredDICOMImportJobSummaryTypeDef",
-    {
-        "jobId": str,
-        "jobName": str,
-        "jobStatus": JobStatusType,
-        "datastoreId": str,
-    },
-)
-_OptionalDICOMImportJobSummaryTypeDef = TypedDict(
-    "_OptionalDICOMImportJobSummaryTypeDef",
-    {
-        "dataAccessRoleArn": str,
-        "endedAt": datetime,
-        "submittedAt": datetime,
-        "message": str,
-    },
-    total=False,
-)
+class GetDICOMImportJobRequestTypeDef(TypedDict):
+    datastoreId: str
+    jobId: str
 
-class DICOMImportJobSummaryTypeDef(
-    _RequiredDICOMImportJobSummaryTypeDef, _OptionalDICOMImportJobSummaryTypeDef
-):
-    pass
+class GetDatastoreRequestTypeDef(TypedDict):
+    datastoreId: str
 
-_RequiredDICOMStudyDateAndTimeTypeDef = TypedDict(
-    "_RequiredDICOMStudyDateAndTimeTypeDef",
-    {
-        "DICOMStudyDate": str,
-    },
-)
-_OptionalDICOMStudyDateAndTimeTypeDef = TypedDict(
-    "_OptionalDICOMStudyDateAndTimeTypeDef",
-    {
-        "DICOMStudyTime": str,
-    },
-    total=False,
-)
+class ImageFrameInformationTypeDef(TypedDict):
+    imageFrameId: str
 
-class DICOMStudyDateAndTimeTypeDef(
-    _RequiredDICOMStudyDateAndTimeTypeDef, _OptionalDICOMStudyDateAndTimeTypeDef
-):
-    pass
+class GetImageSetMetadataRequestTypeDef(TypedDict):
+    datastoreId: str
+    imageSetId: str
+    versionId: NotRequired[str]
 
-DICOMTagsTypeDef = TypedDict(
-    "DICOMTagsTypeDef",
-    {
-        "DICOMPatientId": str,
-        "DICOMPatientName": str,
-        "DICOMPatientBirthDate": str,
-        "DICOMPatientSex": str,
-        "DICOMStudyInstanceUID": str,
-        "DICOMStudyId": str,
-        "DICOMStudyDescription": str,
-        "DICOMNumberOfStudyRelatedSeries": int,
-        "DICOMNumberOfStudyRelatedInstances": int,
-        "DICOMAccessionNumber": str,
-        "DICOMSeriesInstanceUID": str,
-        "DICOMSeriesModality": str,
-        "DICOMSeriesBodyPart": str,
-        "DICOMSeriesNumber": int,
-        "DICOMStudyDate": str,
-        "DICOMStudyTime": str,
-    },
-    total=False,
-)
+class GetImageSetRequestTypeDef(TypedDict):
+    datastoreId: str
+    imageSetId: str
+    versionId: NotRequired[str]
 
-DICOMUpdatesTypeDef = TypedDict(
-    "DICOMUpdatesTypeDef",
-    {
-        "removableAttributes": Union[bytes, IO[bytes], StreamingBody],
-        "updatableAttributes": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
+class OverridesTypeDef(TypedDict):
+    forced: NotRequired[bool]
 
-_RequiredDatastorePropertiesTypeDef = TypedDict(
-    "_RequiredDatastorePropertiesTypeDef",
-    {
-        "datastoreId": str,
-        "datastoreName": str,
-        "datastoreStatus": DatastoreStatusType,
-    },
-)
-_OptionalDatastorePropertiesTypeDef = TypedDict(
-    "_OptionalDatastorePropertiesTypeDef",
-    {
-        "kmsKeyArn": str,
-        "datastoreArn": str,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class DatastorePropertiesTypeDef(
-    _RequiredDatastorePropertiesTypeDef, _OptionalDatastorePropertiesTypeDef
-):
-    pass
+class ListDICOMImportJobsRequestTypeDef(TypedDict):
+    datastoreId: str
+    jobStatus: NotRequired[JobStatusType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-_RequiredDatastoreSummaryTypeDef = TypedDict(
-    "_RequiredDatastoreSummaryTypeDef",
-    {
-        "datastoreId": str,
-        "datastoreName": str,
-        "datastoreStatus": DatastoreStatusType,
-    },
-)
-_OptionalDatastoreSummaryTypeDef = TypedDict(
-    "_OptionalDatastoreSummaryTypeDef",
-    {
-        "datastoreArn": str,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
+class ListDatastoresRequestTypeDef(TypedDict):
+    datastoreStatus: NotRequired[DatastoreStatusType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-class DatastoreSummaryTypeDef(_RequiredDatastoreSummaryTypeDef, _OptionalDatastoreSummaryTypeDef):
-    pass
+class ListImageSetVersionsRequestTypeDef(TypedDict):
+    datastoreId: str
+    imageSetId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-DeleteDatastoreRequestRequestTypeDef = TypedDict(
-    "DeleteDatastoreRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-DeleteDatastoreResponseTypeDef = TypedDict(
-    "DeleteDatastoreResponseTypeDef",
-    {
-        "datastoreId": str,
-        "datastoreStatus": DatastoreStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-DeleteImageSetRequestRequestTypeDef = TypedDict(
-    "DeleteImageSetRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-        "imageSetId": str,
-    },
-)
+class SortTypeDef(TypedDict):
+    sortOrder: SortOrderType
+    sortField: SortFieldType
 
-DeleteImageSetResponseTypeDef = TypedDict(
-    "DeleteImageSetResponseTypeDef",
-    {
-        "datastoreId": str,
-        "imageSetId": str,
-        "imageSetState": ImageSetStateType,
-        "imageSetWorkflowStatus": ImageSetWorkflowStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartDICOMImportJobRequestTypeDef(TypedDict):
+    dataAccessRoleArn: str
+    clientToken: str
+    datastoreId: str
+    inputS3Uri: str
+    outputS3Uri: str
+    jobName: NotRequired[str]
+    inputOwnerAccountId: NotRequired[str]
 
-GetDICOMImportJobRequestRequestTypeDef = TypedDict(
-    "GetDICOMImportJobRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-        "jobId": str,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-GetDICOMImportJobResponseTypeDef = TypedDict(
-    "GetDICOMImportJobResponseTypeDef",
-    {
-        "jobProperties": "DICOMImportJobPropertiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-GetDatastoreRequestRequestTypeDef = TypedDict(
-    "GetDatastoreRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-    },
-)
+class DICOMUpdatesTypeDef(TypedDict):
+    removableAttributes: NotRequired[BlobTypeDef]
+    updatableAttributes: NotRequired[BlobTypeDef]
 
-GetDatastoreResponseTypeDef = TypedDict(
-    "GetDatastoreResponseTypeDef",
-    {
-        "datastoreProperties": "DatastorePropertiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CopyImageSetResponseTypeDef(TypedDict):
+    datastoreId: str
+    sourceImageSetProperties: CopySourceImageSetPropertiesTypeDef
+    destinationImageSetProperties: CopyDestinationImageSetPropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetImageFrameRequestRequestTypeDef = TypedDict(
-    "GetImageFrameRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-        "imageSetId": str,
-        "imageFrameInformation": "ImageFrameInformationTypeDef",
-    },
-)
+class CreateDatastoreResponseTypeDef(TypedDict):
+    datastoreId: str
+    datastoreStatus: DatastoreStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetImageFrameResponseTypeDef = TypedDict(
-    "GetImageFrameResponseTypeDef",
-    {
-        "imageFrameBlob": StreamingBody,
-        "contentType": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteDatastoreResponseTypeDef(TypedDict):
+    datastoreId: str
+    datastoreStatus: DatastoreStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredGetImageSetMetadataRequestRequestTypeDef = TypedDict(
-    "_RequiredGetImageSetMetadataRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-        "imageSetId": str,
-    },
-)
-_OptionalGetImageSetMetadataRequestRequestTypeDef = TypedDict(
-    "_OptionalGetImageSetMetadataRequestRequestTypeDef",
-    {
-        "versionId": str,
-    },
-    total=False,
-)
+class DeleteImageSetResponseTypeDef(TypedDict):
+    datastoreId: str
+    imageSetId: str
+    imageSetState: ImageSetStateType
+    imageSetWorkflowStatus: ImageSetWorkflowStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetImageSetMetadataRequestRequestTypeDef(
-    _RequiredGetImageSetMetadataRequestRequestTypeDef,
-    _OptionalGetImageSetMetadataRequestRequestTypeDef,
-):
-    pass
+class GetImageFrameResponseTypeDef(TypedDict):
+    imageFrameBlob: StreamingBody
+    contentType: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetImageSetMetadataResponseTypeDef = TypedDict(
-    "GetImageSetMetadataResponseTypeDef",
-    {
-        "imageSetMetadataBlob": StreamingBody,
-        "contentType": str,
-        "contentEncoding": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetImageSetMetadataResponseTypeDef(TypedDict):
+    imageSetMetadataBlob: StreamingBody
+    contentType: str
+    contentEncoding: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredGetImageSetRequestRequestTypeDef = TypedDict(
-    "_RequiredGetImageSetRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-        "imageSetId": str,
-    },
-)
-_OptionalGetImageSetRequestRequestTypeDef = TypedDict(
-    "_OptionalGetImageSetRequestRequestTypeDef",
-    {
-        "versionId": str,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetImageSetRequestRequestTypeDef(
-    _RequiredGetImageSetRequestRequestTypeDef, _OptionalGetImageSetRequestRequestTypeDef
-):
-    pass
+class StartDICOMImportJobResponseTypeDef(TypedDict):
+    datastoreId: str
+    jobId: str
+    jobStatus: JobStatusType
+    submittedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetImageSetResponseTypeDef = TypedDict(
-    "GetImageSetResponseTypeDef",
-    {
-        "datastoreId": str,
-        "imageSetId": str,
-        "versionId": str,
-        "imageSetState": ImageSetStateType,
-        "imageSetWorkflowStatus": ImageSetWorkflowStatusType,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "deletedAt": datetime,
-        "message": str,
-        "imageSetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateImageSetMetadataResponseTypeDef(TypedDict):
+    datastoreId: str
+    imageSetId: str
+    latestVersionId: str
+    imageSetState: ImageSetStateType
+    imageSetWorkflowStatus: ImageSetWorkflowStatusType
+    createdAt: datetime
+    updatedAt: datetime
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ImageFrameInformationTypeDef = TypedDict(
-    "ImageFrameInformationTypeDef",
-    {
-        "imageFrameId": str,
-    },
-)
+class CopySourceImageSetInformationTypeDef(TypedDict):
+    latestVersionId: str
+    DICOMCopies: NotRequired[MetadataCopiesTypeDef]
 
-_RequiredImageSetPropertiesTypeDef = TypedDict(
-    "_RequiredImageSetPropertiesTypeDef",
-    {
-        "imageSetId": str,
-        "versionId": str,
-        "imageSetState": ImageSetStateType,
-    },
-)
-_OptionalImageSetPropertiesTypeDef = TypedDict(
-    "_OptionalImageSetPropertiesTypeDef",
-    {
-        "ImageSetWorkflowStatus": ImageSetWorkflowStatusType,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "deletedAt": datetime,
-        "message": str,
-    },
-    total=False,
-)
+class GetDICOMImportJobResponseTypeDef(TypedDict):
+    jobProperties: DICOMImportJobPropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ImageSetPropertiesTypeDef(
-    _RequiredImageSetPropertiesTypeDef, _OptionalImageSetPropertiesTypeDef
-):
-    pass
+class ListDICOMImportJobsResponseTypeDef(TypedDict):
+    jobSummaries: List[DICOMImportJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredImageSetsMetadataSummaryTypeDef = TypedDict(
-    "_RequiredImageSetsMetadataSummaryTypeDef",
-    {
-        "imageSetId": str,
-    },
-)
-_OptionalImageSetsMetadataSummaryTypeDef = TypedDict(
-    "_OptionalImageSetsMetadataSummaryTypeDef",
-    {
-        "version": int,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "DICOMTags": "DICOMTagsTypeDef",
-    },
-    total=False,
-)
+class ImageSetsMetadataSummaryTypeDef(TypedDict):
+    imageSetId: str
+    version: NotRequired[int]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+    DICOMTags: NotRequired[DICOMTagsTypeDef]
 
-class ImageSetsMetadataSummaryTypeDef(
-    _RequiredImageSetsMetadataSummaryTypeDef, _OptionalImageSetsMetadataSummaryTypeDef
-):
-    pass
+class GetDatastoreResponseTypeDef(TypedDict):
+    datastoreProperties: DatastorePropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListDICOMImportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDICOMImportJobsRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-    },
-)
-_OptionalListDICOMImportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDICOMImportJobsRequestRequestTypeDef",
-    {
-        "jobStatus": JobStatusType,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class ListDatastoresResponseTypeDef(TypedDict):
+    datastoreSummaries: List[DatastoreSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class ListDICOMImportJobsRequestRequestTypeDef(
-    _RequiredListDICOMImportJobsRequestRequestTypeDef,
-    _OptionalListDICOMImportJobsRequestRequestTypeDef,
-):
-    pass
+class GetImageFrameRequestTypeDef(TypedDict):
+    datastoreId: str
+    imageSetId: str
+    imageFrameInformation: ImageFrameInformationTypeDef
 
-ListDICOMImportJobsResponseTypeDef = TypedDict(
-    "ListDICOMImportJobsResponseTypeDef",
-    {
-        "jobSummaries": List["DICOMImportJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetImageSetResponseTypeDef(TypedDict):
+    datastoreId: str
+    imageSetId: str
+    versionId: str
+    imageSetState: ImageSetStateType
+    imageSetWorkflowStatus: ImageSetWorkflowStatusType
+    createdAt: datetime
+    updatedAt: datetime
+    deletedAt: datetime
+    message: str
+    imageSetArn: str
+    overrides: OverridesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListDatastoresRequestRequestTypeDef = TypedDict(
-    "ListDatastoresRequestRequestTypeDef",
-    {
-        "datastoreStatus": DatastoreStatusType,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class ImageSetPropertiesTypeDef(TypedDict):
+    imageSetId: str
+    versionId: str
+    imageSetState: ImageSetStateType
+    ImageSetWorkflowStatus: NotRequired[ImageSetWorkflowStatusType]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+    deletedAt: NotRequired[datetime]
+    message: NotRequired[str]
+    overrides: NotRequired[OverridesTypeDef]
 
-ListDatastoresResponseTypeDef = TypedDict(
-    "ListDatastoresResponseTypeDef",
-    {
-        "datastoreSummaries": List["DatastoreSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDICOMImportJobsRequestPaginateTypeDef(TypedDict):
+    datastoreId: str
+    jobStatus: NotRequired[JobStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredListImageSetVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListImageSetVersionsRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-        "imageSetId": str,
-    },
-)
-_OptionalListImageSetVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListImageSetVersionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class ListDatastoresRequestPaginateTypeDef(TypedDict):
+    datastoreStatus: NotRequired[DatastoreStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class ListImageSetVersionsRequestRequestTypeDef(
-    _RequiredListImageSetVersionsRequestRequestTypeDef,
-    _OptionalListImageSetVersionsRequestRequestTypeDef,
-):
-    pass
+class ListImageSetVersionsRequestPaginateTypeDef(TypedDict):
+    datastoreId: str
+    imageSetId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ListImageSetVersionsResponseTypeDef = TypedDict(
-    "ListImageSetVersionsResponseTypeDef",
-    {
-        "imageSetPropertiesList": List["ImageSetPropertiesTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SearchByAttributeValueTypeDef(TypedDict):
+    DICOMPatientId: NotRequired[str]
+    DICOMAccessionNumber: NotRequired[str]
+    DICOMStudyId: NotRequired[str]
+    DICOMStudyInstanceUID: NotRequired[str]
+    DICOMSeriesInstanceUID: NotRequired[str]
+    createdAt: NotRequired[TimestampTypeDef]
+    updatedAt: NotRequired[TimestampTypeDef]
+    DICOMStudyDateAndTime: NotRequired[DICOMStudyDateAndTimeTypeDef]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class MetadataUpdatesTypeDef(TypedDict):
+    DICOMUpdates: NotRequired[DICOMUpdatesTypeDef]
+    revertToVersionId: NotRequired[str]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CopyImageSetInformationTypeDef(TypedDict):
+    sourceImageSet: CopySourceImageSetInformationTypeDef
+    destinationImageSet: NotRequired[CopyDestinationImageSetTypeDef]
 
-MetadataUpdatesTypeDef = TypedDict(
-    "MetadataUpdatesTypeDef",
-    {
-        "DICOMUpdates": "DICOMUpdatesTypeDef",
-    },
-    total=False,
-)
+class SearchImageSetsResponseTypeDef(TypedDict):
+    imageSetsMetadataSummaries: List[ImageSetsMetadataSummaryTypeDef]
+    sort: SortTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SearchByAttributeValueTypeDef = TypedDict(
-    "SearchByAttributeValueTypeDef",
-    {
-        "DICOMPatientId": str,
-        "DICOMAccessionNumber": str,
-        "DICOMStudyId": str,
-        "DICOMStudyInstanceUID": str,
-        "DICOMSeriesInstanceUID": str,
-        "createdAt": Union[datetime, str],
-        "updatedAt": Union[datetime, str],
-        "DICOMStudyDateAndTime": "DICOMStudyDateAndTimeTypeDef",
-    },
-    total=False,
-)
-
-SearchCriteriaTypeDef = TypedDict(
-    "SearchCriteriaTypeDef",
-    {
-        "filters": List["SearchFilterTypeDef"],
-        "sort": "SortTypeDef",
-    },
-    total=False,
-)
+class ListImageSetVersionsResponseTypeDef(TypedDict):
+    imageSetPropertiesList: List[ImageSetPropertiesTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 SearchFilterTypeDef = TypedDict(
     "SearchFilterTypeDef",
     {
-        "values": List["SearchByAttributeValueTypeDef"],
+        "values": Sequence[SearchByAttributeValueTypeDef],
         "operator": OperatorType,
     },
 )
 
-_RequiredSearchImageSetsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchImageSetsRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-    },
-)
-_OptionalSearchImageSetsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchImageSetsRequestRequestTypeDef",
-    {
-        "searchCriteria": "SearchCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class UpdateImageSetMetadataRequestTypeDef(TypedDict):
+    datastoreId: str
+    imageSetId: str
+    latestVersionId: str
+    updateImageSetMetadataUpdates: MetadataUpdatesTypeDef
+    force: NotRequired[bool]
 
-class SearchImageSetsRequestRequestTypeDef(
-    _RequiredSearchImageSetsRequestRequestTypeDef, _OptionalSearchImageSetsRequestRequestTypeDef
-):
-    pass
+class CopyImageSetRequestTypeDef(TypedDict):
+    datastoreId: str
+    sourceImageSetId: str
+    copyImageSetInformation: CopyImageSetInformationTypeDef
+    force: NotRequired[bool]
 
-SearchImageSetsResponseTypeDef = TypedDict(
-    "SearchImageSetsResponseTypeDef",
-    {
-        "imageSetsMetadataSummaries": List["ImageSetsMetadataSummaryTypeDef"],
-        "sort": "SortTypeDef",
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SearchCriteriaTypeDef(TypedDict):
+    filters: NotRequired[Sequence[SearchFilterTypeDef]]
+    sort: NotRequired[SortTypeDef]
 
-SortTypeDef = TypedDict(
-    "SortTypeDef",
-    {
-        "sortOrder": SortOrderType,
-        "sortField": SortFieldType,
-    },
-)
+class SearchImageSetsRequestPaginateTypeDef(TypedDict):
+    datastoreId: str
+    searchCriteria: NotRequired[SearchCriteriaTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredStartDICOMImportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartDICOMImportJobRequestRequestTypeDef",
-    {
-        "dataAccessRoleArn": str,
-        "clientToken": str,
-        "datastoreId": str,
-        "inputS3Uri": str,
-        "outputS3Uri": str,
-    },
-)
-_OptionalStartDICOMImportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartDICOMImportJobRequestRequestTypeDef",
-    {
-        "jobName": str,
-        "inputOwnerAccountId": str,
-    },
-    total=False,
-)
-
-class StartDICOMImportJobRequestRequestTypeDef(
-    _RequiredStartDICOMImportJobRequestRequestTypeDef,
-    _OptionalStartDICOMImportJobRequestRequestTypeDef,
-):
-    pass
-
-StartDICOMImportJobResponseTypeDef = TypedDict(
-    "StartDICOMImportJobResponseTypeDef",
-    {
-        "datastoreId": str,
-        "jobId": str,
-        "jobStatus": JobStatusType,
-        "submittedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-UpdateImageSetMetadataRequestRequestTypeDef = TypedDict(
-    "UpdateImageSetMetadataRequestRequestTypeDef",
-    {
-        "datastoreId": str,
-        "imageSetId": str,
-        "latestVersionId": str,
-        "updateImageSetMetadataUpdates": "MetadataUpdatesTypeDef",
-    },
-)
-
-UpdateImageSetMetadataResponseTypeDef = TypedDict(
-    "UpdateImageSetMetadataResponseTypeDef",
-    {
-        "datastoreId": str,
-        "imageSetId": str,
-        "latestVersionId": str,
-        "imageSetState": ImageSetStateType,
-        "imageSetWorkflowStatus": ImageSetWorkflowStatusType,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SearchImageSetsRequestTypeDef(TypedDict):
+    datastoreId: str
+    searchCriteria: NotRequired[SearchCriteriaTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]

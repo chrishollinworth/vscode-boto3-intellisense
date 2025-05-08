@@ -1,148 +1,105 @@
 """
 Type annotations for connect-contact-lens service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect_contact_lens/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect_contact_lens/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_connect_contact_lens.type_defs import CategoriesTypeDef
+    from mypy_boto3_connect_contact_lens.type_defs import PointOfInterestTypeDef
 
-    data: CategoriesTypeDef = {...}
+    data: PointOfInterestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
-from .literals import SentimentValueType
+from .literals import (
+    PostContactSummaryFailureCodeType,
+    PostContactSummaryStatusType,
+    SentimentValueType,
+)
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "CategoriesTypeDef",
     "CategoryDetailsTypeDef",
     "CharacterOffsetsTypeDef",
     "IssueDetectedTypeDef",
-    "ListRealtimeContactAnalysisSegmentsRequestRequestTypeDef",
+    "ListRealtimeContactAnalysisSegmentsRequestTypeDef",
     "ListRealtimeContactAnalysisSegmentsResponseTypeDef",
     "PointOfInterestTypeDef",
+    "PostContactSummaryTypeDef",
     "RealtimeContactAnalysisSegmentTypeDef",
     "ResponseMetadataTypeDef",
     "TranscriptTypeDef",
 )
 
-CategoriesTypeDef = TypedDict(
-    "CategoriesTypeDef",
-    {
-        "MatchedCategories": List[str],
-        "MatchedDetails": Dict[str, "CategoryDetailsTypeDef"],
-    },
-)
+class PointOfInterestTypeDef(TypedDict):
+    BeginOffsetMillis: int
+    EndOffsetMillis: int
 
-CategoryDetailsTypeDef = TypedDict(
-    "CategoryDetailsTypeDef",
-    {
-        "PointsOfInterest": List["PointOfInterestTypeDef"],
-    },
-)
+class CharacterOffsetsTypeDef(TypedDict):
+    BeginOffsetChar: int
+    EndOffsetChar: int
 
-CharacterOffsetsTypeDef = TypedDict(
-    "CharacterOffsetsTypeDef",
-    {
-        "BeginOffsetChar": int,
-        "EndOffsetChar": int,
-    },
-)
+class ListRealtimeContactAnalysisSegmentsRequestTypeDef(TypedDict):
+    InstanceId: str
+    ContactId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-IssueDetectedTypeDef = TypedDict(
-    "IssueDetectedTypeDef",
-    {
-        "CharacterOffsets": "CharacterOffsetsTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredListRealtimeContactAnalysisSegmentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListRealtimeContactAnalysisSegmentsRequestRequestTypeDef",
-    {
-        "InstanceId": str,
-        "ContactId": str,
-    },
-)
-_OptionalListRealtimeContactAnalysisSegmentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListRealtimeContactAnalysisSegmentsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class PostContactSummaryTypeDef(TypedDict):
+    Status: PostContactSummaryStatusType
+    Content: NotRequired[str]
+    FailureCode: NotRequired[PostContactSummaryFailureCodeType]
 
-class ListRealtimeContactAnalysisSegmentsRequestRequestTypeDef(
-    _RequiredListRealtimeContactAnalysisSegmentsRequestRequestTypeDef,
-    _OptionalListRealtimeContactAnalysisSegmentsRequestRequestTypeDef,
-):
-    pass
+class CategoryDetailsTypeDef(TypedDict):
+    PointsOfInterest: List[PointOfInterestTypeDef]
 
-ListRealtimeContactAnalysisSegmentsResponseTypeDef = TypedDict(
-    "ListRealtimeContactAnalysisSegmentsResponseTypeDef",
-    {
-        "Segments": List["RealtimeContactAnalysisSegmentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IssueDetectedTypeDef(TypedDict):
+    CharacterOffsets: CharacterOffsetsTypeDef
 
-PointOfInterestTypeDef = TypedDict(
-    "PointOfInterestTypeDef",
-    {
-        "BeginOffsetMillis": int,
-        "EndOffsetMillis": int,
-    },
-)
+class CategoriesTypeDef(TypedDict):
+    MatchedCategories: List[str]
+    MatchedDetails: Dict[str, CategoryDetailsTypeDef]
 
-RealtimeContactAnalysisSegmentTypeDef = TypedDict(
-    "RealtimeContactAnalysisSegmentTypeDef",
-    {
-        "Transcript": "TranscriptTypeDef",
-        "Categories": "CategoriesTypeDef",
-    },
-    total=False,
-)
+class TranscriptTypeDef(TypedDict):
+    Id: str
+    ParticipantId: str
+    ParticipantRole: str
+    Content: str
+    BeginOffsetMillis: int
+    EndOffsetMillis: int
+    Sentiment: NotRequired[SentimentValueType]
+    IssuesDetected: NotRequired[List[IssueDetectedTypeDef]]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class RealtimeContactAnalysisSegmentTypeDef(TypedDict):
+    Transcript: NotRequired[TranscriptTypeDef]
+    Categories: NotRequired[CategoriesTypeDef]
+    PostContactSummary: NotRequired[PostContactSummaryTypeDef]
 
-_RequiredTranscriptTypeDef = TypedDict(
-    "_RequiredTranscriptTypeDef",
-    {
-        "Id": str,
-        "ParticipantId": str,
-        "ParticipantRole": str,
-        "Content": str,
-        "BeginOffsetMillis": int,
-        "EndOffsetMillis": int,
-        "Sentiment": SentimentValueType,
-    },
-)
-_OptionalTranscriptTypeDef = TypedDict(
-    "_OptionalTranscriptTypeDef",
-    {
-        "IssuesDetected": List["IssueDetectedTypeDef"],
-    },
-    total=False,
-)
-
-class TranscriptTypeDef(_RequiredTranscriptTypeDef, _OptionalTranscriptTypeDef):
-    pass
+class ListRealtimeContactAnalysisSegmentsResponseTypeDef(TypedDict):
+    Segments: List[RealtimeContactAnalysisSegmentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

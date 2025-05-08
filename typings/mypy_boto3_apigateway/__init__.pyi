@@ -1,10 +1,14 @@
 """
 Main interface for apigateway service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigateway/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_apigateway import (
         APIGatewayClient,
         Client,
@@ -28,10 +32,8 @@ Usage::
         GetVpcLinksPaginator,
     )
 
-    session = boto3.Session()
-
-    client: APIGatewayClient = boto3.client("apigateway")
-    session_client: APIGatewayClient = session.client("apigateway")
+    session = Session()
+    client: APIGatewayClient = session.client("apigateway")
 
     get_api_keys_paginator: GetApiKeysPaginator = client.get_paginator("get_api_keys")
     get_authorizers_paginator: GetAuthorizersPaginator = client.get_paginator("get_authorizers")

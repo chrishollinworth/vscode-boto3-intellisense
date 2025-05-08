@@ -1,20 +1,24 @@
 """
 Type annotations for qldb service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qldb/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_qldb.type_defs import CancelJournalKinesisStreamRequestRequestTypeDef
+    from mypy_boto3_qldb.type_defs import CancelJournalKinesisStreamRequestTypeDef
 
-    data: CancelJournalKinesisStreamRequestRequestTypeDef = {...}
+    data: CancelJournalKinesisStreamRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     EncryptionStatusType,
@@ -27,635 +31,314 @@ from .literals import (
     StreamStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CancelJournalKinesisStreamRequestRequestTypeDef",
+    "CancelJournalKinesisStreamRequestTypeDef",
     "CancelJournalKinesisStreamResponseTypeDef",
-    "CreateLedgerRequestRequestTypeDef",
+    "CreateLedgerRequestTypeDef",
     "CreateLedgerResponseTypeDef",
-    "DeleteLedgerRequestRequestTypeDef",
-    "DescribeJournalKinesisStreamRequestRequestTypeDef",
+    "DeleteLedgerRequestTypeDef",
+    "DescribeJournalKinesisStreamRequestTypeDef",
     "DescribeJournalKinesisStreamResponseTypeDef",
-    "DescribeJournalS3ExportRequestRequestTypeDef",
+    "DescribeJournalS3ExportRequestTypeDef",
     "DescribeJournalS3ExportResponseTypeDef",
-    "DescribeLedgerRequestRequestTypeDef",
+    "DescribeLedgerRequestTypeDef",
     "DescribeLedgerResponseTypeDef",
-    "ExportJournalToS3RequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "ExportJournalToS3RequestTypeDef",
     "ExportJournalToS3ResponseTypeDef",
-    "GetBlockRequestRequestTypeDef",
+    "GetBlockRequestTypeDef",
     "GetBlockResponseTypeDef",
-    "GetDigestRequestRequestTypeDef",
+    "GetDigestRequestTypeDef",
     "GetDigestResponseTypeDef",
-    "GetRevisionRequestRequestTypeDef",
+    "GetRevisionRequestTypeDef",
     "GetRevisionResponseTypeDef",
     "JournalKinesisStreamDescriptionTypeDef",
     "JournalS3ExportDescriptionTypeDef",
     "KinesisConfigurationTypeDef",
     "LedgerEncryptionDescriptionTypeDef",
     "LedgerSummaryTypeDef",
-    "ListJournalKinesisStreamsForLedgerRequestRequestTypeDef",
+    "ListJournalKinesisStreamsForLedgerRequestTypeDef",
     "ListJournalKinesisStreamsForLedgerResponseTypeDef",
-    "ListJournalS3ExportsForLedgerRequestRequestTypeDef",
+    "ListJournalS3ExportsForLedgerRequestTypeDef",
     "ListJournalS3ExportsForLedgerResponseTypeDef",
-    "ListJournalS3ExportsRequestRequestTypeDef",
+    "ListJournalS3ExportsRequestTypeDef",
     "ListJournalS3ExportsResponseTypeDef",
-    "ListLedgersRequestRequestTypeDef",
+    "ListLedgersRequestTypeDef",
     "ListLedgersResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ResponseMetadataTypeDef",
     "S3EncryptionConfigurationTypeDef",
     "S3ExportConfigurationTypeDef",
-    "StreamJournalToKinesisRequestRequestTypeDef",
+    "StreamJournalToKinesisRequestTypeDef",
     "StreamJournalToKinesisResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateLedgerPermissionsModeRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateLedgerPermissionsModeRequestTypeDef",
     "UpdateLedgerPermissionsModeResponseTypeDef",
-    "UpdateLedgerRequestRequestTypeDef",
+    "UpdateLedgerRequestTypeDef",
     "UpdateLedgerResponseTypeDef",
     "ValueHolderTypeDef",
 )
 
-CancelJournalKinesisStreamRequestRequestTypeDef = TypedDict(
-    "CancelJournalKinesisStreamRequestRequestTypeDef",
-    {
-        "LedgerName": str,
-        "StreamId": str,
-    },
-)
+class CancelJournalKinesisStreamRequestTypeDef(TypedDict):
+    LedgerName: str
+    StreamId: str
 
-CancelJournalKinesisStreamResponseTypeDef = TypedDict(
-    "CancelJournalKinesisStreamResponseTypeDef",
-    {
-        "StreamId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredCreateLedgerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLedgerRequestRequestTypeDef",
-    {
-        "Name": str,
-        "PermissionsMode": PermissionsModeType,
-    },
-)
-_OptionalCreateLedgerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLedgerRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "DeletionProtection": bool,
-        "KmsKey": str,
-    },
-    total=False,
-)
+class CreateLedgerRequestTypeDef(TypedDict):
+    Name: str
+    PermissionsMode: PermissionsModeType
+    Tags: NotRequired[Mapping[str, str]]
+    DeletionProtection: NotRequired[bool]
+    KmsKey: NotRequired[str]
 
-class CreateLedgerRequestRequestTypeDef(
-    _RequiredCreateLedgerRequestRequestTypeDef, _OptionalCreateLedgerRequestRequestTypeDef
-):
-    pass
+class DeleteLedgerRequestTypeDef(TypedDict):
+    Name: str
 
-CreateLedgerResponseTypeDef = TypedDict(
-    "CreateLedgerResponseTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "State": LedgerStateType,
-        "CreationDateTime": datetime,
-        "PermissionsMode": PermissionsModeType,
-        "DeletionProtection": bool,
-        "KmsKeyArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeJournalKinesisStreamRequestTypeDef(TypedDict):
+    LedgerName: str
+    StreamId: str
 
-DeleteLedgerRequestRequestTypeDef = TypedDict(
-    "DeleteLedgerRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class DescribeJournalS3ExportRequestTypeDef(TypedDict):
+    Name: str
+    ExportId: str
 
-DescribeJournalKinesisStreamRequestRequestTypeDef = TypedDict(
-    "DescribeJournalKinesisStreamRequestRequestTypeDef",
-    {
-        "LedgerName": str,
-        "StreamId": str,
-    },
-)
+class DescribeLedgerRequestTypeDef(TypedDict):
+    Name: str
 
-DescribeJournalKinesisStreamResponseTypeDef = TypedDict(
-    "DescribeJournalKinesisStreamResponseTypeDef",
-    {
-        "Stream": "JournalKinesisStreamDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LedgerEncryptionDescriptionTypeDef(TypedDict):
+    KmsKeyArn: str
+    EncryptionStatus: EncryptionStatusType
+    InaccessibleKmsKeyDateTime: NotRequired[datetime]
 
-DescribeJournalS3ExportRequestRequestTypeDef = TypedDict(
-    "DescribeJournalS3ExportRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ExportId": str,
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-DescribeJournalS3ExportResponseTypeDef = TypedDict(
-    "DescribeJournalS3ExportResponseTypeDef",
-    {
-        "ExportDescription": "JournalS3ExportDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ValueHolderTypeDef(TypedDict):
+    IonText: NotRequired[str]
 
-DescribeLedgerRequestRequestTypeDef = TypedDict(
-    "DescribeLedgerRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class GetDigestRequestTypeDef(TypedDict):
+    Name: str
 
-DescribeLedgerResponseTypeDef = TypedDict(
-    "DescribeLedgerResponseTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "State": LedgerStateType,
-        "CreationDateTime": datetime,
-        "PermissionsMode": PermissionsModeType,
-        "DeletionProtection": bool,
-        "EncryptionDescription": "LedgerEncryptionDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class KinesisConfigurationTypeDef(TypedDict):
+    StreamArn: str
+    AggregationEnabled: NotRequired[bool]
 
-_RequiredExportJournalToS3RequestRequestTypeDef = TypedDict(
-    "_RequiredExportJournalToS3RequestRequestTypeDef",
-    {
-        "Name": str,
-        "InclusiveStartTime": Union[datetime, str],
-        "ExclusiveEndTime": Union[datetime, str],
-        "S3ExportConfiguration": "S3ExportConfigurationTypeDef",
-        "RoleArn": str,
-    },
-)
-_OptionalExportJournalToS3RequestRequestTypeDef = TypedDict(
-    "_OptionalExportJournalToS3RequestRequestTypeDef",
-    {
-        "OutputFormat": OutputFormatType,
-    },
-    total=False,
-)
+class LedgerSummaryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    State: NotRequired[LedgerStateType]
+    CreationDateTime: NotRequired[datetime]
 
-class ExportJournalToS3RequestRequestTypeDef(
-    _RequiredExportJournalToS3RequestRequestTypeDef, _OptionalExportJournalToS3RequestRequestTypeDef
-):
-    pass
+class ListJournalKinesisStreamsForLedgerRequestTypeDef(TypedDict):
+    LedgerName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-ExportJournalToS3ResponseTypeDef = TypedDict(
-    "ExportJournalToS3ResponseTypeDef",
-    {
-        "ExportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListJournalS3ExportsForLedgerRequestTypeDef(TypedDict):
+    Name: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredGetBlockRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBlockRequestRequestTypeDef",
-    {
-        "Name": str,
-        "BlockAddress": "ValueHolderTypeDef",
-    },
-)
-_OptionalGetBlockRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBlockRequestRequestTypeDef",
-    {
-        "DigestTipAddress": "ValueHolderTypeDef",
-    },
-    total=False,
-)
+class ListJournalS3ExportsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class GetBlockRequestRequestTypeDef(
-    _RequiredGetBlockRequestRequestTypeDef, _OptionalGetBlockRequestRequestTypeDef
-):
-    pass
+class ListLedgersRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetBlockResponseTypeDef = TypedDict(
-    "GetBlockResponseTypeDef",
-    {
-        "Block": "ValueHolderTypeDef",
-        "Proof": "ValueHolderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-GetDigestRequestRequestTypeDef = TypedDict(
-    "GetDigestRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class S3EncryptionConfigurationTypeDef(TypedDict):
+    ObjectEncryptionType: S3ObjectEncryptionTypeType
+    KmsKeyArn: NotRequired[str]
 
-GetDigestResponseTypeDef = TypedDict(
-    "GetDigestResponseTypeDef",
-    {
-        "Digest": bytes,
-        "DigestTipAddress": "ValueHolderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-_RequiredGetRevisionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRevisionRequestRequestTypeDef",
-    {
-        "Name": str,
-        "BlockAddress": "ValueHolderTypeDef",
-        "DocumentId": str,
-    },
-)
-_OptionalGetRevisionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRevisionRequestRequestTypeDef",
-    {
-        "DigestTipAddress": "ValueHolderTypeDef",
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-class GetRevisionRequestRequestTypeDef(
-    _RequiredGetRevisionRequestRequestTypeDef, _OptionalGetRevisionRequestRequestTypeDef
-):
-    pass
+class UpdateLedgerPermissionsModeRequestTypeDef(TypedDict):
+    Name: str
+    PermissionsMode: PermissionsModeType
 
-GetRevisionResponseTypeDef = TypedDict(
-    "GetRevisionResponseTypeDef",
-    {
-        "Proof": "ValueHolderTypeDef",
-        "Revision": "ValueHolderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateLedgerRequestTypeDef(TypedDict):
+    Name: str
+    DeletionProtection: NotRequired[bool]
+    KmsKey: NotRequired[str]
 
-_RequiredJournalKinesisStreamDescriptionTypeDef = TypedDict(
-    "_RequiredJournalKinesisStreamDescriptionTypeDef",
-    {
-        "LedgerName": str,
-        "RoleArn": str,
-        "StreamId": str,
-        "Status": StreamStatusType,
-        "KinesisConfiguration": "KinesisConfigurationTypeDef",
-        "StreamName": str,
-    },
-)
-_OptionalJournalKinesisStreamDescriptionTypeDef = TypedDict(
-    "_OptionalJournalKinesisStreamDescriptionTypeDef",
-    {
-        "CreationTime": datetime,
-        "InclusiveStartTime": datetime,
-        "ExclusiveEndTime": datetime,
-        "Arn": str,
-        "ErrorCause": ErrorCauseType,
-    },
-    total=False,
-)
+class CancelJournalKinesisStreamResponseTypeDef(TypedDict):
+    StreamId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class JournalKinesisStreamDescriptionTypeDef(
-    _RequiredJournalKinesisStreamDescriptionTypeDef, _OptionalJournalKinesisStreamDescriptionTypeDef
-):
-    pass
+class CreateLedgerResponseTypeDef(TypedDict):
+    Name: str
+    Arn: str
+    State: LedgerStateType
+    CreationDateTime: datetime
+    PermissionsMode: PermissionsModeType
+    DeletionProtection: bool
+    KmsKeyArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredJournalS3ExportDescriptionTypeDef = TypedDict(
-    "_RequiredJournalS3ExportDescriptionTypeDef",
-    {
-        "LedgerName": str,
-        "ExportId": str,
-        "ExportCreationTime": datetime,
-        "Status": ExportStatusType,
-        "InclusiveStartTime": datetime,
-        "ExclusiveEndTime": datetime,
-        "S3ExportConfiguration": "S3ExportConfigurationTypeDef",
-        "RoleArn": str,
-    },
-)
-_OptionalJournalS3ExportDescriptionTypeDef = TypedDict(
-    "_OptionalJournalS3ExportDescriptionTypeDef",
-    {
-        "OutputFormat": OutputFormatType,
-    },
-    total=False,
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class JournalS3ExportDescriptionTypeDef(
-    _RequiredJournalS3ExportDescriptionTypeDef, _OptionalJournalS3ExportDescriptionTypeDef
-):
-    pass
+class ExportJournalToS3ResponseTypeDef(TypedDict):
+    ExportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredKinesisConfigurationTypeDef = TypedDict(
-    "_RequiredKinesisConfigurationTypeDef",
-    {
-        "StreamArn": str,
-    },
-)
-_OptionalKinesisConfigurationTypeDef = TypedDict(
-    "_OptionalKinesisConfigurationTypeDef",
-    {
-        "AggregationEnabled": bool,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class KinesisConfigurationTypeDef(
-    _RequiredKinesisConfigurationTypeDef, _OptionalKinesisConfigurationTypeDef
-):
-    pass
+class StreamJournalToKinesisResponseTypeDef(TypedDict):
+    StreamId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredLedgerEncryptionDescriptionTypeDef = TypedDict(
-    "_RequiredLedgerEncryptionDescriptionTypeDef",
-    {
-        "KmsKeyArn": str,
-        "EncryptionStatus": EncryptionStatusType,
-    },
-)
-_OptionalLedgerEncryptionDescriptionTypeDef = TypedDict(
-    "_OptionalLedgerEncryptionDescriptionTypeDef",
-    {
-        "InaccessibleKmsKeyDateTime": datetime,
-    },
-    total=False,
-)
+class UpdateLedgerPermissionsModeResponseTypeDef(TypedDict):
+    Name: str
+    Arn: str
+    PermissionsMode: PermissionsModeType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class LedgerEncryptionDescriptionTypeDef(
-    _RequiredLedgerEncryptionDescriptionTypeDef, _OptionalLedgerEncryptionDescriptionTypeDef
-):
-    pass
+class DescribeLedgerResponseTypeDef(TypedDict):
+    Name: str
+    Arn: str
+    State: LedgerStateType
+    CreationDateTime: datetime
+    PermissionsMode: PermissionsModeType
+    DeletionProtection: bool
+    EncryptionDescription: LedgerEncryptionDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-LedgerSummaryTypeDef = TypedDict(
-    "LedgerSummaryTypeDef",
-    {
-        "Name": str,
-        "State": LedgerStateType,
-        "CreationDateTime": datetime,
-    },
-    total=False,
-)
+class UpdateLedgerResponseTypeDef(TypedDict):
+    Name: str
+    Arn: str
+    State: LedgerStateType
+    CreationDateTime: datetime
+    DeletionProtection: bool
+    EncryptionDescription: LedgerEncryptionDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListJournalKinesisStreamsForLedgerRequestRequestTypeDef = TypedDict(
-    "_RequiredListJournalKinesisStreamsForLedgerRequestRequestTypeDef",
-    {
-        "LedgerName": str,
-    },
-)
-_OptionalListJournalKinesisStreamsForLedgerRequestRequestTypeDef = TypedDict(
-    "_OptionalListJournalKinesisStreamsForLedgerRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class GetBlockRequestTypeDef(TypedDict):
+    Name: str
+    BlockAddress: ValueHolderTypeDef
+    DigestTipAddress: NotRequired[ValueHolderTypeDef]
 
-class ListJournalKinesisStreamsForLedgerRequestRequestTypeDef(
-    _RequiredListJournalKinesisStreamsForLedgerRequestRequestTypeDef,
-    _OptionalListJournalKinesisStreamsForLedgerRequestRequestTypeDef,
-):
-    pass
+class GetBlockResponseTypeDef(TypedDict):
+    Block: ValueHolderTypeDef
+    Proof: ValueHolderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListJournalKinesisStreamsForLedgerResponseTypeDef = TypedDict(
-    "ListJournalKinesisStreamsForLedgerResponseTypeDef",
-    {
-        "Streams": List["JournalKinesisStreamDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetDigestResponseTypeDef(TypedDict):
+    Digest: bytes
+    DigestTipAddress: ValueHolderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListJournalS3ExportsForLedgerRequestRequestTypeDef = TypedDict(
-    "_RequiredListJournalS3ExportsForLedgerRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalListJournalS3ExportsForLedgerRequestRequestTypeDef = TypedDict(
-    "_OptionalListJournalS3ExportsForLedgerRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class GetRevisionRequestTypeDef(TypedDict):
+    Name: str
+    BlockAddress: ValueHolderTypeDef
+    DocumentId: str
+    DigestTipAddress: NotRequired[ValueHolderTypeDef]
 
-class ListJournalS3ExportsForLedgerRequestRequestTypeDef(
-    _RequiredListJournalS3ExportsForLedgerRequestRequestTypeDef,
-    _OptionalListJournalS3ExportsForLedgerRequestRequestTypeDef,
-):
-    pass
+class GetRevisionResponseTypeDef(TypedDict):
+    Proof: ValueHolderTypeDef
+    Revision: ValueHolderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListJournalS3ExportsForLedgerResponseTypeDef = TypedDict(
-    "ListJournalS3ExportsForLedgerResponseTypeDef",
-    {
-        "JournalS3Exports": List["JournalS3ExportDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class JournalKinesisStreamDescriptionTypeDef(TypedDict):
+    LedgerName: str
+    RoleArn: str
+    StreamId: str
+    Status: StreamStatusType
+    KinesisConfiguration: KinesisConfigurationTypeDef
+    StreamName: str
+    CreationTime: NotRequired[datetime]
+    InclusiveStartTime: NotRequired[datetime]
+    ExclusiveEndTime: NotRequired[datetime]
+    Arn: NotRequired[str]
+    ErrorCause: NotRequired[ErrorCauseType]
 
-ListJournalS3ExportsRequestRequestTypeDef = TypedDict(
-    "ListJournalS3ExportsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class StreamJournalToKinesisRequestTypeDef(TypedDict):
+    LedgerName: str
+    RoleArn: str
+    InclusiveStartTime: TimestampTypeDef
+    KinesisConfiguration: KinesisConfigurationTypeDef
+    StreamName: str
+    Tags: NotRequired[Mapping[str, str]]
+    ExclusiveEndTime: NotRequired[TimestampTypeDef]
 
-ListJournalS3ExportsResponseTypeDef = TypedDict(
-    "ListJournalS3ExportsResponseTypeDef",
-    {
-        "JournalS3Exports": List["JournalS3ExportDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListLedgersResponseTypeDef(TypedDict):
+    Ledgers: List[LedgerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ListLedgersRequestRequestTypeDef = TypedDict(
-    "ListLedgersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class S3ExportConfigurationTypeDef(TypedDict):
+    Bucket: str
+    Prefix: str
+    EncryptionConfiguration: S3EncryptionConfigurationTypeDef
 
-ListLedgersResponseTypeDef = TypedDict(
-    "ListLedgersResponseTypeDef",
-    {
-        "Ledgers": List["LedgerSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeJournalKinesisStreamResponseTypeDef(TypedDict):
+    Stream: JournalKinesisStreamDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class ListJournalKinesisStreamsForLedgerResponseTypeDef(TypedDict):
+    Streams: List[JournalKinesisStreamDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ExportJournalToS3RequestTypeDef(TypedDict):
+    Name: str
+    InclusiveStartTime: TimestampTypeDef
+    ExclusiveEndTime: TimestampTypeDef
+    S3ExportConfiguration: S3ExportConfigurationTypeDef
+    RoleArn: str
+    OutputFormat: NotRequired[OutputFormatType]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class JournalS3ExportDescriptionTypeDef(TypedDict):
+    LedgerName: str
+    ExportId: str
+    ExportCreationTime: datetime
+    Status: ExportStatusType
+    InclusiveStartTime: datetime
+    ExclusiveEndTime: datetime
+    S3ExportConfiguration: S3ExportConfigurationTypeDef
+    RoleArn: str
+    OutputFormat: NotRequired[OutputFormatType]
 
-_RequiredS3EncryptionConfigurationTypeDef = TypedDict(
-    "_RequiredS3EncryptionConfigurationTypeDef",
-    {
-        "ObjectEncryptionType": S3ObjectEncryptionTypeType,
-    },
-)
-_OptionalS3EncryptionConfigurationTypeDef = TypedDict(
-    "_OptionalS3EncryptionConfigurationTypeDef",
-    {
-        "KmsKeyArn": str,
-    },
-    total=False,
-)
+class DescribeJournalS3ExportResponseTypeDef(TypedDict):
+    ExportDescription: JournalS3ExportDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class S3EncryptionConfigurationTypeDef(
-    _RequiredS3EncryptionConfigurationTypeDef, _OptionalS3EncryptionConfigurationTypeDef
-):
-    pass
+class ListJournalS3ExportsForLedgerResponseTypeDef(TypedDict):
+    JournalS3Exports: List[JournalS3ExportDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-S3ExportConfigurationTypeDef = TypedDict(
-    "S3ExportConfigurationTypeDef",
-    {
-        "Bucket": str,
-        "Prefix": str,
-        "EncryptionConfiguration": "S3EncryptionConfigurationTypeDef",
-    },
-)
-
-_RequiredStreamJournalToKinesisRequestRequestTypeDef = TypedDict(
-    "_RequiredStreamJournalToKinesisRequestRequestTypeDef",
-    {
-        "LedgerName": str,
-        "RoleArn": str,
-        "InclusiveStartTime": Union[datetime, str],
-        "KinesisConfiguration": "KinesisConfigurationTypeDef",
-        "StreamName": str,
-    },
-)
-_OptionalStreamJournalToKinesisRequestRequestTypeDef = TypedDict(
-    "_OptionalStreamJournalToKinesisRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ExclusiveEndTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-class StreamJournalToKinesisRequestRequestTypeDef(
-    _RequiredStreamJournalToKinesisRequestRequestTypeDef,
-    _OptionalStreamJournalToKinesisRequestRequestTypeDef,
-):
-    pass
-
-StreamJournalToKinesisResponseTypeDef = TypedDict(
-    "StreamJournalToKinesisResponseTypeDef",
-    {
-        "StreamId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-UpdateLedgerPermissionsModeRequestRequestTypeDef = TypedDict(
-    "UpdateLedgerPermissionsModeRequestRequestTypeDef",
-    {
-        "Name": str,
-        "PermissionsMode": PermissionsModeType,
-    },
-)
-
-UpdateLedgerPermissionsModeResponseTypeDef = TypedDict(
-    "UpdateLedgerPermissionsModeResponseTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "PermissionsMode": PermissionsModeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateLedgerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLedgerRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalUpdateLedgerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLedgerRequestRequestTypeDef",
-    {
-        "DeletionProtection": bool,
-        "KmsKey": str,
-    },
-    total=False,
-)
-
-class UpdateLedgerRequestRequestTypeDef(
-    _RequiredUpdateLedgerRequestRequestTypeDef, _OptionalUpdateLedgerRequestRequestTypeDef
-):
-    pass
-
-UpdateLedgerResponseTypeDef = TypedDict(
-    "UpdateLedgerResponseTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "State": LedgerStateType,
-        "CreationDateTime": datetime,
-        "DeletionProtection": bool,
-        "EncryptionDescription": "LedgerEncryptionDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ValueHolderTypeDef = TypedDict(
-    "ValueHolderTypeDef",
-    {
-        "IonText": str,
-    },
-    total=False,
-)
+class ListJournalS3ExportsResponseTypeDef(TypedDict):
+    JournalS3Exports: List[JournalS3ExportDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

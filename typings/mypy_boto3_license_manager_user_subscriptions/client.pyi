@@ -1,62 +1,86 @@
 """
-Type annotations for license-manager-user-subscriptions service client.
+Type annotations for license-manager-user-subscriptions service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_license_manager_user_subscriptions import LicenseManagerUserSubscriptionsClient
+    from boto3.session import Session
+    from mypy_boto3_license_manager_user_subscriptions.client import LicenseManagerUserSubscriptionsClient
 
-    client: LicenseManagerUserSubscriptionsClient = boto3.client("license-manager-user-subscriptions")
+    session = Session()
+    client: LicenseManagerUserSubscriptionsClient = session.client("license-manager-user-subscriptions")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
     ListIdentityProvidersPaginator,
     ListInstancesPaginator,
+    ListLicenseServerEndpointsPaginator,
     ListProductSubscriptionsPaginator,
     ListUserAssociationsPaginator,
 )
 from .type_defs import (
+    AssociateUserRequestTypeDef,
     AssociateUserResponseTypeDef,
+    CreateLicenseServerEndpointRequestTypeDef,
+    CreateLicenseServerEndpointResponseTypeDef,
+    DeleteLicenseServerEndpointRequestTypeDef,
+    DeleteLicenseServerEndpointResponseTypeDef,
+    DeregisterIdentityProviderRequestTypeDef,
     DeregisterIdentityProviderResponseTypeDef,
+    DisassociateUserRequestTypeDef,
     DisassociateUserResponseTypeDef,
-    FilterTypeDef,
-    IdentityProviderTypeDef,
+    ListIdentityProvidersRequestTypeDef,
     ListIdentityProvidersResponseTypeDef,
+    ListInstancesRequestTypeDef,
     ListInstancesResponseTypeDef,
+    ListLicenseServerEndpointsRequestTypeDef,
+    ListLicenseServerEndpointsResponseTypeDef,
+    ListProductSubscriptionsRequestTypeDef,
     ListProductSubscriptionsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
+    ListTagsForResourceResponseTypeDef,
+    ListUserAssociationsRequestTypeDef,
     ListUserAssociationsResponseTypeDef,
+    RegisterIdentityProviderRequestTypeDef,
     RegisterIdentityProviderResponseTypeDef,
-    SettingsTypeDef,
+    StartProductSubscriptionRequestTypeDef,
     StartProductSubscriptionResponseTypeDef,
+    StopProductSubscriptionRequestTypeDef,
     StopProductSubscriptionResponseTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateIdentityProviderSettingsRequestTypeDef,
     UpdateIdentityProviderSettingsResponseTypeDef,
-    UpdateSettingsTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("LicenseManagerUserSubscriptionsClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -68,8 +92,8 @@ class Exceptions:
 
 class LicenseManagerUserSubscriptionsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/)
     """
 
     meta: ClientMeta
@@ -78,223 +102,248 @@ class LicenseManagerUserSubscriptionsClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         LicenseManagerUserSubscriptionsClient exceptions.
-        """
 
-    def associate_user(
-        self,
-        *,
-        IdentityProvider: "IdentityProviderTypeDef",
-        InstanceId: str,
-        Username: str,
-        Domain: str = None
-    ) -> AssociateUserResponseTypeDef:
-        """
-        Associates the user to an EC2 instance to utilize user-based subscriptions.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.associate_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#associate_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#close)
-        """
-
-    def deregister_identity_provider(
-        self, *, IdentityProvider: "IdentityProviderTypeDef", Product: str
-    ) -> DeregisterIdentityProviderResponseTypeDef:
-        """
-        Deregisters the identity provider from providing user-based subscriptions.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.deregister_identity_provider)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#deregister_identity_provider)
-        """
-
-    def disassociate_user(
-        self,
-        *,
-        IdentityProvider: "IdentityProviderTypeDef",
-        InstanceId: str,
-        Username: str,
-        Domain: str = None
-    ) -> DisassociateUserResponseTypeDef:
-        """
-        Disassociates the user from an EC2 instance providing user-based subscriptions.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.disassociate_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#disassociate_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#generate_presigned_url)
+    def associate_user(
+        self, **kwargs: Unpack[AssociateUserRequestTypeDef]
+    ) -> AssociateUserResponseTypeDef:
+        """
+        Associates the user to an EC2 instance to utilize user-based subscriptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/associate_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#associate_user)
+        """
+
+    def create_license_server_endpoint(
+        self, **kwargs: Unpack[CreateLicenseServerEndpointRequestTypeDef]
+    ) -> CreateLicenseServerEndpointResponseTypeDef:
+        """
+        Creates a network endpoint for the Remote Desktop Services (RDS) license server.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/create_license_server_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#create_license_server_endpoint)
+        """
+
+    def delete_license_server_endpoint(
+        self, **kwargs: Unpack[DeleteLicenseServerEndpointRequestTypeDef]
+    ) -> DeleteLicenseServerEndpointResponseTypeDef:
+        """
+        Deletes a <code>LicenseServerEndpoint</code> resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/delete_license_server_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#delete_license_server_endpoint)
+        """
+
+    def deregister_identity_provider(
+        self, **kwargs: Unpack[DeregisterIdentityProviderRequestTypeDef]
+    ) -> DeregisterIdentityProviderResponseTypeDef:
+        """
+        Deregisters the Active Directory identity provider from License Manager
+        user-based subscriptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/deregister_identity_provider.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#deregister_identity_provider)
+        """
+
+    def disassociate_user(
+        self, **kwargs: Unpack[DisassociateUserRequestTypeDef]
+    ) -> DisassociateUserResponseTypeDef:
+        """
+        Disassociates the user from an EC2 instance providing user-based subscriptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/disassociate_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#disassociate_user)
         """
 
     def list_identity_providers(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListIdentityProvidersRequestTypeDef]
     ) -> ListIdentityProvidersResponseTypeDef:
         """
-        Lists the identity providers for user-based subscriptions.
+        Lists the Active Directory identity providers for user-based subscriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.list_identity_providers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#list_identity_providers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/list_identity_providers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#list_identity_providers)
         """
 
     def list_instances(
-        self,
-        *,
-        Filters: List["FilterTypeDef"] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListInstancesRequestTypeDef]
     ) -> ListInstancesResponseTypeDef:
         """
         Lists the EC2 instances providing user-based subscriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.list_instances)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#list_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/list_instances.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#list_instances)
+        """
+
+    def list_license_server_endpoints(
+        self, **kwargs: Unpack[ListLicenseServerEndpointsRequestTypeDef]
+    ) -> ListLicenseServerEndpointsResponseTypeDef:
+        """
+        List the Remote Desktop Services (RDS) License Server endpoints.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/list_license_server_endpoints.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#list_license_server_endpoints)
         """
 
     def list_product_subscriptions(
-        self,
-        *,
-        IdentityProvider: "IdentityProviderTypeDef",
-        Product: str,
-        Filters: List["FilterTypeDef"] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListProductSubscriptionsRequestTypeDef]
     ) -> ListProductSubscriptionsResponseTypeDef:
         """
         Lists the user-based subscription products available from an identity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.list_product_subscriptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#list_product_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/list_product_subscriptions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#list_product_subscriptions)
+        """
+
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
+        """
+        Returns the list of tags for the specified resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#list_tags_for_resource)
         """
 
     def list_user_associations(
-        self,
-        *,
-        IdentityProvider: "IdentityProviderTypeDef",
-        InstanceId: str,
-        Filters: List["FilterTypeDef"] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListUserAssociationsRequestTypeDef]
     ) -> ListUserAssociationsResponseTypeDef:
         """
         Lists user associations for an identity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.list_user_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#list_user_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/list_user_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#list_user_associations)
         """
 
     def register_identity_provider(
-        self,
-        *,
-        IdentityProvider: "IdentityProviderTypeDef",
-        Product: str,
-        Settings: "SettingsTypeDef" = None
+        self, **kwargs: Unpack[RegisterIdentityProviderRequestTypeDef]
     ) -> RegisterIdentityProviderResponseTypeDef:
         """
         Registers an identity provider for user-based subscriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.register_identity_provider)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#register_identity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/register_identity_provider.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#register_identity_provider)
         """
 
     def start_product_subscription(
-        self,
-        *,
-        IdentityProvider: "IdentityProviderTypeDef",
-        Product: str,
-        Username: str,
-        Domain: str = None
+        self, **kwargs: Unpack[StartProductSubscriptionRequestTypeDef]
     ) -> StartProductSubscriptionResponseTypeDef:
         """
         Starts a product subscription for a user with the specified identity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.start_product_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#start_product_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/start_product_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#start_product_subscription)
         """
 
     def stop_product_subscription(
-        self,
-        *,
-        IdentityProvider: "IdentityProviderTypeDef",
-        Product: str,
-        Username: str,
-        Domain: str = None
+        self, **kwargs: Unpack[StopProductSubscriptionRequestTypeDef]
     ) -> StopProductSubscriptionResponseTypeDef:
         """
         Stops a product subscription for a user with the specified identity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.stop_product_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#stop_product_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/stop_product_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#stop_product_subscription)
+        """
+
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Adds tags to a resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#tag_resource)
+        """
+
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Removes tags from a resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#untag_resource)
         """
 
     def update_identity_provider_settings(
-        self,
-        *,
-        IdentityProvider: "IdentityProviderTypeDef",
-        Product: str,
-        UpdateSettings: "UpdateSettingsTypeDef"
+        self, **kwargs: Unpack[UpdateIdentityProviderSettingsRequestTypeDef]
     ) -> UpdateIdentityProviderSettingsResponseTypeDef:
         """
         Updates additional product configuration settings for the registered identity
         provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Client.update_identity_provider_settings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client.html#update_identity_provider_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/update_identity_provider_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#update_identity_provider_settings)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_identity_providers"]
     ) -> ListIdentityProvidersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Paginator.ListIdentityProviders)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/paginators.html#listidentityproviderspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_instances"]) -> ListInstancesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_instances"]
+    ) -> ListInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Paginator.ListInstances)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/paginators.html#listinstancespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_license_server_endpoints"]
+    ) -> ListLicenseServerEndpointsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_product_subscriptions"]
     ) -> ListProductSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Paginator.ListProductSubscriptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/paginators.html#listproductsubscriptionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_user_associations"]
     ) -> ListUserAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-user-subscriptions.html#LicenseManagerUserSubscriptions.Paginator.ListUserAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/paginators.html#listuserassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-user-subscriptions/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/client/#get_paginator)
         """

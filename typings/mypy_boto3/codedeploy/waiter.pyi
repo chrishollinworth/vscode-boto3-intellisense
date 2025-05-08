@@ -1,38 +1,51 @@
 """
 Type annotations for codedeploy service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_codedeploy import CodeDeployClient
+    from mypy_boto3_codedeploy.client import CodeDeployClient
     from mypy_boto3_codedeploy.waiter import (
         DeploymentSuccessfulWaiter,
     )
 
-    client: CodeDeployClient = boto3.client("codedeploy")
+    session = Session()
+    client: CodeDeployClient = session.client("codedeploy")
 
     deployment_successful_waiter: DeploymentSuccessfulWaiter = client.get_waiter("deployment_successful")
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import GetDeploymentInputWaitTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("DeploymentSuccessfulWaiter",)
 
-class DeploymentSuccessfulWaiter(Boto3Waiter):
+class DeploymentSuccessfulWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/waiters.html#deploymentsuccessfulwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/waiter/DeploymentSuccessful.html#CodeDeploy.Waiter.DeploymentSuccessful)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/waiters/#deploymentsuccessfulwaiter)
     """
-
-    def wait(self, *, deploymentId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetDeploymentInputWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/waiters.html#deploymentsuccessfulwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/waiter/DeploymentSuccessful.html#CodeDeploy.Waiter.DeploymentSuccessful.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/waiters/#deploymentsuccessfulwaiter)
         """

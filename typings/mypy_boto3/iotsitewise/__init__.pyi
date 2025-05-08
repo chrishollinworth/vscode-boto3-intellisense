@@ -1,10 +1,14 @@
 """
 Main interface for iotsitewise service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_iotsitewise import (
         AssetActiveWaiter,
         AssetModelActiveWaiter,
@@ -28,6 +32,7 @@ Usage::
         ListBulkImportJobsPaginator,
         ListCompositionRelationshipsPaginator,
         ListDashboardsPaginator,
+        ListDatasetsPaginator,
         ListGatewaysPaginator,
         ListPortalsPaginator,
         ListProjectAssetsPaginator,
@@ -37,10 +42,8 @@ Usage::
         PortalNotExistsWaiter,
     )
 
-    session = boto3.Session()
-
-    client: IoTSiteWiseClient = boto3.client("iotsitewise")
-    session_client: IoTSiteWiseClient = session.client("iotsitewise")
+    session = Session()
+    client: IoTSiteWiseClient = session.client("iotsitewise")
 
     asset_active_waiter: AssetActiveWaiter = client.get_waiter("asset_active")
     asset_model_active_waiter: AssetModelActiveWaiter = client.get_waiter("asset_model_active")
@@ -65,6 +68,7 @@ Usage::
     list_bulk_import_jobs_paginator: ListBulkImportJobsPaginator = client.get_paginator("list_bulk_import_jobs")
     list_composition_relationships_paginator: ListCompositionRelationshipsPaginator = client.get_paginator("list_composition_relationships")
     list_dashboards_paginator: ListDashboardsPaginator = client.get_paginator("list_dashboards")
+    list_datasets_paginator: ListDatasetsPaginator = client.get_paginator("list_datasets")
     list_gateways_paginator: ListGatewaysPaginator = client.get_paginator("list_gateways")
     list_portals_paginator: ListPortalsPaginator = client.get_paginator("list_portals")
     list_project_assets_paginator: ListProjectAssetsPaginator = client.get_paginator("list_project_assets")
@@ -91,6 +95,7 @@ from .paginator import (
     ListBulkImportJobsPaginator,
     ListCompositionRelationshipsPaginator,
     ListDashboardsPaginator,
+    ListDatasetsPaginator,
     ListGatewaysPaginator,
     ListPortalsPaginator,
     ListProjectAssetsPaginator,
@@ -131,6 +136,7 @@ __all__ = (
     "ListBulkImportJobsPaginator",
     "ListCompositionRelationshipsPaginator",
     "ListDashboardsPaginator",
+    "ListDatasetsPaginator",
     "ListGatewaysPaginator",
     "ListPortalsPaginator",
     "ListProjectAssetsPaginator",

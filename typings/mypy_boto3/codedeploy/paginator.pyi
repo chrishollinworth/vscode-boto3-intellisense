@@ -1,14 +1,16 @@
 """
 Type annotations for codedeploy service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_codedeploy import CodeDeployClient
+    from mypy_boto3_codedeploy.client import CodeDeployClient
     from mypy_boto3_codedeploy.paginator import (
         ListApplicationRevisionsPaginator,
         ListApplicationsPaginator,
@@ -21,7 +23,8 @@ Usage::
         ListOnPremisesInstancesPaginator,
     )
 
-    client: CodeDeployClient = boto3.client("codedeploy")
+    session = Session()
+    client: CodeDeployClient = session.client("codedeploy")
 
     list_application_revisions_paginator: ListApplicationRevisionsPaginator = client.get_paginator("list_application_revisions")
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
@@ -35,34 +38,38 @@ Usage::
     ```
 """
 
-from typing import Dict, Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import (
-    ApplicationRevisionSortByType,
-    DeploymentStatusType,
-    InstanceStatusType,
-    InstanceTypeType,
-    ListStateFilterActionType,
-    RegistrationStatusType,
-    SortOrderType,
-    TargetFilterNameType,
-)
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListApplicationRevisionsInputPaginateTypeDef,
     ListApplicationRevisionsOutputTypeDef,
+    ListApplicationsInputPaginateTypeDef,
     ListApplicationsOutputTypeDef,
+    ListDeploymentConfigsInputPaginateTypeDef,
     ListDeploymentConfigsOutputTypeDef,
+    ListDeploymentGroupsInputPaginateTypeDef,
     ListDeploymentGroupsOutputTypeDef,
+    ListDeploymentInstancesInputPaginateTypeDef,
     ListDeploymentInstancesOutputTypeDef,
+    ListDeploymentsInputPaginateTypeDef,
     ListDeploymentsOutputTypeDef,
+    ListDeploymentTargetsInputPaginateTypeDef,
     ListDeploymentTargetsOutputTypeDef,
+    ListGitHubAccountTokenNamesInputPaginateTypeDef,
     ListGitHubAccountTokenNamesOutputTypeDef,
+    ListOnPremisesInstancesInputPaginateTypeDef,
     ListOnPremisesInstancesOutputTypeDef,
-    PaginatorConfigTypeDef,
-    TagFilterTypeDef,
-    TimeRangeTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListApplicationRevisionsPaginator",
@@ -76,156 +83,164 @@ __all__ = (
     "ListOnPremisesInstancesPaginator",
 )
 
-class ListApplicationRevisionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplicationRevisions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listapplicationrevisionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListApplicationRevisionsPaginatorBase = Paginator[ListApplicationRevisionsOutputTypeDef]
+else:
+    _ListApplicationRevisionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        applicationName: str,
-        sortBy: ApplicationRevisionSortByType = None,
-        sortOrder: SortOrderType = None,
-        s3Bucket: str = None,
-        s3KeyPrefix: str = None,
-        deployed: ListStateFilterActionType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListApplicationRevisionsOutputTypeDef]:
+class ListApplicationRevisionsPaginator(_ListApplicationRevisionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListApplicationRevisions.html#CodeDeploy.Paginator.ListApplicationRevisions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listapplicationrevisionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListApplicationRevisionsInputPaginateTypeDef]
+    ) -> PageIterator[ListApplicationRevisionsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplicationRevisions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listapplicationrevisionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListApplicationRevisions.html#CodeDeploy.Paginator.ListApplicationRevisions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listapplicationrevisionspaginator)
         """
 
-class ListApplicationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplications)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listapplicationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListApplicationsPaginatorBase = Paginator[ListApplicationsOutputTypeDef]
+else:
+    _ListApplicationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListApplicationsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplications.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listapplicationspaginator)
-        """
-
-class ListDeploymentConfigsPaginator(Boto3Paginator):
+class ListApplicationsPaginator(_ListApplicationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentConfigs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentconfigspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListApplications.html#CodeDeploy.Paginator.ListApplications)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listapplicationspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDeploymentConfigsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListApplicationsInputPaginateTypeDef]
+    ) -> PageIterator[ListApplicationsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentConfigs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentconfigspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListApplications.html#CodeDeploy.Paginator.ListApplications.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listapplicationspaginator)
         """
 
-class ListDeploymentGroupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentgroupspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDeploymentConfigsPaginatorBase = Paginator[ListDeploymentConfigsOutputTypeDef]
+else:
+    _ListDeploymentConfigsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, applicationName: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDeploymentGroupsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentgroupspaginator)
-        """
-
-class ListDeploymentInstancesPaginator(Boto3Paginator):
+class ListDeploymentConfigsPaginator(_ListDeploymentConfigsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentInstances)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentinstancespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListDeploymentConfigs.html#CodeDeploy.Paginator.ListDeploymentConfigs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listdeploymentconfigspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        deploymentId: str,
-        instanceStatusFilter: List[InstanceStatusType] = None,
-        instanceTypeFilter: List[InstanceTypeType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDeploymentInstancesOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDeploymentConfigsInputPaginateTypeDef]
+    ) -> PageIterator[ListDeploymentConfigsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentInstances.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentinstancespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListDeploymentConfigs.html#CodeDeploy.Paginator.ListDeploymentConfigs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listdeploymentconfigspaginator)
         """
 
-class ListDeploymentTargetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentTargets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymenttargetspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDeploymentGroupsPaginatorBase = Paginator[ListDeploymentGroupsOutputTypeDef]
+else:
+    _ListDeploymentGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        deploymentId: str,
-        targetFilters: Dict[TargetFilterNameType, List[str]] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDeploymentTargetsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentTargets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymenttargetspaginator)
-        """
-
-class ListDeploymentsPaginator(Boto3Paginator):
+class ListDeploymentGroupsPaginator(_ListDeploymentGroupsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeployments)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListDeploymentGroups.html#CodeDeploy.Paginator.ListDeploymentGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listdeploymentgroupspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        applicationName: str = None,
-        deploymentGroupName: str = None,
-        externalId: str = None,
-        includeOnlyStatuses: List[DeploymentStatusType] = None,
-        createTimeRange: "TimeRangeTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDeploymentsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDeploymentGroupsInputPaginateTypeDef]
+    ) -> PageIterator[ListDeploymentGroupsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeployments.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListDeploymentGroups.html#CodeDeploy.Paginator.ListDeploymentGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listdeploymentgroupspaginator)
         """
 
-class ListGitHubAccountTokenNamesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listgithubaccounttokennamespaginator)
-    """
+if TYPE_CHECKING:
+    _ListDeploymentInstancesPaginatorBase = Paginator[ListDeploymentInstancesOutputTypeDef]
+else:
+    _ListDeploymentInstancesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGitHubAccountTokenNamesOutputTypeDef]:
+class ListDeploymentInstancesPaginator(_ListDeploymentInstancesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListDeploymentInstances.html#CodeDeploy.Paginator.ListDeploymentInstances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listdeploymentinstancespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDeploymentInstancesInputPaginateTypeDef]
+    ) -> PageIterator[ListDeploymentInstancesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listgithubaccounttokennamespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListDeploymentInstances.html#CodeDeploy.Paginator.ListDeploymentInstances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listdeploymentinstancespaginator)
         """
 
-class ListOnPremisesInstancesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListOnPremisesInstances)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listonpremisesinstancespaginator)
-    """
+if TYPE_CHECKING:
+    _ListDeploymentTargetsPaginatorBase = Paginator[ListDeploymentTargetsOutputTypeDef]
+else:
+    _ListDeploymentTargetsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        registrationStatus: RegistrationStatusType = None,
-        tagFilters: List["TagFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOnPremisesInstancesOutputTypeDef]:
+class ListDeploymentTargetsPaginator(_ListDeploymentTargetsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListDeploymentTargets.html#CodeDeploy.Paginator.ListDeploymentTargets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listdeploymenttargetspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDeploymentTargetsInputPaginateTypeDef]
+    ) -> PageIterator[ListDeploymentTargetsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codedeploy.html#CodeDeploy.Paginator.ListOnPremisesInstances.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listonpremisesinstancespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListDeploymentTargets.html#CodeDeploy.Paginator.ListDeploymentTargets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listdeploymenttargetspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListDeploymentsPaginatorBase = Paginator[ListDeploymentsOutputTypeDef]
+else:
+    _ListDeploymentsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListDeploymentsPaginator(_ListDeploymentsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListDeployments.html#CodeDeploy.Paginator.ListDeployments)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listdeploymentspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDeploymentsInputPaginateTypeDef]
+    ) -> PageIterator[ListDeploymentsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListDeployments.html#CodeDeploy.Paginator.ListDeployments.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listdeploymentspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListGitHubAccountTokenNamesPaginatorBase = Paginator[ListGitHubAccountTokenNamesOutputTypeDef]
+else:
+    _ListGitHubAccountTokenNamesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListGitHubAccountTokenNamesPaginator(_ListGitHubAccountTokenNamesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListGitHubAccountTokenNames.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listgithubaccounttokennamespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGitHubAccountTokenNamesInputPaginateTypeDef]
+    ) -> PageIterator[ListGitHubAccountTokenNamesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListGitHubAccountTokenNames.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listgithubaccounttokennamespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOnPremisesInstancesPaginatorBase = Paginator[ListOnPremisesInstancesOutputTypeDef]
+else:
+    _ListOnPremisesInstancesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOnPremisesInstancesPaginator(_ListOnPremisesInstancesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListOnPremisesInstances.html#CodeDeploy.Paginator.ListOnPremisesInstances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listonpremisesinstancespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOnPremisesInstancesInputPaginateTypeDef]
+    ) -> PageIterator[ListOnPremisesInstancesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy/paginator/ListOnPremisesInstances.html#CodeDeploy.Paginator.ListOnPremisesInstances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators/#listonpremisesinstancespaginator)
         """

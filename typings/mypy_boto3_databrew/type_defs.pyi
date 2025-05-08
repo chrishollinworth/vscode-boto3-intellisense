@@ -1,20 +1,24 @@
 """
 Type annotations for databrew service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_databrew.type_defs import AllowedStatisticsTypeDef
+    from mypy_boto3_databrew.type_defs import AllowedStatisticsOutputTypeDef
 
-    data: AllowedStatisticsTypeDef = {...}
+    data: AllowedStatisticsOutputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AnalyticsModeType,
@@ -35,35 +39,39 @@ from .literals import (
     ThresholdUnitType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AllowedStatisticsOutputTypeDef",
     "AllowedStatisticsTypeDef",
-    "BatchDeleteRecipeVersionRequestRequestTypeDef",
+    "BatchDeleteRecipeVersionRequestTypeDef",
     "BatchDeleteRecipeVersionResponseTypeDef",
     "ColumnSelectorTypeDef",
+    "ColumnStatisticsConfigurationOutputTypeDef",
     "ColumnStatisticsConfigurationTypeDef",
     "ConditionExpressionTypeDef",
-    "CreateDatasetRequestRequestTypeDef",
+    "CreateDatasetRequestTypeDef",
     "CreateDatasetResponseTypeDef",
-    "CreateProfileJobRequestRequestTypeDef",
+    "CreateProfileJobRequestTypeDef",
     "CreateProfileJobResponseTypeDef",
-    "CreateProjectRequestRequestTypeDef",
+    "CreateProjectRequestTypeDef",
     "CreateProjectResponseTypeDef",
-    "CreateRecipeJobRequestRequestTypeDef",
+    "CreateRecipeJobRequestTypeDef",
     "CreateRecipeJobResponseTypeDef",
-    "CreateRecipeRequestRequestTypeDef",
+    "CreateRecipeRequestTypeDef",
     "CreateRecipeResponseTypeDef",
-    "CreateRulesetRequestRequestTypeDef",
+    "CreateRulesetRequestTypeDef",
     "CreateRulesetResponseTypeDef",
-    "CreateScheduleRequestRequestTypeDef",
+    "CreateScheduleRequestTypeDef",
     "CreateScheduleResponseTypeDef",
     "CsvOptionsTypeDef",
     "CsvOutputOptionsTypeDef",
@@ -72,725 +80,1034 @@ __all__ = (
     "DatabaseInputDefinitionTypeDef",
     "DatabaseOutputTypeDef",
     "DatabaseTableOutputOptionsTypeDef",
+    "DatasetParameterOutputTypeDef",
     "DatasetParameterTypeDef",
     "DatasetTypeDef",
     "DatetimeOptionsTypeDef",
-    "DeleteDatasetRequestRequestTypeDef",
+    "DeleteDatasetRequestTypeDef",
     "DeleteDatasetResponseTypeDef",
-    "DeleteJobRequestRequestTypeDef",
+    "DeleteJobRequestTypeDef",
     "DeleteJobResponseTypeDef",
-    "DeleteProjectRequestRequestTypeDef",
+    "DeleteProjectRequestTypeDef",
     "DeleteProjectResponseTypeDef",
-    "DeleteRecipeVersionRequestRequestTypeDef",
+    "DeleteRecipeVersionRequestTypeDef",
     "DeleteRecipeVersionResponseTypeDef",
-    "DeleteRulesetRequestRequestTypeDef",
+    "DeleteRulesetRequestTypeDef",
     "DeleteRulesetResponseTypeDef",
-    "DeleteScheduleRequestRequestTypeDef",
+    "DeleteScheduleRequestTypeDef",
     "DeleteScheduleResponseTypeDef",
-    "DescribeDatasetRequestRequestTypeDef",
+    "DescribeDatasetRequestTypeDef",
     "DescribeDatasetResponseTypeDef",
-    "DescribeJobRequestRequestTypeDef",
+    "DescribeJobRequestTypeDef",
     "DescribeJobResponseTypeDef",
-    "DescribeJobRunRequestRequestTypeDef",
+    "DescribeJobRunRequestTypeDef",
     "DescribeJobRunResponseTypeDef",
-    "DescribeProjectRequestRequestTypeDef",
+    "DescribeProjectRequestTypeDef",
     "DescribeProjectResponseTypeDef",
-    "DescribeRecipeRequestRequestTypeDef",
+    "DescribeRecipeRequestTypeDef",
     "DescribeRecipeResponseTypeDef",
-    "DescribeRulesetRequestRequestTypeDef",
+    "DescribeRulesetRequestTypeDef",
     "DescribeRulesetResponseTypeDef",
-    "DescribeScheduleRequestRequestTypeDef",
+    "DescribeScheduleRequestTypeDef",
     "DescribeScheduleResponseTypeDef",
+    "EntityDetectorConfigurationOutputTypeDef",
     "EntityDetectorConfigurationTypeDef",
+    "ExcelOptionsOutputTypeDef",
     "ExcelOptionsTypeDef",
+    "ExtraTypeDef",
     "FilesLimitTypeDef",
+    "FilterExpressionOutputTypeDef",
     "FilterExpressionTypeDef",
+    "FormatOptionsOutputTypeDef",
     "FormatOptionsTypeDef",
+    "FormatOptionsUnionTypeDef",
     "InputTypeDef",
     "JobRunTypeDef",
     "JobSampleTypeDef",
     "JobTypeDef",
     "JsonOptionsTypeDef",
-    "ListDatasetsRequestRequestTypeDef",
+    "ListDatasetsRequestPaginateTypeDef",
+    "ListDatasetsRequestTypeDef",
     "ListDatasetsResponseTypeDef",
-    "ListJobRunsRequestRequestTypeDef",
+    "ListJobRunsRequestPaginateTypeDef",
+    "ListJobRunsRequestTypeDef",
     "ListJobRunsResponseTypeDef",
-    "ListJobsRequestRequestTypeDef",
+    "ListJobsRequestPaginateTypeDef",
+    "ListJobsRequestTypeDef",
     "ListJobsResponseTypeDef",
-    "ListProjectsRequestRequestTypeDef",
+    "ListProjectsRequestPaginateTypeDef",
+    "ListProjectsRequestTypeDef",
     "ListProjectsResponseTypeDef",
-    "ListRecipeVersionsRequestRequestTypeDef",
+    "ListRecipeVersionsRequestPaginateTypeDef",
+    "ListRecipeVersionsRequestTypeDef",
     "ListRecipeVersionsResponseTypeDef",
-    "ListRecipesRequestRequestTypeDef",
+    "ListRecipesRequestPaginateTypeDef",
+    "ListRecipesRequestTypeDef",
     "ListRecipesResponseTypeDef",
-    "ListRulesetsRequestRequestTypeDef",
+    "ListRulesetsRequestPaginateTypeDef",
+    "ListRulesetsRequestTypeDef",
     "ListRulesetsResponseTypeDef",
-    "ListSchedulesRequestRequestTypeDef",
+    "ListSchedulesRequestPaginateTypeDef",
+    "ListSchedulesRequestTypeDef",
     "ListSchedulesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MetadataTypeDef",
     "OutputFormatOptionsTypeDef",
     "OutputTypeDef",
     "PaginatorConfigTypeDef",
+    "PathOptionsOutputTypeDef",
     "PathOptionsTypeDef",
+    "PathOptionsUnionTypeDef",
+    "ProfileConfigurationOutputTypeDef",
     "ProfileConfigurationTypeDef",
+    "ProfileConfigurationUnionTypeDef",
     "ProjectTypeDef",
-    "PublishRecipeRequestRequestTypeDef",
+    "PublishRecipeRequestTypeDef",
     "PublishRecipeResponseTypeDef",
+    "RecipeActionOutputTypeDef",
     "RecipeActionTypeDef",
+    "RecipeActionUnionTypeDef",
     "RecipeReferenceTypeDef",
+    "RecipeStepOutputTypeDef",
     "RecipeStepTypeDef",
+    "RecipeStepUnionTypeDef",
     "RecipeTypeDef",
     "RecipeVersionErrorDetailTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleOutputTypeDef",
     "RuleTypeDef",
+    "RuleUnionTypeDef",
     "RulesetItemTypeDef",
     "S3LocationTypeDef",
     "S3TableOutputOptionsTypeDef",
     "SampleTypeDef",
     "ScheduleTypeDef",
-    "SendProjectSessionActionRequestRequestTypeDef",
+    "SendProjectSessionActionRequestTypeDef",
     "SendProjectSessionActionResponseTypeDef",
-    "StartJobRunRequestRequestTypeDef",
+    "StartJobRunRequestTypeDef",
     "StartJobRunResponseTypeDef",
-    "StartProjectSessionRequestRequestTypeDef",
+    "StartProjectSessionRequestTypeDef",
     "StartProjectSessionResponseTypeDef",
+    "StatisticOverrideOutputTypeDef",
     "StatisticOverrideTypeDef",
+    "StatisticsConfigurationOutputTypeDef",
     "StatisticsConfigurationTypeDef",
-    "StopJobRunRequestRequestTypeDef",
+    "StopJobRunRequestTypeDef",
     "StopJobRunResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "ThresholdTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDatasetRequestRequestTypeDef",
+    "UnionTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDatasetRequestTypeDef",
     "UpdateDatasetResponseTypeDef",
-    "UpdateProfileJobRequestRequestTypeDef",
+    "UpdateProfileJobRequestTypeDef",
     "UpdateProfileJobResponseTypeDef",
-    "UpdateProjectRequestRequestTypeDef",
+    "UpdateProjectRequestTypeDef",
     "UpdateProjectResponseTypeDef",
-    "UpdateRecipeJobRequestRequestTypeDef",
+    "UpdateRecipeJobRequestTypeDef",
     "UpdateRecipeJobResponseTypeDef",
-    "UpdateRecipeRequestRequestTypeDef",
+    "UpdateRecipeRequestTypeDef",
     "UpdateRecipeResponseTypeDef",
-    "UpdateRulesetRequestRequestTypeDef",
+    "UpdateRulesetRequestTypeDef",
     "UpdateRulesetResponseTypeDef",
-    "UpdateScheduleRequestRequestTypeDef",
+    "UpdateScheduleRequestTypeDef",
     "UpdateScheduleResponseTypeDef",
     "ValidationConfigurationTypeDef",
     "ViewFrameTypeDef",
 )
 
-AllowedStatisticsTypeDef = TypedDict(
-    "AllowedStatisticsTypeDef",
+class AllowedStatisticsOutputTypeDef(TypedDict):
+    Statistics: List[str]
+
+class AllowedStatisticsTypeDef(TypedDict):
+    Statistics: Sequence[str]
+
+class BatchDeleteRecipeVersionRequestTypeDef(TypedDict):
+    Name: str
+    RecipeVersions: Sequence[str]
+
+class RecipeVersionErrorDetailTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+    RecipeVersion: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class ColumnSelectorTypeDef(TypedDict):
+    Regex: NotRequired[str]
+    Name: NotRequired[str]
+
+class ConditionExpressionTypeDef(TypedDict):
+    Condition: str
+    TargetColumn: str
+    Value: NotRequired[str]
+
+class JobSampleTypeDef(TypedDict):
+    Mode: NotRequired[SampleModeType]
+    Size: NotRequired[int]
+
+class S3LocationTypeDef(TypedDict):
+    Bucket: str
+    Key: NotRequired[str]
+    BucketOwner: NotRequired[str]
+
+class ValidationConfigurationTypeDef(TypedDict):
+    RulesetArn: str
+    ValidationMode: NotRequired[Literal["CHECK_ALL"]]
+
+SampleTypeDef = TypedDict(
+    "SampleTypeDef",
     {
-        "Statistics": List[str],
+        "Type": SampleTypeType,
+        "Size": NotRequired[int],
     },
 )
 
-BatchDeleteRecipeVersionRequestRequestTypeDef = TypedDict(
-    "BatchDeleteRecipeVersionRequestRequestTypeDef",
+class RecipeReferenceTypeDef(TypedDict):
+    Name: str
+    RecipeVersion: NotRequired[str]
+
+class CreateScheduleRequestTypeDef(TypedDict):
+    CronExpression: str
+    Name: str
+    JobNames: NotRequired[Sequence[str]]
+    Tags: NotRequired[Mapping[str, str]]
+
+class CsvOptionsTypeDef(TypedDict):
+    Delimiter: NotRequired[str]
+    HeaderRow: NotRequired[bool]
+
+class CsvOutputOptionsTypeDef(TypedDict):
+    Delimiter: NotRequired[str]
+
+class DatetimeOptionsTypeDef(TypedDict):
+    Format: str
+    TimezoneOffset: NotRequired[str]
+    LocaleCode: NotRequired[str]
+
+class FilterExpressionOutputTypeDef(TypedDict):
+    Expression: str
+    ValuesMap: Dict[str, str]
+
+class FilterExpressionTypeDef(TypedDict):
+    Expression: str
+    ValuesMap: Mapping[str, str]
+
+class DeleteDatasetRequestTypeDef(TypedDict):
+    Name: str
+
+class DeleteJobRequestTypeDef(TypedDict):
+    Name: str
+
+class DeleteProjectRequestTypeDef(TypedDict):
+    Name: str
+
+class DeleteRecipeVersionRequestTypeDef(TypedDict):
+    Name: str
+    RecipeVersion: str
+
+class DeleteRulesetRequestTypeDef(TypedDict):
+    Name: str
+
+class DeleteScheduleRequestTypeDef(TypedDict):
+    Name: str
+
+class DescribeDatasetRequestTypeDef(TypedDict):
+    Name: str
+
+class DescribeJobRequestTypeDef(TypedDict):
+    Name: str
+
+class DescribeJobRunRequestTypeDef(TypedDict):
+    Name: str
+    RunId: str
+
+class DescribeProjectRequestTypeDef(TypedDict):
+    Name: str
+
+class DescribeRecipeRequestTypeDef(TypedDict):
+    Name: str
+    RecipeVersion: NotRequired[str]
+
+class DescribeRulesetRequestTypeDef(TypedDict):
+    Name: str
+
+class DescribeScheduleRequestTypeDef(TypedDict):
+    Name: str
+
+class ExcelOptionsOutputTypeDef(TypedDict):
+    SheetNames: NotRequired[List[str]]
+    SheetIndexes: NotRequired[List[int]]
+    HeaderRow: NotRequired[bool]
+
+class ExcelOptionsTypeDef(TypedDict):
+    SheetNames: NotRequired[Sequence[str]]
+    SheetIndexes: NotRequired[Sequence[int]]
+    HeaderRow: NotRequired[bool]
+
+class FilesLimitTypeDef(TypedDict):
+    MaxFiles: int
+    OrderedBy: NotRequired[Literal["LAST_MODIFIED_DATE"]]
+    Order: NotRequired[OrderType]
+
+class JsonOptionsTypeDef(TypedDict):
+    MultiLine: NotRequired[bool]
+
+class MetadataTypeDef(TypedDict):
+    SourceArn: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListDatasetsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListJobRunsRequestTypeDef(TypedDict):
+    Name: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListJobsRequestTypeDef(TypedDict):
+    DatasetName: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ProjectName: NotRequired[str]
+
+class ListProjectsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListRecipeVersionsRequestTypeDef(TypedDict):
+    Name: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListRecipesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    RecipeVersion: NotRequired[str]
+
+class ListRulesetsRequestTypeDef(TypedDict):
+    TargetArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class RulesetItemTypeDef(TypedDict):
+    Name: str
+    TargetArn: str
+    AccountId: NotRequired[str]
+    CreatedBy: NotRequired[str]
+    CreateDate: NotRequired[datetime]
+    Description: NotRequired[str]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[datetime]
+    ResourceArn: NotRequired[str]
+    RuleCount: NotRequired[int]
+    Tags: NotRequired[Dict[str, str]]
+
+class ListSchedulesRequestTypeDef(TypedDict):
+    JobName: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ScheduleTypeDef(TypedDict):
+    Name: str
+    AccountId: NotRequired[str]
+    CreatedBy: NotRequired[str]
+    CreateDate: NotRequired[datetime]
+    JobNames: NotRequired[List[str]]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[datetime]
+    ResourceArn: NotRequired[str]
+    CronExpression: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class PublishRecipeRequestTypeDef(TypedDict):
+    Name: str
+    Description: NotRequired[str]
+
+class RecipeActionOutputTypeDef(TypedDict):
+    Operation: str
+    Parameters: NotRequired[Dict[str, str]]
+
+class RecipeActionTypeDef(TypedDict):
+    Operation: str
+    Parameters: NotRequired[Mapping[str, str]]
+
+ThresholdTypeDef = TypedDict(
+    "ThresholdTypeDef",
     {
-        "Name": str,
-        "RecipeVersions": List[str],
+        "Value": float,
+        "Type": NotRequired[ThresholdTypeType],
+        "Unit": NotRequired[ThresholdUnitType],
     },
 )
 
-BatchDeleteRecipeVersionResponseTypeDef = TypedDict(
-    "BatchDeleteRecipeVersionResponseTypeDef",
-    {
-        "Name": str,
-        "Errors": List["RecipeVersionErrorDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ViewFrameTypeDef(TypedDict):
+    StartColumnIndex: int
+    ColumnRange: NotRequired[int]
+    HiddenColumns: NotRequired[Sequence[str]]
+    StartRowIndex: NotRequired[int]
+    RowRange: NotRequired[int]
+    Analytics: NotRequired[AnalyticsModeType]
 
-ColumnSelectorTypeDef = TypedDict(
-    "ColumnSelectorTypeDef",
-    {
-        "Regex": str,
-        "Name": str,
-    },
-    total=False,
-)
+class StartJobRunRequestTypeDef(TypedDict):
+    Name: str
 
-_RequiredColumnStatisticsConfigurationTypeDef = TypedDict(
-    "_RequiredColumnStatisticsConfigurationTypeDef",
-    {
-        "Statistics": "StatisticsConfigurationTypeDef",
-    },
-)
-_OptionalColumnStatisticsConfigurationTypeDef = TypedDict(
-    "_OptionalColumnStatisticsConfigurationTypeDef",
-    {
-        "Selectors": List["ColumnSelectorTypeDef"],
-    },
-    total=False,
-)
+class StartProjectSessionRequestTypeDef(TypedDict):
+    Name: str
+    AssumeControl: NotRequired[bool]
 
-class ColumnStatisticsConfigurationTypeDef(
-    _RequiredColumnStatisticsConfigurationTypeDef, _OptionalColumnStatisticsConfigurationTypeDef
-):
-    pass
+class StatisticOverrideOutputTypeDef(TypedDict):
+    Statistic: str
+    Parameters: Dict[str, str]
 
-_RequiredConditionExpressionTypeDef = TypedDict(
-    "_RequiredConditionExpressionTypeDef",
-    {
-        "Condition": str,
-        "TargetColumn": str,
-    },
-)
-_OptionalConditionExpressionTypeDef = TypedDict(
-    "_OptionalConditionExpressionTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
+class StatisticOverrideTypeDef(TypedDict):
+    Statistic: str
+    Parameters: Mapping[str, str]
 
-class ConditionExpressionTypeDef(
-    _RequiredConditionExpressionTypeDef, _OptionalConditionExpressionTypeDef
-):
-    pass
+class StopJobRunRequestTypeDef(TypedDict):
+    Name: str
+    RunId: str
 
-_RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDatasetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Input": "InputTypeDef",
-    },
-)
-_OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDatasetRequestRequestTypeDef",
-    {
-        "Format": InputFormatType,
-        "FormatOptions": "FormatOptionsTypeDef",
-        "PathOptions": "PathOptionsTypeDef",
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-class CreateDatasetRequestRequestTypeDef(
-    _RequiredCreateDatasetRequestRequestTypeDef, _OptionalCreateDatasetRequestRequestTypeDef
-):
-    pass
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-CreateDatasetResponseTypeDef = TypedDict(
-    "CreateDatasetResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateScheduleRequestTypeDef(TypedDict):
+    CronExpression: str
+    Name: str
+    JobNames: NotRequired[Sequence[str]]
 
-_RequiredCreateProfileJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProfileJobRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-        "Name": str,
-        "OutputLocation": "S3LocationTypeDef",
-        "RoleArn": str,
-    },
-)
-_OptionalCreateProfileJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProfileJobRequestRequestTypeDef",
-    {
-        "EncryptionKeyArn": str,
-        "EncryptionMode": EncryptionModeType,
-        "LogSubscription": LogSubscriptionType,
-        "MaxCapacity": int,
-        "MaxRetries": int,
-        "Configuration": "ProfileConfigurationTypeDef",
-        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
-        "Tags": Dict[str, str],
-        "Timeout": int,
-        "JobSample": "JobSampleTypeDef",
-    },
-    total=False,
-)
+class EntityDetectorConfigurationOutputTypeDef(TypedDict):
+    EntityTypes: List[str]
+    AllowedStatistics: NotRequired[List[AllowedStatisticsOutputTypeDef]]
 
-class CreateProfileJobRequestRequestTypeDef(
-    _RequiredCreateProfileJobRequestRequestTypeDef, _OptionalCreateProfileJobRequestRequestTypeDef
-):
-    pass
+class EntityDetectorConfigurationTypeDef(TypedDict):
+    EntityTypes: Sequence[str]
+    AllowedStatistics: NotRequired[Sequence[AllowedStatisticsTypeDef]]
 
-CreateProfileJobResponseTypeDef = TypedDict(
-    "CreateProfileJobResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchDeleteRecipeVersionResponseTypeDef(TypedDict):
+    Name: str
+    Errors: List[RecipeVersionErrorDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCreateProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProjectRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-        "Name": str,
-        "RecipeName": str,
-        "RoleArn": str,
-    },
-)
-_OptionalCreateProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProjectRequestRequestTypeDef",
-    {
-        "Sample": "SampleTypeDef",
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateDatasetResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProjectRequestRequestTypeDef(
-    _RequiredCreateProjectRequestRequestTypeDef, _OptionalCreateProjectRequestRequestTypeDef
-):
-    pass
+class CreateProfileJobResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateProjectResponseTypeDef = TypedDict(
-    "CreateProjectResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateProjectResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCreateRecipeJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRecipeJobRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RoleArn": str,
-    },
-)
-_OptionalCreateRecipeJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRecipeJobRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-        "EncryptionKeyArn": str,
-        "EncryptionMode": EncryptionModeType,
-        "LogSubscription": LogSubscriptionType,
-        "MaxCapacity": int,
-        "MaxRetries": int,
-        "Outputs": List["OutputTypeDef"],
-        "DataCatalogOutputs": List["DataCatalogOutputTypeDef"],
-        "DatabaseOutputs": List["DatabaseOutputTypeDef"],
-        "ProjectName": str,
-        "RecipeReference": "RecipeReferenceTypeDef",
-        "Tags": Dict[str, str],
-        "Timeout": int,
-    },
-    total=False,
-)
+class CreateRecipeJobResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRecipeJobRequestRequestTypeDef(
-    _RequiredCreateRecipeJobRequestRequestTypeDef, _OptionalCreateRecipeJobRequestRequestTypeDef
-):
-    pass
+class CreateRecipeResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateRecipeJobResponseTypeDef = TypedDict(
-    "CreateRecipeJobResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateRulesetResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCreateRecipeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRecipeRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Steps": List["RecipeStepTypeDef"],
-    },
-)
-_OptionalCreateRecipeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRecipeRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateScheduleResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRecipeRequestRequestTypeDef(
-    _RequiredCreateRecipeRequestRequestTypeDef, _OptionalCreateRecipeRequestRequestTypeDef
-):
-    pass
+class DeleteDatasetResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateRecipeResponseTypeDef = TypedDict(
-    "CreateRecipeResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteJobResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCreateRulesetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRulesetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "TargetArn": str,
-        "Rules": List["RuleTypeDef"],
-    },
-)
-_OptionalCreateRulesetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRulesetRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteProjectResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRulesetRequestRequestTypeDef(
-    _RequiredCreateRulesetRequestRequestTypeDef, _OptionalCreateRulesetRequestRequestTypeDef
-):
-    pass
+class DeleteRecipeVersionResponseTypeDef(TypedDict):
+    Name: str
+    RecipeVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateRulesetResponseTypeDef = TypedDict(
-    "CreateRulesetResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteRulesetResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCreateScheduleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateScheduleRequestRequestTypeDef",
-    {
-        "CronExpression": str,
-        "Name": str,
-    },
-)
-_OptionalCreateScheduleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateScheduleRequestRequestTypeDef",
-    {
-        "JobNames": List[str],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteScheduleResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateScheduleRequestRequestTypeDef(
-    _RequiredCreateScheduleRequestRequestTypeDef, _OptionalCreateScheduleRequestRequestTypeDef
-):
-    pass
+class DescribeScheduleResponseTypeDef(TypedDict):
+    CreateDate: datetime
+    CreatedBy: str
+    JobNames: List[str]
+    LastModifiedBy: str
+    LastModifiedDate: datetime
+    ResourceArn: str
+    CronExpression: str
+    Tags: Dict[str, str]
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateScheduleResponseTypeDef = TypedDict(
-    "CreateScheduleResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CsvOptionsTypeDef = TypedDict(
-    "CsvOptionsTypeDef",
-    {
-        "Delimiter": str,
-        "HeaderRow": bool,
-    },
-    total=False,
-)
+class PublishRecipeResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CsvOutputOptionsTypeDef = TypedDict(
-    "CsvOutputOptionsTypeDef",
-    {
-        "Delimiter": str,
-    },
-    total=False,
-)
+class SendProjectSessionActionResponseTypeDef(TypedDict):
+    Result: str
+    Name: str
+    ActionId: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDataCatalogInputDefinitionTypeDef = TypedDict(
-    "_RequiredDataCatalogInputDefinitionTypeDef",
-    {
-        "DatabaseName": str,
-        "TableName": str,
-    },
-)
-_OptionalDataCatalogInputDefinitionTypeDef = TypedDict(
-    "_OptionalDataCatalogInputDefinitionTypeDef",
-    {
-        "CatalogId": str,
-        "TempDirectory": "S3LocationTypeDef",
-    },
-    total=False,
-)
+class StartJobRunResponseTypeDef(TypedDict):
+    RunId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DataCatalogInputDefinitionTypeDef(
-    _RequiredDataCatalogInputDefinitionTypeDef, _OptionalDataCatalogInputDefinitionTypeDef
-):
-    pass
+class StartProjectSessionResponseTypeDef(TypedDict):
+    Name: str
+    ClientSessionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDataCatalogOutputTypeDef = TypedDict(
-    "_RequiredDataCatalogOutputTypeDef",
-    {
-        "DatabaseName": str,
-        "TableName": str,
-    },
-)
-_OptionalDataCatalogOutputTypeDef = TypedDict(
-    "_OptionalDataCatalogOutputTypeDef",
-    {
-        "CatalogId": str,
-        "S3Options": "S3TableOutputOptionsTypeDef",
-        "DatabaseOptions": "DatabaseTableOutputOptionsTypeDef",
-        "Overwrite": bool,
-    },
-    total=False,
-)
+class StopJobRunResponseTypeDef(TypedDict):
+    RunId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DataCatalogOutputTypeDef(
-    _RequiredDataCatalogOutputTypeDef, _OptionalDataCatalogOutputTypeDef
-):
-    pass
+class UpdateDatasetResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDatabaseInputDefinitionTypeDef = TypedDict(
-    "_RequiredDatabaseInputDefinitionTypeDef",
-    {
-        "GlueConnectionName": str,
-    },
-)
-_OptionalDatabaseInputDefinitionTypeDef = TypedDict(
-    "_OptionalDatabaseInputDefinitionTypeDef",
-    {
-        "DatabaseTableName": str,
-        "TempDirectory": "S3LocationTypeDef",
-        "QueryString": str,
-    },
-    total=False,
-)
+class UpdateProfileJobResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DatabaseInputDefinitionTypeDef(
-    _RequiredDatabaseInputDefinitionTypeDef, _OptionalDatabaseInputDefinitionTypeDef
-):
-    pass
+class UpdateProjectResponseTypeDef(TypedDict):
+    LastModifiedDate: datetime
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDatabaseOutputTypeDef = TypedDict(
-    "_RequiredDatabaseOutputTypeDef",
-    {
-        "GlueConnectionName": str,
-        "DatabaseOptions": "DatabaseTableOutputOptionsTypeDef",
-    },
-)
-_OptionalDatabaseOutputTypeDef = TypedDict(
-    "_OptionalDatabaseOutputTypeDef",
-    {
-        "DatabaseOutputMode": Literal["NEW_TABLE"],
-    },
-    total=False,
-)
+class UpdateRecipeJobResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DatabaseOutputTypeDef(_RequiredDatabaseOutputTypeDef, _OptionalDatabaseOutputTypeDef):
-    pass
+class UpdateRecipeResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDatabaseTableOutputOptionsTypeDef = TypedDict(
-    "_RequiredDatabaseTableOutputOptionsTypeDef",
-    {
-        "TableName": str,
-    },
-)
-_OptionalDatabaseTableOutputOptionsTypeDef = TypedDict(
-    "_OptionalDatabaseTableOutputOptionsTypeDef",
-    {
-        "TempDirectory": "S3LocationTypeDef",
-    },
-    total=False,
-)
+class UpdateRulesetResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DatabaseTableOutputOptionsTypeDef(
-    _RequiredDatabaseTableOutputOptionsTypeDef, _OptionalDatabaseTableOutputOptionsTypeDef
-):
-    pass
+class UpdateScheduleResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDatasetParameterTypeDef = TypedDict(
-    "_RequiredDatasetParameterTypeDef",
+class DataCatalogInputDefinitionTypeDef(TypedDict):
+    DatabaseName: str
+    TableName: str
+    CatalogId: NotRequired[str]
+    TempDirectory: NotRequired[S3LocationTypeDef]
+
+class DatabaseInputDefinitionTypeDef(TypedDict):
+    GlueConnectionName: str
+    DatabaseTableName: NotRequired[str]
+    TempDirectory: NotRequired[S3LocationTypeDef]
+    QueryString: NotRequired[str]
+
+class DatabaseTableOutputOptionsTypeDef(TypedDict):
+    TableName: str
+    TempDirectory: NotRequired[S3LocationTypeDef]
+
+class S3TableOutputOptionsTypeDef(TypedDict):
+    Location: S3LocationTypeDef
+
+class CreateProjectRequestTypeDef(TypedDict):
+    DatasetName: str
+    Name: str
+    RecipeName: str
+    RoleArn: str
+    Sample: NotRequired[SampleTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+
+class DescribeProjectResponseTypeDef(TypedDict):
+    CreateDate: datetime
+    CreatedBy: str
+    DatasetName: str
+    LastModifiedDate: datetime
+    LastModifiedBy: str
+    Name: str
+    RecipeName: str
+    ResourceArn: str
+    Sample: SampleTypeDef
+    RoleArn: str
+    Tags: Dict[str, str]
+    SessionStatus: SessionStatusType
+    OpenedBy: str
+    OpenDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProjectTypeDef(TypedDict):
+    Name: str
+    RecipeName: str
+    AccountId: NotRequired[str]
+    CreateDate: NotRequired[datetime]
+    CreatedBy: NotRequired[str]
+    DatasetName: NotRequired[str]
+    LastModifiedDate: NotRequired[datetime]
+    LastModifiedBy: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    Sample: NotRequired[SampleTypeDef]
+    Tags: NotRequired[Dict[str, str]]
+    RoleArn: NotRequired[str]
+    OpenedBy: NotRequired[str]
+    OpenDate: NotRequired[datetime]
+
+class UpdateProjectRequestTypeDef(TypedDict):
+    RoleArn: str
+    Name: str
+    Sample: NotRequired[SampleTypeDef]
+
+class OutputFormatOptionsTypeDef(TypedDict):
+    Csv: NotRequired[CsvOutputOptionsTypeDef]
+
+DatasetParameterOutputTypeDef = TypedDict(
+    "DatasetParameterOutputTypeDef",
     {
         "Name": str,
         "Type": ParameterTypeType,
+        "DatetimeOptions": NotRequired[DatetimeOptionsTypeDef],
+        "CreateColumn": NotRequired[bool],
+        "Filter": NotRequired[FilterExpressionOutputTypeDef],
     },
 )
-_OptionalDatasetParameterTypeDef = TypedDict(
-    "_OptionalDatasetParameterTypeDef",
-    {
-        "DatetimeOptions": "DatetimeOptionsTypeDef",
-        "CreateColumn": bool,
-        "Filter": "FilterExpressionTypeDef",
-    },
-    total=False,
-)
-
-class DatasetParameterTypeDef(_RequiredDatasetParameterTypeDef, _OptionalDatasetParameterTypeDef):
-    pass
-
-_RequiredDatasetTypeDef = TypedDict(
-    "_RequiredDatasetTypeDef",
+DatasetParameterTypeDef = TypedDict(
+    "DatasetParameterTypeDef",
     {
         "Name": str,
-        "Input": "InputTypeDef",
+        "Type": ParameterTypeType,
+        "DatetimeOptions": NotRequired[DatetimeOptionsTypeDef],
+        "CreateColumn": NotRequired[bool],
+        "Filter": NotRequired[FilterExpressionTypeDef],
     },
 )
-_OptionalDatasetTypeDef = TypedDict(
-    "_OptionalDatasetTypeDef",
-    {
-        "AccountId": str,
-        "CreatedBy": str,
-        "CreateDate": datetime,
-        "Format": InputFormatType,
-        "FormatOptions": "FormatOptionsTypeDef",
-        "LastModifiedDate": datetime,
-        "LastModifiedBy": str,
-        "Source": SourceType,
-        "PathOptions": "PathOptionsTypeDef",
-        "Tags": Dict[str, str],
-        "ResourceArn": str,
-    },
-    total=False,
-)
 
-class DatasetTypeDef(_RequiredDatasetTypeDef, _OptionalDatasetTypeDef):
-    pass
+class FormatOptionsOutputTypeDef(TypedDict):
+    Json: NotRequired[JsonOptionsTypeDef]
+    Excel: NotRequired[ExcelOptionsOutputTypeDef]
+    Csv: NotRequired[CsvOptionsTypeDef]
 
-_RequiredDatetimeOptionsTypeDef = TypedDict(
-    "_RequiredDatetimeOptionsTypeDef",
-    {
-        "Format": str,
-    },
-)
-_OptionalDatetimeOptionsTypeDef = TypedDict(
-    "_OptionalDatetimeOptionsTypeDef",
-    {
-        "TimezoneOffset": str,
-        "LocaleCode": str,
-    },
-    total=False,
-)
+class FormatOptionsTypeDef(TypedDict):
+    Json: NotRequired[JsonOptionsTypeDef]
+    Excel: NotRequired[ExcelOptionsTypeDef]
+    Csv: NotRequired[CsvOptionsTypeDef]
 
-class DatetimeOptionsTypeDef(_RequiredDatetimeOptionsTypeDef, _OptionalDatetimeOptionsTypeDef):
-    pass
+class ListDatasetsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-DeleteDatasetRequestRequestTypeDef = TypedDict(
-    "DeleteDatasetRequestRequestTypeDef",
+class ListJobRunsRequestPaginateTypeDef(TypedDict):
+    Name: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobsRequestPaginateTypeDef(TypedDict):
+    DatasetName: NotRequired[str]
+    ProjectName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProjectsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRecipeVersionsRequestPaginateTypeDef(TypedDict):
+    Name: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRecipesRequestPaginateTypeDef(TypedDict):
+    RecipeVersion: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRulesetsRequestPaginateTypeDef(TypedDict):
+    TargetArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSchedulesRequestPaginateTypeDef(TypedDict):
+    JobName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRulesetsResponseTypeDef(TypedDict):
+    Rulesets: List[RulesetItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSchedulesResponseTypeDef(TypedDict):
+    Schedules: List[ScheduleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RecipeStepOutputTypeDef(TypedDict):
+    Action: RecipeActionOutputTypeDef
+    ConditionExpressions: NotRequired[List[ConditionExpressionTypeDef]]
+
+RecipeActionUnionTypeDef = Union[RecipeActionTypeDef, RecipeActionOutputTypeDef]
+
+class RuleOutputTypeDef(TypedDict):
+    Name: str
+    CheckExpression: str
+    Disabled: NotRequired[bool]
+    SubstitutionMap: NotRequired[Dict[str, str]]
+    Threshold: NotRequired[ThresholdTypeDef]
+    ColumnSelectors: NotRequired[List[ColumnSelectorTypeDef]]
+
+class RuleTypeDef(TypedDict):
+    Name: str
+    CheckExpression: str
+    Disabled: NotRequired[bool]
+    SubstitutionMap: NotRequired[Mapping[str, str]]
+    Threshold: NotRequired[ThresholdTypeDef]
+    ColumnSelectors: NotRequired[Sequence[ColumnSelectorTypeDef]]
+
+class StatisticsConfigurationOutputTypeDef(TypedDict):
+    IncludedStatistics: NotRequired[List[str]]
+    Overrides: NotRequired[List[StatisticOverrideOutputTypeDef]]
+
+class StatisticsConfigurationTypeDef(TypedDict):
+    IncludedStatistics: NotRequired[Sequence[str]]
+    Overrides: NotRequired[Sequence[StatisticOverrideTypeDef]]
+
+class InputTypeDef(TypedDict):
+    S3InputDefinition: NotRequired[S3LocationTypeDef]
+    DataCatalogInputDefinition: NotRequired[DataCatalogInputDefinitionTypeDef]
+    DatabaseInputDefinition: NotRequired[DatabaseInputDefinitionTypeDef]
+    Metadata: NotRequired[MetadataTypeDef]
+
+class DatabaseOutputTypeDef(TypedDict):
+    GlueConnectionName: str
+    DatabaseOptions: DatabaseTableOutputOptionsTypeDef
+    DatabaseOutputMode: NotRequired[Literal["NEW_TABLE"]]
+
+class DataCatalogOutputTypeDef(TypedDict):
+    DatabaseName: str
+    TableName: str
+    CatalogId: NotRequired[str]
+    S3Options: NotRequired[S3TableOutputOptionsTypeDef]
+    DatabaseOptions: NotRequired[DatabaseTableOutputOptionsTypeDef]
+    Overwrite: NotRequired[bool]
+
+class ListProjectsResponseTypeDef(TypedDict):
+    Projects: List[ProjectTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ExtraTypeDef(TypedDict):
+    Location: S3LocationTypeDef
+    CompressionFormat: NotRequired[CompressionFormatType]
+    Format: NotRequired[OutputFormatType]
+    PartitionColumns: NotRequired[List[str]]
+    Overwrite: NotRequired[bool]
+    FormatOptions: NotRequired[OutputFormatOptionsTypeDef]
+    MaxOutputFiles: NotRequired[int]
+
+class OutputTypeDef(TypedDict):
+    Location: S3LocationTypeDef
+    CompressionFormat: NotRequired[CompressionFormatType]
+    Format: NotRequired[OutputFormatType]
+    PartitionColumns: NotRequired[Sequence[str]]
+    Overwrite: NotRequired[bool]
+    FormatOptions: NotRequired[OutputFormatOptionsTypeDef]
+    MaxOutputFiles: NotRequired[int]
+
+class PathOptionsOutputTypeDef(TypedDict):
+    LastModifiedDateCondition: NotRequired[FilterExpressionOutputTypeDef]
+    FilesLimit: NotRequired[FilesLimitTypeDef]
+    Parameters: NotRequired[Dict[str, DatasetParameterOutputTypeDef]]
+
+class PathOptionsTypeDef(TypedDict):
+    LastModifiedDateCondition: NotRequired[FilterExpressionTypeDef]
+    FilesLimit: NotRequired[FilesLimitTypeDef]
+    Parameters: NotRequired[Mapping[str, DatasetParameterTypeDef]]
+
+FormatOptionsUnionTypeDef = Union[FormatOptionsTypeDef, FormatOptionsOutputTypeDef]
+
+class DescribeRecipeResponseTypeDef(TypedDict):
+    CreatedBy: str
+    CreateDate: datetime
+    LastModifiedBy: str
+    LastModifiedDate: datetime
+    ProjectName: str
+    PublishedBy: str
+    PublishedDate: datetime
+    Description: str
+    Name: str
+    Steps: List[RecipeStepOutputTypeDef]
+    Tags: Dict[str, str]
+    ResourceArn: str
+    RecipeVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RecipeTypeDef(TypedDict):
+    Name: str
+    CreatedBy: NotRequired[str]
+    CreateDate: NotRequired[datetime]
+    LastModifiedBy: NotRequired[str]
+    LastModifiedDate: NotRequired[datetime]
+    ProjectName: NotRequired[str]
+    PublishedBy: NotRequired[str]
+    PublishedDate: NotRequired[datetime]
+    Description: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    Steps: NotRequired[List[RecipeStepOutputTypeDef]]
+    Tags: NotRequired[Dict[str, str]]
+    RecipeVersion: NotRequired[str]
+
+class RecipeStepTypeDef(TypedDict):
+    Action: RecipeActionUnionTypeDef
+    ConditionExpressions: NotRequired[Sequence[ConditionExpressionTypeDef]]
+
+class DescribeRulesetResponseTypeDef(TypedDict):
+    Name: str
+    Description: str
+    TargetArn: str
+    Rules: List[RuleOutputTypeDef]
+    CreateDate: datetime
+    CreatedBy: str
+    LastModifiedBy: str
+    LastModifiedDate: datetime
+    ResourceArn: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RuleUnionTypeDef = Union[RuleTypeDef, RuleOutputTypeDef]
+
+class ColumnStatisticsConfigurationOutputTypeDef(TypedDict):
+    Statistics: StatisticsConfigurationOutputTypeDef
+    Selectors: NotRequired[List[ColumnSelectorTypeDef]]
+
+class ColumnStatisticsConfigurationTypeDef(TypedDict):
+    Statistics: StatisticsConfigurationTypeDef
+    Selectors: NotRequired[Sequence[ColumnSelectorTypeDef]]
+
+class JobRunTypeDef(TypedDict):
+    Attempt: NotRequired[int]
+    CompletedOn: NotRequired[datetime]
+    DatasetName: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+    ExecutionTime: NotRequired[int]
+    JobName: NotRequired[str]
+    RunId: NotRequired[str]
+    State: NotRequired[JobRunStateType]
+    LogSubscription: NotRequired[LogSubscriptionType]
+    LogGroupName: NotRequired[str]
+    Outputs: NotRequired[List[ExtraTypeDef]]
+    DataCatalogOutputs: NotRequired[List[DataCatalogOutputTypeDef]]
+    DatabaseOutputs: NotRequired[List[DatabaseOutputTypeDef]]
+    RecipeReference: NotRequired[RecipeReferenceTypeDef]
+    StartedBy: NotRequired[str]
+    StartedOn: NotRequired[datetime]
+    JobSample: NotRequired[JobSampleTypeDef]
+    ValidationConfigurations: NotRequired[List[ValidationConfigurationTypeDef]]
+
+JobTypeDef = TypedDict(
+    "JobTypeDef",
     {
         "Name": str,
+        "AccountId": NotRequired[str],
+        "CreatedBy": NotRequired[str],
+        "CreateDate": NotRequired[datetime],
+        "DatasetName": NotRequired[str],
+        "EncryptionKeyArn": NotRequired[str],
+        "EncryptionMode": NotRequired[EncryptionModeType],
+        "Type": NotRequired[JobTypeType],
+        "LastModifiedBy": NotRequired[str],
+        "LastModifiedDate": NotRequired[datetime],
+        "LogSubscription": NotRequired[LogSubscriptionType],
+        "MaxCapacity": NotRequired[int],
+        "MaxRetries": NotRequired[int],
+        "Outputs": NotRequired[List[ExtraTypeDef]],
+        "DataCatalogOutputs": NotRequired[List[DataCatalogOutputTypeDef]],
+        "DatabaseOutputs": NotRequired[List[DatabaseOutputTypeDef]],
+        "ProjectName": NotRequired[str],
+        "RecipeReference": NotRequired[RecipeReferenceTypeDef],
+        "ResourceArn": NotRequired[str],
+        "RoleArn": NotRequired[str],
+        "Timeout": NotRequired[int],
+        "Tags": NotRequired[Dict[str, str]],
+        "JobSample": NotRequired[JobSampleTypeDef],
+        "ValidationConfigurations": NotRequired[List[ValidationConfigurationTypeDef]],
     },
 )
+UnionTypeDef = Union[OutputTypeDef, ExtraTypeDef]
 
-DeleteDatasetResponseTypeDef = TypedDict(
-    "DeleteDatasetResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DatasetTypeDef(TypedDict):
+    Name: str
+    Input: InputTypeDef
+    AccountId: NotRequired[str]
+    CreatedBy: NotRequired[str]
+    CreateDate: NotRequired[datetime]
+    Format: NotRequired[InputFormatType]
+    FormatOptions: NotRequired[FormatOptionsOutputTypeDef]
+    LastModifiedDate: NotRequired[datetime]
+    LastModifiedBy: NotRequired[str]
+    Source: NotRequired[SourceType]
+    PathOptions: NotRequired[PathOptionsOutputTypeDef]
+    Tags: NotRequired[Dict[str, str]]
+    ResourceArn: NotRequired[str]
 
-DeleteJobRequestRequestTypeDef = TypedDict(
-    "DeleteJobRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class DescribeDatasetResponseTypeDef(TypedDict):
+    CreatedBy: str
+    CreateDate: datetime
+    Name: str
+    Format: InputFormatType
+    FormatOptions: FormatOptionsOutputTypeDef
+    Input: InputTypeDef
+    LastModifiedDate: datetime
+    LastModifiedBy: str
+    Source: SourceType
+    PathOptions: PathOptionsOutputTypeDef
+    Tags: Dict[str, str]
+    ResourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteJobResponseTypeDef = TypedDict(
-    "DeleteJobResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+PathOptionsUnionTypeDef = Union[PathOptionsTypeDef, PathOptionsOutputTypeDef]
 
-DeleteProjectRequestRequestTypeDef = TypedDict(
-    "DeleteProjectRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class ListRecipeVersionsResponseTypeDef(TypedDict):
+    Recipes: List[RecipeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-DeleteProjectResponseTypeDef = TypedDict(
-    "DeleteProjectResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRecipesResponseTypeDef(TypedDict):
+    Recipes: List[RecipeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-DeleteRecipeVersionRequestRequestTypeDef = TypedDict(
-    "DeleteRecipeVersionRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RecipeVersion": str,
-    },
-)
+RecipeStepUnionTypeDef = Union[RecipeStepTypeDef, RecipeStepOutputTypeDef]
 
-DeleteRecipeVersionResponseTypeDef = TypedDict(
-    "DeleteRecipeVersionResponseTypeDef",
-    {
-        "Name": str,
-        "RecipeVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateRulesetRequestTypeDef(TypedDict):
+    Name: str
+    TargetArn: str
+    Rules: Sequence[RuleUnionTypeDef]
+    Description: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
 
-DeleteRulesetRequestRequestTypeDef = TypedDict(
-    "DeleteRulesetRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class UpdateRulesetRequestTypeDef(TypedDict):
+    Name: str
+    Rules: Sequence[RuleUnionTypeDef]
+    Description: NotRequired[str]
 
-DeleteRulesetResponseTypeDef = TypedDict(
-    "DeleteRulesetResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ProfileConfigurationOutputTypeDef(TypedDict):
+    DatasetStatisticsConfiguration: NotRequired[StatisticsConfigurationOutputTypeDef]
+    ProfileColumns: NotRequired[List[ColumnSelectorTypeDef]]
+    ColumnStatisticsConfigurations: NotRequired[List[ColumnStatisticsConfigurationOutputTypeDef]]
+    EntityDetectorConfiguration: NotRequired[EntityDetectorConfigurationOutputTypeDef]
 
-DeleteScheduleRequestRequestTypeDef = TypedDict(
-    "DeleteScheduleRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class ProfileConfigurationTypeDef(TypedDict):
+    DatasetStatisticsConfiguration: NotRequired[StatisticsConfigurationTypeDef]
+    ProfileColumns: NotRequired[Sequence[ColumnSelectorTypeDef]]
+    ColumnStatisticsConfigurations: NotRequired[Sequence[ColumnStatisticsConfigurationTypeDef]]
+    EntityDetectorConfiguration: NotRequired[EntityDetectorConfigurationTypeDef]
 
-DeleteScheduleResponseTypeDef = TypedDict(
-    "DeleteScheduleResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListJobRunsResponseTypeDef(TypedDict):
+    JobRuns: List[JobRunTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-DescribeDatasetRequestRequestTypeDef = TypedDict(
-    "DescribeDatasetRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class ListJobsResponseTypeDef(TypedDict):
+    Jobs: List[JobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-DescribeDatasetResponseTypeDef = TypedDict(
-    "DescribeDatasetResponseTypeDef",
-    {
-        "CreatedBy": str,
-        "CreateDate": datetime,
-        "Name": str,
-        "Format": InputFormatType,
-        "FormatOptions": "FormatOptionsTypeDef",
-        "Input": "InputTypeDef",
-        "LastModifiedDate": datetime,
-        "LastModifiedBy": str,
-        "Source": SourceType,
-        "PathOptions": "PathOptionsTypeDef",
-        "Tags": Dict[str, str],
-        "ResourceArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateRecipeJobRequestTypeDef(TypedDict):
+    Name: str
+    RoleArn: str
+    DatasetName: NotRequired[str]
+    EncryptionKeyArn: NotRequired[str]
+    EncryptionMode: NotRequired[EncryptionModeType]
+    LogSubscription: NotRequired[LogSubscriptionType]
+    MaxCapacity: NotRequired[int]
+    MaxRetries: NotRequired[int]
+    Outputs: NotRequired[Sequence[UnionTypeDef]]
+    DataCatalogOutputs: NotRequired[Sequence[DataCatalogOutputTypeDef]]
+    DatabaseOutputs: NotRequired[Sequence[DatabaseOutputTypeDef]]
+    ProjectName: NotRequired[str]
+    RecipeReference: NotRequired[RecipeReferenceTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    Timeout: NotRequired[int]
 
-DescribeJobRequestRequestTypeDef = TypedDict(
-    "DescribeJobRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class UpdateRecipeJobRequestTypeDef(TypedDict):
+    Name: str
+    RoleArn: str
+    EncryptionKeyArn: NotRequired[str]
+    EncryptionMode: NotRequired[EncryptionModeType]
+    LogSubscription: NotRequired[LogSubscriptionType]
+    MaxCapacity: NotRequired[int]
+    MaxRetries: NotRequired[int]
+    Outputs: NotRequired[Sequence[UnionTypeDef]]
+    DataCatalogOutputs: NotRequired[Sequence[DataCatalogOutputTypeDef]]
+    DatabaseOutputs: NotRequired[Sequence[DatabaseOutputTypeDef]]
+    Timeout: NotRequired[int]
+
+class ListDatasetsResponseTypeDef(TypedDict):
+    Datasets: List[DatasetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateDatasetRequestTypeDef(TypedDict):
+    Name: str
+    Input: InputTypeDef
+    Format: NotRequired[InputFormatType]
+    FormatOptions: NotRequired[FormatOptionsUnionTypeDef]
+    PathOptions: NotRequired[PathOptionsUnionTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdateDatasetRequestTypeDef(TypedDict):
+    Name: str
+    Input: InputTypeDef
+    Format: NotRequired[InputFormatType]
+    FormatOptions: NotRequired[FormatOptionsUnionTypeDef]
+    PathOptions: NotRequired[PathOptionsUnionTypeDef]
+
+class CreateRecipeRequestTypeDef(TypedDict):
+    Name: str
+    Steps: Sequence[RecipeStepUnionTypeDef]
+    Description: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class SendProjectSessionActionRequestTypeDef(TypedDict):
+    Name: str
+    Preview: NotRequired[bool]
+    RecipeStep: NotRequired[RecipeStepUnionTypeDef]
+    StepIndex: NotRequired[int]
+    ClientSessionId: NotRequired[str]
+    ViewFrame: NotRequired[ViewFrameTypeDef]
+
+class UpdateRecipeRequestTypeDef(TypedDict):
+    Name: str
+    Description: NotRequired[str]
+    Steps: NotRequired[Sequence[RecipeStepUnionTypeDef]]
 
 DescribeJobResponseTypeDef = TypedDict(
     "DescribeJobResponseTypeDef",
@@ -807,1250 +1124,74 @@ DescribeJobResponseTypeDef = TypedDict(
         "LogSubscription": LogSubscriptionType,
         "MaxCapacity": int,
         "MaxRetries": int,
-        "Outputs": List["OutputTypeDef"],
-        "DataCatalogOutputs": List["DataCatalogOutputTypeDef"],
-        "DatabaseOutputs": List["DatabaseOutputTypeDef"],
+        "Outputs": List[ExtraTypeDef],
+        "DataCatalogOutputs": List[DataCatalogOutputTypeDef],
+        "DatabaseOutputs": List[DatabaseOutputTypeDef],
         "ProjectName": str,
-        "ProfileConfiguration": "ProfileConfigurationTypeDef",
-        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
-        "RecipeReference": "RecipeReferenceTypeDef",
+        "ProfileConfiguration": ProfileConfigurationOutputTypeDef,
+        "ValidationConfigurations": List[ValidationConfigurationTypeDef],
+        "RecipeReference": RecipeReferenceTypeDef,
         "ResourceArn": str,
         "RoleArn": str,
         "Tags": Dict[str, str],
         "Timeout": int,
-        "JobSample": "JobSampleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeJobRunRequestRequestTypeDef = TypedDict(
-    "DescribeJobRunRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RunId": str,
-    },
-)
-
-DescribeJobRunResponseTypeDef = TypedDict(
-    "DescribeJobRunResponseTypeDef",
-    {
-        "Attempt": int,
-        "CompletedOn": datetime,
-        "DatasetName": str,
-        "ErrorMessage": str,
-        "ExecutionTime": int,
-        "JobName": str,
-        "ProfileConfiguration": "ProfileConfigurationTypeDef",
-        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
-        "RunId": str,
-        "State": JobRunStateType,
-        "LogSubscription": LogSubscriptionType,
-        "LogGroupName": str,
-        "Outputs": List["OutputTypeDef"],
-        "DataCatalogOutputs": List["DataCatalogOutputTypeDef"],
-        "DatabaseOutputs": List["DatabaseOutputTypeDef"],
-        "RecipeReference": "RecipeReferenceTypeDef",
-        "StartedBy": str,
-        "StartedOn": datetime,
-        "JobSample": "JobSampleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeProjectRequestRequestTypeDef = TypedDict(
-    "DescribeProjectRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribeProjectResponseTypeDef = TypedDict(
-    "DescribeProjectResponseTypeDef",
-    {
-        "CreateDate": datetime,
-        "CreatedBy": str,
-        "DatasetName": str,
-        "LastModifiedDate": datetime,
-        "LastModifiedBy": str,
-        "Name": str,
-        "RecipeName": str,
-        "ResourceArn": str,
-        "Sample": "SampleTypeDef",
-        "RoleArn": str,
-        "Tags": Dict[str, str],
-        "SessionStatus": SessionStatusType,
-        "OpenedBy": str,
-        "OpenDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeRecipeRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRecipeRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalDescribeRecipeRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRecipeRequestRequestTypeDef",
-    {
-        "RecipeVersion": str,
-    },
-    total=False,
-)
-
-class DescribeRecipeRequestRequestTypeDef(
-    _RequiredDescribeRecipeRequestRequestTypeDef, _OptionalDescribeRecipeRequestRequestTypeDef
-):
-    pass
-
-DescribeRecipeResponseTypeDef = TypedDict(
-    "DescribeRecipeResponseTypeDef",
-    {
-        "CreatedBy": str,
-        "CreateDate": datetime,
-        "LastModifiedBy": str,
-        "LastModifiedDate": datetime,
-        "ProjectName": str,
-        "PublishedBy": str,
-        "PublishedDate": datetime,
-        "Description": str,
-        "Name": str,
-        "Steps": List["RecipeStepTypeDef"],
-        "Tags": Dict[str, str],
-        "ResourceArn": str,
-        "RecipeVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRulesetRequestRequestTypeDef = TypedDict(
-    "DescribeRulesetRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribeRulesetResponseTypeDef = TypedDict(
-    "DescribeRulesetResponseTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "TargetArn": str,
-        "Rules": List["RuleTypeDef"],
-        "CreateDate": datetime,
-        "CreatedBy": str,
-        "LastModifiedBy": str,
-        "LastModifiedDate": datetime,
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeScheduleRequestRequestTypeDef = TypedDict(
-    "DescribeScheduleRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribeScheduleResponseTypeDef = TypedDict(
-    "DescribeScheduleResponseTypeDef",
-    {
-        "CreateDate": datetime,
-        "CreatedBy": str,
-        "JobNames": List[str],
-        "LastModifiedBy": str,
-        "LastModifiedDate": datetime,
-        "ResourceArn": str,
-        "CronExpression": str,
-        "Tags": Dict[str, str],
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredEntityDetectorConfigurationTypeDef = TypedDict(
-    "_RequiredEntityDetectorConfigurationTypeDef",
-    {
-        "EntityTypes": List[str],
-    },
-)
-_OptionalEntityDetectorConfigurationTypeDef = TypedDict(
-    "_OptionalEntityDetectorConfigurationTypeDef",
-    {
-        "AllowedStatistics": List["AllowedStatisticsTypeDef"],
-    },
-    total=False,
-)
-
-class EntityDetectorConfigurationTypeDef(
-    _RequiredEntityDetectorConfigurationTypeDef, _OptionalEntityDetectorConfigurationTypeDef
-):
-    pass
-
-ExcelOptionsTypeDef = TypedDict(
-    "ExcelOptionsTypeDef",
-    {
-        "SheetNames": List[str],
-        "SheetIndexes": List[int],
-        "HeaderRow": bool,
-    },
-    total=False,
-)
-
-_RequiredFilesLimitTypeDef = TypedDict(
-    "_RequiredFilesLimitTypeDef",
-    {
-        "MaxFiles": int,
-    },
-)
-_OptionalFilesLimitTypeDef = TypedDict(
-    "_OptionalFilesLimitTypeDef",
-    {
-        "OrderedBy": Literal["LAST_MODIFIED_DATE"],
-        "Order": OrderType,
-    },
-    total=False,
-)
-
-class FilesLimitTypeDef(_RequiredFilesLimitTypeDef, _OptionalFilesLimitTypeDef):
-    pass
-
-FilterExpressionTypeDef = TypedDict(
-    "FilterExpressionTypeDef",
-    {
-        "Expression": str,
-        "ValuesMap": Dict[str, str],
-    },
-)
-
-FormatOptionsTypeDef = TypedDict(
-    "FormatOptionsTypeDef",
-    {
-        "Json": "JsonOptionsTypeDef",
-        "Excel": "ExcelOptionsTypeDef",
-        "Csv": "CsvOptionsTypeDef",
-    },
-    total=False,
-)
-
-InputTypeDef = TypedDict(
-    "InputTypeDef",
-    {
-        "S3InputDefinition": "S3LocationTypeDef",
-        "DataCatalogInputDefinition": "DataCatalogInputDefinitionTypeDef",
-        "DatabaseInputDefinition": "DatabaseInputDefinitionTypeDef",
-        "Metadata": "MetadataTypeDef",
-    },
-    total=False,
-)
-
-JobRunTypeDef = TypedDict(
-    "JobRunTypeDef",
-    {
-        "Attempt": int,
-        "CompletedOn": datetime,
-        "DatasetName": str,
-        "ErrorMessage": str,
-        "ExecutionTime": int,
-        "JobName": str,
-        "RunId": str,
-        "State": JobRunStateType,
-        "LogSubscription": LogSubscriptionType,
-        "LogGroupName": str,
-        "Outputs": List["OutputTypeDef"],
-        "DataCatalogOutputs": List["DataCatalogOutputTypeDef"],
-        "DatabaseOutputs": List["DatabaseOutputTypeDef"],
-        "RecipeReference": "RecipeReferenceTypeDef",
-        "StartedBy": str,
-        "StartedOn": datetime,
-        "JobSample": "JobSampleTypeDef",
-        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-JobSampleTypeDef = TypedDict(
-    "JobSampleTypeDef",
-    {
-        "Mode": SampleModeType,
-        "Size": int,
-    },
-    total=False,
-)
-
-_RequiredJobTypeDef = TypedDict(
-    "_RequiredJobTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalJobTypeDef = TypedDict(
-    "_OptionalJobTypeDef",
-    {
-        "AccountId": str,
-        "CreatedBy": str,
-        "CreateDate": datetime,
-        "DatasetName": str,
-        "EncryptionKeyArn": str,
-        "EncryptionMode": EncryptionModeType,
-        "Type": JobTypeType,
-        "LastModifiedBy": str,
-        "LastModifiedDate": datetime,
-        "LogSubscription": LogSubscriptionType,
-        "MaxCapacity": int,
-        "MaxRetries": int,
-        "Outputs": List["OutputTypeDef"],
-        "DataCatalogOutputs": List["DataCatalogOutputTypeDef"],
-        "DatabaseOutputs": List["DatabaseOutputTypeDef"],
-        "ProjectName": str,
-        "RecipeReference": "RecipeReferenceTypeDef",
-        "ResourceArn": str,
-        "RoleArn": str,
-        "Timeout": int,
-        "Tags": Dict[str, str],
-        "JobSample": "JobSampleTypeDef",
-        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class JobTypeDef(_RequiredJobTypeDef, _OptionalJobTypeDef):
-    pass
-
-JsonOptionsTypeDef = TypedDict(
-    "JsonOptionsTypeDef",
-    {
-        "MultiLine": bool,
-    },
-    total=False,
-)
-
-ListDatasetsRequestRequestTypeDef = TypedDict(
-    "ListDatasetsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListDatasetsResponseTypeDef = TypedDict(
-    "ListDatasetsResponseTypeDef",
-    {
-        "Datasets": List["DatasetTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListJobRunsRequestRequestTypeDef = TypedDict(
-    "_RequiredListJobRunsRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalListJobRunsRequestRequestTypeDef = TypedDict(
-    "_OptionalListJobRunsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListJobRunsRequestRequestTypeDef(
-    _RequiredListJobRunsRequestRequestTypeDef, _OptionalListJobRunsRequestRequestTypeDef
-):
-    pass
-
-ListJobRunsResponseTypeDef = TypedDict(
-    "ListJobRunsResponseTypeDef",
-    {
-        "JobRuns": List["JobRunTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListJobsRequestRequestTypeDef = TypedDict(
-    "ListJobsRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "ProjectName": str,
-    },
-    total=False,
-)
-
-ListJobsResponseTypeDef = TypedDict(
-    "ListJobsResponseTypeDef",
-    {
-        "Jobs": List["JobTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListProjectsRequestRequestTypeDef = TypedDict(
-    "ListProjectsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListProjectsResponseTypeDef = TypedDict(
-    "ListProjectsResponseTypeDef",
-    {
-        "Projects": List["ProjectTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRecipeVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListRecipeVersionsRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalListRecipeVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListRecipeVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListRecipeVersionsRequestRequestTypeDef(
-    _RequiredListRecipeVersionsRequestRequestTypeDef,
-    _OptionalListRecipeVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListRecipeVersionsResponseTypeDef = TypedDict(
-    "ListRecipeVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Recipes": List["RecipeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRecipesRequestRequestTypeDef = TypedDict(
-    "ListRecipesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "RecipeVersion": str,
-    },
-    total=False,
-)
-
-ListRecipesResponseTypeDef = TypedDict(
-    "ListRecipesResponseTypeDef",
-    {
-        "Recipes": List["RecipeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRulesetsRequestRequestTypeDef = TypedDict(
-    "ListRulesetsRequestRequestTypeDef",
-    {
-        "TargetArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListRulesetsResponseTypeDef = TypedDict(
-    "ListRulesetsResponseTypeDef",
-    {
-        "Rulesets": List["RulesetItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSchedulesRequestRequestTypeDef = TypedDict(
-    "ListSchedulesRequestRequestTypeDef",
-    {
-        "JobName": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListSchedulesResponseTypeDef = TypedDict(
-    "ListSchedulesResponseTypeDef",
-    {
-        "Schedules": List["ScheduleTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MetadataTypeDef = TypedDict(
-    "MetadataTypeDef",
-    {
-        "SourceArn": str,
-    },
-    total=False,
-)
-
-OutputFormatOptionsTypeDef = TypedDict(
-    "OutputFormatOptionsTypeDef",
-    {
-        "Csv": "CsvOutputOptionsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredOutputTypeDef = TypedDict(
-    "_RequiredOutputTypeDef",
-    {
-        "Location": "S3LocationTypeDef",
-    },
-)
-_OptionalOutputTypeDef = TypedDict(
-    "_OptionalOutputTypeDef",
-    {
-        "CompressionFormat": CompressionFormatType,
-        "Format": OutputFormatType,
-        "PartitionColumns": List[str],
-        "Overwrite": bool,
-        "FormatOptions": "OutputFormatOptionsTypeDef",
-        "MaxOutputFiles": int,
-    },
-    total=False,
-)
-
-class OutputTypeDef(_RequiredOutputTypeDef, _OptionalOutputTypeDef):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PathOptionsTypeDef = TypedDict(
-    "PathOptionsTypeDef",
-    {
-        "LastModifiedDateCondition": "FilterExpressionTypeDef",
-        "FilesLimit": "FilesLimitTypeDef",
-        "Parameters": Dict[str, "DatasetParameterTypeDef"],
-    },
-    total=False,
-)
-
-ProfileConfigurationTypeDef = TypedDict(
-    "ProfileConfigurationTypeDef",
-    {
-        "DatasetStatisticsConfiguration": "StatisticsConfigurationTypeDef",
-        "ProfileColumns": List["ColumnSelectorTypeDef"],
-        "ColumnStatisticsConfigurations": List["ColumnStatisticsConfigurationTypeDef"],
-        "EntityDetectorConfiguration": "EntityDetectorConfigurationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredProjectTypeDef = TypedDict(
-    "_RequiredProjectTypeDef",
-    {
-        "Name": str,
-        "RecipeName": str,
-    },
-)
-_OptionalProjectTypeDef = TypedDict(
-    "_OptionalProjectTypeDef",
-    {
-        "AccountId": str,
-        "CreateDate": datetime,
-        "CreatedBy": str,
-        "DatasetName": str,
-        "LastModifiedDate": datetime,
-        "LastModifiedBy": str,
-        "ResourceArn": str,
-        "Sample": "SampleTypeDef",
-        "Tags": Dict[str, str],
-        "RoleArn": str,
-        "OpenedBy": str,
-        "OpenDate": datetime,
-    },
-    total=False,
-)
-
-class ProjectTypeDef(_RequiredProjectTypeDef, _OptionalProjectTypeDef):
-    pass
-
-_RequiredPublishRecipeRequestRequestTypeDef = TypedDict(
-    "_RequiredPublishRecipeRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalPublishRecipeRequestRequestTypeDef = TypedDict(
-    "_OptionalPublishRecipeRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class PublishRecipeRequestRequestTypeDef(
-    _RequiredPublishRecipeRequestRequestTypeDef, _OptionalPublishRecipeRequestRequestTypeDef
-):
-    pass
-
-PublishRecipeResponseTypeDef = TypedDict(
-    "PublishRecipeResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRecipeActionTypeDef = TypedDict(
-    "_RequiredRecipeActionTypeDef",
-    {
-        "Operation": str,
-    },
-)
-_OptionalRecipeActionTypeDef = TypedDict(
-    "_OptionalRecipeActionTypeDef",
-    {
-        "Parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class RecipeActionTypeDef(_RequiredRecipeActionTypeDef, _OptionalRecipeActionTypeDef):
-    pass
-
-_RequiredRecipeReferenceTypeDef = TypedDict(
-    "_RequiredRecipeReferenceTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalRecipeReferenceTypeDef = TypedDict(
-    "_OptionalRecipeReferenceTypeDef",
-    {
-        "RecipeVersion": str,
-    },
-    total=False,
-)
-
-class RecipeReferenceTypeDef(_RequiredRecipeReferenceTypeDef, _OptionalRecipeReferenceTypeDef):
-    pass
-
-_RequiredRecipeStepTypeDef = TypedDict(
-    "_RequiredRecipeStepTypeDef",
-    {
-        "Action": "RecipeActionTypeDef",
-    },
-)
-_OptionalRecipeStepTypeDef = TypedDict(
-    "_OptionalRecipeStepTypeDef",
-    {
-        "ConditionExpressions": List["ConditionExpressionTypeDef"],
-    },
-    total=False,
-)
-
-class RecipeStepTypeDef(_RequiredRecipeStepTypeDef, _OptionalRecipeStepTypeDef):
-    pass
-
-_RequiredRecipeTypeDef = TypedDict(
-    "_RequiredRecipeTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalRecipeTypeDef = TypedDict(
-    "_OptionalRecipeTypeDef",
-    {
-        "CreatedBy": str,
-        "CreateDate": datetime,
-        "LastModifiedBy": str,
-        "LastModifiedDate": datetime,
-        "ProjectName": str,
-        "PublishedBy": str,
-        "PublishedDate": datetime,
-        "Description": str,
-        "ResourceArn": str,
-        "Steps": List["RecipeStepTypeDef"],
-        "Tags": Dict[str, str],
-        "RecipeVersion": str,
-    },
-    total=False,
-)
-
-class RecipeTypeDef(_RequiredRecipeTypeDef, _OptionalRecipeTypeDef):
-    pass
-
-RecipeVersionErrorDetailTypeDef = TypedDict(
-    "RecipeVersionErrorDetailTypeDef",
-    {
-        "ErrorCode": str,
-        "ErrorMessage": str,
-        "RecipeVersion": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredRuleTypeDef = TypedDict(
-    "_RequiredRuleTypeDef",
-    {
-        "Name": str,
-        "CheckExpression": str,
-    },
-)
-_OptionalRuleTypeDef = TypedDict(
-    "_OptionalRuleTypeDef",
-    {
-        "Disabled": bool,
-        "SubstitutionMap": Dict[str, str],
-        "Threshold": "ThresholdTypeDef",
-        "ColumnSelectors": List["ColumnSelectorTypeDef"],
-    },
-    total=False,
-)
-
-class RuleTypeDef(_RequiredRuleTypeDef, _OptionalRuleTypeDef):
-    pass
-
-_RequiredRulesetItemTypeDef = TypedDict(
-    "_RequiredRulesetItemTypeDef",
-    {
-        "Name": str,
-        "TargetArn": str,
-    },
-)
-_OptionalRulesetItemTypeDef = TypedDict(
-    "_OptionalRulesetItemTypeDef",
-    {
-        "AccountId": str,
-        "CreatedBy": str,
-        "CreateDate": datetime,
-        "Description": str,
-        "LastModifiedBy": str,
-        "LastModifiedDate": datetime,
-        "ResourceArn": str,
-        "RuleCount": int,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class RulesetItemTypeDef(_RequiredRulesetItemTypeDef, _OptionalRulesetItemTypeDef):
-    pass
-
-_RequiredS3LocationTypeDef = TypedDict(
-    "_RequiredS3LocationTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalS3LocationTypeDef = TypedDict(
-    "_OptionalS3LocationTypeDef",
-    {
-        "Key": str,
-        "BucketOwner": str,
-    },
-    total=False,
-)
-
-class S3LocationTypeDef(_RequiredS3LocationTypeDef, _OptionalS3LocationTypeDef):
-    pass
-
-S3TableOutputOptionsTypeDef = TypedDict(
-    "S3TableOutputOptionsTypeDef",
-    {
-        "Location": "S3LocationTypeDef",
-    },
-)
-
-_RequiredSampleTypeDef = TypedDict(
-    "_RequiredSampleTypeDef",
-    {
-        "Type": SampleTypeType,
-    },
-)
-_OptionalSampleTypeDef = TypedDict(
-    "_OptionalSampleTypeDef",
-    {
-        "Size": int,
-    },
-    total=False,
-)
-
-class SampleTypeDef(_RequiredSampleTypeDef, _OptionalSampleTypeDef):
-    pass
-
-_RequiredScheduleTypeDef = TypedDict(
-    "_RequiredScheduleTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalScheduleTypeDef = TypedDict(
-    "_OptionalScheduleTypeDef",
-    {
-        "AccountId": str,
-        "CreatedBy": str,
-        "CreateDate": datetime,
-        "JobNames": List[str],
-        "LastModifiedBy": str,
-        "LastModifiedDate": datetime,
-        "ResourceArn": str,
-        "CronExpression": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class ScheduleTypeDef(_RequiredScheduleTypeDef, _OptionalScheduleTypeDef):
-    pass
-
-_RequiredSendProjectSessionActionRequestRequestTypeDef = TypedDict(
-    "_RequiredSendProjectSessionActionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalSendProjectSessionActionRequestRequestTypeDef = TypedDict(
-    "_OptionalSendProjectSessionActionRequestRequestTypeDef",
-    {
-        "Preview": bool,
-        "RecipeStep": "RecipeStepTypeDef",
-        "StepIndex": int,
-        "ClientSessionId": str,
-        "ViewFrame": "ViewFrameTypeDef",
-    },
-    total=False,
-)
-
-class SendProjectSessionActionRequestRequestTypeDef(
-    _RequiredSendProjectSessionActionRequestRequestTypeDef,
-    _OptionalSendProjectSessionActionRequestRequestTypeDef,
-):
-    pass
-
-SendProjectSessionActionResponseTypeDef = TypedDict(
-    "SendProjectSessionActionResponseTypeDef",
-    {
-        "Result": str,
-        "Name": str,
-        "ActionId": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartJobRunRequestRequestTypeDef = TypedDict(
-    "StartJobRunRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-StartJobRunResponseTypeDef = TypedDict(
-    "StartJobRunResponseTypeDef",
-    {
-        "RunId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartProjectSessionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartProjectSessionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalStartProjectSessionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartProjectSessionRequestRequestTypeDef",
-    {
-        "AssumeControl": bool,
-    },
-    total=False,
-)
-
-class StartProjectSessionRequestRequestTypeDef(
-    _RequiredStartProjectSessionRequestRequestTypeDef,
-    _OptionalStartProjectSessionRequestRequestTypeDef,
-):
-    pass
-
-StartProjectSessionResponseTypeDef = TypedDict(
-    "StartProjectSessionResponseTypeDef",
-    {
-        "Name": str,
-        "ClientSessionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StatisticOverrideTypeDef = TypedDict(
-    "StatisticOverrideTypeDef",
-    {
-        "Statistic": str,
-        "Parameters": Dict[str, str],
-    },
-)
-
-StatisticsConfigurationTypeDef = TypedDict(
-    "StatisticsConfigurationTypeDef",
-    {
-        "IncludedStatistics": List[str],
-        "Overrides": List["StatisticOverrideTypeDef"],
-    },
-    total=False,
-)
-
-StopJobRunRequestRequestTypeDef = TypedDict(
-    "StopJobRunRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RunId": str,
-    },
-)
-
-StopJobRunResponseTypeDef = TypedDict(
-    "StopJobRunResponseTypeDef",
-    {
-        "RunId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-_RequiredThresholdTypeDef = TypedDict(
-    "_RequiredThresholdTypeDef",
-    {
-        "Value": float,
-    },
-)
-_OptionalThresholdTypeDef = TypedDict(
-    "_OptionalThresholdTypeDef",
-    {
-        "Type": ThresholdTypeType,
-        "Unit": ThresholdUnitType,
-    },
-    total=False,
-)
-
-class ThresholdTypeDef(_RequiredThresholdTypeDef, _OptionalThresholdTypeDef):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDatasetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Input": "InputTypeDef",
-    },
-)
-_OptionalUpdateDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDatasetRequestRequestTypeDef",
-    {
-        "Format": InputFormatType,
-        "FormatOptions": "FormatOptionsTypeDef",
-        "PathOptions": "PathOptionsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateDatasetRequestRequestTypeDef(
-    _RequiredUpdateDatasetRequestRequestTypeDef, _OptionalUpdateDatasetRequestRequestTypeDef
-):
-    pass
-
-UpdateDatasetResponseTypeDef = TypedDict(
-    "UpdateDatasetResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateProfileJobRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateProfileJobRequestRequestTypeDef",
-    {
-        "Name": str,
-        "OutputLocation": "S3LocationTypeDef",
-        "RoleArn": str,
-    },
-)
-_OptionalUpdateProfileJobRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateProfileJobRequestRequestTypeDef",
-    {
-        "Configuration": "ProfileConfigurationTypeDef",
-        "EncryptionKeyArn": str,
-        "EncryptionMode": EncryptionModeType,
-        "LogSubscription": LogSubscriptionType,
-        "MaxCapacity": int,
-        "MaxRetries": int,
-        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
-        "Timeout": int,
-        "JobSample": "JobSampleTypeDef",
-    },
-    total=False,
-)
-
-class UpdateProfileJobRequestRequestTypeDef(
-    _RequiredUpdateProfileJobRequestRequestTypeDef, _OptionalUpdateProfileJobRequestRequestTypeDef
-):
-    pass
-
-UpdateProfileJobResponseTypeDef = TypedDict(
-    "UpdateProfileJobResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateProjectRequestRequestTypeDef",
-    {
-        "RoleArn": str,
-        "Name": str,
-    },
-)
-_OptionalUpdateProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateProjectRequestRequestTypeDef",
-    {
-        "Sample": "SampleTypeDef",
-    },
-    total=False,
-)
-
-class UpdateProjectRequestRequestTypeDef(
-    _RequiredUpdateProjectRequestRequestTypeDef, _OptionalUpdateProjectRequestRequestTypeDef
-):
-    pass
-
-UpdateProjectResponseTypeDef = TypedDict(
-    "UpdateProjectResponseTypeDef",
-    {
-        "LastModifiedDate": datetime,
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateRecipeJobRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRecipeJobRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RoleArn": str,
-    },
-)
-_OptionalUpdateRecipeJobRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRecipeJobRequestRequestTypeDef",
-    {
-        "EncryptionKeyArn": str,
-        "EncryptionMode": EncryptionModeType,
-        "LogSubscription": LogSubscriptionType,
-        "MaxCapacity": int,
-        "MaxRetries": int,
-        "Outputs": List["OutputTypeDef"],
-        "DataCatalogOutputs": List["DataCatalogOutputTypeDef"],
-        "DatabaseOutputs": List["DatabaseOutputTypeDef"],
-        "Timeout": int,
-    },
-    total=False,
-)
-
-class UpdateRecipeJobRequestRequestTypeDef(
-    _RequiredUpdateRecipeJobRequestRequestTypeDef, _OptionalUpdateRecipeJobRequestRequestTypeDef
-):
-    pass
-
-UpdateRecipeJobResponseTypeDef = TypedDict(
-    "UpdateRecipeJobResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateRecipeRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRecipeRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalUpdateRecipeRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRecipeRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Steps": List["RecipeStepTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateRecipeRequestRequestTypeDef(
-    _RequiredUpdateRecipeRequestRequestTypeDef, _OptionalUpdateRecipeRequestRequestTypeDef
-):
-    pass
-
-UpdateRecipeResponseTypeDef = TypedDict(
-    "UpdateRecipeResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateRulesetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRulesetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Rules": List["RuleTypeDef"],
-    },
-)
-_OptionalUpdateRulesetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRulesetRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateRulesetRequestRequestTypeDef(
-    _RequiredUpdateRulesetRequestRequestTypeDef, _OptionalUpdateRulesetRequestRequestTypeDef
-):
-    pass
-
-UpdateRulesetResponseTypeDef = TypedDict(
-    "UpdateRulesetResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateScheduleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateScheduleRequestRequestTypeDef",
-    {
-        "CronExpression": str,
-        "Name": str,
-    },
-)
-_OptionalUpdateScheduleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateScheduleRequestRequestTypeDef",
-    {
-        "JobNames": List[str],
-    },
-    total=False,
-)
-
-class UpdateScheduleRequestRequestTypeDef(
-    _RequiredUpdateScheduleRequestRequestTypeDef, _OptionalUpdateScheduleRequestRequestTypeDef
-):
-    pass
-
-UpdateScheduleResponseTypeDef = TypedDict(
-    "UpdateScheduleResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredValidationConfigurationTypeDef = TypedDict(
-    "_RequiredValidationConfigurationTypeDef",
-    {
-        "RulesetArn": str,
-    },
-)
-_OptionalValidationConfigurationTypeDef = TypedDict(
-    "_OptionalValidationConfigurationTypeDef",
-    {
-        "ValidationMode": Literal["CHECK_ALL"],
-    },
-    total=False,
-)
-
-class ValidationConfigurationTypeDef(
-    _RequiredValidationConfigurationTypeDef, _OptionalValidationConfigurationTypeDef
-):
-    pass
-
-_RequiredViewFrameTypeDef = TypedDict(
-    "_RequiredViewFrameTypeDef",
-    {
-        "StartColumnIndex": int,
-    },
-)
-_OptionalViewFrameTypeDef = TypedDict(
-    "_OptionalViewFrameTypeDef",
-    {
-        "ColumnRange": int,
-        "HiddenColumns": List[str],
-        "StartRowIndex": int,
-        "RowRange": int,
-        "Analytics": AnalyticsModeType,
-    },
-    total=False,
-)
-
-class ViewFrameTypeDef(_RequiredViewFrameTypeDef, _OptionalViewFrameTypeDef):
-    pass
+        "JobSample": JobSampleTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class DescribeJobRunResponseTypeDef(TypedDict):
+    Attempt: int
+    CompletedOn: datetime
+    DatasetName: str
+    ErrorMessage: str
+    ExecutionTime: int
+    JobName: str
+    ProfileConfiguration: ProfileConfigurationOutputTypeDef
+    ValidationConfigurations: List[ValidationConfigurationTypeDef]
+    RunId: str
+    State: JobRunStateType
+    LogSubscription: LogSubscriptionType
+    LogGroupName: str
+    Outputs: List[ExtraTypeDef]
+    DataCatalogOutputs: List[DataCatalogOutputTypeDef]
+    DatabaseOutputs: List[DatabaseOutputTypeDef]
+    RecipeReference: RecipeReferenceTypeDef
+    StartedBy: str
+    StartedOn: datetime
+    JobSample: JobSampleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ProfileConfigurationUnionTypeDef = Union[
+    ProfileConfigurationTypeDef, ProfileConfigurationOutputTypeDef
+]
+
+class CreateProfileJobRequestTypeDef(TypedDict):
+    DatasetName: str
+    Name: str
+    OutputLocation: S3LocationTypeDef
+    RoleArn: str
+    EncryptionKeyArn: NotRequired[str]
+    EncryptionMode: NotRequired[EncryptionModeType]
+    LogSubscription: NotRequired[LogSubscriptionType]
+    MaxCapacity: NotRequired[int]
+    MaxRetries: NotRequired[int]
+    Configuration: NotRequired[ProfileConfigurationUnionTypeDef]
+    ValidationConfigurations: NotRequired[Sequence[ValidationConfigurationTypeDef]]
+    Tags: NotRequired[Mapping[str, str]]
+    Timeout: NotRequired[int]
+    JobSample: NotRequired[JobSampleTypeDef]
+
+class UpdateProfileJobRequestTypeDef(TypedDict):
+    Name: str
+    OutputLocation: S3LocationTypeDef
+    RoleArn: str
+    Configuration: NotRequired[ProfileConfigurationUnionTypeDef]
+    EncryptionKeyArn: NotRequired[str]
+    EncryptionMode: NotRequired[EncryptionModeType]
+    LogSubscription: NotRequired[LogSubscriptionType]
+    MaxCapacity: NotRequired[int]
+    MaxRetries: NotRequired[int]
+    ValidationConfigurations: NotRequired[Sequence[ValidationConfigurationTypeDef]]
+    Timeout: NotRequired[int]
+    JobSample: NotRequired[JobSampleTypeDef]

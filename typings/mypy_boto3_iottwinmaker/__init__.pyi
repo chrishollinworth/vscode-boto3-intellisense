@@ -1,19 +1,21 @@
 """
 Main interface for iottwinmaker service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_iottwinmaker import (
         Client,
         IoTTwinMakerClient,
     )
 
-    session = boto3.Session()
-
-    client: IoTTwinMakerClient = boto3.client("iottwinmaker")
-    session_client: IoTTwinMakerClient = session.client("iottwinmaker")
+    session = Session()
+    client: IoTTwinMakerClient = session.client("iottwinmaker")
     ```
 """
 

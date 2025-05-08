@@ -1,26 +1,35 @@
 """
 Type annotations for route53-recovery-control-config service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_route53_recovery_control_config.type_defs import AssertionRuleTypeDef
+    from mypy_boto3_route53_recovery_control_config.type_defs import RuleConfigTypeDef
 
-    data: AssertionRuleTypeDef = {...}
+    data: RuleConfigTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
-from .literals import RuleTypeType, StatusType
+from .literals import NetworkTypeType, RuleTypeType, StatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AssertionRuleTypeDef",
@@ -28,41 +37,52 @@ __all__ = (
     "ClusterEndpointTypeDef",
     "ClusterTypeDef",
     "ControlPanelTypeDef",
-    "CreateClusterRequestRequestTypeDef",
+    "CreateClusterRequestTypeDef",
     "CreateClusterResponseTypeDef",
-    "CreateControlPanelRequestRequestTypeDef",
+    "CreateControlPanelRequestTypeDef",
     "CreateControlPanelResponseTypeDef",
-    "CreateRoutingControlRequestRequestTypeDef",
+    "CreateRoutingControlRequestTypeDef",
     "CreateRoutingControlResponseTypeDef",
-    "CreateSafetyRuleRequestRequestTypeDef",
+    "CreateSafetyRuleRequestTypeDef",
     "CreateSafetyRuleResponseTypeDef",
-    "DeleteClusterRequestRequestTypeDef",
-    "DeleteControlPanelRequestRequestTypeDef",
-    "DeleteRoutingControlRequestRequestTypeDef",
-    "DeleteSafetyRuleRequestRequestTypeDef",
-    "DescribeClusterRequestRequestTypeDef",
+    "DeleteClusterRequestTypeDef",
+    "DeleteControlPanelRequestTypeDef",
+    "DeleteRoutingControlRequestTypeDef",
+    "DeleteSafetyRuleRequestTypeDef",
+    "DescribeClusterRequestTypeDef",
+    "DescribeClusterRequestWaitExtraTypeDef",
+    "DescribeClusterRequestWaitTypeDef",
     "DescribeClusterResponseTypeDef",
-    "DescribeControlPanelRequestRequestTypeDef",
+    "DescribeControlPanelRequestTypeDef",
+    "DescribeControlPanelRequestWaitExtraTypeDef",
+    "DescribeControlPanelRequestWaitTypeDef",
     "DescribeControlPanelResponseTypeDef",
-    "DescribeRoutingControlRequestRequestTypeDef",
+    "DescribeRoutingControlRequestTypeDef",
+    "DescribeRoutingControlRequestWaitExtraTypeDef",
+    "DescribeRoutingControlRequestWaitTypeDef",
     "DescribeRoutingControlResponseTypeDef",
-    "DescribeSafetyRuleRequestRequestTypeDef",
+    "DescribeSafetyRuleRequestTypeDef",
     "DescribeSafetyRuleResponseTypeDef",
     "GatingRuleTypeDef",
     "GatingRuleUpdateTypeDef",
-    "GetResourcePolicyRequestRequestTypeDef",
+    "GetResourcePolicyRequestTypeDef",
     "GetResourcePolicyResponseTypeDef",
-    "ListAssociatedRoute53HealthChecksRequestRequestTypeDef",
+    "ListAssociatedRoute53HealthChecksRequestPaginateTypeDef",
+    "ListAssociatedRoute53HealthChecksRequestTypeDef",
     "ListAssociatedRoute53HealthChecksResponseTypeDef",
-    "ListClustersRequestRequestTypeDef",
+    "ListClustersRequestPaginateTypeDef",
+    "ListClustersRequestTypeDef",
     "ListClustersResponseTypeDef",
-    "ListControlPanelsRequestRequestTypeDef",
+    "ListControlPanelsRequestPaginateTypeDef",
+    "ListControlPanelsRequestTypeDef",
     "ListControlPanelsResponseTypeDef",
-    "ListRoutingControlsRequestRequestTypeDef",
+    "ListRoutingControlsRequestPaginateTypeDef",
+    "ListRoutingControlsRequestTypeDef",
     "ListRoutingControlsResponseTypeDef",
-    "ListSafetyRulesRequestRequestTypeDef",
+    "ListSafetyRulesRequestPaginateTypeDef",
+    "ListSafetyRulesRequestTypeDef",
     "ListSafetyRulesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NewAssertionRuleTypeDef",
     "NewGatingRuleTypeDef",
@@ -71,524 +91,17 @@ __all__ = (
     "RoutingControlTypeDef",
     "RuleConfigTypeDef",
     "RuleTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateControlPanelRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateClusterRequestTypeDef",
+    "UpdateClusterResponseTypeDef",
+    "UpdateControlPanelRequestTypeDef",
     "UpdateControlPanelResponseTypeDef",
-    "UpdateRoutingControlRequestRequestTypeDef",
+    "UpdateRoutingControlRequestTypeDef",
     "UpdateRoutingControlResponseTypeDef",
-    "UpdateSafetyRuleRequestRequestTypeDef",
+    "UpdateSafetyRuleRequestTypeDef",
     "UpdateSafetyRuleResponseTypeDef",
     "WaiterConfigTypeDef",
-)
-
-_RequiredAssertionRuleTypeDef = TypedDict(
-    "_RequiredAssertionRuleTypeDef",
-    {
-        "AssertedControls": List[str],
-        "ControlPanelArn": str,
-        "Name": str,
-        "RuleConfig": "RuleConfigTypeDef",
-        "SafetyRuleArn": str,
-        "Status": StatusType,
-        "WaitPeriodMs": int,
-    },
-)
-_OptionalAssertionRuleTypeDef = TypedDict(
-    "_OptionalAssertionRuleTypeDef",
-    {
-        "Owner": str,
-    },
-    total=False,
-)
-
-class AssertionRuleTypeDef(_RequiredAssertionRuleTypeDef, _OptionalAssertionRuleTypeDef):
-    pass
-
-AssertionRuleUpdateTypeDef = TypedDict(
-    "AssertionRuleUpdateTypeDef",
-    {
-        "Name": str,
-        "SafetyRuleArn": str,
-        "WaitPeriodMs": int,
-    },
-)
-
-ClusterEndpointTypeDef = TypedDict(
-    "ClusterEndpointTypeDef",
-    {
-        "Endpoint": str,
-        "Region": str,
-    },
-    total=False,
-)
-
-ClusterTypeDef = TypedDict(
-    "ClusterTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterEndpoints": List["ClusterEndpointTypeDef"],
-        "Name": str,
-        "Status": StatusType,
-        "Owner": str,
-    },
-    total=False,
-)
-
-ControlPanelTypeDef = TypedDict(
-    "ControlPanelTypeDef",
-    {
-        "ClusterArn": str,
-        "ControlPanelArn": str,
-        "DefaultControlPanel": bool,
-        "Name": str,
-        "RoutingControlCount": int,
-        "Status": StatusType,
-        "Owner": str,
-    },
-    total=False,
-)
-
-_RequiredCreateClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateClusterRequestRequestTypeDef",
-    {
-        "ClusterName": str,
-    },
-)
-_OptionalCreateClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateClusterRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateClusterRequestRequestTypeDef(
-    _RequiredCreateClusterRequestRequestTypeDef, _OptionalCreateClusterRequestRequestTypeDef
-):
-    pass
-
-CreateClusterResponseTypeDef = TypedDict(
-    "CreateClusterResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateControlPanelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateControlPanelRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "ControlPanelName": str,
-    },
-)
-_OptionalCreateControlPanelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateControlPanelRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateControlPanelRequestRequestTypeDef(
-    _RequiredCreateControlPanelRequestRequestTypeDef,
-    _OptionalCreateControlPanelRequestRequestTypeDef,
-):
-    pass
-
-CreateControlPanelResponseTypeDef = TypedDict(
-    "CreateControlPanelResponseTypeDef",
-    {
-        "ControlPanel": "ControlPanelTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRoutingControlRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRoutingControlRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "RoutingControlName": str,
-    },
-)
-_OptionalCreateRoutingControlRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRoutingControlRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "ControlPanelArn": str,
-    },
-    total=False,
-)
-
-class CreateRoutingControlRequestRequestTypeDef(
-    _RequiredCreateRoutingControlRequestRequestTypeDef,
-    _OptionalCreateRoutingControlRequestRequestTypeDef,
-):
-    pass
-
-CreateRoutingControlResponseTypeDef = TypedDict(
-    "CreateRoutingControlResponseTypeDef",
-    {
-        "RoutingControl": "RoutingControlTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateSafetyRuleRequestRequestTypeDef = TypedDict(
-    "CreateSafetyRuleRequestRequestTypeDef",
-    {
-        "AssertionRule": "NewAssertionRuleTypeDef",
-        "ClientToken": str,
-        "GatingRule": "NewGatingRuleTypeDef",
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateSafetyRuleResponseTypeDef = TypedDict(
-    "CreateSafetyRuleResponseTypeDef",
-    {
-        "AssertionRule": "AssertionRuleTypeDef",
-        "GatingRule": "GatingRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteClusterRequestRequestTypeDef = TypedDict(
-    "DeleteClusterRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-
-DeleteControlPanelRequestRequestTypeDef = TypedDict(
-    "DeleteControlPanelRequestRequestTypeDef",
-    {
-        "ControlPanelArn": str,
-    },
-)
-
-DeleteRoutingControlRequestRequestTypeDef = TypedDict(
-    "DeleteRoutingControlRequestRequestTypeDef",
-    {
-        "RoutingControlArn": str,
-    },
-)
-
-DeleteSafetyRuleRequestRequestTypeDef = TypedDict(
-    "DeleteSafetyRuleRequestRequestTypeDef",
-    {
-        "SafetyRuleArn": str,
-    },
-)
-
-DescribeClusterRequestRequestTypeDef = TypedDict(
-    "DescribeClusterRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-
-DescribeClusterResponseTypeDef = TypedDict(
-    "DescribeClusterResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeControlPanelRequestRequestTypeDef = TypedDict(
-    "DescribeControlPanelRequestRequestTypeDef",
-    {
-        "ControlPanelArn": str,
-    },
-)
-
-DescribeControlPanelResponseTypeDef = TypedDict(
-    "DescribeControlPanelResponseTypeDef",
-    {
-        "ControlPanel": "ControlPanelTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRoutingControlRequestRequestTypeDef = TypedDict(
-    "DescribeRoutingControlRequestRequestTypeDef",
-    {
-        "RoutingControlArn": str,
-    },
-)
-
-DescribeRoutingControlResponseTypeDef = TypedDict(
-    "DescribeRoutingControlResponseTypeDef",
-    {
-        "RoutingControl": "RoutingControlTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSafetyRuleRequestRequestTypeDef = TypedDict(
-    "DescribeSafetyRuleRequestRequestTypeDef",
-    {
-        "SafetyRuleArn": str,
-    },
-)
-
-DescribeSafetyRuleResponseTypeDef = TypedDict(
-    "DescribeSafetyRuleResponseTypeDef",
-    {
-        "AssertionRule": "AssertionRuleTypeDef",
-        "GatingRule": "GatingRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGatingRuleTypeDef = TypedDict(
-    "_RequiredGatingRuleTypeDef",
-    {
-        "ControlPanelArn": str,
-        "GatingControls": List[str],
-        "Name": str,
-        "RuleConfig": "RuleConfigTypeDef",
-        "SafetyRuleArn": str,
-        "Status": StatusType,
-        "TargetControls": List[str],
-        "WaitPeriodMs": int,
-    },
-)
-_OptionalGatingRuleTypeDef = TypedDict(
-    "_OptionalGatingRuleTypeDef",
-    {
-        "Owner": str,
-    },
-    total=False,
-)
-
-class GatingRuleTypeDef(_RequiredGatingRuleTypeDef, _OptionalGatingRuleTypeDef):
-    pass
-
-GatingRuleUpdateTypeDef = TypedDict(
-    "GatingRuleUpdateTypeDef",
-    {
-        "Name": str,
-        "SafetyRuleArn": str,
-        "WaitPeriodMs": int,
-    },
-)
-
-GetResourcePolicyRequestRequestTypeDef = TypedDict(
-    "GetResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-GetResourcePolicyResponseTypeDef = TypedDict(
-    "GetResourcePolicyResponseTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAssociatedRoute53HealthChecksRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssociatedRoute53HealthChecksRequestRequestTypeDef",
-    {
-        "RoutingControlArn": str,
-    },
-)
-_OptionalListAssociatedRoute53HealthChecksRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssociatedRoute53HealthChecksRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListAssociatedRoute53HealthChecksRequestRequestTypeDef(
-    _RequiredListAssociatedRoute53HealthChecksRequestRequestTypeDef,
-    _OptionalListAssociatedRoute53HealthChecksRequestRequestTypeDef,
-):
-    pass
-
-ListAssociatedRoute53HealthChecksResponseTypeDef = TypedDict(
-    "ListAssociatedRoute53HealthChecksResponseTypeDef",
-    {
-        "HealthCheckIds": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListClustersRequestRequestTypeDef = TypedDict(
-    "ListClustersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListClustersResponseTypeDef = TypedDict(
-    "ListClustersResponseTypeDef",
-    {
-        "Clusters": List["ClusterTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListControlPanelsRequestRequestTypeDef = TypedDict(
-    "ListControlPanelsRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListControlPanelsResponseTypeDef = TypedDict(
-    "ListControlPanelsResponseTypeDef",
-    {
-        "ControlPanels": List["ControlPanelTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRoutingControlsRequestRequestTypeDef = TypedDict(
-    "_RequiredListRoutingControlsRequestRequestTypeDef",
-    {
-        "ControlPanelArn": str,
-    },
-)
-_OptionalListRoutingControlsRequestRequestTypeDef = TypedDict(
-    "_OptionalListRoutingControlsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListRoutingControlsRequestRequestTypeDef(
-    _RequiredListRoutingControlsRequestRequestTypeDef,
-    _OptionalListRoutingControlsRequestRequestTypeDef,
-):
-    pass
-
-ListRoutingControlsResponseTypeDef = TypedDict(
-    "ListRoutingControlsResponseTypeDef",
-    {
-        "NextToken": str,
-        "RoutingControls": List["RoutingControlTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSafetyRulesRequestRequestTypeDef = TypedDict(
-    "_RequiredListSafetyRulesRequestRequestTypeDef",
-    {
-        "ControlPanelArn": str,
-    },
-)
-_OptionalListSafetyRulesRequestRequestTypeDef = TypedDict(
-    "_OptionalListSafetyRulesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListSafetyRulesRequestRequestTypeDef(
-    _RequiredListSafetyRulesRequestRequestTypeDef, _OptionalListSafetyRulesRequestRequestTypeDef
-):
-    pass
-
-ListSafetyRulesResponseTypeDef = TypedDict(
-    "ListSafetyRulesResponseTypeDef",
-    {
-        "NextToken": str,
-        "SafetyRules": List["RuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NewAssertionRuleTypeDef = TypedDict(
-    "NewAssertionRuleTypeDef",
-    {
-        "AssertedControls": List[str],
-        "ControlPanelArn": str,
-        "Name": str,
-        "RuleConfig": "RuleConfigTypeDef",
-        "WaitPeriodMs": int,
-    },
-)
-
-NewGatingRuleTypeDef = TypedDict(
-    "NewGatingRuleTypeDef",
-    {
-        "ControlPanelArn": str,
-        "GatingControls": List[str],
-        "Name": str,
-        "RuleConfig": "RuleConfigTypeDef",
-        "TargetControls": List[str],
-        "WaitPeriodMs": int,
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RoutingControlTypeDef = TypedDict(
-    "RoutingControlTypeDef",
-    {
-        "ControlPanelArn": str,
-        "Name": str,
-        "RoutingControlArn": str,
-        "Status": StatusType,
-        "Owner": str,
-    },
-    total=False,
 )
 
 RuleConfigTypeDef = TypedDict(
@@ -600,86 +113,325 @@ RuleConfigTypeDef = TypedDict(
     },
 )
 
-RuleTypeDef = TypedDict(
-    "RuleTypeDef",
-    {
-        "ASSERTION": "AssertionRuleTypeDef",
-        "GATING": "GatingRuleTypeDef",
-    },
-    total=False,
-)
+class AssertionRuleUpdateTypeDef(TypedDict):
+    Name: str
+    SafetyRuleArn: str
+    WaitPeriodMs: int
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
+class ClusterEndpointTypeDef(TypedDict):
+    Endpoint: NotRequired[str]
+    Region: NotRequired[str]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class ControlPanelTypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+    ControlPanelArn: NotRequired[str]
+    DefaultControlPanel: NotRequired[bool]
+    Name: NotRequired[str]
+    RoutingControlCount: NotRequired[int]
+    Status: NotRequired[StatusType]
+    Owner: NotRequired[str]
 
-UpdateControlPanelRequestRequestTypeDef = TypedDict(
-    "UpdateControlPanelRequestRequestTypeDef",
-    {
-        "ControlPanelArn": str,
-        "ControlPanelName": str,
-    },
-)
+class CreateClusterRequestTypeDef(TypedDict):
+    ClusterName: str
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    NetworkType: NotRequired[NetworkTypeType]
 
-UpdateControlPanelResponseTypeDef = TypedDict(
-    "UpdateControlPanelResponseTypeDef",
-    {
-        "ControlPanel": "ControlPanelTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-UpdateRoutingControlRequestRequestTypeDef = TypedDict(
-    "UpdateRoutingControlRequestRequestTypeDef",
-    {
-        "RoutingControlArn": str,
-        "RoutingControlName": str,
-    },
-)
+class CreateControlPanelRequestTypeDef(TypedDict):
+    ClusterArn: str
+    ControlPanelName: str
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
 
-UpdateRoutingControlResponseTypeDef = TypedDict(
-    "UpdateRoutingControlResponseTypeDef",
-    {
-        "RoutingControl": "RoutingControlTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateRoutingControlRequestTypeDef(TypedDict):
+    ClusterArn: str
+    RoutingControlName: str
+    ClientToken: NotRequired[str]
+    ControlPanelArn: NotRequired[str]
 
-UpdateSafetyRuleRequestRequestTypeDef = TypedDict(
-    "UpdateSafetyRuleRequestRequestTypeDef",
-    {
-        "AssertionRuleUpdate": "AssertionRuleUpdateTypeDef",
-        "GatingRuleUpdate": "GatingRuleUpdateTypeDef",
-    },
-    total=False,
-)
+class RoutingControlTypeDef(TypedDict):
+    ControlPanelArn: NotRequired[str]
+    Name: NotRequired[str]
+    RoutingControlArn: NotRequired[str]
+    Status: NotRequired[StatusType]
+    Owner: NotRequired[str]
 
-UpdateSafetyRuleResponseTypeDef = TypedDict(
-    "UpdateSafetyRuleResponseTypeDef",
-    {
-        "AssertionRule": "AssertionRuleTypeDef",
-        "GatingRule": "GatingRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteClusterRequestTypeDef(TypedDict):
+    ClusterArn: str
 
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class DeleteControlPanelRequestTypeDef(TypedDict):
+    ControlPanelArn: str
+
+class DeleteRoutingControlRequestTypeDef(TypedDict):
+    RoutingControlArn: str
+
+class DeleteSafetyRuleRequestTypeDef(TypedDict):
+    SafetyRuleArn: str
+
+class DescribeClusterRequestTypeDef(TypedDict):
+    ClusterArn: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class DescribeControlPanelRequestTypeDef(TypedDict):
+    ControlPanelArn: str
+
+class DescribeRoutingControlRequestTypeDef(TypedDict):
+    RoutingControlArn: str
+
+class DescribeSafetyRuleRequestTypeDef(TypedDict):
+    SafetyRuleArn: str
+
+class GatingRuleUpdateTypeDef(TypedDict):
+    Name: str
+    SafetyRuleArn: str
+    WaitPeriodMs: int
+
+class GetResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAssociatedRoute53HealthChecksRequestTypeDef(TypedDict):
+    RoutingControlArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListClustersRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListControlPanelsRequestTypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListRoutingControlsRequestTypeDef(TypedDict):
+    ControlPanelArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListSafetyRulesRequestTypeDef(TypedDict):
+    ControlPanelArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateClusterRequestTypeDef(TypedDict):
+    ClusterArn: str
+    NetworkType: NetworkTypeType
+
+class UpdateControlPanelRequestTypeDef(TypedDict):
+    ControlPanelArn: str
+    ControlPanelName: str
+
+class UpdateRoutingControlRequestTypeDef(TypedDict):
+    RoutingControlArn: str
+    RoutingControlName: str
+
+class AssertionRuleTypeDef(TypedDict):
+    AssertedControls: List[str]
+    ControlPanelArn: str
+    Name: str
+    RuleConfig: RuleConfigTypeDef
+    SafetyRuleArn: str
+    Status: StatusType
+    WaitPeriodMs: int
+    Owner: NotRequired[str]
+
+class GatingRuleTypeDef(TypedDict):
+    ControlPanelArn: str
+    GatingControls: List[str]
+    Name: str
+    RuleConfig: RuleConfigTypeDef
+    SafetyRuleArn: str
+    Status: StatusType
+    TargetControls: List[str]
+    WaitPeriodMs: int
+    Owner: NotRequired[str]
+
+class NewAssertionRuleTypeDef(TypedDict):
+    AssertedControls: Sequence[str]
+    ControlPanelArn: str
+    Name: str
+    RuleConfig: RuleConfigTypeDef
+    WaitPeriodMs: int
+
+class NewGatingRuleTypeDef(TypedDict):
+    ControlPanelArn: str
+    GatingControls: Sequence[str]
+    Name: str
+    RuleConfig: RuleConfigTypeDef
+    TargetControls: Sequence[str]
+    WaitPeriodMs: int
+
+class ClusterTypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+    ClusterEndpoints: NotRequired[List[ClusterEndpointTypeDef]]
+    Name: NotRequired[str]
+    Status: NotRequired[StatusType]
+    Owner: NotRequired[str]
+    NetworkType: NotRequired[NetworkTypeType]
+
+class CreateControlPanelResponseTypeDef(TypedDict):
+    ControlPanel: ControlPanelTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeControlPanelResponseTypeDef(TypedDict):
+    ControlPanel: ControlPanelTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResourcePolicyResponseTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAssociatedRoute53HealthChecksResponseTypeDef(TypedDict):
+    HealthCheckIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListControlPanelsResponseTypeDef(TypedDict):
+    ControlPanels: List[ControlPanelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateControlPanelResponseTypeDef(TypedDict):
+    ControlPanel: ControlPanelTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRoutingControlResponseTypeDef(TypedDict):
+    RoutingControl: RoutingControlTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRoutingControlResponseTypeDef(TypedDict):
+    RoutingControl: RoutingControlTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRoutingControlsResponseTypeDef(TypedDict):
+    RoutingControls: List[RoutingControlTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateRoutingControlResponseTypeDef(TypedDict):
+    RoutingControl: RoutingControlTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeClusterRequestWaitExtraTypeDef(TypedDict):
+    ClusterArn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeClusterRequestWaitTypeDef(TypedDict):
+    ClusterArn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeControlPanelRequestWaitExtraTypeDef(TypedDict):
+    ControlPanelArn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeControlPanelRequestWaitTypeDef(TypedDict):
+    ControlPanelArn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeRoutingControlRequestWaitExtraTypeDef(TypedDict):
+    RoutingControlArn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeRoutingControlRequestWaitTypeDef(TypedDict):
+    RoutingControlArn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class UpdateSafetyRuleRequestTypeDef(TypedDict):
+    AssertionRuleUpdate: NotRequired[AssertionRuleUpdateTypeDef]
+    GatingRuleUpdate: NotRequired[GatingRuleUpdateTypeDef]
+
+class ListAssociatedRoute53HealthChecksRequestPaginateTypeDef(TypedDict):
+    RoutingControlArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListClustersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListControlPanelsRequestPaginateTypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRoutingControlsRequestPaginateTypeDef(TypedDict):
+    ControlPanelArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSafetyRulesRequestPaginateTypeDef(TypedDict):
+    ControlPanelArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class CreateSafetyRuleResponseTypeDef(TypedDict):
+    AssertionRule: AssertionRuleTypeDef
+    GatingRule: GatingRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSafetyRuleResponseTypeDef(TypedDict):
+    AssertionRule: AssertionRuleTypeDef
+    GatingRule: GatingRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RuleTypeDef(TypedDict):
+    ASSERTION: NotRequired[AssertionRuleTypeDef]
+    GATING: NotRequired[GatingRuleTypeDef]
+
+class UpdateSafetyRuleResponseTypeDef(TypedDict):
+    AssertionRule: AssertionRuleTypeDef
+    GatingRule: GatingRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSafetyRuleRequestTypeDef(TypedDict):
+    AssertionRule: NotRequired[NewAssertionRuleTypeDef]
+    ClientToken: NotRequired[str]
+    GatingRule: NotRequired[NewGatingRuleTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+
+class CreateClusterResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeClusterResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListClustersResponseTypeDef(TypedDict):
+    Clusters: List[ClusterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateClusterResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSafetyRulesResponseTypeDef(TypedDict):
+    SafetyRules: List[RuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

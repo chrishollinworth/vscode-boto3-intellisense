@@ -1,26 +1,32 @@
 """
 Type annotations for stepfunctions service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_stepfunctions.type_defs import ActivityFailedEventDetailsTypeDef
 
-    data: ActivityFailedEventDetailsTypeDef = {...}
+    data: ActivityFailedEventDetailsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
+    EncryptionTypeType,
     ExecutionRedriveFilterType,
     ExecutionRedriveStatusType,
     ExecutionStatusType,
     HistoryEventTypeType,
+    IncludedDataType,
     InspectionLevelType,
     LogLevelType,
     MapRunStatusType,
@@ -29,16 +35,19 @@ from .literals import (
     SyncExecutionStatusType,
     TestExecutionStatusType,
     ValidateStateMachineDefinitionResultCodeType,
+    ValidateStateMachineDefinitionSeverityType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ActivityFailedEventDetailsTypeDef",
@@ -48,31 +57,34 @@ __all__ = (
     "ActivityStartedEventDetailsTypeDef",
     "ActivitySucceededEventDetailsTypeDef",
     "ActivityTimedOutEventDetailsTypeDef",
+    "AssignedVariablesDetailsTypeDef",
     "BillingDetailsTypeDef",
     "CloudWatchEventsExecutionDataDetailsTypeDef",
     "CloudWatchLogsLogGroupTypeDef",
-    "CreateActivityInputRequestTypeDef",
+    "CreateActivityInputTypeDef",
     "CreateActivityOutputTypeDef",
-    "CreateStateMachineAliasInputRequestTypeDef",
+    "CreateStateMachineAliasInputTypeDef",
     "CreateStateMachineAliasOutputTypeDef",
-    "CreateStateMachineInputRequestTypeDef",
+    "CreateStateMachineInputTypeDef",
     "CreateStateMachineOutputTypeDef",
-    "DeleteActivityInputRequestTypeDef",
-    "DeleteStateMachineAliasInputRequestTypeDef",
-    "DeleteStateMachineInputRequestTypeDef",
-    "DeleteStateMachineVersionInputRequestTypeDef",
-    "DescribeActivityInputRequestTypeDef",
+    "DeleteActivityInputTypeDef",
+    "DeleteStateMachineAliasInputTypeDef",
+    "DeleteStateMachineInputTypeDef",
+    "DeleteStateMachineVersionInputTypeDef",
+    "DescribeActivityInputTypeDef",
     "DescribeActivityOutputTypeDef",
-    "DescribeExecutionInputRequestTypeDef",
+    "DescribeExecutionInputTypeDef",
     "DescribeExecutionOutputTypeDef",
-    "DescribeMapRunInputRequestTypeDef",
+    "DescribeMapRunInputTypeDef",
     "DescribeMapRunOutputTypeDef",
-    "DescribeStateMachineAliasInputRequestTypeDef",
+    "DescribeStateMachineAliasInputTypeDef",
     "DescribeStateMachineAliasOutputTypeDef",
-    "DescribeStateMachineForExecutionInputRequestTypeDef",
+    "DescribeStateMachineForExecutionInputTypeDef",
     "DescribeStateMachineForExecutionOutputTypeDef",
-    "DescribeStateMachineInputRequestTypeDef",
+    "DescribeStateMachineInputTypeDef",
     "DescribeStateMachineOutputTypeDef",
+    "EncryptionConfigurationTypeDef",
+    "EvaluationFailedEventDetailsTypeDef",
     "ExecutionAbortedEventDetailsTypeDef",
     "ExecutionFailedEventDetailsTypeDef",
     "ExecutionListItemTypeDef",
@@ -80,9 +92,10 @@ __all__ = (
     "ExecutionStartedEventDetailsTypeDef",
     "ExecutionSucceededEventDetailsTypeDef",
     "ExecutionTimedOutEventDetailsTypeDef",
-    "GetActivityTaskInputRequestTypeDef",
+    "GetActivityTaskInputTypeDef",
     "GetActivityTaskOutputTypeDef",
-    "GetExecutionHistoryInputRequestTypeDef",
+    "GetExecutionHistoryInputPaginateTypeDef",
+    "GetExecutionHistoryInputTypeDef",
     "GetExecutionHistoryOutputTypeDef",
     "HistoryEventExecutionDataDetailsTypeDef",
     "HistoryEventTypeDef",
@@ -95,22 +108,28 @@ __all__ = (
     "LambdaFunctionStartFailedEventDetailsTypeDef",
     "LambdaFunctionSucceededEventDetailsTypeDef",
     "LambdaFunctionTimedOutEventDetailsTypeDef",
-    "ListActivitiesInputRequestTypeDef",
+    "ListActivitiesInputPaginateTypeDef",
+    "ListActivitiesInputTypeDef",
     "ListActivitiesOutputTypeDef",
-    "ListExecutionsInputRequestTypeDef",
+    "ListExecutionsInputPaginateTypeDef",
+    "ListExecutionsInputTypeDef",
     "ListExecutionsOutputTypeDef",
-    "ListMapRunsInputRequestTypeDef",
+    "ListMapRunsInputPaginateTypeDef",
+    "ListMapRunsInputTypeDef",
     "ListMapRunsOutputTypeDef",
-    "ListStateMachineAliasesInputRequestTypeDef",
+    "ListStateMachineAliasesInputTypeDef",
     "ListStateMachineAliasesOutputTypeDef",
-    "ListStateMachineVersionsInputRequestTypeDef",
+    "ListStateMachineVersionsInputTypeDef",
     "ListStateMachineVersionsOutputTypeDef",
-    "ListStateMachinesInputRequestTypeDef",
+    "ListStateMachinesInputPaginateTypeDef",
+    "ListStateMachinesInputTypeDef",
     "ListStateMachinesOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "LogDestinationTypeDef",
+    "LoggingConfigurationOutputTypeDef",
     "LoggingConfigurationTypeDef",
+    "LoggingConfigurationUnionTypeDef",
     "MapIterationEventDetailsTypeDef",
     "MapRunExecutionCountsTypeDef",
     "MapRunFailedEventDetailsTypeDef",
@@ -120,27 +139,27 @@ __all__ = (
     "MapRunStartedEventDetailsTypeDef",
     "MapStateStartedEventDetailsTypeDef",
     "PaginatorConfigTypeDef",
-    "PublishStateMachineVersionInputRequestTypeDef",
+    "PublishStateMachineVersionInputTypeDef",
     "PublishStateMachineVersionOutputTypeDef",
-    "RedriveExecutionInputRequestTypeDef",
+    "RedriveExecutionInputTypeDef",
     "RedriveExecutionOutputTypeDef",
     "ResponseMetadataTypeDef",
     "RoutingConfigurationListItemTypeDef",
-    "SendTaskFailureInputRequestTypeDef",
-    "SendTaskHeartbeatInputRequestTypeDef",
-    "SendTaskSuccessInputRequestTypeDef",
-    "StartExecutionInputRequestTypeDef",
+    "SendTaskFailureInputTypeDef",
+    "SendTaskHeartbeatInputTypeDef",
+    "SendTaskSuccessInputTypeDef",
+    "StartExecutionInputTypeDef",
     "StartExecutionOutputTypeDef",
-    "StartSyncExecutionInputRequestTypeDef",
+    "StartSyncExecutionInputTypeDef",
     "StartSyncExecutionOutputTypeDef",
     "StateEnteredEventDetailsTypeDef",
     "StateExitedEventDetailsTypeDef",
     "StateMachineAliasListItemTypeDef",
     "StateMachineListItemTypeDef",
     "StateMachineVersionListItemTypeDef",
-    "StopExecutionInputRequestTypeDef",
+    "StopExecutionInputTypeDef",
     "StopExecutionOutputTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
     "TagTypeDef",
     "TaskCredentialsTypeDef",
     "TaskFailedEventDetailsTypeDef",
@@ -151,265 +170,508 @@ __all__ = (
     "TaskSubmittedEventDetailsTypeDef",
     "TaskSucceededEventDetailsTypeDef",
     "TaskTimedOutEventDetailsTypeDef",
-    "TestStateInputRequestTypeDef",
+    "TestStateInputTypeDef",
     "TestStateOutputTypeDef",
     "TracingConfigurationTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateMapRunInputRequestTypeDef",
-    "UpdateStateMachineAliasInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateMapRunInputTypeDef",
+    "UpdateStateMachineAliasInputTypeDef",
     "UpdateStateMachineAliasOutputTypeDef",
-    "UpdateStateMachineInputRequestTypeDef",
+    "UpdateStateMachineInputTypeDef",
     "UpdateStateMachineOutputTypeDef",
     "ValidateStateMachineDefinitionDiagnosticTypeDef",
-    "ValidateStateMachineDefinitionInputRequestTypeDef",
+    "ValidateStateMachineDefinitionInputTypeDef",
     "ValidateStateMachineDefinitionOutputTypeDef",
 )
 
-ActivityFailedEventDetailsTypeDef = TypedDict(
-    "ActivityFailedEventDetailsTypeDef",
+class ActivityFailedEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class ActivityListItemTypeDef(TypedDict):
+    activityArn: str
+    name: str
+    creationDate: datetime
+
+class ActivityScheduleFailedEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class HistoryEventExecutionDataDetailsTypeDef(TypedDict):
+    truncated: NotRequired[bool]
+
+class ActivityStartedEventDetailsTypeDef(TypedDict):
+    workerName: NotRequired[str]
+
+class ActivityTimedOutEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class AssignedVariablesDetailsTypeDef(TypedDict):
+    truncated: NotRequired[bool]
+
+class BillingDetailsTypeDef(TypedDict):
+    billedMemoryUsedInMB: NotRequired[int]
+    billedDurationInMilliseconds: NotRequired[int]
+
+class CloudWatchEventsExecutionDataDetailsTypeDef(TypedDict):
+    included: NotRequired[bool]
+
+class CloudWatchLogsLogGroupTypeDef(TypedDict):
+    logGroupArn: NotRequired[str]
+
+EncryptionConfigurationTypeDef = TypedDict(
+    "EncryptionConfigurationTypeDef",
     {
-        "error": str,
-        "cause": str,
+        "type": EncryptionTypeType,
+        "kmsKeyId": NotRequired[str],
+        "kmsDataKeyReusePeriodSeconds": NotRequired[int],
     },
-    total=False,
 )
 
-ActivityListItemTypeDef = TypedDict(
-    "ActivityListItemTypeDef",
+class TagTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class RoutingConfigurationListItemTypeDef(TypedDict):
+    stateMachineVersionArn: str
+    weight: int
+
+class TracingConfigurationTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+
+class DeleteActivityInputTypeDef(TypedDict):
+    activityArn: str
+
+class DeleteStateMachineAliasInputTypeDef(TypedDict):
+    stateMachineAliasArn: str
+
+class DeleteStateMachineInputTypeDef(TypedDict):
+    stateMachineArn: str
+
+class DeleteStateMachineVersionInputTypeDef(TypedDict):
+    stateMachineVersionArn: str
+
+class DescribeActivityInputTypeDef(TypedDict):
+    activityArn: str
+
+class DescribeExecutionInputTypeDef(TypedDict):
+    executionArn: str
+    includedData: NotRequired[IncludedDataType]
+
+class DescribeMapRunInputTypeDef(TypedDict):
+    mapRunArn: str
+
+class MapRunExecutionCountsTypeDef(TypedDict):
+    pending: int
+    running: int
+    succeeded: int
+    failed: int
+    timedOut: int
+    aborted: int
+    total: int
+    resultsWritten: int
+    failuresNotRedrivable: NotRequired[int]
+    pendingRedrive: NotRequired[int]
+
+class MapRunItemCountsTypeDef(TypedDict):
+    pending: int
+    running: int
+    succeeded: int
+    failed: int
+    timedOut: int
+    aborted: int
+    total: int
+    resultsWritten: int
+    failuresNotRedrivable: NotRequired[int]
+    pendingRedrive: NotRequired[int]
+
+class DescribeStateMachineAliasInputTypeDef(TypedDict):
+    stateMachineAliasArn: str
+
+class DescribeStateMachineForExecutionInputTypeDef(TypedDict):
+    executionArn: str
+    includedData: NotRequired[IncludedDataType]
+
+class DescribeStateMachineInputTypeDef(TypedDict):
+    stateMachineArn: str
+    includedData: NotRequired[IncludedDataType]
+
+class EvaluationFailedEventDetailsTypeDef(TypedDict):
+    state: str
+    error: NotRequired[str]
+    cause: NotRequired[str]
+    location: NotRequired[str]
+
+class ExecutionAbortedEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class ExecutionFailedEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class ExecutionListItemTypeDef(TypedDict):
+    executionArn: str
+    stateMachineArn: str
+    name: str
+    status: ExecutionStatusType
+    startDate: datetime
+    stopDate: NotRequired[datetime]
+    mapRunArn: NotRequired[str]
+    itemCount: NotRequired[int]
+    stateMachineVersionArn: NotRequired[str]
+    stateMachineAliasArn: NotRequired[str]
+    redriveCount: NotRequired[int]
+    redriveDate: NotRequired[datetime]
+
+class ExecutionRedrivenEventDetailsTypeDef(TypedDict):
+    redriveCount: NotRequired[int]
+
+class ExecutionTimedOutEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class GetActivityTaskInputTypeDef(TypedDict):
+    activityArn: str
+    workerName: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetExecutionHistoryInputTypeDef(TypedDict):
+    executionArn: str
+    maxResults: NotRequired[int]
+    reverseOrder: NotRequired[bool]
+    nextToken: NotRequired[str]
+    includeExecutionData: NotRequired[bool]
+
+class LambdaFunctionFailedEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class LambdaFunctionScheduleFailedEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class LambdaFunctionStartFailedEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class LambdaFunctionTimedOutEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class MapIterationEventDetailsTypeDef(TypedDict):
+    name: NotRequired[str]
+    index: NotRequired[int]
+
+class MapRunFailedEventDetailsTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class MapRunRedrivenEventDetailsTypeDef(TypedDict):
+    mapRunArn: NotRequired[str]
+    redriveCount: NotRequired[int]
+
+class MapRunStartedEventDetailsTypeDef(TypedDict):
+    mapRunArn: NotRequired[str]
+
+class MapStateStartedEventDetailsTypeDef(TypedDict):
+    length: NotRequired[int]
+
+class TaskFailedEventDetailsTypeDef(TypedDict):
+    resourceType: str
+    resource: str
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class TaskStartFailedEventDetailsTypeDef(TypedDict):
+    resourceType: str
+    resource: str
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class TaskStartedEventDetailsTypeDef(TypedDict):
+    resourceType: str
+    resource: str
+
+class TaskSubmitFailedEventDetailsTypeDef(TypedDict):
+    resourceType: str
+    resource: str
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class TaskTimedOutEventDetailsTypeDef(TypedDict):
+    resourceType: str
+    resource: str
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class InspectionDataRequestTypeDef(TypedDict):
+    protocol: NotRequired[str]
+    method: NotRequired[str]
+    url: NotRequired[str]
+    headers: NotRequired[str]
+    body: NotRequired[str]
+
+class InspectionDataResponseTypeDef(TypedDict):
+    protocol: NotRequired[str]
+    statusCode: NotRequired[str]
+    statusMessage: NotRequired[str]
+    headers: NotRequired[str]
+    body: NotRequired[str]
+
+class TaskCredentialsTypeDef(TypedDict):
+    roleArn: NotRequired[str]
+
+class ListActivitiesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListExecutionsInputTypeDef(TypedDict):
+    stateMachineArn: NotRequired[str]
+    statusFilter: NotRequired[ExecutionStatusType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    mapRunArn: NotRequired[str]
+    redriveFilter: NotRequired[ExecutionRedriveFilterType]
+
+class ListMapRunsInputTypeDef(TypedDict):
+    executionArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class MapRunListItemTypeDef(TypedDict):
+    executionArn: str
+    mapRunArn: str
+    stateMachineArn: str
+    startDate: datetime
+    stopDate: NotRequired[datetime]
+
+class ListStateMachineAliasesInputTypeDef(TypedDict):
+    stateMachineArn: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class StateMachineAliasListItemTypeDef(TypedDict):
+    stateMachineAliasArn: str
+    creationDate: datetime
+
+class ListStateMachineVersionsInputTypeDef(TypedDict):
+    stateMachineArn: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class StateMachineVersionListItemTypeDef(TypedDict):
+    stateMachineVersionArn: str
+    creationDate: datetime
+
+class ListStateMachinesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+StateMachineListItemTypeDef = TypedDict(
+    "StateMachineListItemTypeDef",
     {
-        "activityArn": str,
+        "stateMachineArn": str,
         "name": str,
+        "type": StateMachineTypeType,
         "creationDate": datetime,
     },
 )
 
-ActivityScheduleFailedEventDetailsTypeDef = TypedDict(
-    "ActivityScheduleFailedEventDetailsTypeDef",
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+
+class PublishStateMachineVersionInputTypeDef(TypedDict):
+    stateMachineArn: str
+    revisionId: NotRequired[str]
+    description: NotRequired[str]
+
+class RedriveExecutionInputTypeDef(TypedDict):
+    executionArn: str
+    clientToken: NotRequired[str]
+
+class SendTaskFailureInputTypeDef(TypedDict):
+    taskToken: str
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+class SendTaskHeartbeatInputTypeDef(TypedDict):
+    taskToken: str
+
+class SendTaskSuccessInputTypeDef(TypedDict):
+    taskToken: str
+    output: str
+
+StartExecutionInputTypeDef = TypedDict(
+    "StartExecutionInputTypeDef",
     {
-        "error": str,
-        "cause": str,
+        "stateMachineArn": str,
+        "name": NotRequired[str],
+        "input": NotRequired[str],
+        "traceHeader": NotRequired[str],
     },
-    total=False,
+)
+StartSyncExecutionInputTypeDef = TypedDict(
+    "StartSyncExecutionInputTypeDef",
+    {
+        "stateMachineArn": str,
+        "name": NotRequired[str],
+        "input": NotRequired[str],
+        "traceHeader": NotRequired[str],
+        "includedData": NotRequired[IncludedDataType],
+    },
 )
 
-_RequiredActivityScheduledEventDetailsTypeDef = TypedDict(
-    "_RequiredActivityScheduledEventDetailsTypeDef",
+class StopExecutionInputTypeDef(TypedDict):
+    executionArn: str
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
+TestStateInputTypeDef = TypedDict(
+    "TestStateInputTypeDef",
+    {
+        "definition": str,
+        "roleArn": NotRequired[str],
+        "input": NotRequired[str],
+        "inspectionLevel": NotRequired[InspectionLevelType],
+        "revealSecrets": NotRequired[bool],
+        "variables": NotRequired[str],
+    },
+)
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateMapRunInputTypeDef(TypedDict):
+    mapRunArn: str
+    maxConcurrency: NotRequired[int]
+    toleratedFailurePercentage: NotRequired[float]
+    toleratedFailureCount: NotRequired[int]
+
+class ValidateStateMachineDefinitionDiagnosticTypeDef(TypedDict):
+    severity: ValidateStateMachineDefinitionSeverityType
+    code: str
+    message: str
+    location: NotRequired[str]
+
+ValidateStateMachineDefinitionInputTypeDef = TypedDict(
+    "ValidateStateMachineDefinitionInputTypeDef",
+    {
+        "definition": str,
+        "type": NotRequired[StateMachineTypeType],
+        "severity": NotRequired[ValidateStateMachineDefinitionSeverityType],
+        "maxResults": NotRequired[int],
+    },
+)
+ActivityScheduledEventDetailsTypeDef = TypedDict(
+    "ActivityScheduledEventDetailsTypeDef",
     {
         "resource": str,
+        "input": NotRequired[str],
+        "inputDetails": NotRequired[HistoryEventExecutionDataDetailsTypeDef],
+        "timeoutInSeconds": NotRequired[int],
+        "heartbeatInSeconds": NotRequired[int],
     },
 )
-_OptionalActivityScheduledEventDetailsTypeDef = TypedDict(
-    "_OptionalActivityScheduledEventDetailsTypeDef",
+
+class ActivitySucceededEventDetailsTypeDef(TypedDict):
+    output: NotRequired[str]
+    outputDetails: NotRequired[HistoryEventExecutionDataDetailsTypeDef]
+
+ExecutionStartedEventDetailsTypeDef = TypedDict(
+    "ExecutionStartedEventDetailsTypeDef",
     {
-        "input": str,
-        "inputDetails": "HistoryEventExecutionDataDetailsTypeDef",
-        "timeoutInSeconds": int,
-        "heartbeatInSeconds": int,
+        "input": NotRequired[str],
+        "inputDetails": NotRequired[HistoryEventExecutionDataDetailsTypeDef],
+        "roleArn": NotRequired[str],
+        "stateMachineAliasArn": NotRequired[str],
+        "stateMachineVersionArn": NotRequired[str],
     },
-    total=False,
 )
 
-class ActivityScheduledEventDetailsTypeDef(
-    _RequiredActivityScheduledEventDetailsTypeDef, _OptionalActivityScheduledEventDetailsTypeDef
-):
-    pass
+class ExecutionSucceededEventDetailsTypeDef(TypedDict):
+    output: NotRequired[str]
+    outputDetails: NotRequired[HistoryEventExecutionDataDetailsTypeDef]
 
-ActivityStartedEventDetailsTypeDef = TypedDict(
-    "ActivityStartedEventDetailsTypeDef",
-    {
-        "workerName": str,
-    },
-    total=False,
-)
+class LambdaFunctionSucceededEventDetailsTypeDef(TypedDict):
+    output: NotRequired[str]
+    outputDetails: NotRequired[HistoryEventExecutionDataDetailsTypeDef]
 
-ActivitySucceededEventDetailsTypeDef = TypedDict(
-    "ActivitySucceededEventDetailsTypeDef",
-    {
-        "output": str,
-        "outputDetails": "HistoryEventExecutionDataDetailsTypeDef",
-    },
-    total=False,
-)
-
-ActivityTimedOutEventDetailsTypeDef = TypedDict(
-    "ActivityTimedOutEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-BillingDetailsTypeDef = TypedDict(
-    "BillingDetailsTypeDef",
-    {
-        "billedMemoryUsedInMB": int,
-        "billedDurationInMilliseconds": int,
-    },
-    total=False,
-)
-
-CloudWatchEventsExecutionDataDetailsTypeDef = TypedDict(
-    "CloudWatchEventsExecutionDataDetailsTypeDef",
-    {
-        "included": bool,
-    },
-    total=False,
-)
-
-CloudWatchLogsLogGroupTypeDef = TypedDict(
-    "CloudWatchLogsLogGroupTypeDef",
-    {
-        "logGroupArn": str,
-    },
-    total=False,
-)
-
-_RequiredCreateActivityInputRequestTypeDef = TypedDict(
-    "_RequiredCreateActivityInputRequestTypeDef",
+StateEnteredEventDetailsTypeDef = TypedDict(
+    "StateEnteredEventDetailsTypeDef",
     {
         "name": str,
-    },
-)
-_OptionalCreateActivityInputRequestTypeDef = TypedDict(
-    "_OptionalCreateActivityInputRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateActivityInputRequestTypeDef(
-    _RequiredCreateActivityInputRequestTypeDef, _OptionalCreateActivityInputRequestTypeDef
-):
-    pass
-
-CreateActivityOutputTypeDef = TypedDict(
-    "CreateActivityOutputTypeDef",
-    {
-        "activityArn": str,
-        "creationDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "input": NotRequired[str],
+        "inputDetails": NotRequired[HistoryEventExecutionDataDetailsTypeDef],
     },
 )
 
-_RequiredCreateStateMachineAliasInputRequestTypeDef = TypedDict(
-    "_RequiredCreateStateMachineAliasInputRequestTypeDef",
-    {
-        "name": str,
-        "routingConfiguration": List["RoutingConfigurationListItemTypeDef"],
-    },
-)
-_OptionalCreateStateMachineAliasInputRequestTypeDef = TypedDict(
-    "_OptionalCreateStateMachineAliasInputRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
+class TaskSubmittedEventDetailsTypeDef(TypedDict):
+    resourceType: str
+    resource: str
+    output: NotRequired[str]
+    outputDetails: NotRequired[HistoryEventExecutionDataDetailsTypeDef]
 
-class CreateStateMachineAliasInputRequestTypeDef(
-    _RequiredCreateStateMachineAliasInputRequestTypeDef,
-    _OptionalCreateStateMachineAliasInputRequestTypeDef,
-):
-    pass
+class TaskSucceededEventDetailsTypeDef(TypedDict):
+    resourceType: str
+    resource: str
+    output: NotRequired[str]
+    outputDetails: NotRequired[HistoryEventExecutionDataDetailsTypeDef]
 
-CreateStateMachineAliasOutputTypeDef = TypedDict(
-    "CreateStateMachineAliasOutputTypeDef",
-    {
-        "stateMachineAliasArn": str,
-        "creationDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StateExitedEventDetailsTypeDef(TypedDict):
+    name: str
+    output: NotRequired[str]
+    outputDetails: NotRequired[HistoryEventExecutionDataDetailsTypeDef]
+    assignedVariables: NotRequired[Dict[str, str]]
+    assignedVariablesDetails: NotRequired[AssignedVariablesDetailsTypeDef]
 
-_RequiredCreateStateMachineInputRequestTypeDef = TypedDict(
-    "_RequiredCreateStateMachineInputRequestTypeDef",
-    {
-        "name": str,
-        "definition": str,
-        "roleArn": str,
-    },
-)
-_OptionalCreateStateMachineInputRequestTypeDef = TypedDict(
-    "_OptionalCreateStateMachineInputRequestTypeDef",
-    {
-        "type": StateMachineTypeType,
-        "loggingConfiguration": "LoggingConfigurationTypeDef",
-        "tags": List["TagTypeDef"],
-        "tracingConfiguration": "TracingConfigurationTypeDef",
-        "publish": bool,
-        "versionDescription": str,
-    },
-    total=False,
-)
+class LogDestinationTypeDef(TypedDict):
+    cloudWatchLogsLogGroup: NotRequired[CloudWatchLogsLogGroupTypeDef]
 
-class CreateStateMachineInputRequestTypeDef(
-    _RequiredCreateStateMachineInputRequestTypeDef, _OptionalCreateStateMachineInputRequestTypeDef
-):
-    pass
+class CreateActivityInputTypeDef(TypedDict):
+    name: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+    encryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
 
-CreateStateMachineOutputTypeDef = TypedDict(
-    "CreateStateMachineOutputTypeDef",
-    {
-        "stateMachineArn": str,
-        "creationDate": datetime,
-        "stateMachineVersionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
 
-DeleteActivityInputRequestTypeDef = TypedDict(
-    "DeleteActivityInputRequestTypeDef",
-    {
-        "activityArn": str,
-    },
-)
+class CreateActivityOutputTypeDef(TypedDict):
+    activityArn: str
+    creationDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteStateMachineAliasInputRequestTypeDef = TypedDict(
-    "DeleteStateMachineAliasInputRequestTypeDef",
-    {
-        "stateMachineAliasArn": str,
-    },
-)
+class CreateStateMachineAliasOutputTypeDef(TypedDict):
+    stateMachineAliasArn: str
+    creationDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteStateMachineInputRequestTypeDef = TypedDict(
-    "DeleteStateMachineInputRequestTypeDef",
-    {
-        "stateMachineArn": str,
-    },
-)
+class CreateStateMachineOutputTypeDef(TypedDict):
+    stateMachineArn: str
+    creationDate: datetime
+    stateMachineVersionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteStateMachineVersionInputRequestTypeDef = TypedDict(
-    "DeleteStateMachineVersionInputRequestTypeDef",
-    {
-        "stateMachineVersionArn": str,
-    },
-)
-
-DescribeActivityInputRequestTypeDef = TypedDict(
-    "DescribeActivityInputRequestTypeDef",
-    {
-        "activityArn": str,
-    },
-)
-
-DescribeActivityOutputTypeDef = TypedDict(
-    "DescribeActivityOutputTypeDef",
-    {
-        "activityArn": str,
-        "name": str,
-        "creationDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeExecutionInputRequestTypeDef = TypedDict(
-    "DescribeExecutionInputRequestTypeDef",
-    {
-        "executionArn": str,
-    },
-)
+class DescribeActivityOutputTypeDef(TypedDict):
+    activityArn: str
+    name: str
+    creationDate: datetime
+    encryptionConfiguration: EncryptionConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 DescribeExecutionOutputTypeDef = TypedDict(
     "DescribeExecutionOutputTypeDef",
@@ -419,901 +681,55 @@ DescribeExecutionOutputTypeDef = TypedDict(
         "name": str,
         "status": ExecutionStatusType,
         "startDate": datetime,
-        "stopDate": datetime,
         "input": str,
-        "inputDetails": "CloudWatchEventsExecutionDataDetailsTypeDef",
-        "output": str,
-        "outputDetails": "CloudWatchEventsExecutionDataDetailsTypeDef",
-        "traceHeader": str,
-        "mapRunArn": str,
-        "error": str,
-        "cause": str,
-        "stateMachineVersionArn": str,
-        "stateMachineAliasArn": str,
+        "inputDetails": CloudWatchEventsExecutionDataDetailsTypeDef,
         "redriveCount": int,
-        "redriveDate": datetime,
         "redriveStatus": ExecutionRedriveStatusType,
-        "redriveStatusReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
+        "stopDate": NotRequired[datetime],
+        "output": NotRequired[str],
+        "outputDetails": NotRequired[CloudWatchEventsExecutionDataDetailsTypeDef],
+        "traceHeader": NotRequired[str],
+        "mapRunArn": NotRequired[str],
+        "error": NotRequired[str],
+        "cause": NotRequired[str],
+        "stateMachineVersionArn": NotRequired[str],
+        "stateMachineAliasArn": NotRequired[str],
+        "redriveDate": NotRequired[datetime],
+        "redriveStatusReason": NotRequired[str],
     },
 )
-
-DescribeMapRunInputRequestTypeDef = TypedDict(
-    "DescribeMapRunInputRequestTypeDef",
-    {
-        "mapRunArn": str,
-    },
-)
-
-DescribeMapRunOutputTypeDef = TypedDict(
-    "DescribeMapRunOutputTypeDef",
-    {
-        "mapRunArn": str,
-        "executionArn": str,
-        "status": MapRunStatusType,
-        "startDate": datetime,
-        "stopDate": datetime,
-        "maxConcurrency": int,
-        "toleratedFailurePercentage": float,
-        "toleratedFailureCount": int,
-        "itemCounts": "MapRunItemCountsTypeDef",
-        "executionCounts": "MapRunExecutionCountsTypeDef",
-        "redriveCount": int,
-        "redriveDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeStateMachineAliasInputRequestTypeDef = TypedDict(
-    "DescribeStateMachineAliasInputRequestTypeDef",
-    {
-        "stateMachineAliasArn": str,
-    },
-)
-
-DescribeStateMachineAliasOutputTypeDef = TypedDict(
-    "DescribeStateMachineAliasOutputTypeDef",
-    {
-        "stateMachineAliasArn": str,
-        "name": str,
-        "description": str,
-        "routingConfiguration": List["RoutingConfigurationListItemTypeDef"],
-        "creationDate": datetime,
-        "updateDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeStateMachineForExecutionInputRequestTypeDef = TypedDict(
-    "DescribeStateMachineForExecutionInputRequestTypeDef",
-    {
-        "executionArn": str,
-    },
-)
-
-DescribeStateMachineForExecutionOutputTypeDef = TypedDict(
-    "DescribeStateMachineForExecutionOutputTypeDef",
-    {
-        "stateMachineArn": str,
-        "name": str,
-        "definition": str,
-        "roleArn": str,
-        "updateDate": datetime,
-        "loggingConfiguration": "LoggingConfigurationTypeDef",
-        "tracingConfiguration": "TracingConfigurationTypeDef",
-        "mapRunArn": str,
-        "label": str,
-        "revisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeStateMachineInputRequestTypeDef = TypedDict(
-    "DescribeStateMachineInputRequestTypeDef",
-    {
-        "stateMachineArn": str,
-    },
-)
-
-DescribeStateMachineOutputTypeDef = TypedDict(
-    "DescribeStateMachineOutputTypeDef",
-    {
-        "stateMachineArn": str,
-        "name": str,
-        "status": StateMachineStatusType,
-        "definition": str,
-        "roleArn": str,
-        "type": StateMachineTypeType,
-        "creationDate": datetime,
-        "loggingConfiguration": "LoggingConfigurationTypeDef",
-        "tracingConfiguration": "TracingConfigurationTypeDef",
-        "label": str,
-        "revisionId": str,
-        "description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ExecutionAbortedEventDetailsTypeDef = TypedDict(
-    "ExecutionAbortedEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-ExecutionFailedEventDetailsTypeDef = TypedDict(
-    "ExecutionFailedEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-_RequiredExecutionListItemTypeDef = TypedDict(
-    "_RequiredExecutionListItemTypeDef",
-    {
-        "executionArn": str,
-        "stateMachineArn": str,
-        "name": str,
-        "status": ExecutionStatusType,
-        "startDate": datetime,
-    },
-)
-_OptionalExecutionListItemTypeDef = TypedDict(
-    "_OptionalExecutionListItemTypeDef",
-    {
-        "stopDate": datetime,
-        "mapRunArn": str,
-        "itemCount": int,
-        "stateMachineVersionArn": str,
-        "stateMachineAliasArn": str,
-        "redriveCount": int,
-        "redriveDate": datetime,
-    },
-    total=False,
-)
-
-class ExecutionListItemTypeDef(
-    _RequiredExecutionListItemTypeDef, _OptionalExecutionListItemTypeDef
-):
-    pass
-
-ExecutionRedrivenEventDetailsTypeDef = TypedDict(
-    "ExecutionRedrivenEventDetailsTypeDef",
-    {
-        "redriveCount": int,
-    },
-    total=False,
-)
-
-ExecutionStartedEventDetailsTypeDef = TypedDict(
-    "ExecutionStartedEventDetailsTypeDef",
-    {
-        "input": str,
-        "inputDetails": "HistoryEventExecutionDataDetailsTypeDef",
-        "roleArn": str,
-        "stateMachineAliasArn": str,
-        "stateMachineVersionArn": str,
-    },
-    total=False,
-)
-
-ExecutionSucceededEventDetailsTypeDef = TypedDict(
-    "ExecutionSucceededEventDetailsTypeDef",
-    {
-        "output": str,
-        "outputDetails": "HistoryEventExecutionDataDetailsTypeDef",
-    },
-    total=False,
-)
-
-ExecutionTimedOutEventDetailsTypeDef = TypedDict(
-    "ExecutionTimedOutEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-_RequiredGetActivityTaskInputRequestTypeDef = TypedDict(
-    "_RequiredGetActivityTaskInputRequestTypeDef",
-    {
-        "activityArn": str,
-    },
-)
-_OptionalGetActivityTaskInputRequestTypeDef = TypedDict(
-    "_OptionalGetActivityTaskInputRequestTypeDef",
-    {
-        "workerName": str,
-    },
-    total=False,
-)
-
-class GetActivityTaskInputRequestTypeDef(
-    _RequiredGetActivityTaskInputRequestTypeDef, _OptionalGetActivityTaskInputRequestTypeDef
-):
-    pass
-
 GetActivityTaskOutputTypeDef = TypedDict(
     "GetActivityTaskOutputTypeDef",
     {
         "taskToken": str,
         "input": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredGetExecutionHistoryInputRequestTypeDef = TypedDict(
-    "_RequiredGetExecutionHistoryInputRequestTypeDef",
-    {
-        "executionArn": str,
-    },
-)
-_OptionalGetExecutionHistoryInputRequestTypeDef = TypedDict(
-    "_OptionalGetExecutionHistoryInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "reverseOrder": bool,
-        "nextToken": str,
-        "includeExecutionData": bool,
-    },
-    total=False,
-)
-
-class GetExecutionHistoryInputRequestTypeDef(
-    _RequiredGetExecutionHistoryInputRequestTypeDef, _OptionalGetExecutionHistoryInputRequestTypeDef
-):
-    pass
-
-GetExecutionHistoryOutputTypeDef = TypedDict(
-    "GetExecutionHistoryOutputTypeDef",
-    {
-        "events": List["HistoryEventTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HistoryEventExecutionDataDetailsTypeDef = TypedDict(
-    "HistoryEventExecutionDataDetailsTypeDef",
-    {
-        "truncated": bool,
-    },
-    total=False,
-)
-
-_RequiredHistoryEventTypeDef = TypedDict(
-    "_RequiredHistoryEventTypeDef",
-    {
-        "timestamp": datetime,
-        "type": HistoryEventTypeType,
-        "id": int,
-    },
-)
-_OptionalHistoryEventTypeDef = TypedDict(
-    "_OptionalHistoryEventTypeDef",
-    {
-        "previousEventId": int,
-        "activityFailedEventDetails": "ActivityFailedEventDetailsTypeDef",
-        "activityScheduleFailedEventDetails": "ActivityScheduleFailedEventDetailsTypeDef",
-        "activityScheduledEventDetails": "ActivityScheduledEventDetailsTypeDef",
-        "activityStartedEventDetails": "ActivityStartedEventDetailsTypeDef",
-        "activitySucceededEventDetails": "ActivitySucceededEventDetailsTypeDef",
-        "activityTimedOutEventDetails": "ActivityTimedOutEventDetailsTypeDef",
-        "taskFailedEventDetails": "TaskFailedEventDetailsTypeDef",
-        "taskScheduledEventDetails": "TaskScheduledEventDetailsTypeDef",
-        "taskStartFailedEventDetails": "TaskStartFailedEventDetailsTypeDef",
-        "taskStartedEventDetails": "TaskStartedEventDetailsTypeDef",
-        "taskSubmitFailedEventDetails": "TaskSubmitFailedEventDetailsTypeDef",
-        "taskSubmittedEventDetails": "TaskSubmittedEventDetailsTypeDef",
-        "taskSucceededEventDetails": "TaskSucceededEventDetailsTypeDef",
-        "taskTimedOutEventDetails": "TaskTimedOutEventDetailsTypeDef",
-        "executionFailedEventDetails": "ExecutionFailedEventDetailsTypeDef",
-        "executionStartedEventDetails": "ExecutionStartedEventDetailsTypeDef",
-        "executionSucceededEventDetails": "ExecutionSucceededEventDetailsTypeDef",
-        "executionAbortedEventDetails": "ExecutionAbortedEventDetailsTypeDef",
-        "executionTimedOutEventDetails": "ExecutionTimedOutEventDetailsTypeDef",
-        "executionRedrivenEventDetails": "ExecutionRedrivenEventDetailsTypeDef",
-        "mapStateStartedEventDetails": "MapStateStartedEventDetailsTypeDef",
-        "mapIterationStartedEventDetails": "MapIterationEventDetailsTypeDef",
-        "mapIterationSucceededEventDetails": "MapIterationEventDetailsTypeDef",
-        "mapIterationFailedEventDetails": "MapIterationEventDetailsTypeDef",
-        "mapIterationAbortedEventDetails": "MapIterationEventDetailsTypeDef",
-        "lambdaFunctionFailedEventDetails": "LambdaFunctionFailedEventDetailsTypeDef",
-        "lambdaFunctionScheduleFailedEventDetails": "LambdaFunctionScheduleFailedEventDetailsTypeDef",
-        "lambdaFunctionScheduledEventDetails": "LambdaFunctionScheduledEventDetailsTypeDef",
-        "lambdaFunctionStartFailedEventDetails": "LambdaFunctionStartFailedEventDetailsTypeDef",
-        "lambdaFunctionSucceededEventDetails": "LambdaFunctionSucceededEventDetailsTypeDef",
-        "lambdaFunctionTimedOutEventDetails": "LambdaFunctionTimedOutEventDetailsTypeDef",
-        "stateEnteredEventDetails": "StateEnteredEventDetailsTypeDef",
-        "stateExitedEventDetails": "StateExitedEventDetailsTypeDef",
-        "mapRunStartedEventDetails": "MapRunStartedEventDetailsTypeDef",
-        "mapRunFailedEventDetails": "MapRunFailedEventDetailsTypeDef",
-        "mapRunRedrivenEventDetails": "MapRunRedrivenEventDetailsTypeDef",
-    },
-    total=False,
-)
-
-class HistoryEventTypeDef(_RequiredHistoryEventTypeDef, _OptionalHistoryEventTypeDef):
-    pass
-
-InspectionDataRequestTypeDef = TypedDict(
-    "InspectionDataRequestTypeDef",
-    {
-        "protocol": str,
-        "method": str,
-        "url": str,
-        "headers": str,
-        "body": str,
-    },
-    total=False,
-)
-
-InspectionDataResponseTypeDef = TypedDict(
-    "InspectionDataResponseTypeDef",
-    {
-        "protocol": str,
-        "statusCode": str,
-        "statusMessage": str,
-        "headers": str,
-        "body": str,
-    },
-    total=False,
-)
-
-InspectionDataTypeDef = TypedDict(
-    "InspectionDataTypeDef",
-    {
-        "input": str,
-        "afterInputPath": str,
-        "afterParameters": str,
-        "result": str,
-        "afterResultSelector": str,
-        "afterResultPath": str,
-        "request": "InspectionDataRequestTypeDef",
-        "response": "InspectionDataResponseTypeDef",
-    },
-    total=False,
-)
-
-LambdaFunctionFailedEventDetailsTypeDef = TypedDict(
-    "LambdaFunctionFailedEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-LambdaFunctionScheduleFailedEventDetailsTypeDef = TypedDict(
-    "LambdaFunctionScheduleFailedEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-_RequiredLambdaFunctionScheduledEventDetailsTypeDef = TypedDict(
-    "_RequiredLambdaFunctionScheduledEventDetailsTypeDef",
-    {
-        "resource": str,
-    },
-)
-_OptionalLambdaFunctionScheduledEventDetailsTypeDef = TypedDict(
-    "_OptionalLambdaFunctionScheduledEventDetailsTypeDef",
-    {
-        "input": str,
-        "inputDetails": "HistoryEventExecutionDataDetailsTypeDef",
-        "timeoutInSeconds": int,
-        "taskCredentials": "TaskCredentialsTypeDef",
-    },
-    total=False,
-)
-
-class LambdaFunctionScheduledEventDetailsTypeDef(
-    _RequiredLambdaFunctionScheduledEventDetailsTypeDef,
-    _OptionalLambdaFunctionScheduledEventDetailsTypeDef,
-):
-    pass
-
-LambdaFunctionStartFailedEventDetailsTypeDef = TypedDict(
-    "LambdaFunctionStartFailedEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-LambdaFunctionSucceededEventDetailsTypeDef = TypedDict(
-    "LambdaFunctionSucceededEventDetailsTypeDef",
-    {
-        "output": str,
-        "outputDetails": "HistoryEventExecutionDataDetailsTypeDef",
-    },
-    total=False,
-)
-
-LambdaFunctionTimedOutEventDetailsTypeDef = TypedDict(
-    "LambdaFunctionTimedOutEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-ListActivitiesInputRequestTypeDef = TypedDict(
-    "ListActivitiesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListActivitiesOutputTypeDef = TypedDict(
-    "ListActivitiesOutputTypeDef",
-    {
-        "activities": List["ActivityListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListExecutionsInputRequestTypeDef = TypedDict(
-    "ListExecutionsInputRequestTypeDef",
-    {
-        "stateMachineArn": str,
-        "statusFilter": ExecutionStatusType,
-        "maxResults": int,
-        "nextToken": str,
-        "mapRunArn": str,
-        "redriveFilter": ExecutionRedriveFilterType,
-    },
-    total=False,
-)
-
-ListExecutionsOutputTypeDef = TypedDict(
-    "ListExecutionsOutputTypeDef",
-    {
-        "executions": List["ExecutionListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMapRunsInputRequestTypeDef = TypedDict(
-    "_RequiredListMapRunsInputRequestTypeDef",
-    {
-        "executionArn": str,
-    },
-)
-_OptionalListMapRunsInputRequestTypeDef = TypedDict(
-    "_OptionalListMapRunsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListMapRunsInputRequestTypeDef(
-    _RequiredListMapRunsInputRequestTypeDef, _OptionalListMapRunsInputRequestTypeDef
-):
-    pass
-
-ListMapRunsOutputTypeDef = TypedDict(
-    "ListMapRunsOutputTypeDef",
-    {
-        "mapRuns": List["MapRunListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStateMachineAliasesInputRequestTypeDef = TypedDict(
-    "_RequiredListStateMachineAliasesInputRequestTypeDef",
-    {
-        "stateMachineArn": str,
-    },
-)
-_OptionalListStateMachineAliasesInputRequestTypeDef = TypedDict(
-    "_OptionalListStateMachineAliasesInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListStateMachineAliasesInputRequestTypeDef(
-    _RequiredListStateMachineAliasesInputRequestTypeDef,
-    _OptionalListStateMachineAliasesInputRequestTypeDef,
-):
-    pass
-
-ListStateMachineAliasesOutputTypeDef = TypedDict(
-    "ListStateMachineAliasesOutputTypeDef",
-    {
-        "stateMachineAliases": List["StateMachineAliasListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStateMachineVersionsInputRequestTypeDef = TypedDict(
-    "_RequiredListStateMachineVersionsInputRequestTypeDef",
-    {
-        "stateMachineArn": str,
-    },
-)
-_OptionalListStateMachineVersionsInputRequestTypeDef = TypedDict(
-    "_OptionalListStateMachineVersionsInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListStateMachineVersionsInputRequestTypeDef(
-    _RequiredListStateMachineVersionsInputRequestTypeDef,
-    _OptionalListStateMachineVersionsInputRequestTypeDef,
-):
-    pass
-
-ListStateMachineVersionsOutputTypeDef = TypedDict(
-    "ListStateMachineVersionsOutputTypeDef",
-    {
-        "stateMachineVersions": List["StateMachineVersionListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListStateMachinesInputRequestTypeDef = TypedDict(
-    "ListStateMachinesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListStateMachinesOutputTypeDef = TypedDict(
-    "ListStateMachinesOutputTypeDef",
-    {
-        "stateMachines": List["StateMachineListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LogDestinationTypeDef = TypedDict(
-    "LogDestinationTypeDef",
-    {
-        "cloudWatchLogsLogGroup": "CloudWatchLogsLogGroupTypeDef",
-    },
-    total=False,
-)
-
-LoggingConfigurationTypeDef = TypedDict(
-    "LoggingConfigurationTypeDef",
-    {
-        "level": LogLevelType,
-        "includeExecutionData": bool,
-        "destinations": List["LogDestinationTypeDef"],
-    },
-    total=False,
-)
-
-MapIterationEventDetailsTypeDef = TypedDict(
-    "MapIterationEventDetailsTypeDef",
-    {
-        "name": str,
-        "index": int,
-    },
-    total=False,
-)
-
-_RequiredMapRunExecutionCountsTypeDef = TypedDict(
-    "_RequiredMapRunExecutionCountsTypeDef",
-    {
-        "pending": int,
-        "running": int,
-        "succeeded": int,
-        "failed": int,
-        "timedOut": int,
-        "aborted": int,
-        "total": int,
-        "resultsWritten": int,
-    },
-)
-_OptionalMapRunExecutionCountsTypeDef = TypedDict(
-    "_OptionalMapRunExecutionCountsTypeDef",
-    {
-        "failuresNotRedrivable": int,
-        "pendingRedrive": int,
-    },
-    total=False,
-)
-
-class MapRunExecutionCountsTypeDef(
-    _RequiredMapRunExecutionCountsTypeDef, _OptionalMapRunExecutionCountsTypeDef
-):
-    pass
-
-MapRunFailedEventDetailsTypeDef = TypedDict(
-    "MapRunFailedEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-_RequiredMapRunItemCountsTypeDef = TypedDict(
-    "_RequiredMapRunItemCountsTypeDef",
-    {
-        "pending": int,
-        "running": int,
-        "succeeded": int,
-        "failed": int,
-        "timedOut": int,
-        "aborted": int,
-        "total": int,
-        "resultsWritten": int,
-    },
-)
-_OptionalMapRunItemCountsTypeDef = TypedDict(
-    "_OptionalMapRunItemCountsTypeDef",
-    {
-        "failuresNotRedrivable": int,
-        "pendingRedrive": int,
-    },
-    total=False,
-)
-
-class MapRunItemCountsTypeDef(_RequiredMapRunItemCountsTypeDef, _OptionalMapRunItemCountsTypeDef):
-    pass
-
-_RequiredMapRunListItemTypeDef = TypedDict(
-    "_RequiredMapRunListItemTypeDef",
-    {
-        "executionArn": str,
-        "mapRunArn": str,
-        "stateMachineArn": str,
-        "startDate": datetime,
-    },
-)
-_OptionalMapRunListItemTypeDef = TypedDict(
-    "_OptionalMapRunListItemTypeDef",
-    {
-        "stopDate": datetime,
-    },
-    total=False,
-)
-
-class MapRunListItemTypeDef(_RequiredMapRunListItemTypeDef, _OptionalMapRunListItemTypeDef):
-    pass
-
-MapRunRedrivenEventDetailsTypeDef = TypedDict(
-    "MapRunRedrivenEventDetailsTypeDef",
-    {
-        "mapRunArn": str,
-        "redriveCount": int,
-    },
-    total=False,
-)
-
-MapRunStartedEventDetailsTypeDef = TypedDict(
-    "MapRunStartedEventDetailsTypeDef",
-    {
-        "mapRunArn": str,
-    },
-    total=False,
-)
-
-MapStateStartedEventDetailsTypeDef = TypedDict(
-    "MapStateStartedEventDetailsTypeDef",
-    {
-        "length": int,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListActivitiesOutputTypeDef(TypedDict):
+    activities: List[ActivityListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredPublishStateMachineVersionInputRequestTypeDef = TypedDict(
-    "_RequiredPublishStateMachineVersionInputRequestTypeDef",
-    {
-        "stateMachineArn": str,
-    },
-)
-_OptionalPublishStateMachineVersionInputRequestTypeDef = TypedDict(
-    "_OptionalPublishStateMachineVersionInputRequestTypeDef",
-    {
-        "revisionId": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class PublishStateMachineVersionInputRequestTypeDef(
-    _RequiredPublishStateMachineVersionInputRequestTypeDef,
-    _OptionalPublishStateMachineVersionInputRequestTypeDef,
-):
-    pass
-
-PublishStateMachineVersionOutputTypeDef = TypedDict(
-    "PublishStateMachineVersionOutputTypeDef",
-    {
-        "creationDate": datetime,
-        "stateMachineVersionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRedriveExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredRedriveExecutionInputRequestTypeDef",
-    {
-        "executionArn": str,
-    },
-)
-_OptionalRedriveExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalRedriveExecutionInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class RedriveExecutionInputRequestTypeDef(
-    _RequiredRedriveExecutionInputRequestTypeDef, _OptionalRedriveExecutionInputRequestTypeDef
-):
-    pass
-
-RedriveExecutionOutputTypeDef = TypedDict(
-    "RedriveExecutionOutputTypeDef",
-    {
-        "redriveDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RoutingConfigurationListItemTypeDef = TypedDict(
-    "RoutingConfigurationListItemTypeDef",
-    {
-        "stateMachineVersionArn": str,
-        "weight": int,
-    },
-)
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredSendTaskFailureInputRequestTypeDef = TypedDict(
-    "_RequiredSendTaskFailureInputRequestTypeDef",
-    {
-        "taskToken": str,
-    },
-)
-_OptionalSendTaskFailureInputRequestTypeDef = TypedDict(
-    "_OptionalSendTaskFailureInputRequestTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-class SendTaskFailureInputRequestTypeDef(
-    _RequiredSendTaskFailureInputRequestTypeDef, _OptionalSendTaskFailureInputRequestTypeDef
-):
-    pass
-
-SendTaskHeartbeatInputRequestTypeDef = TypedDict(
-    "SendTaskHeartbeatInputRequestTypeDef",
-    {
-        "taskToken": str,
-    },
-)
-
-SendTaskSuccessInputRequestTypeDef = TypedDict(
-    "SendTaskSuccessInputRequestTypeDef",
-    {
-        "taskToken": str,
-        "output": str,
-    },
-)
-
-_RequiredStartExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredStartExecutionInputRequestTypeDef",
-    {
-        "stateMachineArn": str,
-    },
-)
-_OptionalStartExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalStartExecutionInputRequestTypeDef",
-    {
-        "name": str,
-        "input": str,
-        "traceHeader": str,
-    },
-    total=False,
-)
-
-class StartExecutionInputRequestTypeDef(
-    _RequiredStartExecutionInputRequestTypeDef, _OptionalStartExecutionInputRequestTypeDef
-):
-    pass
-
-StartExecutionOutputTypeDef = TypedDict(
-    "StartExecutionOutputTypeDef",
-    {
-        "executionArn": str,
-        "startDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PublishStateMachineVersionOutputTypeDef(TypedDict):
+    creationDate: datetime
+    stateMachineVersionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredStartSyncExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredStartSyncExecutionInputRequestTypeDef",
-    {
-        "stateMachineArn": str,
-    },
-)
-_OptionalStartSyncExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalStartSyncExecutionInputRequestTypeDef",
-    {
-        "name": str,
-        "input": str,
-        "traceHeader": str,
-    },
-    total=False,
-)
+class RedriveExecutionOutputTypeDef(TypedDict):
+    redriveDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSyncExecutionInputRequestTypeDef(
-    _RequiredStartSyncExecutionInputRequestTypeDef, _OptionalStartSyncExecutionInputRequestTypeDef
-):
-    pass
+class StartExecutionOutputTypeDef(TypedDict):
+    executionArn: str
+    startDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
 StartSyncExecutionOutputTypeDef = TypedDict(
     "StartSyncExecutionOutputTypeDef",
@@ -1327,474 +743,296 @@ StartSyncExecutionOutputTypeDef = TypedDict(
         "error": str,
         "cause": str,
         "input": str,
-        "inputDetails": "CloudWatchEventsExecutionDataDetailsTypeDef",
+        "inputDetails": CloudWatchEventsExecutionDataDetailsTypeDef,
         "output": str,
-        "outputDetails": "CloudWatchEventsExecutionDataDetailsTypeDef",
+        "outputDetails": CloudWatchEventsExecutionDataDetailsTypeDef,
         "traceHeader": str,
-        "billingDetails": "BillingDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "billingDetails": BillingDetailsTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredStateEnteredEventDetailsTypeDef = TypedDict(
-    "_RequiredStateEnteredEventDetailsTypeDef",
+class StopExecutionOutputTypeDef(TypedDict):
+    stopDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateStateMachineAliasOutputTypeDef(TypedDict):
+    updateDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateStateMachineOutputTypeDef(TypedDict):
+    updateDate: datetime
+    revisionId: str
+    stateMachineVersionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStateMachineAliasInputTypeDef(TypedDict):
+    name: str
+    routingConfiguration: Sequence[RoutingConfigurationListItemTypeDef]
+    description: NotRequired[str]
+
+class DescribeStateMachineAliasOutputTypeDef(TypedDict):
+    stateMachineAliasArn: str
+    name: str
+    description: str
+    routingConfiguration: List[RoutingConfigurationListItemTypeDef]
+    creationDate: datetime
+    updateDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateStateMachineAliasInputTypeDef(TypedDict):
+    stateMachineAliasArn: str
+    description: NotRequired[str]
+    routingConfiguration: NotRequired[Sequence[RoutingConfigurationListItemTypeDef]]
+
+class DescribeMapRunOutputTypeDef(TypedDict):
+    mapRunArn: str
+    executionArn: str
+    status: MapRunStatusType
+    startDate: datetime
+    stopDate: datetime
+    maxConcurrency: int
+    toleratedFailurePercentage: float
+    toleratedFailureCount: int
+    itemCounts: MapRunItemCountsTypeDef
+    executionCounts: MapRunExecutionCountsTypeDef
+    redriveCount: int
+    redriveDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListExecutionsOutputTypeDef(TypedDict):
+    executions: List[ExecutionListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetExecutionHistoryInputPaginateTypeDef(TypedDict):
+    executionArn: str
+    reverseOrder: NotRequired[bool]
+    includeExecutionData: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListActivitiesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListExecutionsInputPaginateTypeDef(TypedDict):
+    stateMachineArn: NotRequired[str]
+    statusFilter: NotRequired[ExecutionStatusType]
+    mapRunArn: NotRequired[str]
+    redriveFilter: NotRequired[ExecutionRedriveFilterType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMapRunsInputPaginateTypeDef(TypedDict):
+    executionArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStateMachinesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+InspectionDataTypeDef = TypedDict(
+    "InspectionDataTypeDef",
     {
-        "name": str,
+        "input": NotRequired[str],
+        "afterArguments": NotRequired[str],
+        "afterInputPath": NotRequired[str],
+        "afterParameters": NotRequired[str],
+        "result": NotRequired[str],
+        "afterResultSelector": NotRequired[str],
+        "afterResultPath": NotRequired[str],
+        "request": NotRequired[InspectionDataRequestTypeDef],
+        "response": NotRequired[InspectionDataResponseTypeDef],
+        "variables": NotRequired[str],
     },
 )
-_OptionalStateEnteredEventDetailsTypeDef = TypedDict(
-    "_OptionalStateEnteredEventDetailsTypeDef",
+LambdaFunctionScheduledEventDetailsTypeDef = TypedDict(
+    "LambdaFunctionScheduledEventDetailsTypeDef",
     {
-        "input": str,
-        "inputDetails": "HistoryEventExecutionDataDetailsTypeDef",
+        "resource": str,
+        "input": NotRequired[str],
+        "inputDetails": NotRequired[HistoryEventExecutionDataDetailsTypeDef],
+        "timeoutInSeconds": NotRequired[int],
+        "taskCredentials": NotRequired[TaskCredentialsTypeDef],
     },
-    total=False,
 )
 
-class StateEnteredEventDetailsTypeDef(
-    _RequiredStateEnteredEventDetailsTypeDef, _OptionalStateEnteredEventDetailsTypeDef
-):
-    pass
+class TaskScheduledEventDetailsTypeDef(TypedDict):
+    resourceType: str
+    resource: str
+    region: str
+    parameters: str
+    timeoutInSeconds: NotRequired[int]
+    heartbeatInSeconds: NotRequired[int]
+    taskCredentials: NotRequired[TaskCredentialsTypeDef]
 
-_RequiredStateExitedEventDetailsTypeDef = TypedDict(
-    "_RequiredStateExitedEventDetailsTypeDef",
+class ListMapRunsOutputTypeDef(TypedDict):
+    mapRuns: List[MapRunListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStateMachineAliasesOutputTypeDef(TypedDict):
+    stateMachineAliases: List[StateMachineAliasListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStateMachineVersionsOutputTypeDef(TypedDict):
+    stateMachineVersions: List[StateMachineVersionListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStateMachinesOutputTypeDef(TypedDict):
+    stateMachines: List[StateMachineListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ValidateStateMachineDefinitionOutputTypeDef(TypedDict):
+    result: ValidateStateMachineDefinitionResultCodeType
+    diagnostics: List[ValidateStateMachineDefinitionDiagnosticTypeDef]
+    truncated: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LoggingConfigurationOutputTypeDef(TypedDict):
+    level: NotRequired[LogLevelType]
+    includeExecutionData: NotRequired[bool]
+    destinations: NotRequired[List[LogDestinationTypeDef]]
+
+class LoggingConfigurationTypeDef(TypedDict):
+    level: NotRequired[LogLevelType]
+    includeExecutionData: NotRequired[bool]
+    destinations: NotRequired[Sequence[LogDestinationTypeDef]]
+
+class TestStateOutputTypeDef(TypedDict):
+    output: str
+    error: str
+    cause: str
+    inspectionData: InspectionDataTypeDef
+    nextState: str
+    status: TestExecutionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+HistoryEventTypeDef = TypedDict(
+    "HistoryEventTypeDef",
     {
-        "name": str,
+        "timestamp": datetime,
+        "type": HistoryEventTypeType,
+        "id": int,
+        "previousEventId": NotRequired[int],
+        "activityFailedEventDetails": NotRequired[ActivityFailedEventDetailsTypeDef],
+        "activityScheduleFailedEventDetails": NotRequired[
+            ActivityScheduleFailedEventDetailsTypeDef
+        ],
+        "activityScheduledEventDetails": NotRequired[ActivityScheduledEventDetailsTypeDef],
+        "activityStartedEventDetails": NotRequired[ActivityStartedEventDetailsTypeDef],
+        "activitySucceededEventDetails": NotRequired[ActivitySucceededEventDetailsTypeDef],
+        "activityTimedOutEventDetails": NotRequired[ActivityTimedOutEventDetailsTypeDef],
+        "taskFailedEventDetails": NotRequired[TaskFailedEventDetailsTypeDef],
+        "taskScheduledEventDetails": NotRequired[TaskScheduledEventDetailsTypeDef],
+        "taskStartFailedEventDetails": NotRequired[TaskStartFailedEventDetailsTypeDef],
+        "taskStartedEventDetails": NotRequired[TaskStartedEventDetailsTypeDef],
+        "taskSubmitFailedEventDetails": NotRequired[TaskSubmitFailedEventDetailsTypeDef],
+        "taskSubmittedEventDetails": NotRequired[TaskSubmittedEventDetailsTypeDef],
+        "taskSucceededEventDetails": NotRequired[TaskSucceededEventDetailsTypeDef],
+        "taskTimedOutEventDetails": NotRequired[TaskTimedOutEventDetailsTypeDef],
+        "executionFailedEventDetails": NotRequired[ExecutionFailedEventDetailsTypeDef],
+        "executionStartedEventDetails": NotRequired[ExecutionStartedEventDetailsTypeDef],
+        "executionSucceededEventDetails": NotRequired[ExecutionSucceededEventDetailsTypeDef],
+        "executionAbortedEventDetails": NotRequired[ExecutionAbortedEventDetailsTypeDef],
+        "executionTimedOutEventDetails": NotRequired[ExecutionTimedOutEventDetailsTypeDef],
+        "executionRedrivenEventDetails": NotRequired[ExecutionRedrivenEventDetailsTypeDef],
+        "mapStateStartedEventDetails": NotRequired[MapStateStartedEventDetailsTypeDef],
+        "mapIterationStartedEventDetails": NotRequired[MapIterationEventDetailsTypeDef],
+        "mapIterationSucceededEventDetails": NotRequired[MapIterationEventDetailsTypeDef],
+        "mapIterationFailedEventDetails": NotRequired[MapIterationEventDetailsTypeDef],
+        "mapIterationAbortedEventDetails": NotRequired[MapIterationEventDetailsTypeDef],
+        "lambdaFunctionFailedEventDetails": NotRequired[LambdaFunctionFailedEventDetailsTypeDef],
+        "lambdaFunctionScheduleFailedEventDetails": NotRequired[
+            LambdaFunctionScheduleFailedEventDetailsTypeDef
+        ],
+        "lambdaFunctionScheduledEventDetails": NotRequired[
+            LambdaFunctionScheduledEventDetailsTypeDef
+        ],
+        "lambdaFunctionStartFailedEventDetails": NotRequired[
+            LambdaFunctionStartFailedEventDetailsTypeDef
+        ],
+        "lambdaFunctionSucceededEventDetails": NotRequired[
+            LambdaFunctionSucceededEventDetailsTypeDef
+        ],
+        "lambdaFunctionTimedOutEventDetails": NotRequired[
+            LambdaFunctionTimedOutEventDetailsTypeDef
+        ],
+        "stateEnteredEventDetails": NotRequired[StateEnteredEventDetailsTypeDef],
+        "stateExitedEventDetails": NotRequired[StateExitedEventDetailsTypeDef],
+        "mapRunStartedEventDetails": NotRequired[MapRunStartedEventDetailsTypeDef],
+        "mapRunFailedEventDetails": NotRequired[MapRunFailedEventDetailsTypeDef],
+        "mapRunRedrivenEventDetails": NotRequired[MapRunRedrivenEventDetailsTypeDef],
+        "evaluationFailedEventDetails": NotRequired[EvaluationFailedEventDetailsTypeDef],
     },
 )
-_OptionalStateExitedEventDetailsTypeDef = TypedDict(
-    "_OptionalStateExitedEventDetailsTypeDef",
-    {
-        "output": str,
-        "outputDetails": "HistoryEventExecutionDataDetailsTypeDef",
-    },
-    total=False,
-)
 
-class StateExitedEventDetailsTypeDef(
-    _RequiredStateExitedEventDetailsTypeDef, _OptionalStateExitedEventDetailsTypeDef
-):
-    pass
+class DescribeStateMachineForExecutionOutputTypeDef(TypedDict):
+    stateMachineArn: str
+    name: str
+    definition: str
+    roleArn: str
+    updateDate: datetime
+    loggingConfiguration: LoggingConfigurationOutputTypeDef
+    tracingConfiguration: TracingConfigurationTypeDef
+    mapRunArn: str
+    label: str
+    revisionId: str
+    encryptionConfiguration: EncryptionConfigurationTypeDef
+    variableReferences: Dict[str, List[str]]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StateMachineAliasListItemTypeDef = TypedDict(
-    "StateMachineAliasListItemTypeDef",
-    {
-        "stateMachineAliasArn": str,
-        "creationDate": datetime,
-    },
-)
-
-StateMachineListItemTypeDef = TypedDict(
-    "StateMachineListItemTypeDef",
+DescribeStateMachineOutputTypeDef = TypedDict(
+    "DescribeStateMachineOutputTypeDef",
     {
         "stateMachineArn": str,
         "name": str,
+        "status": StateMachineStatusType,
+        "definition": str,
+        "roleArn": str,
         "type": StateMachineTypeType,
         "creationDate": datetime,
-    },
-)
-
-StateMachineVersionListItemTypeDef = TypedDict(
-    "StateMachineVersionListItemTypeDef",
-    {
-        "stateMachineVersionArn": str,
-        "creationDate": datetime,
-    },
-)
-
-_RequiredStopExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredStopExecutionInputRequestTypeDef",
-    {
-        "executionArn": str,
-    },
-)
-_OptionalStopExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalStopExecutionInputRequestTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-class StopExecutionInputRequestTypeDef(
-    _RequiredStopExecutionInputRequestTypeDef, _OptionalStopExecutionInputRequestTypeDef
-):
-    pass
-
-StopExecutionOutputTypeDef = TypedDict(
-    "StopExecutionOutputTypeDef",
-    {
-        "stopDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-    total=False,
-)
-
-TaskCredentialsTypeDef = TypedDict(
-    "TaskCredentialsTypeDef",
-    {
-        "roleArn": str,
-    },
-    total=False,
-)
-
-_RequiredTaskFailedEventDetailsTypeDef = TypedDict(
-    "_RequiredTaskFailedEventDetailsTypeDef",
-    {
-        "resourceType": str,
-        "resource": str,
-    },
-)
-_OptionalTaskFailedEventDetailsTypeDef = TypedDict(
-    "_OptionalTaskFailedEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-class TaskFailedEventDetailsTypeDef(
-    _RequiredTaskFailedEventDetailsTypeDef, _OptionalTaskFailedEventDetailsTypeDef
-):
-    pass
-
-_RequiredTaskScheduledEventDetailsTypeDef = TypedDict(
-    "_RequiredTaskScheduledEventDetailsTypeDef",
-    {
-        "resourceType": str,
-        "resource": str,
-        "region": str,
-        "parameters": str,
-    },
-)
-_OptionalTaskScheduledEventDetailsTypeDef = TypedDict(
-    "_OptionalTaskScheduledEventDetailsTypeDef",
-    {
-        "timeoutInSeconds": int,
-        "heartbeatInSeconds": int,
-        "taskCredentials": "TaskCredentialsTypeDef",
-    },
-    total=False,
-)
-
-class TaskScheduledEventDetailsTypeDef(
-    _RequiredTaskScheduledEventDetailsTypeDef, _OptionalTaskScheduledEventDetailsTypeDef
-):
-    pass
-
-_RequiredTaskStartFailedEventDetailsTypeDef = TypedDict(
-    "_RequiredTaskStartFailedEventDetailsTypeDef",
-    {
-        "resourceType": str,
-        "resource": str,
-    },
-)
-_OptionalTaskStartFailedEventDetailsTypeDef = TypedDict(
-    "_OptionalTaskStartFailedEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-class TaskStartFailedEventDetailsTypeDef(
-    _RequiredTaskStartFailedEventDetailsTypeDef, _OptionalTaskStartFailedEventDetailsTypeDef
-):
-    pass
-
-TaskStartedEventDetailsTypeDef = TypedDict(
-    "TaskStartedEventDetailsTypeDef",
-    {
-        "resourceType": str,
-        "resource": str,
-    },
-)
-
-_RequiredTaskSubmitFailedEventDetailsTypeDef = TypedDict(
-    "_RequiredTaskSubmitFailedEventDetailsTypeDef",
-    {
-        "resourceType": str,
-        "resource": str,
-    },
-)
-_OptionalTaskSubmitFailedEventDetailsTypeDef = TypedDict(
-    "_OptionalTaskSubmitFailedEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-class TaskSubmitFailedEventDetailsTypeDef(
-    _RequiredTaskSubmitFailedEventDetailsTypeDef, _OptionalTaskSubmitFailedEventDetailsTypeDef
-):
-    pass
-
-_RequiredTaskSubmittedEventDetailsTypeDef = TypedDict(
-    "_RequiredTaskSubmittedEventDetailsTypeDef",
-    {
-        "resourceType": str,
-        "resource": str,
-    },
-)
-_OptionalTaskSubmittedEventDetailsTypeDef = TypedDict(
-    "_OptionalTaskSubmittedEventDetailsTypeDef",
-    {
-        "output": str,
-        "outputDetails": "HistoryEventExecutionDataDetailsTypeDef",
-    },
-    total=False,
-)
-
-class TaskSubmittedEventDetailsTypeDef(
-    _RequiredTaskSubmittedEventDetailsTypeDef, _OptionalTaskSubmittedEventDetailsTypeDef
-):
-    pass
-
-_RequiredTaskSucceededEventDetailsTypeDef = TypedDict(
-    "_RequiredTaskSucceededEventDetailsTypeDef",
-    {
-        "resourceType": str,
-        "resource": str,
-    },
-)
-_OptionalTaskSucceededEventDetailsTypeDef = TypedDict(
-    "_OptionalTaskSucceededEventDetailsTypeDef",
-    {
-        "output": str,
-        "outputDetails": "HistoryEventExecutionDataDetailsTypeDef",
-    },
-    total=False,
-)
-
-class TaskSucceededEventDetailsTypeDef(
-    _RequiredTaskSucceededEventDetailsTypeDef, _OptionalTaskSucceededEventDetailsTypeDef
-):
-    pass
-
-_RequiredTaskTimedOutEventDetailsTypeDef = TypedDict(
-    "_RequiredTaskTimedOutEventDetailsTypeDef",
-    {
-        "resourceType": str,
-        "resource": str,
-    },
-)
-_OptionalTaskTimedOutEventDetailsTypeDef = TypedDict(
-    "_OptionalTaskTimedOutEventDetailsTypeDef",
-    {
-        "error": str,
-        "cause": str,
-    },
-    total=False,
-)
-
-class TaskTimedOutEventDetailsTypeDef(
-    _RequiredTaskTimedOutEventDetailsTypeDef, _OptionalTaskTimedOutEventDetailsTypeDef
-):
-    pass
-
-_RequiredTestStateInputRequestTypeDef = TypedDict(
-    "_RequiredTestStateInputRequestTypeDef",
-    {
-        "definition": str,
-        "roleArn": str,
-    },
-)
-_OptionalTestStateInputRequestTypeDef = TypedDict(
-    "_OptionalTestStateInputRequestTypeDef",
-    {
-        "input": str,
-        "inspectionLevel": InspectionLevelType,
-        "revealSecrets": bool,
-    },
-    total=False,
-)
-
-class TestStateInputRequestTypeDef(
-    _RequiredTestStateInputRequestTypeDef, _OptionalTestStateInputRequestTypeDef
-):
-    pass
-
-TestStateOutputTypeDef = TypedDict(
-    "TestStateOutputTypeDef",
-    {
-        "output": str,
-        "error": str,
-        "cause": str,
-        "inspectionData": "InspectionDataTypeDef",
-        "nextState": str,
-        "status": TestExecutionStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TracingConfigurationTypeDef = TypedDict(
-    "TracingConfigurationTypeDef",
-    {
-        "enabled": bool,
-    },
-    total=False,
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateMapRunInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateMapRunInputRequestTypeDef",
-    {
-        "mapRunArn": str,
-    },
-)
-_OptionalUpdateMapRunInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateMapRunInputRequestTypeDef",
-    {
-        "maxConcurrency": int,
-        "toleratedFailurePercentage": float,
-        "toleratedFailureCount": int,
-    },
-    total=False,
-)
-
-class UpdateMapRunInputRequestTypeDef(
-    _RequiredUpdateMapRunInputRequestTypeDef, _OptionalUpdateMapRunInputRequestTypeDef
-):
-    pass
-
-_RequiredUpdateStateMachineAliasInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateStateMachineAliasInputRequestTypeDef",
-    {
-        "stateMachineAliasArn": str,
-    },
-)
-_OptionalUpdateStateMachineAliasInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateStateMachineAliasInputRequestTypeDef",
-    {
-        "description": str,
-        "routingConfiguration": List["RoutingConfigurationListItemTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateStateMachineAliasInputRequestTypeDef(
-    _RequiredUpdateStateMachineAliasInputRequestTypeDef,
-    _OptionalUpdateStateMachineAliasInputRequestTypeDef,
-):
-    pass
-
-UpdateStateMachineAliasOutputTypeDef = TypedDict(
-    "UpdateStateMachineAliasOutputTypeDef",
-    {
-        "updateDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateStateMachineInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateStateMachineInputRequestTypeDef",
-    {
-        "stateMachineArn": str,
-    },
-)
-_OptionalUpdateStateMachineInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateStateMachineInputRequestTypeDef",
-    {
-        "definition": str,
-        "roleArn": str,
-        "loggingConfiguration": "LoggingConfigurationTypeDef",
-        "tracingConfiguration": "TracingConfigurationTypeDef",
-        "publish": bool,
-        "versionDescription": str,
-    },
-    total=False,
-)
-
-class UpdateStateMachineInputRequestTypeDef(
-    _RequiredUpdateStateMachineInputRequestTypeDef, _OptionalUpdateStateMachineInputRequestTypeDef
-):
-    pass
-
-UpdateStateMachineOutputTypeDef = TypedDict(
-    "UpdateStateMachineOutputTypeDef",
-    {
-        "updateDate": datetime,
+        "loggingConfiguration": LoggingConfigurationOutputTypeDef,
+        "tracingConfiguration": TracingConfigurationTypeDef,
+        "label": str,
         "revisionId": str,
-        "stateMachineVersionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "description": str,
+        "encryptionConfiguration": EncryptionConfigurationTypeDef,
+        "variableReferences": Dict[str, List[str]],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
+LoggingConfigurationUnionTypeDef = Union[
+    LoggingConfigurationTypeDef, LoggingConfigurationOutputTypeDef
+]
 
-_RequiredValidateStateMachineDefinitionDiagnosticTypeDef = TypedDict(
-    "_RequiredValidateStateMachineDefinitionDiagnosticTypeDef",
-    {
-        "severity": Literal["ERROR"],
-        "code": str,
-        "message": str,
-    },
-)
-_OptionalValidateStateMachineDefinitionDiagnosticTypeDef = TypedDict(
-    "_OptionalValidateStateMachineDefinitionDiagnosticTypeDef",
-    {
-        "location": str,
-    },
-    total=False,
-)
+class GetExecutionHistoryOutputTypeDef(TypedDict):
+    events: List[HistoryEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class ValidateStateMachineDefinitionDiagnosticTypeDef(
-    _RequiredValidateStateMachineDefinitionDiagnosticTypeDef,
-    _OptionalValidateStateMachineDefinitionDiagnosticTypeDef,
-):
-    pass
-
-_RequiredValidateStateMachineDefinitionInputRequestTypeDef = TypedDict(
-    "_RequiredValidateStateMachineDefinitionInputRequestTypeDef",
+CreateStateMachineInputTypeDef = TypedDict(
+    "CreateStateMachineInputTypeDef",
     {
+        "name": str,
         "definition": str,
+        "roleArn": str,
+        "type": NotRequired[StateMachineTypeType],
+        "loggingConfiguration": NotRequired[LoggingConfigurationUnionTypeDef],
+        "tags": NotRequired[Sequence[TagTypeDef]],
+        "tracingConfiguration": NotRequired[TracingConfigurationTypeDef],
+        "publish": NotRequired[bool],
+        "versionDescription": NotRequired[str],
+        "encryptionConfiguration": NotRequired[EncryptionConfigurationTypeDef],
     },
-)
-_OptionalValidateStateMachineDefinitionInputRequestTypeDef = TypedDict(
-    "_OptionalValidateStateMachineDefinitionInputRequestTypeDef",
-    {
-        "type": StateMachineTypeType,
-    },
-    total=False,
 )
 
-class ValidateStateMachineDefinitionInputRequestTypeDef(
-    _RequiredValidateStateMachineDefinitionInputRequestTypeDef,
-    _OptionalValidateStateMachineDefinitionInputRequestTypeDef,
-):
-    pass
-
-ValidateStateMachineDefinitionOutputTypeDef = TypedDict(
-    "ValidateStateMachineDefinitionOutputTypeDef",
-    {
-        "result": ValidateStateMachineDefinitionResultCodeType,
-        "diagnostics": List["ValidateStateMachineDefinitionDiagnosticTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateStateMachineInputTypeDef(TypedDict):
+    stateMachineArn: str
+    definition: NotRequired[str]
+    roleArn: NotRequired[str]
+    loggingConfiguration: NotRequired[LoggingConfigurationUnionTypeDef]
+    tracingConfiguration: NotRequired[TracingConfigurationTypeDef]
+    publish: NotRequired[bool]
+    versionDescription: NotRequired[str]
+    encryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]

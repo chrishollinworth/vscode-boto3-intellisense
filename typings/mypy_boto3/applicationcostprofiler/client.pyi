@@ -1,51 +1,59 @@
 """
-Type annotations for applicationcostprofiler service client.
+Type annotations for applicationcostprofiler service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_applicationcostprofiler import ApplicationCostProfilerClient
+    from boto3.session import Session
+    from mypy_boto3_applicationcostprofiler.client import ApplicationCostProfilerClient
 
-    client: ApplicationCostProfilerClient = boto3.client("applicationcostprofiler")
+    session = Session()
+    client: ApplicationCostProfilerClient = session.client("applicationcostprofiler")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, Type
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import FormatType, ReportFrequencyType
 from .paginator import ListReportDefinitionsPaginator
 from .type_defs import (
+    DeleteReportDefinitionRequestTypeDef,
     DeleteReportDefinitionResultTypeDef,
+    GetReportDefinitionRequestTypeDef,
     GetReportDefinitionResultTypeDef,
+    ImportApplicationUsageRequestTypeDef,
     ImportApplicationUsageResultTypeDef,
+    ListReportDefinitionsRequestTypeDef,
     ListReportDefinitionsResultTypeDef,
+    PutReportDefinitionRequestTypeDef,
     PutReportDefinitionResultTypeDef,
-    S3LocationTypeDef,
-    SourceS3LocationTypeDef,
+    UpdateReportDefinitionRequestTypeDef,
     UpdateReportDefinitionResultTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("ApplicationCostProfilerClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
@@ -55,8 +63,8 @@ class Exceptions:
 
 class ApplicationCostProfilerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/)
     """
 
     meta: ClientMeta
@@ -65,111 +73,96 @@ class ApplicationCostProfilerClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ApplicationCostProfilerClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html#close)
-        """
-
-    def delete_report_definition(self, *, reportId: str) -> DeleteReportDefinitionResultTypeDef:
-        """
-        Deletes the specified report definition in AWS Application Cost Profiler.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client.delete_report_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html#delete_report_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/#generate_presigned_url)
         """
 
-    def get_report_definition(self, *, reportId: str) -> GetReportDefinitionResultTypeDef:
+    def delete_report_definition(
+        self, **kwargs: Unpack[DeleteReportDefinitionRequestTypeDef]
+    ) -> DeleteReportDefinitionResultTypeDef:
+        """
+        Deletes the specified report definition in AWS Application Cost Profiler.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/client/delete_report_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/#delete_report_definition)
+        """
+
+    def get_report_definition(
+        self, **kwargs: Unpack[GetReportDefinitionRequestTypeDef]
+    ) -> GetReportDefinitionResultTypeDef:
         """
         Retrieves the definition of a report already configured in AWS Application Cost
         Profiler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client.get_report_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html#get_report_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/client/get_report_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/#get_report_definition)
         """
 
     def import_application_usage(
-        self, *, sourceS3Location: "SourceS3LocationTypeDef"
+        self, **kwargs: Unpack[ImportApplicationUsageRequestTypeDef]
     ) -> ImportApplicationUsageResultTypeDef:
         """
         Ingests application usage data from Amazon Simple Storage Service (Amazon S3).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client.import_application_usage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html#import_application_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/client/import_application_usage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/#import_application_usage)
         """
 
     def list_report_definitions(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListReportDefinitionsRequestTypeDef]
     ) -> ListReportDefinitionsResultTypeDef:
         """
         Retrieves a list of all reports and their configurations for your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client.list_report_definitions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html#list_report_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/client/list_report_definitions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/#list_report_definitions)
         """
 
     def put_report_definition(
-        self,
-        *,
-        reportId: str,
-        reportDescription: str,
-        reportFrequency: ReportFrequencyType,
-        format: FormatType,
-        destinationS3Location: "S3LocationTypeDef"
+        self, **kwargs: Unpack[PutReportDefinitionRequestTypeDef]
     ) -> PutReportDefinitionResultTypeDef:
         """
         Creates the report definition for a report in Application Cost Profiler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client.put_report_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html#put_report_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/client/put_report_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/#put_report_definition)
         """
 
     def update_report_definition(
-        self,
-        *,
-        reportId: str,
-        reportDescription: str,
-        reportFrequency: ReportFrequencyType,
-        format: FormatType,
-        destinationS3Location: "S3LocationTypeDef"
+        self, **kwargs: Unpack[UpdateReportDefinitionRequestTypeDef]
     ) -> UpdateReportDefinitionResultTypeDef:
         """
         Updates existing report in AWS Application Cost Profiler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Client.update_report_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client.html#update_report_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/client/update_report_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/#update_report_definition)
         """
 
-    def get_paginator(
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_report_definitions"]
     ) -> ListReportDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Paginator.ListReportDefinitions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/paginators.html#listreportdefinitionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/client/#get_paginator)
         """

@@ -1,270 +1,168 @@
 """
 Type annotations for iotsecuretunneling service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_iotsecuretunneling.type_defs import CloseTunnelRequestRequestTypeDef
+    from mypy_boto3_iotsecuretunneling.type_defs import CloseTunnelRequestTypeDef
 
-    data: CloseTunnelRequestRequestTypeDef = {...}
+    data: CloseTunnelRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import ClientModeType, ConnectionStatusType, TunnelStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CloseTunnelRequestRequestTypeDef",
+    "CloseTunnelRequestTypeDef",
     "ConnectionStateTypeDef",
-    "DescribeTunnelRequestRequestTypeDef",
+    "DescribeTunnelRequestTypeDef",
     "DescribeTunnelResponseTypeDef",
+    "DestinationConfigOutputTypeDef",
     "DestinationConfigTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "DestinationConfigUnionTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTunnelsRequestRequestTypeDef",
+    "ListTunnelsRequestTypeDef",
     "ListTunnelsResponseTypeDef",
-    "OpenTunnelRequestRequestTypeDef",
+    "OpenTunnelRequestTypeDef",
     "OpenTunnelResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "RotateTunnelAccessTokenRequestRequestTypeDef",
+    "RotateTunnelAccessTokenRequestTypeDef",
     "RotateTunnelAccessTokenResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TimeoutConfigTypeDef",
     "TunnelSummaryTypeDef",
     "TunnelTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
 )
 
-_RequiredCloseTunnelRequestRequestTypeDef = TypedDict(
-    "_RequiredCloseTunnelRequestRequestTypeDef",
-    {
-        "tunnelId": str,
-    },
-)
-_OptionalCloseTunnelRequestRequestTypeDef = TypedDict(
-    "_OptionalCloseTunnelRequestRequestTypeDef",
-    {
-        "delete": bool,
-    },
-    total=False,
-)
+class CloseTunnelRequestTypeDef(TypedDict):
+    tunnelId: str
+    delete: NotRequired[bool]
 
-class CloseTunnelRequestRequestTypeDef(
-    _RequiredCloseTunnelRequestRequestTypeDef, _OptionalCloseTunnelRequestRequestTypeDef
-):
-    pass
+class ConnectionStateTypeDef(TypedDict):
+    status: NotRequired[ConnectionStatusType]
+    lastUpdatedAt: NotRequired[datetime]
 
-ConnectionStateTypeDef = TypedDict(
-    "ConnectionStateTypeDef",
-    {
-        "status": ConnectionStatusType,
-        "lastUpdatedAt": datetime,
-    },
-    total=False,
-)
+class DescribeTunnelRequestTypeDef(TypedDict):
+    tunnelId: str
 
-DescribeTunnelRequestRequestTypeDef = TypedDict(
-    "DescribeTunnelRequestRequestTypeDef",
-    {
-        "tunnelId": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-DescribeTunnelResponseTypeDef = TypedDict(
-    "DescribeTunnelResponseTypeDef",
-    {
-        "tunnel": "TunnelTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DestinationConfigOutputTypeDef(TypedDict):
+    services: List[str]
+    thingName: NotRequired[str]
 
-_RequiredDestinationConfigTypeDef = TypedDict(
-    "_RequiredDestinationConfigTypeDef",
-    {
-        "services": List[str],
-    },
-)
-_OptionalDestinationConfigTypeDef = TypedDict(
-    "_OptionalDestinationConfigTypeDef",
-    {
-        "thingName": str,
-    },
-    total=False,
-)
+class DestinationConfigTypeDef(TypedDict):
+    services: Sequence[str]
+    thingName: NotRequired[str]
 
-class DestinationConfigTypeDef(
-    _RequiredDestinationConfigTypeDef, _OptionalDestinationConfigTypeDef
-):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTunnelsRequestTypeDef(TypedDict):
+    thingName: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListTunnelsRequestRequestTypeDef = TypedDict(
-    "ListTunnelsRequestRequestTypeDef",
-    {
-        "thingName": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class TunnelSummaryTypeDef(TypedDict):
+    tunnelId: NotRequired[str]
+    tunnelArn: NotRequired[str]
+    status: NotRequired[TunnelStatusType]
+    description: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    lastUpdatedAt: NotRequired[datetime]
 
-ListTunnelsResponseTypeDef = TypedDict(
-    "ListTunnelsResponseTypeDef",
-    {
-        "tunnelSummaries": List["TunnelSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TimeoutConfigTypeDef(TypedDict):
+    maxLifetimeTimeoutMinutes: NotRequired[int]
 
-OpenTunnelRequestRequestTypeDef = TypedDict(
-    "OpenTunnelRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-        "destinationConfig": "DestinationConfigTypeDef",
-        "timeoutConfig": "TimeoutConfigTypeDef",
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-OpenTunnelResponseTypeDef = TypedDict(
-    "OpenTunnelResponseTypeDef",
-    {
-        "tunnelId": str,
-        "tunnelArn": str,
-        "sourceAccessToken": str,
-        "destinationAccessToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class OpenTunnelResponseTypeDef(TypedDict):
+    tunnelId: str
+    tunnelArn: str
+    sourceAccessToken: str
+    destinationAccessToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class RotateTunnelAccessTokenResponseTypeDef(TypedDict):
+    tunnelArn: str
+    sourceAccessToken: str
+    destinationAccessToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredRotateTunnelAccessTokenRequestRequestTypeDef = TypedDict(
-    "_RequiredRotateTunnelAccessTokenRequestRequestTypeDef",
-    {
-        "tunnelId": str,
-        "clientMode": ClientModeType,
-    },
-)
-_OptionalRotateTunnelAccessTokenRequestRequestTypeDef = TypedDict(
-    "_OptionalRotateTunnelAccessTokenRequestRequestTypeDef",
-    {
-        "destinationConfig": "DestinationConfigTypeDef",
-    },
-    total=False,
-)
+DestinationConfigUnionTypeDef = Union[DestinationConfigTypeDef, DestinationConfigOutputTypeDef]
 
-class RotateTunnelAccessTokenRequestRequestTypeDef(
-    _RequiredRotateTunnelAccessTokenRequestRequestTypeDef,
-    _OptionalRotateTunnelAccessTokenRequestRequestTypeDef,
-):
-    pass
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RotateTunnelAccessTokenResponseTypeDef = TypedDict(
-    "RotateTunnelAccessTokenResponseTypeDef",
-    {
-        "tunnelArn": str,
-        "sourceAccessToken": str,
-        "destinationAccessToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
+class ListTunnelsResponseTypeDef(TypedDict):
+    tunnelSummaries: List[TunnelSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
+class TunnelTypeDef(TypedDict):
+    tunnelId: NotRequired[str]
+    tunnelArn: NotRequired[str]
+    status: NotRequired[TunnelStatusType]
+    sourceConnectionState: NotRequired[ConnectionStateTypeDef]
+    destinationConnectionState: NotRequired[ConnectionStateTypeDef]
+    description: NotRequired[str]
+    destinationConfig: NotRequired[DestinationConfigOutputTypeDef]
+    timeoutConfig: NotRequired[TimeoutConfigTypeDef]
+    tags: NotRequired[List[TagTypeDef]]
+    createdAt: NotRequired[datetime]
+    lastUpdatedAt: NotRequired[datetime]
 
-TimeoutConfigTypeDef = TypedDict(
-    "TimeoutConfigTypeDef",
-    {
-        "maxLifetimeTimeoutMinutes": int,
-    },
-    total=False,
-)
+class OpenTunnelRequestTypeDef(TypedDict):
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    destinationConfig: NotRequired[DestinationConfigUnionTypeDef]
+    timeoutConfig: NotRequired[TimeoutConfigTypeDef]
 
-TunnelSummaryTypeDef = TypedDict(
-    "TunnelSummaryTypeDef",
-    {
-        "tunnelId": str,
-        "tunnelArn": str,
-        "status": TunnelStatusType,
-        "description": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-    },
-    total=False,
-)
+class RotateTunnelAccessTokenRequestTypeDef(TypedDict):
+    tunnelId: str
+    clientMode: ClientModeType
+    destinationConfig: NotRequired[DestinationConfigUnionTypeDef]
 
-TunnelTypeDef = TypedDict(
-    "TunnelTypeDef",
-    {
-        "tunnelId": str,
-        "tunnelArn": str,
-        "status": TunnelStatusType,
-        "sourceConnectionState": "ConnectionStateTypeDef",
-        "destinationConnectionState": "ConnectionStateTypeDef",
-        "description": str,
-        "destinationConfig": "DestinationConfigTypeDef",
-        "timeoutConfig": "TimeoutConfigTypeDef",
-        "tags": List["TagTypeDef"],
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class DescribeTunnelResponseTypeDef(TypedDict):
+    tunnel: TunnelTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

@@ -1,20 +1,24 @@
 """
 Type annotations for organizations service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_organizations.type_defs import AcceptHandshakeRequestRequestTypeDef
+    from mypy_boto3_organizations.type_defs import AcceptHandshakeRequestTypeDef
 
-    data: AcceptHandshakeRequestRequestTypeDef = {...}
+    data: AcceptHandshakeRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
 
 from .literals import (
     AccountJoinedMethodType,
@@ -35,101 +39,128 @@ from .literals import (
     TargetTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AcceptHandshakeRequestRequestTypeDef",
+    "AcceptHandshakeRequestTypeDef",
     "AcceptHandshakeResponseTypeDef",
     "AccountTypeDef",
-    "AttachPolicyRequestRequestTypeDef",
-    "CancelHandshakeRequestRequestTypeDef",
+    "AttachPolicyRequestTypeDef",
+    "CancelHandshakeRequestTypeDef",
     "CancelHandshakeResponseTypeDef",
     "ChildTypeDef",
-    "CloseAccountRequestRequestTypeDef",
-    "CreateAccountRequestRequestTypeDef",
+    "CloseAccountRequestTypeDef",
+    "CreateAccountRequestTypeDef",
     "CreateAccountResponseTypeDef",
     "CreateAccountStatusTypeDef",
-    "CreateGovCloudAccountRequestRequestTypeDef",
+    "CreateGovCloudAccountRequestTypeDef",
     "CreateGovCloudAccountResponseTypeDef",
-    "CreateOrganizationRequestRequestTypeDef",
+    "CreateOrganizationRequestTypeDef",
     "CreateOrganizationResponseTypeDef",
-    "CreateOrganizationalUnitRequestRequestTypeDef",
+    "CreateOrganizationalUnitRequestTypeDef",
     "CreateOrganizationalUnitResponseTypeDef",
-    "CreatePolicyRequestRequestTypeDef",
+    "CreatePolicyRequestTypeDef",
     "CreatePolicyResponseTypeDef",
-    "DeclineHandshakeRequestRequestTypeDef",
+    "DeclineHandshakeRequestTypeDef",
     "DeclineHandshakeResponseTypeDef",
     "DelegatedAdministratorTypeDef",
     "DelegatedServiceTypeDef",
-    "DeleteOrganizationalUnitRequestRequestTypeDef",
-    "DeletePolicyRequestRequestTypeDef",
-    "DeregisterDelegatedAdministratorRequestRequestTypeDef",
-    "DescribeAccountRequestRequestTypeDef",
+    "DeleteOrganizationalUnitRequestTypeDef",
+    "DeletePolicyRequestTypeDef",
+    "DeregisterDelegatedAdministratorRequestTypeDef",
+    "DescribeAccountRequestTypeDef",
     "DescribeAccountResponseTypeDef",
-    "DescribeCreateAccountStatusRequestRequestTypeDef",
+    "DescribeCreateAccountStatusRequestTypeDef",
     "DescribeCreateAccountStatusResponseTypeDef",
-    "DescribeEffectivePolicyRequestRequestTypeDef",
+    "DescribeEffectivePolicyRequestTypeDef",
     "DescribeEffectivePolicyResponseTypeDef",
-    "DescribeHandshakeRequestRequestTypeDef",
+    "DescribeHandshakeRequestTypeDef",
     "DescribeHandshakeResponseTypeDef",
     "DescribeOrganizationResponseTypeDef",
-    "DescribeOrganizationalUnitRequestRequestTypeDef",
+    "DescribeOrganizationalUnitRequestTypeDef",
     "DescribeOrganizationalUnitResponseTypeDef",
-    "DescribePolicyRequestRequestTypeDef",
+    "DescribePolicyRequestTypeDef",
     "DescribePolicyResponseTypeDef",
     "DescribeResourcePolicyResponseTypeDef",
-    "DetachPolicyRequestRequestTypeDef",
-    "DisableAWSServiceAccessRequestRequestTypeDef",
-    "DisablePolicyTypeRequestRequestTypeDef",
+    "DetachPolicyRequestTypeDef",
+    "DisableAWSServiceAccessRequestTypeDef",
+    "DisablePolicyTypeRequestTypeDef",
     "DisablePolicyTypeResponseTypeDef",
     "EffectivePolicyTypeDef",
-    "EnableAWSServiceAccessRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EnableAWSServiceAccessRequestTypeDef",
     "EnableAllFeaturesResponseTypeDef",
-    "EnablePolicyTypeRequestRequestTypeDef",
+    "EnablePolicyTypeRequestTypeDef",
     "EnablePolicyTypeResponseTypeDef",
     "EnabledServicePrincipalTypeDef",
     "HandshakeFilterTypeDef",
+    "HandshakePaginatorTypeDef",
     "HandshakePartyTypeDef",
+    "HandshakeResourcePaginatorTypeDef",
     "HandshakeResourceTypeDef",
     "HandshakeTypeDef",
-    "InviteAccountToOrganizationRequestRequestTypeDef",
+    "InviteAccountToOrganizationRequestTypeDef",
     "InviteAccountToOrganizationResponseTypeDef",
-    "ListAWSServiceAccessForOrganizationRequestRequestTypeDef",
+    "ListAWSServiceAccessForOrganizationRequestPaginateTypeDef",
+    "ListAWSServiceAccessForOrganizationRequestTypeDef",
     "ListAWSServiceAccessForOrganizationResponseTypeDef",
-    "ListAccountsForParentRequestRequestTypeDef",
+    "ListAccountsForParentRequestPaginateTypeDef",
+    "ListAccountsForParentRequestTypeDef",
     "ListAccountsForParentResponseTypeDef",
-    "ListAccountsRequestRequestTypeDef",
+    "ListAccountsRequestPaginateTypeDef",
+    "ListAccountsRequestTypeDef",
     "ListAccountsResponseTypeDef",
-    "ListChildrenRequestRequestTypeDef",
+    "ListChildrenRequestPaginateTypeDef",
+    "ListChildrenRequestTypeDef",
     "ListChildrenResponseTypeDef",
-    "ListCreateAccountStatusRequestRequestTypeDef",
+    "ListCreateAccountStatusRequestPaginateTypeDef",
+    "ListCreateAccountStatusRequestTypeDef",
     "ListCreateAccountStatusResponseTypeDef",
-    "ListDelegatedAdministratorsRequestRequestTypeDef",
+    "ListDelegatedAdministratorsRequestPaginateTypeDef",
+    "ListDelegatedAdministratorsRequestTypeDef",
     "ListDelegatedAdministratorsResponseTypeDef",
-    "ListDelegatedServicesForAccountRequestRequestTypeDef",
+    "ListDelegatedServicesForAccountRequestPaginateTypeDef",
+    "ListDelegatedServicesForAccountRequestTypeDef",
     "ListDelegatedServicesForAccountResponseTypeDef",
-    "ListHandshakesForAccountRequestRequestTypeDef",
+    "ListHandshakesForAccountRequestPaginateTypeDef",
+    "ListHandshakesForAccountRequestTypeDef",
+    "ListHandshakesForAccountResponsePaginatorTypeDef",
     "ListHandshakesForAccountResponseTypeDef",
-    "ListHandshakesForOrganizationRequestRequestTypeDef",
+    "ListHandshakesForOrganizationRequestPaginateTypeDef",
+    "ListHandshakesForOrganizationRequestTypeDef",
+    "ListHandshakesForOrganizationResponsePaginatorTypeDef",
     "ListHandshakesForOrganizationResponseTypeDef",
-    "ListOrganizationalUnitsForParentRequestRequestTypeDef",
+    "ListOrganizationalUnitsForParentRequestPaginateTypeDef",
+    "ListOrganizationalUnitsForParentRequestTypeDef",
     "ListOrganizationalUnitsForParentResponseTypeDef",
-    "ListParentsRequestRequestTypeDef",
+    "ListParentsRequestPaginateTypeDef",
+    "ListParentsRequestTypeDef",
     "ListParentsResponseTypeDef",
-    "ListPoliciesForTargetRequestRequestTypeDef",
+    "ListPoliciesForTargetRequestPaginateTypeDef",
+    "ListPoliciesForTargetRequestTypeDef",
     "ListPoliciesForTargetResponseTypeDef",
-    "ListPoliciesRequestRequestTypeDef",
+    "ListPoliciesRequestPaginateTypeDef",
+    "ListPoliciesRequestTypeDef",
     "ListPoliciesResponseTypeDef",
-    "ListRootsRequestRequestTypeDef",
+    "ListRootsRequestPaginateTypeDef",
+    "ListRootsRequestTypeDef",
     "ListRootsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTargetsForPolicyRequestRequestTypeDef",
+    "ListTargetsForPolicyRequestPaginateTypeDef",
+    "ListTargetsForPolicyRequestTypeDef",
     "ListTargetsForPolicyResponseTypeDef",
-    "MoveAccountRequestRequestTypeDef",
+    "MoveAccountRequestTypeDef",
     "OrganizationTypeDef",
     "OrganizationalUnitTypeDef",
     "PaginatorConfigTypeDef",
@@ -138,512 +169,159 @@ __all__ = (
     "PolicyTargetSummaryTypeDef",
     "PolicyTypeDef",
     "PolicyTypeSummaryTypeDef",
-    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyRequestTypeDef",
     "PutResourcePolicyResponseTypeDef",
-    "RegisterDelegatedAdministratorRequestRequestTypeDef",
-    "RemoveAccountFromOrganizationRequestRequestTypeDef",
+    "RegisterDelegatedAdministratorRequestTypeDef",
+    "RemoveAccountFromOrganizationRequestTypeDef",
     "ResourcePolicySummaryTypeDef",
     "ResourcePolicyTypeDef",
     "ResponseMetadataTypeDef",
     "RootTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateOrganizationalUnitRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateOrganizationalUnitRequestTypeDef",
     "UpdateOrganizationalUnitResponseTypeDef",
-    "UpdatePolicyRequestRequestTypeDef",
+    "UpdatePolicyRequestTypeDef",
     "UpdatePolicyResponseTypeDef",
 )
 
-AcceptHandshakeRequestRequestTypeDef = TypedDict(
-    "AcceptHandshakeRequestRequestTypeDef",
-    {
-        "HandshakeId": str,
-    },
-)
+class AcceptHandshakeRequestTypeDef(TypedDict):
+    HandshakeId: str
 
-AcceptHandshakeResponseTypeDef = TypedDict(
-    "AcceptHandshakeResponseTypeDef",
-    {
-        "Handshake": "HandshakeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AccountTypeDef = TypedDict(
-    "AccountTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Email": str,
-        "Name": str,
-        "Status": AccountStatusType,
-        "JoinedMethod": AccountJoinedMethodType,
-        "JoinedTimestamp": datetime,
-    },
-    total=False,
-)
+class AccountTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Email: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[AccountStatusType]
+    JoinedMethod: NotRequired[AccountJoinedMethodType]
+    JoinedTimestamp: NotRequired[datetime]
 
-AttachPolicyRequestRequestTypeDef = TypedDict(
-    "AttachPolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-        "TargetId": str,
-    },
-)
+class AttachPolicyRequestTypeDef(TypedDict):
+    PolicyId: str
+    TargetId: str
 
-CancelHandshakeRequestRequestTypeDef = TypedDict(
-    "CancelHandshakeRequestRequestTypeDef",
-    {
-        "HandshakeId": str,
-    },
-)
-
-CancelHandshakeResponseTypeDef = TypedDict(
-    "CancelHandshakeResponseTypeDef",
-    {
-        "Handshake": "HandshakeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CancelHandshakeRequestTypeDef(TypedDict):
+    HandshakeId: str
 
 ChildTypeDef = TypedDict(
     "ChildTypeDef",
     {
-        "Id": str,
-        "Type": ChildTypeType,
-    },
-    total=False,
-)
-
-CloseAccountRequestRequestTypeDef = TypedDict(
-    "CloseAccountRequestRequestTypeDef",
-    {
-        "AccountId": str,
+        "Id": NotRequired[str],
+        "Type": NotRequired[ChildTypeType],
     },
 )
 
-_RequiredCreateAccountRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAccountRequestRequestTypeDef",
-    {
-        "Email": str,
-        "AccountName": str,
-    },
-)
-_OptionalCreateAccountRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAccountRequestRequestTypeDef",
-    {
-        "RoleName": str,
-        "IamUserAccessToBilling": IAMUserAccessToBillingType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class CloseAccountRequestTypeDef(TypedDict):
+    AccountId: str
 
-class CreateAccountRequestRequestTypeDef(
-    _RequiredCreateAccountRequestRequestTypeDef, _OptionalCreateAccountRequestRequestTypeDef
-):
-    pass
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-CreateAccountResponseTypeDef = TypedDict(
-    "CreateAccountResponseTypeDef",
-    {
-        "CreateAccountStatus": "CreateAccountStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateAccountStatusTypeDef(TypedDict):
+    Id: NotRequired[str]
+    AccountName: NotRequired[str]
+    State: NotRequired[CreateAccountStateType]
+    RequestedTimestamp: NotRequired[datetime]
+    CompletedTimestamp: NotRequired[datetime]
+    AccountId: NotRequired[str]
+    GovCloudAccountId: NotRequired[str]
+    FailureReason: NotRequired[CreateAccountFailureReasonType]
 
-CreateAccountStatusTypeDef = TypedDict(
-    "CreateAccountStatusTypeDef",
-    {
-        "Id": str,
-        "AccountName": str,
-        "State": CreateAccountStateType,
-        "RequestedTimestamp": datetime,
-        "CompletedTimestamp": datetime,
-        "AccountId": str,
-        "GovCloudAccountId": str,
-        "FailureReason": CreateAccountFailureReasonType,
-    },
-    total=False,
-)
+class CreateOrganizationRequestTypeDef(TypedDict):
+    FeatureSet: NotRequired[OrganizationFeatureSetType]
 
-_RequiredCreateGovCloudAccountRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateGovCloudAccountRequestRequestTypeDef",
-    {
-        "Email": str,
-        "AccountName": str,
-    },
-)
-_OptionalCreateGovCloudAccountRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateGovCloudAccountRequestRequestTypeDef",
-    {
-        "RoleName": str,
-        "IamUserAccessToBilling": IAMUserAccessToBillingType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class OrganizationalUnitTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
 
-class CreateGovCloudAccountRequestRequestTypeDef(
-    _RequiredCreateGovCloudAccountRequestRequestTypeDef,
-    _OptionalCreateGovCloudAccountRequestRequestTypeDef,
-):
-    pass
+class DeclineHandshakeRequestTypeDef(TypedDict):
+    HandshakeId: str
 
-CreateGovCloudAccountResponseTypeDef = TypedDict(
-    "CreateGovCloudAccountResponseTypeDef",
-    {
-        "CreateAccountStatus": "CreateAccountStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DelegatedAdministratorTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Email: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[AccountStatusType]
+    JoinedMethod: NotRequired[AccountJoinedMethodType]
+    JoinedTimestamp: NotRequired[datetime]
+    DelegationEnabledDate: NotRequired[datetime]
 
-CreateOrganizationRequestRequestTypeDef = TypedDict(
-    "CreateOrganizationRequestRequestTypeDef",
-    {
-        "FeatureSet": OrganizationFeatureSetType,
-    },
-    total=False,
-)
+class DelegatedServiceTypeDef(TypedDict):
+    ServicePrincipal: NotRequired[str]
+    DelegationEnabledDate: NotRequired[datetime]
 
-CreateOrganizationResponseTypeDef = TypedDict(
-    "CreateOrganizationResponseTypeDef",
-    {
-        "Organization": "OrganizationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteOrganizationalUnitRequestTypeDef(TypedDict):
+    OrganizationalUnitId: str
 
-_RequiredCreateOrganizationalUnitRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateOrganizationalUnitRequestRequestTypeDef",
-    {
-        "ParentId": str,
-        "Name": str,
-    },
-)
-_OptionalCreateOrganizationalUnitRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateOrganizationalUnitRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DeletePolicyRequestTypeDef(TypedDict):
+    PolicyId: str
 
-class CreateOrganizationalUnitRequestRequestTypeDef(
-    _RequiredCreateOrganizationalUnitRequestRequestTypeDef,
-    _OptionalCreateOrganizationalUnitRequestRequestTypeDef,
-):
-    pass
+class DeregisterDelegatedAdministratorRequestTypeDef(TypedDict):
+    AccountId: str
+    ServicePrincipal: str
 
-CreateOrganizationalUnitResponseTypeDef = TypedDict(
-    "CreateOrganizationalUnitResponseTypeDef",
-    {
-        "OrganizationalUnit": "OrganizationalUnitTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeAccountRequestTypeDef(TypedDict):
+    AccountId: str
 
-_RequiredCreatePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePolicyRequestRequestTypeDef",
-    {
-        "Content": str,
-        "Description": str,
-        "Name": str,
-        "Type": PolicyTypeType,
-    },
-)
-_OptionalCreatePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePolicyRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DescribeCreateAccountStatusRequestTypeDef(TypedDict):
+    CreateAccountRequestId: str
 
-class CreatePolicyRequestRequestTypeDef(
-    _RequiredCreatePolicyRequestRequestTypeDef, _OptionalCreatePolicyRequestRequestTypeDef
-):
-    pass
+class DescribeEffectivePolicyRequestTypeDef(TypedDict):
+    PolicyType: EffectivePolicyTypeType
+    TargetId: NotRequired[str]
 
-CreatePolicyResponseTypeDef = TypedDict(
-    "CreatePolicyResponseTypeDef",
-    {
-        "Policy": "PolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EffectivePolicyTypeDef(TypedDict):
+    PolicyContent: NotRequired[str]
+    LastUpdatedTimestamp: NotRequired[datetime]
+    TargetId: NotRequired[str]
+    PolicyType: NotRequired[EffectivePolicyTypeType]
 
-DeclineHandshakeRequestRequestTypeDef = TypedDict(
-    "DeclineHandshakeRequestRequestTypeDef",
-    {
-        "HandshakeId": str,
-    },
-)
+class DescribeHandshakeRequestTypeDef(TypedDict):
+    HandshakeId: str
 
-DeclineHandshakeResponseTypeDef = TypedDict(
-    "DeclineHandshakeResponseTypeDef",
-    {
-        "Handshake": "HandshakeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeOrganizationalUnitRequestTypeDef(TypedDict):
+    OrganizationalUnitId: str
 
-DelegatedAdministratorTypeDef = TypedDict(
-    "DelegatedAdministratorTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Email": str,
-        "Name": str,
-        "Status": AccountStatusType,
-        "JoinedMethod": AccountJoinedMethodType,
-        "JoinedTimestamp": datetime,
-        "DelegationEnabledDate": datetime,
-    },
-    total=False,
-)
+class DescribePolicyRequestTypeDef(TypedDict):
+    PolicyId: str
 
-DelegatedServiceTypeDef = TypedDict(
-    "DelegatedServiceTypeDef",
-    {
-        "ServicePrincipal": str,
-        "DelegationEnabledDate": datetime,
-    },
-    total=False,
-)
+class DetachPolicyRequestTypeDef(TypedDict):
+    PolicyId: str
+    TargetId: str
 
-DeleteOrganizationalUnitRequestRequestTypeDef = TypedDict(
-    "DeleteOrganizationalUnitRequestRequestTypeDef",
-    {
-        "OrganizationalUnitId": str,
-    },
-)
+class DisableAWSServiceAccessRequestTypeDef(TypedDict):
+    ServicePrincipal: str
 
-DeletePolicyRequestRequestTypeDef = TypedDict(
-    "DeletePolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
+class DisablePolicyTypeRequestTypeDef(TypedDict):
+    RootId: str
+    PolicyType: PolicyTypeType
 
-DeregisterDelegatedAdministratorRequestRequestTypeDef = TypedDict(
-    "DeregisterDelegatedAdministratorRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "ServicePrincipal": str,
-    },
-)
+class EnableAWSServiceAccessRequestTypeDef(TypedDict):
+    ServicePrincipal: str
 
-DescribeAccountRequestRequestTypeDef = TypedDict(
-    "DescribeAccountRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-)
+class EnablePolicyTypeRequestTypeDef(TypedDict):
+    RootId: str
+    PolicyType: PolicyTypeType
 
-DescribeAccountResponseTypeDef = TypedDict(
-    "DescribeAccountResponseTypeDef",
-    {
-        "Account": "AccountTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EnabledServicePrincipalTypeDef(TypedDict):
+    ServicePrincipal: NotRequired[str]
+    DateEnabled: NotRequired[datetime]
 
-DescribeCreateAccountStatusRequestRequestTypeDef = TypedDict(
-    "DescribeCreateAccountStatusRequestRequestTypeDef",
-    {
-        "CreateAccountRequestId": str,
-    },
-)
-
-DescribeCreateAccountStatusResponseTypeDef = TypedDict(
-    "DescribeCreateAccountStatusResponseTypeDef",
-    {
-        "CreateAccountStatus": "CreateAccountStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeEffectivePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeEffectivePolicyRequestRequestTypeDef",
-    {
-        "PolicyType": EffectivePolicyTypeType,
-    },
-)
-_OptionalDescribeEffectivePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeEffectivePolicyRequestRequestTypeDef",
-    {
-        "TargetId": str,
-    },
-    total=False,
-)
-
-class DescribeEffectivePolicyRequestRequestTypeDef(
-    _RequiredDescribeEffectivePolicyRequestRequestTypeDef,
-    _OptionalDescribeEffectivePolicyRequestRequestTypeDef,
-):
-    pass
-
-DescribeEffectivePolicyResponseTypeDef = TypedDict(
-    "DescribeEffectivePolicyResponseTypeDef",
-    {
-        "EffectivePolicy": "EffectivePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeHandshakeRequestRequestTypeDef = TypedDict(
-    "DescribeHandshakeRequestRequestTypeDef",
-    {
-        "HandshakeId": str,
-    },
-)
-
-DescribeHandshakeResponseTypeDef = TypedDict(
-    "DescribeHandshakeResponseTypeDef",
-    {
-        "Handshake": "HandshakeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeOrganizationResponseTypeDef = TypedDict(
-    "DescribeOrganizationResponseTypeDef",
-    {
-        "Organization": "OrganizationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeOrganizationalUnitRequestRequestTypeDef = TypedDict(
-    "DescribeOrganizationalUnitRequestRequestTypeDef",
-    {
-        "OrganizationalUnitId": str,
-    },
-)
-
-DescribeOrganizationalUnitResponseTypeDef = TypedDict(
-    "DescribeOrganizationalUnitResponseTypeDef",
-    {
-        "OrganizationalUnit": "OrganizationalUnitTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribePolicyRequestRequestTypeDef = TypedDict(
-    "DescribePolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
-
-DescribePolicyResponseTypeDef = TypedDict(
-    "DescribePolicyResponseTypeDef",
-    {
-        "Policy": "PolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeResourcePolicyResponseTypeDef = TypedDict(
-    "DescribeResourcePolicyResponseTypeDef",
-    {
-        "ResourcePolicy": "ResourcePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetachPolicyRequestRequestTypeDef = TypedDict(
-    "DetachPolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-        "TargetId": str,
-    },
-)
-
-DisableAWSServiceAccessRequestRequestTypeDef = TypedDict(
-    "DisableAWSServiceAccessRequestRequestTypeDef",
-    {
-        "ServicePrincipal": str,
-    },
-)
-
-DisablePolicyTypeRequestRequestTypeDef = TypedDict(
-    "DisablePolicyTypeRequestRequestTypeDef",
-    {
-        "RootId": str,
-        "PolicyType": PolicyTypeType,
-    },
-)
-
-DisablePolicyTypeResponseTypeDef = TypedDict(
-    "DisablePolicyTypeResponseTypeDef",
-    {
-        "Root": "RootTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EffectivePolicyTypeDef = TypedDict(
-    "EffectivePolicyTypeDef",
-    {
-        "PolicyContent": str,
-        "LastUpdatedTimestamp": datetime,
-        "TargetId": str,
-        "PolicyType": EffectivePolicyTypeType,
-    },
-    total=False,
-)
-
-EnableAWSServiceAccessRequestRequestTypeDef = TypedDict(
-    "EnableAWSServiceAccessRequestRequestTypeDef",
-    {
-        "ServicePrincipal": str,
-    },
-)
-
-EnableAllFeaturesResponseTypeDef = TypedDict(
-    "EnableAllFeaturesResponseTypeDef",
-    {
-        "Handshake": "HandshakeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EnablePolicyTypeRequestRequestTypeDef = TypedDict(
-    "EnablePolicyTypeRequestRequestTypeDef",
-    {
-        "RootId": str,
-        "PolicyType": PolicyTypeType,
-    },
-)
-
-EnablePolicyTypeResponseTypeDef = TypedDict(
-    "EnablePolicyTypeResponseTypeDef",
-    {
-        "Root": "RootTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EnabledServicePrincipalTypeDef = TypedDict(
-    "EnabledServicePrincipalTypeDef",
-    {
-        "ServicePrincipal": str,
-        "DateEnabled": datetime,
-    },
-    total=False,
-)
-
-HandshakeFilterTypeDef = TypedDict(
-    "HandshakeFilterTypeDef",
-    {
-        "ActionType": ActionTypeType,
-        "ParentHandshakeId": str,
-    },
-    total=False,
-)
+class HandshakeFilterTypeDef(TypedDict):
+    ActionType: NotRequired[ActionTypeType]
+    ParentHandshakeId: NotRequired[str]
 
 HandshakePartyTypeDef = TypedDict(
     "HandshakePartyTypeDef",
@@ -652,712 +330,504 @@ HandshakePartyTypeDef = TypedDict(
         "Type": HandshakePartyTypeType,
     },
 )
-
+HandshakeResourcePaginatorTypeDef = TypedDict(
+    "HandshakeResourcePaginatorTypeDef",
+    {
+        "Value": NotRequired[str],
+        "Type": NotRequired[HandshakeResourceTypeType],
+        "Resources": NotRequired[List[Dict[str, Any]]],
+    },
+)
 HandshakeResourceTypeDef = TypedDict(
     "HandshakeResourceTypeDef",
     {
-        "Value": str,
-        "Type": HandshakeResourceTypeType,
-        "Resources": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-HandshakeTypeDef = TypedDict(
-    "HandshakeTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Parties": List["HandshakePartyTypeDef"],
-        "State": HandshakeStateType,
-        "RequestedTimestamp": datetime,
-        "ExpirationTimestamp": datetime,
-        "Action": ActionTypeType,
-        "Resources": List["HandshakeResourceTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredInviteAccountToOrganizationRequestRequestTypeDef = TypedDict(
-    "_RequiredInviteAccountToOrganizationRequestRequestTypeDef",
-    {
-        "Target": "HandshakePartyTypeDef",
-    },
-)
-_OptionalInviteAccountToOrganizationRequestRequestTypeDef = TypedDict(
-    "_OptionalInviteAccountToOrganizationRequestRequestTypeDef",
-    {
-        "Notes": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class InviteAccountToOrganizationRequestRequestTypeDef(
-    _RequiredInviteAccountToOrganizationRequestRequestTypeDef,
-    _OptionalInviteAccountToOrganizationRequestRequestTypeDef,
-):
-    pass
-
-InviteAccountToOrganizationResponseTypeDef = TypedDict(
-    "InviteAccountToOrganizationResponseTypeDef",
-    {
-        "Handshake": "HandshakeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Value": NotRequired[str],
+        "Type": NotRequired[HandshakeResourceTypeType],
+        "Resources": NotRequired[List[Dict[str, Any]]],
     },
 )
 
-ListAWSServiceAccessForOrganizationRequestRequestTypeDef = TypedDict(
-    "ListAWSServiceAccessForOrganizationRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListAWSServiceAccessForOrganizationResponseTypeDef = TypedDict(
-    "ListAWSServiceAccessForOrganizationResponseTypeDef",
-    {
-        "EnabledServicePrincipals": List["EnabledServicePrincipalTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAWSServiceAccessForOrganizationRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredListAccountsForParentRequestRequestTypeDef = TypedDict(
-    "_RequiredListAccountsForParentRequestRequestTypeDef",
-    {
-        "ParentId": str,
-    },
-)
-_OptionalListAccountsForParentRequestRequestTypeDef = TypedDict(
-    "_OptionalListAccountsForParentRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListAccountsForParentRequestTypeDef(TypedDict):
+    ParentId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class ListAccountsForParentRequestRequestTypeDef(
-    _RequiredListAccountsForParentRequestRequestTypeDef,
-    _OptionalListAccountsForParentRequestRequestTypeDef,
-):
-    pass
+class ListAccountsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListAccountsForParentResponseTypeDef = TypedDict(
-    "ListAccountsForParentResponseTypeDef",
-    {
-        "Accounts": List["AccountTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListChildrenRequestTypeDef(TypedDict):
+    ParentId: str
+    ChildType: ChildTypeType
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListAccountsRequestRequestTypeDef = TypedDict(
-    "ListAccountsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListCreateAccountStatusRequestTypeDef(TypedDict):
+    States: NotRequired[Sequence[CreateAccountStateType]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListAccountsResponseTypeDef = TypedDict(
-    "ListAccountsResponseTypeDef",
-    {
-        "Accounts": List["AccountTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDelegatedAdministratorsRequestTypeDef(TypedDict):
+    ServicePrincipal: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredListChildrenRequestRequestTypeDef = TypedDict(
-    "_RequiredListChildrenRequestRequestTypeDef",
-    {
-        "ParentId": str,
-        "ChildType": ChildTypeType,
-    },
-)
-_OptionalListChildrenRequestRequestTypeDef = TypedDict(
-    "_OptionalListChildrenRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListDelegatedServicesForAccountRequestTypeDef(TypedDict):
+    AccountId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class ListChildrenRequestRequestTypeDef(
-    _RequiredListChildrenRequestRequestTypeDef, _OptionalListChildrenRequestRequestTypeDef
-):
-    pass
+class ListOrganizationalUnitsForParentRequestTypeDef(TypedDict):
+    ParentId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListChildrenResponseTypeDef = TypedDict(
-    "ListChildrenResponseTypeDef",
-    {
-        "Children": List["ChildTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCreateAccountStatusRequestRequestTypeDef = TypedDict(
-    "ListCreateAccountStatusRequestRequestTypeDef",
-    {
-        "States": List[CreateAccountStateType],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListCreateAccountStatusResponseTypeDef = TypedDict(
-    "ListCreateAccountStatusResponseTypeDef",
-    {
-        "CreateAccountStatuses": List["CreateAccountStatusTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDelegatedAdministratorsRequestRequestTypeDef = TypedDict(
-    "ListDelegatedAdministratorsRequestRequestTypeDef",
-    {
-        "ServicePrincipal": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListDelegatedAdministratorsResponseTypeDef = TypedDict(
-    "ListDelegatedAdministratorsResponseTypeDef",
-    {
-        "DelegatedAdministrators": List["DelegatedAdministratorTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDelegatedServicesForAccountRequestRequestTypeDef = TypedDict(
-    "_RequiredListDelegatedServicesForAccountRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-)
-_OptionalListDelegatedServicesForAccountRequestRequestTypeDef = TypedDict(
-    "_OptionalListDelegatedServicesForAccountRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListDelegatedServicesForAccountRequestRequestTypeDef(
-    _RequiredListDelegatedServicesForAccountRequestRequestTypeDef,
-    _OptionalListDelegatedServicesForAccountRequestRequestTypeDef,
-):
-    pass
-
-ListDelegatedServicesForAccountResponseTypeDef = TypedDict(
-    "ListDelegatedServicesForAccountResponseTypeDef",
-    {
-        "DelegatedServices": List["DelegatedServiceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListHandshakesForAccountRequestRequestTypeDef = TypedDict(
-    "ListHandshakesForAccountRequestRequestTypeDef",
-    {
-        "Filter": "HandshakeFilterTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListHandshakesForAccountResponseTypeDef = TypedDict(
-    "ListHandshakesForAccountResponseTypeDef",
-    {
-        "Handshakes": List["HandshakeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListHandshakesForOrganizationRequestRequestTypeDef = TypedDict(
-    "ListHandshakesForOrganizationRequestRequestTypeDef",
-    {
-        "Filter": "HandshakeFilterTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListHandshakesForOrganizationResponseTypeDef = TypedDict(
-    "ListHandshakesForOrganizationResponseTypeDef",
-    {
-        "Handshakes": List["HandshakeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListOrganizationalUnitsForParentRequestRequestTypeDef = TypedDict(
-    "_RequiredListOrganizationalUnitsForParentRequestRequestTypeDef",
-    {
-        "ParentId": str,
-    },
-)
-_OptionalListOrganizationalUnitsForParentRequestRequestTypeDef = TypedDict(
-    "_OptionalListOrganizationalUnitsForParentRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListOrganizationalUnitsForParentRequestRequestTypeDef(
-    _RequiredListOrganizationalUnitsForParentRequestRequestTypeDef,
-    _OptionalListOrganizationalUnitsForParentRequestRequestTypeDef,
-):
-    pass
-
-ListOrganizationalUnitsForParentResponseTypeDef = TypedDict(
-    "ListOrganizationalUnitsForParentResponseTypeDef",
-    {
-        "OrganizationalUnits": List["OrganizationalUnitTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListParentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListParentsRequestRequestTypeDef",
-    {
-        "ChildId": str,
-    },
-)
-_OptionalListParentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListParentsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListParentsRequestRequestTypeDef(
-    _RequiredListParentsRequestRequestTypeDef, _OptionalListParentsRequestRequestTypeDef
-):
-    pass
-
-ListParentsResponseTypeDef = TypedDict(
-    "ListParentsResponseTypeDef",
-    {
-        "Parents": List["ParentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPoliciesForTargetRequestRequestTypeDef = TypedDict(
-    "_RequiredListPoliciesForTargetRequestRequestTypeDef",
-    {
-        "TargetId": str,
-        "Filter": PolicyTypeType,
-    },
-)
-_OptionalListPoliciesForTargetRequestRequestTypeDef = TypedDict(
-    "_OptionalListPoliciesForTargetRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListPoliciesForTargetRequestRequestTypeDef(
-    _RequiredListPoliciesForTargetRequestRequestTypeDef,
-    _OptionalListPoliciesForTargetRequestRequestTypeDef,
-):
-    pass
-
-ListPoliciesForTargetResponseTypeDef = TypedDict(
-    "ListPoliciesForTargetResponseTypeDef",
-    {
-        "Policies": List["PolicySummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPoliciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListPoliciesRequestRequestTypeDef",
-    {
-        "Filter": PolicyTypeType,
-    },
-)
-_OptionalListPoliciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListPoliciesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListPoliciesRequestRequestTypeDef(
-    _RequiredListPoliciesRequestRequestTypeDef, _OptionalListPoliciesRequestRequestTypeDef
-):
-    pass
-
-ListPoliciesResponseTypeDef = TypedDict(
-    "ListPoliciesResponseTypeDef",
-    {
-        "Policies": List["PolicySummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRootsRequestRequestTypeDef = TypedDict(
-    "ListRootsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListRootsResponseTypeDef = TypedDict(
-    "ListRootsResponseTypeDef",
-    {
-        "Roots": List["RootTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTargetsForPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredListTargetsForPolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
-_OptionalListTargetsForPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalListTargetsForPolicyRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListTargetsForPolicyRequestRequestTypeDef(
-    _RequiredListTargetsForPolicyRequestRequestTypeDef,
-    _OptionalListTargetsForPolicyRequestRequestTypeDef,
-):
-    pass
-
-ListTargetsForPolicyResponseTypeDef = TypedDict(
-    "ListTargetsForPolicyResponseTypeDef",
-    {
-        "Targets": List["PolicyTargetSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MoveAccountRequestRequestTypeDef = TypedDict(
-    "MoveAccountRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "SourceParentId": str,
-        "DestinationParentId": str,
-    },
-)
-
-OrganizationTypeDef = TypedDict(
-    "OrganizationTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "FeatureSet": OrganizationFeatureSetType,
-        "MasterAccountArn": str,
-        "MasterAccountId": str,
-        "MasterAccountEmail": str,
-        "AvailablePolicyTypes": List["PolicyTypeSummaryTypeDef"],
-    },
-    total=False,
-)
-
-OrganizationalUnitTypeDef = TypedDict(
-    "OrganizationalUnitTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListParentsRequestTypeDef(TypedDict):
+    ChildId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
 ParentTypeDef = TypedDict(
     "ParentTypeDef",
     {
-        "Id": str,
-        "Type": ParentTypeType,
+        "Id": NotRequired[str],
+        "Type": NotRequired[ParentTypeType],
     },
-    total=False,
 )
+
+class ListPoliciesForTargetRequestTypeDef(TypedDict):
+    TargetId: str
+    Filter: PolicyTypeType
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
 PolicySummaryTypeDef = TypedDict(
     "PolicySummaryTypeDef",
     {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "Description": str,
-        "Type": PolicyTypeType,
-        "AwsManaged": bool,
+        "Id": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Name": NotRequired[str],
+        "Description": NotRequired[str],
+        "Type": NotRequired[PolicyTypeType],
+        "AwsManaged": NotRequired[bool],
     },
-    total=False,
 )
+
+class ListPoliciesRequestTypeDef(TypedDict):
+    Filter: PolicyTypeType
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListRootsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    NextToken: NotRequired[str]
+
+class ListTargetsForPolicyRequestTypeDef(TypedDict):
+    PolicyId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
 PolicyTargetSummaryTypeDef = TypedDict(
     "PolicyTargetSummaryTypeDef",
     {
-        "TargetId": str,
-        "Arn": str,
-        "Name": str,
-        "Type": TargetTypeType,
+        "TargetId": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[TargetTypeType],
     },
-    total=False,
 )
 
-PolicyTypeDef = TypedDict(
-    "PolicyTypeDef",
-    {
-        "PolicySummary": "PolicySummaryTypeDef",
-        "Content": str,
-    },
-    total=False,
-)
+class MoveAccountRequestTypeDef(TypedDict):
+    AccountId: str
+    SourceParentId: str
+    DestinationParentId: str
 
 PolicyTypeSummaryTypeDef = TypedDict(
     "PolicyTypeSummaryTypeDef",
     {
-        "Type": PolicyTypeType,
-        "Status": PolicyTypeStatusType,
+        "Type": NotRequired[PolicyTypeType],
+        "Status": NotRequired[PolicyTypeStatusType],
     },
-    total=False,
 )
 
-_RequiredPutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutResourcePolicyRequestRequestTypeDef",
+class RegisterDelegatedAdministratorRequestTypeDef(TypedDict):
+    AccountId: str
+    ServicePrincipal: str
+
+class RemoveAccountFromOrganizationRequestTypeDef(TypedDict):
+    AccountId: str
+
+class ResourcePolicySummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    TagKeys: Sequence[str]
+
+class UpdateOrganizationalUnitRequestTypeDef(TypedDict):
+    OrganizationalUnitId: str
+    Name: NotRequired[str]
+
+class UpdatePolicyRequestTypeDef(TypedDict):
+    PolicyId: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Content: NotRequired[str]
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAccountResponseTypeDef(TypedDict):
+    Account: AccountTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAccountsForParentResponseTypeDef(TypedDict):
+    Accounts: List[AccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListAccountsResponseTypeDef(TypedDict):
+    Accounts: List[AccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListChildrenResponseTypeDef(TypedDict):
+    Children: List[ChildTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateAccountRequestTypeDef(TypedDict):
+    Email: str
+    AccountName: str
+    RoleName: NotRequired[str]
+    IamUserAccessToBilling: NotRequired[IAMUserAccessToBillingType]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateGovCloudAccountRequestTypeDef(TypedDict):
+    Email: str
+    AccountName: str
+    RoleName: NotRequired[str]
+    IamUserAccessToBilling: NotRequired[IAMUserAccessToBillingType]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateOrganizationalUnitRequestTypeDef(TypedDict):
+    ParentId: str
+    Name: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+CreatePolicyRequestTypeDef = TypedDict(
+    "CreatePolicyRequestTypeDef",
     {
         "Content": str,
-    },
-)
-_OptionalPutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutResourcePolicyRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutResourcePolicyRequestRequestTypeDef(
-    _RequiredPutResourcePolicyRequestRequestTypeDef, _OptionalPutResourcePolicyRequestRequestTypeDef
-):
-    pass
-
-PutResourcePolicyResponseTypeDef = TypedDict(
-    "PutResourcePolicyResponseTypeDef",
-    {
-        "ResourcePolicy": "ResourcePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RegisterDelegatedAdministratorRequestRequestTypeDef = TypedDict(
-    "RegisterDelegatedAdministratorRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "ServicePrincipal": str,
-    },
-)
-
-RemoveAccountFromOrganizationRequestRequestTypeDef = TypedDict(
-    "RemoveAccountFromOrganizationRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-)
-
-ResourcePolicySummaryTypeDef = TypedDict(
-    "ResourcePolicySummaryTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-    },
-    total=False,
-)
-
-ResourcePolicyTypeDef = TypedDict(
-    "ResourcePolicyTypeDef",
-    {
-        "ResourcePolicySummary": "ResourcePolicySummaryTypeDef",
-        "Content": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RootTypeDef = TypedDict(
-    "RootTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "PolicyTypes": List["PolicyTypeSummaryTypeDef"],
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateOrganizationalUnitRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateOrganizationalUnitRequestRequestTypeDef",
-    {
-        "OrganizationalUnitId": str,
-    },
-)
-_OptionalUpdateOrganizationalUnitRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateOrganizationalUnitRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-class UpdateOrganizationalUnitRequestRequestTypeDef(
-    _RequiredUpdateOrganizationalUnitRequestRequestTypeDef,
-    _OptionalUpdateOrganizationalUnitRequestRequestTypeDef,
-):
-    pass
-
-UpdateOrganizationalUnitResponseTypeDef = TypedDict(
-    "UpdateOrganizationalUnitResponseTypeDef",
-    {
-        "OrganizationalUnit": "OrganizationalUnitTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
-_OptionalUpdatePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePolicyRequestRequestTypeDef",
-    {
-        "Name": str,
         "Description": str,
-        "Content": str,
-    },
-    total=False,
-)
-
-class UpdatePolicyRequestRequestTypeDef(
-    _RequiredUpdatePolicyRequestRequestTypeDef, _OptionalUpdatePolicyRequestRequestTypeDef
-):
-    pass
-
-UpdatePolicyResponseTypeDef = TypedDict(
-    "UpdatePolicyResponseTypeDef",
-    {
-        "Policy": "PolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Name": str,
+        "Type": PolicyTypeType,
+        "Tags": NotRequired[Sequence[TagTypeDef]],
     },
 )
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    Content: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateAccountResponseTypeDef(TypedDict):
+    CreateAccountStatus: CreateAccountStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGovCloudAccountResponseTypeDef(TypedDict):
+    CreateAccountStatus: CreateAccountStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCreateAccountStatusResponseTypeDef(TypedDict):
+    CreateAccountStatus: CreateAccountStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCreateAccountStatusResponseTypeDef(TypedDict):
+    CreateAccountStatuses: List[CreateAccountStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateOrganizationalUnitResponseTypeDef(TypedDict):
+    OrganizationalUnit: OrganizationalUnitTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeOrganizationalUnitResponseTypeDef(TypedDict):
+    OrganizationalUnit: OrganizationalUnitTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListOrganizationalUnitsForParentResponseTypeDef(TypedDict):
+    OrganizationalUnits: List[OrganizationalUnitTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateOrganizationalUnitResponseTypeDef(TypedDict):
+    OrganizationalUnit: OrganizationalUnitTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDelegatedAdministratorsResponseTypeDef(TypedDict):
+    DelegatedAdministrators: List[DelegatedAdministratorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDelegatedServicesForAccountResponseTypeDef(TypedDict):
+    DelegatedServices: List[DelegatedServiceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeEffectivePolicyResponseTypeDef(TypedDict):
+    EffectivePolicy: EffectivePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAWSServiceAccessForOrganizationResponseTypeDef(TypedDict):
+    EnabledServicePrincipals: List[EnabledServicePrincipalTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListHandshakesForAccountRequestTypeDef(TypedDict):
+    Filter: NotRequired[HandshakeFilterTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListHandshakesForOrganizationRequestTypeDef(TypedDict):
+    Filter: NotRequired[HandshakeFilterTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class InviteAccountToOrganizationRequestTypeDef(TypedDict):
+    Target: HandshakePartyTypeDef
+    Notes: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class HandshakePaginatorTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Parties: NotRequired[List[HandshakePartyTypeDef]]
+    State: NotRequired[HandshakeStateType]
+    RequestedTimestamp: NotRequired[datetime]
+    ExpirationTimestamp: NotRequired[datetime]
+    Action: NotRequired[ActionTypeType]
+    Resources: NotRequired[List[HandshakeResourcePaginatorTypeDef]]
+
+class HandshakeTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Parties: NotRequired[List[HandshakePartyTypeDef]]
+    State: NotRequired[HandshakeStateType]
+    RequestedTimestamp: NotRequired[datetime]
+    ExpirationTimestamp: NotRequired[datetime]
+    Action: NotRequired[ActionTypeType]
+    Resources: NotRequired[List[HandshakeResourceTypeDef]]
+
+class ListAWSServiceAccessForOrganizationRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAccountsForParentRequestPaginateTypeDef(TypedDict):
+    ParentId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAccountsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListChildrenRequestPaginateTypeDef(TypedDict):
+    ParentId: str
+    ChildType: ChildTypeType
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCreateAccountStatusRequestPaginateTypeDef(TypedDict):
+    States: NotRequired[Sequence[CreateAccountStateType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDelegatedAdministratorsRequestPaginateTypeDef(TypedDict):
+    ServicePrincipal: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDelegatedServicesForAccountRequestPaginateTypeDef(TypedDict):
+    AccountId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListHandshakesForAccountRequestPaginateTypeDef(TypedDict):
+    Filter: NotRequired[HandshakeFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListHandshakesForOrganizationRequestPaginateTypeDef(TypedDict):
+    Filter: NotRequired[HandshakeFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrganizationalUnitsForParentRequestPaginateTypeDef(TypedDict):
+    ParentId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListParentsRequestPaginateTypeDef(TypedDict):
+    ChildId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPoliciesForTargetRequestPaginateTypeDef(TypedDict):
+    TargetId: str
+    Filter: PolicyTypeType
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPoliciesRequestPaginateTypeDef(TypedDict):
+    Filter: PolicyTypeType
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRootsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    ResourceId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTargetsForPolicyRequestPaginateTypeDef(TypedDict):
+    PolicyId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListParentsResponseTypeDef(TypedDict):
+    Parents: List[ParentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPoliciesForTargetResponseTypeDef(TypedDict):
+    Policies: List[PolicySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPoliciesResponseTypeDef(TypedDict):
+    Policies: List[PolicySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PolicyTypeDef(TypedDict):
+    PolicySummary: NotRequired[PolicySummaryTypeDef]
+    Content: NotRequired[str]
+
+class ListTargetsForPolicyResponseTypeDef(TypedDict):
+    Targets: List[PolicyTargetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class OrganizationTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    FeatureSet: NotRequired[OrganizationFeatureSetType]
+    MasterAccountArn: NotRequired[str]
+    MasterAccountId: NotRequired[str]
+    MasterAccountEmail: NotRequired[str]
+    AvailablePolicyTypes: NotRequired[List[PolicyTypeSummaryTypeDef]]
+
+class RootTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    PolicyTypes: NotRequired[List[PolicyTypeSummaryTypeDef]]
+
+class ResourcePolicyTypeDef(TypedDict):
+    ResourcePolicySummary: NotRequired[ResourcePolicySummaryTypeDef]
+    Content: NotRequired[str]
+
+class ListHandshakesForAccountResponsePaginatorTypeDef(TypedDict):
+    Handshakes: List[HandshakePaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListHandshakesForOrganizationResponsePaginatorTypeDef(TypedDict):
+    Handshakes: List[HandshakePaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AcceptHandshakeResponseTypeDef(TypedDict):
+    Handshake: HandshakeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelHandshakeResponseTypeDef(TypedDict):
+    Handshake: HandshakeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeclineHandshakeResponseTypeDef(TypedDict):
+    Handshake: HandshakeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeHandshakeResponseTypeDef(TypedDict):
+    Handshake: HandshakeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EnableAllFeaturesResponseTypeDef(TypedDict):
+    Handshake: HandshakeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InviteAccountToOrganizationResponseTypeDef(TypedDict):
+    Handshake: HandshakeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListHandshakesForAccountResponseTypeDef(TypedDict):
+    Handshakes: List[HandshakeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListHandshakesForOrganizationResponseTypeDef(TypedDict):
+    Handshakes: List[HandshakeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreatePolicyResponseTypeDef(TypedDict):
+    Policy: PolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePolicyResponseTypeDef(TypedDict):
+    Policy: PolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePolicyResponseTypeDef(TypedDict):
+    Policy: PolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateOrganizationResponseTypeDef(TypedDict):
+    Organization: OrganizationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeOrganizationResponseTypeDef(TypedDict):
+    Organization: OrganizationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisablePolicyTypeResponseTypeDef(TypedDict):
+    Root: RootTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EnablePolicyTypeResponseTypeDef(TypedDict):
+    Root: RootTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRootsResponseTypeDef(TypedDict):
+    Roots: List[RootTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeResourcePolicyResponseTypeDef(TypedDict):
+    ResourcePolicy: ResourcePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResourcePolicyResponseTypeDef(TypedDict):
+    ResourcePolicy: ResourcePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

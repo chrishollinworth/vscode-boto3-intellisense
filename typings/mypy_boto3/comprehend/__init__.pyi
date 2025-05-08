@@ -1,10 +1,14 @@
 """
 Main interface for comprehend service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_comprehend import (
         Client,
         ComprehendClient,
@@ -20,10 +24,8 @@ Usage::
         ListTopicsDetectionJobsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ComprehendClient = boto3.client("comprehend")
-    session_client: ComprehendClient = session.client("comprehend")
+    session = Session()
+    client: ComprehendClient = session.client("comprehend")
 
     list_document_classification_jobs_paginator: ListDocumentClassificationJobsPaginator = client.get_paginator("list_document_classification_jobs")
     list_document_classifiers_paginator: ListDocumentClassifiersPaginator = client.get_paginator("list_document_classifiers")

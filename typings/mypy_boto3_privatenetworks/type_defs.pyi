@@ -1,20 +1,24 @@
 """
 Type annotations for privatenetworks service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_privatenetworks.type_defs import AcknowledgeOrderReceiptRequestRequestTypeDef
+    from mypy_boto3_privatenetworks.type_defs import AcknowledgeOrderReceiptRequestTypeDef
 
-    data: AcknowledgeOrderReceiptRequestRequestTypeDef = {...}
+    data: AcknowledgeOrderReceiptRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AcknowledgmentStatusType,
@@ -32,61 +36,69 @@ from .literals import (
     UpdateTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AcknowledgeOrderReceiptRequestRequestTypeDef",
+    "AcknowledgeOrderReceiptRequestTypeDef",
     "AcknowledgeOrderReceiptResponseTypeDef",
-    "ActivateDeviceIdentifierRequestRequestTypeDef",
+    "ActivateDeviceIdentifierRequestTypeDef",
     "ActivateDeviceIdentifierResponseTypeDef",
-    "ActivateNetworkSiteRequestRequestTypeDef",
+    "ActivateNetworkSiteRequestTypeDef",
     "ActivateNetworkSiteResponseTypeDef",
     "AddressTypeDef",
     "CommitmentConfigurationTypeDef",
     "CommitmentInformationTypeDef",
-    "ConfigureAccessPointRequestRequestTypeDef",
+    "ConfigureAccessPointRequestTypeDef",
     "ConfigureAccessPointResponseTypeDef",
-    "CreateNetworkRequestRequestTypeDef",
+    "CreateNetworkRequestTypeDef",
     "CreateNetworkResponseTypeDef",
-    "CreateNetworkSiteRequestRequestTypeDef",
+    "CreateNetworkSiteRequestTypeDef",
     "CreateNetworkSiteResponseTypeDef",
-    "DeactivateDeviceIdentifierRequestRequestTypeDef",
+    "DeactivateDeviceIdentifierRequestTypeDef",
     "DeactivateDeviceIdentifierResponseTypeDef",
-    "DeleteNetworkRequestRequestTypeDef",
+    "DeleteNetworkRequestTypeDef",
     "DeleteNetworkResponseTypeDef",
-    "DeleteNetworkSiteRequestRequestTypeDef",
+    "DeleteNetworkSiteRequestTypeDef",
     "DeleteNetworkSiteResponseTypeDef",
     "DeviceIdentifierTypeDef",
-    "GetDeviceIdentifierRequestRequestTypeDef",
+    "GetDeviceIdentifierRequestTypeDef",
     "GetDeviceIdentifierResponseTypeDef",
-    "GetNetworkRequestRequestTypeDef",
-    "GetNetworkResourceRequestRequestTypeDef",
+    "GetNetworkRequestTypeDef",
+    "GetNetworkResourceRequestTypeDef",
     "GetNetworkResourceResponseTypeDef",
     "GetNetworkResponseTypeDef",
-    "GetNetworkSiteRequestRequestTypeDef",
+    "GetNetworkSiteRequestTypeDef",
     "GetNetworkSiteResponseTypeDef",
-    "GetOrderRequestRequestTypeDef",
+    "GetOrderRequestTypeDef",
     "GetOrderResponseTypeDef",
-    "ListDeviceIdentifiersRequestRequestTypeDef",
+    "ListDeviceIdentifiersRequestPaginateTypeDef",
+    "ListDeviceIdentifiersRequestTypeDef",
     "ListDeviceIdentifiersResponseTypeDef",
-    "ListNetworkResourcesRequestRequestTypeDef",
+    "ListNetworkResourcesRequestPaginateTypeDef",
+    "ListNetworkResourcesRequestTypeDef",
     "ListNetworkResourcesResponseTypeDef",
-    "ListNetworkSitesRequestRequestTypeDef",
+    "ListNetworkSitesRequestPaginateTypeDef",
+    "ListNetworkSitesRequestTypeDef",
     "ListNetworkSitesResponseTypeDef",
-    "ListNetworksRequestRequestTypeDef",
+    "ListNetworksRequestPaginateTypeDef",
+    "ListNetworksRequestTypeDef",
     "ListNetworksResponseTypeDef",
-    "ListOrdersRequestRequestTypeDef",
+    "ListOrdersRequestPaginateTypeDef",
+    "ListOrdersRequestTypeDef",
     "ListOrdersResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NameValuePairTypeDef",
+    "NetworkResourceDefinitionOutputTypeDef",
     "NetworkResourceDefinitionTypeDef",
     "NetworkResourceTypeDef",
     "NetworkSiteTypeDef",
@@ -98,880 +110,420 @@ __all__ = (
     "PositionTypeDef",
     "ResponseMetadataTypeDef",
     "ReturnInformationTypeDef",
+    "SitePlanOutputTypeDef",
     "SitePlanTypeDef",
-    "StartNetworkResourceUpdateRequestRequestTypeDef",
+    "SitePlanUnionTypeDef",
+    "StartNetworkResourceUpdateRequestTypeDef",
     "StartNetworkResourceUpdateResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TrackingInformationTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateNetworkSitePlanRequestRequestTypeDef",
-    "UpdateNetworkSiteRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateNetworkSitePlanRequestTypeDef",
+    "UpdateNetworkSiteRequestTypeDef",
     "UpdateNetworkSiteResponseTypeDef",
 )
 
-AcknowledgeOrderReceiptRequestRequestTypeDef = TypedDict(
-    "AcknowledgeOrderReceiptRequestRequestTypeDef",
-    {
-        "orderArn": str,
-    },
-)
+class AcknowledgeOrderReceiptRequestTypeDef(TypedDict):
+    orderArn: str
 
-AcknowledgeOrderReceiptResponseTypeDef = TypedDict(
-    "AcknowledgeOrderReceiptResponseTypeDef",
-    {
-        "order": "OrderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredActivateDeviceIdentifierRequestRequestTypeDef = TypedDict(
-    "_RequiredActivateDeviceIdentifierRequestRequestTypeDef",
-    {
-        "deviceIdentifierArn": str,
-    },
-)
-_OptionalActivateDeviceIdentifierRequestRequestTypeDef = TypedDict(
-    "_OptionalActivateDeviceIdentifierRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class ActivateDeviceIdentifierRequestTypeDef(TypedDict):
+    deviceIdentifierArn: str
+    clientToken: NotRequired[str]
 
-class ActivateDeviceIdentifierRequestRequestTypeDef(
-    _RequiredActivateDeviceIdentifierRequestRequestTypeDef,
-    _OptionalActivateDeviceIdentifierRequestRequestTypeDef,
-):
-    pass
+class DeviceIdentifierTypeDef(TypedDict):
+    createdAt: NotRequired[datetime]
+    deviceIdentifierArn: NotRequired[str]
+    iccid: NotRequired[str]
+    imsi: NotRequired[str]
+    networkArn: NotRequired[str]
+    orderArn: NotRequired[str]
+    status: NotRequired[DeviceIdentifierStatusType]
+    trafficGroupArn: NotRequired[str]
+    vendor: NotRequired[str]
 
-ActivateDeviceIdentifierResponseTypeDef = TypedDict(
-    "ActivateDeviceIdentifierResponseTypeDef",
-    {
-        "deviceIdentifier": "DeviceIdentifierTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AddressTypeDef(TypedDict):
+    city: str
+    country: str
+    name: str
+    postalCode: str
+    stateOrProvince: str
+    street1: str
+    company: NotRequired[str]
+    emailAddress: NotRequired[str]
+    phoneNumber: NotRequired[str]
+    street2: NotRequired[str]
+    street3: NotRequired[str]
 
-_RequiredActivateNetworkSiteRequestRequestTypeDef = TypedDict(
-    "_RequiredActivateNetworkSiteRequestRequestTypeDef",
-    {
-        "networkSiteArn": str,
-        "shippingAddress": "AddressTypeDef",
-    },
-)
-_OptionalActivateNetworkSiteRequestRequestTypeDef = TypedDict(
-    "_OptionalActivateNetworkSiteRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "commitmentConfiguration": "CommitmentConfigurationTypeDef",
-    },
-    total=False,
-)
+class CommitmentConfigurationTypeDef(TypedDict):
+    automaticRenewal: bool
+    commitmentLength: CommitmentLengthType
 
-class ActivateNetworkSiteRequestRequestTypeDef(
-    _RequiredActivateNetworkSiteRequestRequestTypeDef,
-    _OptionalActivateNetworkSiteRequestRequestTypeDef,
-):
-    pass
+class PositionTypeDef(TypedDict):
+    elevation: NotRequired[float]
+    elevationReference: NotRequired[ElevationReferenceType]
+    elevationUnit: NotRequired[Literal["FEET"]]
+    latitude: NotRequired[float]
+    longitude: NotRequired[float]
 
-ActivateNetworkSiteResponseTypeDef = TypedDict(
-    "ActivateNetworkSiteResponseTypeDef",
-    {
-        "networkSite": "NetworkSiteTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateNetworkRequestTypeDef(TypedDict):
+    networkName: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredAddressTypeDef = TypedDict(
-    "_RequiredAddressTypeDef",
-    {
-        "city": str,
-        "country": str,
-        "name": str,
-        "postalCode": str,
-        "stateOrProvince": str,
-        "street1": str,
-    },
-)
-_OptionalAddressTypeDef = TypedDict(
-    "_OptionalAddressTypeDef",
-    {
-        "company": str,
-        "emailAddress": str,
-        "phoneNumber": str,
-        "street2": str,
-        "street3": str,
-    },
-    total=False,
-)
+class NetworkTypeDef(TypedDict):
+    networkArn: str
+    networkName: str
+    status: NetworkStatusType
+    createdAt: NotRequired[datetime]
+    description: NotRequired[str]
+    statusReason: NotRequired[str]
 
-class AddressTypeDef(_RequiredAddressTypeDef, _OptionalAddressTypeDef):
-    pass
+class DeactivateDeviceIdentifierRequestTypeDef(TypedDict):
+    deviceIdentifierArn: str
+    clientToken: NotRequired[str]
 
-CommitmentConfigurationTypeDef = TypedDict(
-    "CommitmentConfigurationTypeDef",
-    {
-        "automaticRenewal": bool,
-        "commitmentLength": CommitmentLengthType,
-    },
-)
+class DeleteNetworkRequestTypeDef(TypedDict):
+    networkArn: str
+    clientToken: NotRequired[str]
 
-_RequiredCommitmentInformationTypeDef = TypedDict(
-    "_RequiredCommitmentInformationTypeDef",
-    {
-        "commitmentConfiguration": "CommitmentConfigurationTypeDef",
-    },
-)
-_OptionalCommitmentInformationTypeDef = TypedDict(
-    "_OptionalCommitmentInformationTypeDef",
-    {
-        "expiresOn": datetime,
-        "startAt": datetime,
-    },
-    total=False,
-)
+class DeleteNetworkSiteRequestTypeDef(TypedDict):
+    networkSiteArn: str
+    clientToken: NotRequired[str]
 
-class CommitmentInformationTypeDef(
-    _RequiredCommitmentInformationTypeDef, _OptionalCommitmentInformationTypeDef
-):
-    pass
+class GetDeviceIdentifierRequestTypeDef(TypedDict):
+    deviceIdentifierArn: str
 
-_RequiredConfigureAccessPointRequestRequestTypeDef = TypedDict(
-    "_RequiredConfigureAccessPointRequestRequestTypeDef",
-    {
-        "accessPointArn": str,
-    },
-)
-_OptionalConfigureAccessPointRequestRequestTypeDef = TypedDict(
-    "_OptionalConfigureAccessPointRequestRequestTypeDef",
-    {
-        "cpiSecretKey": str,
-        "cpiUserId": str,
-        "cpiUserPassword": str,
-        "cpiUsername": str,
-        "position": "PositionTypeDef",
-    },
-    total=False,
-)
+class GetNetworkRequestTypeDef(TypedDict):
+    networkArn: str
 
-class ConfigureAccessPointRequestRequestTypeDef(
-    _RequiredConfigureAccessPointRequestRequestTypeDef,
-    _OptionalConfigureAccessPointRequestRequestTypeDef,
-):
-    pass
+class GetNetworkResourceRequestTypeDef(TypedDict):
+    networkResourceArn: str
 
-ConfigureAccessPointResponseTypeDef = TypedDict(
-    "ConfigureAccessPointResponseTypeDef",
-    {
-        "accessPoint": "NetworkResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetNetworkSiteRequestTypeDef(TypedDict):
+    networkSiteArn: str
 
-_RequiredCreateNetworkRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateNetworkRequestRequestTypeDef",
-    {
-        "networkName": str,
-    },
-)
-_OptionalCreateNetworkRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateNetworkRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class GetOrderRequestTypeDef(TypedDict):
+    orderArn: str
 
-class CreateNetworkRequestRequestTypeDef(
-    _RequiredCreateNetworkRequestRequestTypeDef, _OptionalCreateNetworkRequestRequestTypeDef
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-CreateNetworkResponseTypeDef = TypedDict(
-    "CreateNetworkResponseTypeDef",
-    {
-        "network": "NetworkTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDeviceIdentifiersRequestTypeDef(TypedDict):
+    networkArn: str
+    filters: NotRequired[Mapping[DeviceIdentifierFilterKeysType, Sequence[str]]]
+    maxResults: NotRequired[int]
+    startToken: NotRequired[str]
 
-_RequiredCreateNetworkSiteRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateNetworkSiteRequestRequestTypeDef",
-    {
-        "networkArn": str,
-        "networkSiteName": str,
-    },
-)
-_OptionalCreateNetworkSiteRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateNetworkSiteRequestRequestTypeDef",
-    {
-        "availabilityZone": str,
-        "availabilityZoneId": str,
-        "clientToken": str,
-        "description": str,
-        "pendingPlan": "SitePlanTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class ListNetworkResourcesRequestTypeDef(TypedDict):
+    networkArn: str
+    filters: NotRequired[Mapping[NetworkResourceFilterKeysType, Sequence[str]]]
+    maxResults: NotRequired[int]
+    startToken: NotRequired[str]
 
-class CreateNetworkSiteRequestRequestTypeDef(
-    _RequiredCreateNetworkSiteRequestRequestTypeDef, _OptionalCreateNetworkSiteRequestRequestTypeDef
-):
-    pass
+class ListNetworkSitesRequestTypeDef(TypedDict):
+    networkArn: str
+    filters: NotRequired[Mapping[Literal["STATUS"], Sequence[str]]]
+    maxResults: NotRequired[int]
+    startToken: NotRequired[str]
 
-CreateNetworkSiteResponseTypeDef = TypedDict(
-    "CreateNetworkSiteResponseTypeDef",
-    {
-        "networkSite": "NetworkSiteTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListNetworksRequestTypeDef(TypedDict):
+    filters: NotRequired[Mapping[Literal["STATUS"], Sequence[str]]]
+    maxResults: NotRequired[int]
+    startToken: NotRequired[str]
 
-_RequiredDeactivateDeviceIdentifierRequestRequestTypeDef = TypedDict(
-    "_RequiredDeactivateDeviceIdentifierRequestRequestTypeDef",
-    {
-        "deviceIdentifierArn": str,
-    },
-)
-_OptionalDeactivateDeviceIdentifierRequestRequestTypeDef = TypedDict(
-    "_OptionalDeactivateDeviceIdentifierRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class ListOrdersRequestTypeDef(TypedDict):
+    networkArn: str
+    filters: NotRequired[Mapping[OrderFilterKeysType, Sequence[str]]]
+    maxResults: NotRequired[int]
+    startToken: NotRequired[str]
 
-class DeactivateDeviceIdentifierRequestRequestTypeDef(
-    _RequiredDeactivateDeviceIdentifierRequestRequestTypeDef,
-    _OptionalDeactivateDeviceIdentifierRequestRequestTypeDef,
-):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-DeactivateDeviceIdentifierResponseTypeDef = TypedDict(
-    "DeactivateDeviceIdentifierResponseTypeDef",
-    {
-        "deviceIdentifier": "DeviceIdentifierTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class NameValuePairTypeDef(TypedDict):
+    name: str
+    value: NotRequired[str]
 
-_RequiredDeleteNetworkRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteNetworkRequestRequestTypeDef",
-    {
-        "networkArn": str,
-    },
-)
-_OptionalDeleteNetworkRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteNetworkRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class TrackingInformationTypeDef(TypedDict):
+    trackingNumber: NotRequired[str]
 
-class DeleteNetworkRequestRequestTypeDef(
-    _RequiredDeleteNetworkRequestRequestTypeDef, _OptionalDeleteNetworkRequestRequestTypeDef
-):
-    pass
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-DeleteNetworkResponseTypeDef = TypedDict(
-    "DeleteNetworkResponseTypeDef",
-    {
-        "network": "NetworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-_RequiredDeleteNetworkSiteRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteNetworkSiteRequestRequestTypeDef",
-    {
-        "networkSiteArn": str,
-    },
-)
-_OptionalDeleteNetworkSiteRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteNetworkSiteRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class UpdateNetworkSiteRequestTypeDef(TypedDict):
+    networkSiteArn: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
 
-class DeleteNetworkSiteRequestRequestTypeDef(
-    _RequiredDeleteNetworkSiteRequestRequestTypeDef, _OptionalDeleteNetworkSiteRequestRequestTypeDef
-):
-    pass
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteNetworkSiteResponseTypeDef = TypedDict(
-    "DeleteNetworkSiteResponseTypeDef",
-    {
-        "networkSite": "NetworkSiteTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PingResponseTypeDef(TypedDict):
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeviceIdentifierTypeDef = TypedDict(
-    "DeviceIdentifierTypeDef",
-    {
-        "createdAt": datetime,
-        "deviceIdentifierArn": str,
-        "iccid": str,
-        "imsi": str,
-        "networkArn": str,
-        "orderArn": str,
-        "status": DeviceIdentifierStatusType,
-        "trafficGroupArn": str,
-        "vendor": str,
-    },
-    total=False,
-)
+class ActivateDeviceIdentifierResponseTypeDef(TypedDict):
+    deviceIdentifier: DeviceIdentifierTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetDeviceIdentifierRequestRequestTypeDef = TypedDict(
-    "GetDeviceIdentifierRequestRequestTypeDef",
-    {
-        "deviceIdentifierArn": str,
-    },
-)
+class DeactivateDeviceIdentifierResponseTypeDef(TypedDict):
+    deviceIdentifier: DeviceIdentifierTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetDeviceIdentifierResponseTypeDef = TypedDict(
-    "GetDeviceIdentifierResponseTypeDef",
-    {
-        "deviceIdentifier": "DeviceIdentifierTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetDeviceIdentifierResponseTypeDef(TypedDict):
+    deviceIdentifier: DeviceIdentifierTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetNetworkRequestRequestTypeDef = TypedDict(
-    "GetNetworkRequestRequestTypeDef",
-    {
-        "networkArn": str,
-    },
-)
+class ListDeviceIdentifiersResponseTypeDef(TypedDict):
+    deviceIdentifiers: List[DeviceIdentifierTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-GetNetworkResourceRequestRequestTypeDef = TypedDict(
-    "GetNetworkResourceRequestRequestTypeDef",
-    {
-        "networkResourceArn": str,
-    },
-)
+class ReturnInformationTypeDef(TypedDict):
+    replacementOrderArn: NotRequired[str]
+    returnReason: NotRequired[str]
+    shippingAddress: NotRequired[AddressTypeDef]
+    shippingLabel: NotRequired[str]
 
-GetNetworkResourceResponseTypeDef = TypedDict(
-    "GetNetworkResourceResponseTypeDef",
-    {
-        "networkResource": "NetworkResourceTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ActivateNetworkSiteRequestTypeDef(TypedDict):
+    networkSiteArn: str
+    shippingAddress: AddressTypeDef
+    clientToken: NotRequired[str]
+    commitmentConfiguration: NotRequired[CommitmentConfigurationTypeDef]
 
-GetNetworkResponseTypeDef = TypedDict(
-    "GetNetworkResponseTypeDef",
-    {
-        "network": "NetworkTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CommitmentInformationTypeDef(TypedDict):
+    commitmentConfiguration: CommitmentConfigurationTypeDef
+    expiresOn: NotRequired[datetime]
+    startAt: NotRequired[datetime]
 
-GetNetworkSiteRequestRequestTypeDef = TypedDict(
-    "GetNetworkSiteRequestRequestTypeDef",
-    {
-        "networkSiteArn": str,
-    },
-)
-
-GetNetworkSiteResponseTypeDef = TypedDict(
-    "GetNetworkSiteResponseTypeDef",
-    {
-        "networkSite": "NetworkSiteTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOrderRequestRequestTypeDef = TypedDict(
-    "GetOrderRequestRequestTypeDef",
-    {
-        "orderArn": str,
-    },
-)
-
-GetOrderResponseTypeDef = TypedDict(
-    "GetOrderResponseTypeDef",
-    {
-        "order": "OrderTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDeviceIdentifiersRequestRequestTypeDef = TypedDict(
-    "_RequiredListDeviceIdentifiersRequestRequestTypeDef",
-    {
-        "networkArn": str,
-    },
-)
-_OptionalListDeviceIdentifiersRequestRequestTypeDef = TypedDict(
-    "_OptionalListDeviceIdentifiersRequestRequestTypeDef",
-    {
-        "filters": Dict[DeviceIdentifierFilterKeysType, List[str]],
-        "maxResults": int,
-        "startToken": str,
-    },
-    total=False,
-)
-
-class ListDeviceIdentifiersRequestRequestTypeDef(
-    _RequiredListDeviceIdentifiersRequestRequestTypeDef,
-    _OptionalListDeviceIdentifiersRequestRequestTypeDef,
-):
-    pass
-
-ListDeviceIdentifiersResponseTypeDef = TypedDict(
-    "ListDeviceIdentifiersResponseTypeDef",
-    {
-        "deviceIdentifiers": List["DeviceIdentifierTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListNetworkResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListNetworkResourcesRequestRequestTypeDef",
-    {
-        "networkArn": str,
-    },
-)
-_OptionalListNetworkResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListNetworkResourcesRequestRequestTypeDef",
-    {
-        "filters": Dict[NetworkResourceFilterKeysType, List[str]],
-        "maxResults": int,
-        "startToken": str,
-    },
-    total=False,
-)
-
-class ListNetworkResourcesRequestRequestTypeDef(
-    _RequiredListNetworkResourcesRequestRequestTypeDef,
-    _OptionalListNetworkResourcesRequestRequestTypeDef,
-):
-    pass
-
-ListNetworkResourcesResponseTypeDef = TypedDict(
-    "ListNetworkResourcesResponseTypeDef",
-    {
-        "networkResources": List["NetworkResourceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListNetworkSitesRequestRequestTypeDef = TypedDict(
-    "_RequiredListNetworkSitesRequestRequestTypeDef",
-    {
-        "networkArn": str,
-    },
-)
-_OptionalListNetworkSitesRequestRequestTypeDef = TypedDict(
-    "_OptionalListNetworkSitesRequestRequestTypeDef",
-    {
-        "filters": Dict[Literal["STATUS"], List[str]],
-        "maxResults": int,
-        "startToken": str,
-    },
-    total=False,
-)
-
-class ListNetworkSitesRequestRequestTypeDef(
-    _RequiredListNetworkSitesRequestRequestTypeDef, _OptionalListNetworkSitesRequestRequestTypeDef
-):
-    pass
-
-ListNetworkSitesResponseTypeDef = TypedDict(
-    "ListNetworkSitesResponseTypeDef",
-    {
-        "networkSites": List["NetworkSiteTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListNetworksRequestRequestTypeDef = TypedDict(
-    "ListNetworksRequestRequestTypeDef",
-    {
-        "filters": Dict[Literal["STATUS"], List[str]],
-        "maxResults": int,
-        "startToken": str,
-    },
-    total=False,
-)
-
-ListNetworksResponseTypeDef = TypedDict(
-    "ListNetworksResponseTypeDef",
-    {
-        "networks": List["NetworkTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListOrdersRequestRequestTypeDef = TypedDict(
-    "_RequiredListOrdersRequestRequestTypeDef",
-    {
-        "networkArn": str,
-    },
-)
-_OptionalListOrdersRequestRequestTypeDef = TypedDict(
-    "_OptionalListOrdersRequestRequestTypeDef",
-    {
-        "filters": Dict[OrderFilterKeysType, List[str]],
-        "maxResults": int,
-        "startToken": str,
-    },
-    total=False,
-)
-
-class ListOrdersRequestRequestTypeDef(
-    _RequiredListOrdersRequestRequestTypeDef, _OptionalListOrdersRequestRequestTypeDef
-):
-    pass
-
-ListOrdersResponseTypeDef = TypedDict(
-    "ListOrdersResponseTypeDef",
-    {
-        "nextToken": str,
-        "orders": List["OrderTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredNameValuePairTypeDef = TypedDict(
-    "_RequiredNameValuePairTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalNameValuePairTypeDef = TypedDict(
-    "_OptionalNameValuePairTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-class NameValuePairTypeDef(_RequiredNameValuePairTypeDef, _OptionalNameValuePairTypeDef):
-    pass
-
-_RequiredNetworkResourceDefinitionTypeDef = TypedDict(
-    "_RequiredNetworkResourceDefinitionTypeDef",
+OrderedResourceDefinitionTypeDef = TypedDict(
+    "OrderedResourceDefinitionTypeDef",
     {
         "count": int,
         "type": NetworkResourceDefinitionTypeType,
+        "commitmentConfiguration": NotRequired[CommitmentConfigurationTypeDef],
     },
 )
-_OptionalNetworkResourceDefinitionTypeDef = TypedDict(
-    "_OptionalNetworkResourceDefinitionTypeDef",
+
+class StartNetworkResourceUpdateRequestTypeDef(TypedDict):
+    networkResourceArn: str
+    updateType: UpdateTypeType
+    commitmentConfiguration: NotRequired[CommitmentConfigurationTypeDef]
+    returnReason: NotRequired[str]
+    shippingAddress: NotRequired[AddressTypeDef]
+
+class ConfigureAccessPointRequestTypeDef(TypedDict):
+    accessPointArn: str
+    cpiSecretKey: NotRequired[str]
+    cpiUserId: NotRequired[str]
+    cpiUserPassword: NotRequired[str]
+    cpiUsername: NotRequired[str]
+    position: NotRequired[PositionTypeDef]
+
+class CreateNetworkResponseTypeDef(TypedDict):
+    network: NetworkTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteNetworkResponseTypeDef(TypedDict):
+    network: NetworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNetworkResponseTypeDef(TypedDict):
+    network: NetworkTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListNetworksResponseTypeDef(TypedDict):
+    networks: List[NetworkTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDeviceIdentifiersRequestPaginateTypeDef(TypedDict):
+    networkArn: str
+    filters: NotRequired[Mapping[DeviceIdentifierFilterKeysType, Sequence[str]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNetworkResourcesRequestPaginateTypeDef(TypedDict):
+    networkArn: str
+    filters: NotRequired[Mapping[NetworkResourceFilterKeysType, Sequence[str]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNetworkSitesRequestPaginateTypeDef(TypedDict):
+    networkArn: str
+    filters: NotRequired[Mapping[Literal["STATUS"], Sequence[str]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNetworksRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Mapping[Literal["STATUS"], Sequence[str]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrdersRequestPaginateTypeDef(TypedDict):
+    networkArn: str
+    filters: NotRequired[Mapping[OrderFilterKeysType, Sequence[str]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+NetworkResourceDefinitionOutputTypeDef = TypedDict(
+    "NetworkResourceDefinitionOutputTypeDef",
     {
-        "options": List["NameValuePairTypeDef"],
+        "count": int,
+        "type": NetworkResourceDefinitionTypeType,
+        "options": NotRequired[List[NameValuePairTypeDef]],
     },
-    total=False,
 )
-
-class NetworkResourceDefinitionTypeDef(
-    _RequiredNetworkResourceDefinitionTypeDef, _OptionalNetworkResourceDefinitionTypeDef
-):
-    pass
-
+NetworkResourceDefinitionTypeDef = TypedDict(
+    "NetworkResourceDefinitionTypeDef",
+    {
+        "count": int,
+        "type": NetworkResourceDefinitionTypeType,
+        "options": NotRequired[Sequence[NameValuePairTypeDef]],
+    },
+)
 NetworkResourceTypeDef = TypedDict(
     "NetworkResourceTypeDef",
     {
-        "attributes": List["NameValuePairTypeDef"],
-        "commitmentInformation": "CommitmentInformationTypeDef",
-        "createdAt": datetime,
-        "description": str,
-        "health": HealthStatusType,
-        "model": str,
-        "networkArn": str,
-        "networkResourceArn": str,
-        "networkSiteArn": str,
-        "orderArn": str,
-        "position": "PositionTypeDef",
-        "returnInformation": "ReturnInformationTypeDef",
-        "serialNumber": str,
-        "status": NetworkResourceStatusType,
-        "statusReason": str,
-        "type": Literal["RADIO_UNIT"],
-        "vendor": str,
-    },
-    total=False,
-)
-
-_RequiredNetworkSiteTypeDef = TypedDict(
-    "_RequiredNetworkSiteTypeDef",
-    {
-        "networkArn": str,
-        "networkSiteArn": str,
-        "networkSiteName": str,
-        "status": NetworkSiteStatusType,
-    },
-)
-_OptionalNetworkSiteTypeDef = TypedDict(
-    "_OptionalNetworkSiteTypeDef",
-    {
-        "availabilityZone": str,
-        "availabilityZoneId": str,
-        "createdAt": datetime,
-        "currentPlan": "SitePlanTypeDef",
-        "description": str,
-        "pendingPlan": "SitePlanTypeDef",
-        "statusReason": str,
-    },
-    total=False,
-)
-
-class NetworkSiteTypeDef(_RequiredNetworkSiteTypeDef, _OptionalNetworkSiteTypeDef):
-    pass
-
-_RequiredNetworkTypeDef = TypedDict(
-    "_RequiredNetworkTypeDef",
-    {
-        "networkArn": str,
-        "networkName": str,
-        "status": NetworkStatusType,
-    },
-)
-_OptionalNetworkTypeDef = TypedDict(
-    "_OptionalNetworkTypeDef",
-    {
-        "createdAt": datetime,
-        "description": str,
-        "statusReason": str,
-    },
-    total=False,
-)
-
-class NetworkTypeDef(_RequiredNetworkTypeDef, _OptionalNetworkTypeDef):
-    pass
-
-OrderTypeDef = TypedDict(
-    "OrderTypeDef",
-    {
-        "acknowledgmentStatus": AcknowledgmentStatusType,
-        "createdAt": datetime,
-        "networkArn": str,
-        "networkSiteArn": str,
-        "orderArn": str,
-        "orderedResources": List["OrderedResourceDefinitionTypeDef"],
-        "shippingAddress": "AddressTypeDef",
-        "trackingInformation": List["TrackingInformationTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredOrderedResourceDefinitionTypeDef = TypedDict(
-    "_RequiredOrderedResourceDefinitionTypeDef",
-    {
-        "count": int,
-        "type": NetworkResourceDefinitionTypeType,
-    },
-)
-_OptionalOrderedResourceDefinitionTypeDef = TypedDict(
-    "_OptionalOrderedResourceDefinitionTypeDef",
-    {
-        "commitmentConfiguration": "CommitmentConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class OrderedResourceDefinitionTypeDef(
-    _RequiredOrderedResourceDefinitionTypeDef, _OptionalOrderedResourceDefinitionTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PingResponseTypeDef = TypedDict(
-    "PingResponseTypeDef",
-    {
-        "status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "attributes": NotRequired[List[NameValuePairTypeDef]],
+        "commitmentInformation": NotRequired[CommitmentInformationTypeDef],
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "health": NotRequired[HealthStatusType],
+        "model": NotRequired[str],
+        "networkArn": NotRequired[str],
+        "networkResourceArn": NotRequired[str],
+        "networkSiteArn": NotRequired[str],
+        "orderArn": NotRequired[str],
+        "position": NotRequired[PositionTypeDef],
+        "returnInformation": NotRequired[ReturnInformationTypeDef],
+        "serialNumber": NotRequired[str],
+        "status": NotRequired[NetworkResourceStatusType],
+        "statusReason": NotRequired[str],
+        "type": NotRequired[Literal["RADIO_UNIT"]],
+        "vendor": NotRequired[str],
     },
 )
 
-PositionTypeDef = TypedDict(
-    "PositionTypeDef",
-    {
-        "elevation": float,
-        "elevationReference": ElevationReferenceType,
-        "elevationUnit": Literal["FEET"],
-        "latitude": float,
-        "longitude": float,
-    },
-    total=False,
-)
+class OrderTypeDef(TypedDict):
+    acknowledgmentStatus: NotRequired[AcknowledgmentStatusType]
+    createdAt: NotRequired[datetime]
+    networkArn: NotRequired[str]
+    networkSiteArn: NotRequired[str]
+    orderArn: NotRequired[str]
+    orderedResources: NotRequired[List[OrderedResourceDefinitionTypeDef]]
+    shippingAddress: NotRequired[AddressTypeDef]
+    trackingInformation: NotRequired[List[TrackingInformationTypeDef]]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class SitePlanOutputTypeDef(TypedDict):
+    options: NotRequired[List[NameValuePairTypeDef]]
+    resourceDefinitions: NotRequired[List[NetworkResourceDefinitionOutputTypeDef]]
 
-ReturnInformationTypeDef = TypedDict(
-    "ReturnInformationTypeDef",
-    {
-        "replacementOrderArn": str,
-        "returnReason": str,
-        "shippingAddress": "AddressTypeDef",
-        "shippingLabel": str,
-    },
-    total=False,
-)
+class SitePlanTypeDef(TypedDict):
+    options: NotRequired[Sequence[NameValuePairTypeDef]]
+    resourceDefinitions: NotRequired[Sequence[NetworkResourceDefinitionTypeDef]]
 
-SitePlanTypeDef = TypedDict(
-    "SitePlanTypeDef",
-    {
-        "options": List["NameValuePairTypeDef"],
-        "resourceDefinitions": List["NetworkResourceDefinitionTypeDef"],
-    },
-    total=False,
-)
+class ConfigureAccessPointResponseTypeDef(TypedDict):
+    accessPoint: NetworkResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredStartNetworkResourceUpdateRequestRequestTypeDef = TypedDict(
-    "_RequiredStartNetworkResourceUpdateRequestRequestTypeDef",
-    {
-        "networkResourceArn": str,
-        "updateType": UpdateTypeType,
-    },
-)
-_OptionalStartNetworkResourceUpdateRequestRequestTypeDef = TypedDict(
-    "_OptionalStartNetworkResourceUpdateRequestRequestTypeDef",
-    {
-        "commitmentConfiguration": "CommitmentConfigurationTypeDef",
-        "returnReason": str,
-        "shippingAddress": "AddressTypeDef",
-    },
-    total=False,
-)
+class GetNetworkResourceResponseTypeDef(TypedDict):
+    networkResource: NetworkResourceTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class StartNetworkResourceUpdateRequestRequestTypeDef(
-    _RequiredStartNetworkResourceUpdateRequestRequestTypeDef,
-    _OptionalStartNetworkResourceUpdateRequestRequestTypeDef,
-):
-    pass
+class ListNetworkResourcesResponseTypeDef(TypedDict):
+    networkResources: List[NetworkResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-StartNetworkResourceUpdateResponseTypeDef = TypedDict(
-    "StartNetworkResourceUpdateResponseTypeDef",
-    {
-        "networkResource": "NetworkResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartNetworkResourceUpdateResponseTypeDef(TypedDict):
+    networkResource: NetworkResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class AcknowledgeOrderReceiptResponseTypeDef(TypedDict):
+    order: OrderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TrackingInformationTypeDef = TypedDict(
-    "TrackingInformationTypeDef",
-    {
-        "trackingNumber": str,
-    },
-    total=False,
-)
+class GetOrderResponseTypeDef(TypedDict):
+    order: OrderTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class ListOrdersResponseTypeDef(TypedDict):
+    orders: List[OrderTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredUpdateNetworkSitePlanRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateNetworkSitePlanRequestRequestTypeDef",
-    {
-        "networkSiteArn": str,
-        "pendingPlan": "SitePlanTypeDef",
-    },
-)
-_OptionalUpdateNetworkSitePlanRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateNetworkSitePlanRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class NetworkSiteTypeDef(TypedDict):
+    networkArn: str
+    networkSiteArn: str
+    networkSiteName: str
+    status: NetworkSiteStatusType
+    availabilityZone: NotRequired[str]
+    availabilityZoneId: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    currentPlan: NotRequired[SitePlanOutputTypeDef]
+    description: NotRequired[str]
+    pendingPlan: NotRequired[SitePlanOutputTypeDef]
+    statusReason: NotRequired[str]
 
-class UpdateNetworkSitePlanRequestRequestTypeDef(
-    _RequiredUpdateNetworkSitePlanRequestRequestTypeDef,
-    _OptionalUpdateNetworkSitePlanRequestRequestTypeDef,
-):
-    pass
+SitePlanUnionTypeDef = Union[SitePlanTypeDef, SitePlanOutputTypeDef]
 
-_RequiredUpdateNetworkSiteRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateNetworkSiteRequestRequestTypeDef",
-    {
-        "networkSiteArn": str,
-    },
-)
-_OptionalUpdateNetworkSiteRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateNetworkSiteRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-    },
-    total=False,
-)
+class ActivateNetworkSiteResponseTypeDef(TypedDict):
+    networkSite: NetworkSiteTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateNetworkSiteRequestRequestTypeDef(
-    _RequiredUpdateNetworkSiteRequestRequestTypeDef, _OptionalUpdateNetworkSiteRequestRequestTypeDef
-):
-    pass
+class CreateNetworkSiteResponseTypeDef(TypedDict):
+    networkSite: NetworkSiteTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateNetworkSiteResponseTypeDef = TypedDict(
-    "UpdateNetworkSiteResponseTypeDef",
-    {
-        "networkSite": "NetworkSiteTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteNetworkSiteResponseTypeDef(TypedDict):
+    networkSite: NetworkSiteTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNetworkSiteResponseTypeDef(TypedDict):
+    networkSite: NetworkSiteTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListNetworkSitesResponseTypeDef(TypedDict):
+    networkSites: List[NetworkSiteTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateNetworkSiteResponseTypeDef(TypedDict):
+    networkSite: NetworkSiteTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateNetworkSiteRequestTypeDef(TypedDict):
+    networkArn: str
+    networkSiteName: str
+    availabilityZone: NotRequired[str]
+    availabilityZoneId: NotRequired[str]
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    pendingPlan: NotRequired[SitePlanUnionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateNetworkSitePlanRequestTypeDef(TypedDict):
+    networkSiteArn: str
+    pendingPlan: SitePlanUnionTypeDef
+    clientToken: NotRequired[str]

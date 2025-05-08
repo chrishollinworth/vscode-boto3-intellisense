@@ -1,32 +1,41 @@
 """
 Type annotations for cognito-idp service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_cognito_idp.type_defs import AccountRecoverySettingTypeTypeDef
+    from mypy_boto3_cognito_idp.type_defs import RecoveryOptionTypeTypeDef
 
-    data: AccountRecoverySettingTypeTypeDef = {...}
+    data: RecoveryOptionTypeTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
 from .literals import (
     AccountTakeoverEventActionTypeType,
+    AdvancedSecurityEnabledModeTypeType,
     AdvancedSecurityModeTypeType,
     AliasAttributeTypeType,
+    AssetCategoryTypeType,
+    AssetExtensionTypeType,
     AttributeDataTypeType,
+    AuthFactorTypeType,
     AuthFlowTypeType,
     ChallengeNameType,
     ChallengeNameTypeType,
     ChallengeResponseType,
+    ColorSchemeModeTypeType,
     CompromisedCredentialsEventActionTypeType,
     DefaultEmailOptionTypeType,
     DeletionProtectionTypeType,
@@ -36,10 +45,13 @@ from .literals import (
     EmailSendingAccountTypeType,
     EventFilterTypeType,
     EventResponseTypeType,
+    EventSourceNameType,
     EventTypeType,
     ExplicitAuthFlowsTypeType,
+    FeatureTypeType,
     FeedbackValueTypeType,
     IdentityProviderTypeTypeType,
+    LogLevelType,
     MessageActionTypeType,
     OAuthFlowTypeType,
     PreTokenGenerationLambdaVersionTypeType,
@@ -52,179 +64,222 @@ from .literals import (
     UserImportJobStatusTypeType,
     UsernameAttributeTypeType,
     UserPoolMfaTypeType,
+    UserPoolTierTypeType,
     UserStatusTypeType,
+    UserVerificationTypeType,
     VerifiedAttributeTypeType,
     VerifySoftwareTokenResponseTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AccountRecoverySettingTypeOutputTypeDef",
     "AccountRecoverySettingTypeTypeDef",
+    "AccountRecoverySettingTypeUnionTypeDef",
     "AccountTakeoverActionTypeTypeDef",
     "AccountTakeoverActionsTypeTypeDef",
     "AccountTakeoverRiskConfigurationTypeTypeDef",
-    "AddCustomAttributesRequestRequestTypeDef",
-    "AdminAddUserToGroupRequestRequestTypeDef",
-    "AdminConfirmSignUpRequestRequestTypeDef",
+    "AddCustomAttributesRequestTypeDef",
+    "AdminAddUserToGroupRequestTypeDef",
+    "AdminConfirmSignUpRequestTypeDef",
     "AdminCreateUserConfigTypeTypeDef",
-    "AdminCreateUserRequestRequestTypeDef",
+    "AdminCreateUserRequestTypeDef",
     "AdminCreateUserResponseTypeDef",
-    "AdminDeleteUserAttributesRequestRequestTypeDef",
-    "AdminDeleteUserRequestRequestTypeDef",
-    "AdminDisableProviderForUserRequestRequestTypeDef",
-    "AdminDisableUserRequestRequestTypeDef",
-    "AdminEnableUserRequestRequestTypeDef",
-    "AdminForgetDeviceRequestRequestTypeDef",
-    "AdminGetDeviceRequestRequestTypeDef",
+    "AdminDeleteUserAttributesRequestTypeDef",
+    "AdminDeleteUserRequestTypeDef",
+    "AdminDisableProviderForUserRequestTypeDef",
+    "AdminDisableUserRequestTypeDef",
+    "AdminEnableUserRequestTypeDef",
+    "AdminForgetDeviceRequestTypeDef",
+    "AdminGetDeviceRequestTypeDef",
     "AdminGetDeviceResponseTypeDef",
-    "AdminGetUserRequestRequestTypeDef",
+    "AdminGetUserRequestTypeDef",
     "AdminGetUserResponseTypeDef",
-    "AdminInitiateAuthRequestRequestTypeDef",
+    "AdminInitiateAuthRequestTypeDef",
     "AdminInitiateAuthResponseTypeDef",
-    "AdminLinkProviderForUserRequestRequestTypeDef",
-    "AdminListDevicesRequestRequestTypeDef",
+    "AdminLinkProviderForUserRequestTypeDef",
+    "AdminListDevicesRequestTypeDef",
     "AdminListDevicesResponseTypeDef",
-    "AdminListGroupsForUserRequestRequestTypeDef",
+    "AdminListGroupsForUserRequestPaginateTypeDef",
+    "AdminListGroupsForUserRequestTypeDef",
     "AdminListGroupsForUserResponseTypeDef",
-    "AdminListUserAuthEventsRequestRequestTypeDef",
+    "AdminListUserAuthEventsRequestPaginateTypeDef",
+    "AdminListUserAuthEventsRequestTypeDef",
     "AdminListUserAuthEventsResponseTypeDef",
-    "AdminRemoveUserFromGroupRequestRequestTypeDef",
-    "AdminResetUserPasswordRequestRequestTypeDef",
-    "AdminRespondToAuthChallengeRequestRequestTypeDef",
+    "AdminRemoveUserFromGroupRequestTypeDef",
+    "AdminResetUserPasswordRequestTypeDef",
+    "AdminRespondToAuthChallengeRequestTypeDef",
     "AdminRespondToAuthChallengeResponseTypeDef",
-    "AdminSetUserMFAPreferenceRequestRequestTypeDef",
-    "AdminSetUserPasswordRequestRequestTypeDef",
-    "AdminSetUserSettingsRequestRequestTypeDef",
-    "AdminUpdateAuthEventFeedbackRequestRequestTypeDef",
-    "AdminUpdateDeviceStatusRequestRequestTypeDef",
-    "AdminUpdateUserAttributesRequestRequestTypeDef",
-    "AdminUserGlobalSignOutRequestRequestTypeDef",
+    "AdminSetUserMFAPreferenceRequestTypeDef",
+    "AdminSetUserPasswordRequestTypeDef",
+    "AdminSetUserSettingsRequestTypeDef",
+    "AdminUpdateAuthEventFeedbackRequestTypeDef",
+    "AdminUpdateDeviceStatusRequestTypeDef",
+    "AdminUpdateUserAttributesRequestTypeDef",
+    "AdminUserGlobalSignOutRequestTypeDef",
+    "AdvancedSecurityAdditionalFlowsTypeTypeDef",
     "AnalyticsConfigurationTypeTypeDef",
     "AnalyticsMetadataTypeTypeDef",
-    "AssociateSoftwareTokenRequestRequestTypeDef",
+    "AssetTypeOutputTypeDef",
+    "AssetTypeTypeDef",
+    "AssetTypeUnionTypeDef",
+    "AssociateSoftwareTokenRequestTypeDef",
     "AssociateSoftwareTokenResponseTypeDef",
     "AttributeTypeTypeDef",
     "AuthEventTypeTypeDef",
     "AuthenticationResultTypeTypeDef",
+    "BlobTypeDef",
     "ChallengeResponseTypeTypeDef",
-    "ChangePasswordRequestRequestTypeDef",
+    "ChangePasswordRequestTypeDef",
     "CloudWatchLogsConfigurationTypeTypeDef",
     "CodeDeliveryDetailsTypeTypeDef",
+    "CompleteWebAuthnRegistrationRequestTypeDef",
     "CompromisedCredentialsActionsTypeTypeDef",
+    "CompromisedCredentialsRiskConfigurationTypeOutputTypeDef",
     "CompromisedCredentialsRiskConfigurationTypeTypeDef",
-    "ConfirmDeviceRequestRequestTypeDef",
+    "CompromisedCredentialsRiskConfigurationTypeUnionTypeDef",
+    "ConfirmDeviceRequestTypeDef",
     "ConfirmDeviceResponseTypeDef",
-    "ConfirmForgotPasswordRequestRequestTypeDef",
-    "ConfirmSignUpRequestRequestTypeDef",
+    "ConfirmForgotPasswordRequestTypeDef",
+    "ConfirmSignUpRequestTypeDef",
+    "ConfirmSignUpResponseTypeDef",
     "ContextDataTypeTypeDef",
-    "CreateGroupRequestRequestTypeDef",
+    "CreateGroupRequestTypeDef",
     "CreateGroupResponseTypeDef",
-    "CreateIdentityProviderRequestRequestTypeDef",
+    "CreateIdentityProviderRequestTypeDef",
     "CreateIdentityProviderResponseTypeDef",
-    "CreateResourceServerRequestRequestTypeDef",
+    "CreateManagedLoginBrandingRequestTypeDef",
+    "CreateManagedLoginBrandingResponseTypeDef",
+    "CreateResourceServerRequestTypeDef",
     "CreateResourceServerResponseTypeDef",
-    "CreateUserImportJobRequestRequestTypeDef",
+    "CreateUserImportJobRequestTypeDef",
     "CreateUserImportJobResponseTypeDef",
-    "CreateUserPoolClientRequestRequestTypeDef",
+    "CreateUserPoolClientRequestTypeDef",
     "CreateUserPoolClientResponseTypeDef",
-    "CreateUserPoolDomainRequestRequestTypeDef",
+    "CreateUserPoolDomainRequestTypeDef",
     "CreateUserPoolDomainResponseTypeDef",
-    "CreateUserPoolRequestRequestTypeDef",
+    "CreateUserPoolRequestTypeDef",
     "CreateUserPoolResponseTypeDef",
     "CustomDomainConfigTypeTypeDef",
     "CustomEmailLambdaVersionConfigTypeTypeDef",
     "CustomSMSLambdaVersionConfigTypeTypeDef",
-    "DeleteGroupRequestRequestTypeDef",
-    "DeleteIdentityProviderRequestRequestTypeDef",
-    "DeleteResourceServerRequestRequestTypeDef",
-    "DeleteUserAttributesRequestRequestTypeDef",
-    "DeleteUserPoolClientRequestRequestTypeDef",
-    "DeleteUserPoolDomainRequestRequestTypeDef",
-    "DeleteUserPoolRequestRequestTypeDef",
-    "DeleteUserRequestRequestTypeDef",
-    "DescribeIdentityProviderRequestRequestTypeDef",
+    "DeleteGroupRequestTypeDef",
+    "DeleteIdentityProviderRequestTypeDef",
+    "DeleteManagedLoginBrandingRequestTypeDef",
+    "DeleteResourceServerRequestTypeDef",
+    "DeleteUserAttributesRequestTypeDef",
+    "DeleteUserPoolClientRequestTypeDef",
+    "DeleteUserPoolDomainRequestTypeDef",
+    "DeleteUserPoolRequestTypeDef",
+    "DeleteUserRequestTypeDef",
+    "DeleteWebAuthnCredentialRequestTypeDef",
+    "DescribeIdentityProviderRequestTypeDef",
     "DescribeIdentityProviderResponseTypeDef",
-    "DescribeResourceServerRequestRequestTypeDef",
+    "DescribeManagedLoginBrandingByClientRequestTypeDef",
+    "DescribeManagedLoginBrandingByClientResponseTypeDef",
+    "DescribeManagedLoginBrandingRequestTypeDef",
+    "DescribeManagedLoginBrandingResponseTypeDef",
+    "DescribeResourceServerRequestTypeDef",
     "DescribeResourceServerResponseTypeDef",
-    "DescribeRiskConfigurationRequestRequestTypeDef",
+    "DescribeRiskConfigurationRequestTypeDef",
     "DescribeRiskConfigurationResponseTypeDef",
-    "DescribeUserImportJobRequestRequestTypeDef",
+    "DescribeUserImportJobRequestTypeDef",
     "DescribeUserImportJobResponseTypeDef",
-    "DescribeUserPoolClientRequestRequestTypeDef",
+    "DescribeUserPoolClientRequestTypeDef",
     "DescribeUserPoolClientResponseTypeDef",
-    "DescribeUserPoolDomainRequestRequestTypeDef",
+    "DescribeUserPoolDomainRequestTypeDef",
     "DescribeUserPoolDomainResponseTypeDef",
-    "DescribeUserPoolRequestRequestTypeDef",
+    "DescribeUserPoolRequestTypeDef",
     "DescribeUserPoolResponseTypeDef",
     "DeviceConfigurationTypeTypeDef",
     "DeviceSecretVerifierConfigTypeTypeDef",
     "DeviceTypeTypeDef",
     "DomainDescriptionTypeTypeDef",
     "EmailConfigurationTypeTypeDef",
+    "EmailMfaConfigTypeTypeDef",
+    "EmailMfaSettingsTypeTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EventContextDataTypeTypeDef",
     "EventFeedbackTypeTypeDef",
     "EventRiskTypeTypeDef",
-    "ForgetDeviceRequestRequestTypeDef",
-    "ForgotPasswordRequestRequestTypeDef",
+    "FirehoseConfigurationTypeTypeDef",
+    "ForgetDeviceRequestTypeDef",
+    "ForgotPasswordRequestTypeDef",
     "ForgotPasswordResponseTypeDef",
-    "GetCSVHeaderRequestRequestTypeDef",
+    "GetCSVHeaderRequestTypeDef",
     "GetCSVHeaderResponseTypeDef",
-    "GetDeviceRequestRequestTypeDef",
+    "GetDeviceRequestTypeDef",
     "GetDeviceResponseTypeDef",
-    "GetGroupRequestRequestTypeDef",
+    "GetGroupRequestTypeDef",
     "GetGroupResponseTypeDef",
-    "GetIdentityProviderByIdentifierRequestRequestTypeDef",
+    "GetIdentityProviderByIdentifierRequestTypeDef",
     "GetIdentityProviderByIdentifierResponseTypeDef",
-    "GetLogDeliveryConfigurationRequestRequestTypeDef",
+    "GetLogDeliveryConfigurationRequestTypeDef",
     "GetLogDeliveryConfigurationResponseTypeDef",
-    "GetSigningCertificateRequestRequestTypeDef",
+    "GetSigningCertificateRequestTypeDef",
     "GetSigningCertificateResponseTypeDef",
-    "GetUICustomizationRequestRequestTypeDef",
+    "GetTokensFromRefreshTokenRequestTypeDef",
+    "GetTokensFromRefreshTokenResponseTypeDef",
+    "GetUICustomizationRequestTypeDef",
     "GetUICustomizationResponseTypeDef",
-    "GetUserAttributeVerificationCodeRequestRequestTypeDef",
+    "GetUserAttributeVerificationCodeRequestTypeDef",
     "GetUserAttributeVerificationCodeResponseTypeDef",
-    "GetUserPoolMfaConfigRequestRequestTypeDef",
+    "GetUserAuthFactorsRequestTypeDef",
+    "GetUserAuthFactorsResponseTypeDef",
+    "GetUserPoolMfaConfigRequestTypeDef",
     "GetUserPoolMfaConfigResponseTypeDef",
-    "GetUserRequestRequestTypeDef",
+    "GetUserRequestTypeDef",
     "GetUserResponseTypeDef",
-    "GlobalSignOutRequestRequestTypeDef",
+    "GlobalSignOutRequestTypeDef",
     "GroupTypeTypeDef",
     "HttpHeaderTypeDef",
     "IdentityProviderTypeTypeDef",
-    "InitiateAuthRequestRequestTypeDef",
+    "InitiateAuthRequestTypeDef",
     "InitiateAuthResponseTypeDef",
     "LambdaConfigTypeTypeDef",
-    "ListDevicesRequestRequestTypeDef",
+    "ListDevicesRequestTypeDef",
     "ListDevicesResponseTypeDef",
-    "ListGroupsRequestRequestTypeDef",
+    "ListGroupsRequestPaginateTypeDef",
+    "ListGroupsRequestTypeDef",
     "ListGroupsResponseTypeDef",
-    "ListIdentityProvidersRequestRequestTypeDef",
+    "ListIdentityProvidersRequestPaginateTypeDef",
+    "ListIdentityProvidersRequestTypeDef",
     "ListIdentityProvidersResponseTypeDef",
-    "ListResourceServersRequestRequestTypeDef",
+    "ListResourceServersRequestPaginateTypeDef",
+    "ListResourceServersRequestTypeDef",
     "ListResourceServersResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListUserImportJobsRequestRequestTypeDef",
+    "ListUserImportJobsRequestTypeDef",
     "ListUserImportJobsResponseTypeDef",
-    "ListUserPoolClientsRequestRequestTypeDef",
+    "ListUserPoolClientsRequestPaginateTypeDef",
+    "ListUserPoolClientsRequestTypeDef",
     "ListUserPoolClientsResponseTypeDef",
-    "ListUserPoolsRequestRequestTypeDef",
+    "ListUserPoolsRequestPaginateTypeDef",
+    "ListUserPoolsRequestTypeDef",
     "ListUserPoolsResponseTypeDef",
-    "ListUsersInGroupRequestRequestTypeDef",
+    "ListUsersInGroupRequestPaginateTypeDef",
+    "ListUsersInGroupRequestTypeDef",
     "ListUsersInGroupResponseTypeDef",
-    "ListUsersRequestRequestTypeDef",
+    "ListUsersRequestPaginateTypeDef",
+    "ListUsersRequestTypeDef",
     "ListUsersResponseTypeDef",
+    "ListWebAuthnCredentialsRequestTypeDef",
+    "ListWebAuthnCredentialsResponseTypeDef",
     "LogConfigurationTypeTypeDef",
     "LogDeliveryConfigurationTypeTypeDef",
     "MFAOptionTypeTypeDef",
+    "ManagedLoginBrandingTypeTypeDef",
     "MessageTemplateTypeTypeDef",
     "NewDeviceMetadataTypeTypeDef",
     "NotifyConfigurationTypeTypeDef",
@@ -236,3128 +291,1715 @@ __all__ = (
     "ProviderDescriptionTypeDef",
     "ProviderUserIdentifierTypeTypeDef",
     "RecoveryOptionTypeTypeDef",
-    "ResendConfirmationCodeRequestRequestTypeDef",
+    "RefreshTokenRotationTypeTypeDef",
+    "ResendConfirmationCodeRequestTypeDef",
     "ResendConfirmationCodeResponseTypeDef",
     "ResourceServerScopeTypeTypeDef",
     "ResourceServerTypeTypeDef",
-    "RespondToAuthChallengeRequestRequestTypeDef",
+    "RespondToAuthChallengeRequestTypeDef",
     "RespondToAuthChallengeResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "RevokeTokenRequestRequestTypeDef",
+    "RevokeTokenRequestTypeDef",
     "RiskConfigurationTypeTypeDef",
+    "RiskExceptionConfigurationTypeOutputTypeDef",
     "RiskExceptionConfigurationTypeTypeDef",
+    "RiskExceptionConfigurationTypeUnionTypeDef",
+    "S3ConfigurationTypeTypeDef",
     "SMSMfaSettingsTypeTypeDef",
     "SchemaAttributeTypeTypeDef",
-    "SetLogDeliveryConfigurationRequestRequestTypeDef",
+    "SetLogDeliveryConfigurationRequestTypeDef",
     "SetLogDeliveryConfigurationResponseTypeDef",
-    "SetRiskConfigurationRequestRequestTypeDef",
+    "SetRiskConfigurationRequestTypeDef",
     "SetRiskConfigurationResponseTypeDef",
-    "SetUICustomizationRequestRequestTypeDef",
+    "SetUICustomizationRequestTypeDef",
     "SetUICustomizationResponseTypeDef",
-    "SetUserMFAPreferenceRequestRequestTypeDef",
-    "SetUserPoolMfaConfigRequestRequestTypeDef",
+    "SetUserMFAPreferenceRequestTypeDef",
+    "SetUserPoolMfaConfigRequestTypeDef",
     "SetUserPoolMfaConfigResponseTypeDef",
-    "SetUserSettingsRequestRequestTypeDef",
-    "SignUpRequestRequestTypeDef",
+    "SetUserSettingsRequestTypeDef",
+    "SignInPolicyTypeOutputTypeDef",
+    "SignInPolicyTypeTypeDef",
+    "SignUpRequestTypeDef",
     "SignUpResponseTypeDef",
     "SmsConfigurationTypeTypeDef",
     "SmsMfaConfigTypeTypeDef",
     "SoftwareTokenMfaConfigTypeTypeDef",
     "SoftwareTokenMfaSettingsTypeTypeDef",
-    "StartUserImportJobRequestRequestTypeDef",
+    "StartUserImportJobRequestTypeDef",
     "StartUserImportJobResponseTypeDef",
-    "StopUserImportJobRequestRequestTypeDef",
+    "StartWebAuthnRegistrationRequestTypeDef",
+    "StartWebAuthnRegistrationResponseTypeDef",
+    "StopUserImportJobRequestTypeDef",
     "StopUserImportJobResponseTypeDef",
     "StringAttributeConstraintsTypeTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TokenValidityUnitsTypeTypeDef",
     "UICustomizationTypeTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAuthEventFeedbackRequestRequestTypeDef",
-    "UpdateDeviceStatusRequestRequestTypeDef",
-    "UpdateGroupRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAuthEventFeedbackRequestTypeDef",
+    "UpdateDeviceStatusRequestTypeDef",
+    "UpdateGroupRequestTypeDef",
     "UpdateGroupResponseTypeDef",
-    "UpdateIdentityProviderRequestRequestTypeDef",
+    "UpdateIdentityProviderRequestTypeDef",
     "UpdateIdentityProviderResponseTypeDef",
-    "UpdateResourceServerRequestRequestTypeDef",
+    "UpdateManagedLoginBrandingRequestTypeDef",
+    "UpdateManagedLoginBrandingResponseTypeDef",
+    "UpdateResourceServerRequestTypeDef",
     "UpdateResourceServerResponseTypeDef",
-    "UpdateUserAttributesRequestRequestTypeDef",
+    "UpdateUserAttributesRequestTypeDef",
     "UpdateUserAttributesResponseTypeDef",
-    "UpdateUserPoolClientRequestRequestTypeDef",
+    "UpdateUserPoolClientRequestTypeDef",
     "UpdateUserPoolClientResponseTypeDef",
-    "UpdateUserPoolDomainRequestRequestTypeDef",
+    "UpdateUserPoolDomainRequestTypeDef",
     "UpdateUserPoolDomainResponseTypeDef",
-    "UpdateUserPoolRequestRequestTypeDef",
+    "UpdateUserPoolRequestTypeDef",
+    "UserAttributeUpdateSettingsTypeOutputTypeDef",
     "UserAttributeUpdateSettingsTypeTypeDef",
+    "UserAttributeUpdateSettingsTypeUnionTypeDef",
     "UserContextDataTypeTypeDef",
     "UserImportJobTypeTypeDef",
     "UserPoolAddOnsTypeTypeDef",
     "UserPoolClientDescriptionTypeDef",
     "UserPoolClientTypeTypeDef",
     "UserPoolDescriptionTypeTypeDef",
+    "UserPoolPolicyTypeOutputTypeDef",
     "UserPoolPolicyTypeTypeDef",
+    "UserPoolPolicyTypeUnionTypeDef",
     "UserPoolTypeTypeDef",
     "UserTypeTypeDef",
     "UsernameConfigurationTypeTypeDef",
     "VerificationMessageTemplateTypeTypeDef",
-    "VerifySoftwareTokenRequestRequestTypeDef",
+    "VerifySoftwareTokenRequestTypeDef",
     "VerifySoftwareTokenResponseTypeDef",
-    "VerifyUserAttributeRequestRequestTypeDef",
-)
-
-AccountRecoverySettingTypeTypeDef = TypedDict(
-    "AccountRecoverySettingTypeTypeDef",
-    {
-        "RecoveryMechanisms": List["RecoveryOptionTypeTypeDef"],
-    },
-    total=False,
-)
-
-AccountTakeoverActionTypeTypeDef = TypedDict(
-    "AccountTakeoverActionTypeTypeDef",
-    {
-        "Notify": bool,
-        "EventAction": AccountTakeoverEventActionTypeType,
-    },
-)
-
-AccountTakeoverActionsTypeTypeDef = TypedDict(
-    "AccountTakeoverActionsTypeTypeDef",
-    {
-        "LowAction": "AccountTakeoverActionTypeTypeDef",
-        "MediumAction": "AccountTakeoverActionTypeTypeDef",
-        "HighAction": "AccountTakeoverActionTypeTypeDef",
-    },
-    total=False,
-)
-
-_RequiredAccountTakeoverRiskConfigurationTypeTypeDef = TypedDict(
-    "_RequiredAccountTakeoverRiskConfigurationTypeTypeDef",
-    {
-        "Actions": "AccountTakeoverActionsTypeTypeDef",
-    },
-)
-_OptionalAccountTakeoverRiskConfigurationTypeTypeDef = TypedDict(
-    "_OptionalAccountTakeoverRiskConfigurationTypeTypeDef",
-    {
-        "NotifyConfiguration": "NotifyConfigurationTypeTypeDef",
-    },
-    total=False,
-)
-
-class AccountTakeoverRiskConfigurationTypeTypeDef(
-    _RequiredAccountTakeoverRiskConfigurationTypeTypeDef,
-    _OptionalAccountTakeoverRiskConfigurationTypeTypeDef,
-):
-    pass
-
-AddCustomAttributesRequestRequestTypeDef = TypedDict(
-    "AddCustomAttributesRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "CustomAttributes": List["SchemaAttributeTypeTypeDef"],
-    },
-)
-
-AdminAddUserToGroupRequestRequestTypeDef = TypedDict(
-    "AdminAddUserToGroupRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-        "GroupName": str,
-    },
-)
-
-_RequiredAdminConfirmSignUpRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminConfirmSignUpRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-_OptionalAdminConfirmSignUpRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminConfirmSignUpRequestRequestTypeDef",
-    {
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class AdminConfirmSignUpRequestRequestTypeDef(
-    _RequiredAdminConfirmSignUpRequestRequestTypeDef,
-    _OptionalAdminConfirmSignUpRequestRequestTypeDef,
-):
-    pass
-
-AdminCreateUserConfigTypeTypeDef = TypedDict(
-    "AdminCreateUserConfigTypeTypeDef",
-    {
-        "AllowAdminCreateUserOnly": bool,
-        "UnusedAccountValidityDays": int,
-        "InviteMessageTemplate": "MessageTemplateTypeTypeDef",
-    },
-    total=False,
-)
-
-_RequiredAdminCreateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminCreateUserRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-_OptionalAdminCreateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminCreateUserRequestRequestTypeDef",
-    {
-        "UserAttributes": List["AttributeTypeTypeDef"],
-        "ValidationData": List["AttributeTypeTypeDef"],
-        "TemporaryPassword": str,
-        "ForceAliasCreation": bool,
-        "MessageAction": MessageActionTypeType,
-        "DesiredDeliveryMediums": List[DeliveryMediumTypeType],
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class AdminCreateUserRequestRequestTypeDef(
-    _RequiredAdminCreateUserRequestRequestTypeDef, _OptionalAdminCreateUserRequestRequestTypeDef
-):
-    pass
-
-AdminCreateUserResponseTypeDef = TypedDict(
-    "AdminCreateUserResponseTypeDef",
-    {
-        "User": "UserTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AdminDeleteUserAttributesRequestRequestTypeDef = TypedDict(
-    "AdminDeleteUserAttributesRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-        "UserAttributeNames": List[str],
-    },
-)
-
-AdminDeleteUserRequestRequestTypeDef = TypedDict(
-    "AdminDeleteUserRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-
-AdminDisableProviderForUserRequestRequestTypeDef = TypedDict(
-    "AdminDisableProviderForUserRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "User": "ProviderUserIdentifierTypeTypeDef",
-    },
-)
-
-AdminDisableUserRequestRequestTypeDef = TypedDict(
-    "AdminDisableUserRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-
-AdminEnableUserRequestRequestTypeDef = TypedDict(
-    "AdminEnableUserRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-
-AdminForgetDeviceRequestRequestTypeDef = TypedDict(
-    "AdminForgetDeviceRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-        "DeviceKey": str,
-    },
-)
-
-AdminGetDeviceRequestRequestTypeDef = TypedDict(
-    "AdminGetDeviceRequestRequestTypeDef",
-    {
-        "DeviceKey": str,
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-
-AdminGetDeviceResponseTypeDef = TypedDict(
-    "AdminGetDeviceResponseTypeDef",
-    {
-        "Device": "DeviceTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AdminGetUserRequestRequestTypeDef = TypedDict(
-    "AdminGetUserRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-
-AdminGetUserResponseTypeDef = TypedDict(
-    "AdminGetUserResponseTypeDef",
-    {
-        "Username": str,
-        "UserAttributes": List["AttributeTypeTypeDef"],
-        "UserCreateDate": datetime,
-        "UserLastModifiedDate": datetime,
-        "Enabled": bool,
-        "UserStatus": UserStatusTypeType,
-        "MFAOptions": List["MFAOptionTypeTypeDef"],
-        "PreferredMfaSetting": str,
-        "UserMFASettingList": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAdminInitiateAuthRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminInitiateAuthRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "ClientId": str,
-        "AuthFlow": AuthFlowTypeType,
-    },
-)
-_OptionalAdminInitiateAuthRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminInitiateAuthRequestRequestTypeDef",
-    {
-        "AuthParameters": Dict[str, str],
-        "ClientMetadata": Dict[str, str],
-        "AnalyticsMetadata": "AnalyticsMetadataTypeTypeDef",
-        "ContextData": "ContextDataTypeTypeDef",
-    },
-    total=False,
-)
-
-class AdminInitiateAuthRequestRequestTypeDef(
-    _RequiredAdminInitiateAuthRequestRequestTypeDef, _OptionalAdminInitiateAuthRequestRequestTypeDef
-):
-    pass
-
-AdminInitiateAuthResponseTypeDef = TypedDict(
-    "AdminInitiateAuthResponseTypeDef",
-    {
-        "ChallengeName": ChallengeNameTypeType,
-        "Session": str,
-        "ChallengeParameters": Dict[str, str],
-        "AuthenticationResult": "AuthenticationResultTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AdminLinkProviderForUserRequestRequestTypeDef = TypedDict(
-    "AdminLinkProviderForUserRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "DestinationUser": "ProviderUserIdentifierTypeTypeDef",
-        "SourceUser": "ProviderUserIdentifierTypeTypeDef",
-    },
-)
-
-_RequiredAdminListDevicesRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminListDevicesRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-_OptionalAdminListDevicesRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminListDevicesRequestRequestTypeDef",
-    {
-        "Limit": int,
-        "PaginationToken": str,
-    },
-    total=False,
-)
-
-class AdminListDevicesRequestRequestTypeDef(
-    _RequiredAdminListDevicesRequestRequestTypeDef, _OptionalAdminListDevicesRequestRequestTypeDef
-):
-    pass
-
-AdminListDevicesResponseTypeDef = TypedDict(
-    "AdminListDevicesResponseTypeDef",
-    {
-        "Devices": List["DeviceTypeTypeDef"],
-        "PaginationToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAdminListGroupsForUserRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminListGroupsForUserRequestRequestTypeDef",
-    {
-        "Username": str,
-        "UserPoolId": str,
-    },
-)
-_OptionalAdminListGroupsForUserRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminListGroupsForUserRequestRequestTypeDef",
-    {
-        "Limit": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class AdminListGroupsForUserRequestRequestTypeDef(
-    _RequiredAdminListGroupsForUserRequestRequestTypeDef,
-    _OptionalAdminListGroupsForUserRequestRequestTypeDef,
-):
-    pass
-
-AdminListGroupsForUserResponseTypeDef = TypedDict(
-    "AdminListGroupsForUserResponseTypeDef",
-    {
-        "Groups": List["GroupTypeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAdminListUserAuthEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminListUserAuthEventsRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-_OptionalAdminListUserAuthEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminListUserAuthEventsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class AdminListUserAuthEventsRequestRequestTypeDef(
-    _RequiredAdminListUserAuthEventsRequestRequestTypeDef,
-    _OptionalAdminListUserAuthEventsRequestRequestTypeDef,
-):
-    pass
-
-AdminListUserAuthEventsResponseTypeDef = TypedDict(
-    "AdminListUserAuthEventsResponseTypeDef",
-    {
-        "AuthEvents": List["AuthEventTypeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AdminRemoveUserFromGroupRequestRequestTypeDef = TypedDict(
-    "AdminRemoveUserFromGroupRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-        "GroupName": str,
-    },
-)
-
-_RequiredAdminResetUserPasswordRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminResetUserPasswordRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-_OptionalAdminResetUserPasswordRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminResetUserPasswordRequestRequestTypeDef",
-    {
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class AdminResetUserPasswordRequestRequestTypeDef(
-    _RequiredAdminResetUserPasswordRequestRequestTypeDef,
-    _OptionalAdminResetUserPasswordRequestRequestTypeDef,
-):
-    pass
-
-_RequiredAdminRespondToAuthChallengeRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminRespondToAuthChallengeRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "ClientId": str,
-        "ChallengeName": ChallengeNameTypeType,
-    },
-)
-_OptionalAdminRespondToAuthChallengeRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminRespondToAuthChallengeRequestRequestTypeDef",
-    {
-        "ChallengeResponses": Dict[str, str],
-        "Session": str,
-        "AnalyticsMetadata": "AnalyticsMetadataTypeTypeDef",
-        "ContextData": "ContextDataTypeTypeDef",
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class AdminRespondToAuthChallengeRequestRequestTypeDef(
-    _RequiredAdminRespondToAuthChallengeRequestRequestTypeDef,
-    _OptionalAdminRespondToAuthChallengeRequestRequestTypeDef,
-):
-    pass
-
-AdminRespondToAuthChallengeResponseTypeDef = TypedDict(
-    "AdminRespondToAuthChallengeResponseTypeDef",
-    {
-        "ChallengeName": ChallengeNameTypeType,
-        "Session": str,
-        "ChallengeParameters": Dict[str, str],
-        "AuthenticationResult": "AuthenticationResultTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAdminSetUserMFAPreferenceRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminSetUserMFAPreferenceRequestRequestTypeDef",
-    {
-        "Username": str,
-        "UserPoolId": str,
-    },
-)
-_OptionalAdminSetUserMFAPreferenceRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminSetUserMFAPreferenceRequestRequestTypeDef",
-    {
-        "SMSMfaSettings": "SMSMfaSettingsTypeTypeDef",
-        "SoftwareTokenMfaSettings": "SoftwareTokenMfaSettingsTypeTypeDef",
-    },
-    total=False,
-)
-
-class AdminSetUserMFAPreferenceRequestRequestTypeDef(
-    _RequiredAdminSetUserMFAPreferenceRequestRequestTypeDef,
-    _OptionalAdminSetUserMFAPreferenceRequestRequestTypeDef,
-):
-    pass
-
-_RequiredAdminSetUserPasswordRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminSetUserPasswordRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-        "Password": str,
-    },
-)
-_OptionalAdminSetUserPasswordRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminSetUserPasswordRequestRequestTypeDef",
-    {
-        "Permanent": bool,
-    },
-    total=False,
-)
-
-class AdminSetUserPasswordRequestRequestTypeDef(
-    _RequiredAdminSetUserPasswordRequestRequestTypeDef,
-    _OptionalAdminSetUserPasswordRequestRequestTypeDef,
-):
-    pass
-
-AdminSetUserSettingsRequestRequestTypeDef = TypedDict(
-    "AdminSetUserSettingsRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-        "MFAOptions": List["MFAOptionTypeTypeDef"],
-    },
-)
-
-AdminUpdateAuthEventFeedbackRequestRequestTypeDef = TypedDict(
-    "AdminUpdateAuthEventFeedbackRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-        "EventId": str,
-        "FeedbackValue": FeedbackValueTypeType,
-    },
-)
-
-_RequiredAdminUpdateDeviceStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminUpdateDeviceStatusRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-        "DeviceKey": str,
-    },
-)
-_OptionalAdminUpdateDeviceStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminUpdateDeviceStatusRequestRequestTypeDef",
-    {
-        "DeviceRememberedStatus": DeviceRememberedStatusTypeType,
-    },
-    total=False,
-)
-
-class AdminUpdateDeviceStatusRequestRequestTypeDef(
-    _RequiredAdminUpdateDeviceStatusRequestRequestTypeDef,
-    _OptionalAdminUpdateDeviceStatusRequestRequestTypeDef,
-):
-    pass
-
-_RequiredAdminUpdateUserAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredAdminUpdateUserAttributesRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-        "UserAttributes": List["AttributeTypeTypeDef"],
-    },
-)
-_OptionalAdminUpdateUserAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalAdminUpdateUserAttributesRequestRequestTypeDef",
-    {
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class AdminUpdateUserAttributesRequestRequestTypeDef(
-    _RequiredAdminUpdateUserAttributesRequestRequestTypeDef,
-    _OptionalAdminUpdateUserAttributesRequestRequestTypeDef,
-):
-    pass
-
-AdminUserGlobalSignOutRequestRequestTypeDef = TypedDict(
-    "AdminUserGlobalSignOutRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-    },
-)
-
-AnalyticsConfigurationTypeTypeDef = TypedDict(
-    "AnalyticsConfigurationTypeTypeDef",
-    {
-        "ApplicationId": str,
-        "ApplicationArn": str,
-        "RoleArn": str,
-        "ExternalId": str,
-        "UserDataShared": bool,
-    },
-    total=False,
-)
-
-AnalyticsMetadataTypeTypeDef = TypedDict(
-    "AnalyticsMetadataTypeTypeDef",
-    {
-        "AnalyticsEndpointId": str,
-    },
-    total=False,
-)
-
-AssociateSoftwareTokenRequestRequestTypeDef = TypedDict(
-    "AssociateSoftwareTokenRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-        "Session": str,
-    },
-    total=False,
-)
-
-AssociateSoftwareTokenResponseTypeDef = TypedDict(
-    "AssociateSoftwareTokenResponseTypeDef",
-    {
-        "SecretCode": str,
-        "Session": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAttributeTypeTypeDef = TypedDict(
-    "_RequiredAttributeTypeTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalAttributeTypeTypeDef = TypedDict(
-    "_OptionalAttributeTypeTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-class AttributeTypeTypeDef(_RequiredAttributeTypeTypeDef, _OptionalAttributeTypeTypeDef):
-    pass
-
-AuthEventTypeTypeDef = TypedDict(
-    "AuthEventTypeTypeDef",
-    {
-        "EventId": str,
-        "EventType": EventTypeType,
-        "CreationDate": datetime,
-        "EventResponse": EventResponseTypeType,
-        "EventRisk": "EventRiskTypeTypeDef",
-        "ChallengeResponses": List["ChallengeResponseTypeTypeDef"],
-        "EventContextData": "EventContextDataTypeTypeDef",
-        "EventFeedback": "EventFeedbackTypeTypeDef",
-    },
-    total=False,
-)
-
-AuthenticationResultTypeTypeDef = TypedDict(
-    "AuthenticationResultTypeTypeDef",
-    {
-        "AccessToken": str,
-        "ExpiresIn": int,
-        "TokenType": str,
-        "RefreshToken": str,
-        "IdToken": str,
-        "NewDeviceMetadata": "NewDeviceMetadataTypeTypeDef",
-    },
-    total=False,
-)
-
-ChallengeResponseTypeTypeDef = TypedDict(
-    "ChallengeResponseTypeTypeDef",
-    {
-        "ChallengeName": ChallengeNameType,
-        "ChallengeResponse": ChallengeResponseType,
-    },
-    total=False,
-)
-
-ChangePasswordRequestRequestTypeDef = TypedDict(
-    "ChangePasswordRequestRequestTypeDef",
-    {
-        "PreviousPassword": str,
-        "ProposedPassword": str,
-        "AccessToken": str,
-    },
-)
-
-CloudWatchLogsConfigurationTypeTypeDef = TypedDict(
-    "CloudWatchLogsConfigurationTypeTypeDef",
-    {
-        "LogGroupArn": str,
-    },
-    total=False,
-)
-
-CodeDeliveryDetailsTypeTypeDef = TypedDict(
-    "CodeDeliveryDetailsTypeTypeDef",
-    {
-        "Destination": str,
-        "DeliveryMedium": DeliveryMediumTypeType,
-        "AttributeName": str,
-    },
-    total=False,
-)
-
-CompromisedCredentialsActionsTypeTypeDef = TypedDict(
-    "CompromisedCredentialsActionsTypeTypeDef",
-    {
-        "EventAction": CompromisedCredentialsEventActionTypeType,
-    },
-)
-
-_RequiredCompromisedCredentialsRiskConfigurationTypeTypeDef = TypedDict(
-    "_RequiredCompromisedCredentialsRiskConfigurationTypeTypeDef",
-    {
-        "Actions": "CompromisedCredentialsActionsTypeTypeDef",
-    },
-)
-_OptionalCompromisedCredentialsRiskConfigurationTypeTypeDef = TypedDict(
-    "_OptionalCompromisedCredentialsRiskConfigurationTypeTypeDef",
-    {
-        "EventFilter": List[EventFilterTypeType],
-    },
-    total=False,
-)
-
-class CompromisedCredentialsRiskConfigurationTypeTypeDef(
-    _RequiredCompromisedCredentialsRiskConfigurationTypeTypeDef,
-    _OptionalCompromisedCredentialsRiskConfigurationTypeTypeDef,
-):
-    pass
-
-_RequiredConfirmDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredConfirmDeviceRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-        "DeviceKey": str,
-    },
-)
-_OptionalConfirmDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalConfirmDeviceRequestRequestTypeDef",
-    {
-        "DeviceSecretVerifierConfig": "DeviceSecretVerifierConfigTypeTypeDef",
-        "DeviceName": str,
-    },
-    total=False,
-)
-
-class ConfirmDeviceRequestRequestTypeDef(
-    _RequiredConfirmDeviceRequestRequestTypeDef, _OptionalConfirmDeviceRequestRequestTypeDef
-):
-    pass
-
-ConfirmDeviceResponseTypeDef = TypedDict(
-    "ConfirmDeviceResponseTypeDef",
-    {
-        "UserConfirmationNecessary": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredConfirmForgotPasswordRequestRequestTypeDef = TypedDict(
-    "_RequiredConfirmForgotPasswordRequestRequestTypeDef",
-    {
-        "ClientId": str,
-        "Username": str,
-        "ConfirmationCode": str,
-        "Password": str,
-    },
-)
-_OptionalConfirmForgotPasswordRequestRequestTypeDef = TypedDict(
-    "_OptionalConfirmForgotPasswordRequestRequestTypeDef",
-    {
-        "SecretHash": str,
-        "AnalyticsMetadata": "AnalyticsMetadataTypeTypeDef",
-        "UserContextData": "UserContextDataTypeTypeDef",
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class ConfirmForgotPasswordRequestRequestTypeDef(
-    _RequiredConfirmForgotPasswordRequestRequestTypeDef,
-    _OptionalConfirmForgotPasswordRequestRequestTypeDef,
-):
-    pass
-
-_RequiredConfirmSignUpRequestRequestTypeDef = TypedDict(
-    "_RequiredConfirmSignUpRequestRequestTypeDef",
-    {
-        "ClientId": str,
-        "Username": str,
-        "ConfirmationCode": str,
-    },
-)
-_OptionalConfirmSignUpRequestRequestTypeDef = TypedDict(
-    "_OptionalConfirmSignUpRequestRequestTypeDef",
-    {
-        "SecretHash": str,
-        "ForceAliasCreation": bool,
-        "AnalyticsMetadata": "AnalyticsMetadataTypeTypeDef",
-        "UserContextData": "UserContextDataTypeTypeDef",
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class ConfirmSignUpRequestRequestTypeDef(
-    _RequiredConfirmSignUpRequestRequestTypeDef, _OptionalConfirmSignUpRequestRequestTypeDef
-):
-    pass
-
-_RequiredContextDataTypeTypeDef = TypedDict(
-    "_RequiredContextDataTypeTypeDef",
-    {
-        "IpAddress": str,
-        "ServerName": str,
-        "ServerPath": str,
-        "HttpHeaders": List["HttpHeaderTypeDef"],
-    },
-)
-_OptionalContextDataTypeTypeDef = TypedDict(
-    "_OptionalContextDataTypeTypeDef",
-    {
-        "EncodedData": str,
-    },
-    total=False,
-)
-
-class ContextDataTypeTypeDef(_RequiredContextDataTypeTypeDef, _OptionalContextDataTypeTypeDef):
-    pass
-
-_RequiredCreateGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateGroupRequestRequestTypeDef",
-    {
-        "GroupName": str,
-        "UserPoolId": str,
-    },
-)
-_OptionalCreateGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateGroupRequestRequestTypeDef",
-    {
-        "Description": str,
-        "RoleArn": str,
-        "Precedence": int,
-    },
-    total=False,
-)
-
-class CreateGroupRequestRequestTypeDef(
-    _RequiredCreateGroupRequestRequestTypeDef, _OptionalCreateGroupRequestRequestTypeDef
-):
-    pass
-
-CreateGroupResponseTypeDef = TypedDict(
-    "CreateGroupResponseTypeDef",
-    {
-        "Group": "GroupTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIdentityProviderRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "ProviderName": str,
-        "ProviderType": IdentityProviderTypeTypeType,
-        "ProviderDetails": Dict[str, str],
-    },
-)
-_OptionalCreateIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIdentityProviderRequestRequestTypeDef",
-    {
-        "AttributeMapping": Dict[str, str],
-        "IdpIdentifiers": List[str],
-    },
-    total=False,
-)
-
-class CreateIdentityProviderRequestRequestTypeDef(
-    _RequiredCreateIdentityProviderRequestRequestTypeDef,
-    _OptionalCreateIdentityProviderRequestRequestTypeDef,
-):
-    pass
-
-CreateIdentityProviderResponseTypeDef = TypedDict(
-    "CreateIdentityProviderResponseTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateResourceServerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateResourceServerRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Identifier": str,
-        "Name": str,
-    },
-)
-_OptionalCreateResourceServerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateResourceServerRequestRequestTypeDef",
-    {
-        "Scopes": List["ResourceServerScopeTypeTypeDef"],
-    },
-    total=False,
-)
-
-class CreateResourceServerRequestRequestTypeDef(
-    _RequiredCreateResourceServerRequestRequestTypeDef,
-    _OptionalCreateResourceServerRequestRequestTypeDef,
-):
-    pass
-
-CreateResourceServerResponseTypeDef = TypedDict(
-    "CreateResourceServerResponseTypeDef",
-    {
-        "ResourceServer": "ResourceServerTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateUserImportJobRequestRequestTypeDef = TypedDict(
-    "CreateUserImportJobRequestRequestTypeDef",
-    {
-        "JobName": str,
-        "UserPoolId": str,
-        "CloudWatchLogsRoleArn": str,
-    },
-)
-
-CreateUserImportJobResponseTypeDef = TypedDict(
-    "CreateUserImportJobResponseTypeDef",
-    {
-        "UserImportJob": "UserImportJobTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserPoolClientRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserPoolClientRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "ClientName": str,
-    },
-)
-_OptionalCreateUserPoolClientRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserPoolClientRequestRequestTypeDef",
-    {
-        "GenerateSecret": bool,
-        "RefreshTokenValidity": int,
-        "AccessTokenValidity": int,
-        "IdTokenValidity": int,
-        "TokenValidityUnits": "TokenValidityUnitsTypeTypeDef",
-        "ReadAttributes": List[str],
-        "WriteAttributes": List[str],
-        "ExplicitAuthFlows": List[ExplicitAuthFlowsTypeType],
-        "SupportedIdentityProviders": List[str],
-        "CallbackURLs": List[str],
-        "LogoutURLs": List[str],
-        "DefaultRedirectURI": str,
-        "AllowedOAuthFlows": List[OAuthFlowTypeType],
-        "AllowedOAuthScopes": List[str],
-        "AllowedOAuthFlowsUserPoolClient": bool,
-        "AnalyticsConfiguration": "AnalyticsConfigurationTypeTypeDef",
-        "PreventUserExistenceErrors": PreventUserExistenceErrorTypesType,
-        "EnableTokenRevocation": bool,
-        "EnablePropagateAdditionalUserContextData": bool,
-        "AuthSessionValidity": int,
-    },
-    total=False,
-)
-
-class CreateUserPoolClientRequestRequestTypeDef(
-    _RequiredCreateUserPoolClientRequestRequestTypeDef,
-    _OptionalCreateUserPoolClientRequestRequestTypeDef,
-):
-    pass
-
-CreateUserPoolClientResponseTypeDef = TypedDict(
-    "CreateUserPoolClientResponseTypeDef",
-    {
-        "UserPoolClient": "UserPoolClientTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserPoolDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserPoolDomainRequestRequestTypeDef",
-    {
-        "Domain": str,
-        "UserPoolId": str,
-    },
-)
-_OptionalCreateUserPoolDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserPoolDomainRequestRequestTypeDef",
-    {
-        "CustomDomainConfig": "CustomDomainConfigTypeTypeDef",
-    },
-    total=False,
-)
-
-class CreateUserPoolDomainRequestRequestTypeDef(
-    _RequiredCreateUserPoolDomainRequestRequestTypeDef,
-    _OptionalCreateUserPoolDomainRequestRequestTypeDef,
-):
-    pass
-
-CreateUserPoolDomainResponseTypeDef = TypedDict(
-    "CreateUserPoolDomainResponseTypeDef",
-    {
-        "CloudFrontDomain": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserPoolRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserPoolRequestRequestTypeDef",
-    {
-        "PoolName": str,
-    },
-)
-_OptionalCreateUserPoolRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserPoolRequestRequestTypeDef",
-    {
-        "Policies": "UserPoolPolicyTypeTypeDef",
-        "DeletionProtection": DeletionProtectionTypeType,
-        "LambdaConfig": "LambdaConfigTypeTypeDef",
-        "AutoVerifiedAttributes": List[VerifiedAttributeTypeType],
-        "AliasAttributes": List[AliasAttributeTypeType],
-        "UsernameAttributes": List[UsernameAttributeTypeType],
-        "SmsVerificationMessage": str,
-        "EmailVerificationMessage": str,
-        "EmailVerificationSubject": str,
-        "VerificationMessageTemplate": "VerificationMessageTemplateTypeTypeDef",
-        "SmsAuthenticationMessage": str,
-        "MfaConfiguration": UserPoolMfaTypeType,
-        "UserAttributeUpdateSettings": "UserAttributeUpdateSettingsTypeTypeDef",
-        "DeviceConfiguration": "DeviceConfigurationTypeTypeDef",
-        "EmailConfiguration": "EmailConfigurationTypeTypeDef",
-        "SmsConfiguration": "SmsConfigurationTypeTypeDef",
-        "UserPoolTags": Dict[str, str],
-        "AdminCreateUserConfig": "AdminCreateUserConfigTypeTypeDef",
-        "Schema": List["SchemaAttributeTypeTypeDef"],
-        "UserPoolAddOns": "UserPoolAddOnsTypeTypeDef",
-        "UsernameConfiguration": "UsernameConfigurationTypeTypeDef",
-        "AccountRecoverySetting": "AccountRecoverySettingTypeTypeDef",
-    },
-    total=False,
-)
-
-class CreateUserPoolRequestRequestTypeDef(
-    _RequiredCreateUserPoolRequestRequestTypeDef, _OptionalCreateUserPoolRequestRequestTypeDef
-):
-    pass
-
-CreateUserPoolResponseTypeDef = TypedDict(
-    "CreateUserPoolResponseTypeDef",
-    {
-        "UserPool": "UserPoolTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CustomDomainConfigTypeTypeDef = TypedDict(
-    "CustomDomainConfigTypeTypeDef",
-    {
-        "CertificateArn": str,
-    },
-)
-
-CustomEmailLambdaVersionConfigTypeTypeDef = TypedDict(
-    "CustomEmailLambdaVersionConfigTypeTypeDef",
-    {
-        "LambdaVersion": Literal["V1_0"],
-        "LambdaArn": str,
-    },
-)
-
-CustomSMSLambdaVersionConfigTypeTypeDef = TypedDict(
-    "CustomSMSLambdaVersionConfigTypeTypeDef",
-    {
-        "LambdaVersion": Literal["V1_0"],
-        "LambdaArn": str,
-    },
-)
-
-DeleteGroupRequestRequestTypeDef = TypedDict(
-    "DeleteGroupRequestRequestTypeDef",
-    {
-        "GroupName": str,
-        "UserPoolId": str,
-    },
-)
-
-DeleteIdentityProviderRequestRequestTypeDef = TypedDict(
-    "DeleteIdentityProviderRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "ProviderName": str,
-    },
-)
-
-DeleteResourceServerRequestRequestTypeDef = TypedDict(
-    "DeleteResourceServerRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Identifier": str,
-    },
-)
-
-DeleteUserAttributesRequestRequestTypeDef = TypedDict(
-    "DeleteUserAttributesRequestRequestTypeDef",
-    {
-        "UserAttributeNames": List[str],
-        "AccessToken": str,
-    },
-)
-
-DeleteUserPoolClientRequestRequestTypeDef = TypedDict(
-    "DeleteUserPoolClientRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "ClientId": str,
-    },
-)
-
-DeleteUserPoolDomainRequestRequestTypeDef = TypedDict(
-    "DeleteUserPoolDomainRequestRequestTypeDef",
-    {
-        "Domain": str,
-        "UserPoolId": str,
-    },
-)
-
-DeleteUserPoolRequestRequestTypeDef = TypedDict(
-    "DeleteUserPoolRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-
-DeleteUserRequestRequestTypeDef = TypedDict(
-    "DeleteUserRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-    },
-)
-
-DescribeIdentityProviderRequestRequestTypeDef = TypedDict(
-    "DescribeIdentityProviderRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "ProviderName": str,
-    },
-)
-
-DescribeIdentityProviderResponseTypeDef = TypedDict(
-    "DescribeIdentityProviderResponseTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeResourceServerRequestRequestTypeDef = TypedDict(
-    "DescribeResourceServerRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Identifier": str,
-    },
-)
-
-DescribeResourceServerResponseTypeDef = TypedDict(
-    "DescribeResourceServerResponseTypeDef",
-    {
-        "ResourceServer": "ResourceServerTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeRiskConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRiskConfigurationRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalDescribeRiskConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRiskConfigurationRequestRequestTypeDef",
-    {
-        "ClientId": str,
-    },
-    total=False,
-)
-
-class DescribeRiskConfigurationRequestRequestTypeDef(
-    _RequiredDescribeRiskConfigurationRequestRequestTypeDef,
-    _OptionalDescribeRiskConfigurationRequestRequestTypeDef,
-):
-    pass
-
-DescribeRiskConfigurationResponseTypeDef = TypedDict(
-    "DescribeRiskConfigurationResponseTypeDef",
-    {
-        "RiskConfiguration": "RiskConfigurationTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeUserImportJobRequestRequestTypeDef = TypedDict(
-    "DescribeUserImportJobRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "JobId": str,
-    },
-)
-
-DescribeUserImportJobResponseTypeDef = TypedDict(
-    "DescribeUserImportJobResponseTypeDef",
-    {
-        "UserImportJob": "UserImportJobTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeUserPoolClientRequestRequestTypeDef = TypedDict(
-    "DescribeUserPoolClientRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "ClientId": str,
-    },
-)
-
-DescribeUserPoolClientResponseTypeDef = TypedDict(
-    "DescribeUserPoolClientResponseTypeDef",
-    {
-        "UserPoolClient": "UserPoolClientTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeUserPoolDomainRequestRequestTypeDef = TypedDict(
-    "DescribeUserPoolDomainRequestRequestTypeDef",
-    {
-        "Domain": str,
-    },
-)
-
-DescribeUserPoolDomainResponseTypeDef = TypedDict(
-    "DescribeUserPoolDomainResponseTypeDef",
-    {
-        "DomainDescription": "DomainDescriptionTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeUserPoolRequestRequestTypeDef = TypedDict(
-    "DescribeUserPoolRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-
-DescribeUserPoolResponseTypeDef = TypedDict(
-    "DescribeUserPoolResponseTypeDef",
-    {
-        "UserPool": "UserPoolTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeviceConfigurationTypeTypeDef = TypedDict(
-    "DeviceConfigurationTypeTypeDef",
-    {
-        "ChallengeRequiredOnNewDevice": bool,
-        "DeviceOnlyRememberedOnUserPrompt": bool,
-    },
-    total=False,
-)
-
-DeviceSecretVerifierConfigTypeTypeDef = TypedDict(
-    "DeviceSecretVerifierConfigTypeTypeDef",
-    {
-        "PasswordVerifier": str,
-        "Salt": str,
-    },
-    total=False,
-)
-
-DeviceTypeTypeDef = TypedDict(
-    "DeviceTypeTypeDef",
-    {
-        "DeviceKey": str,
-        "DeviceAttributes": List["AttributeTypeTypeDef"],
-        "DeviceCreateDate": datetime,
-        "DeviceLastModifiedDate": datetime,
-        "DeviceLastAuthenticatedDate": datetime,
-    },
-    total=False,
-)
-
-DomainDescriptionTypeTypeDef = TypedDict(
-    "DomainDescriptionTypeTypeDef",
-    {
-        "UserPoolId": str,
-        "AWSAccountId": str,
-        "Domain": str,
-        "S3Bucket": str,
-        "CloudFrontDistribution": str,
-        "Version": str,
-        "Status": DomainStatusTypeType,
-        "CustomDomainConfig": "CustomDomainConfigTypeTypeDef",
-    },
-    total=False,
-)
-
-EmailConfigurationTypeTypeDef = TypedDict(
-    "EmailConfigurationTypeTypeDef",
-    {
-        "SourceArn": str,
-        "ReplyToEmailAddress": str,
-        "EmailSendingAccount": EmailSendingAccountTypeType,
-        "From": str,
-        "ConfigurationSet": str,
-    },
-    total=False,
-)
-
-EventContextDataTypeTypeDef = TypedDict(
-    "EventContextDataTypeTypeDef",
-    {
-        "IpAddress": str,
-        "DeviceName": str,
-        "Timezone": str,
-        "City": str,
-        "Country": str,
-    },
-    total=False,
-)
-
-_RequiredEventFeedbackTypeTypeDef = TypedDict(
-    "_RequiredEventFeedbackTypeTypeDef",
-    {
-        "FeedbackValue": FeedbackValueTypeType,
-        "Provider": str,
-    },
-)
-_OptionalEventFeedbackTypeTypeDef = TypedDict(
-    "_OptionalEventFeedbackTypeTypeDef",
-    {
-        "FeedbackDate": datetime,
-    },
-    total=False,
-)
-
-class EventFeedbackTypeTypeDef(
-    _RequiredEventFeedbackTypeTypeDef, _OptionalEventFeedbackTypeTypeDef
-):
-    pass
-
-EventRiskTypeTypeDef = TypedDict(
-    "EventRiskTypeTypeDef",
-    {
-        "RiskDecision": RiskDecisionTypeType,
-        "RiskLevel": RiskLevelTypeType,
-        "CompromisedCredentialsDetected": bool,
-    },
-    total=False,
-)
-
-_RequiredForgetDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredForgetDeviceRequestRequestTypeDef",
-    {
-        "DeviceKey": str,
-    },
-)
-_OptionalForgetDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalForgetDeviceRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-    },
-    total=False,
-)
-
-class ForgetDeviceRequestRequestTypeDef(
-    _RequiredForgetDeviceRequestRequestTypeDef, _OptionalForgetDeviceRequestRequestTypeDef
-):
-    pass
-
-_RequiredForgotPasswordRequestRequestTypeDef = TypedDict(
-    "_RequiredForgotPasswordRequestRequestTypeDef",
-    {
-        "ClientId": str,
-        "Username": str,
-    },
-)
-_OptionalForgotPasswordRequestRequestTypeDef = TypedDict(
-    "_OptionalForgotPasswordRequestRequestTypeDef",
-    {
-        "SecretHash": str,
-        "UserContextData": "UserContextDataTypeTypeDef",
-        "AnalyticsMetadata": "AnalyticsMetadataTypeTypeDef",
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class ForgotPasswordRequestRequestTypeDef(
-    _RequiredForgotPasswordRequestRequestTypeDef, _OptionalForgotPasswordRequestRequestTypeDef
-):
-    pass
-
-ForgotPasswordResponseTypeDef = TypedDict(
-    "ForgotPasswordResponseTypeDef",
-    {
-        "CodeDeliveryDetails": "CodeDeliveryDetailsTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCSVHeaderRequestRequestTypeDef = TypedDict(
-    "GetCSVHeaderRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-
-GetCSVHeaderResponseTypeDef = TypedDict(
-    "GetCSVHeaderResponseTypeDef",
-    {
-        "UserPoolId": str,
-        "CSVHeader": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDeviceRequestRequestTypeDef",
-    {
-        "DeviceKey": str,
-    },
-)
-_OptionalGetDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDeviceRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-    },
-    total=False,
-)
-
-class GetDeviceRequestRequestTypeDef(
-    _RequiredGetDeviceRequestRequestTypeDef, _OptionalGetDeviceRequestRequestTypeDef
-):
-    pass
-
-GetDeviceResponseTypeDef = TypedDict(
-    "GetDeviceResponseTypeDef",
-    {
-        "Device": "DeviceTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGroupRequestRequestTypeDef = TypedDict(
-    "GetGroupRequestRequestTypeDef",
-    {
-        "GroupName": str,
-        "UserPoolId": str,
-    },
-)
-
-GetGroupResponseTypeDef = TypedDict(
-    "GetGroupResponseTypeDef",
-    {
-        "Group": "GroupTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetIdentityProviderByIdentifierRequestRequestTypeDef = TypedDict(
-    "GetIdentityProviderByIdentifierRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "IdpIdentifier": str,
-    },
-)
-
-GetIdentityProviderByIdentifierResponseTypeDef = TypedDict(
-    "GetIdentityProviderByIdentifierResponseTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLogDeliveryConfigurationRequestRequestTypeDef = TypedDict(
-    "GetLogDeliveryConfigurationRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-
-GetLogDeliveryConfigurationResponseTypeDef = TypedDict(
-    "GetLogDeliveryConfigurationResponseTypeDef",
-    {
-        "LogDeliveryConfiguration": "LogDeliveryConfigurationTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSigningCertificateRequestRequestTypeDef = TypedDict(
-    "GetSigningCertificateRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-
-GetSigningCertificateResponseTypeDef = TypedDict(
-    "GetSigningCertificateResponseTypeDef",
-    {
-        "Certificate": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetUICustomizationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetUICustomizationRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalGetUICustomizationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetUICustomizationRequestRequestTypeDef",
-    {
-        "ClientId": str,
-    },
-    total=False,
-)
-
-class GetUICustomizationRequestRequestTypeDef(
-    _RequiredGetUICustomizationRequestRequestTypeDef,
-    _OptionalGetUICustomizationRequestRequestTypeDef,
-):
-    pass
-
-GetUICustomizationResponseTypeDef = TypedDict(
-    "GetUICustomizationResponseTypeDef",
-    {
-        "UICustomization": "UICustomizationTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetUserAttributeVerificationCodeRequestRequestTypeDef = TypedDict(
-    "_RequiredGetUserAttributeVerificationCodeRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-        "AttributeName": str,
-    },
-)
-_OptionalGetUserAttributeVerificationCodeRequestRequestTypeDef = TypedDict(
-    "_OptionalGetUserAttributeVerificationCodeRequestRequestTypeDef",
-    {
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class GetUserAttributeVerificationCodeRequestRequestTypeDef(
-    _RequiredGetUserAttributeVerificationCodeRequestRequestTypeDef,
-    _OptionalGetUserAttributeVerificationCodeRequestRequestTypeDef,
-):
-    pass
-
-GetUserAttributeVerificationCodeResponseTypeDef = TypedDict(
-    "GetUserAttributeVerificationCodeResponseTypeDef",
-    {
-        "CodeDeliveryDetails": "CodeDeliveryDetailsTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUserPoolMfaConfigRequestRequestTypeDef = TypedDict(
-    "GetUserPoolMfaConfigRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-
-GetUserPoolMfaConfigResponseTypeDef = TypedDict(
-    "GetUserPoolMfaConfigResponseTypeDef",
-    {
-        "SmsMfaConfiguration": "SmsMfaConfigTypeTypeDef",
-        "SoftwareTokenMfaConfiguration": "SoftwareTokenMfaConfigTypeTypeDef",
-        "MfaConfiguration": UserPoolMfaTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUserRequestRequestTypeDef = TypedDict(
-    "GetUserRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-    },
-)
-
-GetUserResponseTypeDef = TypedDict(
-    "GetUserResponseTypeDef",
-    {
-        "Username": str,
-        "UserAttributes": List["AttributeTypeTypeDef"],
-        "MFAOptions": List["MFAOptionTypeTypeDef"],
-        "PreferredMfaSetting": str,
-        "UserMFASettingList": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GlobalSignOutRequestRequestTypeDef = TypedDict(
-    "GlobalSignOutRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-    },
-)
-
-GroupTypeTypeDef = TypedDict(
-    "GroupTypeTypeDef",
-    {
-        "GroupName": str,
-        "UserPoolId": str,
-        "Description": str,
-        "RoleArn": str,
-        "Precedence": int,
-        "LastModifiedDate": datetime,
-        "CreationDate": datetime,
-    },
-    total=False,
-)
-
-HttpHeaderTypeDef = TypedDict(
-    "HttpHeaderTypeDef",
-    {
-        "headerName": str,
-        "headerValue": str,
-    },
-    total=False,
-)
-
-IdentityProviderTypeTypeDef = TypedDict(
-    "IdentityProviderTypeTypeDef",
-    {
-        "UserPoolId": str,
-        "ProviderName": str,
-        "ProviderType": IdentityProviderTypeTypeType,
-        "ProviderDetails": Dict[str, str],
-        "AttributeMapping": Dict[str, str],
-        "IdpIdentifiers": List[str],
-        "LastModifiedDate": datetime,
-        "CreationDate": datetime,
-    },
-    total=False,
-)
-
-_RequiredInitiateAuthRequestRequestTypeDef = TypedDict(
-    "_RequiredInitiateAuthRequestRequestTypeDef",
-    {
-        "AuthFlow": AuthFlowTypeType,
-        "ClientId": str,
-    },
-)
-_OptionalInitiateAuthRequestRequestTypeDef = TypedDict(
-    "_OptionalInitiateAuthRequestRequestTypeDef",
-    {
-        "AuthParameters": Dict[str, str],
-        "ClientMetadata": Dict[str, str],
-        "AnalyticsMetadata": "AnalyticsMetadataTypeTypeDef",
-        "UserContextData": "UserContextDataTypeTypeDef",
-    },
-    total=False,
-)
-
-class InitiateAuthRequestRequestTypeDef(
-    _RequiredInitiateAuthRequestRequestTypeDef, _OptionalInitiateAuthRequestRequestTypeDef
-):
-    pass
-
-InitiateAuthResponseTypeDef = TypedDict(
-    "InitiateAuthResponseTypeDef",
-    {
-        "ChallengeName": ChallengeNameTypeType,
-        "Session": str,
-        "ChallengeParameters": Dict[str, str],
-        "AuthenticationResult": "AuthenticationResultTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LambdaConfigTypeTypeDef = TypedDict(
-    "LambdaConfigTypeTypeDef",
-    {
-        "PreSignUp": str,
-        "CustomMessage": str,
-        "PostConfirmation": str,
-        "PreAuthentication": str,
-        "PostAuthentication": str,
-        "DefineAuthChallenge": str,
-        "CreateAuthChallenge": str,
-        "VerifyAuthChallengeResponse": str,
-        "PreTokenGeneration": str,
-        "UserMigration": str,
-        "PreTokenGenerationConfig": "PreTokenGenerationVersionConfigTypeTypeDef",
-        "CustomSMSSender": "CustomSMSLambdaVersionConfigTypeTypeDef",
-        "CustomEmailSender": "CustomEmailLambdaVersionConfigTypeTypeDef",
-        "KMSKeyID": str,
-    },
-    total=False,
-)
-
-_RequiredListDevicesRequestRequestTypeDef = TypedDict(
-    "_RequiredListDevicesRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-    },
-)
-_OptionalListDevicesRequestRequestTypeDef = TypedDict(
-    "_OptionalListDevicesRequestRequestTypeDef",
-    {
-        "Limit": int,
-        "PaginationToken": str,
-    },
-    total=False,
-)
-
-class ListDevicesRequestRequestTypeDef(
-    _RequiredListDevicesRequestRequestTypeDef, _OptionalListDevicesRequestRequestTypeDef
-):
-    pass
-
-ListDevicesResponseTypeDef = TypedDict(
-    "ListDevicesResponseTypeDef",
-    {
-        "Devices": List["DeviceTypeTypeDef"],
-        "PaginationToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListGroupsRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalListGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListGroupsRequestRequestTypeDef",
-    {
-        "Limit": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListGroupsRequestRequestTypeDef(
-    _RequiredListGroupsRequestRequestTypeDef, _OptionalListGroupsRequestRequestTypeDef
-):
-    pass
-
-ListGroupsResponseTypeDef = TypedDict(
-    "ListGroupsResponseTypeDef",
-    {
-        "Groups": List["GroupTypeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIdentityProvidersRequestRequestTypeDef = TypedDict(
-    "_RequiredListIdentityProvidersRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalListIdentityProvidersRequestRequestTypeDef = TypedDict(
-    "_OptionalListIdentityProvidersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListIdentityProvidersRequestRequestTypeDef(
-    _RequiredListIdentityProvidersRequestRequestTypeDef,
-    _OptionalListIdentityProvidersRequestRequestTypeDef,
-):
-    pass
-
-ListIdentityProvidersResponseTypeDef = TypedDict(
-    "ListIdentityProvidersResponseTypeDef",
-    {
-        "Providers": List["ProviderDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResourceServersRequestRequestTypeDef = TypedDict(
-    "_RequiredListResourceServersRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalListResourceServersRequestRequestTypeDef = TypedDict(
-    "_OptionalListResourceServersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListResourceServersRequestRequestTypeDef(
-    _RequiredListResourceServersRequestRequestTypeDef,
-    _OptionalListResourceServersRequestRequestTypeDef,
-):
-    pass
-
-ListResourceServersResponseTypeDef = TypedDict(
-    "ListResourceServersResponseTypeDef",
-    {
-        "ResourceServers": List["ResourceServerTypeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUserImportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListUserImportJobsRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "MaxResults": int,
-    },
-)
-_OptionalListUserImportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListUserImportJobsRequestRequestTypeDef",
-    {
-        "PaginationToken": str,
-    },
-    total=False,
-)
-
-class ListUserImportJobsRequestRequestTypeDef(
-    _RequiredListUserImportJobsRequestRequestTypeDef,
-    _OptionalListUserImportJobsRequestRequestTypeDef,
-):
-    pass
-
-ListUserImportJobsResponseTypeDef = TypedDict(
-    "ListUserImportJobsResponseTypeDef",
-    {
-        "UserImportJobs": List["UserImportJobTypeTypeDef"],
-        "PaginationToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUserPoolClientsRequestRequestTypeDef = TypedDict(
-    "_RequiredListUserPoolClientsRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalListUserPoolClientsRequestRequestTypeDef = TypedDict(
-    "_OptionalListUserPoolClientsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListUserPoolClientsRequestRequestTypeDef(
-    _RequiredListUserPoolClientsRequestRequestTypeDef,
-    _OptionalListUserPoolClientsRequestRequestTypeDef,
-):
-    pass
-
-ListUserPoolClientsResponseTypeDef = TypedDict(
-    "ListUserPoolClientsResponseTypeDef",
-    {
-        "UserPoolClients": List["UserPoolClientDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUserPoolsRequestRequestTypeDef = TypedDict(
-    "_RequiredListUserPoolsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-    },
-)
-_OptionalListUserPoolsRequestRequestTypeDef = TypedDict(
-    "_OptionalListUserPoolsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListUserPoolsRequestRequestTypeDef(
-    _RequiredListUserPoolsRequestRequestTypeDef, _OptionalListUserPoolsRequestRequestTypeDef
-):
-    pass
-
-ListUserPoolsResponseTypeDef = TypedDict(
-    "ListUserPoolsResponseTypeDef",
-    {
-        "UserPools": List["UserPoolDescriptionTypeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUsersInGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredListUsersInGroupRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "GroupName": str,
-    },
-)
-_OptionalListUsersInGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalListUsersInGroupRequestRequestTypeDef",
-    {
-        "Limit": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListUsersInGroupRequestRequestTypeDef(
-    _RequiredListUsersInGroupRequestRequestTypeDef, _OptionalListUsersInGroupRequestRequestTypeDef
-):
-    pass
-
-ListUsersInGroupResponseTypeDef = TypedDict(
-    "ListUsersInGroupResponseTypeDef",
-    {
-        "Users": List["UserTypeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUsersRequestRequestTypeDef = TypedDict(
-    "_RequiredListUsersRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalListUsersRequestRequestTypeDef = TypedDict(
-    "_OptionalListUsersRequestRequestTypeDef",
-    {
-        "AttributesToGet": List[str],
-        "Limit": int,
-        "PaginationToken": str,
-        "Filter": str,
-    },
-    total=False,
-)
-
-class ListUsersRequestRequestTypeDef(
-    _RequiredListUsersRequestRequestTypeDef, _OptionalListUsersRequestRequestTypeDef
-):
-    pass
-
-ListUsersResponseTypeDef = TypedDict(
-    "ListUsersResponseTypeDef",
-    {
-        "Users": List["UserTypeTypeDef"],
-        "PaginationToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLogConfigurationTypeTypeDef = TypedDict(
-    "_RequiredLogConfigurationTypeTypeDef",
-    {
-        "LogLevel": Literal["ERROR"],
-        "EventSource": Literal["userNotification"],
-    },
-)
-_OptionalLogConfigurationTypeTypeDef = TypedDict(
-    "_OptionalLogConfigurationTypeTypeDef",
-    {
-        "CloudWatchLogsConfiguration": "CloudWatchLogsConfigurationTypeTypeDef",
-    },
-    total=False,
-)
-
-class LogConfigurationTypeTypeDef(
-    _RequiredLogConfigurationTypeTypeDef, _OptionalLogConfigurationTypeTypeDef
-):
-    pass
-
-LogDeliveryConfigurationTypeTypeDef = TypedDict(
-    "LogDeliveryConfigurationTypeTypeDef",
-    {
-        "UserPoolId": str,
-        "LogConfigurations": List["LogConfigurationTypeTypeDef"],
-    },
-)
-
-MFAOptionTypeTypeDef = TypedDict(
-    "MFAOptionTypeTypeDef",
-    {
-        "DeliveryMedium": DeliveryMediumTypeType,
-        "AttributeName": str,
-    },
-    total=False,
-)
-
-MessageTemplateTypeTypeDef = TypedDict(
-    "MessageTemplateTypeTypeDef",
-    {
-        "SMSMessage": str,
-        "EmailMessage": str,
-        "EmailSubject": str,
-    },
-    total=False,
-)
-
-NewDeviceMetadataTypeTypeDef = TypedDict(
-    "NewDeviceMetadataTypeTypeDef",
-    {
-        "DeviceKey": str,
-        "DeviceGroupKey": str,
-    },
-    total=False,
-)
-
-_RequiredNotifyConfigurationTypeTypeDef = TypedDict(
-    "_RequiredNotifyConfigurationTypeTypeDef",
-    {
-        "SourceArn": str,
-    },
-)
-_OptionalNotifyConfigurationTypeTypeDef = TypedDict(
-    "_OptionalNotifyConfigurationTypeTypeDef",
-    {
-        "From": str,
-        "ReplyTo": str,
-        "BlockEmail": "NotifyEmailTypeTypeDef",
-        "NoActionEmail": "NotifyEmailTypeTypeDef",
-        "MfaEmail": "NotifyEmailTypeTypeDef",
-    },
-    total=False,
-)
-
-class NotifyConfigurationTypeTypeDef(
-    _RequiredNotifyConfigurationTypeTypeDef, _OptionalNotifyConfigurationTypeTypeDef
-):
-    pass
-
-_RequiredNotifyEmailTypeTypeDef = TypedDict(
-    "_RequiredNotifyEmailTypeTypeDef",
-    {
-        "Subject": str,
-    },
-)
-_OptionalNotifyEmailTypeTypeDef = TypedDict(
-    "_OptionalNotifyEmailTypeTypeDef",
-    {
-        "HtmlBody": str,
-        "TextBody": str,
-    },
-    total=False,
-)
-
-class NotifyEmailTypeTypeDef(_RequiredNotifyEmailTypeTypeDef, _OptionalNotifyEmailTypeTypeDef):
-    pass
-
-NumberAttributeConstraintsTypeTypeDef = TypedDict(
-    "NumberAttributeConstraintsTypeTypeDef",
-    {
-        "MinValue": str,
-        "MaxValue": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PasswordPolicyTypeTypeDef = TypedDict(
-    "PasswordPolicyTypeTypeDef",
-    {
-        "MinimumLength": int,
-        "RequireUppercase": bool,
-        "RequireLowercase": bool,
-        "RequireNumbers": bool,
-        "RequireSymbols": bool,
-        "TemporaryPasswordValidityDays": int,
-    },
-    total=False,
-)
-
-PreTokenGenerationVersionConfigTypeTypeDef = TypedDict(
-    "PreTokenGenerationVersionConfigTypeTypeDef",
-    {
-        "LambdaVersion": PreTokenGenerationLambdaVersionTypeType,
-        "LambdaArn": str,
-    },
-)
-
-ProviderDescriptionTypeDef = TypedDict(
-    "ProviderDescriptionTypeDef",
-    {
-        "ProviderName": str,
-        "ProviderType": IdentityProviderTypeTypeType,
-        "LastModifiedDate": datetime,
-        "CreationDate": datetime,
-    },
-    total=False,
-)
-
-ProviderUserIdentifierTypeTypeDef = TypedDict(
-    "ProviderUserIdentifierTypeTypeDef",
-    {
-        "ProviderName": str,
-        "ProviderAttributeName": str,
-        "ProviderAttributeValue": str,
-    },
-    total=False,
-)
-
-RecoveryOptionTypeTypeDef = TypedDict(
-    "RecoveryOptionTypeTypeDef",
-    {
-        "Priority": int,
-        "Name": RecoveryOptionNameTypeType,
-    },
-)
-
-_RequiredResendConfirmationCodeRequestRequestTypeDef = TypedDict(
-    "_RequiredResendConfirmationCodeRequestRequestTypeDef",
-    {
-        "ClientId": str,
-        "Username": str,
-    },
-)
-_OptionalResendConfirmationCodeRequestRequestTypeDef = TypedDict(
-    "_OptionalResendConfirmationCodeRequestRequestTypeDef",
-    {
-        "SecretHash": str,
-        "UserContextData": "UserContextDataTypeTypeDef",
-        "AnalyticsMetadata": "AnalyticsMetadataTypeTypeDef",
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class ResendConfirmationCodeRequestRequestTypeDef(
-    _RequiredResendConfirmationCodeRequestRequestTypeDef,
-    _OptionalResendConfirmationCodeRequestRequestTypeDef,
-):
-    pass
-
-ResendConfirmationCodeResponseTypeDef = TypedDict(
-    "ResendConfirmationCodeResponseTypeDef",
-    {
-        "CodeDeliveryDetails": "CodeDeliveryDetailsTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResourceServerScopeTypeTypeDef = TypedDict(
-    "ResourceServerScopeTypeTypeDef",
-    {
-        "ScopeName": str,
-        "ScopeDescription": str,
-    },
-)
-
-ResourceServerTypeTypeDef = TypedDict(
-    "ResourceServerTypeTypeDef",
-    {
-        "UserPoolId": str,
-        "Identifier": str,
-        "Name": str,
-        "Scopes": List["ResourceServerScopeTypeTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredRespondToAuthChallengeRequestRequestTypeDef = TypedDict(
-    "_RequiredRespondToAuthChallengeRequestRequestTypeDef",
-    {
-        "ClientId": str,
-        "ChallengeName": ChallengeNameTypeType,
-    },
-)
-_OptionalRespondToAuthChallengeRequestRequestTypeDef = TypedDict(
-    "_OptionalRespondToAuthChallengeRequestRequestTypeDef",
-    {
-        "Session": str,
-        "ChallengeResponses": Dict[str, str],
-        "AnalyticsMetadata": "AnalyticsMetadataTypeTypeDef",
-        "UserContextData": "UserContextDataTypeTypeDef",
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class RespondToAuthChallengeRequestRequestTypeDef(
-    _RequiredRespondToAuthChallengeRequestRequestTypeDef,
-    _OptionalRespondToAuthChallengeRequestRequestTypeDef,
-):
-    pass
-
-RespondToAuthChallengeResponseTypeDef = TypedDict(
-    "RespondToAuthChallengeResponseTypeDef",
-    {
-        "ChallengeName": ChallengeNameTypeType,
-        "Session": str,
-        "ChallengeParameters": Dict[str, str],
-        "AuthenticationResult": "AuthenticationResultTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredRevokeTokenRequestRequestTypeDef = TypedDict(
-    "_RequiredRevokeTokenRequestRequestTypeDef",
-    {
-        "Token": str,
-        "ClientId": str,
-    },
-)
-_OptionalRevokeTokenRequestRequestTypeDef = TypedDict(
-    "_OptionalRevokeTokenRequestRequestTypeDef",
-    {
-        "ClientSecret": str,
-    },
-    total=False,
-)
-
-class RevokeTokenRequestRequestTypeDef(
-    _RequiredRevokeTokenRequestRequestTypeDef, _OptionalRevokeTokenRequestRequestTypeDef
-):
-    pass
-
-RiskConfigurationTypeTypeDef = TypedDict(
-    "RiskConfigurationTypeTypeDef",
-    {
-        "UserPoolId": str,
-        "ClientId": str,
-        "CompromisedCredentialsRiskConfiguration": "CompromisedCredentialsRiskConfigurationTypeTypeDef",
-        "AccountTakeoverRiskConfiguration": "AccountTakeoverRiskConfigurationTypeTypeDef",
-        "RiskExceptionConfiguration": "RiskExceptionConfigurationTypeTypeDef",
-        "LastModifiedDate": datetime,
-    },
-    total=False,
-)
-
-RiskExceptionConfigurationTypeTypeDef = TypedDict(
-    "RiskExceptionConfigurationTypeTypeDef",
-    {
-        "BlockedIPRangeList": List[str],
-        "SkippedIPRangeList": List[str],
-    },
-    total=False,
-)
-
-SMSMfaSettingsTypeTypeDef = TypedDict(
-    "SMSMfaSettingsTypeTypeDef",
-    {
-        "Enabled": bool,
-        "PreferredMfa": bool,
-    },
-    total=False,
-)
-
+    "VerifyUserAttributeRequestTypeDef",
+    "WebAuthnConfigurationTypeTypeDef",
+    "WebAuthnCredentialDescriptionTypeDef",
+)
+
+class RecoveryOptionTypeTypeDef(TypedDict):
+    Priority: int
+    Name: RecoveryOptionNameTypeType
+
+class AccountTakeoverActionTypeTypeDef(TypedDict):
+    Notify: bool
+    EventAction: AccountTakeoverEventActionTypeType
+
+class AdminAddUserToGroupRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    GroupName: str
+
+class AdminConfirmSignUpRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class MessageTemplateTypeTypeDef(TypedDict):
+    SMSMessage: NotRequired[str]
+    EmailMessage: NotRequired[str]
+    EmailSubject: NotRequired[str]
+
+class AttributeTypeTypeDef(TypedDict):
+    Name: str
+    Value: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AdminDeleteUserAttributesRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    UserAttributeNames: Sequence[str]
+
+class AdminDeleteUserRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+
+class ProviderUserIdentifierTypeTypeDef(TypedDict):
+    ProviderName: NotRequired[str]
+    ProviderAttributeName: NotRequired[str]
+    ProviderAttributeValue: NotRequired[str]
+
+class AdminDisableUserRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+
+class AdminEnableUserRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+
+class AdminForgetDeviceRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    DeviceKey: str
+
+class AdminGetDeviceRequestTypeDef(TypedDict):
+    DeviceKey: str
+    UserPoolId: str
+    Username: str
+
+class AdminGetUserRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+
+class MFAOptionTypeTypeDef(TypedDict):
+    DeliveryMedium: NotRequired[DeliveryMediumTypeType]
+    AttributeName: NotRequired[str]
+
+class AnalyticsMetadataTypeTypeDef(TypedDict):
+    AnalyticsEndpointId: NotRequired[str]
+
+class AdminListDevicesRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    Limit: NotRequired[int]
+    PaginationToken: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class AdminListGroupsForUserRequestTypeDef(TypedDict):
+    Username: str
+    UserPoolId: str
+    Limit: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GroupTypeTypeDef(TypedDict):
+    GroupName: NotRequired[str]
+    UserPoolId: NotRequired[str]
+    Description: NotRequired[str]
+    RoleArn: NotRequired[str]
+    Precedence: NotRequired[int]
+    LastModifiedDate: NotRequired[datetime]
+    CreationDate: NotRequired[datetime]
+
+class AdminListUserAuthEventsRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class AdminRemoveUserFromGroupRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    GroupName: str
+
+class AdminResetUserPasswordRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class EmailMfaSettingsTypeTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    PreferredMfa: NotRequired[bool]
+
+class SMSMfaSettingsTypeTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    PreferredMfa: NotRequired[bool]
+
+class SoftwareTokenMfaSettingsTypeTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    PreferredMfa: NotRequired[bool]
+
+class AdminSetUserPasswordRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    Password: str
+    Permanent: NotRequired[bool]
+
+class AdminUpdateAuthEventFeedbackRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    EventId: str
+    FeedbackValue: FeedbackValueTypeType
+
+class AdminUpdateDeviceStatusRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    DeviceKey: str
+    DeviceRememberedStatus: NotRequired[DeviceRememberedStatusTypeType]
+
+class AdminUserGlobalSignOutRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+
+class AdvancedSecurityAdditionalFlowsTypeTypeDef(TypedDict):
+    CustomAuthMode: NotRequired[AdvancedSecurityEnabledModeTypeType]
+
+class AnalyticsConfigurationTypeTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    ApplicationArn: NotRequired[str]
+    RoleArn: NotRequired[str]
+    ExternalId: NotRequired[str]
+    UserDataShared: NotRequired[bool]
+
+class AssetTypeOutputTypeDef(TypedDict):
+    Category: AssetCategoryTypeType
+    ColorMode: ColorSchemeModeTypeType
+    Extension: AssetExtensionTypeType
+    Bytes: NotRequired[bytes]
+    ResourceId: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class AssociateSoftwareTokenRequestTypeDef(TypedDict):
+    AccessToken: NotRequired[str]
+    Session: NotRequired[str]
+
+class ChallengeResponseTypeTypeDef(TypedDict):
+    ChallengeName: NotRequired[ChallengeNameType]
+    ChallengeResponse: NotRequired[ChallengeResponseType]
+
+class EventContextDataTypeTypeDef(TypedDict):
+    IpAddress: NotRequired[str]
+    DeviceName: NotRequired[str]
+    Timezone: NotRequired[str]
+    City: NotRequired[str]
+    Country: NotRequired[str]
+
+class EventFeedbackTypeTypeDef(TypedDict):
+    FeedbackValue: FeedbackValueTypeType
+    Provider: str
+    FeedbackDate: NotRequired[datetime]
+
+class EventRiskTypeTypeDef(TypedDict):
+    RiskDecision: NotRequired[RiskDecisionTypeType]
+    RiskLevel: NotRequired[RiskLevelTypeType]
+    CompromisedCredentialsDetected: NotRequired[bool]
+
+class NewDeviceMetadataTypeTypeDef(TypedDict):
+    DeviceKey: NotRequired[str]
+    DeviceGroupKey: NotRequired[str]
+
+class ChangePasswordRequestTypeDef(TypedDict):
+    ProposedPassword: str
+    AccessToken: str
+    PreviousPassword: NotRequired[str]
+
+class CloudWatchLogsConfigurationTypeTypeDef(TypedDict):
+    LogGroupArn: NotRequired[str]
+
+class CodeDeliveryDetailsTypeTypeDef(TypedDict):
+    Destination: NotRequired[str]
+    DeliveryMedium: NotRequired[DeliveryMediumTypeType]
+    AttributeName: NotRequired[str]
+
+class CompleteWebAuthnRegistrationRequestTypeDef(TypedDict):
+    AccessToken: str
+    Credential: Mapping[str, Any]
+
+class CompromisedCredentialsActionsTypeTypeDef(TypedDict):
+    EventAction: CompromisedCredentialsEventActionTypeType
+
+class DeviceSecretVerifierConfigTypeTypeDef(TypedDict):
+    PasswordVerifier: NotRequired[str]
+    Salt: NotRequired[str]
+
+class UserContextDataTypeTypeDef(TypedDict):
+    IpAddress: NotRequired[str]
+    EncodedData: NotRequired[str]
+
+class HttpHeaderTypeDef(TypedDict):
+    headerName: NotRequired[str]
+    headerValue: NotRequired[str]
+
+class CreateGroupRequestTypeDef(TypedDict):
+    GroupName: str
+    UserPoolId: str
+    Description: NotRequired[str]
+    RoleArn: NotRequired[str]
+    Precedence: NotRequired[int]
+
+class CreateIdentityProviderRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ProviderName: str
+    ProviderType: IdentityProviderTypeTypeType
+    ProviderDetails: Mapping[str, str]
+    AttributeMapping: NotRequired[Mapping[str, str]]
+    IdpIdentifiers: NotRequired[Sequence[str]]
+
+class IdentityProviderTypeTypeDef(TypedDict):
+    UserPoolId: NotRequired[str]
+    ProviderName: NotRequired[str]
+    ProviderType: NotRequired[IdentityProviderTypeTypeType]
+    ProviderDetails: NotRequired[Dict[str, str]]
+    AttributeMapping: NotRequired[Dict[str, str]]
+    IdpIdentifiers: NotRequired[List[str]]
+    LastModifiedDate: NotRequired[datetime]
+    CreationDate: NotRequired[datetime]
+
+class ResourceServerScopeTypeTypeDef(TypedDict):
+    ScopeName: str
+    ScopeDescription: str
+
+class CreateUserImportJobRequestTypeDef(TypedDict):
+    JobName: str
+    UserPoolId: str
+    CloudWatchLogsRoleArn: str
+
+class UserImportJobTypeTypeDef(TypedDict):
+    JobName: NotRequired[str]
+    JobId: NotRequired[str]
+    UserPoolId: NotRequired[str]
+    PreSignedUrl: NotRequired[str]
+    CreationDate: NotRequired[datetime]
+    StartDate: NotRequired[datetime]
+    CompletionDate: NotRequired[datetime]
+    Status: NotRequired[UserImportJobStatusTypeType]
+    CloudWatchLogsRoleArn: NotRequired[str]
+    ImportedUsers: NotRequired[int]
+    SkippedUsers: NotRequired[int]
+    FailedUsers: NotRequired[int]
+    CompletionMessage: NotRequired[str]
+
+class RefreshTokenRotationTypeTypeDef(TypedDict):
+    Feature: FeatureTypeType
+    RetryGracePeriodSeconds: NotRequired[int]
+
+class TokenValidityUnitsTypeTypeDef(TypedDict):
+    AccessToken: NotRequired[TimeUnitsTypeType]
+    IdToken: NotRequired[TimeUnitsTypeType]
+    RefreshToken: NotRequired[TimeUnitsTypeType]
+
+class CustomDomainConfigTypeTypeDef(TypedDict):
+    CertificateArn: str
+
+class DeviceConfigurationTypeTypeDef(TypedDict):
+    ChallengeRequiredOnNewDevice: NotRequired[bool]
+    DeviceOnlyRememberedOnUserPrompt: NotRequired[bool]
+
+class EmailConfigurationTypeTypeDef(TypedDict):
+    SourceArn: NotRequired[str]
+    ReplyToEmailAddress: NotRequired[str]
+    EmailSendingAccount: NotRequired[EmailSendingAccountTypeType]
+    From: NotRequired[str]
+    ConfigurationSet: NotRequired[str]
+
+class SmsConfigurationTypeTypeDef(TypedDict):
+    SnsCallerArn: str
+    ExternalId: NotRequired[str]
+    SnsRegion: NotRequired[str]
+
+class UsernameConfigurationTypeTypeDef(TypedDict):
+    CaseSensitive: bool
+
+class VerificationMessageTemplateTypeTypeDef(TypedDict):
+    SmsMessage: NotRequired[str]
+    EmailMessage: NotRequired[str]
+    EmailSubject: NotRequired[str]
+    EmailMessageByLink: NotRequired[str]
+    EmailSubjectByLink: NotRequired[str]
+    DefaultEmailOption: NotRequired[DefaultEmailOptionTypeType]
+
+class CustomEmailLambdaVersionConfigTypeTypeDef(TypedDict):
+    LambdaVersion: Literal["V1_0"]
+    LambdaArn: str
+
+class CustomSMSLambdaVersionConfigTypeTypeDef(TypedDict):
+    LambdaVersion: Literal["V1_0"]
+    LambdaArn: str
+
+class DeleteGroupRequestTypeDef(TypedDict):
+    GroupName: str
+    UserPoolId: str
+
+class DeleteIdentityProviderRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ProviderName: str
+
+class DeleteManagedLoginBrandingRequestTypeDef(TypedDict):
+    ManagedLoginBrandingId: str
+    UserPoolId: str
+
+class DeleteResourceServerRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Identifier: str
+
+class DeleteUserAttributesRequestTypeDef(TypedDict):
+    UserAttributeNames: Sequence[str]
+    AccessToken: str
+
+class DeleteUserPoolClientRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: str
+
+class DeleteUserPoolDomainRequestTypeDef(TypedDict):
+    Domain: str
+    UserPoolId: str
+
+class DeleteUserPoolRequestTypeDef(TypedDict):
+    UserPoolId: str
+
+class DeleteUserRequestTypeDef(TypedDict):
+    AccessToken: str
+
+class DeleteWebAuthnCredentialRequestTypeDef(TypedDict):
+    AccessToken: str
+    CredentialId: str
+
+class DescribeIdentityProviderRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ProviderName: str
+
+class DescribeManagedLoginBrandingByClientRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: str
+    ReturnMergedResources: NotRequired[bool]
+
+class DescribeManagedLoginBrandingRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ManagedLoginBrandingId: str
+    ReturnMergedResources: NotRequired[bool]
+
+class DescribeResourceServerRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Identifier: str
+
+class DescribeRiskConfigurationRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: NotRequired[str]
+
+class DescribeUserImportJobRequestTypeDef(TypedDict):
+    UserPoolId: str
+    JobId: str
+
+class DescribeUserPoolClientRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: str
+
+class DescribeUserPoolDomainRequestTypeDef(TypedDict):
+    Domain: str
+
+class DescribeUserPoolRequestTypeDef(TypedDict):
+    UserPoolId: str
+
+class EmailMfaConfigTypeTypeDef(TypedDict):
+    Message: NotRequired[str]
+    Subject: NotRequired[str]
+
+class FirehoseConfigurationTypeTypeDef(TypedDict):
+    StreamArn: NotRequired[str]
+
+class ForgetDeviceRequestTypeDef(TypedDict):
+    DeviceKey: str
+    AccessToken: NotRequired[str]
+
+class GetCSVHeaderRequestTypeDef(TypedDict):
+    UserPoolId: str
+
+class GetDeviceRequestTypeDef(TypedDict):
+    DeviceKey: str
+    AccessToken: NotRequired[str]
+
+class GetGroupRequestTypeDef(TypedDict):
+    GroupName: str
+    UserPoolId: str
+
+class GetIdentityProviderByIdentifierRequestTypeDef(TypedDict):
+    UserPoolId: str
+    IdpIdentifier: str
+
+class GetLogDeliveryConfigurationRequestTypeDef(TypedDict):
+    UserPoolId: str
+
+class GetSigningCertificateRequestTypeDef(TypedDict):
+    UserPoolId: str
+
+class GetTokensFromRefreshTokenRequestTypeDef(TypedDict):
+    RefreshToken: str
+    ClientId: str
+    ClientSecret: NotRequired[str]
+    DeviceKey: NotRequired[str]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class GetUICustomizationRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: NotRequired[str]
+
+class UICustomizationTypeTypeDef(TypedDict):
+    UserPoolId: NotRequired[str]
+    ClientId: NotRequired[str]
+    ImageUrl: NotRequired[str]
+    CSS: NotRequired[str]
+    CSSVersion: NotRequired[str]
+    LastModifiedDate: NotRequired[datetime]
+    CreationDate: NotRequired[datetime]
+
+class GetUserAttributeVerificationCodeRequestTypeDef(TypedDict):
+    AccessToken: str
+    AttributeName: str
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class GetUserAuthFactorsRequestTypeDef(TypedDict):
+    AccessToken: str
+
+class GetUserPoolMfaConfigRequestTypeDef(TypedDict):
+    UserPoolId: str
+
+class SoftwareTokenMfaConfigTypeTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class WebAuthnConfigurationTypeTypeDef(TypedDict):
+    RelyingPartyId: NotRequired[str]
+    UserVerification: NotRequired[UserVerificationTypeType]
+
+class GetUserRequestTypeDef(TypedDict):
+    AccessToken: str
+
+class GlobalSignOutRequestTypeDef(TypedDict):
+    AccessToken: str
+
+class PreTokenGenerationVersionConfigTypeTypeDef(TypedDict):
+    LambdaVersion: PreTokenGenerationLambdaVersionTypeType
+    LambdaArn: str
+
+class ListDevicesRequestTypeDef(TypedDict):
+    AccessToken: str
+    Limit: NotRequired[int]
+    PaginationToken: NotRequired[str]
+
+class ListGroupsRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Limit: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListIdentityProvidersRequestTypeDef(TypedDict):
+    UserPoolId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ProviderDescriptionTypeDef(TypedDict):
+    ProviderName: NotRequired[str]
+    ProviderType: NotRequired[IdentityProviderTypeTypeType]
+    LastModifiedDate: NotRequired[datetime]
+    CreationDate: NotRequired[datetime]
+
+class ListResourceServersRequestTypeDef(TypedDict):
+    UserPoolId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class ListUserImportJobsRequestTypeDef(TypedDict):
+    UserPoolId: str
+    MaxResults: int
+    PaginationToken: NotRequired[str]
+
+class ListUserPoolClientsRequestTypeDef(TypedDict):
+    UserPoolId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class UserPoolClientDescriptionTypeDef(TypedDict):
+    ClientId: NotRequired[str]
+    UserPoolId: NotRequired[str]
+    ClientName: NotRequired[str]
+
+class ListUserPoolsRequestTypeDef(TypedDict):
+    MaxResults: int
+    NextToken: NotRequired[str]
+
+class ListUsersInGroupRequestTypeDef(TypedDict):
+    UserPoolId: str
+    GroupName: str
+    Limit: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListUsersRequestTypeDef(TypedDict):
+    UserPoolId: str
+    AttributesToGet: NotRequired[Sequence[str]]
+    Limit: NotRequired[int]
+    PaginationToken: NotRequired[str]
+    Filter: NotRequired[str]
+
+class ListWebAuthnCredentialsRequestTypeDef(TypedDict):
+    AccessToken: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class WebAuthnCredentialDescriptionTypeDef(TypedDict):
+    CredentialId: str
+    FriendlyCredentialName: str
+    RelyingPartyId: str
+    AuthenticatorTransports: List[str]
+    CreatedAt: datetime
+    AuthenticatorAttachment: NotRequired[str]
+
+class S3ConfigurationTypeTypeDef(TypedDict):
+    BucketArn: NotRequired[str]
+
+class NotifyEmailTypeTypeDef(TypedDict):
+    Subject: str
+    HtmlBody: NotRequired[str]
+    TextBody: NotRequired[str]
+
+class NumberAttributeConstraintsTypeTypeDef(TypedDict):
+    MinValue: NotRequired[str]
+    MaxValue: NotRequired[str]
+
+class PasswordPolicyTypeTypeDef(TypedDict):
+    MinimumLength: NotRequired[int]
+    RequireUppercase: NotRequired[bool]
+    RequireLowercase: NotRequired[bool]
+    RequireNumbers: NotRequired[bool]
+    RequireSymbols: NotRequired[bool]
+    PasswordHistorySize: NotRequired[int]
+    TemporaryPasswordValidityDays: NotRequired[int]
+
+class RevokeTokenRequestTypeDef(TypedDict):
+    Token: str
+    ClientId: str
+    ClientSecret: NotRequired[str]
+
+class RiskExceptionConfigurationTypeOutputTypeDef(TypedDict):
+    BlockedIPRangeList: NotRequired[List[str]]
+    SkippedIPRangeList: NotRequired[List[str]]
+
+class RiskExceptionConfigurationTypeTypeDef(TypedDict):
+    BlockedIPRangeList: NotRequired[Sequence[str]]
+    SkippedIPRangeList: NotRequired[Sequence[str]]
+
+class StringAttributeConstraintsTypeTypeDef(TypedDict):
+    MinLength: NotRequired[str]
+    MaxLength: NotRequired[str]
+
+class SignInPolicyTypeOutputTypeDef(TypedDict):
+    AllowedFirstAuthFactors: NotRequired[List[AuthFactorTypeType]]
+
+class SignInPolicyTypeTypeDef(TypedDict):
+    AllowedFirstAuthFactors: NotRequired[Sequence[AuthFactorTypeType]]
+
+class StartUserImportJobRequestTypeDef(TypedDict):
+    UserPoolId: str
+    JobId: str
+
+class StartWebAuthnRegistrationRequestTypeDef(TypedDict):
+    AccessToken: str
+
+class StopUserImportJobRequestTypeDef(TypedDict):
+    UserPoolId: str
+    JobId: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateAuthEventFeedbackRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    EventId: str
+    FeedbackToken: str
+    FeedbackValue: FeedbackValueTypeType
+
+class UpdateDeviceStatusRequestTypeDef(TypedDict):
+    AccessToken: str
+    DeviceKey: str
+    DeviceRememberedStatus: NotRequired[DeviceRememberedStatusTypeType]
+
+class UpdateGroupRequestTypeDef(TypedDict):
+    GroupName: str
+    UserPoolId: str
+    Description: NotRequired[str]
+    RoleArn: NotRequired[str]
+    Precedence: NotRequired[int]
+
+class UpdateIdentityProviderRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ProviderName: str
+    ProviderDetails: NotRequired[Mapping[str, str]]
+    AttributeMapping: NotRequired[Mapping[str, str]]
+    IdpIdentifiers: NotRequired[Sequence[str]]
+
+class UserAttributeUpdateSettingsTypeOutputTypeDef(TypedDict):
+    AttributesRequireVerificationBeforeUpdate: NotRequired[List[VerifiedAttributeTypeType]]
+
+class UserAttributeUpdateSettingsTypeTypeDef(TypedDict):
+    AttributesRequireVerificationBeforeUpdate: NotRequired[Sequence[VerifiedAttributeTypeType]]
+
+class VerifySoftwareTokenRequestTypeDef(TypedDict):
+    UserCode: str
+    AccessToken: NotRequired[str]
+    Session: NotRequired[str]
+    FriendlyDeviceName: NotRequired[str]
+
+class VerifyUserAttributeRequestTypeDef(TypedDict):
+    AccessToken: str
+    AttributeName: str
+    Code: str
+
+class AccountRecoverySettingTypeOutputTypeDef(TypedDict):
+    RecoveryMechanisms: NotRequired[List[RecoveryOptionTypeTypeDef]]
+
+class AccountRecoverySettingTypeTypeDef(TypedDict):
+    RecoveryMechanisms: NotRequired[Sequence[RecoveryOptionTypeTypeDef]]
+
+class AccountTakeoverActionsTypeTypeDef(TypedDict):
+    LowAction: NotRequired[AccountTakeoverActionTypeTypeDef]
+    MediumAction: NotRequired[AccountTakeoverActionTypeTypeDef]
+    HighAction: NotRequired[AccountTakeoverActionTypeTypeDef]
+
+class AdminCreateUserConfigTypeTypeDef(TypedDict):
+    AllowAdminCreateUserOnly: NotRequired[bool]
+    UnusedAccountValidityDays: NotRequired[int]
+    InviteMessageTemplate: NotRequired[MessageTemplateTypeTypeDef]
+
+class AdminCreateUserRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    UserAttributes: NotRequired[Sequence[AttributeTypeTypeDef]]
+    ValidationData: NotRequired[Sequence[AttributeTypeTypeDef]]
+    TemporaryPassword: NotRequired[str]
+    ForceAliasCreation: NotRequired[bool]
+    MessageAction: NotRequired[MessageActionTypeType]
+    DesiredDeliveryMediums: NotRequired[Sequence[DeliveryMediumTypeType]]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class AdminUpdateUserAttributesRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    UserAttributes: Sequence[AttributeTypeTypeDef]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class DeviceTypeTypeDef(TypedDict):
+    DeviceKey: NotRequired[str]
+    DeviceAttributes: NotRequired[List[AttributeTypeTypeDef]]
+    DeviceCreateDate: NotRequired[datetime]
+    DeviceLastModifiedDate: NotRequired[datetime]
+    DeviceLastAuthenticatedDate: NotRequired[datetime]
+
+class UpdateUserAttributesRequestTypeDef(TypedDict):
+    UserAttributes: Sequence[AttributeTypeTypeDef]
+    AccessToken: str
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class AssociateSoftwareTokenResponseTypeDef(TypedDict):
+    SecretCode: str
+    Session: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConfirmDeviceResponseTypeDef(TypedDict):
+    UserConfirmationNecessary: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConfirmSignUpResponseTypeDef(TypedDict):
+    Session: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserPoolDomainResponseTypeDef(TypedDict):
+    ManagedLoginVersion: int
+    CloudFrontDomain: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCSVHeaderResponseTypeDef(TypedDict):
+    UserPoolId: str
+    CSVHeader: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSigningCertificateResponseTypeDef(TypedDict):
+    Certificate: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUserAuthFactorsResponseTypeDef(TypedDict):
+    Username: str
+    PreferredMfaSetting: str
+    UserMFASettingList: List[str]
+    ConfiguredUserAuthFactors: List[AuthFactorTypeType]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartWebAuthnRegistrationResponseTypeDef(TypedDict):
+    CredentialCreationOptions: Dict[str, Any]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateUserPoolDomainResponseTypeDef(TypedDict):
+    ManagedLoginVersion: int
+    CloudFrontDomain: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class VerifySoftwareTokenResponseTypeDef(TypedDict):
+    Status: VerifySoftwareTokenResponseTypeType
+    Session: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AdminDisableProviderForUserRequestTypeDef(TypedDict):
+    UserPoolId: str
+    User: ProviderUserIdentifierTypeTypeDef
+
+class AdminLinkProviderForUserRequestTypeDef(TypedDict):
+    UserPoolId: str
+    DestinationUser: ProviderUserIdentifierTypeTypeDef
+    SourceUser: ProviderUserIdentifierTypeTypeDef
+
+class AdminGetUserResponseTypeDef(TypedDict):
+    Username: str
+    UserAttributes: List[AttributeTypeTypeDef]
+    UserCreateDate: datetime
+    UserLastModifiedDate: datetime
+    Enabled: bool
+    UserStatus: UserStatusTypeType
+    MFAOptions: List[MFAOptionTypeTypeDef]
+    PreferredMfaSetting: str
+    UserMFASettingList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AdminSetUserSettingsRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    MFAOptions: Sequence[MFAOptionTypeTypeDef]
+
+class GetUserResponseTypeDef(TypedDict):
+    Username: str
+    UserAttributes: List[AttributeTypeTypeDef]
+    MFAOptions: List[MFAOptionTypeTypeDef]
+    PreferredMfaSetting: str
+    UserMFASettingList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetUserSettingsRequestTypeDef(TypedDict):
+    AccessToken: str
+    MFAOptions: Sequence[MFAOptionTypeTypeDef]
+
+class UserTypeTypeDef(TypedDict):
+    Username: NotRequired[str]
+    Attributes: NotRequired[List[AttributeTypeTypeDef]]
+    UserCreateDate: NotRequired[datetime]
+    UserLastModifiedDate: NotRequired[datetime]
+    Enabled: NotRequired[bool]
+    UserStatus: NotRequired[UserStatusTypeType]
+    MFAOptions: NotRequired[List[MFAOptionTypeTypeDef]]
+
+class AdminListGroupsForUserRequestPaginateTypeDef(TypedDict):
+    Username: str
+    UserPoolId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class AdminListUserAuthEventsRequestPaginateTypeDef(TypedDict):
+    UserPoolId: str
+    Username: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGroupsRequestPaginateTypeDef(TypedDict):
+    UserPoolId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListIdentityProvidersRequestPaginateTypeDef(TypedDict):
+    UserPoolId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceServersRequestPaginateTypeDef(TypedDict):
+    UserPoolId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUserPoolClientsRequestPaginateTypeDef(TypedDict):
+    UserPoolId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUserPoolsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUsersInGroupRequestPaginateTypeDef(TypedDict):
+    UserPoolId: str
+    GroupName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUsersRequestPaginateTypeDef(TypedDict):
+    UserPoolId: str
+    AttributesToGet: NotRequired[Sequence[str]]
+    Filter: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class AdminListGroupsForUserResponseTypeDef(TypedDict):
+    Groups: List[GroupTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateGroupResponseTypeDef(TypedDict):
+    Group: GroupTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGroupResponseTypeDef(TypedDict):
+    Group: GroupTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListGroupsResponseTypeDef(TypedDict):
+    Groups: List[GroupTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateGroupResponseTypeDef(TypedDict):
+    Group: GroupTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AdminSetUserMFAPreferenceRequestTypeDef(TypedDict):
+    Username: str
+    UserPoolId: str
+    SMSMfaSettings: NotRequired[SMSMfaSettingsTypeTypeDef]
+    SoftwareTokenMfaSettings: NotRequired[SoftwareTokenMfaSettingsTypeTypeDef]
+    EmailMfaSettings: NotRequired[EmailMfaSettingsTypeTypeDef]
+
+class SetUserMFAPreferenceRequestTypeDef(TypedDict):
+    AccessToken: str
+    SMSMfaSettings: NotRequired[SMSMfaSettingsTypeTypeDef]
+    SoftwareTokenMfaSettings: NotRequired[SoftwareTokenMfaSettingsTypeTypeDef]
+    EmailMfaSettings: NotRequired[EmailMfaSettingsTypeTypeDef]
+
+class UserPoolAddOnsTypeTypeDef(TypedDict):
+    AdvancedSecurityMode: AdvancedSecurityModeTypeType
+    AdvancedSecurityAdditionalFlows: NotRequired[AdvancedSecurityAdditionalFlowsTypeTypeDef]
+
+class ManagedLoginBrandingTypeTypeDef(TypedDict):
+    ManagedLoginBrandingId: NotRequired[str]
+    UserPoolId: NotRequired[str]
+    UseCognitoProvidedValues: NotRequired[bool]
+    Settings: NotRequired[Dict[str, Any]]
+    Assets: NotRequired[List[AssetTypeOutputTypeDef]]
+    CreationDate: NotRequired[datetime]
+    LastModifiedDate: NotRequired[datetime]
+
+class AssetTypeTypeDef(TypedDict):
+    Category: AssetCategoryTypeType
+    ColorMode: ColorSchemeModeTypeType
+    Extension: AssetExtensionTypeType
+    Bytes: NotRequired[BlobTypeDef]
+    ResourceId: NotRequired[str]
+
+class SetUICustomizationRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: NotRequired[str]
+    CSS: NotRequired[str]
+    ImageFile: NotRequired[BlobTypeDef]
+
+class AuthEventTypeTypeDef(TypedDict):
+    EventId: NotRequired[str]
+    EventType: NotRequired[EventTypeType]
+    CreationDate: NotRequired[datetime]
+    EventResponse: NotRequired[EventResponseTypeType]
+    EventRisk: NotRequired[EventRiskTypeTypeDef]
+    ChallengeResponses: NotRequired[List[ChallengeResponseTypeTypeDef]]
+    EventContextData: NotRequired[EventContextDataTypeTypeDef]
+    EventFeedback: NotRequired[EventFeedbackTypeTypeDef]
+
+class AuthenticationResultTypeTypeDef(TypedDict):
+    AccessToken: NotRequired[str]
+    ExpiresIn: NotRequired[int]
+    TokenType: NotRequired[str]
+    RefreshToken: NotRequired[str]
+    IdToken: NotRequired[str]
+    NewDeviceMetadata: NotRequired[NewDeviceMetadataTypeTypeDef]
+
+class ForgotPasswordResponseTypeDef(TypedDict):
+    CodeDeliveryDetails: CodeDeliveryDetailsTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUserAttributeVerificationCodeResponseTypeDef(TypedDict):
+    CodeDeliveryDetails: CodeDeliveryDetailsTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResendConfirmationCodeResponseTypeDef(TypedDict):
+    CodeDeliveryDetails: CodeDeliveryDetailsTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SignUpResponseTypeDef(TypedDict):
+    UserConfirmed: bool
+    CodeDeliveryDetails: CodeDeliveryDetailsTypeTypeDef
+    UserSub: str
+    Session: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateUserAttributesResponseTypeDef(TypedDict):
+    CodeDeliveryDetailsList: List[CodeDeliveryDetailsTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CompromisedCredentialsRiskConfigurationTypeOutputTypeDef(TypedDict):
+    Actions: CompromisedCredentialsActionsTypeTypeDef
+    EventFilter: NotRequired[List[EventFilterTypeType]]
+
+class CompromisedCredentialsRiskConfigurationTypeTypeDef(TypedDict):
+    Actions: CompromisedCredentialsActionsTypeTypeDef
+    EventFilter: NotRequired[Sequence[EventFilterTypeType]]
+
+class ConfirmDeviceRequestTypeDef(TypedDict):
+    AccessToken: str
+    DeviceKey: str
+    DeviceSecretVerifierConfig: NotRequired[DeviceSecretVerifierConfigTypeTypeDef]
+    DeviceName: NotRequired[str]
+
+class ConfirmForgotPasswordRequestTypeDef(TypedDict):
+    ClientId: str
+    Username: str
+    ConfirmationCode: str
+    Password: str
+    SecretHash: NotRequired[str]
+    AnalyticsMetadata: NotRequired[AnalyticsMetadataTypeTypeDef]
+    UserContextData: NotRequired[UserContextDataTypeTypeDef]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class ConfirmSignUpRequestTypeDef(TypedDict):
+    ClientId: str
+    Username: str
+    ConfirmationCode: str
+    SecretHash: NotRequired[str]
+    ForceAliasCreation: NotRequired[bool]
+    AnalyticsMetadata: NotRequired[AnalyticsMetadataTypeTypeDef]
+    UserContextData: NotRequired[UserContextDataTypeTypeDef]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+    Session: NotRequired[str]
+
+class ForgotPasswordRequestTypeDef(TypedDict):
+    ClientId: str
+    Username: str
+    SecretHash: NotRequired[str]
+    UserContextData: NotRequired[UserContextDataTypeTypeDef]
+    AnalyticsMetadata: NotRequired[AnalyticsMetadataTypeTypeDef]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class InitiateAuthRequestTypeDef(TypedDict):
+    AuthFlow: AuthFlowTypeType
+    ClientId: str
+    AuthParameters: NotRequired[Mapping[str, str]]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+    AnalyticsMetadata: NotRequired[AnalyticsMetadataTypeTypeDef]
+    UserContextData: NotRequired[UserContextDataTypeTypeDef]
+    Session: NotRequired[str]
+
+class ResendConfirmationCodeRequestTypeDef(TypedDict):
+    ClientId: str
+    Username: str
+    SecretHash: NotRequired[str]
+    UserContextData: NotRequired[UserContextDataTypeTypeDef]
+    AnalyticsMetadata: NotRequired[AnalyticsMetadataTypeTypeDef]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class RespondToAuthChallengeRequestTypeDef(TypedDict):
+    ClientId: str
+    ChallengeName: ChallengeNameTypeType
+    Session: NotRequired[str]
+    ChallengeResponses: NotRequired[Mapping[str, str]]
+    AnalyticsMetadata: NotRequired[AnalyticsMetadataTypeTypeDef]
+    UserContextData: NotRequired[UserContextDataTypeTypeDef]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class SignUpRequestTypeDef(TypedDict):
+    ClientId: str
+    Username: str
+    SecretHash: NotRequired[str]
+    Password: NotRequired[str]
+    UserAttributes: NotRequired[Sequence[AttributeTypeTypeDef]]
+    ValidationData: NotRequired[Sequence[AttributeTypeTypeDef]]
+    AnalyticsMetadata: NotRequired[AnalyticsMetadataTypeTypeDef]
+    UserContextData: NotRequired[UserContextDataTypeTypeDef]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class ContextDataTypeTypeDef(TypedDict):
+    IpAddress: str
+    ServerName: str
+    ServerPath: str
+    HttpHeaders: Sequence[HttpHeaderTypeDef]
+    EncodedData: NotRequired[str]
+
+class CreateIdentityProviderResponseTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeIdentityProviderResponseTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIdentityProviderByIdentifierResponseTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateIdentityProviderResponseTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResourceServerRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Identifier: str
+    Name: str
+    Scopes: NotRequired[Sequence[ResourceServerScopeTypeTypeDef]]
+
+class ResourceServerTypeTypeDef(TypedDict):
+    UserPoolId: NotRequired[str]
+    Identifier: NotRequired[str]
+    Name: NotRequired[str]
+    Scopes: NotRequired[List[ResourceServerScopeTypeTypeDef]]
+
+class UpdateResourceServerRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Identifier: str
+    Name: str
+    Scopes: NotRequired[Sequence[ResourceServerScopeTypeTypeDef]]
+
+class CreateUserImportJobResponseTypeDef(TypedDict):
+    UserImportJob: UserImportJobTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeUserImportJobResponseTypeDef(TypedDict):
+    UserImportJob: UserImportJobTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListUserImportJobsResponseTypeDef(TypedDict):
+    UserImportJobs: List[UserImportJobTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    PaginationToken: NotRequired[str]
+
+class StartUserImportJobResponseTypeDef(TypedDict):
+    UserImportJob: UserImportJobTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopUserImportJobResponseTypeDef(TypedDict):
+    UserImportJob: UserImportJobTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserPoolClientRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientName: str
+    GenerateSecret: NotRequired[bool]
+    RefreshTokenValidity: NotRequired[int]
+    AccessTokenValidity: NotRequired[int]
+    IdTokenValidity: NotRequired[int]
+    TokenValidityUnits: NotRequired[TokenValidityUnitsTypeTypeDef]
+    ReadAttributes: NotRequired[Sequence[str]]
+    WriteAttributes: NotRequired[Sequence[str]]
+    ExplicitAuthFlows: NotRequired[Sequence[ExplicitAuthFlowsTypeType]]
+    SupportedIdentityProviders: NotRequired[Sequence[str]]
+    CallbackURLs: NotRequired[Sequence[str]]
+    LogoutURLs: NotRequired[Sequence[str]]
+    DefaultRedirectURI: NotRequired[str]
+    AllowedOAuthFlows: NotRequired[Sequence[OAuthFlowTypeType]]
+    AllowedOAuthScopes: NotRequired[Sequence[str]]
+    AllowedOAuthFlowsUserPoolClient: NotRequired[bool]
+    AnalyticsConfiguration: NotRequired[AnalyticsConfigurationTypeTypeDef]
+    PreventUserExistenceErrors: NotRequired[PreventUserExistenceErrorTypesType]
+    EnableTokenRevocation: NotRequired[bool]
+    EnablePropagateAdditionalUserContextData: NotRequired[bool]
+    AuthSessionValidity: NotRequired[int]
+    RefreshTokenRotation: NotRequired[RefreshTokenRotationTypeTypeDef]
+
+class UpdateUserPoolClientRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: str
+    ClientName: NotRequired[str]
+    RefreshTokenValidity: NotRequired[int]
+    AccessTokenValidity: NotRequired[int]
+    IdTokenValidity: NotRequired[int]
+    TokenValidityUnits: NotRequired[TokenValidityUnitsTypeTypeDef]
+    ReadAttributes: NotRequired[Sequence[str]]
+    WriteAttributes: NotRequired[Sequence[str]]
+    ExplicitAuthFlows: NotRequired[Sequence[ExplicitAuthFlowsTypeType]]
+    SupportedIdentityProviders: NotRequired[Sequence[str]]
+    CallbackURLs: NotRequired[Sequence[str]]
+    LogoutURLs: NotRequired[Sequence[str]]
+    DefaultRedirectURI: NotRequired[str]
+    AllowedOAuthFlows: NotRequired[Sequence[OAuthFlowTypeType]]
+    AllowedOAuthScopes: NotRequired[Sequence[str]]
+    AllowedOAuthFlowsUserPoolClient: NotRequired[bool]
+    AnalyticsConfiguration: NotRequired[AnalyticsConfigurationTypeTypeDef]
+    PreventUserExistenceErrors: NotRequired[PreventUserExistenceErrorTypesType]
+    EnableTokenRevocation: NotRequired[bool]
+    EnablePropagateAdditionalUserContextData: NotRequired[bool]
+    AuthSessionValidity: NotRequired[int]
+    RefreshTokenRotation: NotRequired[RefreshTokenRotationTypeTypeDef]
+
+class UserPoolClientTypeTypeDef(TypedDict):
+    UserPoolId: NotRequired[str]
+    ClientName: NotRequired[str]
+    ClientId: NotRequired[str]
+    ClientSecret: NotRequired[str]
+    LastModifiedDate: NotRequired[datetime]
+    CreationDate: NotRequired[datetime]
+    RefreshTokenValidity: NotRequired[int]
+    AccessTokenValidity: NotRequired[int]
+    IdTokenValidity: NotRequired[int]
+    TokenValidityUnits: NotRequired[TokenValidityUnitsTypeTypeDef]
+    ReadAttributes: NotRequired[List[str]]
+    WriteAttributes: NotRequired[List[str]]
+    ExplicitAuthFlows: NotRequired[List[ExplicitAuthFlowsTypeType]]
+    SupportedIdentityProviders: NotRequired[List[str]]
+    CallbackURLs: NotRequired[List[str]]
+    LogoutURLs: NotRequired[List[str]]
+    DefaultRedirectURI: NotRequired[str]
+    AllowedOAuthFlows: NotRequired[List[OAuthFlowTypeType]]
+    AllowedOAuthScopes: NotRequired[List[str]]
+    AllowedOAuthFlowsUserPoolClient: NotRequired[bool]
+    AnalyticsConfiguration: NotRequired[AnalyticsConfigurationTypeTypeDef]
+    PreventUserExistenceErrors: NotRequired[PreventUserExistenceErrorTypesType]
+    EnableTokenRevocation: NotRequired[bool]
+    EnablePropagateAdditionalUserContextData: NotRequired[bool]
+    AuthSessionValidity: NotRequired[int]
+    RefreshTokenRotation: NotRequired[RefreshTokenRotationTypeTypeDef]
+
+class CreateUserPoolDomainRequestTypeDef(TypedDict):
+    Domain: str
+    UserPoolId: str
+    ManagedLoginVersion: NotRequired[int]
+    CustomDomainConfig: NotRequired[CustomDomainConfigTypeTypeDef]
+
+class DomainDescriptionTypeTypeDef(TypedDict):
+    UserPoolId: NotRequired[str]
+    AWSAccountId: NotRequired[str]
+    Domain: NotRequired[str]
+    S3Bucket: NotRequired[str]
+    CloudFrontDistribution: NotRequired[str]
+    Version: NotRequired[str]
+    Status: NotRequired[DomainStatusTypeType]
+    CustomDomainConfig: NotRequired[CustomDomainConfigTypeTypeDef]
+    ManagedLoginVersion: NotRequired[int]
+
+class UpdateUserPoolDomainRequestTypeDef(TypedDict):
+    Domain: str
+    UserPoolId: str
+    ManagedLoginVersion: NotRequired[int]
+    CustomDomainConfig: NotRequired[CustomDomainConfigTypeTypeDef]
+
+class SmsMfaConfigTypeTypeDef(TypedDict):
+    SmsAuthenticationMessage: NotRequired[str]
+    SmsConfiguration: NotRequired[SmsConfigurationTypeTypeDef]
+
+class GetUICustomizationResponseTypeDef(TypedDict):
+    UICustomization: UICustomizationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetUICustomizationResponseTypeDef(TypedDict):
+    UICustomization: UICustomizationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LambdaConfigTypeTypeDef(TypedDict):
+    PreSignUp: NotRequired[str]
+    CustomMessage: NotRequired[str]
+    PostConfirmation: NotRequired[str]
+    PreAuthentication: NotRequired[str]
+    PostAuthentication: NotRequired[str]
+    DefineAuthChallenge: NotRequired[str]
+    CreateAuthChallenge: NotRequired[str]
+    VerifyAuthChallengeResponse: NotRequired[str]
+    PreTokenGeneration: NotRequired[str]
+    UserMigration: NotRequired[str]
+    PreTokenGenerationConfig: NotRequired[PreTokenGenerationVersionConfigTypeTypeDef]
+    CustomSMSSender: NotRequired[CustomSMSLambdaVersionConfigTypeTypeDef]
+    CustomEmailSender: NotRequired[CustomEmailLambdaVersionConfigTypeTypeDef]
+    KMSKeyID: NotRequired[str]
+
+class ListIdentityProvidersResponseTypeDef(TypedDict):
+    Providers: List[ProviderDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListUserPoolClientsResponseTypeDef(TypedDict):
+    UserPoolClients: List[UserPoolClientDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListWebAuthnCredentialsResponseTypeDef(TypedDict):
+    Credentials: List[WebAuthnCredentialDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class LogConfigurationTypeTypeDef(TypedDict):
+    LogLevel: LogLevelType
+    EventSource: EventSourceNameType
+    CloudWatchLogsConfiguration: NotRequired[CloudWatchLogsConfigurationTypeTypeDef]
+    S3Configuration: NotRequired[S3ConfigurationTypeTypeDef]
+    FirehoseConfiguration: NotRequired[FirehoseConfigurationTypeTypeDef]
+
+class NotifyConfigurationTypeTypeDef(TypedDict):
+    SourceArn: str
+    From: NotRequired[str]
+    ReplyTo: NotRequired[str]
+    BlockEmail: NotRequired[NotifyEmailTypeTypeDef]
+    NoActionEmail: NotRequired[NotifyEmailTypeTypeDef]
+    MfaEmail: NotRequired[NotifyEmailTypeTypeDef]
+
+RiskExceptionConfigurationTypeUnionTypeDef = Union[
+    RiskExceptionConfigurationTypeTypeDef, RiskExceptionConfigurationTypeOutputTypeDef
+]
 SchemaAttributeTypeTypeDef = TypedDict(
     "SchemaAttributeTypeTypeDef",
     {
-        "Name": str,
-        "AttributeDataType": AttributeDataTypeType,
-        "DeveloperOnlyAttribute": bool,
-        "Mutable": bool,
-        "Required": bool,
-        "NumberAttributeConstraints": "NumberAttributeConstraintsTypeTypeDef",
-        "StringAttributeConstraints": "StringAttributeConstraintsTypeTypeDef",
-    },
-    total=False,
-)
-
-SetLogDeliveryConfigurationRequestRequestTypeDef = TypedDict(
-    "SetLogDeliveryConfigurationRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "LogConfigurations": List["LogConfigurationTypeTypeDef"],
-    },
-)
-
-SetLogDeliveryConfigurationResponseTypeDef = TypedDict(
-    "SetLogDeliveryConfigurationResponseTypeDef",
-    {
-        "LogDeliveryConfiguration": "LogDeliveryConfigurationTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSetRiskConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredSetRiskConfigurationRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalSetRiskConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalSetRiskConfigurationRequestRequestTypeDef",
-    {
-        "ClientId": str,
-        "CompromisedCredentialsRiskConfiguration": "CompromisedCredentialsRiskConfigurationTypeTypeDef",
-        "AccountTakeoverRiskConfiguration": "AccountTakeoverRiskConfigurationTypeTypeDef",
-        "RiskExceptionConfiguration": "RiskExceptionConfigurationTypeTypeDef",
-    },
-    total=False,
-)
-
-class SetRiskConfigurationRequestRequestTypeDef(
-    _RequiredSetRiskConfigurationRequestRequestTypeDef,
-    _OptionalSetRiskConfigurationRequestRequestTypeDef,
-):
-    pass
-
-SetRiskConfigurationResponseTypeDef = TypedDict(
-    "SetRiskConfigurationResponseTypeDef",
-    {
-        "RiskConfiguration": "RiskConfigurationTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSetUICustomizationRequestRequestTypeDef = TypedDict(
-    "_RequiredSetUICustomizationRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalSetUICustomizationRequestRequestTypeDef = TypedDict(
-    "_OptionalSetUICustomizationRequestRequestTypeDef",
-    {
-        "ClientId": str,
-        "CSS": str,
-        "ImageFile": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
-
-class SetUICustomizationRequestRequestTypeDef(
-    _RequiredSetUICustomizationRequestRequestTypeDef,
-    _OptionalSetUICustomizationRequestRequestTypeDef,
-):
-    pass
-
-SetUICustomizationResponseTypeDef = TypedDict(
-    "SetUICustomizationResponseTypeDef",
-    {
-        "UICustomization": "UICustomizationTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSetUserMFAPreferenceRequestRequestTypeDef = TypedDict(
-    "_RequiredSetUserMFAPreferenceRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-    },
-)
-_OptionalSetUserMFAPreferenceRequestRequestTypeDef = TypedDict(
-    "_OptionalSetUserMFAPreferenceRequestRequestTypeDef",
-    {
-        "SMSMfaSettings": "SMSMfaSettingsTypeTypeDef",
-        "SoftwareTokenMfaSettings": "SoftwareTokenMfaSettingsTypeTypeDef",
-    },
-    total=False,
-)
-
-class SetUserMFAPreferenceRequestRequestTypeDef(
-    _RequiredSetUserMFAPreferenceRequestRequestTypeDef,
-    _OptionalSetUserMFAPreferenceRequestRequestTypeDef,
-):
-    pass
-
-_RequiredSetUserPoolMfaConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredSetUserPoolMfaConfigRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalSetUserPoolMfaConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalSetUserPoolMfaConfigRequestRequestTypeDef",
-    {
-        "SmsMfaConfiguration": "SmsMfaConfigTypeTypeDef",
-        "SoftwareTokenMfaConfiguration": "SoftwareTokenMfaConfigTypeTypeDef",
-        "MfaConfiguration": UserPoolMfaTypeType,
-    },
-    total=False,
-)
-
-class SetUserPoolMfaConfigRequestRequestTypeDef(
-    _RequiredSetUserPoolMfaConfigRequestRequestTypeDef,
-    _OptionalSetUserPoolMfaConfigRequestRequestTypeDef,
-):
-    pass
-
-SetUserPoolMfaConfigResponseTypeDef = TypedDict(
-    "SetUserPoolMfaConfigResponseTypeDef",
-    {
-        "SmsMfaConfiguration": "SmsMfaConfigTypeTypeDef",
-        "SoftwareTokenMfaConfiguration": "SoftwareTokenMfaConfigTypeTypeDef",
-        "MfaConfiguration": UserPoolMfaTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SetUserSettingsRequestRequestTypeDef = TypedDict(
-    "SetUserSettingsRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-        "MFAOptions": List["MFAOptionTypeTypeDef"],
-    },
-)
-
-_RequiredSignUpRequestRequestTypeDef = TypedDict(
-    "_RequiredSignUpRequestRequestTypeDef",
-    {
-        "ClientId": str,
-        "Username": str,
-        "Password": str,
-    },
-)
-_OptionalSignUpRequestRequestTypeDef = TypedDict(
-    "_OptionalSignUpRequestRequestTypeDef",
-    {
-        "SecretHash": str,
-        "UserAttributes": List["AttributeTypeTypeDef"],
-        "ValidationData": List["AttributeTypeTypeDef"],
-        "AnalyticsMetadata": "AnalyticsMetadataTypeTypeDef",
-        "UserContextData": "UserContextDataTypeTypeDef",
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class SignUpRequestRequestTypeDef(
-    _RequiredSignUpRequestRequestTypeDef, _OptionalSignUpRequestRequestTypeDef
-):
-    pass
-
-SignUpResponseTypeDef = TypedDict(
-    "SignUpResponseTypeDef",
-    {
-        "UserConfirmed": bool,
-        "CodeDeliveryDetails": "CodeDeliveryDetailsTypeTypeDef",
-        "UserSub": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSmsConfigurationTypeTypeDef = TypedDict(
-    "_RequiredSmsConfigurationTypeTypeDef",
-    {
-        "SnsCallerArn": str,
-    },
-)
-_OptionalSmsConfigurationTypeTypeDef = TypedDict(
-    "_OptionalSmsConfigurationTypeTypeDef",
-    {
-        "ExternalId": str,
-        "SnsRegion": str,
-    },
-    total=False,
-)
-
-class SmsConfigurationTypeTypeDef(
-    _RequiredSmsConfigurationTypeTypeDef, _OptionalSmsConfigurationTypeTypeDef
-):
-    pass
-
-SmsMfaConfigTypeTypeDef = TypedDict(
-    "SmsMfaConfigTypeTypeDef",
-    {
-        "SmsAuthenticationMessage": str,
-        "SmsConfiguration": "SmsConfigurationTypeTypeDef",
-    },
-    total=False,
-)
-
-SoftwareTokenMfaConfigTypeTypeDef = TypedDict(
-    "SoftwareTokenMfaConfigTypeTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-SoftwareTokenMfaSettingsTypeTypeDef = TypedDict(
-    "SoftwareTokenMfaSettingsTypeTypeDef",
-    {
-        "Enabled": bool,
-        "PreferredMfa": bool,
-    },
-    total=False,
-)
-
-StartUserImportJobRequestRequestTypeDef = TypedDict(
-    "StartUserImportJobRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "JobId": str,
-    },
-)
-
-StartUserImportJobResponseTypeDef = TypedDict(
-    "StartUserImportJobResponseTypeDef",
-    {
-        "UserImportJob": "UserImportJobTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopUserImportJobRequestRequestTypeDef = TypedDict(
-    "StopUserImportJobRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "JobId": str,
-    },
-)
-
-StopUserImportJobResponseTypeDef = TypedDict(
-    "StopUserImportJobResponseTypeDef",
-    {
-        "UserImportJob": "UserImportJobTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StringAttributeConstraintsTypeTypeDef = TypedDict(
-    "StringAttributeConstraintsTypeTypeDef",
-    {
-        "MinLength": str,
-        "MaxLength": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-TokenValidityUnitsTypeTypeDef = TypedDict(
-    "TokenValidityUnitsTypeTypeDef",
-    {
-        "AccessToken": TimeUnitsTypeType,
-        "IdToken": TimeUnitsTypeType,
-        "RefreshToken": TimeUnitsTypeType,
-    },
-    total=False,
-)
-
-UICustomizationTypeTypeDef = TypedDict(
-    "UICustomizationTypeTypeDef",
-    {
-        "UserPoolId": str,
-        "ClientId": str,
-        "ImageUrl": str,
-        "CSS": str,
-        "CSSVersion": str,
-        "LastModifiedDate": datetime,
-        "CreationDate": datetime,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-UpdateAuthEventFeedbackRequestRequestTypeDef = TypedDict(
-    "UpdateAuthEventFeedbackRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Username": str,
-        "EventId": str,
-        "FeedbackToken": str,
-        "FeedbackValue": FeedbackValueTypeType,
-    },
-)
-
-_RequiredUpdateDeviceStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDeviceStatusRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-        "DeviceKey": str,
-    },
-)
-_OptionalUpdateDeviceStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDeviceStatusRequestRequestTypeDef",
-    {
-        "DeviceRememberedStatus": DeviceRememberedStatusTypeType,
-    },
-    total=False,
-)
-
-class UpdateDeviceStatusRequestRequestTypeDef(
-    _RequiredUpdateDeviceStatusRequestRequestTypeDef,
-    _OptionalUpdateDeviceStatusRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateGroupRequestRequestTypeDef",
-    {
-        "GroupName": str,
-        "UserPoolId": str,
-    },
-)
-_OptionalUpdateGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateGroupRequestRequestTypeDef",
-    {
-        "Description": str,
-        "RoleArn": str,
-        "Precedence": int,
-    },
-    total=False,
-)
-
-class UpdateGroupRequestRequestTypeDef(
-    _RequiredUpdateGroupRequestRequestTypeDef, _OptionalUpdateGroupRequestRequestTypeDef
-):
-    pass
-
-UpdateGroupResponseTypeDef = TypedDict(
-    "UpdateGroupResponseTypeDef",
-    {
-        "Group": "GroupTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateIdentityProviderRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "ProviderName": str,
-    },
-)
-_OptionalUpdateIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateIdentityProviderRequestRequestTypeDef",
-    {
-        "ProviderDetails": Dict[str, str],
-        "AttributeMapping": Dict[str, str],
-        "IdpIdentifiers": List[str],
-    },
-    total=False,
-)
-
-class UpdateIdentityProviderRequestRequestTypeDef(
-    _RequiredUpdateIdentityProviderRequestRequestTypeDef,
-    _OptionalUpdateIdentityProviderRequestRequestTypeDef,
-):
-    pass
-
-UpdateIdentityProviderResponseTypeDef = TypedDict(
-    "UpdateIdentityProviderResponseTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateResourceServerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResourceServerRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "Identifier": str,
-        "Name": str,
-    },
-)
-_OptionalUpdateResourceServerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResourceServerRequestRequestTypeDef",
-    {
-        "Scopes": List["ResourceServerScopeTypeTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateResourceServerRequestRequestTypeDef(
-    _RequiredUpdateResourceServerRequestRequestTypeDef,
-    _OptionalUpdateResourceServerRequestRequestTypeDef,
-):
-    pass
-
-UpdateResourceServerResponseTypeDef = TypedDict(
-    "UpdateResourceServerResponseTypeDef",
-    {
-        "ResourceServer": "ResourceServerTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateUserAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUserAttributesRequestRequestTypeDef",
-    {
-        "UserAttributes": List["AttributeTypeTypeDef"],
-        "AccessToken": str,
-    },
-)
-_OptionalUpdateUserAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUserAttributesRequestRequestTypeDef",
-    {
-        "ClientMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class UpdateUserAttributesRequestRequestTypeDef(
-    _RequiredUpdateUserAttributesRequestRequestTypeDef,
-    _OptionalUpdateUserAttributesRequestRequestTypeDef,
-):
-    pass
-
-UpdateUserAttributesResponseTypeDef = TypedDict(
-    "UpdateUserAttributesResponseTypeDef",
-    {
-        "CodeDeliveryDetailsList": List["CodeDeliveryDetailsTypeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateUserPoolClientRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUserPoolClientRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-        "ClientId": str,
-    },
-)
-_OptionalUpdateUserPoolClientRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUserPoolClientRequestRequestTypeDef",
-    {
-        "ClientName": str,
-        "RefreshTokenValidity": int,
-        "AccessTokenValidity": int,
-        "IdTokenValidity": int,
-        "TokenValidityUnits": "TokenValidityUnitsTypeTypeDef",
-        "ReadAttributes": List[str],
-        "WriteAttributes": List[str],
-        "ExplicitAuthFlows": List[ExplicitAuthFlowsTypeType],
-        "SupportedIdentityProviders": List[str],
-        "CallbackURLs": List[str],
-        "LogoutURLs": List[str],
-        "DefaultRedirectURI": str,
-        "AllowedOAuthFlows": List[OAuthFlowTypeType],
-        "AllowedOAuthScopes": List[str],
-        "AllowedOAuthFlowsUserPoolClient": bool,
-        "AnalyticsConfiguration": "AnalyticsConfigurationTypeTypeDef",
-        "PreventUserExistenceErrors": PreventUserExistenceErrorTypesType,
-        "EnableTokenRevocation": bool,
-        "EnablePropagateAdditionalUserContextData": bool,
-        "AuthSessionValidity": int,
-    },
-    total=False,
-)
-
-class UpdateUserPoolClientRequestRequestTypeDef(
-    _RequiredUpdateUserPoolClientRequestRequestTypeDef,
-    _OptionalUpdateUserPoolClientRequestRequestTypeDef,
-):
-    pass
-
-UpdateUserPoolClientResponseTypeDef = TypedDict(
-    "UpdateUserPoolClientResponseTypeDef",
-    {
-        "UserPoolClient": "UserPoolClientTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateUserPoolDomainRequestRequestTypeDef = TypedDict(
-    "UpdateUserPoolDomainRequestRequestTypeDef",
-    {
-        "Domain": str,
-        "UserPoolId": str,
-        "CustomDomainConfig": "CustomDomainConfigTypeTypeDef",
-    },
-)
-
-UpdateUserPoolDomainResponseTypeDef = TypedDict(
-    "UpdateUserPoolDomainResponseTypeDef",
-    {
-        "CloudFrontDomain": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateUserPoolRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUserPoolRequestRequestTypeDef",
-    {
-        "UserPoolId": str,
-    },
-)
-_OptionalUpdateUserPoolRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUserPoolRequestRequestTypeDef",
-    {
-        "Policies": "UserPoolPolicyTypeTypeDef",
-        "DeletionProtection": DeletionProtectionTypeType,
-        "LambdaConfig": "LambdaConfigTypeTypeDef",
-        "AutoVerifiedAttributes": List[VerifiedAttributeTypeType],
-        "SmsVerificationMessage": str,
-        "EmailVerificationMessage": str,
-        "EmailVerificationSubject": str,
-        "VerificationMessageTemplate": "VerificationMessageTemplateTypeTypeDef",
-        "SmsAuthenticationMessage": str,
-        "UserAttributeUpdateSettings": "UserAttributeUpdateSettingsTypeTypeDef",
-        "MfaConfiguration": UserPoolMfaTypeType,
-        "DeviceConfiguration": "DeviceConfigurationTypeTypeDef",
-        "EmailConfiguration": "EmailConfigurationTypeTypeDef",
-        "SmsConfiguration": "SmsConfigurationTypeTypeDef",
-        "UserPoolTags": Dict[str, str],
-        "AdminCreateUserConfig": "AdminCreateUserConfigTypeTypeDef",
-        "UserPoolAddOns": "UserPoolAddOnsTypeTypeDef",
-        "AccountRecoverySetting": "AccountRecoverySettingTypeTypeDef",
-    },
-    total=False,
-)
-
-class UpdateUserPoolRequestRequestTypeDef(
-    _RequiredUpdateUserPoolRequestRequestTypeDef, _OptionalUpdateUserPoolRequestRequestTypeDef
-):
-    pass
-
-UserAttributeUpdateSettingsTypeTypeDef = TypedDict(
-    "UserAttributeUpdateSettingsTypeTypeDef",
-    {
-        "AttributesRequireVerificationBeforeUpdate": List[VerifiedAttributeTypeType],
-    },
-    total=False,
-)
-
-UserContextDataTypeTypeDef = TypedDict(
-    "UserContextDataTypeTypeDef",
-    {
-        "IpAddress": str,
-        "EncodedData": str,
-    },
-    total=False,
-)
-
-UserImportJobTypeTypeDef = TypedDict(
-    "UserImportJobTypeTypeDef",
-    {
-        "JobName": str,
-        "JobId": str,
-        "UserPoolId": str,
-        "PreSignedUrl": str,
-        "CreationDate": datetime,
-        "StartDate": datetime,
-        "CompletionDate": datetime,
-        "Status": UserImportJobStatusTypeType,
-        "CloudWatchLogsRoleArn": str,
-        "ImportedUsers": int,
-        "SkippedUsers": int,
-        "FailedUsers": int,
-        "CompletionMessage": str,
-    },
-    total=False,
-)
-
-UserPoolAddOnsTypeTypeDef = TypedDict(
-    "UserPoolAddOnsTypeTypeDef",
-    {
-        "AdvancedSecurityMode": AdvancedSecurityModeTypeType,
-    },
-)
-
-UserPoolClientDescriptionTypeDef = TypedDict(
-    "UserPoolClientDescriptionTypeDef",
-    {
-        "ClientId": str,
-        "UserPoolId": str,
-        "ClientName": str,
-    },
-    total=False,
-)
-
-UserPoolClientTypeTypeDef = TypedDict(
-    "UserPoolClientTypeTypeDef",
-    {
-        "UserPoolId": str,
-        "ClientName": str,
-        "ClientId": str,
-        "ClientSecret": str,
-        "LastModifiedDate": datetime,
-        "CreationDate": datetime,
-        "RefreshTokenValidity": int,
-        "AccessTokenValidity": int,
-        "IdTokenValidity": int,
-        "TokenValidityUnits": "TokenValidityUnitsTypeTypeDef",
-        "ReadAttributes": List[str],
-        "WriteAttributes": List[str],
-        "ExplicitAuthFlows": List[ExplicitAuthFlowsTypeType],
-        "SupportedIdentityProviders": List[str],
-        "CallbackURLs": List[str],
-        "LogoutURLs": List[str],
-        "DefaultRedirectURI": str,
-        "AllowedOAuthFlows": List[OAuthFlowTypeType],
-        "AllowedOAuthScopes": List[str],
-        "AllowedOAuthFlowsUserPoolClient": bool,
-        "AnalyticsConfiguration": "AnalyticsConfigurationTypeTypeDef",
-        "PreventUserExistenceErrors": PreventUserExistenceErrorTypesType,
-        "EnableTokenRevocation": bool,
-        "EnablePropagateAdditionalUserContextData": bool,
-        "AuthSessionValidity": int,
-    },
-    total=False,
-)
-
-UserPoolDescriptionTypeTypeDef = TypedDict(
-    "UserPoolDescriptionTypeTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "LambdaConfig": "LambdaConfigTypeTypeDef",
-        "Status": StatusTypeType,
-        "LastModifiedDate": datetime,
-        "CreationDate": datetime,
-    },
-    total=False,
-)
-
-UserPoolPolicyTypeTypeDef = TypedDict(
-    "UserPoolPolicyTypeTypeDef",
-    {
-        "PasswordPolicy": "PasswordPolicyTypeTypeDef",
-    },
-    total=False,
-)
-
-UserPoolTypeTypeDef = TypedDict(
-    "UserPoolTypeTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Policies": "UserPoolPolicyTypeTypeDef",
-        "DeletionProtection": DeletionProtectionTypeType,
-        "LambdaConfig": "LambdaConfigTypeTypeDef",
-        "Status": StatusTypeType,
-        "LastModifiedDate": datetime,
-        "CreationDate": datetime,
-        "SchemaAttributes": List["SchemaAttributeTypeTypeDef"],
-        "AutoVerifiedAttributes": List[VerifiedAttributeTypeType],
-        "AliasAttributes": List[AliasAttributeTypeType],
-        "UsernameAttributes": List[UsernameAttributeTypeType],
-        "SmsVerificationMessage": str,
-        "EmailVerificationMessage": str,
-        "EmailVerificationSubject": str,
-        "VerificationMessageTemplate": "VerificationMessageTemplateTypeTypeDef",
-        "SmsAuthenticationMessage": str,
-        "UserAttributeUpdateSettings": "UserAttributeUpdateSettingsTypeTypeDef",
-        "MfaConfiguration": UserPoolMfaTypeType,
-        "DeviceConfiguration": "DeviceConfigurationTypeTypeDef",
-        "EstimatedNumberOfUsers": int,
-        "EmailConfiguration": "EmailConfigurationTypeTypeDef",
-        "SmsConfiguration": "SmsConfigurationTypeTypeDef",
-        "UserPoolTags": Dict[str, str],
-        "SmsConfigurationFailure": str,
-        "EmailConfigurationFailure": str,
-        "Domain": str,
-        "CustomDomain": str,
-        "AdminCreateUserConfig": "AdminCreateUserConfigTypeTypeDef",
-        "UserPoolAddOns": "UserPoolAddOnsTypeTypeDef",
-        "UsernameConfiguration": "UsernameConfigurationTypeTypeDef",
-        "Arn": str,
-        "AccountRecoverySetting": "AccountRecoverySettingTypeTypeDef",
-    },
-    total=False,
-)
-
-UserTypeTypeDef = TypedDict(
-    "UserTypeTypeDef",
-    {
-        "Username": str,
-        "Attributes": List["AttributeTypeTypeDef"],
-        "UserCreateDate": datetime,
-        "UserLastModifiedDate": datetime,
-        "Enabled": bool,
-        "UserStatus": UserStatusTypeType,
-        "MFAOptions": List["MFAOptionTypeTypeDef"],
-    },
-    total=False,
-)
-
-UsernameConfigurationTypeTypeDef = TypedDict(
-    "UsernameConfigurationTypeTypeDef",
-    {
-        "CaseSensitive": bool,
-    },
-)
-
-VerificationMessageTemplateTypeTypeDef = TypedDict(
-    "VerificationMessageTemplateTypeTypeDef",
-    {
-        "SmsMessage": str,
-        "EmailMessage": str,
-        "EmailSubject": str,
-        "EmailMessageByLink": str,
-        "EmailSubjectByLink": str,
-        "DefaultEmailOption": DefaultEmailOptionTypeType,
-    },
-    total=False,
-)
-
-_RequiredVerifySoftwareTokenRequestRequestTypeDef = TypedDict(
-    "_RequiredVerifySoftwareTokenRequestRequestTypeDef",
-    {
-        "UserCode": str,
-    },
-)
-_OptionalVerifySoftwareTokenRequestRequestTypeDef = TypedDict(
-    "_OptionalVerifySoftwareTokenRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-        "Session": str,
-        "FriendlyDeviceName": str,
-    },
-    total=False,
-)
-
-class VerifySoftwareTokenRequestRequestTypeDef(
-    _RequiredVerifySoftwareTokenRequestRequestTypeDef,
-    _OptionalVerifySoftwareTokenRequestRequestTypeDef,
-):
-    pass
-
-VerifySoftwareTokenResponseTypeDef = TypedDict(
-    "VerifySoftwareTokenResponseTypeDef",
-    {
-        "Status": VerifySoftwareTokenResponseTypeType,
-        "Session": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VerifyUserAttributeRequestRequestTypeDef = TypedDict(
-    "VerifyUserAttributeRequestRequestTypeDef",
-    {
-        "AccessToken": str,
-        "AttributeName": str,
-        "Code": str,
-    },
-)
+        "Name": NotRequired[str],
+        "AttributeDataType": NotRequired[AttributeDataTypeType],
+        "DeveloperOnlyAttribute": NotRequired[bool],
+        "Mutable": NotRequired[bool],
+        "Required": NotRequired[bool],
+        "NumberAttributeConstraints": NotRequired[NumberAttributeConstraintsTypeTypeDef],
+        "StringAttributeConstraints": NotRequired[StringAttributeConstraintsTypeTypeDef],
+    },
+)
+
+class UserPoolPolicyTypeOutputTypeDef(TypedDict):
+    PasswordPolicy: NotRequired[PasswordPolicyTypeTypeDef]
+    SignInPolicy: NotRequired[SignInPolicyTypeOutputTypeDef]
+
+class UserPoolPolicyTypeTypeDef(TypedDict):
+    PasswordPolicy: NotRequired[PasswordPolicyTypeTypeDef]
+    SignInPolicy: NotRequired[SignInPolicyTypeTypeDef]
+
+UserAttributeUpdateSettingsTypeUnionTypeDef = Union[
+    UserAttributeUpdateSettingsTypeTypeDef, UserAttributeUpdateSettingsTypeOutputTypeDef
+]
+AccountRecoverySettingTypeUnionTypeDef = Union[
+    AccountRecoverySettingTypeTypeDef, AccountRecoverySettingTypeOutputTypeDef
+]
+
+class AdminGetDeviceResponseTypeDef(TypedDict):
+    Device: DeviceTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AdminListDevicesResponseTypeDef(TypedDict):
+    Devices: List[DeviceTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    PaginationToken: NotRequired[str]
+
+class GetDeviceResponseTypeDef(TypedDict):
+    Device: DeviceTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDevicesResponseTypeDef(TypedDict):
+    Devices: List[DeviceTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    PaginationToken: NotRequired[str]
+
+class AdminCreateUserResponseTypeDef(TypedDict):
+    User: UserTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListUsersInGroupResponseTypeDef(TypedDict):
+    Users: List[UserTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListUsersResponseTypeDef(TypedDict):
+    Users: List[UserTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    PaginationToken: NotRequired[str]
+
+class CreateManagedLoginBrandingResponseTypeDef(TypedDict):
+    ManagedLoginBranding: ManagedLoginBrandingTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeManagedLoginBrandingByClientResponseTypeDef(TypedDict):
+    ManagedLoginBranding: ManagedLoginBrandingTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeManagedLoginBrandingResponseTypeDef(TypedDict):
+    ManagedLoginBranding: ManagedLoginBrandingTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateManagedLoginBrandingResponseTypeDef(TypedDict):
+    ManagedLoginBranding: ManagedLoginBrandingTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+AssetTypeUnionTypeDef = Union[AssetTypeTypeDef, AssetTypeOutputTypeDef]
+
+class AdminListUserAuthEventsResponseTypeDef(TypedDict):
+    AuthEvents: List[AuthEventTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AdminInitiateAuthResponseTypeDef(TypedDict):
+    ChallengeName: ChallengeNameTypeType
+    Session: str
+    ChallengeParameters: Dict[str, str]
+    AuthenticationResult: AuthenticationResultTypeTypeDef
+    AvailableChallenges: List[ChallengeNameTypeType]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AdminRespondToAuthChallengeResponseTypeDef(TypedDict):
+    ChallengeName: ChallengeNameTypeType
+    Session: str
+    ChallengeParameters: Dict[str, str]
+    AuthenticationResult: AuthenticationResultTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTokensFromRefreshTokenResponseTypeDef(TypedDict):
+    AuthenticationResult: AuthenticationResultTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InitiateAuthResponseTypeDef(TypedDict):
+    ChallengeName: ChallengeNameTypeType
+    Session: str
+    ChallengeParameters: Dict[str, str]
+    AuthenticationResult: AuthenticationResultTypeTypeDef
+    AvailableChallenges: List[ChallengeNameTypeType]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RespondToAuthChallengeResponseTypeDef(TypedDict):
+    ChallengeName: ChallengeNameTypeType
+    Session: str
+    ChallengeParameters: Dict[str, str]
+    AuthenticationResult: AuthenticationResultTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CompromisedCredentialsRiskConfigurationTypeUnionTypeDef = Union[
+    CompromisedCredentialsRiskConfigurationTypeTypeDef,
+    CompromisedCredentialsRiskConfigurationTypeOutputTypeDef,
+]
+
+class AdminInitiateAuthRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: str
+    AuthFlow: AuthFlowTypeType
+    AuthParameters: NotRequired[Mapping[str, str]]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+    AnalyticsMetadata: NotRequired[AnalyticsMetadataTypeTypeDef]
+    ContextData: NotRequired[ContextDataTypeTypeDef]
+    Session: NotRequired[str]
+
+class AdminRespondToAuthChallengeRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: str
+    ChallengeName: ChallengeNameTypeType
+    ChallengeResponses: NotRequired[Mapping[str, str]]
+    Session: NotRequired[str]
+    AnalyticsMetadata: NotRequired[AnalyticsMetadataTypeTypeDef]
+    ContextData: NotRequired[ContextDataTypeTypeDef]
+    ClientMetadata: NotRequired[Mapping[str, str]]
+
+class CreateResourceServerResponseTypeDef(TypedDict):
+    ResourceServer: ResourceServerTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeResourceServerResponseTypeDef(TypedDict):
+    ResourceServer: ResourceServerTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResourceServersResponseTypeDef(TypedDict):
+    ResourceServers: List[ResourceServerTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateResourceServerResponseTypeDef(TypedDict):
+    ResourceServer: ResourceServerTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserPoolClientResponseTypeDef(TypedDict):
+    UserPoolClient: UserPoolClientTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeUserPoolClientResponseTypeDef(TypedDict):
+    UserPoolClient: UserPoolClientTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateUserPoolClientResponseTypeDef(TypedDict):
+    UserPoolClient: UserPoolClientTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeUserPoolDomainResponseTypeDef(TypedDict):
+    DomainDescription: DomainDescriptionTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUserPoolMfaConfigResponseTypeDef(TypedDict):
+    SmsMfaConfiguration: SmsMfaConfigTypeTypeDef
+    SoftwareTokenMfaConfiguration: SoftwareTokenMfaConfigTypeTypeDef
+    EmailMfaConfiguration: EmailMfaConfigTypeTypeDef
+    MfaConfiguration: UserPoolMfaTypeType
+    WebAuthnConfiguration: WebAuthnConfigurationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetUserPoolMfaConfigRequestTypeDef(TypedDict):
+    UserPoolId: str
+    SmsMfaConfiguration: NotRequired[SmsMfaConfigTypeTypeDef]
+    SoftwareTokenMfaConfiguration: NotRequired[SoftwareTokenMfaConfigTypeTypeDef]
+    EmailMfaConfiguration: NotRequired[EmailMfaConfigTypeTypeDef]
+    MfaConfiguration: NotRequired[UserPoolMfaTypeType]
+    WebAuthnConfiguration: NotRequired[WebAuthnConfigurationTypeTypeDef]
+
+class SetUserPoolMfaConfigResponseTypeDef(TypedDict):
+    SmsMfaConfiguration: SmsMfaConfigTypeTypeDef
+    SoftwareTokenMfaConfiguration: SoftwareTokenMfaConfigTypeTypeDef
+    EmailMfaConfiguration: EmailMfaConfigTypeTypeDef
+    MfaConfiguration: UserPoolMfaTypeType
+    WebAuthnConfiguration: WebAuthnConfigurationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UserPoolDescriptionTypeTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    LambdaConfig: NotRequired[LambdaConfigTypeTypeDef]
+    Status: NotRequired[StatusTypeType]
+    LastModifiedDate: NotRequired[datetime]
+    CreationDate: NotRequired[datetime]
+
+class LogDeliveryConfigurationTypeTypeDef(TypedDict):
+    UserPoolId: str
+    LogConfigurations: List[LogConfigurationTypeTypeDef]
+
+class SetLogDeliveryConfigurationRequestTypeDef(TypedDict):
+    UserPoolId: str
+    LogConfigurations: Sequence[LogConfigurationTypeTypeDef]
+
+class AccountTakeoverRiskConfigurationTypeTypeDef(TypedDict):
+    Actions: AccountTakeoverActionsTypeTypeDef
+    NotifyConfiguration: NotRequired[NotifyConfigurationTypeTypeDef]
+
+class AddCustomAttributesRequestTypeDef(TypedDict):
+    UserPoolId: str
+    CustomAttributes: Sequence[SchemaAttributeTypeTypeDef]
+
+class UserPoolTypeTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Policies: NotRequired[UserPoolPolicyTypeOutputTypeDef]
+    DeletionProtection: NotRequired[DeletionProtectionTypeType]
+    LambdaConfig: NotRequired[LambdaConfigTypeTypeDef]
+    Status: NotRequired[StatusTypeType]
+    LastModifiedDate: NotRequired[datetime]
+    CreationDate: NotRequired[datetime]
+    SchemaAttributes: NotRequired[List[SchemaAttributeTypeTypeDef]]
+    AutoVerifiedAttributes: NotRequired[List[VerifiedAttributeTypeType]]
+    AliasAttributes: NotRequired[List[AliasAttributeTypeType]]
+    UsernameAttributes: NotRequired[List[UsernameAttributeTypeType]]
+    SmsVerificationMessage: NotRequired[str]
+    EmailVerificationMessage: NotRequired[str]
+    EmailVerificationSubject: NotRequired[str]
+    VerificationMessageTemplate: NotRequired[VerificationMessageTemplateTypeTypeDef]
+    SmsAuthenticationMessage: NotRequired[str]
+    UserAttributeUpdateSettings: NotRequired[UserAttributeUpdateSettingsTypeOutputTypeDef]
+    MfaConfiguration: NotRequired[UserPoolMfaTypeType]
+    DeviceConfiguration: NotRequired[DeviceConfigurationTypeTypeDef]
+    EstimatedNumberOfUsers: NotRequired[int]
+    EmailConfiguration: NotRequired[EmailConfigurationTypeTypeDef]
+    SmsConfiguration: NotRequired[SmsConfigurationTypeTypeDef]
+    UserPoolTags: NotRequired[Dict[str, str]]
+    SmsConfigurationFailure: NotRequired[str]
+    EmailConfigurationFailure: NotRequired[str]
+    Domain: NotRequired[str]
+    CustomDomain: NotRequired[str]
+    AdminCreateUserConfig: NotRequired[AdminCreateUserConfigTypeTypeDef]
+    UserPoolAddOns: NotRequired[UserPoolAddOnsTypeTypeDef]
+    UsernameConfiguration: NotRequired[UsernameConfigurationTypeTypeDef]
+    Arn: NotRequired[str]
+    AccountRecoverySetting: NotRequired[AccountRecoverySettingTypeOutputTypeDef]
+    UserPoolTier: NotRequired[UserPoolTierTypeType]
+
+UserPoolPolicyTypeUnionTypeDef = Union[UserPoolPolicyTypeTypeDef, UserPoolPolicyTypeOutputTypeDef]
+
+class CreateManagedLoginBrandingRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: str
+    UseCognitoProvidedValues: NotRequired[bool]
+    Settings: NotRequired[Mapping[str, Any]]
+    Assets: NotRequired[Sequence[AssetTypeUnionTypeDef]]
+
+class UpdateManagedLoginBrandingRequestTypeDef(TypedDict):
+    UserPoolId: NotRequired[str]
+    ManagedLoginBrandingId: NotRequired[str]
+    UseCognitoProvidedValues: NotRequired[bool]
+    Settings: NotRequired[Mapping[str, Any]]
+    Assets: NotRequired[Sequence[AssetTypeUnionTypeDef]]
+
+class ListUserPoolsResponseTypeDef(TypedDict):
+    UserPools: List[UserPoolDescriptionTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetLogDeliveryConfigurationResponseTypeDef(TypedDict):
+    LogDeliveryConfiguration: LogDeliveryConfigurationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetLogDeliveryConfigurationResponseTypeDef(TypedDict):
+    LogDeliveryConfiguration: LogDeliveryConfigurationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RiskConfigurationTypeTypeDef(TypedDict):
+    UserPoolId: NotRequired[str]
+    ClientId: NotRequired[str]
+    CompromisedCredentialsRiskConfiguration: NotRequired[
+        CompromisedCredentialsRiskConfigurationTypeOutputTypeDef
+    ]
+    AccountTakeoverRiskConfiguration: NotRequired[AccountTakeoverRiskConfigurationTypeTypeDef]
+    RiskExceptionConfiguration: NotRequired[RiskExceptionConfigurationTypeOutputTypeDef]
+    LastModifiedDate: NotRequired[datetime]
+
+class SetRiskConfigurationRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: NotRequired[str]
+    CompromisedCredentialsRiskConfiguration: NotRequired[
+        CompromisedCredentialsRiskConfigurationTypeUnionTypeDef
+    ]
+    AccountTakeoverRiskConfiguration: NotRequired[AccountTakeoverRiskConfigurationTypeTypeDef]
+    RiskExceptionConfiguration: NotRequired[RiskExceptionConfigurationTypeUnionTypeDef]
+
+class CreateUserPoolResponseTypeDef(TypedDict):
+    UserPool: UserPoolTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeUserPoolResponseTypeDef(TypedDict):
+    UserPool: UserPoolTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserPoolRequestTypeDef(TypedDict):
+    PoolName: str
+    Policies: NotRequired[UserPoolPolicyTypeUnionTypeDef]
+    DeletionProtection: NotRequired[DeletionProtectionTypeType]
+    LambdaConfig: NotRequired[LambdaConfigTypeTypeDef]
+    AutoVerifiedAttributes: NotRequired[Sequence[VerifiedAttributeTypeType]]
+    AliasAttributes: NotRequired[Sequence[AliasAttributeTypeType]]
+    UsernameAttributes: NotRequired[Sequence[UsernameAttributeTypeType]]
+    SmsVerificationMessage: NotRequired[str]
+    EmailVerificationMessage: NotRequired[str]
+    EmailVerificationSubject: NotRequired[str]
+    VerificationMessageTemplate: NotRequired[VerificationMessageTemplateTypeTypeDef]
+    SmsAuthenticationMessage: NotRequired[str]
+    MfaConfiguration: NotRequired[UserPoolMfaTypeType]
+    UserAttributeUpdateSettings: NotRequired[UserAttributeUpdateSettingsTypeUnionTypeDef]
+    DeviceConfiguration: NotRequired[DeviceConfigurationTypeTypeDef]
+    EmailConfiguration: NotRequired[EmailConfigurationTypeTypeDef]
+    SmsConfiguration: NotRequired[SmsConfigurationTypeTypeDef]
+    UserPoolTags: NotRequired[Mapping[str, str]]
+    AdminCreateUserConfig: NotRequired[AdminCreateUserConfigTypeTypeDef]
+    Schema: NotRequired[Sequence[SchemaAttributeTypeTypeDef]]
+    UserPoolAddOns: NotRequired[UserPoolAddOnsTypeTypeDef]
+    UsernameConfiguration: NotRequired[UsernameConfigurationTypeTypeDef]
+    AccountRecoverySetting: NotRequired[AccountRecoverySettingTypeUnionTypeDef]
+    UserPoolTier: NotRequired[UserPoolTierTypeType]
+
+class UpdateUserPoolRequestTypeDef(TypedDict):
+    UserPoolId: str
+    Policies: NotRequired[UserPoolPolicyTypeUnionTypeDef]
+    DeletionProtection: NotRequired[DeletionProtectionTypeType]
+    LambdaConfig: NotRequired[LambdaConfigTypeTypeDef]
+    AutoVerifiedAttributes: NotRequired[Sequence[VerifiedAttributeTypeType]]
+    SmsVerificationMessage: NotRequired[str]
+    EmailVerificationMessage: NotRequired[str]
+    EmailVerificationSubject: NotRequired[str]
+    VerificationMessageTemplate: NotRequired[VerificationMessageTemplateTypeTypeDef]
+    SmsAuthenticationMessage: NotRequired[str]
+    UserAttributeUpdateSettings: NotRequired[UserAttributeUpdateSettingsTypeUnionTypeDef]
+    MfaConfiguration: NotRequired[UserPoolMfaTypeType]
+    DeviceConfiguration: NotRequired[DeviceConfigurationTypeTypeDef]
+    EmailConfiguration: NotRequired[EmailConfigurationTypeTypeDef]
+    SmsConfiguration: NotRequired[SmsConfigurationTypeTypeDef]
+    UserPoolTags: NotRequired[Mapping[str, str]]
+    AdminCreateUserConfig: NotRequired[AdminCreateUserConfigTypeTypeDef]
+    UserPoolAddOns: NotRequired[UserPoolAddOnsTypeTypeDef]
+    AccountRecoverySetting: NotRequired[AccountRecoverySettingTypeUnionTypeDef]
+    PoolName: NotRequired[str]
+    UserPoolTier: NotRequired[UserPoolTierTypeType]
+
+class DescribeRiskConfigurationResponseTypeDef(TypedDict):
+    RiskConfiguration: RiskConfigurationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetRiskConfigurationResponseTypeDef(TypedDict):
+    RiskConfiguration: RiskConfigurationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

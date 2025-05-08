@@ -1,20 +1,23 @@
 """
 Type annotations for opsworkscm service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_opsworkscm.type_defs import AccountAttributeTypeDef
 
-    data: AccountAttributeTypeDef = {...}
+    data: AccountAttributeTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     BackupStatusType,
@@ -24,599 +27,342 @@ from .literals import (
     ServerStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AccountAttributeTypeDef",
-    "AssociateNodeRequestRequestTypeDef",
+    "AssociateNodeRequestTypeDef",
     "AssociateNodeResponseTypeDef",
     "BackupTypeDef",
-    "CreateBackupRequestRequestTypeDef",
+    "CreateBackupRequestTypeDef",
     "CreateBackupResponseTypeDef",
-    "CreateServerRequestRequestTypeDef",
+    "CreateServerRequestTypeDef",
     "CreateServerResponseTypeDef",
-    "DeleteBackupRequestRequestTypeDef",
-    "DeleteServerRequestRequestTypeDef",
+    "DeleteBackupRequestTypeDef",
+    "DeleteServerRequestTypeDef",
     "DescribeAccountAttributesResponseTypeDef",
-    "DescribeBackupsRequestRequestTypeDef",
+    "DescribeBackupsRequestPaginateTypeDef",
+    "DescribeBackupsRequestTypeDef",
     "DescribeBackupsResponseTypeDef",
-    "DescribeEventsRequestRequestTypeDef",
+    "DescribeEventsRequestPaginateTypeDef",
+    "DescribeEventsRequestTypeDef",
     "DescribeEventsResponseTypeDef",
-    "DescribeNodeAssociationStatusRequestRequestTypeDef",
+    "DescribeNodeAssociationStatusRequestTypeDef",
+    "DescribeNodeAssociationStatusRequestWaitTypeDef",
     "DescribeNodeAssociationStatusResponseTypeDef",
-    "DescribeServersRequestRequestTypeDef",
+    "DescribeServersRequestPaginateTypeDef",
+    "DescribeServersRequestTypeDef",
     "DescribeServersResponseTypeDef",
-    "DisassociateNodeRequestRequestTypeDef",
+    "DisassociateNodeRequestTypeDef",
     "DisassociateNodeResponseTypeDef",
     "EngineAttributeTypeDef",
-    "ExportServerEngineAttributeRequestRequestTypeDef",
+    "ExportServerEngineAttributeRequestTypeDef",
     "ExportServerEngineAttributeResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreServerRequestRequestTypeDef",
+    "RestoreServerRequestTypeDef",
     "RestoreServerResponseTypeDef",
     "ServerEventTypeDef",
     "ServerTypeDef",
-    "StartMaintenanceRequestRequestTypeDef",
+    "StartMaintenanceRequestTypeDef",
     "StartMaintenanceResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateServerEngineAttributesRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateServerEngineAttributesRequestTypeDef",
     "UpdateServerEngineAttributesResponseTypeDef",
-    "UpdateServerRequestRequestTypeDef",
+    "UpdateServerRequestTypeDef",
     "UpdateServerResponseTypeDef",
     "WaiterConfigTypeDef",
 )
 
-AccountAttributeTypeDef = TypedDict(
-    "AccountAttributeTypeDef",
-    {
-        "Name": str,
-        "Maximum": int,
-        "Used": int,
-    },
-    total=False,
-)
+class AccountAttributeTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Maximum: NotRequired[int]
+    Used: NotRequired[int]
 
-AssociateNodeRequestRequestTypeDef = TypedDict(
-    "AssociateNodeRequestRequestTypeDef",
-    {
-        "ServerName": str,
-        "NodeName": str,
-        "EngineAttributes": List["EngineAttributeTypeDef"],
-    },
-)
+class EngineAttributeTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
 
-AssociateNodeResponseTypeDef = TypedDict(
-    "AssociateNodeResponseTypeDef",
-    {
-        "NodeAssociationStatusToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BackupTypeDef = TypedDict(
-    "BackupTypeDef",
-    {
-        "BackupArn": str,
-        "BackupId": str,
-        "BackupType": BackupTypeType,
-        "CreatedAt": datetime,
-        "Description": str,
-        "Engine": str,
-        "EngineModel": str,
-        "EngineVersion": str,
-        "InstanceProfileArn": str,
-        "InstanceType": str,
-        "KeyPair": str,
-        "PreferredBackupWindow": str,
-        "PreferredMaintenanceWindow": str,
-        "S3DataSize": int,
-        "S3DataUrl": str,
-        "S3LogUrl": str,
-        "SecurityGroupIds": List[str],
-        "ServerName": str,
-        "ServiceRoleArn": str,
-        "Status": BackupStatusType,
-        "StatusDescription": str,
-        "SubnetIds": List[str],
-        "ToolsVersion": str,
-        "UserArn": str,
-    },
-    total=False,
-)
+class BackupTypeDef(TypedDict):
+    BackupArn: NotRequired[str]
+    BackupId: NotRequired[str]
+    BackupType: NotRequired[BackupTypeType]
+    CreatedAt: NotRequired[datetime]
+    Description: NotRequired[str]
+    Engine: NotRequired[str]
+    EngineModel: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    InstanceProfileArn: NotRequired[str]
+    InstanceType: NotRequired[str]
+    KeyPair: NotRequired[str]
+    PreferredBackupWindow: NotRequired[str]
+    PreferredMaintenanceWindow: NotRequired[str]
+    S3DataSize: NotRequired[int]
+    S3DataUrl: NotRequired[str]
+    S3LogUrl: NotRequired[str]
+    SecurityGroupIds: NotRequired[List[str]]
+    ServerName: NotRequired[str]
+    ServiceRoleArn: NotRequired[str]
+    Status: NotRequired[BackupStatusType]
+    StatusDescription: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    ToolsVersion: NotRequired[str]
+    UserArn: NotRequired[str]
 
-_RequiredCreateBackupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBackupRequestRequestTypeDef",
-    {
-        "ServerName": str,
-    },
-)
-_OptionalCreateBackupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBackupRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class CreateBackupRequestRequestTypeDef(
-    _RequiredCreateBackupRequestRequestTypeDef, _OptionalCreateBackupRequestRequestTypeDef
-):
-    pass
+class DeleteBackupRequestTypeDef(TypedDict):
+    BackupId: str
 
-CreateBackupResponseTypeDef = TypedDict(
-    "CreateBackupResponseTypeDef",
-    {
-        "Backup": "BackupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteServerRequestTypeDef(TypedDict):
+    ServerName: str
 
-_RequiredCreateServerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateServerRequestRequestTypeDef",
-    {
-        "Engine": str,
-        "ServerName": str,
-        "InstanceProfileArn": str,
-        "InstanceType": str,
-        "ServiceRoleArn": str,
-    },
-)
-_OptionalCreateServerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateServerRequestRequestTypeDef",
-    {
-        "AssociatePublicIpAddress": bool,
-        "CustomDomain": str,
-        "CustomCertificate": str,
-        "CustomPrivateKey": str,
-        "DisableAutomatedBackup": bool,
-        "EngineModel": str,
-        "EngineVersion": str,
-        "EngineAttributes": List["EngineAttributeTypeDef"],
-        "BackupRetentionCount": int,
-        "KeyPair": str,
-        "PreferredMaintenanceWindow": str,
-        "PreferredBackupWindow": str,
-        "SecurityGroupIds": List[str],
-        "SubnetIds": List[str],
-        "Tags": List["TagTypeDef"],
-        "BackupId": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class CreateServerRequestRequestTypeDef(
-    _RequiredCreateServerRequestRequestTypeDef, _OptionalCreateServerRequestRequestTypeDef
-):
-    pass
+class DescribeBackupsRequestTypeDef(TypedDict):
+    BackupId: NotRequired[str]
+    ServerName: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-CreateServerResponseTypeDef = TypedDict(
-    "CreateServerResponseTypeDef",
-    {
-        "Server": "ServerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeEventsRequestTypeDef(TypedDict):
+    ServerName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-DeleteBackupRequestRequestTypeDef = TypedDict(
-    "DeleteBackupRequestRequestTypeDef",
-    {
-        "BackupId": str,
-    },
-)
+class ServerEventTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    ServerName: NotRequired[str]
+    Message: NotRequired[str]
+    LogUrl: NotRequired[str]
 
-DeleteServerRequestRequestTypeDef = TypedDict(
-    "DeleteServerRequestRequestTypeDef",
-    {
-        "ServerName": str,
-    },
-)
+class DescribeNodeAssociationStatusRequestTypeDef(TypedDict):
+    NodeAssociationStatusToken: str
+    ServerName: str
 
-DescribeAccountAttributesResponseTypeDef = TypedDict(
-    "DescribeAccountAttributesResponseTypeDef",
-    {
-        "Attributes": List["AccountAttributeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
 
-DescribeBackupsRequestRequestTypeDef = TypedDict(
-    "DescribeBackupsRequestRequestTypeDef",
-    {
-        "BackupId": str,
-        "ServerName": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class DescribeServersRequestTypeDef(TypedDict):
+    ServerName: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-DescribeBackupsResponseTypeDef = TypedDict(
-    "DescribeBackupsResponseTypeDef",
-    {
-        "Backups": List["BackupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredDescribeEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeEventsRequestRequestTypeDef",
-    {
-        "ServerName": str,
-    },
-)
-_OptionalDescribeEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeEventsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class RestoreServerRequestTypeDef(TypedDict):
+    BackupId: str
+    ServerName: str
+    InstanceType: NotRequired[str]
+    KeyPair: NotRequired[str]
 
-class DescribeEventsRequestRequestTypeDef(
-    _RequiredDescribeEventsRequestRequestTypeDef, _OptionalDescribeEventsRequestRequestTypeDef
-):
-    pass
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-DescribeEventsResponseTypeDef = TypedDict(
-    "DescribeEventsResponseTypeDef",
-    {
-        "ServerEvents": List["ServerEventTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateServerEngineAttributesRequestTypeDef(TypedDict):
+    ServerName: str
+    AttributeName: str
+    AttributeValue: NotRequired[str]
 
-DescribeNodeAssociationStatusRequestRequestTypeDef = TypedDict(
-    "DescribeNodeAssociationStatusRequestRequestTypeDef",
-    {
-        "NodeAssociationStatusToken": str,
-        "ServerName": str,
-    },
-)
+class UpdateServerRequestTypeDef(TypedDict):
+    ServerName: str
+    DisableAutomatedBackup: NotRequired[bool]
+    BackupRetentionCount: NotRequired[int]
+    PreferredMaintenanceWindow: NotRequired[str]
+    PreferredBackupWindow: NotRequired[str]
 
-DescribeNodeAssociationStatusResponseTypeDef = TypedDict(
-    "DescribeNodeAssociationStatusResponseTypeDef",
-    {
-        "NodeAssociationStatus": NodeAssociationStatusType,
-        "EngineAttributes": List["EngineAttributeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociateNodeRequestTypeDef(TypedDict):
+    ServerName: str
+    NodeName: str
+    EngineAttributes: Sequence[EngineAttributeTypeDef]
 
-DescribeServersRequestRequestTypeDef = TypedDict(
-    "DescribeServersRequestRequestTypeDef",
-    {
-        "ServerName": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class DisassociateNodeRequestTypeDef(TypedDict):
+    ServerName: str
+    NodeName: str
+    EngineAttributes: NotRequired[Sequence[EngineAttributeTypeDef]]
 
-DescribeServersResponseTypeDef = TypedDict(
-    "DescribeServersResponseTypeDef",
-    {
-        "Servers": List["ServerTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ExportServerEngineAttributeRequestTypeDef(TypedDict):
+    ExportAttributeName: str
+    ServerName: str
+    InputAttributes: NotRequired[Sequence[EngineAttributeTypeDef]]
 
-_RequiredDisassociateNodeRequestRequestTypeDef = TypedDict(
-    "_RequiredDisassociateNodeRequestRequestTypeDef",
-    {
-        "ServerName": str,
-        "NodeName": str,
-    },
-)
-_OptionalDisassociateNodeRequestRequestTypeDef = TypedDict(
-    "_OptionalDisassociateNodeRequestRequestTypeDef",
-    {
-        "EngineAttributes": List["EngineAttributeTypeDef"],
-    },
-    total=False,
-)
+class ServerTypeDef(TypedDict):
+    AssociatePublicIpAddress: NotRequired[bool]
+    BackupRetentionCount: NotRequired[int]
+    ServerName: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    CloudFormationStackArn: NotRequired[str]
+    CustomDomain: NotRequired[str]
+    DisableAutomatedBackup: NotRequired[bool]
+    Endpoint: NotRequired[str]
+    Engine: NotRequired[str]
+    EngineModel: NotRequired[str]
+    EngineAttributes: NotRequired[List[EngineAttributeTypeDef]]
+    EngineVersion: NotRequired[str]
+    InstanceProfileArn: NotRequired[str]
+    InstanceType: NotRequired[str]
+    KeyPair: NotRequired[str]
+    MaintenanceStatus: NotRequired[MaintenanceStatusType]
+    PreferredMaintenanceWindow: NotRequired[str]
+    PreferredBackupWindow: NotRequired[str]
+    SecurityGroupIds: NotRequired[List[str]]
+    ServiceRoleArn: NotRequired[str]
+    Status: NotRequired[ServerStatusType]
+    StatusReason: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    ServerArn: NotRequired[str]
 
-class DisassociateNodeRequestRequestTypeDef(
-    _RequiredDisassociateNodeRequestRequestTypeDef, _OptionalDisassociateNodeRequestRequestTypeDef
-):
-    pass
+class StartMaintenanceRequestTypeDef(TypedDict):
+    ServerName: str
+    EngineAttributes: NotRequired[Sequence[EngineAttributeTypeDef]]
 
-DisassociateNodeResponseTypeDef = TypedDict(
-    "DisassociateNodeResponseTypeDef",
-    {
-        "NodeAssociationStatusToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociateNodeResponseTypeDef(TypedDict):
+    NodeAssociationStatusToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-EngineAttributeTypeDef = TypedDict(
-    "EngineAttributeTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
+class DescribeAccountAttributesResponseTypeDef(TypedDict):
+    Attributes: List[AccountAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredExportServerEngineAttributeRequestRequestTypeDef = TypedDict(
-    "_RequiredExportServerEngineAttributeRequestRequestTypeDef",
-    {
-        "ExportAttributeName": str,
-        "ServerName": str,
-    },
-)
-_OptionalExportServerEngineAttributeRequestRequestTypeDef = TypedDict(
-    "_OptionalExportServerEngineAttributeRequestRequestTypeDef",
-    {
-        "InputAttributes": List["EngineAttributeTypeDef"],
-    },
-    total=False,
-)
+class DescribeNodeAssociationStatusResponseTypeDef(TypedDict):
+    NodeAssociationStatus: NodeAssociationStatusType
+    EngineAttributes: List[EngineAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportServerEngineAttributeRequestRequestTypeDef(
-    _RequiredExportServerEngineAttributeRequestRequestTypeDef,
-    _OptionalExportServerEngineAttributeRequestRequestTypeDef,
-):
-    pass
+class DisassociateNodeResponseTypeDef(TypedDict):
+    NodeAssociationStatusToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ExportServerEngineAttributeResponseTypeDef = TypedDict(
-    "ExportServerEngineAttributeResponseTypeDef",
-    {
-        "EngineAttribute": "EngineAttributeTypeDef",
-        "ServerName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ExportServerEngineAttributeResponseTypeDef(TypedDict):
+    EngineAttribute: EngineAttributeTypeDef
+    ServerName: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class CreateBackupResponseTypeDef(TypedDict):
+    Backup: BackupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
+class DescribeBackupsResponseTypeDef(TypedDict):
+    Backups: List[BackupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateBackupRequestTypeDef(TypedDict):
+    ServerName: str
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class CreateServerRequestTypeDef(TypedDict):
+    Engine: str
+    ServerName: str
+    InstanceProfileArn: str
+    InstanceType: str
+    ServiceRoleArn: str
+    AssociatePublicIpAddress: NotRequired[bool]
+    CustomDomain: NotRequired[str]
+    CustomCertificate: NotRequired[str]
+    CustomPrivateKey: NotRequired[str]
+    DisableAutomatedBackup: NotRequired[bool]
+    EngineModel: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    EngineAttributes: NotRequired[Sequence[EngineAttributeTypeDef]]
+    BackupRetentionCount: NotRequired[int]
+    KeyPair: NotRequired[str]
+    PreferredMaintenanceWindow: NotRequired[str]
+    PreferredBackupWindow: NotRequired[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    SubnetIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    BackupId: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredRestoreServerRequestRequestTypeDef = TypedDict(
-    "_RequiredRestoreServerRequestRequestTypeDef",
-    {
-        "BackupId": str,
-        "ServerName": str,
-    },
-)
-_OptionalRestoreServerRequestRequestTypeDef = TypedDict(
-    "_OptionalRestoreServerRequestRequestTypeDef",
-    {
-        "InstanceType": str,
-        "KeyPair": str,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
 
-class RestoreServerRequestRequestTypeDef(
-    _RequiredRestoreServerRequestRequestTypeDef, _OptionalRestoreServerRequestRequestTypeDef
-):
-    pass
+class DescribeBackupsRequestPaginateTypeDef(TypedDict):
+    BackupId: NotRequired[str]
+    ServerName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RestoreServerResponseTypeDef = TypedDict(
-    "RestoreServerResponseTypeDef",
-    {
-        "Server": "ServerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeEventsRequestPaginateTypeDef(TypedDict):
+    ServerName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ServerEventTypeDef = TypedDict(
-    "ServerEventTypeDef",
-    {
-        "CreatedAt": datetime,
-        "ServerName": str,
-        "Message": str,
-        "LogUrl": str,
-    },
-    total=False,
-)
+class DescribeServersRequestPaginateTypeDef(TypedDict):
+    ServerName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ServerTypeDef = TypedDict(
-    "ServerTypeDef",
-    {
-        "AssociatePublicIpAddress": bool,
-        "BackupRetentionCount": int,
-        "ServerName": str,
-        "CreatedAt": datetime,
-        "CloudFormationStackArn": str,
-        "CustomDomain": str,
-        "DisableAutomatedBackup": bool,
-        "Endpoint": str,
-        "Engine": str,
-        "EngineModel": str,
-        "EngineAttributes": List["EngineAttributeTypeDef"],
-        "EngineVersion": str,
-        "InstanceProfileArn": str,
-        "InstanceType": str,
-        "KeyPair": str,
-        "MaintenanceStatus": MaintenanceStatusType,
-        "PreferredMaintenanceWindow": str,
-        "PreferredBackupWindow": str,
-        "SecurityGroupIds": List[str],
-        "ServiceRoleArn": str,
-        "Status": ServerStatusType,
-        "StatusReason": str,
-        "SubnetIds": List[str],
-        "ServerArn": str,
-    },
-    total=False,
-)
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    ResourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredStartMaintenanceRequestRequestTypeDef = TypedDict(
-    "_RequiredStartMaintenanceRequestRequestTypeDef",
-    {
-        "ServerName": str,
-    },
-)
-_OptionalStartMaintenanceRequestRequestTypeDef = TypedDict(
-    "_OptionalStartMaintenanceRequestRequestTypeDef",
-    {
-        "EngineAttributes": List["EngineAttributeTypeDef"],
-    },
-    total=False,
-)
+class DescribeEventsResponseTypeDef(TypedDict):
+    ServerEvents: List[ServerEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class StartMaintenanceRequestRequestTypeDef(
-    _RequiredStartMaintenanceRequestRequestTypeDef, _OptionalStartMaintenanceRequestRequestTypeDef
-):
-    pass
+class DescribeNodeAssociationStatusRequestWaitTypeDef(TypedDict):
+    NodeAssociationStatusToken: str
+    ServerName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-StartMaintenanceResponseTypeDef = TypedDict(
-    "StartMaintenanceResponseTypeDef",
-    {
-        "Server": "ServerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateServerResponseTypeDef(TypedDict):
+    Server: ServerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class DescribeServersResponseTypeDef(TypedDict):
+    Servers: List[ServerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class RestoreServerResponseTypeDef(TypedDict):
+    Server: ServerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class StartMaintenanceResponseTypeDef(TypedDict):
+    Server: ServerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateServerEngineAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateServerEngineAttributesRequestRequestTypeDef",
-    {
-        "ServerName": str,
-        "AttributeName": str,
-    },
-)
-_OptionalUpdateServerEngineAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateServerEngineAttributesRequestRequestTypeDef",
-    {
-        "AttributeValue": str,
-    },
-    total=False,
-)
+class UpdateServerEngineAttributesResponseTypeDef(TypedDict):
+    Server: ServerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServerEngineAttributesRequestRequestTypeDef(
-    _RequiredUpdateServerEngineAttributesRequestRequestTypeDef,
-    _OptionalUpdateServerEngineAttributesRequestRequestTypeDef,
-):
-    pass
-
-UpdateServerEngineAttributesResponseTypeDef = TypedDict(
-    "UpdateServerEngineAttributesResponseTypeDef",
-    {
-        "Server": "ServerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateServerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateServerRequestRequestTypeDef",
-    {
-        "ServerName": str,
-    },
-)
-_OptionalUpdateServerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateServerRequestRequestTypeDef",
-    {
-        "DisableAutomatedBackup": bool,
-        "BackupRetentionCount": int,
-        "PreferredMaintenanceWindow": str,
-        "PreferredBackupWindow": str,
-    },
-    total=False,
-)
-
-class UpdateServerRequestRequestTypeDef(
-    _RequiredUpdateServerRequestRequestTypeDef, _OptionalUpdateServerRequestRequestTypeDef
-):
-    pass
-
-UpdateServerResponseTypeDef = TypedDict(
-    "UpdateServerResponseTypeDef",
-    {
-        "Server": "ServerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class UpdateServerResponseTypeDef(TypedDict):
+    Server: ServerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

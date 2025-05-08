@@ -1,22 +1,28 @@
 """
 Type annotations for compute-optimizer service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_compute_optimizer.type_defs import AccountEnrollmentStatusTypeDef
 
-    data: AccountEnrollmentStatusTypeDef = {...}
+    data: AccountEnrollmentStatusTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
+    AllocationStrategyType,
+    AsgTypeType,
     AutoScalingConfigurationType,
     CpuVendorArchitectureType,
     CurrencyType,
@@ -24,6 +30,7 @@ from .literals import (
     CustomizableMetricHeadroomType,
     CustomizableMetricNameType,
     CustomizableMetricThresholdType,
+    DimensionType,
     EBSFindingType,
     EBSMetricNameType,
     EBSSavingsEstimationModeSourceType,
@@ -37,6 +44,7 @@ from .literals import (
     EnhancedInfrastructureMetricsType,
     ExportableAutoScalingGroupFieldType,
     ExportableECSServiceFieldType,
+    ExportableIdleFieldType,
     ExportableInstanceFieldType,
     ExportableLambdaFunctionFieldType,
     ExportableLicenseFieldType,
@@ -47,6 +55,10 @@ from .literals import (
     FilterNameType,
     FindingReasonCodeType,
     FindingType,
+    IdleFindingType,
+    IdleMetricNameType,
+    IdleRecommendationFilterNameType,
+    IdleRecommendationResourceTypeType,
     IdleType,
     InferredWorkloadTypesPreferenceType,
     InferredWorkloadTypeType,
@@ -72,7 +84,9 @@ from .literals import (
     MetricNameType,
     MetricStatisticType,
     MigrationEffortType,
+    OrderType,
     PlatformDifferenceType,
+    RDSCurrentInstancePerformanceRiskType,
     RDSDBMetricNameType,
     RDSDBMetricStatisticType,
     RDSDBRecommendationFilterNameType,
@@ -89,14 +103,16 @@ from .literals import (
     StatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccountEnrollmentStatusTypeDef",
@@ -110,8 +126,9 @@ __all__ = (
     "CurrentPerformanceRiskRatingsTypeDef",
     "CustomizableMetricParametersTypeDef",
     "DBStorageConfigurationTypeDef",
-    "DeleteRecommendationPreferencesRequestRequestTypeDef",
-    "DescribeRecommendationExportJobsRequestRequestTypeDef",
+    "DeleteRecommendationPreferencesRequestTypeDef",
+    "DescribeRecommendationExportJobsRequestPaginateTypeDef",
+    "DescribeRecommendationExportJobsRequestTypeDef",
     "DescribeRecommendationExportJobsResponseTypeDef",
     "EBSEffectiveRecommendationPreferencesTypeDef",
     "EBSEstimatedMonthlySavingsTypeDef",
@@ -134,56 +151,72 @@ __all__ = (
     "EffectiveRecommendationPreferencesTypeDef",
     "EnrollmentFilterTypeDef",
     "EstimatedMonthlySavingsTypeDef",
-    "ExportAutoScalingGroupRecommendationsRequestRequestTypeDef",
+    "ExportAutoScalingGroupRecommendationsRequestTypeDef",
     "ExportAutoScalingGroupRecommendationsResponseTypeDef",
     "ExportDestinationTypeDef",
-    "ExportEBSVolumeRecommendationsRequestRequestTypeDef",
+    "ExportEBSVolumeRecommendationsRequestTypeDef",
     "ExportEBSVolumeRecommendationsResponseTypeDef",
-    "ExportEC2InstanceRecommendationsRequestRequestTypeDef",
+    "ExportEC2InstanceRecommendationsRequestTypeDef",
     "ExportEC2InstanceRecommendationsResponseTypeDef",
-    "ExportECSServiceRecommendationsRequestRequestTypeDef",
+    "ExportECSServiceRecommendationsRequestTypeDef",
     "ExportECSServiceRecommendationsResponseTypeDef",
-    "ExportLambdaFunctionRecommendationsRequestRequestTypeDef",
+    "ExportIdleRecommendationsRequestTypeDef",
+    "ExportIdleRecommendationsResponseTypeDef",
+    "ExportLambdaFunctionRecommendationsRequestTypeDef",
     "ExportLambdaFunctionRecommendationsResponseTypeDef",
-    "ExportLicenseRecommendationsRequestRequestTypeDef",
+    "ExportLicenseRecommendationsRequestTypeDef",
     "ExportLicenseRecommendationsResponseTypeDef",
-    "ExportRDSDatabaseRecommendationsRequestRequestTypeDef",
+    "ExportRDSDatabaseRecommendationsRequestTypeDef",
     "ExportRDSDatabaseRecommendationsResponseTypeDef",
     "ExternalMetricStatusTypeDef",
     "ExternalMetricsPreferenceTypeDef",
     "FilterTypeDef",
-    "GetAutoScalingGroupRecommendationsRequestRequestTypeDef",
+    "GetAutoScalingGroupRecommendationsRequestTypeDef",
     "GetAutoScalingGroupRecommendationsResponseTypeDef",
-    "GetEBSVolumeRecommendationsRequestRequestTypeDef",
+    "GetEBSVolumeRecommendationsRequestTypeDef",
     "GetEBSVolumeRecommendationsResponseTypeDef",
-    "GetEC2InstanceRecommendationsRequestRequestTypeDef",
+    "GetEC2InstanceRecommendationsRequestTypeDef",
     "GetEC2InstanceRecommendationsResponseTypeDef",
-    "GetEC2RecommendationProjectedMetricsRequestRequestTypeDef",
+    "GetEC2RecommendationProjectedMetricsRequestTypeDef",
     "GetEC2RecommendationProjectedMetricsResponseTypeDef",
-    "GetECSServiceRecommendationProjectedMetricsRequestRequestTypeDef",
+    "GetECSServiceRecommendationProjectedMetricsRequestTypeDef",
     "GetECSServiceRecommendationProjectedMetricsResponseTypeDef",
-    "GetECSServiceRecommendationsRequestRequestTypeDef",
+    "GetECSServiceRecommendationsRequestTypeDef",
     "GetECSServiceRecommendationsResponseTypeDef",
-    "GetEffectiveRecommendationPreferencesRequestRequestTypeDef",
+    "GetEffectiveRecommendationPreferencesRequestTypeDef",
     "GetEffectiveRecommendationPreferencesResponseTypeDef",
     "GetEnrollmentStatusResponseTypeDef",
-    "GetEnrollmentStatusesForOrganizationRequestRequestTypeDef",
+    "GetEnrollmentStatusesForOrganizationRequestPaginateTypeDef",
+    "GetEnrollmentStatusesForOrganizationRequestTypeDef",
     "GetEnrollmentStatusesForOrganizationResponseTypeDef",
-    "GetLambdaFunctionRecommendationsRequestRequestTypeDef",
+    "GetIdleRecommendationsRequestTypeDef",
+    "GetIdleRecommendationsResponseTypeDef",
+    "GetLambdaFunctionRecommendationsRequestPaginateTypeDef",
+    "GetLambdaFunctionRecommendationsRequestTypeDef",
     "GetLambdaFunctionRecommendationsResponseTypeDef",
-    "GetLicenseRecommendationsRequestRequestTypeDef",
+    "GetLicenseRecommendationsRequestTypeDef",
     "GetLicenseRecommendationsResponseTypeDef",
-    "GetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef",
+    "GetRDSDatabaseRecommendationProjectedMetricsRequestTypeDef",
     "GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef",
-    "GetRDSDatabaseRecommendationsRequestRequestTypeDef",
+    "GetRDSDatabaseRecommendationsRequestTypeDef",
     "GetRDSDatabaseRecommendationsResponseTypeDef",
     "GetRecommendationErrorTypeDef",
-    "GetRecommendationPreferencesRequestRequestTypeDef",
+    "GetRecommendationPreferencesRequestPaginateTypeDef",
+    "GetRecommendationPreferencesRequestTypeDef",
     "GetRecommendationPreferencesResponseTypeDef",
-    "GetRecommendationSummariesRequestRequestTypeDef",
+    "GetRecommendationSummariesRequestPaginateTypeDef",
+    "GetRecommendationSummariesRequestTypeDef",
     "GetRecommendationSummariesResponseTypeDef",
     "GpuInfoTypeDef",
     "GpuTypeDef",
+    "IdleEstimatedMonthlySavingsTypeDef",
+    "IdleRecommendationErrorTypeDef",
+    "IdleRecommendationFilterTypeDef",
+    "IdleRecommendationTypeDef",
+    "IdleSavingsOpportunityAfterDiscountsTypeDef",
+    "IdleSavingsOpportunityTypeDef",
+    "IdleSummaryTypeDef",
+    "IdleUtilizationMetricTypeDef",
     "InferredWorkloadSavingTypeDef",
     "InstanceEstimatedMonthlySavingsTypeDef",
     "InstanceRecommendationOptionTypeDef",
@@ -206,10 +239,11 @@ __all__ = (
     "LicenseRecommendationTypeDef",
     "MemorySizeConfigurationTypeDef",
     "MetricSourceTypeDef",
+    "OrderByTypeDef",
     "PaginatorConfigTypeDef",
     "PreferredResourceTypeDef",
     "ProjectedMetricTypeDef",
-    "PutRecommendationPreferencesRequestRequestTypeDef",
+    "PutRecommendationPreferencesRequestTypeDef",
     "RDSDBInstanceRecommendationOptionTypeDef",
     "RDSDBRecommendationFilterTypeDef",
     "RDSDBRecommendationTypeDef",
@@ -238,7 +272,8 @@ __all__ = (
     "ServiceConfigurationTypeDef",
     "SummaryTypeDef",
     "TagTypeDef",
-    "UpdateEnrollmentStatusRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UpdateEnrollmentStatusRequestTypeDef",
     "UpdateEnrollmentStatusResponseTypeDef",
     "UtilizationMetricTypeDef",
     "UtilizationPreferenceTypeDef",
@@ -247,1725 +282,997 @@ __all__ = (
     "VolumeRecommendationTypeDef",
 )
 
-AccountEnrollmentStatusTypeDef = TypedDict(
-    "AccountEnrollmentStatusTypeDef",
-    {
-        "accountId": str,
-        "status": StatusType,
-        "statusReason": str,
-        "lastUpdatedTimestamp": datetime,
-    },
-    total=False,
-)
+class AccountEnrollmentStatusTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    status: NotRequired[StatusType]
+    statusReason: NotRequired[str]
+    lastUpdatedTimestamp: NotRequired[datetime]
 
 AutoScalingGroupConfigurationTypeDef = TypedDict(
     "AutoScalingGroupConfigurationTypeDef",
     {
-        "desiredCapacity": int,
-        "minSize": int,
-        "maxSize": int,
-        "instanceType": str,
-    },
-    total=False,
-)
-
-AutoScalingGroupEstimatedMonthlySavingsTypeDef = TypedDict(
-    "AutoScalingGroupEstimatedMonthlySavingsTypeDef",
-    {
-        "currency": CurrencyType,
-        "value": float,
-    },
-    total=False,
-)
-
-AutoScalingGroupRecommendationOptionTypeDef = TypedDict(
-    "AutoScalingGroupRecommendationOptionTypeDef",
-    {
-        "configuration": "AutoScalingGroupConfigurationTypeDef",
-        "instanceGpuInfo": "GpuInfoTypeDef",
-        "projectedUtilizationMetrics": List["UtilizationMetricTypeDef"],
-        "performanceRisk": float,
-        "rank": int,
-        "savingsOpportunity": "SavingsOpportunityTypeDef",
-        "savingsOpportunityAfterDiscounts": "AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef",
-        "migrationEffort": MigrationEffortType,
-    },
-    total=False,
-)
-
-AutoScalingGroupRecommendationTypeDef = TypedDict(
-    "AutoScalingGroupRecommendationTypeDef",
-    {
-        "accountId": str,
-        "autoScalingGroupArn": str,
-        "autoScalingGroupName": str,
-        "finding": FindingType,
-        "utilizationMetrics": List["UtilizationMetricTypeDef"],
-        "lookBackPeriodInDays": float,
-        "currentConfiguration": "AutoScalingGroupConfigurationTypeDef",
-        "currentInstanceGpuInfo": "GpuInfoTypeDef",
-        "recommendationOptions": List["AutoScalingGroupRecommendationOptionTypeDef"],
-        "lastRefreshTimestamp": datetime,
-        "currentPerformanceRisk": CurrentPerformanceRiskType,
-        "effectiveRecommendationPreferences": "EffectiveRecommendationPreferencesTypeDef",
-        "inferredWorkloadTypes": List[InferredWorkloadTypeType],
-    },
-    total=False,
-)
-
-AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
-    "AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef",
-    {
-        "savingsOpportunityPercentage": float,
-        "estimatedMonthlySavings": "AutoScalingGroupEstimatedMonthlySavingsTypeDef",
-    },
-    total=False,
-)
-
-ContainerConfigurationTypeDef = TypedDict(
-    "ContainerConfigurationTypeDef",
-    {
-        "containerName": str,
-        "memorySizeConfiguration": "MemorySizeConfigurationTypeDef",
-        "cpu": int,
-    },
-    total=False,
-)
-
-ContainerRecommendationTypeDef = TypedDict(
-    "ContainerRecommendationTypeDef",
-    {
-        "containerName": str,
-        "memorySizeConfiguration": "MemorySizeConfigurationTypeDef",
-        "cpu": int,
-    },
-    total=False,
-)
-
-CurrentPerformanceRiskRatingsTypeDef = TypedDict(
-    "CurrentPerformanceRiskRatingsTypeDef",
-    {
-        "high": int,
-        "medium": int,
-        "low": int,
-        "veryLow": int,
-    },
-    total=False,
-)
-
-CustomizableMetricParametersTypeDef = TypedDict(
-    "CustomizableMetricParametersTypeDef",
-    {
-        "threshold": CustomizableMetricThresholdType,
-        "headroom": CustomizableMetricHeadroomType,
-    },
-    total=False,
-)
-
-DBStorageConfigurationTypeDef = TypedDict(
-    "DBStorageConfigurationTypeDef",
-    {
-        "storageType": str,
-        "allocatedStorage": int,
-        "iops": int,
-        "maxAllocatedStorage": int,
-        "storageThroughput": int,
-    },
-    total=False,
-)
-
-_RequiredDeleteRecommendationPreferencesRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteRecommendationPreferencesRequestRequestTypeDef",
-    {
-        "resourceType": ResourceTypeType,
-        "recommendationPreferenceNames": List[RecommendationPreferenceNameType],
-    },
-)
-_OptionalDeleteRecommendationPreferencesRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteRecommendationPreferencesRequestRequestTypeDef",
-    {
-        "scope": "ScopeTypeDef",
-    },
-    total=False,
-)
-
-class DeleteRecommendationPreferencesRequestRequestTypeDef(
-    _RequiredDeleteRecommendationPreferencesRequestRequestTypeDef,
-    _OptionalDeleteRecommendationPreferencesRequestRequestTypeDef,
-):
-    pass
-
-DescribeRecommendationExportJobsRequestRequestTypeDef = TypedDict(
-    "DescribeRecommendationExportJobsRequestRequestTypeDef",
-    {
-        "jobIds": List[str],
-        "filters": List["JobFilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-DescribeRecommendationExportJobsResponseTypeDef = TypedDict(
-    "DescribeRecommendationExportJobsResponseTypeDef",
-    {
-        "recommendationExportJobs": List["RecommendationExportJobTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EBSEffectiveRecommendationPreferencesTypeDef = TypedDict(
-    "EBSEffectiveRecommendationPreferencesTypeDef",
-    {
-        "savingsEstimationMode": "EBSSavingsEstimationModeTypeDef",
-    },
-    total=False,
-)
-
-EBSEstimatedMonthlySavingsTypeDef = TypedDict(
-    "EBSEstimatedMonthlySavingsTypeDef",
-    {
-        "currency": CurrencyType,
-        "value": float,
-    },
-    total=False,
-)
-
-EBSFilterTypeDef = TypedDict(
-    "EBSFilterTypeDef",
-    {
-        "name": Literal["Finding"],
-        "values": List[str],
-    },
-    total=False,
-)
-
-EBSSavingsEstimationModeTypeDef = TypedDict(
-    "EBSSavingsEstimationModeTypeDef",
-    {
-        "source": EBSSavingsEstimationModeSourceType,
-    },
-    total=False,
-)
-
-EBSSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
-    "EBSSavingsOpportunityAfterDiscountsTypeDef",
-    {
-        "savingsOpportunityPercentage": float,
-        "estimatedMonthlySavings": "EBSEstimatedMonthlySavingsTypeDef",
-    },
-    total=False,
-)
-
-EBSUtilizationMetricTypeDef = TypedDict(
-    "EBSUtilizationMetricTypeDef",
-    {
-        "name": EBSMetricNameType,
-        "statistic": MetricStatisticType,
-        "value": float,
-    },
-    total=False,
-)
-
-ECSEffectiveRecommendationPreferencesTypeDef = TypedDict(
-    "ECSEffectiveRecommendationPreferencesTypeDef",
-    {
-        "savingsEstimationMode": "ECSSavingsEstimationModeTypeDef",
-    },
-    total=False,
-)
-
-ECSEstimatedMonthlySavingsTypeDef = TypedDict(
-    "ECSEstimatedMonthlySavingsTypeDef",
-    {
-        "currency": CurrencyType,
-        "value": float,
-    },
-    total=False,
-)
-
-ECSSavingsEstimationModeTypeDef = TypedDict(
-    "ECSSavingsEstimationModeTypeDef",
-    {
-        "source": ECSSavingsEstimationModeSourceType,
-    },
-    total=False,
-)
-
-ECSSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
-    "ECSSavingsOpportunityAfterDiscountsTypeDef",
-    {
-        "savingsOpportunityPercentage": float,
-        "estimatedMonthlySavings": "ECSEstimatedMonthlySavingsTypeDef",
-    },
-    total=False,
-)
-
-ECSServiceProjectedMetricTypeDef = TypedDict(
-    "ECSServiceProjectedMetricTypeDef",
-    {
-        "name": ECSServiceMetricNameType,
-        "timestamps": List[datetime],
-        "upperBoundValues": List[float],
-        "lowerBoundValues": List[float],
-    },
-    total=False,
-)
-
-ECSServiceProjectedUtilizationMetricTypeDef = TypedDict(
-    "ECSServiceProjectedUtilizationMetricTypeDef",
-    {
-        "name": ECSServiceMetricNameType,
-        "statistic": ECSServiceMetricStatisticType,
-        "lowerBoundValue": float,
-        "upperBoundValue": float,
-    },
-    total=False,
-)
-
-ECSServiceRecommendationFilterTypeDef = TypedDict(
-    "ECSServiceRecommendationFilterTypeDef",
-    {
-        "name": ECSServiceRecommendationFilterNameType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-ECSServiceRecommendationOptionTypeDef = TypedDict(
-    "ECSServiceRecommendationOptionTypeDef",
-    {
-        "memory": int,
-        "cpu": int,
-        "savingsOpportunity": "SavingsOpportunityTypeDef",
-        "savingsOpportunityAfterDiscounts": "ECSSavingsOpportunityAfterDiscountsTypeDef",
-        "projectedUtilizationMetrics": List["ECSServiceProjectedUtilizationMetricTypeDef"],
-        "containerRecommendations": List["ContainerRecommendationTypeDef"],
-    },
-    total=False,
-)
-
-ECSServiceRecommendationTypeDef = TypedDict(
-    "ECSServiceRecommendationTypeDef",
-    {
-        "serviceArn": str,
-        "accountId": str,
-        "currentServiceConfiguration": "ServiceConfigurationTypeDef",
-        "utilizationMetrics": List["ECSServiceUtilizationMetricTypeDef"],
-        "lookbackPeriodInDays": float,
-        "launchType": ECSServiceLaunchTypeType,
-        "lastRefreshTimestamp": datetime,
-        "finding": ECSServiceRecommendationFindingType,
-        "findingReasonCodes": List[ECSServiceRecommendationFindingReasonCodeType],
-        "serviceRecommendationOptions": List["ECSServiceRecommendationOptionTypeDef"],
-        "currentPerformanceRisk": CurrentPerformanceRiskType,
-        "effectiveRecommendationPreferences": "ECSEffectiveRecommendationPreferencesTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-ECSServiceRecommendedOptionProjectedMetricTypeDef = TypedDict(
-    "ECSServiceRecommendedOptionProjectedMetricTypeDef",
-    {
-        "recommendedCpuUnits": int,
-        "recommendedMemorySize": int,
-        "projectedMetrics": List["ECSServiceProjectedMetricTypeDef"],
-    },
-    total=False,
-)
-
-ECSServiceUtilizationMetricTypeDef = TypedDict(
-    "ECSServiceUtilizationMetricTypeDef",
-    {
-        "name": ECSServiceMetricNameType,
-        "statistic": ECSServiceMetricStatisticType,
-        "value": float,
-    },
-    total=False,
-)
-
-EffectivePreferredResourceTypeDef = TypedDict(
-    "EffectivePreferredResourceTypeDef",
-    {
-        "name": Literal["Ec2InstanceTypes"],
-        "includeList": List[str],
-        "effectiveIncludeList": List[str],
-        "excludeList": List[str],
-    },
-    total=False,
-)
-
-EffectiveRecommendationPreferencesTypeDef = TypedDict(
-    "EffectiveRecommendationPreferencesTypeDef",
-    {
-        "cpuVendorArchitectures": List[CpuVendorArchitectureType],
-        "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
-        "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
-        "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
-        "lookBackPeriod": LookBackPeriodPreferenceType,
-        "utilizationPreferences": List["UtilizationPreferenceTypeDef"],
-        "preferredResources": List["EffectivePreferredResourceTypeDef"],
-        "savingsEstimationMode": "InstanceSavingsEstimationModeTypeDef",
-    },
-    total=False,
-)
-
-EnrollmentFilterTypeDef = TypedDict(
-    "EnrollmentFilterTypeDef",
-    {
-        "name": Literal["Status"],
-        "values": List[str],
-    },
-    total=False,
-)
-
-EstimatedMonthlySavingsTypeDef = TypedDict(
-    "EstimatedMonthlySavingsTypeDef",
-    {
-        "currency": CurrencyType,
-        "value": float,
-    },
-    total=False,
-)
-
-_RequiredExportAutoScalingGroupRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredExportAutoScalingGroupRecommendationsRequestRequestTypeDef",
-    {
-        "s3DestinationConfig": "S3DestinationConfigTypeDef",
-    },
-)
-_OptionalExportAutoScalingGroupRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalExportAutoScalingGroupRecommendationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "filters": List["FilterTypeDef"],
-        "fieldsToExport": List[ExportableAutoScalingGroupFieldType],
-        "fileFormat": Literal["Csv"],
-        "includeMemberAccounts": bool,
-        "recommendationPreferences": "RecommendationPreferencesTypeDef",
-    },
-    total=False,
-)
-
-class ExportAutoScalingGroupRecommendationsRequestRequestTypeDef(
-    _RequiredExportAutoScalingGroupRecommendationsRequestRequestTypeDef,
-    _OptionalExportAutoScalingGroupRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ExportAutoScalingGroupRecommendationsResponseTypeDef = TypedDict(
-    "ExportAutoScalingGroupRecommendationsResponseTypeDef",
-    {
-        "jobId": str,
-        "s3Destination": "S3DestinationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ExportDestinationTypeDef = TypedDict(
-    "ExportDestinationTypeDef",
-    {
-        "s3": "S3DestinationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredExportEBSVolumeRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredExportEBSVolumeRecommendationsRequestRequestTypeDef",
-    {
-        "s3DestinationConfig": "S3DestinationConfigTypeDef",
-    },
-)
-_OptionalExportEBSVolumeRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalExportEBSVolumeRecommendationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "filters": List["EBSFilterTypeDef"],
-        "fieldsToExport": List[ExportableVolumeFieldType],
-        "fileFormat": Literal["Csv"],
-        "includeMemberAccounts": bool,
-    },
-    total=False,
-)
-
-class ExportEBSVolumeRecommendationsRequestRequestTypeDef(
-    _RequiredExportEBSVolumeRecommendationsRequestRequestTypeDef,
-    _OptionalExportEBSVolumeRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ExportEBSVolumeRecommendationsResponseTypeDef = TypedDict(
-    "ExportEBSVolumeRecommendationsResponseTypeDef",
-    {
-        "jobId": str,
-        "s3Destination": "S3DestinationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExportEC2InstanceRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredExportEC2InstanceRecommendationsRequestRequestTypeDef",
-    {
-        "s3DestinationConfig": "S3DestinationConfigTypeDef",
-    },
-)
-_OptionalExportEC2InstanceRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalExportEC2InstanceRecommendationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "filters": List["FilterTypeDef"],
-        "fieldsToExport": List[ExportableInstanceFieldType],
-        "fileFormat": Literal["Csv"],
-        "includeMemberAccounts": bool,
-        "recommendationPreferences": "RecommendationPreferencesTypeDef",
-    },
-    total=False,
-)
-
-class ExportEC2InstanceRecommendationsRequestRequestTypeDef(
-    _RequiredExportEC2InstanceRecommendationsRequestRequestTypeDef,
-    _OptionalExportEC2InstanceRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ExportEC2InstanceRecommendationsResponseTypeDef = TypedDict(
-    "ExportEC2InstanceRecommendationsResponseTypeDef",
-    {
-        "jobId": str,
-        "s3Destination": "S3DestinationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExportECSServiceRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredExportECSServiceRecommendationsRequestRequestTypeDef",
-    {
-        "s3DestinationConfig": "S3DestinationConfigTypeDef",
-    },
-)
-_OptionalExportECSServiceRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalExportECSServiceRecommendationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "filters": List["ECSServiceRecommendationFilterTypeDef"],
-        "fieldsToExport": List[ExportableECSServiceFieldType],
-        "fileFormat": Literal["Csv"],
-        "includeMemberAccounts": bool,
-    },
-    total=False,
-)
-
-class ExportECSServiceRecommendationsRequestRequestTypeDef(
-    _RequiredExportECSServiceRecommendationsRequestRequestTypeDef,
-    _OptionalExportECSServiceRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ExportECSServiceRecommendationsResponseTypeDef = TypedDict(
-    "ExportECSServiceRecommendationsResponseTypeDef",
-    {
-        "jobId": str,
-        "s3Destination": "S3DestinationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExportLambdaFunctionRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredExportLambdaFunctionRecommendationsRequestRequestTypeDef",
-    {
-        "s3DestinationConfig": "S3DestinationConfigTypeDef",
-    },
-)
-_OptionalExportLambdaFunctionRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalExportLambdaFunctionRecommendationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "filters": List["LambdaFunctionRecommendationFilterTypeDef"],
-        "fieldsToExport": List[ExportableLambdaFunctionFieldType],
-        "fileFormat": Literal["Csv"],
-        "includeMemberAccounts": bool,
-    },
-    total=False,
-)
-
-class ExportLambdaFunctionRecommendationsRequestRequestTypeDef(
-    _RequiredExportLambdaFunctionRecommendationsRequestRequestTypeDef,
-    _OptionalExportLambdaFunctionRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ExportLambdaFunctionRecommendationsResponseTypeDef = TypedDict(
-    "ExportLambdaFunctionRecommendationsResponseTypeDef",
-    {
-        "jobId": str,
-        "s3Destination": "S3DestinationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExportLicenseRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredExportLicenseRecommendationsRequestRequestTypeDef",
-    {
-        "s3DestinationConfig": "S3DestinationConfigTypeDef",
-    },
-)
-_OptionalExportLicenseRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalExportLicenseRecommendationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "filters": List["LicenseRecommendationFilterTypeDef"],
-        "fieldsToExport": List[ExportableLicenseFieldType],
-        "fileFormat": Literal["Csv"],
-        "includeMemberAccounts": bool,
-    },
-    total=False,
-)
-
-class ExportLicenseRecommendationsRequestRequestTypeDef(
-    _RequiredExportLicenseRecommendationsRequestRequestTypeDef,
-    _OptionalExportLicenseRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ExportLicenseRecommendationsResponseTypeDef = TypedDict(
-    "ExportLicenseRecommendationsResponseTypeDef",
-    {
-        "jobId": str,
-        "s3Destination": "S3DestinationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExportRDSDatabaseRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredExportRDSDatabaseRecommendationsRequestRequestTypeDef",
-    {
-        "s3DestinationConfig": "S3DestinationConfigTypeDef",
-    },
-)
-_OptionalExportRDSDatabaseRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalExportRDSDatabaseRecommendationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "filters": List["RDSDBRecommendationFilterTypeDef"],
-        "fieldsToExport": List[ExportableRDSDBFieldType],
-        "fileFormat": Literal["Csv"],
-        "includeMemberAccounts": bool,
-        "recommendationPreferences": "RecommendationPreferencesTypeDef",
-    },
-    total=False,
-)
-
-class ExportRDSDatabaseRecommendationsRequestRequestTypeDef(
-    _RequiredExportRDSDatabaseRecommendationsRequestRequestTypeDef,
-    _OptionalExportRDSDatabaseRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ExportRDSDatabaseRecommendationsResponseTypeDef = TypedDict(
-    "ExportRDSDatabaseRecommendationsResponseTypeDef",
-    {
-        "jobId": str,
-        "s3Destination": "S3DestinationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ExternalMetricStatusTypeDef = TypedDict(
-    "ExternalMetricStatusTypeDef",
-    {
-        "statusCode": ExternalMetricStatusCodeType,
-        "statusReason": str,
-    },
-    total=False,
-)
-
-ExternalMetricsPreferenceTypeDef = TypedDict(
-    "ExternalMetricsPreferenceTypeDef",
-    {
-        "source": ExternalMetricsSourceType,
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "name": FilterNameType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-GetAutoScalingGroupRecommendationsRequestRequestTypeDef = TypedDict(
-    "GetAutoScalingGroupRecommendationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "autoScalingGroupArns": List[str],
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-        "recommendationPreferences": "RecommendationPreferencesTypeDef",
-    },
-    total=False,
-)
-
-GetAutoScalingGroupRecommendationsResponseTypeDef = TypedDict(
-    "GetAutoScalingGroupRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "autoScalingGroupRecommendations": List["AutoScalingGroupRecommendationTypeDef"],
-        "errors": List["GetRecommendationErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEBSVolumeRecommendationsRequestRequestTypeDef = TypedDict(
-    "GetEBSVolumeRecommendationsRequestRequestTypeDef",
-    {
-        "volumeArns": List[str],
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["EBSFilterTypeDef"],
-        "accountIds": List[str],
-    },
-    total=False,
-)
-
-GetEBSVolumeRecommendationsResponseTypeDef = TypedDict(
-    "GetEBSVolumeRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "volumeRecommendations": List["VolumeRecommendationTypeDef"],
-        "errors": List["GetRecommendationErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEC2InstanceRecommendationsRequestRequestTypeDef = TypedDict(
-    "GetEC2InstanceRecommendationsRequestRequestTypeDef",
-    {
-        "instanceArns": List[str],
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-        "accountIds": List[str],
-        "recommendationPreferences": "RecommendationPreferencesTypeDef",
-    },
-    total=False,
-)
-
-GetEC2InstanceRecommendationsResponseTypeDef = TypedDict(
-    "GetEC2InstanceRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "instanceRecommendations": List["InstanceRecommendationTypeDef"],
-        "errors": List["GetRecommendationErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetEC2RecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetEC2RecommendationProjectedMetricsRequestRequestTypeDef",
-    {
-        "instanceArn": str,
-        "stat": MetricStatisticType,
-        "period": int,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-    },
-)
-_OptionalGetEC2RecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetEC2RecommendationProjectedMetricsRequestRequestTypeDef",
-    {
-        "recommendationPreferences": "RecommendationPreferencesTypeDef",
-    },
-    total=False,
-)
-
-class GetEC2RecommendationProjectedMetricsRequestRequestTypeDef(
-    _RequiredGetEC2RecommendationProjectedMetricsRequestRequestTypeDef,
-    _OptionalGetEC2RecommendationProjectedMetricsRequestRequestTypeDef,
-):
-    pass
-
-GetEC2RecommendationProjectedMetricsResponseTypeDef = TypedDict(
-    "GetEC2RecommendationProjectedMetricsResponseTypeDef",
-    {
-        "recommendedOptionProjectedMetrics": List["RecommendedOptionProjectedMetricTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetECSServiceRecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
-    "GetECSServiceRecommendationProjectedMetricsRequestRequestTypeDef",
-    {
-        "serviceArn": str,
-        "stat": MetricStatisticType,
-        "period": int,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-    },
-)
-
-GetECSServiceRecommendationProjectedMetricsResponseTypeDef = TypedDict(
-    "GetECSServiceRecommendationProjectedMetricsResponseTypeDef",
-    {
-        "recommendedOptionProjectedMetrics": List[
-            "ECSServiceRecommendedOptionProjectedMetricTypeDef"
-        ],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetECSServiceRecommendationsRequestRequestTypeDef = TypedDict(
-    "GetECSServiceRecommendationsRequestRequestTypeDef",
-    {
-        "serviceArns": List[str],
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["ECSServiceRecommendationFilterTypeDef"],
-        "accountIds": List[str],
-    },
-    total=False,
-)
-
-GetECSServiceRecommendationsResponseTypeDef = TypedDict(
-    "GetECSServiceRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "ecsServiceRecommendations": List["ECSServiceRecommendationTypeDef"],
-        "errors": List["GetRecommendationErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEffectiveRecommendationPreferencesRequestRequestTypeDef = TypedDict(
-    "GetEffectiveRecommendationPreferencesRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-GetEffectiveRecommendationPreferencesResponseTypeDef = TypedDict(
-    "GetEffectiveRecommendationPreferencesResponseTypeDef",
-    {
-        "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
-        "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
-        "lookBackPeriod": LookBackPeriodPreferenceType,
-        "utilizationPreferences": List["UtilizationPreferenceTypeDef"],
-        "preferredResources": List["EffectivePreferredResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnrollmentStatusResponseTypeDef = TypedDict(
-    "GetEnrollmentStatusResponseTypeDef",
-    {
-        "status": StatusType,
-        "statusReason": str,
-        "memberAccountsEnrolled": bool,
-        "lastUpdatedTimestamp": datetime,
-        "numberOfMemberAccountsOptedIn": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnrollmentStatusesForOrganizationRequestRequestTypeDef = TypedDict(
-    "GetEnrollmentStatusesForOrganizationRequestRequestTypeDef",
-    {
-        "filters": List["EnrollmentFilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-GetEnrollmentStatusesForOrganizationResponseTypeDef = TypedDict(
-    "GetEnrollmentStatusesForOrganizationResponseTypeDef",
-    {
-        "accountEnrollmentStatuses": List["AccountEnrollmentStatusTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLambdaFunctionRecommendationsRequestRequestTypeDef = TypedDict(
-    "GetLambdaFunctionRecommendationsRequestRequestTypeDef",
-    {
-        "functionArns": List[str],
-        "accountIds": List[str],
-        "filters": List["LambdaFunctionRecommendationFilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-GetLambdaFunctionRecommendationsResponseTypeDef = TypedDict(
-    "GetLambdaFunctionRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "lambdaFunctionRecommendations": List["LambdaFunctionRecommendationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLicenseRecommendationsRequestRequestTypeDef = TypedDict(
-    "GetLicenseRecommendationsRequestRequestTypeDef",
-    {
-        "resourceArns": List[str],
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["LicenseRecommendationFilterTypeDef"],
-        "accountIds": List[str],
-    },
-    total=False,
-)
-
-GetLicenseRecommendationsResponseTypeDef = TypedDict(
-    "GetLicenseRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "licenseRecommendations": List["LicenseRecommendationTypeDef"],
-        "errors": List["GetRecommendationErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "stat": MetricStatisticType,
-        "period": int,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-    },
-)
-_OptionalGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef",
-    {
-        "recommendationPreferences": "RecommendationPreferencesTypeDef",
-    },
-    total=False,
-)
-
-class GetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef(
-    _RequiredGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef,
-    _OptionalGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef,
-):
-    pass
-
-GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef = TypedDict(
-    "GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef",
-    {
-        "recommendedOptionProjectedMetrics": List[
-            "RDSDatabaseRecommendedOptionProjectedMetricTypeDef"
-        ],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRDSDatabaseRecommendationsRequestRequestTypeDef = TypedDict(
-    "GetRDSDatabaseRecommendationsRequestRequestTypeDef",
-    {
-        "resourceArns": List[str],
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["RDSDBRecommendationFilterTypeDef"],
-        "accountIds": List[str],
-        "recommendationPreferences": "RecommendationPreferencesTypeDef",
-    },
-    total=False,
-)
-
-GetRDSDatabaseRecommendationsResponseTypeDef = TypedDict(
-    "GetRDSDatabaseRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "rdsDBRecommendations": List["RDSDBRecommendationTypeDef"],
-        "errors": List["GetRecommendationErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRecommendationErrorTypeDef = TypedDict(
-    "GetRecommendationErrorTypeDef",
-    {
-        "identifier": str,
-        "code": str,
-        "message": str,
-    },
-    total=False,
-)
-
-_RequiredGetRecommendationPreferencesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRecommendationPreferencesRequestRequestTypeDef",
-    {
-        "resourceType": ResourceTypeType,
-    },
-)
-_OptionalGetRecommendationPreferencesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRecommendationPreferencesRequestRequestTypeDef",
-    {
-        "scope": "ScopeTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetRecommendationPreferencesRequestRequestTypeDef(
-    _RequiredGetRecommendationPreferencesRequestRequestTypeDef,
-    _OptionalGetRecommendationPreferencesRequestRequestTypeDef,
-):
-    pass
-
-GetRecommendationPreferencesResponseTypeDef = TypedDict(
-    "GetRecommendationPreferencesResponseTypeDef",
-    {
-        "nextToken": str,
-        "recommendationPreferencesDetails": List["RecommendationPreferencesDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRecommendationSummariesRequestRequestTypeDef = TypedDict(
-    "GetRecommendationSummariesRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-GetRecommendationSummariesResponseTypeDef = TypedDict(
-    "GetRecommendationSummariesResponseTypeDef",
-    {
-        "nextToken": str,
-        "recommendationSummaries": List["RecommendationSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GpuInfoTypeDef = TypedDict(
-    "GpuInfoTypeDef",
-    {
-        "gpus": List["GpuTypeDef"],
-    },
-    total=False,
-)
-
-GpuTypeDef = TypedDict(
-    "GpuTypeDef",
-    {
-        "gpuCount": int,
-        "gpuMemorySizeInMiB": int,
-    },
-    total=False,
-)
-
-InferredWorkloadSavingTypeDef = TypedDict(
-    "InferredWorkloadSavingTypeDef",
-    {
-        "inferredWorkloadTypes": List[InferredWorkloadTypeType],
-        "estimatedMonthlySavings": "EstimatedMonthlySavingsTypeDef",
-    },
-    total=False,
-)
-
-InstanceEstimatedMonthlySavingsTypeDef = TypedDict(
-    "InstanceEstimatedMonthlySavingsTypeDef",
-    {
-        "currency": CurrencyType,
-        "value": float,
-    },
-    total=False,
-)
-
-InstanceRecommendationOptionTypeDef = TypedDict(
-    "InstanceRecommendationOptionTypeDef",
-    {
-        "instanceType": str,
-        "instanceGpuInfo": "GpuInfoTypeDef",
-        "projectedUtilizationMetrics": List["UtilizationMetricTypeDef"],
-        "platformDifferences": List[PlatformDifferenceType],
-        "performanceRisk": float,
-        "rank": int,
-        "savingsOpportunity": "SavingsOpportunityTypeDef",
-        "savingsOpportunityAfterDiscounts": "InstanceSavingsOpportunityAfterDiscountsTypeDef",
-        "migrationEffort": MigrationEffortType,
-    },
-    total=False,
-)
-
-InstanceRecommendationTypeDef = TypedDict(
-    "InstanceRecommendationTypeDef",
-    {
-        "instanceArn": str,
-        "accountId": str,
-        "instanceName": str,
-        "currentInstanceType": str,
-        "finding": FindingType,
-        "findingReasonCodes": List[InstanceRecommendationFindingReasonCodeType],
-        "utilizationMetrics": List["UtilizationMetricTypeDef"],
-        "lookBackPeriodInDays": float,
-        "recommendationOptions": List["InstanceRecommendationOptionTypeDef"],
-        "recommendationSources": List["RecommendationSourceTypeDef"],
-        "lastRefreshTimestamp": datetime,
-        "currentPerformanceRisk": CurrentPerformanceRiskType,
-        "effectiveRecommendationPreferences": "EffectiveRecommendationPreferencesTypeDef",
-        "inferredWorkloadTypes": List[InferredWorkloadTypeType],
-        "instanceState": InstanceStateType,
-        "tags": List["TagTypeDef"],
-        "externalMetricStatus": "ExternalMetricStatusTypeDef",
-        "currentInstanceGpuInfo": "GpuInfoTypeDef",
-        "idle": InstanceIdleType,
-    },
-    total=False,
-)
-
-InstanceSavingsEstimationModeTypeDef = TypedDict(
-    "InstanceSavingsEstimationModeTypeDef",
-    {
-        "source": InstanceSavingsEstimationModeSourceType,
-    },
-    total=False,
-)
-
-InstanceSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
-    "InstanceSavingsOpportunityAfterDiscountsTypeDef",
-    {
-        "savingsOpportunityPercentage": float,
-        "estimatedMonthlySavings": "InstanceEstimatedMonthlySavingsTypeDef",
-    },
-    total=False,
-)
-
-JobFilterTypeDef = TypedDict(
-    "JobFilterTypeDef",
-    {
-        "name": JobFilterNameType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-LambdaEffectiveRecommendationPreferencesTypeDef = TypedDict(
-    "LambdaEffectiveRecommendationPreferencesTypeDef",
-    {
-        "savingsEstimationMode": "LambdaSavingsEstimationModeTypeDef",
-    },
-    total=False,
-)
-
-LambdaEstimatedMonthlySavingsTypeDef = TypedDict(
-    "LambdaEstimatedMonthlySavingsTypeDef",
-    {
-        "currency": CurrencyType,
-        "value": float,
-    },
-    total=False,
-)
-
-LambdaFunctionMemoryProjectedMetricTypeDef = TypedDict(
-    "LambdaFunctionMemoryProjectedMetricTypeDef",
-    {
-        "name": Literal["Duration"],
-        "statistic": LambdaFunctionMemoryMetricStatisticType,
-        "value": float,
-    },
-    total=False,
-)
-
-LambdaFunctionMemoryRecommendationOptionTypeDef = TypedDict(
-    "LambdaFunctionMemoryRecommendationOptionTypeDef",
-    {
-        "rank": int,
-        "memorySize": int,
-        "projectedUtilizationMetrics": List["LambdaFunctionMemoryProjectedMetricTypeDef"],
-        "savingsOpportunity": "SavingsOpportunityTypeDef",
-        "savingsOpportunityAfterDiscounts": "LambdaSavingsOpportunityAfterDiscountsTypeDef",
-    },
-    total=False,
-)
-
-LambdaFunctionRecommendationFilterTypeDef = TypedDict(
-    "LambdaFunctionRecommendationFilterTypeDef",
-    {
-        "name": LambdaFunctionRecommendationFilterNameType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-LambdaFunctionRecommendationTypeDef = TypedDict(
-    "LambdaFunctionRecommendationTypeDef",
-    {
-        "functionArn": str,
-        "functionVersion": str,
-        "accountId": str,
-        "currentMemorySize": int,
-        "numberOfInvocations": int,
-        "utilizationMetrics": List["LambdaFunctionUtilizationMetricTypeDef"],
-        "lookbackPeriodInDays": float,
-        "lastRefreshTimestamp": datetime,
-        "finding": LambdaFunctionRecommendationFindingType,
-        "findingReasonCodes": List[LambdaFunctionRecommendationFindingReasonCodeType],
-        "memorySizeRecommendationOptions": List["LambdaFunctionMemoryRecommendationOptionTypeDef"],
-        "currentPerformanceRisk": CurrentPerformanceRiskType,
-        "effectiveRecommendationPreferences": "LambdaEffectiveRecommendationPreferencesTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-LambdaFunctionUtilizationMetricTypeDef = TypedDict(
-    "LambdaFunctionUtilizationMetricTypeDef",
-    {
-        "name": LambdaFunctionMetricNameType,
-        "statistic": LambdaFunctionMetricStatisticType,
-        "value": float,
-    },
-    total=False,
-)
-
-LambdaSavingsEstimationModeTypeDef = TypedDict(
-    "LambdaSavingsEstimationModeTypeDef",
-    {
-        "source": LambdaSavingsEstimationModeSourceType,
-    },
-    total=False,
-)
-
-LambdaSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
-    "LambdaSavingsOpportunityAfterDiscountsTypeDef",
-    {
-        "savingsOpportunityPercentage": float,
-        "estimatedMonthlySavings": "LambdaEstimatedMonthlySavingsTypeDef",
-    },
-    total=False,
-)
-
-LicenseConfigurationTypeDef = TypedDict(
-    "LicenseConfigurationTypeDef",
-    {
-        "numberOfCores": int,
-        "instanceType": str,
-        "operatingSystem": str,
-        "licenseEdition": LicenseEditionType,
-        "licenseName": Literal["SQLServer"],
-        "licenseModel": LicenseModelType,
-        "licenseVersion": str,
-        "metricsSource": List["MetricSourceTypeDef"],
-    },
-    total=False,
-)
-
-LicenseRecommendationFilterTypeDef = TypedDict(
-    "LicenseRecommendationFilterTypeDef",
-    {
-        "name": LicenseRecommendationFilterNameType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-LicenseRecommendationOptionTypeDef = TypedDict(
-    "LicenseRecommendationOptionTypeDef",
-    {
-        "rank": int,
-        "operatingSystem": str,
-        "licenseEdition": LicenseEditionType,
-        "licenseModel": LicenseModelType,
-        "savingsOpportunity": "SavingsOpportunityTypeDef",
-    },
-    total=False,
-)
-
-LicenseRecommendationTypeDef = TypedDict(
-    "LicenseRecommendationTypeDef",
-    {
-        "resourceArn": str,
-        "accountId": str,
-        "currentLicenseConfiguration": "LicenseConfigurationTypeDef",
-        "lookbackPeriodInDays": float,
-        "lastRefreshTimestamp": datetime,
-        "finding": LicenseFindingType,
-        "findingReasonCodes": List[LicenseFindingReasonCodeType],
-        "licenseRecommendationOptions": List["LicenseRecommendationOptionTypeDef"],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-MemorySizeConfigurationTypeDef = TypedDict(
-    "MemorySizeConfigurationTypeDef",
-    {
-        "memory": int,
-        "memoryReservation": int,
-    },
-    total=False,
-)
-
-MetricSourceTypeDef = TypedDict(
-    "MetricSourceTypeDef",
-    {
-        "provider": Literal["CloudWatchApplicationInsights"],
-        "providerArn": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PreferredResourceTypeDef = TypedDict(
-    "PreferredResourceTypeDef",
-    {
-        "name": Literal["Ec2InstanceTypes"],
-        "includeList": List[str],
-        "excludeList": List[str],
-    },
-    total=False,
-)
-
-ProjectedMetricTypeDef = TypedDict(
-    "ProjectedMetricTypeDef",
-    {
-        "name": MetricNameType,
-        "timestamps": List[datetime],
-        "values": List[float],
-    },
-    total=False,
-)
-
-_RequiredPutRecommendationPreferencesRequestRequestTypeDef = TypedDict(
-    "_RequiredPutRecommendationPreferencesRequestRequestTypeDef",
-    {
-        "resourceType": ResourceTypeType,
-    },
-)
-_OptionalPutRecommendationPreferencesRequestRequestTypeDef = TypedDict(
-    "_OptionalPutRecommendationPreferencesRequestRequestTypeDef",
-    {
-        "scope": "ScopeTypeDef",
-        "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
-        "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
-        "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
-        "lookBackPeriod": LookBackPeriodPreferenceType,
-        "utilizationPreferences": List["UtilizationPreferenceTypeDef"],
-        "preferredResources": List["PreferredResourceTypeDef"],
-        "savingsEstimationMode": SavingsEstimationModeType,
-    },
-    total=False,
-)
-
-class PutRecommendationPreferencesRequestRequestTypeDef(
-    _RequiredPutRecommendationPreferencesRequestRequestTypeDef,
-    _OptionalPutRecommendationPreferencesRequestRequestTypeDef,
-):
-    pass
-
-RDSDBInstanceRecommendationOptionTypeDef = TypedDict(
-    "RDSDBInstanceRecommendationOptionTypeDef",
-    {
-        "dbInstanceClass": str,
-        "projectedUtilizationMetrics": List["RDSDBUtilizationMetricTypeDef"],
-        "performanceRisk": float,
-        "rank": int,
-        "savingsOpportunity": "SavingsOpportunityTypeDef",
-        "savingsOpportunityAfterDiscounts": "RDSInstanceSavingsOpportunityAfterDiscountsTypeDef",
-    },
-    total=False,
-)
-
-RDSDBRecommendationFilterTypeDef = TypedDict(
-    "RDSDBRecommendationFilterTypeDef",
-    {
-        "name": RDSDBRecommendationFilterNameType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-RDSDBRecommendationTypeDef = TypedDict(
-    "RDSDBRecommendationTypeDef",
-    {
-        "resourceArn": str,
-        "accountId": str,
-        "engine": str,
-        "engineVersion": str,
-        "currentDBInstanceClass": str,
-        "currentStorageConfiguration": "DBStorageConfigurationTypeDef",
-        "idle": IdleType,
-        "instanceFinding": RDSInstanceFindingType,
-        "storageFinding": RDSStorageFindingType,
-        "instanceFindingReasonCodes": List[RDSInstanceFindingReasonCodeType],
-        "storageFindingReasonCodes": List[RDSStorageFindingReasonCodeType],
-        "instanceRecommendationOptions": List["RDSDBInstanceRecommendationOptionTypeDef"],
-        "storageRecommendationOptions": List["RDSDBStorageRecommendationOptionTypeDef"],
-        "utilizationMetrics": List["RDSDBUtilizationMetricTypeDef"],
-        "effectiveRecommendationPreferences": "RDSEffectiveRecommendationPreferencesTypeDef",
-        "lookbackPeriodInDays": float,
-        "lastRefreshTimestamp": datetime,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-RDSDBStorageRecommendationOptionTypeDef = TypedDict(
-    "RDSDBStorageRecommendationOptionTypeDef",
-    {
-        "storageConfiguration": "DBStorageConfigurationTypeDef",
-        "rank": int,
-        "savingsOpportunity": "SavingsOpportunityTypeDef",
-        "savingsOpportunityAfterDiscounts": "RDSStorageSavingsOpportunityAfterDiscountsTypeDef",
-    },
-    total=False,
-)
-
-RDSDBUtilizationMetricTypeDef = TypedDict(
-    "RDSDBUtilizationMetricTypeDef",
-    {
-        "name": RDSDBMetricNameType,
-        "statistic": RDSDBMetricStatisticType,
-        "value": float,
-    },
-    total=False,
-)
-
-RDSDatabaseProjectedMetricTypeDef = TypedDict(
-    "RDSDatabaseProjectedMetricTypeDef",
-    {
-        "name": RDSDBMetricNameType,
-        "timestamps": List[datetime],
-        "values": List[float],
-    },
-    total=False,
-)
-
-RDSDatabaseRecommendedOptionProjectedMetricTypeDef = TypedDict(
-    "RDSDatabaseRecommendedOptionProjectedMetricTypeDef",
-    {
-        "recommendedDBInstanceClass": str,
-        "rank": int,
-        "projectedMetrics": List["RDSDatabaseProjectedMetricTypeDef"],
-    },
-    total=False,
-)
-
-RDSEffectiveRecommendationPreferencesTypeDef = TypedDict(
-    "RDSEffectiveRecommendationPreferencesTypeDef",
-    {
-        "cpuVendorArchitectures": List[CpuVendorArchitectureType],
-        "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
-        "lookBackPeriod": LookBackPeriodPreferenceType,
-        "savingsEstimationMode": "RDSSavingsEstimationModeTypeDef",
-    },
-    total=False,
-)
-
-RDSInstanceEstimatedMonthlySavingsTypeDef = TypedDict(
-    "RDSInstanceEstimatedMonthlySavingsTypeDef",
-    {
-        "currency": CurrencyType,
-        "value": float,
-    },
-    total=False,
-)
-
-RDSInstanceSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
-    "RDSInstanceSavingsOpportunityAfterDiscountsTypeDef",
-    {
-        "savingsOpportunityPercentage": float,
-        "estimatedMonthlySavings": "RDSInstanceEstimatedMonthlySavingsTypeDef",
-    },
-    total=False,
-)
-
-RDSSavingsEstimationModeTypeDef = TypedDict(
-    "RDSSavingsEstimationModeTypeDef",
-    {
-        "source": RDSSavingsEstimationModeSourceType,
-    },
-    total=False,
-)
-
-RDSStorageEstimatedMonthlySavingsTypeDef = TypedDict(
-    "RDSStorageEstimatedMonthlySavingsTypeDef",
-    {
-        "currency": CurrencyType,
-        "value": float,
-    },
-    total=False,
-)
-
-RDSStorageSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
-    "RDSStorageSavingsOpportunityAfterDiscountsTypeDef",
-    {
-        "savingsOpportunityPercentage": float,
-        "estimatedMonthlySavings": "RDSStorageEstimatedMonthlySavingsTypeDef",
-    },
-    total=False,
-)
-
-ReasonCodeSummaryTypeDef = TypedDict(
-    "ReasonCodeSummaryTypeDef",
-    {
-        "name": FindingReasonCodeType,
-        "value": float,
-    },
-    total=False,
-)
-
-RecommendationExportJobTypeDef = TypedDict(
-    "RecommendationExportJobTypeDef",
-    {
-        "jobId": str,
-        "destination": "ExportDestinationTypeDef",
-        "resourceType": ResourceTypeType,
-        "status": JobStatusType,
-        "creationTimestamp": datetime,
-        "lastUpdatedTimestamp": datetime,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-RecommendationPreferencesDetailTypeDef = TypedDict(
-    "RecommendationPreferencesDetailTypeDef",
-    {
-        "scope": "ScopeTypeDef",
-        "resourceType": ResourceTypeType,
-        "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
-        "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
-        "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
-        "lookBackPeriod": LookBackPeriodPreferenceType,
-        "utilizationPreferences": List["UtilizationPreferenceTypeDef"],
-        "preferredResources": List["EffectivePreferredResourceTypeDef"],
-        "savingsEstimationMode": SavingsEstimationModeType,
-    },
-    total=False,
-)
-
-RecommendationPreferencesTypeDef = TypedDict(
-    "RecommendationPreferencesTypeDef",
-    {
-        "cpuVendorArchitectures": List[CpuVendorArchitectureType],
-    },
-    total=False,
-)
-
-RecommendationSourceTypeDef = TypedDict(
-    "RecommendationSourceTypeDef",
-    {
-        "recommendationSourceArn": str,
-        "recommendationSourceType": RecommendationSourceTypeType,
-    },
-    total=False,
-)
-
-RecommendationSummaryTypeDef = TypedDict(
-    "RecommendationSummaryTypeDef",
-    {
-        "summaries": List["SummaryTypeDef"],
-        "recommendationResourceType": RecommendationSourceTypeType,
-        "accountId": str,
-        "savingsOpportunity": "SavingsOpportunityTypeDef",
-        "currentPerformanceRiskRatings": "CurrentPerformanceRiskRatingsTypeDef",
-        "inferredWorkloadSavings": List["InferredWorkloadSavingTypeDef"],
-    },
-    total=False,
-)
-
-RecommendedOptionProjectedMetricTypeDef = TypedDict(
-    "RecommendedOptionProjectedMetricTypeDef",
-    {
-        "recommendedInstanceType": str,
-        "rank": int,
-        "projectedMetrics": List["ProjectedMetricTypeDef"],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3DestinationConfigTypeDef = TypedDict(
-    "S3DestinationConfigTypeDef",
-    {
-        "bucket": str,
-        "keyPrefix": str,
-    },
-    total=False,
-)
-
-S3DestinationTypeDef = TypedDict(
-    "S3DestinationTypeDef",
-    {
-        "bucket": str,
-        "key": str,
-        "metadataKey": str,
-    },
-    total=False,
-)
-
-SavingsOpportunityTypeDef = TypedDict(
-    "SavingsOpportunityTypeDef",
-    {
-        "savingsOpportunityPercentage": float,
-        "estimatedMonthlySavings": "EstimatedMonthlySavingsTypeDef",
-    },
-    total=False,
-)
-
-ScopeTypeDef = TypedDict(
-    "ScopeTypeDef",
-    {
-        "name": ScopeNameType,
-        "value": str,
-    },
-    total=False,
-)
-
-ServiceConfigurationTypeDef = TypedDict(
-    "ServiceConfigurationTypeDef",
-    {
-        "memory": int,
-        "cpu": int,
-        "containerConfigurations": List["ContainerConfigurationTypeDef"],
-        "autoScalingConfiguration": AutoScalingConfigurationType,
-        "taskDefinitionArn": str,
-    },
-    total=False,
-)
-
-SummaryTypeDef = TypedDict(
-    "SummaryTypeDef",
-    {
-        "name": FindingType,
-        "value": float,
-        "reasonCodeSummaries": List["ReasonCodeSummaryTypeDef"],
-    },
-    total=False,
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-    total=False,
-)
-
-_RequiredUpdateEnrollmentStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnrollmentStatusRequestRequestTypeDef",
-    {
-        "status": StatusType,
-    },
-)
-_OptionalUpdateEnrollmentStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnrollmentStatusRequestRequestTypeDef",
-    {
-        "includeMemberAccounts": bool,
-    },
-    total=False,
-)
-
-class UpdateEnrollmentStatusRequestRequestTypeDef(
-    _RequiredUpdateEnrollmentStatusRequestRequestTypeDef,
-    _OptionalUpdateEnrollmentStatusRequestRequestTypeDef,
-):
-    pass
-
-UpdateEnrollmentStatusResponseTypeDef = TypedDict(
-    "UpdateEnrollmentStatusResponseTypeDef",
-    {
-        "status": StatusType,
-        "statusReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UtilizationMetricTypeDef = TypedDict(
-    "UtilizationMetricTypeDef",
-    {
-        "name": MetricNameType,
-        "statistic": MetricStatisticType,
-        "value": float,
-    },
-    total=False,
-)
-
-UtilizationPreferenceTypeDef = TypedDict(
-    "UtilizationPreferenceTypeDef",
-    {
-        "metricName": CustomizableMetricNameType,
-        "metricParameters": "CustomizableMetricParametersTypeDef",
-    },
-    total=False,
-)
-
-VolumeConfigurationTypeDef = TypedDict(
-    "VolumeConfigurationTypeDef",
-    {
-        "volumeType": str,
-        "volumeSize": int,
-        "volumeBaselineIOPS": int,
-        "volumeBurstIOPS": int,
-        "volumeBaselineThroughput": int,
-        "volumeBurstThroughput": int,
-        "rootVolume": bool,
-    },
-    total=False,
-)
-
-VolumeRecommendationOptionTypeDef = TypedDict(
-    "VolumeRecommendationOptionTypeDef",
-    {
-        "configuration": "VolumeConfigurationTypeDef",
-        "performanceRisk": float,
-        "rank": int,
-        "savingsOpportunity": "SavingsOpportunityTypeDef",
-        "savingsOpportunityAfterDiscounts": "EBSSavingsOpportunityAfterDiscountsTypeDef",
-    },
-    total=False,
-)
-
-VolumeRecommendationTypeDef = TypedDict(
-    "VolumeRecommendationTypeDef",
-    {
-        "volumeArn": str,
-        "accountId": str,
-        "currentConfiguration": "VolumeConfigurationTypeDef",
-        "finding": EBSFindingType,
-        "utilizationMetrics": List["EBSUtilizationMetricTypeDef"],
-        "lookBackPeriodInDays": float,
-        "volumeRecommendationOptions": List["VolumeRecommendationOptionTypeDef"],
-        "lastRefreshTimestamp": datetime,
-        "currentPerformanceRisk": CurrentPerformanceRiskType,
-        "effectiveRecommendationPreferences": "EBSEffectiveRecommendationPreferencesTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+        "desiredCapacity": NotRequired[int],
+        "minSize": NotRequired[int],
+        "maxSize": NotRequired[int],
+        "instanceType": NotRequired[str],
+        "allocationStrategy": NotRequired[AllocationStrategyType],
+        "estimatedInstanceHourReductionPercentage": NotRequired[float],
+        "type": NotRequired[AsgTypeType],
+        "mixedInstanceTypes": NotRequired[List[str]],
+    },
+)
+
+class AutoScalingGroupEstimatedMonthlySavingsTypeDef(TypedDict):
+    currency: NotRequired[CurrencyType]
+    value: NotRequired[float]
+
+class UtilizationMetricTypeDef(TypedDict):
+    name: NotRequired[MetricNameType]
+    statistic: NotRequired[MetricStatisticType]
+    value: NotRequired[float]
+
+class MemorySizeConfigurationTypeDef(TypedDict):
+    memory: NotRequired[int]
+    memoryReservation: NotRequired[int]
+
+class CurrentPerformanceRiskRatingsTypeDef(TypedDict):
+    high: NotRequired[int]
+    medium: NotRequired[int]
+    low: NotRequired[int]
+    veryLow: NotRequired[int]
+
+class CustomizableMetricParametersTypeDef(TypedDict):
+    threshold: NotRequired[CustomizableMetricThresholdType]
+    headroom: NotRequired[CustomizableMetricHeadroomType]
+
+class DBStorageConfigurationTypeDef(TypedDict):
+    storageType: NotRequired[str]
+    allocatedStorage: NotRequired[int]
+    iops: NotRequired[int]
+    maxAllocatedStorage: NotRequired[int]
+    storageThroughput: NotRequired[int]
+
+class ScopeTypeDef(TypedDict):
+    name: NotRequired[ScopeNameType]
+    value: NotRequired[str]
+
+class JobFilterTypeDef(TypedDict):
+    name: NotRequired[JobFilterNameType]
+    values: NotRequired[Sequence[str]]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class EBSSavingsEstimationModeTypeDef(TypedDict):
+    source: NotRequired[EBSSavingsEstimationModeSourceType]
+
+class EBSEstimatedMonthlySavingsTypeDef(TypedDict):
+    currency: NotRequired[CurrencyType]
+    value: NotRequired[float]
+
+class EBSFilterTypeDef(TypedDict):
+    name: NotRequired[Literal["Finding"]]
+    values: NotRequired[Sequence[str]]
+
+class EBSUtilizationMetricTypeDef(TypedDict):
+    name: NotRequired[EBSMetricNameType]
+    statistic: NotRequired[MetricStatisticType]
+    value: NotRequired[float]
+
+class ECSSavingsEstimationModeTypeDef(TypedDict):
+    source: NotRequired[ECSSavingsEstimationModeSourceType]
+
+class ECSEstimatedMonthlySavingsTypeDef(TypedDict):
+    currency: NotRequired[CurrencyType]
+    value: NotRequired[float]
+
+class ECSServiceProjectedMetricTypeDef(TypedDict):
+    name: NotRequired[ECSServiceMetricNameType]
+    timestamps: NotRequired[List[datetime]]
+    upperBoundValues: NotRequired[List[float]]
+    lowerBoundValues: NotRequired[List[float]]
+
+class ECSServiceProjectedUtilizationMetricTypeDef(TypedDict):
+    name: NotRequired[ECSServiceMetricNameType]
+    statistic: NotRequired[ECSServiceMetricStatisticType]
+    lowerBoundValue: NotRequired[float]
+    upperBoundValue: NotRequired[float]
+
+class ECSServiceRecommendationFilterTypeDef(TypedDict):
+    name: NotRequired[ECSServiceRecommendationFilterNameType]
+    values: NotRequired[Sequence[str]]
+
+class ECSServiceUtilizationMetricTypeDef(TypedDict):
+    name: NotRequired[ECSServiceMetricNameType]
+    statistic: NotRequired[ECSServiceMetricStatisticType]
+    value: NotRequired[float]
+
+class TagTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
+
+class EffectivePreferredResourceTypeDef(TypedDict):
+    name: NotRequired[Literal["Ec2InstanceTypes"]]
+    includeList: NotRequired[List[str]]
+    effectiveIncludeList: NotRequired[List[str]]
+    excludeList: NotRequired[List[str]]
+
+class ExternalMetricsPreferenceTypeDef(TypedDict):
+    source: NotRequired[ExternalMetricsSourceType]
+
+class InstanceSavingsEstimationModeTypeDef(TypedDict):
+    source: NotRequired[InstanceSavingsEstimationModeSourceType]
+
+class EnrollmentFilterTypeDef(TypedDict):
+    name: NotRequired[Literal["Status"]]
+    values: NotRequired[Sequence[str]]
+
+class EstimatedMonthlySavingsTypeDef(TypedDict):
+    currency: NotRequired[CurrencyType]
+    value: NotRequired[float]
+
+class FilterTypeDef(TypedDict):
+    name: NotRequired[FilterNameType]
+    values: NotRequired[Sequence[str]]
+
+class RecommendationPreferencesTypeDef(TypedDict):
+    cpuVendorArchitectures: NotRequired[Sequence[CpuVendorArchitectureType]]
+
+class S3DestinationConfigTypeDef(TypedDict):
+    bucket: NotRequired[str]
+    keyPrefix: NotRequired[str]
+
+class S3DestinationTypeDef(TypedDict):
+    bucket: NotRequired[str]
+    key: NotRequired[str]
+    metadataKey: NotRequired[str]
+
+class IdleRecommendationFilterTypeDef(TypedDict):
+    name: NotRequired[IdleRecommendationFilterNameType]
+    values: NotRequired[Sequence[str]]
+
+class LambdaFunctionRecommendationFilterTypeDef(TypedDict):
+    name: NotRequired[LambdaFunctionRecommendationFilterNameType]
+    values: NotRequired[Sequence[str]]
+
+class LicenseRecommendationFilterTypeDef(TypedDict):
+    name: NotRequired[LicenseRecommendationFilterNameType]
+    values: NotRequired[Sequence[str]]
+
+class RDSDBRecommendationFilterTypeDef(TypedDict):
+    name: NotRequired[RDSDBRecommendationFilterNameType]
+    values: NotRequired[Sequence[str]]
+
+class ExternalMetricStatusTypeDef(TypedDict):
+    statusCode: NotRequired[ExternalMetricStatusCodeType]
+    statusReason: NotRequired[str]
+
+class GetRecommendationErrorTypeDef(TypedDict):
+    identifier: NotRequired[str]
+    code: NotRequired[str]
+    message: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class GetEffectiveRecommendationPreferencesRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class OrderByTypeDef(TypedDict):
+    dimension: NotRequired[DimensionType]
+    order: NotRequired[OrderType]
+
+class IdleRecommendationErrorTypeDef(TypedDict):
+    identifier: NotRequired[str]
+    code: NotRequired[str]
+    message: NotRequired[str]
+    resourceType: NotRequired[IdleRecommendationResourceTypeType]
+
+class GetRecommendationSummariesRequestTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GpuTypeDef(TypedDict):
+    gpuCount: NotRequired[int]
+    gpuMemorySizeInMiB: NotRequired[int]
+
+class IdleEstimatedMonthlySavingsTypeDef(TypedDict):
+    currency: NotRequired[CurrencyType]
+    value: NotRequired[float]
+
+class IdleUtilizationMetricTypeDef(TypedDict):
+    name: NotRequired[IdleMetricNameType]
+    statistic: NotRequired[MetricStatisticType]
+    value: NotRequired[float]
+
+class IdleSummaryTypeDef(TypedDict):
+    name: NotRequired[IdleFindingType]
+    value: NotRequired[float]
+
+class InstanceEstimatedMonthlySavingsTypeDef(TypedDict):
+    currency: NotRequired[CurrencyType]
+    value: NotRequired[float]
+
+class RecommendationSourceTypeDef(TypedDict):
+    recommendationSourceArn: NotRequired[str]
+    recommendationSourceType: NotRequired[RecommendationSourceTypeType]
+
+class LambdaSavingsEstimationModeTypeDef(TypedDict):
+    source: NotRequired[LambdaSavingsEstimationModeSourceType]
+
+class LambdaEstimatedMonthlySavingsTypeDef(TypedDict):
+    currency: NotRequired[CurrencyType]
+    value: NotRequired[float]
+
+class LambdaFunctionMemoryProjectedMetricTypeDef(TypedDict):
+    name: NotRequired[Literal["Duration"]]
+    statistic: NotRequired[LambdaFunctionMemoryMetricStatisticType]
+    value: NotRequired[float]
+
+class LambdaFunctionUtilizationMetricTypeDef(TypedDict):
+    name: NotRequired[LambdaFunctionMetricNameType]
+    statistic: NotRequired[LambdaFunctionMetricStatisticType]
+    value: NotRequired[float]
+
+class MetricSourceTypeDef(TypedDict):
+    provider: NotRequired[Literal["CloudWatchApplicationInsights"]]
+    providerArn: NotRequired[str]
+
+class PreferredResourceTypeDef(TypedDict):
+    name: NotRequired[Literal["Ec2InstanceTypes"]]
+    includeList: NotRequired[Sequence[str]]
+    excludeList: NotRequired[Sequence[str]]
+
+class ProjectedMetricTypeDef(TypedDict):
+    name: NotRequired[MetricNameType]
+    timestamps: NotRequired[List[datetime]]
+    values: NotRequired[List[float]]
+
+class RDSDBUtilizationMetricTypeDef(TypedDict):
+    name: NotRequired[RDSDBMetricNameType]
+    statistic: NotRequired[RDSDBMetricStatisticType]
+    value: NotRequired[float]
+
+class RDSDatabaseProjectedMetricTypeDef(TypedDict):
+    name: NotRequired[RDSDBMetricNameType]
+    timestamps: NotRequired[List[datetime]]
+    values: NotRequired[List[float]]
+
+class RDSSavingsEstimationModeTypeDef(TypedDict):
+    source: NotRequired[RDSSavingsEstimationModeSourceType]
+
+class RDSInstanceEstimatedMonthlySavingsTypeDef(TypedDict):
+    currency: NotRequired[CurrencyType]
+    value: NotRequired[float]
+
+class RDSStorageEstimatedMonthlySavingsTypeDef(TypedDict):
+    currency: NotRequired[CurrencyType]
+    value: NotRequired[float]
+
+class ReasonCodeSummaryTypeDef(TypedDict):
+    name: NotRequired[FindingReasonCodeType]
+    value: NotRequired[float]
+
+class UpdateEnrollmentStatusRequestTypeDef(TypedDict):
+    status: StatusType
+    includeMemberAccounts: NotRequired[bool]
+
+class VolumeConfigurationTypeDef(TypedDict):
+    volumeType: NotRequired[str]
+    volumeSize: NotRequired[int]
+    volumeBaselineIOPS: NotRequired[int]
+    volumeBurstIOPS: NotRequired[int]
+    volumeBaselineThroughput: NotRequired[int]
+    volumeBurstThroughput: NotRequired[int]
+    rootVolume: NotRequired[bool]
+
+class AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef(TypedDict):
+    savingsOpportunityPercentage: NotRequired[float]
+    estimatedMonthlySavings: NotRequired[AutoScalingGroupEstimatedMonthlySavingsTypeDef]
+
+class ContainerConfigurationTypeDef(TypedDict):
+    containerName: NotRequired[str]
+    memorySizeConfiguration: NotRequired[MemorySizeConfigurationTypeDef]
+    cpu: NotRequired[int]
+
+class ContainerRecommendationTypeDef(TypedDict):
+    containerName: NotRequired[str]
+    memorySizeConfiguration: NotRequired[MemorySizeConfigurationTypeDef]
+    cpu: NotRequired[int]
+
+class UtilizationPreferenceTypeDef(TypedDict):
+    metricName: NotRequired[CustomizableMetricNameType]
+    metricParameters: NotRequired[CustomizableMetricParametersTypeDef]
+
+class DeleteRecommendationPreferencesRequestTypeDef(TypedDict):
+    resourceType: ResourceTypeType
+    recommendationPreferenceNames: Sequence[RecommendationPreferenceNameType]
+    scope: NotRequired[ScopeTypeDef]
+
+class GetRecommendationPreferencesRequestTypeDef(TypedDict):
+    resourceType: ResourceTypeType
+    scope: NotRequired[ScopeTypeDef]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class DescribeRecommendationExportJobsRequestTypeDef(TypedDict):
+    jobIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[JobFilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class DescribeRecommendationExportJobsRequestPaginateTypeDef(TypedDict):
+    jobIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[JobFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRecommendationPreferencesRequestPaginateTypeDef(TypedDict):
+    resourceType: ResourceTypeType
+    scope: NotRequired[ScopeTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRecommendationSummariesRequestPaginateTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetEnrollmentStatusResponseTypeDef(TypedDict):
+    status: StatusType
+    statusReason: str
+    memberAccountsEnrolled: bool
+    lastUpdatedTimestamp: datetime
+    numberOfMemberAccountsOptedIn: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEnrollmentStatusesForOrganizationResponseTypeDef(TypedDict):
+    accountEnrollmentStatuses: List[AccountEnrollmentStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateEnrollmentStatusResponseTypeDef(TypedDict):
+    status: StatusType
+    statusReason: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EBSEffectiveRecommendationPreferencesTypeDef(TypedDict):
+    savingsEstimationMode: NotRequired[EBSSavingsEstimationModeTypeDef]
+
+class EBSSavingsOpportunityAfterDiscountsTypeDef(TypedDict):
+    savingsOpportunityPercentage: NotRequired[float]
+    estimatedMonthlySavings: NotRequired[EBSEstimatedMonthlySavingsTypeDef]
+
+class GetEBSVolumeRecommendationsRequestTypeDef(TypedDict):
+    volumeArns: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[EBSFilterTypeDef]]
+    accountIds: NotRequired[Sequence[str]]
+
+class ECSEffectiveRecommendationPreferencesTypeDef(TypedDict):
+    savingsEstimationMode: NotRequired[ECSSavingsEstimationModeTypeDef]
+
+class ECSSavingsOpportunityAfterDiscountsTypeDef(TypedDict):
+    savingsOpportunityPercentage: NotRequired[float]
+    estimatedMonthlySavings: NotRequired[ECSEstimatedMonthlySavingsTypeDef]
+
+class ECSServiceRecommendedOptionProjectedMetricTypeDef(TypedDict):
+    recommendedCpuUnits: NotRequired[int]
+    recommendedMemorySize: NotRequired[int]
+    projectedMetrics: NotRequired[List[ECSServiceProjectedMetricTypeDef]]
+
+class GetECSServiceRecommendationsRequestTypeDef(TypedDict):
+    serviceArns: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[ECSServiceRecommendationFilterTypeDef]]
+    accountIds: NotRequired[Sequence[str]]
+
+class GetEnrollmentStatusesForOrganizationRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[EnrollmentFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetEnrollmentStatusesForOrganizationRequestTypeDef(TypedDict):
+    filters: NotRequired[Sequence[EnrollmentFilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class InferredWorkloadSavingTypeDef(TypedDict):
+    inferredWorkloadTypes: NotRequired[List[InferredWorkloadTypeType]]
+    estimatedMonthlySavings: NotRequired[EstimatedMonthlySavingsTypeDef]
+
+class SavingsOpportunityTypeDef(TypedDict):
+    savingsOpportunityPercentage: NotRequired[float]
+    estimatedMonthlySavings: NotRequired[EstimatedMonthlySavingsTypeDef]
+
+class GetAutoScalingGroupRecommendationsRequestTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    autoScalingGroupArns: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    recommendationPreferences: NotRequired[RecommendationPreferencesTypeDef]
+
+class GetEC2InstanceRecommendationsRequestTypeDef(TypedDict):
+    instanceArns: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    accountIds: NotRequired[Sequence[str]]
+    recommendationPreferences: NotRequired[RecommendationPreferencesTypeDef]
+
+class ExportAutoScalingGroupRecommendationsRequestTypeDef(TypedDict):
+    s3DestinationConfig: S3DestinationConfigTypeDef
+    accountIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    fieldsToExport: NotRequired[Sequence[ExportableAutoScalingGroupFieldType]]
+    fileFormat: NotRequired[Literal["Csv"]]
+    includeMemberAccounts: NotRequired[bool]
+    recommendationPreferences: NotRequired[RecommendationPreferencesTypeDef]
+
+class ExportEBSVolumeRecommendationsRequestTypeDef(TypedDict):
+    s3DestinationConfig: S3DestinationConfigTypeDef
+    accountIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[EBSFilterTypeDef]]
+    fieldsToExport: NotRequired[Sequence[ExportableVolumeFieldType]]
+    fileFormat: NotRequired[Literal["Csv"]]
+    includeMemberAccounts: NotRequired[bool]
+
+class ExportEC2InstanceRecommendationsRequestTypeDef(TypedDict):
+    s3DestinationConfig: S3DestinationConfigTypeDef
+    accountIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    fieldsToExport: NotRequired[Sequence[ExportableInstanceFieldType]]
+    fileFormat: NotRequired[Literal["Csv"]]
+    includeMemberAccounts: NotRequired[bool]
+    recommendationPreferences: NotRequired[RecommendationPreferencesTypeDef]
+
+class ExportECSServiceRecommendationsRequestTypeDef(TypedDict):
+    s3DestinationConfig: S3DestinationConfigTypeDef
+    accountIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[ECSServiceRecommendationFilterTypeDef]]
+    fieldsToExport: NotRequired[Sequence[ExportableECSServiceFieldType]]
+    fileFormat: NotRequired[Literal["Csv"]]
+    includeMemberAccounts: NotRequired[bool]
+
+class ExportAutoScalingGroupRecommendationsResponseTypeDef(TypedDict):
+    jobId: str
+    s3Destination: S3DestinationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportDestinationTypeDef(TypedDict):
+    s3: NotRequired[S3DestinationTypeDef]
+
+class ExportEBSVolumeRecommendationsResponseTypeDef(TypedDict):
+    jobId: str
+    s3Destination: S3DestinationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportEC2InstanceRecommendationsResponseTypeDef(TypedDict):
+    jobId: str
+    s3Destination: S3DestinationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportECSServiceRecommendationsResponseTypeDef(TypedDict):
+    jobId: str
+    s3Destination: S3DestinationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportIdleRecommendationsResponseTypeDef(TypedDict):
+    jobId: str
+    s3Destination: S3DestinationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportLambdaFunctionRecommendationsResponseTypeDef(TypedDict):
+    jobId: str
+    s3Destination: S3DestinationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportLicenseRecommendationsResponseTypeDef(TypedDict):
+    jobId: str
+    s3Destination: S3DestinationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportRDSDatabaseRecommendationsResponseTypeDef(TypedDict):
+    jobId: str
+    s3Destination: S3DestinationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportIdleRecommendationsRequestTypeDef(TypedDict):
+    s3DestinationConfig: S3DestinationConfigTypeDef
+    accountIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[IdleRecommendationFilterTypeDef]]
+    fieldsToExport: NotRequired[Sequence[ExportableIdleFieldType]]
+    fileFormat: NotRequired[Literal["Csv"]]
+    includeMemberAccounts: NotRequired[bool]
+
+class ExportLambdaFunctionRecommendationsRequestTypeDef(TypedDict):
+    s3DestinationConfig: S3DestinationConfigTypeDef
+    accountIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[LambdaFunctionRecommendationFilterTypeDef]]
+    fieldsToExport: NotRequired[Sequence[ExportableLambdaFunctionFieldType]]
+    fileFormat: NotRequired[Literal["Csv"]]
+    includeMemberAccounts: NotRequired[bool]
+
+class GetLambdaFunctionRecommendationsRequestPaginateTypeDef(TypedDict):
+    functionArns: NotRequired[Sequence[str]]
+    accountIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[LambdaFunctionRecommendationFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetLambdaFunctionRecommendationsRequestTypeDef(TypedDict):
+    functionArns: NotRequired[Sequence[str]]
+    accountIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[LambdaFunctionRecommendationFilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ExportLicenseRecommendationsRequestTypeDef(TypedDict):
+    s3DestinationConfig: S3DestinationConfigTypeDef
+    accountIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[LicenseRecommendationFilterTypeDef]]
+    fieldsToExport: NotRequired[Sequence[ExportableLicenseFieldType]]
+    fileFormat: NotRequired[Literal["Csv"]]
+    includeMemberAccounts: NotRequired[bool]
+
+class GetLicenseRecommendationsRequestTypeDef(TypedDict):
+    resourceArns: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[LicenseRecommendationFilterTypeDef]]
+    accountIds: NotRequired[Sequence[str]]
+
+class ExportRDSDatabaseRecommendationsRequestTypeDef(TypedDict):
+    s3DestinationConfig: S3DestinationConfigTypeDef
+    accountIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[RDSDBRecommendationFilterTypeDef]]
+    fieldsToExport: NotRequired[Sequence[ExportableRDSDBFieldType]]
+    fileFormat: NotRequired[Literal["Csv"]]
+    includeMemberAccounts: NotRequired[bool]
+    recommendationPreferences: NotRequired[RecommendationPreferencesTypeDef]
+
+class GetRDSDatabaseRecommendationsRequestTypeDef(TypedDict):
+    resourceArns: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[RDSDBRecommendationFilterTypeDef]]
+    accountIds: NotRequired[Sequence[str]]
+    recommendationPreferences: NotRequired[RecommendationPreferencesTypeDef]
+
+class GetEC2RecommendationProjectedMetricsRequestTypeDef(TypedDict):
+    instanceArn: str
+    stat: MetricStatisticType
+    period: int
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    recommendationPreferences: NotRequired[RecommendationPreferencesTypeDef]
+
+class GetECSServiceRecommendationProjectedMetricsRequestTypeDef(TypedDict):
+    serviceArn: str
+    stat: MetricStatisticType
+    period: int
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+
+class GetRDSDatabaseRecommendationProjectedMetricsRequestTypeDef(TypedDict):
+    resourceArn: str
+    stat: MetricStatisticType
+    period: int
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    recommendationPreferences: NotRequired[RecommendationPreferencesTypeDef]
+
+class GetIdleRecommendationsRequestTypeDef(TypedDict):
+    resourceArns: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[IdleRecommendationFilterTypeDef]]
+    accountIds: NotRequired[Sequence[str]]
+    orderBy: NotRequired[OrderByTypeDef]
+
+class GpuInfoTypeDef(TypedDict):
+    gpus: NotRequired[List[GpuTypeDef]]
+
+class IdleSavingsOpportunityAfterDiscountsTypeDef(TypedDict):
+    savingsOpportunityPercentage: NotRequired[float]
+    estimatedMonthlySavings: NotRequired[IdleEstimatedMonthlySavingsTypeDef]
+
+class IdleSavingsOpportunityTypeDef(TypedDict):
+    savingsOpportunityPercentage: NotRequired[float]
+    estimatedMonthlySavings: NotRequired[IdleEstimatedMonthlySavingsTypeDef]
+
+class InstanceSavingsOpportunityAfterDiscountsTypeDef(TypedDict):
+    savingsOpportunityPercentage: NotRequired[float]
+    estimatedMonthlySavings: NotRequired[InstanceEstimatedMonthlySavingsTypeDef]
+
+class LambdaEffectiveRecommendationPreferencesTypeDef(TypedDict):
+    savingsEstimationMode: NotRequired[LambdaSavingsEstimationModeTypeDef]
+
+class LambdaSavingsOpportunityAfterDiscountsTypeDef(TypedDict):
+    savingsOpportunityPercentage: NotRequired[float]
+    estimatedMonthlySavings: NotRequired[LambdaEstimatedMonthlySavingsTypeDef]
+
+class LicenseConfigurationTypeDef(TypedDict):
+    numberOfCores: NotRequired[int]
+    instanceType: NotRequired[str]
+    operatingSystem: NotRequired[str]
+    licenseEdition: NotRequired[LicenseEditionType]
+    licenseName: NotRequired[Literal["SQLServer"]]
+    licenseModel: NotRequired[LicenseModelType]
+    licenseVersion: NotRequired[str]
+    metricsSource: NotRequired[List[MetricSourceTypeDef]]
+
+class RecommendedOptionProjectedMetricTypeDef(TypedDict):
+    recommendedInstanceType: NotRequired[str]
+    rank: NotRequired[int]
+    projectedMetrics: NotRequired[List[ProjectedMetricTypeDef]]
+
+class RDSDatabaseRecommendedOptionProjectedMetricTypeDef(TypedDict):
+    recommendedDBInstanceClass: NotRequired[str]
+    rank: NotRequired[int]
+    projectedMetrics: NotRequired[List[RDSDatabaseProjectedMetricTypeDef]]
+
+class RDSEffectiveRecommendationPreferencesTypeDef(TypedDict):
+    cpuVendorArchitectures: NotRequired[List[CpuVendorArchitectureType]]
+    enhancedInfrastructureMetrics: NotRequired[EnhancedInfrastructureMetricsType]
+    lookBackPeriod: NotRequired[LookBackPeriodPreferenceType]
+    savingsEstimationMode: NotRequired[RDSSavingsEstimationModeTypeDef]
+
+class RDSInstanceSavingsOpportunityAfterDiscountsTypeDef(TypedDict):
+    savingsOpportunityPercentage: NotRequired[float]
+    estimatedMonthlySavings: NotRequired[RDSInstanceEstimatedMonthlySavingsTypeDef]
+
+class RDSStorageSavingsOpportunityAfterDiscountsTypeDef(TypedDict):
+    savingsOpportunityPercentage: NotRequired[float]
+    estimatedMonthlySavings: NotRequired[RDSStorageEstimatedMonthlySavingsTypeDef]
+
+class SummaryTypeDef(TypedDict):
+    name: NotRequired[FindingType]
+    value: NotRequired[float]
+    reasonCodeSummaries: NotRequired[List[ReasonCodeSummaryTypeDef]]
+
+class ServiceConfigurationTypeDef(TypedDict):
+    memory: NotRequired[int]
+    cpu: NotRequired[int]
+    containerConfigurations: NotRequired[List[ContainerConfigurationTypeDef]]
+    autoScalingConfiguration: NotRequired[AutoScalingConfigurationType]
+    taskDefinitionArn: NotRequired[str]
+
+class EffectiveRecommendationPreferencesTypeDef(TypedDict):
+    cpuVendorArchitectures: NotRequired[List[CpuVendorArchitectureType]]
+    enhancedInfrastructureMetrics: NotRequired[EnhancedInfrastructureMetricsType]
+    inferredWorkloadTypes: NotRequired[InferredWorkloadTypesPreferenceType]
+    externalMetricsPreference: NotRequired[ExternalMetricsPreferenceTypeDef]
+    lookBackPeriod: NotRequired[LookBackPeriodPreferenceType]
+    utilizationPreferences: NotRequired[List[UtilizationPreferenceTypeDef]]
+    preferredResources: NotRequired[List[EffectivePreferredResourceTypeDef]]
+    savingsEstimationMode: NotRequired[InstanceSavingsEstimationModeTypeDef]
+
+class GetEffectiveRecommendationPreferencesResponseTypeDef(TypedDict):
+    enhancedInfrastructureMetrics: EnhancedInfrastructureMetricsType
+    externalMetricsPreference: ExternalMetricsPreferenceTypeDef
+    lookBackPeriod: LookBackPeriodPreferenceType
+    utilizationPreferences: List[UtilizationPreferenceTypeDef]
+    preferredResources: List[EffectivePreferredResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutRecommendationPreferencesRequestTypeDef(TypedDict):
+    resourceType: ResourceTypeType
+    scope: NotRequired[ScopeTypeDef]
+    enhancedInfrastructureMetrics: NotRequired[EnhancedInfrastructureMetricsType]
+    inferredWorkloadTypes: NotRequired[InferredWorkloadTypesPreferenceType]
+    externalMetricsPreference: NotRequired[ExternalMetricsPreferenceTypeDef]
+    lookBackPeriod: NotRequired[LookBackPeriodPreferenceType]
+    utilizationPreferences: NotRequired[Sequence[UtilizationPreferenceTypeDef]]
+    preferredResources: NotRequired[Sequence[PreferredResourceTypeDef]]
+    savingsEstimationMode: NotRequired[SavingsEstimationModeType]
+
+class RecommendationPreferencesDetailTypeDef(TypedDict):
+    scope: NotRequired[ScopeTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    enhancedInfrastructureMetrics: NotRequired[EnhancedInfrastructureMetricsType]
+    inferredWorkloadTypes: NotRequired[InferredWorkloadTypesPreferenceType]
+    externalMetricsPreference: NotRequired[ExternalMetricsPreferenceTypeDef]
+    lookBackPeriod: NotRequired[LookBackPeriodPreferenceType]
+    utilizationPreferences: NotRequired[List[UtilizationPreferenceTypeDef]]
+    preferredResources: NotRequired[List[EffectivePreferredResourceTypeDef]]
+    savingsEstimationMode: NotRequired[SavingsEstimationModeType]
+
+class GetECSServiceRecommendationProjectedMetricsResponseTypeDef(TypedDict):
+    recommendedOptionProjectedMetrics: List[ECSServiceRecommendedOptionProjectedMetricTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ECSServiceRecommendationOptionTypeDef(TypedDict):
+    memory: NotRequired[int]
+    cpu: NotRequired[int]
+    savingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+    savingsOpportunityAfterDiscounts: NotRequired[ECSSavingsOpportunityAfterDiscountsTypeDef]
+    projectedUtilizationMetrics: NotRequired[List[ECSServiceProjectedUtilizationMetricTypeDef]]
+    containerRecommendations: NotRequired[List[ContainerRecommendationTypeDef]]
+
+class LicenseRecommendationOptionTypeDef(TypedDict):
+    rank: NotRequired[int]
+    operatingSystem: NotRequired[str]
+    licenseEdition: NotRequired[LicenseEditionType]
+    licenseModel: NotRequired[LicenseModelType]
+    savingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+
+class VolumeRecommendationOptionTypeDef(TypedDict):
+    configuration: NotRequired[VolumeConfigurationTypeDef]
+    performanceRisk: NotRequired[float]
+    rank: NotRequired[int]
+    savingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+    savingsOpportunityAfterDiscounts: NotRequired[EBSSavingsOpportunityAfterDiscountsTypeDef]
+
+class RecommendationExportJobTypeDef(TypedDict):
+    jobId: NotRequired[str]
+    destination: NotRequired[ExportDestinationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    status: NotRequired[JobStatusType]
+    creationTimestamp: NotRequired[datetime]
+    lastUpdatedTimestamp: NotRequired[datetime]
+    failureReason: NotRequired[str]
+
+class AutoScalingGroupRecommendationOptionTypeDef(TypedDict):
+    configuration: NotRequired[AutoScalingGroupConfigurationTypeDef]
+    instanceGpuInfo: NotRequired[GpuInfoTypeDef]
+    projectedUtilizationMetrics: NotRequired[List[UtilizationMetricTypeDef]]
+    performanceRisk: NotRequired[float]
+    rank: NotRequired[int]
+    savingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+    savingsOpportunityAfterDiscounts: NotRequired[
+        AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef
+    ]
+    migrationEffort: NotRequired[MigrationEffortType]
+
+class IdleRecommendationTypeDef(TypedDict):
+    resourceArn: NotRequired[str]
+    resourceId: NotRequired[str]
+    resourceType: NotRequired[IdleRecommendationResourceTypeType]
+    accountId: NotRequired[str]
+    finding: NotRequired[IdleFindingType]
+    findingDescription: NotRequired[str]
+    savingsOpportunity: NotRequired[IdleSavingsOpportunityTypeDef]
+    savingsOpportunityAfterDiscounts: NotRequired[IdleSavingsOpportunityAfterDiscountsTypeDef]
+    utilizationMetrics: NotRequired[List[IdleUtilizationMetricTypeDef]]
+    lookBackPeriodInDays: NotRequired[float]
+    lastRefreshTimestamp: NotRequired[datetime]
+    tags: NotRequired[List[TagTypeDef]]
+
+class InstanceRecommendationOptionTypeDef(TypedDict):
+    instanceType: NotRequired[str]
+    instanceGpuInfo: NotRequired[GpuInfoTypeDef]
+    projectedUtilizationMetrics: NotRequired[List[UtilizationMetricTypeDef]]
+    platformDifferences: NotRequired[List[PlatformDifferenceType]]
+    performanceRisk: NotRequired[float]
+    rank: NotRequired[int]
+    savingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+    savingsOpportunityAfterDiscounts: NotRequired[InstanceSavingsOpportunityAfterDiscountsTypeDef]
+    migrationEffort: NotRequired[MigrationEffortType]
+
+class LambdaFunctionMemoryRecommendationOptionTypeDef(TypedDict):
+    rank: NotRequired[int]
+    memorySize: NotRequired[int]
+    projectedUtilizationMetrics: NotRequired[List[LambdaFunctionMemoryProjectedMetricTypeDef]]
+    savingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+    savingsOpportunityAfterDiscounts: NotRequired[LambdaSavingsOpportunityAfterDiscountsTypeDef]
+
+class GetEC2RecommendationProjectedMetricsResponseTypeDef(TypedDict):
+    recommendedOptionProjectedMetrics: List[RecommendedOptionProjectedMetricTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef(TypedDict):
+    recommendedOptionProjectedMetrics: List[RDSDatabaseRecommendedOptionProjectedMetricTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RDSDBInstanceRecommendationOptionTypeDef(TypedDict):
+    dbInstanceClass: NotRequired[str]
+    projectedUtilizationMetrics: NotRequired[List[RDSDBUtilizationMetricTypeDef]]
+    performanceRisk: NotRequired[float]
+    rank: NotRequired[int]
+    savingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+    savingsOpportunityAfterDiscounts: NotRequired[
+        RDSInstanceSavingsOpportunityAfterDiscountsTypeDef
+    ]
+
+class RDSDBStorageRecommendationOptionTypeDef(TypedDict):
+    storageConfiguration: NotRequired[DBStorageConfigurationTypeDef]
+    rank: NotRequired[int]
+    savingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+    savingsOpportunityAfterDiscounts: NotRequired[RDSStorageSavingsOpportunityAfterDiscountsTypeDef]
+
+class RecommendationSummaryTypeDef(TypedDict):
+    summaries: NotRequired[List[SummaryTypeDef]]
+    idleSummaries: NotRequired[List[IdleSummaryTypeDef]]
+    recommendationResourceType: NotRequired[RecommendationSourceTypeType]
+    accountId: NotRequired[str]
+    savingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+    idleSavingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+    aggregatedSavingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
+    currentPerformanceRiskRatings: NotRequired[CurrentPerformanceRiskRatingsTypeDef]
+    inferredWorkloadSavings: NotRequired[List[InferredWorkloadSavingTypeDef]]
+
+class GetRecommendationPreferencesResponseTypeDef(TypedDict):
+    recommendationPreferencesDetails: List[RecommendationPreferencesDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ECSServiceRecommendationTypeDef(TypedDict):
+    serviceArn: NotRequired[str]
+    accountId: NotRequired[str]
+    currentServiceConfiguration: NotRequired[ServiceConfigurationTypeDef]
+    utilizationMetrics: NotRequired[List[ECSServiceUtilizationMetricTypeDef]]
+    lookbackPeriodInDays: NotRequired[float]
+    launchType: NotRequired[ECSServiceLaunchTypeType]
+    lastRefreshTimestamp: NotRequired[datetime]
+    finding: NotRequired[ECSServiceRecommendationFindingType]
+    findingReasonCodes: NotRequired[List[ECSServiceRecommendationFindingReasonCodeType]]
+    serviceRecommendationOptions: NotRequired[List[ECSServiceRecommendationOptionTypeDef]]
+    currentPerformanceRisk: NotRequired[CurrentPerformanceRiskType]
+    effectiveRecommendationPreferences: NotRequired[ECSEffectiveRecommendationPreferencesTypeDef]
+    tags: NotRequired[List[TagTypeDef]]
+
+class LicenseRecommendationTypeDef(TypedDict):
+    resourceArn: NotRequired[str]
+    accountId: NotRequired[str]
+    currentLicenseConfiguration: NotRequired[LicenseConfigurationTypeDef]
+    lookbackPeriodInDays: NotRequired[float]
+    lastRefreshTimestamp: NotRequired[datetime]
+    finding: NotRequired[LicenseFindingType]
+    findingReasonCodes: NotRequired[List[LicenseFindingReasonCodeType]]
+    licenseRecommendationOptions: NotRequired[List[LicenseRecommendationOptionTypeDef]]
+    tags: NotRequired[List[TagTypeDef]]
+
+class VolumeRecommendationTypeDef(TypedDict):
+    volumeArn: NotRequired[str]
+    accountId: NotRequired[str]
+    currentConfiguration: NotRequired[VolumeConfigurationTypeDef]
+    finding: NotRequired[EBSFindingType]
+    utilizationMetrics: NotRequired[List[EBSUtilizationMetricTypeDef]]
+    lookBackPeriodInDays: NotRequired[float]
+    volumeRecommendationOptions: NotRequired[List[VolumeRecommendationOptionTypeDef]]
+    lastRefreshTimestamp: NotRequired[datetime]
+    currentPerformanceRisk: NotRequired[CurrentPerformanceRiskType]
+    effectiveRecommendationPreferences: NotRequired[EBSEffectiveRecommendationPreferencesTypeDef]
+    tags: NotRequired[List[TagTypeDef]]
+
+class DescribeRecommendationExportJobsResponseTypeDef(TypedDict):
+    recommendationExportJobs: List[RecommendationExportJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AutoScalingGroupRecommendationTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    autoScalingGroupArn: NotRequired[str]
+    autoScalingGroupName: NotRequired[str]
+    finding: NotRequired[FindingType]
+    utilizationMetrics: NotRequired[List[UtilizationMetricTypeDef]]
+    lookBackPeriodInDays: NotRequired[float]
+    currentConfiguration: NotRequired[AutoScalingGroupConfigurationTypeDef]
+    currentInstanceGpuInfo: NotRequired[GpuInfoTypeDef]
+    recommendationOptions: NotRequired[List[AutoScalingGroupRecommendationOptionTypeDef]]
+    lastRefreshTimestamp: NotRequired[datetime]
+    currentPerformanceRisk: NotRequired[CurrentPerformanceRiskType]
+    effectiveRecommendationPreferences: NotRequired[EffectiveRecommendationPreferencesTypeDef]
+    inferredWorkloadTypes: NotRequired[List[InferredWorkloadTypeType]]
+
+class GetIdleRecommendationsResponseTypeDef(TypedDict):
+    idleRecommendations: List[IdleRecommendationTypeDef]
+    errors: List[IdleRecommendationErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class InstanceRecommendationTypeDef(TypedDict):
+    instanceArn: NotRequired[str]
+    accountId: NotRequired[str]
+    instanceName: NotRequired[str]
+    currentInstanceType: NotRequired[str]
+    finding: NotRequired[FindingType]
+    findingReasonCodes: NotRequired[List[InstanceRecommendationFindingReasonCodeType]]
+    utilizationMetrics: NotRequired[List[UtilizationMetricTypeDef]]
+    lookBackPeriodInDays: NotRequired[float]
+    recommendationOptions: NotRequired[List[InstanceRecommendationOptionTypeDef]]
+    recommendationSources: NotRequired[List[RecommendationSourceTypeDef]]
+    lastRefreshTimestamp: NotRequired[datetime]
+    currentPerformanceRisk: NotRequired[CurrentPerformanceRiskType]
+    effectiveRecommendationPreferences: NotRequired[EffectiveRecommendationPreferencesTypeDef]
+    inferredWorkloadTypes: NotRequired[List[InferredWorkloadTypeType]]
+    instanceState: NotRequired[InstanceStateType]
+    tags: NotRequired[List[TagTypeDef]]
+    externalMetricStatus: NotRequired[ExternalMetricStatusTypeDef]
+    currentInstanceGpuInfo: NotRequired[GpuInfoTypeDef]
+    idle: NotRequired[InstanceIdleType]
+
+class LambdaFunctionRecommendationTypeDef(TypedDict):
+    functionArn: NotRequired[str]
+    functionVersion: NotRequired[str]
+    accountId: NotRequired[str]
+    currentMemorySize: NotRequired[int]
+    numberOfInvocations: NotRequired[int]
+    utilizationMetrics: NotRequired[List[LambdaFunctionUtilizationMetricTypeDef]]
+    lookbackPeriodInDays: NotRequired[float]
+    lastRefreshTimestamp: NotRequired[datetime]
+    finding: NotRequired[LambdaFunctionRecommendationFindingType]
+    findingReasonCodes: NotRequired[List[LambdaFunctionRecommendationFindingReasonCodeType]]
+    memorySizeRecommendationOptions: NotRequired[
+        List[LambdaFunctionMemoryRecommendationOptionTypeDef]
+    ]
+    currentPerformanceRisk: NotRequired[CurrentPerformanceRiskType]
+    effectiveRecommendationPreferences: NotRequired[LambdaEffectiveRecommendationPreferencesTypeDef]
+    tags: NotRequired[List[TagTypeDef]]
+
+class RDSDBRecommendationTypeDef(TypedDict):
+    resourceArn: NotRequired[str]
+    accountId: NotRequired[str]
+    engine: NotRequired[str]
+    engineVersion: NotRequired[str]
+    promotionTier: NotRequired[int]
+    currentDBInstanceClass: NotRequired[str]
+    currentStorageConfiguration: NotRequired[DBStorageConfigurationTypeDef]
+    dbClusterIdentifier: NotRequired[str]
+    idle: NotRequired[IdleType]
+    instanceFinding: NotRequired[RDSInstanceFindingType]
+    storageFinding: NotRequired[RDSStorageFindingType]
+    instanceFindingReasonCodes: NotRequired[List[RDSInstanceFindingReasonCodeType]]
+    currentInstancePerformanceRisk: NotRequired[RDSCurrentInstancePerformanceRiskType]
+    storageFindingReasonCodes: NotRequired[List[RDSStorageFindingReasonCodeType]]
+    instanceRecommendationOptions: NotRequired[List[RDSDBInstanceRecommendationOptionTypeDef]]
+    storageRecommendationOptions: NotRequired[List[RDSDBStorageRecommendationOptionTypeDef]]
+    utilizationMetrics: NotRequired[List[RDSDBUtilizationMetricTypeDef]]
+    effectiveRecommendationPreferences: NotRequired[RDSEffectiveRecommendationPreferencesTypeDef]
+    lookbackPeriodInDays: NotRequired[float]
+    lastRefreshTimestamp: NotRequired[datetime]
+    tags: NotRequired[List[TagTypeDef]]
+
+class GetRecommendationSummariesResponseTypeDef(TypedDict):
+    recommendationSummaries: List[RecommendationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetECSServiceRecommendationsResponseTypeDef(TypedDict):
+    ecsServiceRecommendations: List[ECSServiceRecommendationTypeDef]
+    errors: List[GetRecommendationErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetLicenseRecommendationsResponseTypeDef(TypedDict):
+    licenseRecommendations: List[LicenseRecommendationTypeDef]
+    errors: List[GetRecommendationErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetEBSVolumeRecommendationsResponseTypeDef(TypedDict):
+    volumeRecommendations: List[VolumeRecommendationTypeDef]
+    errors: List[GetRecommendationErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetAutoScalingGroupRecommendationsResponseTypeDef(TypedDict):
+    autoScalingGroupRecommendations: List[AutoScalingGroupRecommendationTypeDef]
+    errors: List[GetRecommendationErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetEC2InstanceRecommendationsResponseTypeDef(TypedDict):
+    instanceRecommendations: List[InstanceRecommendationTypeDef]
+    errors: List[GetRecommendationErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetLambdaFunctionRecommendationsResponseTypeDef(TypedDict):
+    lambdaFunctionRecommendations: List[LambdaFunctionRecommendationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetRDSDatabaseRecommendationsResponseTypeDef(TypedDict):
+    rdsDBRecommendations: List[RDSDBRecommendationTypeDef]
+    errors: List[GetRecommendationErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

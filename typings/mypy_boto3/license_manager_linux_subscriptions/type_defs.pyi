@@ -1,193 +1,239 @@
 """
 Type annotations for license-manager-linux-subscriptions service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_license_manager_linux_subscriptions.type_defs import FilterTypeDef
+    from mypy_boto3_license_manager_linux_subscriptions.type_defs import DeregisterSubscriptionProviderRequestTypeDef
 
-    data: FilterTypeDef = {...}
+    data: DeregisterSubscriptionProviderRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     LinuxSubscriptionsDiscoveryType,
     OperatorType,
     OrganizationIntegrationType,
     StatusType,
+    SubscriptionProviderStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
+else:
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "DeregisterSubscriptionProviderRequestTypeDef",
     "FilterTypeDef",
+    "GetRegisteredSubscriptionProviderRequestTypeDef",
+    "GetRegisteredSubscriptionProviderResponseTypeDef",
     "GetServiceSettingsResponseTypeDef",
     "InstanceTypeDef",
+    "LinuxSubscriptionsDiscoverySettingsOutputTypeDef",
     "LinuxSubscriptionsDiscoverySettingsTypeDef",
-    "ListLinuxSubscriptionInstancesRequestRequestTypeDef",
+    "LinuxSubscriptionsDiscoverySettingsUnionTypeDef",
+    "ListLinuxSubscriptionInstancesRequestPaginateTypeDef",
+    "ListLinuxSubscriptionInstancesRequestTypeDef",
     "ListLinuxSubscriptionInstancesResponseTypeDef",
-    "ListLinuxSubscriptionsRequestRequestTypeDef",
+    "ListLinuxSubscriptionsRequestPaginateTypeDef",
+    "ListLinuxSubscriptionsRequestTypeDef",
     "ListLinuxSubscriptionsResponseTypeDef",
+    "ListRegisteredSubscriptionProvidersRequestPaginateTypeDef",
+    "ListRegisteredSubscriptionProvidersRequestTypeDef",
+    "ListRegisteredSubscriptionProvidersResponseTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "RegisterSubscriptionProviderRequestTypeDef",
+    "RegisterSubscriptionProviderResponseTypeDef",
+    "RegisteredSubscriptionProviderTypeDef",
     "ResponseMetadataTypeDef",
     "SubscriptionTypeDef",
-    "UpdateServiceSettingsRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateServiceSettingsRequestTypeDef",
     "UpdateServiceSettingsResponseTypeDef",
 )
 
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "Name": str,
-        "Operator": OperatorType,
-        "Values": List[str],
-    },
-    total=False,
-)
+class DeregisterSubscriptionProviderRequestTypeDef(TypedDict):
+    SubscriptionProviderArn: str
 
-GetServiceSettingsResponseTypeDef = TypedDict(
-    "GetServiceSettingsResponseTypeDef",
-    {
-        "HomeRegions": List[str],
-        "LinuxSubscriptionsDiscovery": LinuxSubscriptionsDiscoveryType,
-        "LinuxSubscriptionsDiscoverySettings": "LinuxSubscriptionsDiscoverySettingsTypeDef",
-        "Status": StatusType,
-        "StatusMessage": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FilterTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Operator: NotRequired[OperatorType]
+    Values: NotRequired[Sequence[str]]
 
-InstanceTypeDef = TypedDict(
-    "InstanceTypeDef",
-    {
-        "AccountID": str,
-        "AmiId": str,
-        "InstanceID": str,
-        "InstanceType": str,
-        "LastUpdatedTime": str,
-        "ProductCode": List[str],
-        "Region": str,
-        "Status": str,
-        "SubscriptionName": str,
-        "UsageOperation": str,
-    },
-    total=False,
-)
+class GetRegisteredSubscriptionProviderRequestTypeDef(TypedDict):
+    SubscriptionProviderArn: str
 
-LinuxSubscriptionsDiscoverySettingsTypeDef = TypedDict(
-    "LinuxSubscriptionsDiscoverySettingsTypeDef",
-    {
-        "OrganizationIntegration": OrganizationIntegrationType,
-        "SourceRegions": List[str],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-ListLinuxSubscriptionInstancesRequestRequestTypeDef = TypedDict(
-    "ListLinuxSubscriptionInstancesRequestRequestTypeDef",
-    {
-        "Filters": List["FilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class LinuxSubscriptionsDiscoverySettingsOutputTypeDef(TypedDict):
+    OrganizationIntegration: OrganizationIntegrationType
+    SourceRegions: List[str]
 
-ListLinuxSubscriptionInstancesResponseTypeDef = TypedDict(
-    "ListLinuxSubscriptionInstancesResponseTypeDef",
-    {
-        "Instances": List["InstanceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InstanceTypeDef(TypedDict):
+    AccountID: NotRequired[str]
+    AmiId: NotRequired[str]
+    DualSubscription: NotRequired[str]
+    InstanceID: NotRequired[str]
+    InstanceType: NotRequired[str]
+    LastUpdatedTime: NotRequired[str]
+    OsVersion: NotRequired[str]
+    ProductCode: NotRequired[List[str]]
+    Region: NotRequired[str]
+    RegisteredWithSubscriptionProvider: NotRequired[str]
+    Status: NotRequired[str]
+    SubscriptionName: NotRequired[str]
+    SubscriptionProviderCreateTime: NotRequired[str]
+    SubscriptionProviderUpdateTime: NotRequired[str]
+    UsageOperation: NotRequired[str]
 
-ListLinuxSubscriptionsRequestRequestTypeDef = TypedDict(
-    "ListLinuxSubscriptionsRequestRequestTypeDef",
-    {
-        "Filters": List["FilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class LinuxSubscriptionsDiscoverySettingsTypeDef(TypedDict):
+    OrganizationIntegration: OrganizationIntegrationType
+    SourceRegions: Sequence[str]
 
-ListLinuxSubscriptionsResponseTypeDef = TypedDict(
-    "ListLinuxSubscriptionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Subscriptions": List["SubscriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
 SubscriptionTypeDef = TypedDict(
     "SubscriptionTypeDef",
     {
-        "InstanceCount": int,
-        "Name": str,
-        "Type": str,
+        "InstanceCount": NotRequired[int],
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
     },
-    total=False,
 )
 
-_RequiredUpdateServiceSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateServiceSettingsRequestRequestTypeDef",
-    {
-        "LinuxSubscriptionsDiscovery": LinuxSubscriptionsDiscoveryType,
-        "LinuxSubscriptionsDiscoverySettings": "LinuxSubscriptionsDiscoverySettingsTypeDef",
-    },
-)
-_OptionalUpdateServiceSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateServiceSettingsRequestRequestTypeDef",
-    {
-        "AllowUpdate": bool,
-    },
-    total=False,
-)
+class ListRegisteredSubscriptionProvidersRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    SubscriptionProviderSources: NotRequired[Sequence[Literal["RedHat"]]]
 
-class UpdateServiceSettingsRequestRequestTypeDef(
-    _RequiredUpdateServiceSettingsRequestRequestTypeDef,
-    _OptionalUpdateServiceSettingsRequestRequestTypeDef,
-):
-    pass
+class RegisteredSubscriptionProviderTypeDef(TypedDict):
+    LastSuccessfulDataRetrievalTime: NotRequired[str]
+    SecretArn: NotRequired[str]
+    SubscriptionProviderArn: NotRequired[str]
+    SubscriptionProviderSource: NotRequired[Literal["RedHat"]]
+    SubscriptionProviderStatus: NotRequired[SubscriptionProviderStatusType]
+    SubscriptionProviderStatusMessage: NotRequired[str]
 
-UpdateServiceSettingsResponseTypeDef = TypedDict(
-    "UpdateServiceSettingsResponseTypeDef",
-    {
-        "HomeRegions": List[str],
-        "LinuxSubscriptionsDiscovery": LinuxSubscriptionsDiscoveryType,
-        "LinuxSubscriptionsDiscoverySettings": "LinuxSubscriptionsDiscoverySettingsTypeDef",
-        "Status": StatusType,
-        "StatusMessage": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class RegisterSubscriptionProviderRequestTypeDef(TypedDict):
+    SecretArn: str
+    SubscriptionProviderSource: Literal["RedHat"]
+    Tags: NotRequired[Mapping[str, str]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class ListLinuxSubscriptionInstancesRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListLinuxSubscriptionsRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetRegisteredSubscriptionProviderResponseTypeDef(TypedDict):
+    LastSuccessfulDataRetrievalTime: str
+    SecretArn: str
+    SubscriptionProviderArn: str
+    SubscriptionProviderSource: Literal["RedHat"]
+    SubscriptionProviderStatus: SubscriptionProviderStatusType
+    SubscriptionProviderStatusMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterSubscriptionProviderResponseTypeDef(TypedDict):
+    SubscriptionProviderArn: str
+    SubscriptionProviderSource: Literal["RedHat"]
+    SubscriptionProviderStatus: SubscriptionProviderStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetServiceSettingsResponseTypeDef(TypedDict):
+    HomeRegions: List[str]
+    LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscoveryType
+    LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettingsOutputTypeDef
+    Status: StatusType
+    StatusMessage: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateServiceSettingsResponseTypeDef(TypedDict):
+    HomeRegions: List[str]
+    LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscoveryType
+    LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettingsOutputTypeDef
+    Status: StatusType
+    StatusMessage: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLinuxSubscriptionInstancesResponseTypeDef(TypedDict):
+    Instances: List[InstanceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+LinuxSubscriptionsDiscoverySettingsUnionTypeDef = Union[
+    LinuxSubscriptionsDiscoverySettingsTypeDef, LinuxSubscriptionsDiscoverySettingsOutputTypeDef
+]
+
+class ListLinuxSubscriptionInstancesRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLinuxSubscriptionsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRegisteredSubscriptionProvidersRequestPaginateTypeDef(TypedDict):
+    SubscriptionProviderSources: NotRequired[Sequence[Literal["RedHat"]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLinuxSubscriptionsResponseTypeDef(TypedDict):
+    Subscriptions: List[SubscriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListRegisteredSubscriptionProvidersResponseTypeDef(TypedDict):
+    RegisteredSubscriptionProviders: List[RegisteredSubscriptionProviderTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateServiceSettingsRequestTypeDef(TypedDict):
+    LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscoveryType
+    LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettingsUnionTypeDef
+    AllowUpdate: NotRequired[bool]

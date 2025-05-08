@@ -1,10 +1,14 @@
 """
 Main interface for codedeploy service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_codedeploy import (
         Client,
         CodeDeployClient,
@@ -20,10 +24,8 @@ Usage::
         ListOnPremisesInstancesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CodeDeployClient = boto3.client("codedeploy")
-    session_client: CodeDeployClient = session.client("codedeploy")
+    session = Session()
+    client: CodeDeployClient = session.client("codedeploy")
 
     deployment_successful_waiter: DeploymentSuccessfulWaiter = client.get_waiter("deployment_successful")
 

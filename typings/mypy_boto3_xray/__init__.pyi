@@ -1,10 +1,14 @@
 """
 Main interface for xray service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_xray/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_xray import (
         BatchGetTracesPaginator,
         Client,
@@ -20,10 +24,8 @@ Usage::
         XRayClient,
     )
 
-    session = boto3.Session()
-
-    client: XRayClient = boto3.client("xray")
-    session_client: XRayClient = session.client("xray")
+    session = Session()
+    client: XRayClient = session.client("xray")
 
     batch_get_traces_paginator: BatchGetTracesPaginator = client.get_paginator("batch_get_traces")
     get_groups_paginator: GetGroupsPaginator = client.get_paginator("get_groups")

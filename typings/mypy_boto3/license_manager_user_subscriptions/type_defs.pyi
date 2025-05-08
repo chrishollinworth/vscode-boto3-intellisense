@@ -1,503 +1,432 @@
 """
 Type annotations for license-manager-user-subscriptions service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_user_subscriptions/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_license_manager_user_subscriptions.type_defs import ActiveDirectoryIdentityProviderTypeDef
+    from mypy_boto3_license_manager_user_subscriptions.type_defs import DomainNetworkSettingsOutputTypeDef
 
-    data: ActiveDirectoryIdentityProviderTypeDef = {...}
+    data: DomainNetworkSettingsOutputTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+from datetime import datetime
+from typing import Union
+
+from .literals import (
+    ActiveDirectoryTypeType,
+    LicenseServerEndpointProvisioningStatusType,
+    LicenseServerHealthStatusType,
+)
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
+else:
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ActiveDirectoryIdentityProviderOutputTypeDef",
     "ActiveDirectoryIdentityProviderTypeDef",
-    "AssociateUserRequestRequestTypeDef",
+    "ActiveDirectorySettingsOutputTypeDef",
+    "ActiveDirectorySettingsTypeDef",
+    "AssociateUserRequestTypeDef",
     "AssociateUserResponseTypeDef",
-    "DeregisterIdentityProviderRequestRequestTypeDef",
+    "CreateLicenseServerEndpointRequestTypeDef",
+    "CreateLicenseServerEndpointResponseTypeDef",
+    "CredentialsProviderTypeDef",
+    "DeleteLicenseServerEndpointRequestTypeDef",
+    "DeleteLicenseServerEndpointResponseTypeDef",
+    "DeregisterIdentityProviderRequestTypeDef",
     "DeregisterIdentityProviderResponseTypeDef",
-    "DisassociateUserRequestRequestTypeDef",
+    "DisassociateUserRequestTypeDef",
     "DisassociateUserResponseTypeDef",
+    "DomainNetworkSettingsOutputTypeDef",
+    "DomainNetworkSettingsTypeDef",
     "FilterTypeDef",
+    "IdentityProviderOutputTypeDef",
     "IdentityProviderSummaryTypeDef",
     "IdentityProviderTypeDef",
+    "IdentityProviderUnionTypeDef",
     "InstanceSummaryTypeDef",
     "InstanceUserSummaryTypeDef",
-    "ListIdentityProvidersRequestRequestTypeDef",
+    "LicenseServerEndpointTypeDef",
+    "LicenseServerSettingsTypeDef",
+    "LicenseServerTypeDef",
+    "ListIdentityProvidersRequestPaginateTypeDef",
+    "ListIdentityProvidersRequestTypeDef",
     "ListIdentityProvidersResponseTypeDef",
-    "ListInstancesRequestRequestTypeDef",
+    "ListInstancesRequestPaginateTypeDef",
+    "ListInstancesRequestTypeDef",
     "ListInstancesResponseTypeDef",
-    "ListProductSubscriptionsRequestRequestTypeDef",
+    "ListLicenseServerEndpointsRequestPaginateTypeDef",
+    "ListLicenseServerEndpointsRequestTypeDef",
+    "ListLicenseServerEndpointsResponseTypeDef",
+    "ListProductSubscriptionsRequestPaginateTypeDef",
+    "ListProductSubscriptionsRequestTypeDef",
     "ListProductSubscriptionsResponseTypeDef",
-    "ListUserAssociationsRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "ListUserAssociationsRequestPaginateTypeDef",
+    "ListUserAssociationsRequestTypeDef",
     "ListUserAssociationsResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ProductUserSummaryTypeDef",
-    "RegisterIdentityProviderRequestRequestTypeDef",
+    "RdsSalSettingsTypeDef",
+    "RegisterIdentityProviderRequestTypeDef",
     "RegisterIdentityProviderResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "SecretsManagerCredentialsProviderTypeDef",
+    "ServerEndpointTypeDef",
+    "ServerSettingsTypeDef",
+    "SettingsOutputTypeDef",
     "SettingsTypeDef",
-    "StartProductSubscriptionRequestRequestTypeDef",
+    "SettingsUnionTypeDef",
+    "StartProductSubscriptionRequestTypeDef",
     "StartProductSubscriptionResponseTypeDef",
-    "StopProductSubscriptionRequestRequestTypeDef",
+    "StopProductSubscriptionRequestTypeDef",
     "StopProductSubscriptionResponseTypeDef",
-    "UpdateIdentityProviderSettingsRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateIdentityProviderSettingsRequestTypeDef",
     "UpdateIdentityProviderSettingsResponseTypeDef",
     "UpdateSettingsTypeDef",
 )
 
-ActiveDirectoryIdentityProviderTypeDef = TypedDict(
-    "ActiveDirectoryIdentityProviderTypeDef",
-    {
-        "DirectoryId": str,
-    },
-    total=False,
-)
+class DomainNetworkSettingsOutputTypeDef(TypedDict):
+    Subnets: List[str]
 
-_RequiredAssociateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateUserRequestRequestTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "InstanceId": str,
-        "Username": str,
-    },
-)
-_OptionalAssociateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateUserRequestRequestTypeDef",
-    {
-        "Domain": str,
-    },
-    total=False,
-)
+class DomainNetworkSettingsTypeDef(TypedDict):
+    Subnets: Sequence[str]
 
-class AssociateUserRequestRequestTypeDef(
-    _RequiredAssociateUserRequestRequestTypeDef, _OptionalAssociateUserRequestRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AssociateUserResponseTypeDef = TypedDict(
-    "AssociateUserResponseTypeDef",
-    {
-        "InstanceUserSummary": "InstanceUserSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SecretsManagerCredentialsProviderTypeDef(TypedDict):
+    SecretId: NotRequired[str]
 
-DeregisterIdentityProviderRequestRequestTypeDef = TypedDict(
-    "DeregisterIdentityProviderRequestRequestTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "Product": str,
-    },
-)
+class DeleteLicenseServerEndpointRequestTypeDef(TypedDict):
+    LicenseServerEndpointArn: str
+    ServerType: Literal["RDS_SAL"]
 
-DeregisterIdentityProviderResponseTypeDef = TypedDict(
-    "DeregisterIdentityProviderResponseTypeDef",
-    {
-        "IdentityProviderSummary": "IdentityProviderSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FilterTypeDef(TypedDict):
+    Attribute: NotRequired[str]
+    Operation: NotRequired[str]
+    Value: NotRequired[str]
 
-_RequiredDisassociateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredDisassociateUserRequestRequestTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "InstanceId": str,
-        "Username": str,
-    },
-)
-_OptionalDisassociateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalDisassociateUserRequestRequestTypeDef",
-    {
-        "Domain": str,
-    },
-    total=False,
-)
+class SettingsOutputTypeDef(TypedDict):
+    SecurityGroupId: str
+    Subnets: List[str]
 
-class DisassociateUserRequestRequestTypeDef(
-    _RequiredDisassociateUserRequestRequestTypeDef, _OptionalDisassociateUserRequestRequestTypeDef
-):
-    pass
+class InstanceSummaryTypeDef(TypedDict):
+    InstanceId: str
+    Products: List[str]
+    Status: str
+    LastStatusCheckDate: NotRequired[str]
+    StatusMessage: NotRequired[str]
 
-DisassociateUserResponseTypeDef = TypedDict(
-    "DisassociateUserResponseTypeDef",
-    {
-        "InstanceUserSummary": "InstanceUserSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LicenseServerTypeDef(TypedDict):
+    HealthStatus: NotRequired[LicenseServerHealthStatusType]
+    Ipv4Address: NotRequired[str]
+    ProvisioningStatus: NotRequired[LicenseServerEndpointProvisioningStatusType]
 
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "Attribute": str,
-        "Operation": str,
-        "Value": str,
-    },
-    total=False,
-)
+class ServerEndpointTypeDef(TypedDict):
+    Endpoint: NotRequired[str]
 
-_RequiredIdentityProviderSummaryTypeDef = TypedDict(
-    "_RequiredIdentityProviderSummaryTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "Product": str,
-        "Settings": "SettingsTypeDef",
-        "Status": str,
-    },
-)
-_OptionalIdentityProviderSummaryTypeDef = TypedDict(
-    "_OptionalIdentityProviderSummaryTypeDef",
-    {
-        "FailureMessage": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class IdentityProviderSummaryTypeDef(
-    _RequiredIdentityProviderSummaryTypeDef, _OptionalIdentityProviderSummaryTypeDef
-):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-IdentityProviderTypeDef = TypedDict(
-    "IdentityProviderTypeDef",
-    {
-        "ActiveDirectoryIdentityProvider": "ActiveDirectoryIdentityProviderTypeDef",
-    },
-    total=False,
-)
+class SettingsTypeDef(TypedDict):
+    SecurityGroupId: str
+    Subnets: Sequence[str]
 
-_RequiredInstanceSummaryTypeDef = TypedDict(
-    "_RequiredInstanceSummaryTypeDef",
-    {
-        "InstanceId": str,
-        "Products": List[str],
-        "Status": str,
-    },
-)
-_OptionalInstanceSummaryTypeDef = TypedDict(
-    "_OptionalInstanceSummaryTypeDef",
-    {
-        "LastStatusCheckDate": str,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-class InstanceSummaryTypeDef(_RequiredInstanceSummaryTypeDef, _OptionalInstanceSummaryTypeDef):
-    pass
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-_RequiredInstanceUserSummaryTypeDef = TypedDict(
-    "_RequiredInstanceUserSummaryTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "InstanceId": str,
-        "Status": str,
-        "Username": str,
-    },
-)
-_OptionalInstanceUserSummaryTypeDef = TypedDict(
-    "_OptionalInstanceUserSummaryTypeDef",
-    {
-        "AssociationDate": str,
-        "DisassociationDate": str,
-        "Domain": str,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class UpdateSettingsTypeDef(TypedDict):
+    AddSubnets: Sequence[str]
+    RemoveSubnets: Sequence[str]
+    SecurityGroupId: NotRequired[str]
 
-class InstanceUserSummaryTypeDef(
-    _RequiredInstanceUserSummaryTypeDef, _OptionalInstanceUserSummaryTypeDef
-):
-    pass
+class CreateLicenseServerEndpointResponseTypeDef(TypedDict):
+    IdentityProviderArn: str
+    LicenseServerEndpointArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListIdentityProvidersRequestRequestTypeDef = TypedDict(
-    "ListIdentityProvidersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListIdentityProvidersResponseTypeDef = TypedDict(
-    "ListIdentityProvidersResponseTypeDef",
-    {
-        "IdentityProviderSummaries": List["IdentityProviderSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CredentialsProviderTypeDef(TypedDict):
+    SecretsManagerCredentialsProvider: NotRequired[SecretsManagerCredentialsProviderTypeDef]
 
-ListInstancesRequestRequestTypeDef = TypedDict(
-    "ListInstancesRequestRequestTypeDef",
-    {
-        "Filters": List["FilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListIdentityProvidersRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-ListInstancesResponseTypeDef = TypedDict(
-    "ListInstancesResponseTypeDef",
-    {
-        "InstanceSummaries": List["InstanceSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListInstancesRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredListProductSubscriptionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListProductSubscriptionsRequestRequestTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "Product": str,
-    },
-)
-_OptionalListProductSubscriptionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListProductSubscriptionsRequestRequestTypeDef",
-    {
-        "Filters": List["FilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListLicenseServerEndpointsRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class ListProductSubscriptionsRequestRequestTypeDef(
-    _RequiredListProductSubscriptionsRequestRequestTypeDef,
-    _OptionalListProductSubscriptionsRequestRequestTypeDef,
-):
-    pass
+class ListInstancesResponseTypeDef(TypedDict):
+    InstanceSummaries: List[InstanceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ListProductSubscriptionsResponseTypeDef = TypedDict(
-    "ListProductSubscriptionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "ProductUserSummaries": List["ProductUserSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LicenseServerEndpointTypeDef(TypedDict):
+    CreationTime: NotRequired[datetime]
+    IdentityProviderArn: NotRequired[str]
+    LicenseServerEndpointArn: NotRequired[str]
+    LicenseServerEndpointId: NotRequired[str]
+    LicenseServerEndpointProvisioningStatus: NotRequired[
+        LicenseServerEndpointProvisioningStatusType
+    ]
+    LicenseServers: NotRequired[List[LicenseServerTypeDef]]
+    ServerEndpoint: NotRequired[ServerEndpointTypeDef]
+    ServerType: NotRequired[Literal["RDS_SAL"]]
+    StatusMessage: NotRequired[str]
 
-_RequiredListUserAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListUserAssociationsRequestRequestTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "InstanceId": str,
-    },
-)
-_OptionalListUserAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListUserAssociationsRequestRequestTypeDef",
-    {
-        "Filters": List["FilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListIdentityProvidersRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class ListUserAssociationsRequestRequestTypeDef(
-    _RequiredListUserAssociationsRequestRequestTypeDef,
-    _OptionalListUserAssociationsRequestRequestTypeDef,
-):
-    pass
+class ListInstancesRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ListUserAssociationsResponseTypeDef = TypedDict(
-    "ListUserAssociationsResponseTypeDef",
-    {
-        "InstanceUserSummaries": List["InstanceUserSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListLicenseServerEndpointsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+SettingsUnionTypeDef = Union[SettingsTypeDef, SettingsOutputTypeDef]
 
-_RequiredProductUserSummaryTypeDef = TypedDict(
-    "_RequiredProductUserSummaryTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "Product": str,
-        "Status": str,
-        "Username": str,
-    },
-)
-_OptionalProductUserSummaryTypeDef = TypedDict(
-    "_OptionalProductUserSummaryTypeDef",
-    {
-        "Domain": str,
-        "StatusMessage": str,
-        "SubscriptionEndDate": str,
-        "SubscriptionStartDate": str,
-    },
-    total=False,
-)
+class ActiveDirectorySettingsOutputTypeDef(TypedDict):
+    DomainCredentialsProvider: NotRequired[CredentialsProviderTypeDef]
+    DomainIpv4List: NotRequired[List[str]]
+    DomainName: NotRequired[str]
+    DomainNetworkSettings: NotRequired[DomainNetworkSettingsOutputTypeDef]
 
-class ProductUserSummaryTypeDef(
-    _RequiredProductUserSummaryTypeDef, _OptionalProductUserSummaryTypeDef
-):
-    pass
+class ActiveDirectorySettingsTypeDef(TypedDict):
+    DomainCredentialsProvider: NotRequired[CredentialsProviderTypeDef]
+    DomainIpv4List: NotRequired[Sequence[str]]
+    DomainName: NotRequired[str]
+    DomainNetworkSettings: NotRequired[DomainNetworkSettingsTypeDef]
 
-_RequiredRegisterIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_RequiredRegisterIdentityProviderRequestRequestTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "Product": str,
-    },
-)
-_OptionalRegisterIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_OptionalRegisterIdentityProviderRequestRequestTypeDef",
-    {
-        "Settings": "SettingsTypeDef",
-    },
-    total=False,
-)
+class RdsSalSettingsTypeDef(TypedDict):
+    RdsSalCredentialsProvider: CredentialsProviderTypeDef
 
-class RegisterIdentityProviderRequestRequestTypeDef(
-    _RequiredRegisterIdentityProviderRequestRequestTypeDef,
-    _OptionalRegisterIdentityProviderRequestRequestTypeDef,
-):
-    pass
+class DeleteLicenseServerEndpointResponseTypeDef(TypedDict):
+    LicenseServerEndpoint: LicenseServerEndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RegisterIdentityProviderResponseTypeDef = TypedDict(
-    "RegisterIdentityProviderResponseTypeDef",
-    {
-        "IdentityProviderSummary": "IdentityProviderSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListLicenseServerEndpointsResponseTypeDef(TypedDict):
+    LicenseServerEndpoints: List[LicenseServerEndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ActiveDirectoryIdentityProviderOutputTypeDef(TypedDict):
+    ActiveDirectorySettings: NotRequired[ActiveDirectorySettingsOutputTypeDef]
+    ActiveDirectoryType: NotRequired[ActiveDirectoryTypeType]
+    DirectoryId: NotRequired[str]
 
-SettingsTypeDef = TypedDict(
-    "SettingsTypeDef",
-    {
-        "SecurityGroupId": str,
-        "Subnets": List[str],
-    },
-)
+class ActiveDirectoryIdentityProviderTypeDef(TypedDict):
+    ActiveDirectorySettings: NotRequired[ActiveDirectorySettingsTypeDef]
+    ActiveDirectoryType: NotRequired[ActiveDirectoryTypeType]
+    DirectoryId: NotRequired[str]
 
-_RequiredStartProductSubscriptionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartProductSubscriptionRequestRequestTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "Product": str,
-        "Username": str,
-    },
-)
-_OptionalStartProductSubscriptionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartProductSubscriptionRequestRequestTypeDef",
-    {
-        "Domain": str,
-    },
-    total=False,
-)
+class ServerSettingsTypeDef(TypedDict):
+    RdsSalSettings: NotRequired[RdsSalSettingsTypeDef]
 
-class StartProductSubscriptionRequestRequestTypeDef(
-    _RequiredStartProductSubscriptionRequestRequestTypeDef,
-    _OptionalStartProductSubscriptionRequestRequestTypeDef,
-):
-    pass
+class IdentityProviderOutputTypeDef(TypedDict):
+    ActiveDirectoryIdentityProvider: NotRequired[ActiveDirectoryIdentityProviderOutputTypeDef]
 
-StartProductSubscriptionResponseTypeDef = TypedDict(
-    "StartProductSubscriptionResponseTypeDef",
-    {
-        "ProductUserSummary": "ProductUserSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IdentityProviderTypeDef(TypedDict):
+    ActiveDirectoryIdentityProvider: NotRequired[ActiveDirectoryIdentityProviderTypeDef]
 
-_RequiredStopProductSubscriptionRequestRequestTypeDef = TypedDict(
-    "_RequiredStopProductSubscriptionRequestRequestTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "Product": str,
-        "Username": str,
-    },
-)
-_OptionalStopProductSubscriptionRequestRequestTypeDef = TypedDict(
-    "_OptionalStopProductSubscriptionRequestRequestTypeDef",
-    {
-        "Domain": str,
-    },
-    total=False,
-)
+class LicenseServerSettingsTypeDef(TypedDict):
+    ServerSettings: ServerSettingsTypeDef
+    ServerType: Literal["RDS_SAL"]
 
-class StopProductSubscriptionRequestRequestTypeDef(
-    _RequiredStopProductSubscriptionRequestRequestTypeDef,
-    _OptionalStopProductSubscriptionRequestRequestTypeDef,
-):
-    pass
+class IdentityProviderSummaryTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderOutputTypeDef
+    Product: str
+    Settings: SettingsOutputTypeDef
+    Status: str
+    FailureMessage: NotRequired[str]
+    IdentityProviderArn: NotRequired[str]
 
-StopProductSubscriptionResponseTypeDef = TypedDict(
-    "StopProductSubscriptionResponseTypeDef",
-    {
-        "ProductUserSummary": "ProductUserSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InstanceUserSummaryTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderOutputTypeDef
+    InstanceId: str
+    Status: str
+    Username: str
+    AssociationDate: NotRequired[str]
+    DisassociationDate: NotRequired[str]
+    Domain: NotRequired[str]
+    InstanceUserArn: NotRequired[str]
+    StatusMessage: NotRequired[str]
 
-UpdateIdentityProviderSettingsRequestRequestTypeDef = TypedDict(
-    "UpdateIdentityProviderSettingsRequestRequestTypeDef",
-    {
-        "IdentityProvider": "IdentityProviderTypeDef",
-        "Product": str,
-        "UpdateSettings": "UpdateSettingsTypeDef",
-    },
-)
+class ProductUserSummaryTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderOutputTypeDef
+    Product: str
+    Status: str
+    Username: str
+    Domain: NotRequired[str]
+    ProductUserArn: NotRequired[str]
+    StatusMessage: NotRequired[str]
+    SubscriptionEndDate: NotRequired[str]
+    SubscriptionStartDate: NotRequired[str]
 
-UpdateIdentityProviderSettingsResponseTypeDef = TypedDict(
-    "UpdateIdentityProviderSettingsResponseTypeDef",
-    {
-        "IdentityProviderSummary": "IdentityProviderSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+IdentityProviderUnionTypeDef = Union[IdentityProviderTypeDef, IdentityProviderOutputTypeDef]
 
-_RequiredUpdateSettingsTypeDef = TypedDict(
-    "_RequiredUpdateSettingsTypeDef",
-    {
-        "AddSubnets": List[str],
-        "RemoveSubnets": List[str],
-    },
-)
-_OptionalUpdateSettingsTypeDef = TypedDict(
-    "_OptionalUpdateSettingsTypeDef",
-    {
-        "SecurityGroupId": str,
-    },
-    total=False,
-)
+class CreateLicenseServerEndpointRequestTypeDef(TypedDict):
+    IdentityProviderArn: str
+    LicenseServerSettings: LicenseServerSettingsTypeDef
+    Tags: NotRequired[Mapping[str, str]]
 
-class UpdateSettingsTypeDef(_RequiredUpdateSettingsTypeDef, _OptionalUpdateSettingsTypeDef):
-    pass
+class DeregisterIdentityProviderResponseTypeDef(TypedDict):
+    IdentityProviderSummary: IdentityProviderSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListIdentityProvidersResponseTypeDef(TypedDict):
+    IdentityProviderSummaries: List[IdentityProviderSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RegisterIdentityProviderResponseTypeDef(TypedDict):
+    IdentityProviderSummary: IdentityProviderSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateIdentityProviderSettingsResponseTypeDef(TypedDict):
+    IdentityProviderSummary: IdentityProviderSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateUserResponseTypeDef(TypedDict):
+    InstanceUserSummary: InstanceUserSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateUserResponseTypeDef(TypedDict):
+    InstanceUserSummary: InstanceUserSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListUserAssociationsResponseTypeDef(TypedDict):
+    InstanceUserSummaries: List[InstanceUserSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListProductSubscriptionsResponseTypeDef(TypedDict):
+    ProductUserSummaries: List[ProductUserSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartProductSubscriptionResponseTypeDef(TypedDict):
+    ProductUserSummary: ProductUserSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopProductSubscriptionResponseTypeDef(TypedDict):
+    ProductUserSummary: ProductUserSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateUserRequestTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderUnionTypeDef
+    InstanceId: str
+    Username: str
+    Domain: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class DeregisterIdentityProviderRequestTypeDef(TypedDict):
+    IdentityProvider: NotRequired[IdentityProviderUnionTypeDef]
+    IdentityProviderArn: NotRequired[str]
+    Product: NotRequired[str]
+
+class DisassociateUserRequestTypeDef(TypedDict):
+    Domain: NotRequired[str]
+    IdentityProvider: NotRequired[IdentityProviderUnionTypeDef]
+    InstanceId: NotRequired[str]
+    InstanceUserArn: NotRequired[str]
+    Username: NotRequired[str]
+
+class ListProductSubscriptionsRequestPaginateTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderUnionTypeDef
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    Product: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProductSubscriptionsRequestTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderUnionTypeDef
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Product: NotRequired[str]
+
+class ListUserAssociationsRequestPaginateTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderUnionTypeDef
+    InstanceId: str
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUserAssociationsRequestTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderUnionTypeDef
+    InstanceId: str
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class RegisterIdentityProviderRequestTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderUnionTypeDef
+    Product: str
+    Settings: NotRequired[SettingsUnionTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+
+class StartProductSubscriptionRequestTypeDef(TypedDict):
+    IdentityProvider: IdentityProviderUnionTypeDef
+    Product: str
+    Username: str
+    Domain: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class StopProductSubscriptionRequestTypeDef(TypedDict):
+    Domain: NotRequired[str]
+    IdentityProvider: NotRequired[IdentityProviderUnionTypeDef]
+    Product: NotRequired[str]
+    ProductUserArn: NotRequired[str]
+    Username: NotRequired[str]
+
+class UpdateIdentityProviderSettingsRequestTypeDef(TypedDict):
+    UpdateSettings: UpdateSettingsTypeDef
+    IdentityProvider: NotRequired[IdentityProviderUnionTypeDef]
+    IdentityProviderArn: NotRequired[str]
+    Product: NotRequired[str]

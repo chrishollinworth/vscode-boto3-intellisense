@@ -1,3 +1,9 @@
+"""
+Type annotations for boto3.exceptions module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from typing import Any, Iterable
 
 import botocore.exceptions
@@ -37,3 +43,4 @@ class DynamoDBNeedsConditionError(Boto3Error):
     def __init__(self, value: Any) -> None: ...
 
 class DynamoDBNeedsKeyConditionError(Boto3Error): ...
+class PythonDeprecationWarning(Warning): ...

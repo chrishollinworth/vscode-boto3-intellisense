@@ -1,19 +1,21 @@
 """
 Main interface for kinesis-video-media service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_kinesis_video_media import (
         Client,
         KinesisVideoMediaClient,
     )
 
-    session = boto3.Session()
-
-    client: KinesisVideoMediaClient = boto3.client("kinesis-video-media")
-    session_client: KinesisVideoMediaClient = session.client("kinesis-video-media")
+    session = Session()
+    client: KinesisVideoMediaClient = session.client("kinesis-video-media")
     ```
 """
 

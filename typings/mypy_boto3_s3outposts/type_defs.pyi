@@ -1,39 +1,51 @@
 """
 Type annotations for s3outposts service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_s3outposts.type_defs import CreateEndpointRequestRequestTypeDef
+    from mypy_boto3_s3outposts.type_defs import CreateEndpointRequestTypeDef
 
-    data: CreateEndpointRequestRequestTypeDef = {...}
+    data: CreateEndpointRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import EndpointAccessTypeType, EndpointStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateEndpointRequestRequestTypeDef",
+    "CreateEndpointRequestTypeDef",
     "CreateEndpointResultTypeDef",
-    "DeleteEndpointRequestRequestTypeDef",
+    "DeleteEndpointRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EndpointTypeDef",
     "FailedReasonTypeDef",
-    "ListEndpointsRequestRequestTypeDef",
+    "ListEndpointsRequestPaginateTypeDef",
+    "ListEndpointsRequestTypeDef",
     "ListEndpointsResultTypeDef",
-    "ListOutpostsWithS3RequestRequestTypeDef",
+    "ListOutpostsWithS3RequestPaginateTypeDef",
+    "ListOutpostsWithS3RequestTypeDef",
     "ListOutpostsWithS3ResultTypeDef",
-    "ListSharedEndpointsRequestRequestTypeDef",
+    "ListSharedEndpointsRequestPaginateTypeDef",
+    "ListSharedEndpointsRequestTypeDef",
     "ListSharedEndpointsResultTypeDef",
     "NetworkInterfaceTypeDef",
     "OutpostTypeDef",
@@ -41,175 +53,98 @@ __all__ = (
     "ResponseMetadataTypeDef",
 )
 
-_RequiredCreateEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEndpointRequestRequestTypeDef",
-    {
-        "OutpostId": str,
-        "SubnetId": str,
-        "SecurityGroupId": str,
-    },
-)
-_OptionalCreateEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEndpointRequestRequestTypeDef",
-    {
-        "AccessType": EndpointAccessTypeType,
-        "CustomerOwnedIpv4Pool": str,
-    },
-    total=False,
-)
+class CreateEndpointRequestTypeDef(TypedDict):
+    OutpostId: str
+    SubnetId: str
+    SecurityGroupId: str
+    AccessType: NotRequired[EndpointAccessTypeType]
+    CustomerOwnedIpv4Pool: NotRequired[str]
 
-class CreateEndpointRequestRequestTypeDef(
-    _RequiredCreateEndpointRequestRequestTypeDef, _OptionalCreateEndpointRequestRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateEndpointResultTypeDef = TypedDict(
-    "CreateEndpointResultTypeDef",
-    {
-        "EndpointArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteEndpointRequestTypeDef(TypedDict):
+    EndpointId: str
+    OutpostId: str
 
-DeleteEndpointRequestRequestTypeDef = TypedDict(
-    "DeleteEndpointRequestRequestTypeDef",
-    {
-        "EndpointId": str,
-        "OutpostId": str,
-    },
-)
+class FailedReasonTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    Message: NotRequired[str]
 
-EndpointTypeDef = TypedDict(
-    "EndpointTypeDef",
-    {
-        "EndpointArn": str,
-        "OutpostsId": str,
-        "CidrBlock": str,
-        "Status": EndpointStatusType,
-        "CreationTime": datetime,
-        "NetworkInterfaces": List["NetworkInterfaceTypeDef"],
-        "VpcId": str,
-        "SubnetId": str,
-        "SecurityGroupId": str,
-        "AccessType": EndpointAccessTypeType,
-        "CustomerOwnedIpv4Pool": str,
-        "FailedReason": "FailedReasonTypeDef",
-    },
-    total=False,
-)
+class NetworkInterfaceTypeDef(TypedDict):
+    NetworkInterfaceId: NotRequired[str]
 
-FailedReasonTypeDef = TypedDict(
-    "FailedReasonTypeDef",
-    {
-        "ErrorCode": str,
-        "Message": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListEndpointsRequestRequestTypeDef = TypedDict(
-    "ListEndpointsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListEndpointsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListEndpointsResultTypeDef = TypedDict(
-    "ListEndpointsResultTypeDef",
-    {
-        "Endpoints": List["EndpointTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListOutpostsWithS3RequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListOutpostsWithS3RequestRequestTypeDef = TypedDict(
-    "ListOutpostsWithS3RequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class OutpostTypeDef(TypedDict):
+    OutpostArn: NotRequired[str]
+    S3OutpostArn: NotRequired[str]
+    OutpostId: NotRequired[str]
+    OwnerId: NotRequired[str]
+    CapacityInBytes: NotRequired[int]
 
-ListOutpostsWithS3ResultTypeDef = TypedDict(
-    "ListOutpostsWithS3ResultTypeDef",
-    {
-        "Outposts": List["OutpostTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSharedEndpointsRequestTypeDef(TypedDict):
+    OutpostId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredListSharedEndpointsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSharedEndpointsRequestRequestTypeDef",
-    {
-        "OutpostId": str,
-    },
-)
-_OptionalListSharedEndpointsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSharedEndpointsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class CreateEndpointResultTypeDef(TypedDict):
+    EndpointArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSharedEndpointsRequestRequestTypeDef(
-    _RequiredListSharedEndpointsRequestRequestTypeDef,
-    _OptionalListSharedEndpointsRequestRequestTypeDef,
-):
-    pass
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListSharedEndpointsResultTypeDef = TypedDict(
-    "ListSharedEndpointsResultTypeDef",
-    {
-        "Endpoints": List["EndpointTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EndpointTypeDef(TypedDict):
+    EndpointArn: NotRequired[str]
+    OutpostsId: NotRequired[str]
+    CidrBlock: NotRequired[str]
+    Status: NotRequired[EndpointStatusType]
+    CreationTime: NotRequired[datetime]
+    NetworkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
+    VpcId: NotRequired[str]
+    SubnetId: NotRequired[str]
+    SecurityGroupId: NotRequired[str]
+    AccessType: NotRequired[EndpointAccessTypeType]
+    CustomerOwnedIpv4Pool: NotRequired[str]
+    FailedReason: NotRequired[FailedReasonTypeDef]
 
-NetworkInterfaceTypeDef = TypedDict(
-    "NetworkInterfaceTypeDef",
-    {
-        "NetworkInterfaceId": str,
-    },
-    total=False,
-)
+class ListEndpointsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-OutpostTypeDef = TypedDict(
-    "OutpostTypeDef",
-    {
-        "OutpostArn": str,
-        "S3OutpostArn": str,
-        "OutpostId": str,
-        "OwnerId": str,
-        "CapacityInBytes": int,
-    },
-    total=False,
-)
+class ListOutpostsWithS3RequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListSharedEndpointsRequestPaginateTypeDef(TypedDict):
+    OutpostId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListOutpostsWithS3ResultTypeDef(TypedDict):
+    Outposts: List[OutpostTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListEndpointsResultTypeDef(TypedDict):
+    Endpoints: List[EndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSharedEndpointsResultTypeDef(TypedDict):
+    Endpoints: List[EndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

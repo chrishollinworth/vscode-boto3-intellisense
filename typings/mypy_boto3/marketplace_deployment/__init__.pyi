@@ -1,19 +1,21 @@
 """
 Main interface for marketplace-deployment service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_marketplace_deployment import (
         Client,
         MarketplaceDeploymentServiceClient,
     )
 
-    session = boto3.Session()
-
-    client: MarketplaceDeploymentServiceClient = boto3.client("marketplace-deployment")
-    session_client: MarketplaceDeploymentServiceClient = session.client("marketplace-deployment")
+    session = Session()
+    client: MarketplaceDeploymentServiceClient = session.client("marketplace-deployment")
     ```
 """
 

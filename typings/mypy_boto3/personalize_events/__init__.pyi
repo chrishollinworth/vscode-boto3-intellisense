@@ -1,19 +1,21 @@
 """
 Main interface for personalize-events service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_personalize_events import (
         Client,
         PersonalizeEventsClient,
     )
 
-    session = boto3.Session()
-
-    client: PersonalizeEventsClient = boto3.client("personalize-events")
-    session_client: PersonalizeEventsClient = session.client("personalize-events")
+    session = Session()
+    client: PersonalizeEventsClient = session.client("personalize-events")
     ```
 """
 

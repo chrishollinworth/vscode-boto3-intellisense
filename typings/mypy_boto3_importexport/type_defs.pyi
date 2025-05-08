@@ -1,277 +1,172 @@
 """
 Type annotations for importexport service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_importexport/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_importexport.type_defs import ArtifactTypeDef
 
-    data: ArtifactTypeDef = {...}
+    data: ArtifactTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import JobTypeType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ArtifactTypeDef",
-    "CancelJobInputRequestTypeDef",
+    "CancelJobInputTypeDef",
     "CancelJobOutputTypeDef",
-    "CreateJobInputRequestTypeDef",
+    "CreateJobInputTypeDef",
     "CreateJobOutputTypeDef",
-    "GetShippingLabelInputRequestTypeDef",
+    "GetShippingLabelInputTypeDef",
     "GetShippingLabelOutputTypeDef",
-    "GetStatusInputRequestTypeDef",
+    "GetStatusInputTypeDef",
     "GetStatusOutputTypeDef",
     "JobTypeDef",
-    "ListJobsInputRequestTypeDef",
+    "ListJobsInputPaginateTypeDef",
+    "ListJobsInputTypeDef",
     "ListJobsOutputTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
-    "UpdateJobInputRequestTypeDef",
+    "UpdateJobInputTypeDef",
     "UpdateJobOutputTypeDef",
 )
 
-ArtifactTypeDef = TypedDict(
-    "ArtifactTypeDef",
-    {
-        "Description": str,
-        "URL": str,
-    },
-    total=False,
-)
+class ArtifactTypeDef(TypedDict):
+    Description: NotRequired[str]
+    URL: NotRequired[str]
 
-_RequiredCancelJobInputRequestTypeDef = TypedDict(
-    "_RequiredCancelJobInputRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalCancelJobInputRequestTypeDef = TypedDict(
-    "_OptionalCancelJobInputRequestTypeDef",
-    {
-        "APIVersion": str,
-    },
-    total=False,
-)
+class CancelJobInputTypeDef(TypedDict):
+    JobId: str
+    APIVersion: NotRequired[str]
 
-class CancelJobInputRequestTypeDef(
-    _RequiredCancelJobInputRequestTypeDef, _OptionalCancelJobInputRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CancelJobOutputTypeDef = TypedDict(
-    "CancelJobOutputTypeDef",
-    {
-        "Success": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateJobInputTypeDef(TypedDict):
+    JobType: JobTypeType
+    Manifest: str
+    ValidateOnly: bool
+    ManifestAddendum: NotRequired[str]
+    APIVersion: NotRequired[str]
 
-_RequiredCreateJobInputRequestTypeDef = TypedDict(
-    "_RequiredCreateJobInputRequestTypeDef",
-    {
-        "JobType": JobTypeType,
-        "Manifest": str,
-        "ValidateOnly": bool,
-    },
-)
-_OptionalCreateJobInputRequestTypeDef = TypedDict(
-    "_OptionalCreateJobInputRequestTypeDef",
-    {
-        "ManifestAddendum": str,
-        "APIVersion": str,
-    },
-    total=False,
-)
+class GetShippingLabelInputTypeDef(TypedDict):
+    jobIds: Sequence[str]
+    name: NotRequired[str]
+    company: NotRequired[str]
+    phoneNumber: NotRequired[str]
+    country: NotRequired[str]
+    stateOrProvince: NotRequired[str]
+    city: NotRequired[str]
+    postalCode: NotRequired[str]
+    street1: NotRequired[str]
+    street2: NotRequired[str]
+    street3: NotRequired[str]
+    APIVersion: NotRequired[str]
 
-class CreateJobInputRequestTypeDef(
-    _RequiredCreateJobInputRequestTypeDef, _OptionalCreateJobInputRequestTypeDef
-):
-    pass
+class GetStatusInputTypeDef(TypedDict):
+    JobId: str
+    APIVersion: NotRequired[str]
 
-CreateJobOutputTypeDef = TypedDict(
-    "CreateJobOutputTypeDef",
-    {
-        "JobId": str,
-        "JobType": JobTypeType,
-        "Signature": str,
-        "SignatureFileContents": str,
-        "WarningMessage": str,
-        "ArtifactList": List["ArtifactTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class JobTypeDef(TypedDict):
+    JobId: NotRequired[str]
+    CreationDate: NotRequired[datetime]
+    IsCanceled: NotRequired[bool]
+    JobType: NotRequired[JobTypeType]
 
-_RequiredGetShippingLabelInputRequestTypeDef = TypedDict(
-    "_RequiredGetShippingLabelInputRequestTypeDef",
-    {
-        "jobIds": List[str],
-    },
-)
-_OptionalGetShippingLabelInputRequestTypeDef = TypedDict(
-    "_OptionalGetShippingLabelInputRequestTypeDef",
-    {
-        "name": str,
-        "company": str,
-        "phoneNumber": str,
-        "country": str,
-        "stateOrProvince": str,
-        "city": str,
-        "postalCode": str,
-        "street1": str,
-        "street2": str,
-        "street3": str,
-        "APIVersion": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class GetShippingLabelInputRequestTypeDef(
-    _RequiredGetShippingLabelInputRequestTypeDef, _OptionalGetShippingLabelInputRequestTypeDef
-):
-    pass
+class ListJobsInputTypeDef(TypedDict):
+    MaxJobs: NotRequired[int]
+    Marker: NotRequired[str]
+    APIVersion: NotRequired[str]
+
+class UpdateJobInputTypeDef(TypedDict):
+    JobId: str
+    Manifest: str
+    JobType: JobTypeType
+    ValidateOnly: bool
+    APIVersion: NotRequired[str]
+
+class CancelJobOutputTypeDef(TypedDict):
+    Success: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateJobOutputTypeDef(TypedDict):
+    JobId: str
+    JobType: JobTypeType
+    Signature: str
+    SignatureFileContents: str
+    WarningMessage: str
+    ArtifactList: List[ArtifactTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetShippingLabelOutputTypeDef = TypedDict(
     "GetShippingLabelOutputTypeDef",
     {
         "ShippingLabelURL": str,
         "Warning": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredGetStatusInputRequestTypeDef = TypedDict(
-    "_RequiredGetStatusInputRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetStatusInputRequestTypeDef = TypedDict(
-    "_OptionalGetStatusInputRequestTypeDef",
-    {
-        "APIVersion": str,
-    },
-    total=False,
-)
+class GetStatusOutputTypeDef(TypedDict):
+    JobId: str
+    JobType: JobTypeType
+    LocationCode: str
+    LocationMessage: str
+    ProgressCode: str
+    ProgressMessage: str
+    Carrier: str
+    TrackingNumber: str
+    LogBucket: str
+    LogKey: str
+    ErrorCount: int
+    Signature: str
+    SignatureFileContents: str
+    CurrentManifest: str
+    CreationDate: datetime
+    ArtifactList: List[ArtifactTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStatusInputRequestTypeDef(
-    _RequiredGetStatusInputRequestTypeDef, _OptionalGetStatusInputRequestTypeDef
-):
-    pass
+class UpdateJobOutputTypeDef(TypedDict):
+    Success: bool
+    WarningMessage: str
+    ArtifactList: List[ArtifactTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetStatusOutputTypeDef = TypedDict(
-    "GetStatusOutputTypeDef",
-    {
-        "JobId": str,
-        "JobType": JobTypeType,
-        "LocationCode": str,
-        "LocationMessage": str,
-        "ProgressCode": str,
-        "ProgressMessage": str,
-        "Carrier": str,
-        "TrackingNumber": str,
-        "LogBucket": str,
-        "LogKey": str,
-        "ErrorCount": int,
-        "Signature": str,
-        "SignatureFileContents": str,
-        "CurrentManifest": str,
-        "CreationDate": datetime,
-        "ArtifactList": List["ArtifactTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListJobsOutputTypeDef(TypedDict):
+    Jobs: List[JobTypeDef]
+    IsTruncated: bool
+    ResponseMetadata: ResponseMetadataTypeDef
 
-JobTypeDef = TypedDict(
-    "JobTypeDef",
-    {
-        "JobId": str,
-        "CreationDate": datetime,
-        "IsCanceled": bool,
-        "JobType": JobTypeType,
-    },
-    total=False,
-)
-
-ListJobsInputRequestTypeDef = TypedDict(
-    "ListJobsInputRequestTypeDef",
-    {
-        "MaxJobs": int,
-        "Marker": str,
-        "APIVersion": str,
-    },
-    total=False,
-)
-
-ListJobsOutputTypeDef = TypedDict(
-    "ListJobsOutputTypeDef",
-    {
-        "Jobs": List["JobTypeDef"],
-        "IsTruncated": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredUpdateJobInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateJobInputRequestTypeDef",
-    {
-        "JobId": str,
-        "Manifest": str,
-        "JobType": JobTypeType,
-        "ValidateOnly": bool,
-    },
-)
-_OptionalUpdateJobInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateJobInputRequestTypeDef",
-    {
-        "APIVersion": str,
-    },
-    total=False,
-)
-
-class UpdateJobInputRequestTypeDef(
-    _RequiredUpdateJobInputRequestTypeDef, _OptionalUpdateJobInputRequestTypeDef
-):
-    pass
-
-UpdateJobOutputTypeDef = TypedDict(
-    "UpdateJobOutputTypeDef",
-    {
-        "Success": bool,
-        "WarningMessage": str,
-        "ArtifactList": List["ArtifactTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListJobsInputPaginateTypeDef(TypedDict):
+    APIVersion: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]

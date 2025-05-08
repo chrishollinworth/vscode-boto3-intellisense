@@ -1,44 +1,66 @@
 """
-Type annotations for connectparticipant service client.
+Type annotations for connectparticipant service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_connectparticipant import ConnectParticipantClient
+    from boto3.session import Session
+    from mypy_boto3_connectparticipant.client import ConnectParticipantClient
 
-    client: ConnectParticipantClient = boto3.client("connectparticipant")
+    session = Session()
+    client: ConnectParticipantClient = session.client("connectparticipant")
     ```
 """
 
-from typing import Any, Dict, List, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import ConnectionTypeType, ScanDirectionType, SortKeyType
 from .type_defs import (
+    CancelParticipantAuthenticationRequestTypeDef,
+    CompleteAttachmentUploadRequestTypeDef,
+    CreateParticipantConnectionRequestTypeDef,
     CreateParticipantConnectionResponseTypeDef,
+    DescribeViewRequestTypeDef,
     DescribeViewResponseTypeDef,
+    DisconnectParticipantRequestTypeDef,
+    GetAttachmentRequestTypeDef,
     GetAttachmentResponseTypeDef,
+    GetAuthenticationUrlRequestTypeDef,
+    GetAuthenticationUrlResponseTypeDef,
+    GetTranscriptRequestTypeDef,
     GetTranscriptResponseTypeDef,
+    SendEventRequestTypeDef,
     SendEventResponseTypeDef,
+    SendMessageRequestTypeDef,
     SendMessageResponseTypeDef,
+    StartAttachmentUploadRequestTypeDef,
     StartAttachmentUploadResponseTypeDef,
-    StartPositionTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ConnectParticipantClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -50,8 +72,8 @@ class Exceptions:
 
 class ConnectParticipantClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant.html#ConnectParticipant.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/)
     """
 
     meta: ClientMeta
@@ -60,147 +82,138 @@ class ConnectParticipantClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ConnectParticipantClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant.html#ConnectParticipant.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#close)
-        """
-
-    def complete_attachment_upload(
-        self, *, AttachmentIds: List[str], ClientToken: str, ConnectionToken: str
-    ) -> Dict[str, Any]:
-        """
-        Allows you to confirm that the attachment has been uploaded using the pre-signed
-        URL provided in StartAttachmentUpload API.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.complete_attachment_upload)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#complete_attachment_upload)
-        """
-
-    def create_participant_connection(
-        self,
-        *,
-        ParticipantToken: str,
-        Type: List[ConnectionTypeType] = None,
-        ConnectParticipant: bool = None
-    ) -> CreateParticipantConnectionResponseTypeDef:
-        """
-        Creates the participant's connection.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.create_participant_connection)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#create_participant_connection)
-        """
-
-    def describe_view(self, *, ViewToken: str, ConnectionToken: str) -> DescribeViewResponseTypeDef:
-        """
-        Retrieves the view for the specified view token.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.describe_view)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#describe_view)
-        """
-
-    def disconnect_participant(
-        self, *, ConnectionToken: str, ClientToken: str = None
-    ) -> Dict[str, Any]:
-        """
-        Disconnects a participant.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.disconnect_participant)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#disconnect_participant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#generate_presigned_url)
+    def cancel_participant_authentication(
+        self, **kwargs: Unpack[CancelParticipantAuthenticationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Cancels the authentication session.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/cancel_participant_authentication.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#cancel_participant_authentication)
+        """
+
+    def complete_attachment_upload(
+        self, **kwargs: Unpack[CompleteAttachmentUploadRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Allows you to confirm that the attachment has been uploaded using the
+        pre-signed URL provided in StartAttachmentUpload API.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/complete_attachment_upload.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#complete_attachment_upload)
+        """
+
+    def create_participant_connection(
+        self, **kwargs: Unpack[CreateParticipantConnectionRequestTypeDef]
+    ) -> CreateParticipantConnectionResponseTypeDef:
+        """
+        Creates the participant's connection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/create_participant_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#create_participant_connection)
+        """
+
+    def describe_view(
+        self, **kwargs: Unpack[DescribeViewRequestTypeDef]
+    ) -> DescribeViewResponseTypeDef:
+        """
+        Retrieves the view for the specified view token.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/describe_view.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#describe_view)
+        """
+
+    def disconnect_participant(
+        self, **kwargs: Unpack[DisconnectParticipantRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disconnects a participant.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/disconnect_participant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#disconnect_participant)
         """
 
     def get_attachment(
-        self, *, AttachmentId: str, ConnectionToken: str
+        self, **kwargs: Unpack[GetAttachmentRequestTypeDef]
     ) -> GetAttachmentResponseTypeDef:
         """
         Provides a pre-signed URL for download of a completed attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.get_attachment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#get_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/get_attachment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#get_attachment)
+        """
+
+    def get_authentication_url(
+        self, **kwargs: Unpack[GetAuthenticationUrlRequestTypeDef]
+    ) -> GetAuthenticationUrlResponseTypeDef:
+        """
+        Retrieves the AuthenticationUrl for the current authentication session for the
+        AuthenticateCustomer flow block.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/get_authentication_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#get_authentication_url)
         """
 
     def get_transcript(
-        self,
-        *,
-        ConnectionToken: str,
-        ContactId: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        ScanDirection: ScanDirectionType = None,
-        SortOrder: SortKeyType = None,
-        StartPosition: "StartPositionTypeDef" = None
+        self, **kwargs: Unpack[GetTranscriptRequestTypeDef]
     ) -> GetTranscriptResponseTypeDef:
         """
         Retrieves a transcript of the session, including details about any attachments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.get_transcript)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#get_transcript)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/get_transcript.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#get_transcript)
         """
 
-    def send_event(
-        self,
-        *,
-        ContentType: str,
-        ConnectionToken: str,
-        Content: str = None,
-        ClientToken: str = None
-    ) -> SendEventResponseTypeDef:
+    def send_event(self, **kwargs: Unpack[SendEventRequestTypeDef]) -> SendEventResponseTypeDef:
         """
-        .
+        The
+        <code>application/vnd.amazonaws.connect.event.connection.acknowledged</code>
+        ContentType will no longer be supported starting December 31, 2024.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.send_event)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#send_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/send_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#send_event)
         """
 
     def send_message(
-        self, *, ContentType: str, Content: str, ConnectionToken: str, ClientToken: str = None
+        self, **kwargs: Unpack[SendMessageRequestTypeDef]
     ) -> SendMessageResponseTypeDef:
         """
         Sends a message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.send_message)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#send_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/send_message.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#send_message)
         """
 
     def start_attachment_upload(
-        self,
-        *,
-        ContentType: str,
-        AttachmentSizeInBytes: int,
-        AttachmentName: str,
-        ClientToken: str,
-        ConnectionToken: str
+        self, **kwargs: Unpack[StartAttachmentUploadRequestTypeDef]
     ) -> StartAttachmentUploadResponseTypeDef:
         """
         Provides a pre-signed Amazon S3 URL in response for uploading the file directly
         to S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectparticipant.html#ConnectParticipant.Client.start_attachment_upload)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#start_attachment_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectparticipant/client/start_attachment_upload.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client/#start_attachment_upload)
         """

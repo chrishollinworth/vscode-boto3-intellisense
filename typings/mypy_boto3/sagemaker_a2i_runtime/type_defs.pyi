@@ -1,192 +1,133 @@
 """
 Type annotations for sagemaker-a2i-runtime service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_a2i_runtime/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_a2i_runtime/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_sagemaker_a2i_runtime.type_defs import DeleteHumanLoopRequestRequestTypeDef
+    from mypy_boto3_sagemaker_a2i_runtime.type_defs import DeleteHumanLoopRequestTypeDef
 
-    data: DeleteHumanLoopRequestRequestTypeDef = {...}
+    data: DeleteHumanLoopRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import ContentClassifierType, HumanLoopStatusType, SortOrderType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "DeleteHumanLoopRequestRequestTypeDef",
-    "DescribeHumanLoopRequestRequestTypeDef",
+    "DeleteHumanLoopRequestTypeDef",
+    "DescribeHumanLoopRequestTypeDef",
     "DescribeHumanLoopResponseTypeDef",
     "HumanLoopDataAttributesTypeDef",
     "HumanLoopInputTypeDef",
     "HumanLoopOutputTypeDef",
     "HumanLoopSummaryTypeDef",
-    "ListHumanLoopsRequestRequestTypeDef",
+    "ListHumanLoopsRequestPaginateTypeDef",
+    "ListHumanLoopsRequestTypeDef",
     "ListHumanLoopsResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
-    "StartHumanLoopRequestRequestTypeDef",
+    "StartHumanLoopRequestTypeDef",
     "StartHumanLoopResponseTypeDef",
-    "StopHumanLoopRequestRequestTypeDef",
+    "StopHumanLoopRequestTypeDef",
+    "TimestampTypeDef",
 )
 
-DeleteHumanLoopRequestRequestTypeDef = TypedDict(
-    "DeleteHumanLoopRequestRequestTypeDef",
-    {
-        "HumanLoopName": str,
-    },
-)
+class DeleteHumanLoopRequestTypeDef(TypedDict):
+    HumanLoopName: str
 
-DescribeHumanLoopRequestRequestTypeDef = TypedDict(
-    "DescribeHumanLoopRequestRequestTypeDef",
-    {
-        "HumanLoopName": str,
-    },
-)
+class DescribeHumanLoopRequestTypeDef(TypedDict):
+    HumanLoopName: str
 
-DescribeHumanLoopResponseTypeDef = TypedDict(
-    "DescribeHumanLoopResponseTypeDef",
-    {
-        "CreationTime": datetime,
-        "FailureReason": str,
-        "FailureCode": str,
-        "HumanLoopStatus": HumanLoopStatusType,
-        "HumanLoopName": str,
-        "HumanLoopArn": str,
-        "FlowDefinitionArn": str,
-        "HumanLoopOutput": "HumanLoopOutputTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class HumanLoopOutputTypeDef(TypedDict):
+    OutputS3Uri: str
 
-HumanLoopDataAttributesTypeDef = TypedDict(
-    "HumanLoopDataAttributesTypeDef",
-    {
-        "ContentClassifiers": List[ContentClassifierType],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-HumanLoopInputTypeDef = TypedDict(
-    "HumanLoopInputTypeDef",
-    {
-        "InputContent": str,
-    },
-)
+class HumanLoopDataAttributesTypeDef(TypedDict):
+    ContentClassifiers: Sequence[ContentClassifierType]
 
-HumanLoopOutputTypeDef = TypedDict(
-    "HumanLoopOutputTypeDef",
-    {
-        "OutputS3Uri": str,
-    },
-)
+class HumanLoopInputTypeDef(TypedDict):
+    InputContent: str
 
-HumanLoopSummaryTypeDef = TypedDict(
-    "HumanLoopSummaryTypeDef",
-    {
-        "HumanLoopName": str,
-        "HumanLoopStatus": HumanLoopStatusType,
-        "CreationTime": datetime,
-        "FailureReason": str,
-        "FlowDefinitionArn": str,
-    },
-    total=False,
-)
+class HumanLoopSummaryTypeDef(TypedDict):
+    HumanLoopName: NotRequired[str]
+    HumanLoopStatus: NotRequired[HumanLoopStatusType]
+    CreationTime: NotRequired[datetime]
+    FailureReason: NotRequired[str]
+    FlowDefinitionArn: NotRequired[str]
 
-_RequiredListHumanLoopsRequestRequestTypeDef = TypedDict(
-    "_RequiredListHumanLoopsRequestRequestTypeDef",
-    {
-        "FlowDefinitionArn": str,
-    },
-)
-_OptionalListHumanLoopsRequestRequestTypeDef = TypedDict(
-    "_OptionalListHumanLoopsRequestRequestTypeDef",
-    {
-        "CreationTimeAfter": Union[datetime, str],
-        "CreationTimeBefore": Union[datetime, str],
-        "SortOrder": SortOrderType,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class ListHumanLoopsRequestRequestTypeDef(
-    _RequiredListHumanLoopsRequestRequestTypeDef, _OptionalListHumanLoopsRequestRequestTypeDef
-):
-    pass
+TimestampTypeDef = Union[datetime, str]
 
-ListHumanLoopsResponseTypeDef = TypedDict(
-    "ListHumanLoopsResponseTypeDef",
-    {
-        "HumanLoopSummaries": List["HumanLoopSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StopHumanLoopRequestTypeDef(TypedDict):
+    HumanLoopName: str
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class DescribeHumanLoopResponseTypeDef(TypedDict):
+    CreationTime: datetime
+    FailureReason: str
+    FailureCode: str
+    HumanLoopStatus: HumanLoopStatusType
+    HumanLoopName: str
+    HumanLoopArn: str
+    FlowDefinitionArn: str
+    HumanLoopOutput: HumanLoopOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class StartHumanLoopResponseTypeDef(TypedDict):
+    HumanLoopArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredStartHumanLoopRequestRequestTypeDef = TypedDict(
-    "_RequiredStartHumanLoopRequestRequestTypeDef",
-    {
-        "HumanLoopName": str,
-        "FlowDefinitionArn": str,
-        "HumanLoopInput": "HumanLoopInputTypeDef",
-    },
-)
-_OptionalStartHumanLoopRequestRequestTypeDef = TypedDict(
-    "_OptionalStartHumanLoopRequestRequestTypeDef",
-    {
-        "DataAttributes": "HumanLoopDataAttributesTypeDef",
-    },
-    total=False,
-)
+class StartHumanLoopRequestTypeDef(TypedDict):
+    HumanLoopName: str
+    FlowDefinitionArn: str
+    HumanLoopInput: HumanLoopInputTypeDef
+    DataAttributes: NotRequired[HumanLoopDataAttributesTypeDef]
 
-class StartHumanLoopRequestRequestTypeDef(
-    _RequiredStartHumanLoopRequestRequestTypeDef, _OptionalStartHumanLoopRequestRequestTypeDef
-):
-    pass
+class ListHumanLoopsResponseTypeDef(TypedDict):
+    HumanLoopSummaries: List[HumanLoopSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-StartHumanLoopResponseTypeDef = TypedDict(
-    "StartHumanLoopResponseTypeDef",
-    {
-        "HumanLoopArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListHumanLoopsRequestPaginateTypeDef(TypedDict):
+    FlowDefinitionArn: str
+    CreationTimeAfter: NotRequired[TimestampTypeDef]
+    CreationTimeBefore: NotRequired[TimestampTypeDef]
+    SortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-StopHumanLoopRequestRequestTypeDef = TypedDict(
-    "StopHumanLoopRequestRequestTypeDef",
-    {
-        "HumanLoopName": str,
-    },
-)
+class ListHumanLoopsRequestTypeDef(TypedDict):
+    FlowDefinitionArn: str
+    CreationTimeAfter: NotRequired[TimestampTypeDef]
+    CreationTimeBefore: NotRequired[TimestampTypeDef]
+    SortOrder: NotRequired[SortOrderType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]

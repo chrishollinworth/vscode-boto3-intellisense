@@ -1,19 +1,23 @@
 """
 Type annotations for batch service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_batch/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_batch.type_defs import ArrayPropertiesDetailTypeDef
 
-    data: ArrayPropertiesDetailTypeDef = {...}
+    data: ArrayPropertiesDetailTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     ArrayJobDependencyType,
@@ -27,6 +31,7 @@ from .literals import (
     DeviceCgroupPermissionType,
     EFSAuthorizationConfigIAMType,
     EFSTransitEncryptionType,
+    FirelensConfigurationTypeType,
     JobDefinitionTypeType,
     JobStatusType,
     JQStateType,
@@ -38,14 +43,16 @@ from .literals import (
     RetryActionType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ArrayPropertiesDetailTypeDef",
@@ -55,72 +62,106 @@ __all__ = (
     "AttemptDetailTypeDef",
     "AttemptEcsTaskDetailsTypeDef",
     "AttemptTaskContainerDetailsTypeDef",
-    "CancelJobRequestRequestTypeDef",
+    "CancelJobRequestTypeDef",
     "ComputeEnvironmentDetailTypeDef",
     "ComputeEnvironmentOrderTypeDef",
+    "ComputeResourceOutputTypeDef",
     "ComputeResourceTypeDef",
+    "ComputeResourceUnionTypeDef",
     "ComputeResourceUpdateTypeDef",
+    "ConsumableResourcePropertiesOutputTypeDef",
+    "ConsumableResourcePropertiesTypeDef",
+    "ConsumableResourcePropertiesUnionTypeDef",
+    "ConsumableResourceRequirementTypeDef",
+    "ConsumableResourceSummaryTypeDef",
     "ContainerDetailTypeDef",
     "ContainerOverridesTypeDef",
+    "ContainerPropertiesOutputTypeDef",
     "ContainerPropertiesTypeDef",
+    "ContainerPropertiesUnionTypeDef",
     "ContainerSummaryTypeDef",
-    "CreateComputeEnvironmentRequestRequestTypeDef",
+    "CreateComputeEnvironmentRequestTypeDef",
     "CreateComputeEnvironmentResponseTypeDef",
-    "CreateJobQueueRequestRequestTypeDef",
+    "CreateConsumableResourceRequestTypeDef",
+    "CreateConsumableResourceResponseTypeDef",
+    "CreateJobQueueRequestTypeDef",
     "CreateJobQueueResponseTypeDef",
-    "CreateSchedulingPolicyRequestRequestTypeDef",
+    "CreateSchedulingPolicyRequestTypeDef",
     "CreateSchedulingPolicyResponseTypeDef",
-    "DeleteComputeEnvironmentRequestRequestTypeDef",
-    "DeleteJobQueueRequestRequestTypeDef",
-    "DeleteSchedulingPolicyRequestRequestTypeDef",
-    "DeregisterJobDefinitionRequestRequestTypeDef",
-    "DescribeComputeEnvironmentsRequestRequestTypeDef",
+    "DeleteComputeEnvironmentRequestTypeDef",
+    "DeleteConsumableResourceRequestTypeDef",
+    "DeleteJobQueueRequestTypeDef",
+    "DeleteSchedulingPolicyRequestTypeDef",
+    "DeregisterJobDefinitionRequestTypeDef",
+    "DescribeComputeEnvironmentsRequestPaginateTypeDef",
+    "DescribeComputeEnvironmentsRequestTypeDef",
     "DescribeComputeEnvironmentsResponseTypeDef",
-    "DescribeJobDefinitionsRequestRequestTypeDef",
+    "DescribeConsumableResourceRequestTypeDef",
+    "DescribeConsumableResourceResponseTypeDef",
+    "DescribeJobDefinitionsRequestPaginateTypeDef",
+    "DescribeJobDefinitionsRequestTypeDef",
     "DescribeJobDefinitionsResponseTypeDef",
-    "DescribeJobQueuesRequestRequestTypeDef",
+    "DescribeJobQueuesRequestPaginateTypeDef",
+    "DescribeJobQueuesRequestTypeDef",
     "DescribeJobQueuesResponseTypeDef",
-    "DescribeJobsRequestRequestTypeDef",
+    "DescribeJobsRequestTypeDef",
     "DescribeJobsResponseTypeDef",
-    "DescribeSchedulingPoliciesRequestRequestTypeDef",
+    "DescribeSchedulingPoliciesRequestTypeDef",
     "DescribeSchedulingPoliciesResponseTypeDef",
+    "DeviceOutputTypeDef",
     "DeviceTypeDef",
     "EFSAuthorizationConfigTypeDef",
     "EFSVolumeConfigurationTypeDef",
     "Ec2ConfigurationTypeDef",
     "EcsPropertiesDetailTypeDef",
+    "EcsPropertiesOutputTypeDef",
     "EcsPropertiesOverrideTypeDef",
     "EcsPropertiesTypeDef",
+    "EcsPropertiesUnionTypeDef",
     "EcsTaskDetailsTypeDef",
+    "EcsTaskPropertiesOutputTypeDef",
     "EcsTaskPropertiesTypeDef",
     "EksAttemptContainerDetailTypeDef",
     "EksAttemptDetailTypeDef",
     "EksConfigurationTypeDef",
     "EksContainerDetailTypeDef",
     "EksContainerEnvironmentVariableTypeDef",
+    "EksContainerOutputTypeDef",
     "EksContainerOverrideTypeDef",
+    "EksContainerResourceRequirementsOutputTypeDef",
     "EksContainerResourceRequirementsTypeDef",
+    "EksContainerResourceRequirementsUnionTypeDef",
     "EksContainerSecurityContextTypeDef",
     "EksContainerTypeDef",
     "EksContainerVolumeMountTypeDef",
     "EksEmptyDirTypeDef",
     "EksHostPathTypeDef",
+    "EksMetadataOutputTypeDef",
     "EksMetadataTypeDef",
+    "EksMetadataUnionTypeDef",
+    "EksPersistentVolumeClaimTypeDef",
     "EksPodPropertiesDetailTypeDef",
+    "EksPodPropertiesOutputTypeDef",
     "EksPodPropertiesOverrideTypeDef",
     "EksPodPropertiesTypeDef",
     "EksPropertiesDetailTypeDef",
+    "EksPropertiesOutputTypeDef",
     "EksPropertiesOverrideTypeDef",
     "EksPropertiesTypeDef",
+    "EksPropertiesUnionTypeDef",
     "EksSecretTypeDef",
     "EksVolumeTypeDef",
     "EphemeralStorageTypeDef",
     "EvaluateOnExitTypeDef",
+    "FairsharePolicyOutputTypeDef",
     "FairsharePolicyTypeDef",
+    "FairsharePolicyUnionTypeDef",
     "FargatePlatformConfigurationTypeDef",
+    "FirelensConfigurationOutputTypeDef",
+    "FirelensConfigurationTypeDef",
     "FrontOfQueueDetailTypeDef",
     "FrontOfQueueJobSummaryTypeDef",
-    "GetJobQueueSnapshotRequestRequestTypeDef",
+    "GetJobQueueSnapshotRequestTypeDef",
     "GetJobQueueSnapshotResponseTypeDef",
     "HostTypeDef",
     "ImagePullSecretTypeDef",
@@ -133,1467 +174,151 @@ __all__ = (
     "JobTimeoutTypeDef",
     "KeyValuePairTypeDef",
     "KeyValuesPairTypeDef",
+    "LaunchTemplateSpecificationOutputTypeDef",
+    "LaunchTemplateSpecificationOverrideOutputTypeDef",
+    "LaunchTemplateSpecificationOverrideTypeDef",
+    "LaunchTemplateSpecificationOverrideUnionTypeDef",
     "LaunchTemplateSpecificationTypeDef",
+    "LaunchTemplateSpecificationUnionTypeDef",
+    "LinuxParametersOutputTypeDef",
     "LinuxParametersTypeDef",
-    "ListJobsRequestRequestTypeDef",
+    "ListConsumableResourcesRequestPaginateTypeDef",
+    "ListConsumableResourcesRequestTypeDef",
+    "ListConsumableResourcesResponseTypeDef",
+    "ListJobsByConsumableResourceRequestPaginateTypeDef",
+    "ListJobsByConsumableResourceRequestTypeDef",
+    "ListJobsByConsumableResourceResponseTypeDef",
+    "ListJobsByConsumableResourceSummaryTypeDef",
+    "ListJobsRequestPaginateTypeDef",
+    "ListJobsRequestTypeDef",
     "ListJobsResponseTypeDef",
-    "ListSchedulingPoliciesRequestRequestTypeDef",
+    "ListSchedulingPoliciesRequestPaginateTypeDef",
+    "ListSchedulingPoliciesRequestTypeDef",
     "ListSchedulingPoliciesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "LogConfigurationOutputTypeDef",
     "LogConfigurationTypeDef",
     "MountPointTypeDef",
     "NetworkConfigurationTypeDef",
     "NetworkInterfaceTypeDef",
     "NodeDetailsTypeDef",
     "NodeOverridesTypeDef",
+    "NodePropertiesOutputTypeDef",
     "NodePropertiesSummaryTypeDef",
     "NodePropertiesTypeDef",
+    "NodePropertiesUnionTypeDef",
     "NodePropertyOverrideTypeDef",
+    "NodeRangePropertyOutputTypeDef",
     "NodeRangePropertyTypeDef",
     "PaginatorConfigTypeDef",
-    "RegisterJobDefinitionRequestRequestTypeDef",
+    "RegisterJobDefinitionRequestTypeDef",
     "RegisterJobDefinitionResponseTypeDef",
     "RepositoryCredentialsTypeDef",
     "ResourceRequirementTypeDef",
     "ResponseMetadataTypeDef",
+    "RetryStrategyOutputTypeDef",
     "RetryStrategyTypeDef",
+    "RetryStrategyUnionTypeDef",
     "RuntimePlatformTypeDef",
     "SchedulingPolicyDetailTypeDef",
     "SchedulingPolicyListingDetailTypeDef",
     "SecretTypeDef",
     "ShareAttributesTypeDef",
-    "SubmitJobRequestRequestTypeDef",
+    "SubmitJobRequestTypeDef",
     "SubmitJobResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TaskContainerDependencyTypeDef",
     "TaskContainerDetailsTypeDef",
     "TaskContainerOverridesTypeDef",
+    "TaskContainerPropertiesOutputTypeDef",
     "TaskContainerPropertiesTypeDef",
     "TaskPropertiesOverrideTypeDef",
-    "TerminateJobRequestRequestTypeDef",
+    "TerminateJobRequestTypeDef",
+    "TmpfsOutputTypeDef",
     "TmpfsTypeDef",
     "UlimitTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateComputeEnvironmentRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateComputeEnvironmentRequestTypeDef",
     "UpdateComputeEnvironmentResponseTypeDef",
-    "UpdateJobQueueRequestRequestTypeDef",
+    "UpdateConsumableResourceRequestTypeDef",
+    "UpdateConsumableResourceResponseTypeDef",
+    "UpdateJobQueueRequestTypeDef",
     "UpdateJobQueueResponseTypeDef",
     "UpdatePolicyTypeDef",
-    "UpdateSchedulingPolicyRequestRequestTypeDef",
+    "UpdateSchedulingPolicyRequestTypeDef",
     "VolumeTypeDef",
 )
 
-ArrayPropertiesDetailTypeDef = TypedDict(
-    "ArrayPropertiesDetailTypeDef",
-    {
-        "statusSummary": Dict[str, int],
-        "size": int,
-        "index": int,
-    },
-    total=False,
-)
-
-ArrayPropertiesSummaryTypeDef = TypedDict(
-    "ArrayPropertiesSummaryTypeDef",
-    {
-        "size": int,
-        "index": int,
-    },
-    total=False,
-)
-
-ArrayPropertiesTypeDef = TypedDict(
-    "ArrayPropertiesTypeDef",
-    {
-        "size": int,
-    },
-    total=False,
-)
-
-AttemptContainerDetailTypeDef = TypedDict(
-    "AttemptContainerDetailTypeDef",
-    {
-        "containerInstanceArn": str,
-        "taskArn": str,
-        "exitCode": int,
-        "reason": str,
-        "logStreamName": str,
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-    },
-    total=False,
-)
-
-AttemptDetailTypeDef = TypedDict(
-    "AttemptDetailTypeDef",
-    {
-        "container": "AttemptContainerDetailTypeDef",
-        "startedAt": int,
-        "stoppedAt": int,
-        "statusReason": str,
-        "taskProperties": List["AttemptEcsTaskDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AttemptEcsTaskDetailsTypeDef = TypedDict(
-    "AttemptEcsTaskDetailsTypeDef",
-    {
-        "containerInstanceArn": str,
-        "taskArn": str,
-        "containers": List["AttemptTaskContainerDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AttemptTaskContainerDetailsTypeDef = TypedDict(
-    "AttemptTaskContainerDetailsTypeDef",
-    {
-        "exitCode": int,
-        "name": str,
-        "reason": str,
-        "logStreamName": str,
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-    },
-    total=False,
-)
-
-CancelJobRequestRequestTypeDef = TypedDict(
-    "CancelJobRequestRequestTypeDef",
-    {
-        "jobId": str,
-        "reason": str,
-    },
-)
-
-_RequiredComputeEnvironmentDetailTypeDef = TypedDict(
-    "_RequiredComputeEnvironmentDetailTypeDef",
-    {
-        "computeEnvironmentName": str,
-        "computeEnvironmentArn": str,
-    },
-)
-_OptionalComputeEnvironmentDetailTypeDef = TypedDict(
-    "_OptionalComputeEnvironmentDetailTypeDef",
-    {
-        "unmanagedvCpus": int,
-        "ecsClusterArn": str,
-        "tags": Dict[str, str],
-        "type": CETypeType,
-        "state": CEStateType,
-        "status": CEStatusType,
-        "statusReason": str,
-        "computeResources": "ComputeResourceTypeDef",
-        "serviceRole": str,
-        "updatePolicy": "UpdatePolicyTypeDef",
-        "eksConfiguration": "EksConfigurationTypeDef",
-        "containerOrchestrationType": OrchestrationTypeType,
-        "uuid": str,
-    },
-    total=False,
-)
-
-class ComputeEnvironmentDetailTypeDef(
-    _RequiredComputeEnvironmentDetailTypeDef, _OptionalComputeEnvironmentDetailTypeDef
-):
-    pass
-
-ComputeEnvironmentOrderTypeDef = TypedDict(
-    "ComputeEnvironmentOrderTypeDef",
-    {
-        "order": int,
-        "computeEnvironment": str,
-    },
-)
-
-_RequiredComputeResourceTypeDef = TypedDict(
-    "_RequiredComputeResourceTypeDef",
-    {
-        "type": CRTypeType,
-        "maxvCpus": int,
-        "subnets": List[str],
-    },
-)
-_OptionalComputeResourceTypeDef = TypedDict(
-    "_OptionalComputeResourceTypeDef",
-    {
-        "allocationStrategy": CRAllocationStrategyType,
-        "minvCpus": int,
-        "desiredvCpus": int,
-        "instanceTypes": List[str],
-        "imageId": str,
-        "securityGroupIds": List[str],
-        "ec2KeyPair": str,
-        "instanceRole": str,
-        "tags": Dict[str, str],
-        "placementGroup": str,
-        "bidPercentage": int,
-        "spotIamFleetRole": str,
-        "launchTemplate": "LaunchTemplateSpecificationTypeDef",
-        "ec2Configuration": List["Ec2ConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class ComputeResourceTypeDef(_RequiredComputeResourceTypeDef, _OptionalComputeResourceTypeDef):
-    pass
-
-ComputeResourceUpdateTypeDef = TypedDict(
-    "ComputeResourceUpdateTypeDef",
-    {
-        "minvCpus": int,
-        "maxvCpus": int,
-        "desiredvCpus": int,
-        "subnets": List[str],
-        "securityGroupIds": List[str],
-        "allocationStrategy": CRUpdateAllocationStrategyType,
-        "instanceTypes": List[str],
-        "ec2KeyPair": str,
-        "instanceRole": str,
-        "tags": Dict[str, str],
-        "placementGroup": str,
-        "bidPercentage": int,
-        "launchTemplate": "LaunchTemplateSpecificationTypeDef",
-        "ec2Configuration": List["Ec2ConfigurationTypeDef"],
-        "updateToLatestImageVersion": bool,
-        "type": CRTypeType,
-        "imageId": str,
-    },
-    total=False,
-)
-
-ContainerDetailTypeDef = TypedDict(
-    "ContainerDetailTypeDef",
-    {
-        "image": str,
-        "vcpus": int,
-        "memory": int,
-        "command": List[str],
-        "jobRoleArn": str,
-        "executionRoleArn": str,
-        "volumes": List["VolumeTypeDef"],
-        "environment": List["KeyValuePairTypeDef"],
-        "mountPoints": List["MountPointTypeDef"],
-        "readonlyRootFilesystem": bool,
-        "ulimits": List["UlimitTypeDef"],
-        "privileged": bool,
-        "user": str,
-        "exitCode": int,
-        "reason": str,
-        "containerInstanceArn": str,
-        "taskArn": str,
-        "logStreamName": str,
-        "instanceType": str,
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-        "resourceRequirements": List["ResourceRequirementTypeDef"],
-        "linuxParameters": "LinuxParametersTypeDef",
-        "logConfiguration": "LogConfigurationTypeDef",
-        "secrets": List["SecretTypeDef"],
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "fargatePlatformConfiguration": "FargatePlatformConfigurationTypeDef",
-        "ephemeralStorage": "EphemeralStorageTypeDef",
-        "runtimePlatform": "RuntimePlatformTypeDef",
-        "repositoryCredentials": "RepositoryCredentialsTypeDef",
-    },
-    total=False,
-)
-
-ContainerOverridesTypeDef = TypedDict(
-    "ContainerOverridesTypeDef",
-    {
-        "vcpus": int,
-        "memory": int,
-        "command": List[str],
-        "instanceType": str,
-        "environment": List["KeyValuePairTypeDef"],
-        "resourceRequirements": List["ResourceRequirementTypeDef"],
-    },
-    total=False,
-)
-
-ContainerPropertiesTypeDef = TypedDict(
-    "ContainerPropertiesTypeDef",
-    {
-        "image": str,
-        "vcpus": int,
-        "memory": int,
-        "command": List[str],
-        "jobRoleArn": str,
-        "executionRoleArn": str,
-        "volumes": List["VolumeTypeDef"],
-        "environment": List["KeyValuePairTypeDef"],
-        "mountPoints": List["MountPointTypeDef"],
-        "readonlyRootFilesystem": bool,
-        "privileged": bool,
-        "ulimits": List["UlimitTypeDef"],
-        "user": str,
-        "instanceType": str,
-        "resourceRequirements": List["ResourceRequirementTypeDef"],
-        "linuxParameters": "LinuxParametersTypeDef",
-        "logConfiguration": "LogConfigurationTypeDef",
-        "secrets": List["SecretTypeDef"],
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "fargatePlatformConfiguration": "FargatePlatformConfigurationTypeDef",
-        "ephemeralStorage": "EphemeralStorageTypeDef",
-        "runtimePlatform": "RuntimePlatformTypeDef",
-        "repositoryCredentials": "RepositoryCredentialsTypeDef",
-    },
-    total=False,
-)
-
-ContainerSummaryTypeDef = TypedDict(
-    "ContainerSummaryTypeDef",
-    {
-        "exitCode": int,
-        "reason": str,
-    },
-    total=False,
-)
-
-_RequiredCreateComputeEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateComputeEnvironmentRequestRequestTypeDef",
-    {
-        "computeEnvironmentName": str,
-        "type": CETypeType,
-    },
-)
-_OptionalCreateComputeEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateComputeEnvironmentRequestRequestTypeDef",
-    {
-        "state": CEStateType,
-        "unmanagedvCpus": int,
-        "computeResources": "ComputeResourceTypeDef",
-        "serviceRole": str,
-        "tags": Dict[str, str],
-        "eksConfiguration": "EksConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateComputeEnvironmentRequestRequestTypeDef(
-    _RequiredCreateComputeEnvironmentRequestRequestTypeDef,
-    _OptionalCreateComputeEnvironmentRequestRequestTypeDef,
-):
-    pass
-
-CreateComputeEnvironmentResponseTypeDef = TypedDict(
-    "CreateComputeEnvironmentResponseTypeDef",
-    {
-        "computeEnvironmentName": str,
-        "computeEnvironmentArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateJobQueueRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateJobQueueRequestRequestTypeDef",
-    {
-        "jobQueueName": str,
-        "priority": int,
-        "computeEnvironmentOrder": List["ComputeEnvironmentOrderTypeDef"],
-    },
-)
-_OptionalCreateJobQueueRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateJobQueueRequestRequestTypeDef",
-    {
-        "state": JQStateType,
-        "schedulingPolicyArn": str,
-        "tags": Dict[str, str],
-        "jobStateTimeLimitActions": List["JobStateTimeLimitActionTypeDef"],
-    },
-    total=False,
-)
-
-class CreateJobQueueRequestRequestTypeDef(
-    _RequiredCreateJobQueueRequestRequestTypeDef, _OptionalCreateJobQueueRequestRequestTypeDef
-):
-    pass
-
-CreateJobQueueResponseTypeDef = TypedDict(
-    "CreateJobQueueResponseTypeDef",
-    {
-        "jobQueueName": str,
-        "jobQueueArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSchedulingPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSchedulingPolicyRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateSchedulingPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSchedulingPolicyRequestRequestTypeDef",
-    {
-        "fairsharePolicy": "FairsharePolicyTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateSchedulingPolicyRequestRequestTypeDef(
-    _RequiredCreateSchedulingPolicyRequestRequestTypeDef,
-    _OptionalCreateSchedulingPolicyRequestRequestTypeDef,
-):
-    pass
-
-CreateSchedulingPolicyResponseTypeDef = TypedDict(
-    "CreateSchedulingPolicyResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteComputeEnvironmentRequestRequestTypeDef = TypedDict(
-    "DeleteComputeEnvironmentRequestRequestTypeDef",
-    {
-        "computeEnvironment": str,
-    },
-)
-
-DeleteJobQueueRequestRequestTypeDef = TypedDict(
-    "DeleteJobQueueRequestRequestTypeDef",
-    {
-        "jobQueue": str,
-    },
-)
-
-DeleteSchedulingPolicyRequestRequestTypeDef = TypedDict(
-    "DeleteSchedulingPolicyRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeregisterJobDefinitionRequestRequestTypeDef = TypedDict(
-    "DeregisterJobDefinitionRequestRequestTypeDef",
-    {
-        "jobDefinition": str,
-    },
-)
-
-DescribeComputeEnvironmentsRequestRequestTypeDef = TypedDict(
-    "DescribeComputeEnvironmentsRequestRequestTypeDef",
-    {
-        "computeEnvironments": List[str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeComputeEnvironmentsResponseTypeDef = TypedDict(
-    "DescribeComputeEnvironmentsResponseTypeDef",
-    {
-        "computeEnvironments": List["ComputeEnvironmentDetailTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeJobDefinitionsRequestRequestTypeDef = TypedDict(
-    "DescribeJobDefinitionsRequestRequestTypeDef",
-    {
-        "jobDefinitions": List[str],
-        "maxResults": int,
-        "jobDefinitionName": str,
-        "status": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeJobDefinitionsResponseTypeDef = TypedDict(
-    "DescribeJobDefinitionsResponseTypeDef",
-    {
-        "jobDefinitions": List["JobDefinitionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeJobQueuesRequestRequestTypeDef = TypedDict(
-    "DescribeJobQueuesRequestRequestTypeDef",
-    {
-        "jobQueues": List[str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeJobQueuesResponseTypeDef = TypedDict(
-    "DescribeJobQueuesResponseTypeDef",
-    {
-        "jobQueues": List["JobQueueDetailTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeJobsRequestRequestTypeDef = TypedDict(
-    "DescribeJobsRequestRequestTypeDef",
-    {
-        "jobs": List[str],
-    },
-)
-
-DescribeJobsResponseTypeDef = TypedDict(
-    "DescribeJobsResponseTypeDef",
-    {
-        "jobs": List["JobDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSchedulingPoliciesRequestRequestTypeDef = TypedDict(
-    "DescribeSchedulingPoliciesRequestRequestTypeDef",
-    {
-        "arns": List[str],
-    },
-)
-
-DescribeSchedulingPoliciesResponseTypeDef = TypedDict(
-    "DescribeSchedulingPoliciesResponseTypeDef",
-    {
-        "schedulingPolicies": List["SchedulingPolicyDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeviceTypeDef = TypedDict(
-    "_RequiredDeviceTypeDef",
-    {
-        "hostPath": str,
-    },
-)
-_OptionalDeviceTypeDef = TypedDict(
-    "_OptionalDeviceTypeDef",
-    {
-        "containerPath": str,
-        "permissions": List[DeviceCgroupPermissionType],
-    },
-    total=False,
-)
-
-class DeviceTypeDef(_RequiredDeviceTypeDef, _OptionalDeviceTypeDef):
-    pass
-
-EFSAuthorizationConfigTypeDef = TypedDict(
-    "EFSAuthorizationConfigTypeDef",
-    {
-        "accessPointId": str,
-        "iam": EFSAuthorizationConfigIAMType,
-    },
-    total=False,
-)
-
-_RequiredEFSVolumeConfigurationTypeDef = TypedDict(
-    "_RequiredEFSVolumeConfigurationTypeDef",
-    {
-        "fileSystemId": str,
-    },
-)
-_OptionalEFSVolumeConfigurationTypeDef = TypedDict(
-    "_OptionalEFSVolumeConfigurationTypeDef",
-    {
-        "rootDirectory": str,
-        "transitEncryption": EFSTransitEncryptionType,
-        "transitEncryptionPort": int,
-        "authorizationConfig": "EFSAuthorizationConfigTypeDef",
-    },
-    total=False,
-)
-
-class EFSVolumeConfigurationTypeDef(
-    _RequiredEFSVolumeConfigurationTypeDef, _OptionalEFSVolumeConfigurationTypeDef
-):
-    pass
-
-_RequiredEc2ConfigurationTypeDef = TypedDict(
-    "_RequiredEc2ConfigurationTypeDef",
-    {
-        "imageType": str,
-    },
-)
-_OptionalEc2ConfigurationTypeDef = TypedDict(
-    "_OptionalEc2ConfigurationTypeDef",
-    {
-        "imageIdOverride": str,
-        "imageKubernetesVersion": str,
-    },
-    total=False,
-)
-
-class Ec2ConfigurationTypeDef(_RequiredEc2ConfigurationTypeDef, _OptionalEc2ConfigurationTypeDef):
-    pass
-
-EcsPropertiesDetailTypeDef = TypedDict(
-    "EcsPropertiesDetailTypeDef",
-    {
-        "taskProperties": List["EcsTaskDetailsTypeDef"],
-    },
-    total=False,
-)
-
-EcsPropertiesOverrideTypeDef = TypedDict(
-    "EcsPropertiesOverrideTypeDef",
-    {
-        "taskProperties": List["TaskPropertiesOverrideTypeDef"],
-    },
-    total=False,
-)
-
-EcsPropertiesTypeDef = TypedDict(
-    "EcsPropertiesTypeDef",
-    {
-        "taskProperties": List["EcsTaskPropertiesTypeDef"],
-    },
-)
-
-EcsTaskDetailsTypeDef = TypedDict(
-    "EcsTaskDetailsTypeDef",
-    {
-        "containers": List["TaskContainerDetailsTypeDef"],
-        "containerInstanceArn": str,
-        "taskArn": str,
-        "ephemeralStorage": "EphemeralStorageTypeDef",
-        "executionRoleArn": str,
-        "platformVersion": str,
-        "ipcMode": str,
-        "taskRoleArn": str,
-        "pidMode": str,
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "runtimePlatform": "RuntimePlatformTypeDef",
-        "volumes": List["VolumeTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredEcsTaskPropertiesTypeDef = TypedDict(
-    "_RequiredEcsTaskPropertiesTypeDef",
-    {
-        "containers": List["TaskContainerPropertiesTypeDef"],
-    },
-)
-_OptionalEcsTaskPropertiesTypeDef = TypedDict(
-    "_OptionalEcsTaskPropertiesTypeDef",
-    {
-        "ephemeralStorage": "EphemeralStorageTypeDef",
-        "executionRoleArn": str,
-        "platformVersion": str,
-        "ipcMode": str,
-        "taskRoleArn": str,
-        "pidMode": str,
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "runtimePlatform": "RuntimePlatformTypeDef",
-        "volumes": List["VolumeTypeDef"],
-    },
-    total=False,
-)
-
-class EcsTaskPropertiesTypeDef(
-    _RequiredEcsTaskPropertiesTypeDef, _OptionalEcsTaskPropertiesTypeDef
-):
-    pass
-
-EksAttemptContainerDetailTypeDef = TypedDict(
-    "EksAttemptContainerDetailTypeDef",
-    {
-        "name": str,
-        "exitCode": int,
-        "reason": str,
-    },
-    total=False,
-)
-
-EksAttemptDetailTypeDef = TypedDict(
-    "EksAttemptDetailTypeDef",
-    {
-        "containers": List["EksAttemptContainerDetailTypeDef"],
-        "initContainers": List["EksAttemptContainerDetailTypeDef"],
-        "podName": str,
-        "nodeName": str,
-        "startedAt": int,
-        "stoppedAt": int,
-        "statusReason": str,
-    },
-    total=False,
-)
-
-EksConfigurationTypeDef = TypedDict(
-    "EksConfigurationTypeDef",
-    {
-        "eksClusterArn": str,
-        "kubernetesNamespace": str,
-    },
-)
-
-EksContainerDetailTypeDef = TypedDict(
-    "EksContainerDetailTypeDef",
-    {
-        "name": str,
-        "image": str,
-        "imagePullPolicy": str,
-        "command": List[str],
-        "args": List[str],
-        "env": List["EksContainerEnvironmentVariableTypeDef"],
-        "resources": "EksContainerResourceRequirementsTypeDef",
-        "exitCode": int,
-        "reason": str,
-        "volumeMounts": List["EksContainerVolumeMountTypeDef"],
-        "securityContext": "EksContainerSecurityContextTypeDef",
-    },
-    total=False,
-)
-
-_RequiredEksContainerEnvironmentVariableTypeDef = TypedDict(
-    "_RequiredEksContainerEnvironmentVariableTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalEksContainerEnvironmentVariableTypeDef = TypedDict(
-    "_OptionalEksContainerEnvironmentVariableTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-class EksContainerEnvironmentVariableTypeDef(
-    _RequiredEksContainerEnvironmentVariableTypeDef, _OptionalEksContainerEnvironmentVariableTypeDef
-):
-    pass
-
-EksContainerOverrideTypeDef = TypedDict(
-    "EksContainerOverrideTypeDef",
-    {
-        "name": str,
-        "image": str,
-        "command": List[str],
-        "args": List[str],
-        "env": List["EksContainerEnvironmentVariableTypeDef"],
-        "resources": "EksContainerResourceRequirementsTypeDef",
-    },
-    total=False,
-)
-
-EksContainerResourceRequirementsTypeDef = TypedDict(
-    "EksContainerResourceRequirementsTypeDef",
-    {
-        "limits": Dict[str, str],
-        "requests": Dict[str, str],
-    },
-    total=False,
-)
-
-EksContainerSecurityContextTypeDef = TypedDict(
-    "EksContainerSecurityContextTypeDef",
-    {
-        "runAsUser": int,
-        "runAsGroup": int,
-        "privileged": bool,
-        "allowPrivilegeEscalation": bool,
-        "readOnlyRootFilesystem": bool,
-        "runAsNonRoot": bool,
-    },
-    total=False,
-)
-
-_RequiredEksContainerTypeDef = TypedDict(
-    "_RequiredEksContainerTypeDef",
-    {
-        "image": str,
-    },
-)
-_OptionalEksContainerTypeDef = TypedDict(
-    "_OptionalEksContainerTypeDef",
-    {
-        "name": str,
-        "imagePullPolicy": str,
-        "command": List[str],
-        "args": List[str],
-        "env": List["EksContainerEnvironmentVariableTypeDef"],
-        "resources": "EksContainerResourceRequirementsTypeDef",
-        "volumeMounts": List["EksContainerVolumeMountTypeDef"],
-        "securityContext": "EksContainerSecurityContextTypeDef",
-    },
-    total=False,
-)
-
-class EksContainerTypeDef(_RequiredEksContainerTypeDef, _OptionalEksContainerTypeDef):
-    pass
-
-EksContainerVolumeMountTypeDef = TypedDict(
-    "EksContainerVolumeMountTypeDef",
-    {
-        "name": str,
-        "mountPath": str,
-        "readOnly": bool,
-    },
-    total=False,
-)
-
-EksEmptyDirTypeDef = TypedDict(
-    "EksEmptyDirTypeDef",
-    {
-        "medium": str,
-        "sizeLimit": str,
-    },
-    total=False,
-)
-
-EksHostPathTypeDef = TypedDict(
-    "EksHostPathTypeDef",
-    {
-        "path": str,
-    },
-    total=False,
-)
-
-EksMetadataTypeDef = TypedDict(
-    "EksMetadataTypeDef",
-    {
-        "labels": Dict[str, str],
-    },
-    total=False,
-)
-
-EksPodPropertiesDetailTypeDef = TypedDict(
-    "EksPodPropertiesDetailTypeDef",
-    {
-        "serviceAccountName": str,
-        "hostNetwork": bool,
-        "dnsPolicy": str,
-        "imagePullSecrets": List["ImagePullSecretTypeDef"],
-        "containers": List["EksContainerDetailTypeDef"],
-        "initContainers": List["EksContainerDetailTypeDef"],
-        "volumes": List["EksVolumeTypeDef"],
-        "podName": str,
-        "nodeName": str,
-        "metadata": "EksMetadataTypeDef",
-        "shareProcessNamespace": bool,
-    },
-    total=False,
-)
-
-EksPodPropertiesOverrideTypeDef = TypedDict(
-    "EksPodPropertiesOverrideTypeDef",
-    {
-        "containers": List["EksContainerOverrideTypeDef"],
-        "initContainers": List["EksContainerOverrideTypeDef"],
-        "metadata": "EksMetadataTypeDef",
-    },
-    total=False,
-)
-
-EksPodPropertiesTypeDef = TypedDict(
-    "EksPodPropertiesTypeDef",
-    {
-        "serviceAccountName": str,
-        "hostNetwork": bool,
-        "dnsPolicy": str,
-        "imagePullSecrets": List["ImagePullSecretTypeDef"],
-        "containers": List["EksContainerTypeDef"],
-        "initContainers": List["EksContainerTypeDef"],
-        "volumes": List["EksVolumeTypeDef"],
-        "metadata": "EksMetadataTypeDef",
-        "shareProcessNamespace": bool,
-    },
-    total=False,
-)
-
-EksPropertiesDetailTypeDef = TypedDict(
-    "EksPropertiesDetailTypeDef",
-    {
-        "podProperties": "EksPodPropertiesDetailTypeDef",
-    },
-    total=False,
-)
-
-EksPropertiesOverrideTypeDef = TypedDict(
-    "EksPropertiesOverrideTypeDef",
-    {
-        "podProperties": "EksPodPropertiesOverrideTypeDef",
-    },
-    total=False,
-)
-
-EksPropertiesTypeDef = TypedDict(
-    "EksPropertiesTypeDef",
-    {
-        "podProperties": "EksPodPropertiesTypeDef",
-    },
-    total=False,
-)
-
-_RequiredEksSecretTypeDef = TypedDict(
-    "_RequiredEksSecretTypeDef",
-    {
-        "secretName": str,
-    },
-)
-_OptionalEksSecretTypeDef = TypedDict(
-    "_OptionalEksSecretTypeDef",
-    {
-        "optional": bool,
-    },
-    total=False,
-)
-
-class EksSecretTypeDef(_RequiredEksSecretTypeDef, _OptionalEksSecretTypeDef):
-    pass
-
-_RequiredEksVolumeTypeDef = TypedDict(
-    "_RequiredEksVolumeTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalEksVolumeTypeDef = TypedDict(
-    "_OptionalEksVolumeTypeDef",
-    {
-        "hostPath": "EksHostPathTypeDef",
-        "emptyDir": "EksEmptyDirTypeDef",
-        "secret": "EksSecretTypeDef",
-    },
-    total=False,
-)
-
-class EksVolumeTypeDef(_RequiredEksVolumeTypeDef, _OptionalEksVolumeTypeDef):
-    pass
-
-EphemeralStorageTypeDef = TypedDict(
-    "EphemeralStorageTypeDef",
-    {
-        "sizeInGiB": int,
-    },
-)
-
-_RequiredEvaluateOnExitTypeDef = TypedDict(
-    "_RequiredEvaluateOnExitTypeDef",
-    {
-        "action": RetryActionType,
-    },
-)
-_OptionalEvaluateOnExitTypeDef = TypedDict(
-    "_OptionalEvaluateOnExitTypeDef",
-    {
-        "onStatusReason": str,
-        "onReason": str,
-        "onExitCode": str,
-    },
-    total=False,
-)
-
-class EvaluateOnExitTypeDef(_RequiredEvaluateOnExitTypeDef, _OptionalEvaluateOnExitTypeDef):
-    pass
-
-FairsharePolicyTypeDef = TypedDict(
-    "FairsharePolicyTypeDef",
-    {
-        "shareDecaySeconds": int,
-        "computeReservation": int,
-        "shareDistribution": List["ShareAttributesTypeDef"],
-    },
-    total=False,
-)
-
-FargatePlatformConfigurationTypeDef = TypedDict(
-    "FargatePlatformConfigurationTypeDef",
-    {
-        "platformVersion": str,
-    },
-    total=False,
-)
-
-FrontOfQueueDetailTypeDef = TypedDict(
-    "FrontOfQueueDetailTypeDef",
-    {
-        "jobs": List["FrontOfQueueJobSummaryTypeDef"],
-        "lastUpdatedAt": int,
-    },
-    total=False,
-)
-
-FrontOfQueueJobSummaryTypeDef = TypedDict(
-    "FrontOfQueueJobSummaryTypeDef",
-    {
-        "jobArn": str,
-        "earliestTimeAtPosition": int,
-    },
-    total=False,
-)
-
-GetJobQueueSnapshotRequestRequestTypeDef = TypedDict(
-    "GetJobQueueSnapshotRequestRequestTypeDef",
-    {
-        "jobQueue": str,
-    },
-)
-
-GetJobQueueSnapshotResponseTypeDef = TypedDict(
-    "GetJobQueueSnapshotResponseTypeDef",
-    {
-        "frontOfQueue": "FrontOfQueueDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HostTypeDef = TypedDict(
-    "HostTypeDef",
-    {
-        "sourcePath": str,
-    },
-    total=False,
-)
-
-ImagePullSecretTypeDef = TypedDict(
-    "ImagePullSecretTypeDef",
-    {
-        "name": str,
-    },
-)
-
-_RequiredJobDefinitionTypeDef = TypedDict(
-    "_RequiredJobDefinitionTypeDef",
-    {
-        "jobDefinitionName": str,
-        "jobDefinitionArn": str,
-        "revision": int,
-        "type": str,
-    },
-)
-_OptionalJobDefinitionTypeDef = TypedDict(
-    "_OptionalJobDefinitionTypeDef",
-    {
-        "status": str,
-        "schedulingPriority": int,
-        "parameters": Dict[str, str],
-        "retryStrategy": "RetryStrategyTypeDef",
-        "containerProperties": "ContainerPropertiesTypeDef",
-        "timeout": "JobTimeoutTypeDef",
-        "nodeProperties": "NodePropertiesTypeDef",
-        "tags": Dict[str, str],
-        "propagateTags": bool,
-        "platformCapabilities": List[PlatformCapabilityType],
-        "ecsProperties": "EcsPropertiesTypeDef",
-        "eksProperties": "EksPropertiesTypeDef",
-        "containerOrchestrationType": OrchestrationTypeType,
-    },
-    total=False,
-)
-
-class JobDefinitionTypeDef(_RequiredJobDefinitionTypeDef, _OptionalJobDefinitionTypeDef):
-    pass
-
-JobDependencyTypeDef = TypedDict(
-    "JobDependencyTypeDef",
-    {
-        "jobId": str,
-        "type": ArrayJobDependencyType,
-    },
-    total=False,
-)
-
-_RequiredJobDetailTypeDef = TypedDict(
-    "_RequiredJobDetailTypeDef",
-    {
-        "jobName": str,
-        "jobId": str,
-        "jobQueue": str,
-        "status": JobStatusType,
-        "startedAt": int,
-        "jobDefinition": str,
-    },
-)
-_OptionalJobDetailTypeDef = TypedDict(
-    "_OptionalJobDetailTypeDef",
-    {
-        "jobArn": str,
-        "shareIdentifier": str,
-        "schedulingPriority": int,
-        "attempts": List["AttemptDetailTypeDef"],
-        "statusReason": str,
-        "createdAt": int,
-        "retryStrategy": "RetryStrategyTypeDef",
-        "stoppedAt": int,
-        "dependsOn": List["JobDependencyTypeDef"],
-        "parameters": Dict[str, str],
-        "container": "ContainerDetailTypeDef",
-        "nodeDetails": "NodeDetailsTypeDef",
-        "nodeProperties": "NodePropertiesTypeDef",
-        "arrayProperties": "ArrayPropertiesDetailTypeDef",
-        "timeout": "JobTimeoutTypeDef",
-        "tags": Dict[str, str],
-        "propagateTags": bool,
-        "platformCapabilities": List[PlatformCapabilityType],
-        "eksProperties": "EksPropertiesDetailTypeDef",
-        "eksAttempts": List["EksAttemptDetailTypeDef"],
-        "ecsProperties": "EcsPropertiesDetailTypeDef",
-        "isCancelled": bool,
-        "isTerminated": bool,
-    },
-    total=False,
-)
-
-class JobDetailTypeDef(_RequiredJobDetailTypeDef, _OptionalJobDetailTypeDef):
-    pass
-
-_RequiredJobQueueDetailTypeDef = TypedDict(
-    "_RequiredJobQueueDetailTypeDef",
-    {
-        "jobQueueName": str,
-        "jobQueueArn": str,
-        "state": JQStateType,
-        "priority": int,
-        "computeEnvironmentOrder": List["ComputeEnvironmentOrderTypeDef"],
-    },
-)
-_OptionalJobQueueDetailTypeDef = TypedDict(
-    "_OptionalJobQueueDetailTypeDef",
-    {
-        "schedulingPolicyArn": str,
-        "status": JQStatusType,
-        "statusReason": str,
-        "tags": Dict[str, str],
-        "jobStateTimeLimitActions": List["JobStateTimeLimitActionTypeDef"],
-    },
-    total=False,
-)
-
-class JobQueueDetailTypeDef(_RequiredJobQueueDetailTypeDef, _OptionalJobQueueDetailTypeDef):
-    pass
-
-JobStateTimeLimitActionTypeDef = TypedDict(
-    "JobStateTimeLimitActionTypeDef",
-    {
-        "reason": str,
-        "state": Literal["RUNNABLE"],
-        "maxTimeSeconds": int,
-        "action": Literal["CANCEL"],
-    },
-)
-
-_RequiredJobSummaryTypeDef = TypedDict(
-    "_RequiredJobSummaryTypeDef",
-    {
-        "jobId": str,
-        "jobName": str,
-    },
-)
-_OptionalJobSummaryTypeDef = TypedDict(
-    "_OptionalJobSummaryTypeDef",
-    {
-        "jobArn": str,
-        "createdAt": int,
-        "status": JobStatusType,
-        "statusReason": str,
-        "startedAt": int,
-        "stoppedAt": int,
-        "container": "ContainerSummaryTypeDef",
-        "arrayProperties": "ArrayPropertiesSummaryTypeDef",
-        "nodeProperties": "NodePropertiesSummaryTypeDef",
-        "jobDefinition": str,
-    },
-    total=False,
-)
-
-class JobSummaryTypeDef(_RequiredJobSummaryTypeDef, _OptionalJobSummaryTypeDef):
-    pass
-
-JobTimeoutTypeDef = TypedDict(
-    "JobTimeoutTypeDef",
-    {
-        "attemptDurationSeconds": int,
-    },
-    total=False,
-)
-
-KeyValuePairTypeDef = TypedDict(
-    "KeyValuePairTypeDef",
-    {
-        "name": str,
-        "value": str,
-    },
-    total=False,
-)
-
-KeyValuesPairTypeDef = TypedDict(
-    "KeyValuesPairTypeDef",
-    {
-        "name": str,
-        "values": List[str],
-    },
-    total=False,
-)
-
-LaunchTemplateSpecificationTypeDef = TypedDict(
-    "LaunchTemplateSpecificationTypeDef",
-    {
-        "launchTemplateId": str,
-        "launchTemplateName": str,
-        "version": str,
-    },
-    total=False,
-)
-
-LinuxParametersTypeDef = TypedDict(
-    "LinuxParametersTypeDef",
-    {
-        "devices": List["DeviceTypeDef"],
-        "initProcessEnabled": bool,
-        "sharedMemorySize": int,
-        "tmpfs": List["TmpfsTypeDef"],
-        "maxSwap": int,
-        "swappiness": int,
-    },
-    total=False,
-)
-
-ListJobsRequestRequestTypeDef = TypedDict(
-    "ListJobsRequestRequestTypeDef",
-    {
-        "jobQueue": str,
-        "arrayJobId": str,
-        "multiNodeJobId": str,
-        "jobStatus": JobStatusType,
-        "maxResults": int,
-        "nextToken": str,
-        "filters": List["KeyValuesPairTypeDef"],
-    },
-    total=False,
-)
-
-ListJobsResponseTypeDef = TypedDict(
-    "ListJobsResponseTypeDef",
-    {
-        "jobSummaryList": List["JobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSchedulingPoliciesRequestRequestTypeDef = TypedDict(
-    "ListSchedulingPoliciesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSchedulingPoliciesResponseTypeDef = TypedDict(
-    "ListSchedulingPoliciesResponseTypeDef",
-    {
-        "schedulingPolicies": List["SchedulingPolicyListingDetailTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLogConfigurationTypeDef = TypedDict(
-    "_RequiredLogConfigurationTypeDef",
-    {
-        "logDriver": LogDriverType,
-    },
-)
-_OptionalLogConfigurationTypeDef = TypedDict(
-    "_OptionalLogConfigurationTypeDef",
-    {
-        "options": Dict[str, str],
-        "secretOptions": List["SecretTypeDef"],
-    },
-    total=False,
-)
-
-class LogConfigurationTypeDef(_RequiredLogConfigurationTypeDef, _OptionalLogConfigurationTypeDef):
-    pass
-
-MountPointTypeDef = TypedDict(
-    "MountPointTypeDef",
-    {
-        "containerPath": str,
-        "readOnly": bool,
-        "sourceVolume": str,
-    },
-    total=False,
-)
-
-NetworkConfigurationTypeDef = TypedDict(
-    "NetworkConfigurationTypeDef",
-    {
-        "assignPublicIp": AssignPublicIpType,
-    },
-    total=False,
-)
-
-NetworkInterfaceTypeDef = TypedDict(
-    "NetworkInterfaceTypeDef",
-    {
-        "attachmentId": str,
-        "ipv6Address": str,
-        "privateIpv4Address": str,
-    },
-    total=False,
-)
-
-NodeDetailsTypeDef = TypedDict(
-    "NodeDetailsTypeDef",
-    {
-        "nodeIndex": int,
-        "isMainNode": bool,
-    },
-    total=False,
-)
-
-NodeOverridesTypeDef = TypedDict(
-    "NodeOverridesTypeDef",
-    {
-        "numNodes": int,
-        "nodePropertyOverrides": List["NodePropertyOverrideTypeDef"],
-    },
-    total=False,
-)
-
-NodePropertiesSummaryTypeDef = TypedDict(
-    "NodePropertiesSummaryTypeDef",
-    {
-        "isMainNode": bool,
-        "numNodes": int,
-        "nodeIndex": int,
-    },
-    total=False,
-)
-
-NodePropertiesTypeDef = TypedDict(
-    "NodePropertiesTypeDef",
-    {
-        "numNodes": int,
-        "mainNode": int,
-        "nodeRangeProperties": List["NodeRangePropertyTypeDef"],
-    },
-)
-
-_RequiredNodePropertyOverrideTypeDef = TypedDict(
-    "_RequiredNodePropertyOverrideTypeDef",
-    {
-        "targetNodes": str,
-    },
-)
-_OptionalNodePropertyOverrideTypeDef = TypedDict(
-    "_OptionalNodePropertyOverrideTypeDef",
-    {
-        "containerOverrides": "ContainerOverridesTypeDef",
-        "ecsPropertiesOverride": "EcsPropertiesOverrideTypeDef",
-        "instanceTypes": List[str],
-    },
-    total=False,
-)
-
-class NodePropertyOverrideTypeDef(
-    _RequiredNodePropertyOverrideTypeDef, _OptionalNodePropertyOverrideTypeDef
-):
-    pass
-
-_RequiredNodeRangePropertyTypeDef = TypedDict(
-    "_RequiredNodeRangePropertyTypeDef",
-    {
-        "targetNodes": str,
-    },
-)
-_OptionalNodeRangePropertyTypeDef = TypedDict(
-    "_OptionalNodeRangePropertyTypeDef",
-    {
-        "container": "ContainerPropertiesTypeDef",
-        "instanceTypes": List[str],
-        "ecsProperties": "EcsPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class NodeRangePropertyTypeDef(
-    _RequiredNodeRangePropertyTypeDef, _OptionalNodeRangePropertyTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredRegisterJobDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredRegisterJobDefinitionRequestRequestTypeDef",
-    {
-        "jobDefinitionName": str,
-        "type": JobDefinitionTypeType,
-    },
-)
-_OptionalRegisterJobDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalRegisterJobDefinitionRequestRequestTypeDef",
-    {
-        "parameters": Dict[str, str],
-        "schedulingPriority": int,
-        "containerProperties": "ContainerPropertiesTypeDef",
-        "nodeProperties": "NodePropertiesTypeDef",
-        "retryStrategy": "RetryStrategyTypeDef",
-        "propagateTags": bool,
-        "timeout": "JobTimeoutTypeDef",
-        "tags": Dict[str, str],
-        "platformCapabilities": List[PlatformCapabilityType],
-        "eksProperties": "EksPropertiesTypeDef",
-        "ecsProperties": "EcsPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class RegisterJobDefinitionRequestRequestTypeDef(
-    _RequiredRegisterJobDefinitionRequestRequestTypeDef,
-    _OptionalRegisterJobDefinitionRequestRequestTypeDef,
-):
-    pass
-
-RegisterJobDefinitionResponseTypeDef = TypedDict(
-    "RegisterJobDefinitionResponseTypeDef",
-    {
-        "jobDefinitionName": str,
-        "jobDefinitionArn": str,
-        "revision": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RepositoryCredentialsTypeDef = TypedDict(
-    "RepositoryCredentialsTypeDef",
-    {
-        "credentialsParameter": str,
-    },
-)
+class ArrayPropertiesDetailTypeDef(TypedDict):
+    statusSummary: NotRequired[Dict[str, int]]
+    size: NotRequired[int]
+    index: NotRequired[int]
+
+class ArrayPropertiesSummaryTypeDef(TypedDict):
+    size: NotRequired[int]
+    index: NotRequired[int]
+
+class ArrayPropertiesTypeDef(TypedDict):
+    size: NotRequired[int]
+
+class NetworkInterfaceTypeDef(TypedDict):
+    attachmentId: NotRequired[str]
+    ipv6Address: NotRequired[str]
+    privateIpv4Address: NotRequired[str]
+
+class CancelJobRequestTypeDef(TypedDict):
+    jobId: str
+    reason: str
+
+class EksConfigurationTypeDef(TypedDict):
+    eksClusterArn: str
+    kubernetesNamespace: str
+
+class UpdatePolicyTypeDef(TypedDict):
+    terminateJobsOnUpdate: NotRequired[bool]
+    jobExecutionTimeoutMinutes: NotRequired[int]
+
+class ComputeEnvironmentOrderTypeDef(TypedDict):
+    order: int
+    computeEnvironment: str
+
+class Ec2ConfigurationTypeDef(TypedDict):
+    imageType: str
+    imageIdOverride: NotRequired[str]
+    imageKubernetesVersion: NotRequired[str]
+
+class ConsumableResourceRequirementTypeDef(TypedDict):
+    consumableResource: NotRequired[str]
+    quantity: NotRequired[int]
+
+class ConsumableResourceSummaryTypeDef(TypedDict):
+    consumableResourceArn: str
+    consumableResourceName: str
+    totalQuantity: NotRequired[int]
+    inUseQuantity: NotRequired[int]
+    resourceType: NotRequired[str]
+
+class EphemeralStorageTypeDef(TypedDict):
+    sizeInGiB: int
+
+class FargatePlatformConfigurationTypeDef(TypedDict):
+    platformVersion: NotRequired[str]
+
+class KeyValuePairTypeDef(TypedDict):
+    name: NotRequired[str]
+    value: NotRequired[str]
+
+class MountPointTypeDef(TypedDict):
+    containerPath: NotRequired[str]
+    readOnly: NotRequired[bool]
+    sourceVolume: NotRequired[str]
+
+class NetworkConfigurationTypeDef(TypedDict):
+    assignPublicIp: NotRequired[AssignPublicIpType]
+
+class RepositoryCredentialsTypeDef(TypedDict):
+    credentialsParameter: str
 
 ResourceRequirementTypeDef = TypedDict(
     "ResourceRequirementTypeDef",
@@ -1603,370 +328,1218 @@ ResourceRequirementTypeDef = TypedDict(
     },
 )
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
+class RuntimePlatformTypeDef(TypedDict):
+    operatingSystemFamily: NotRequired[str]
+    cpuArchitecture: NotRequired[str]
+
+class SecretTypeDef(TypedDict):
+    name: str
+    valueFrom: str
+
+class UlimitTypeDef(TypedDict):
+    hardLimit: int
+    name: str
+    softLimit: int
+
+class ContainerSummaryTypeDef(TypedDict):
+    exitCode: NotRequired[int]
+    reason: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateConsumableResourceRequestTypeDef(TypedDict):
+    consumableResourceName: str
+    totalQuantity: NotRequired[int]
+    resourceType: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class JobStateTimeLimitActionTypeDef(TypedDict):
+    reason: str
+    state: Literal["RUNNABLE"]
+    maxTimeSeconds: int
+    action: Literal["CANCEL"]
+
+class DeleteComputeEnvironmentRequestTypeDef(TypedDict):
+    computeEnvironment: str
+
+class DeleteConsumableResourceRequestTypeDef(TypedDict):
+    consumableResource: str
+
+class DeleteJobQueueRequestTypeDef(TypedDict):
+    jobQueue: str
+
+class DeleteSchedulingPolicyRequestTypeDef(TypedDict):
+    arn: str
+
+class DeregisterJobDefinitionRequestTypeDef(TypedDict):
+    jobDefinition: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeComputeEnvironmentsRequestTypeDef(TypedDict):
+    computeEnvironments: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class DescribeConsumableResourceRequestTypeDef(TypedDict):
+    consumableResource: str
+
+class DescribeJobDefinitionsRequestTypeDef(TypedDict):
+    jobDefinitions: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    jobDefinitionName: NotRequired[str]
+    status: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class DescribeJobQueuesRequestTypeDef(TypedDict):
+    jobQueues: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class DescribeJobsRequestTypeDef(TypedDict):
+    jobs: Sequence[str]
+
+class DescribeSchedulingPoliciesRequestTypeDef(TypedDict):
+    arns: Sequence[str]
+
+class DeviceOutputTypeDef(TypedDict):
+    hostPath: str
+    containerPath: NotRequired[str]
+    permissions: NotRequired[List[DeviceCgroupPermissionType]]
+
+class DeviceTypeDef(TypedDict):
+    hostPath: str
+    containerPath: NotRequired[str]
+    permissions: NotRequired[Sequence[DeviceCgroupPermissionType]]
+
+class EFSAuthorizationConfigTypeDef(TypedDict):
+    accessPointId: NotRequired[str]
+    iam: NotRequired[EFSAuthorizationConfigIAMType]
+
+class EksAttemptContainerDetailTypeDef(TypedDict):
+    name: NotRequired[str]
+    containerID: NotRequired[str]
+    exitCode: NotRequired[int]
+    reason: NotRequired[str]
+
+class EksContainerEnvironmentVariableTypeDef(TypedDict):
+    name: str
+    value: NotRequired[str]
+
+class EksContainerResourceRequirementsOutputTypeDef(TypedDict):
+    limits: NotRequired[Dict[str, str]]
+    requests: NotRequired[Dict[str, str]]
+
+class EksContainerSecurityContextTypeDef(TypedDict):
+    runAsUser: NotRequired[int]
+    runAsGroup: NotRequired[int]
+    privileged: NotRequired[bool]
+    allowPrivilegeEscalation: NotRequired[bool]
+    readOnlyRootFilesystem: NotRequired[bool]
+    runAsNonRoot: NotRequired[bool]
+
+class EksContainerVolumeMountTypeDef(TypedDict):
+    name: NotRequired[str]
+    mountPath: NotRequired[str]
+    subPath: NotRequired[str]
+    readOnly: NotRequired[bool]
+
+class EksContainerResourceRequirementsTypeDef(TypedDict):
+    limits: NotRequired[Mapping[str, str]]
+    requests: NotRequired[Mapping[str, str]]
+
+class EksEmptyDirTypeDef(TypedDict):
+    medium: NotRequired[str]
+    sizeLimit: NotRequired[str]
+
+class EksHostPathTypeDef(TypedDict):
+    path: NotRequired[str]
+
+class EksMetadataOutputTypeDef(TypedDict):
+    labels: NotRequired[Dict[str, str]]
+    annotations: NotRequired[Dict[str, str]]
+    namespace: NotRequired[str]
+
+class EksMetadataTypeDef(TypedDict):
+    labels: NotRequired[Mapping[str, str]]
+    annotations: NotRequired[Mapping[str, str]]
+    namespace: NotRequired[str]
+
+class EksPersistentVolumeClaimTypeDef(TypedDict):
+    claimName: str
+    readOnly: NotRequired[bool]
+
+class ImagePullSecretTypeDef(TypedDict):
+    name: str
+
+class EksSecretTypeDef(TypedDict):
+    secretName: str
+    optional: NotRequired[bool]
+
+class EvaluateOnExitTypeDef(TypedDict):
+    action: RetryActionType
+    onStatusReason: NotRequired[str]
+    onReason: NotRequired[str]
+    onExitCode: NotRequired[str]
+
+class ShareAttributesTypeDef(TypedDict):
+    shareIdentifier: str
+    weightFactor: NotRequired[float]
+
+FirelensConfigurationOutputTypeDef = TypedDict(
+    "FirelensConfigurationOutputTypeDef",
     {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "type": FirelensConfigurationTypeType,
+        "options": NotRequired[Dict[str, str]],
+    },
+)
+FirelensConfigurationTypeDef = TypedDict(
+    "FirelensConfigurationTypeDef",
+    {
+        "type": FirelensConfigurationTypeType,
+        "options": NotRequired[Mapping[str, str]],
     },
 )
 
-RetryStrategyTypeDef = TypedDict(
-    "RetryStrategyTypeDef",
-    {
-        "attempts": int,
-        "evaluateOnExit": List["EvaluateOnExitTypeDef"],
-    },
-    total=False,
-)
+class FrontOfQueueJobSummaryTypeDef(TypedDict):
+    jobArn: NotRequired[str]
+    earliestTimeAtPosition: NotRequired[int]
 
-RuntimePlatformTypeDef = TypedDict(
-    "RuntimePlatformTypeDef",
-    {
-        "operatingSystemFamily": str,
-        "cpuArchitecture": str,
-    },
-    total=False,
-)
+class GetJobQueueSnapshotRequestTypeDef(TypedDict):
+    jobQueue: str
 
-_RequiredSchedulingPolicyDetailTypeDef = TypedDict(
-    "_RequiredSchedulingPolicyDetailTypeDef",
-    {
-        "name": str,
-        "arn": str,
-    },
-)
-_OptionalSchedulingPolicyDetailTypeDef = TypedDict(
-    "_OptionalSchedulingPolicyDetailTypeDef",
-    {
-        "fairsharePolicy": "FairsharePolicyTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class HostTypeDef(TypedDict):
+    sourcePath: NotRequired[str]
 
-class SchedulingPolicyDetailTypeDef(
-    _RequiredSchedulingPolicyDetailTypeDef, _OptionalSchedulingPolicyDetailTypeDef
-):
-    pass
+class JobTimeoutTypeDef(TypedDict):
+    attemptDurationSeconds: NotRequired[int]
 
-SchedulingPolicyListingDetailTypeDef = TypedDict(
-    "SchedulingPolicyListingDetailTypeDef",
+JobDependencyTypeDef = TypedDict(
+    "JobDependencyTypeDef",
     {
-        "arn": str,
+        "jobId": NotRequired[str],
+        "type": NotRequired[ArrayJobDependencyType],
     },
 )
 
-SecretTypeDef = TypedDict(
-    "SecretTypeDef",
+class NodeDetailsTypeDef(TypedDict):
+    nodeIndex: NotRequired[int]
+    isMainNode: NotRequired[bool]
+
+class NodePropertiesSummaryTypeDef(TypedDict):
+    isMainNode: NotRequired[bool]
+    numNodes: NotRequired[int]
+    nodeIndex: NotRequired[int]
+
+class KeyValuesPairTypeDef(TypedDict):
+    name: NotRequired[str]
+    values: NotRequired[Sequence[str]]
+
+class LaunchTemplateSpecificationOverrideOutputTypeDef(TypedDict):
+    launchTemplateId: NotRequired[str]
+    launchTemplateName: NotRequired[str]
+    version: NotRequired[str]
+    targetInstanceTypes: NotRequired[List[str]]
+
+class LaunchTemplateSpecificationOverrideTypeDef(TypedDict):
+    launchTemplateId: NotRequired[str]
+    launchTemplateName: NotRequired[str]
+    version: NotRequired[str]
+    targetInstanceTypes: NotRequired[Sequence[str]]
+
+class TmpfsOutputTypeDef(TypedDict):
+    containerPath: str
+    size: int
+    mountOptions: NotRequired[List[str]]
+
+class TmpfsTypeDef(TypedDict):
+    containerPath: str
+    size: int
+    mountOptions: NotRequired[Sequence[str]]
+
+class ListSchedulingPoliciesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class SchedulingPolicyListingDetailTypeDef(TypedDict):
+    arn: str
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class TaskContainerDependencyTypeDef(TypedDict):
+    containerName: NotRequired[str]
+    condition: NotRequired[str]
+
+class TerminateJobRequestTypeDef(TypedDict):
+    jobId: str
+    reason: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateConsumableResourceRequestTypeDef(TypedDict):
+    consumableResource: str
+    operation: NotRequired[str]
+    quantity: NotRequired[int]
+    clientToken: NotRequired[str]
+
+class AttemptContainerDetailTypeDef(TypedDict):
+    containerInstanceArn: NotRequired[str]
+    taskArn: NotRequired[str]
+    exitCode: NotRequired[int]
+    reason: NotRequired[str]
+    logStreamName: NotRequired[str]
+    networkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
+
+class AttemptTaskContainerDetailsTypeDef(TypedDict):
+    exitCode: NotRequired[int]
+    name: NotRequired[str]
+    reason: NotRequired[str]
+    logStreamName: NotRequired[str]
+    networkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
+
+class ConsumableResourcePropertiesOutputTypeDef(TypedDict):
+    consumableResourceList: NotRequired[List[ConsumableResourceRequirementTypeDef]]
+
+class ConsumableResourcePropertiesTypeDef(TypedDict):
+    consumableResourceList: NotRequired[Sequence[ConsumableResourceRequirementTypeDef]]
+
+class ContainerOverridesTypeDef(TypedDict):
+    vcpus: NotRequired[int]
+    memory: NotRequired[int]
+    command: NotRequired[Sequence[str]]
+    instanceType: NotRequired[str]
+    environment: NotRequired[Sequence[KeyValuePairTypeDef]]
+    resourceRequirements: NotRequired[Sequence[ResourceRequirementTypeDef]]
+
+class TaskContainerOverridesTypeDef(TypedDict):
+    command: NotRequired[Sequence[str]]
+    environment: NotRequired[Sequence[KeyValuePairTypeDef]]
+    name: NotRequired[str]
+    resourceRequirements: NotRequired[Sequence[ResourceRequirementTypeDef]]
+
+class LogConfigurationOutputTypeDef(TypedDict):
+    logDriver: LogDriverType
+    options: NotRequired[Dict[str, str]]
+    secretOptions: NotRequired[List[SecretTypeDef]]
+
+class LogConfigurationTypeDef(TypedDict):
+    logDriver: LogDriverType
+    options: NotRequired[Mapping[str, str]]
+    secretOptions: NotRequired[Sequence[SecretTypeDef]]
+
+class CreateComputeEnvironmentResponseTypeDef(TypedDict):
+    computeEnvironmentName: str
+    computeEnvironmentArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateConsumableResourceResponseTypeDef(TypedDict):
+    consumableResourceName: str
+    consumableResourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateJobQueueResponseTypeDef(TypedDict):
+    jobQueueName: str
+    jobQueueArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSchedulingPolicyResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeConsumableResourceResponseTypeDef(TypedDict):
+    consumableResourceName: str
+    consumableResourceArn: str
+    totalQuantity: int
+    inUseQuantity: int
+    availableQuantity: int
+    resourceType: str
+    createdAt: int
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListConsumableResourcesResponseTypeDef(TypedDict):
+    consumableResources: List[ConsumableResourceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterJobDefinitionResponseTypeDef(TypedDict):
+    jobDefinitionName: str
+    jobDefinitionArn: str
+    revision: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SubmitJobResponseTypeDef(TypedDict):
+    jobArn: str
+    jobName: str
+    jobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateComputeEnvironmentResponseTypeDef(TypedDict):
+    computeEnvironmentName: str
+    computeEnvironmentArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateConsumableResourceResponseTypeDef(TypedDict):
+    consumableResourceName: str
+    consumableResourceArn: str
+    totalQuantity: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateJobQueueResponseTypeDef(TypedDict):
+    jobQueueName: str
+    jobQueueArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateJobQueueRequestTypeDef(TypedDict):
+    jobQueueName: str
+    priority: int
+    computeEnvironmentOrder: Sequence[ComputeEnvironmentOrderTypeDef]
+    state: NotRequired[JQStateType]
+    schedulingPolicyArn: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    jobStateTimeLimitActions: NotRequired[Sequence[JobStateTimeLimitActionTypeDef]]
+
+class JobQueueDetailTypeDef(TypedDict):
+    jobQueueName: str
+    jobQueueArn: str
+    state: JQStateType
+    priority: int
+    computeEnvironmentOrder: List[ComputeEnvironmentOrderTypeDef]
+    schedulingPolicyArn: NotRequired[str]
+    status: NotRequired[JQStatusType]
+    statusReason: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    jobStateTimeLimitActions: NotRequired[List[JobStateTimeLimitActionTypeDef]]
+
+class UpdateJobQueueRequestTypeDef(TypedDict):
+    jobQueue: str
+    state: NotRequired[JQStateType]
+    schedulingPolicyArn: NotRequired[str]
+    priority: NotRequired[int]
+    computeEnvironmentOrder: NotRequired[Sequence[ComputeEnvironmentOrderTypeDef]]
+    jobStateTimeLimitActions: NotRequired[Sequence[JobStateTimeLimitActionTypeDef]]
+
+class DescribeComputeEnvironmentsRequestPaginateTypeDef(TypedDict):
+    computeEnvironments: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeJobDefinitionsRequestPaginateTypeDef(TypedDict):
+    jobDefinitions: NotRequired[Sequence[str]]
+    jobDefinitionName: NotRequired[str]
+    status: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeJobQueuesRequestPaginateTypeDef(TypedDict):
+    jobQueues: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSchedulingPoliciesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class EFSVolumeConfigurationTypeDef(TypedDict):
+    fileSystemId: str
+    rootDirectory: NotRequired[str]
+    transitEncryption: NotRequired[EFSTransitEncryptionType]
+    transitEncryptionPort: NotRequired[int]
+    authorizationConfig: NotRequired[EFSAuthorizationConfigTypeDef]
+
+class EksAttemptDetailTypeDef(TypedDict):
+    containers: NotRequired[List[EksAttemptContainerDetailTypeDef]]
+    initContainers: NotRequired[List[EksAttemptContainerDetailTypeDef]]
+    eksClusterArn: NotRequired[str]
+    podName: NotRequired[str]
+    podNamespace: NotRequired[str]
+    nodeName: NotRequired[str]
+    startedAt: NotRequired[int]
+    stoppedAt: NotRequired[int]
+    statusReason: NotRequired[str]
+
+class EksContainerDetailTypeDef(TypedDict):
+    name: NotRequired[str]
+    image: NotRequired[str]
+    imagePullPolicy: NotRequired[str]
+    command: NotRequired[List[str]]
+    args: NotRequired[List[str]]
+    env: NotRequired[List[EksContainerEnvironmentVariableTypeDef]]
+    resources: NotRequired[EksContainerResourceRequirementsOutputTypeDef]
+    exitCode: NotRequired[int]
+    reason: NotRequired[str]
+    volumeMounts: NotRequired[List[EksContainerVolumeMountTypeDef]]
+    securityContext: NotRequired[EksContainerSecurityContextTypeDef]
+
+class EksContainerOutputTypeDef(TypedDict):
+    image: str
+    name: NotRequired[str]
+    imagePullPolicy: NotRequired[str]
+    command: NotRequired[List[str]]
+    args: NotRequired[List[str]]
+    env: NotRequired[List[EksContainerEnvironmentVariableTypeDef]]
+    resources: NotRequired[EksContainerResourceRequirementsOutputTypeDef]
+    volumeMounts: NotRequired[List[EksContainerVolumeMountTypeDef]]
+    securityContext: NotRequired[EksContainerSecurityContextTypeDef]
+
+EksContainerResourceRequirementsUnionTypeDef = Union[
+    EksContainerResourceRequirementsTypeDef, EksContainerResourceRequirementsOutputTypeDef
+]
+
+class EksContainerTypeDef(TypedDict):
+    image: str
+    name: NotRequired[str]
+    imagePullPolicy: NotRequired[str]
+    command: NotRequired[Sequence[str]]
+    args: NotRequired[Sequence[str]]
+    env: NotRequired[Sequence[EksContainerEnvironmentVariableTypeDef]]
+    resources: NotRequired[EksContainerResourceRequirementsTypeDef]
+    volumeMounts: NotRequired[Sequence[EksContainerVolumeMountTypeDef]]
+    securityContext: NotRequired[EksContainerSecurityContextTypeDef]
+
+EksMetadataUnionTypeDef = Union[EksMetadataTypeDef, EksMetadataOutputTypeDef]
+
+class EksVolumeTypeDef(TypedDict):
+    name: str
+    hostPath: NotRequired[EksHostPathTypeDef]
+    emptyDir: NotRequired[EksEmptyDirTypeDef]
+    secret: NotRequired[EksSecretTypeDef]
+    persistentVolumeClaim: NotRequired[EksPersistentVolumeClaimTypeDef]
+
+class RetryStrategyOutputTypeDef(TypedDict):
+    attempts: NotRequired[int]
+    evaluateOnExit: NotRequired[List[EvaluateOnExitTypeDef]]
+
+class RetryStrategyTypeDef(TypedDict):
+    attempts: NotRequired[int]
+    evaluateOnExit: NotRequired[Sequence[EvaluateOnExitTypeDef]]
+
+class FairsharePolicyOutputTypeDef(TypedDict):
+    shareDecaySeconds: NotRequired[int]
+    computeReservation: NotRequired[int]
+    shareDistribution: NotRequired[List[ShareAttributesTypeDef]]
+
+class FairsharePolicyTypeDef(TypedDict):
+    shareDecaySeconds: NotRequired[int]
+    computeReservation: NotRequired[int]
+    shareDistribution: NotRequired[Sequence[ShareAttributesTypeDef]]
+
+class FrontOfQueueDetailTypeDef(TypedDict):
+    jobs: NotRequired[List[FrontOfQueueJobSummaryTypeDef]]
+    lastUpdatedAt: NotRequired[int]
+
+class JobSummaryTypeDef(TypedDict):
+    jobId: str
+    jobName: str
+    jobArn: NotRequired[str]
+    createdAt: NotRequired[int]
+    status: NotRequired[JobStatusType]
+    statusReason: NotRequired[str]
+    startedAt: NotRequired[int]
+    stoppedAt: NotRequired[int]
+    container: NotRequired[ContainerSummaryTypeDef]
+    arrayProperties: NotRequired[ArrayPropertiesSummaryTypeDef]
+    nodeProperties: NotRequired[NodePropertiesSummaryTypeDef]
+    jobDefinition: NotRequired[str]
+
+class ListConsumableResourcesRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[KeyValuesPairTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConsumableResourcesRequestTypeDef(TypedDict):
+    filters: NotRequired[Sequence[KeyValuesPairTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListJobsByConsumableResourceRequestPaginateTypeDef(TypedDict):
+    consumableResource: str
+    filters: NotRequired[Sequence[KeyValuesPairTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobsByConsumableResourceRequestTypeDef(TypedDict):
+    consumableResource: str
+    filters: NotRequired[Sequence[KeyValuesPairTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListJobsRequestPaginateTypeDef(TypedDict):
+    jobQueue: NotRequired[str]
+    arrayJobId: NotRequired[str]
+    multiNodeJobId: NotRequired[str]
+    jobStatus: NotRequired[JobStatusType]
+    filters: NotRequired[Sequence[KeyValuesPairTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobsRequestTypeDef(TypedDict):
+    jobQueue: NotRequired[str]
+    arrayJobId: NotRequired[str]
+    multiNodeJobId: NotRequired[str]
+    jobStatus: NotRequired[JobStatusType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    filters: NotRequired[Sequence[KeyValuesPairTypeDef]]
+
+class LaunchTemplateSpecificationOutputTypeDef(TypedDict):
+    launchTemplateId: NotRequired[str]
+    launchTemplateName: NotRequired[str]
+    version: NotRequired[str]
+    overrides: NotRequired[List[LaunchTemplateSpecificationOverrideOutputTypeDef]]
+
+LaunchTemplateSpecificationOverrideUnionTypeDef = Union[
+    LaunchTemplateSpecificationOverrideTypeDef, LaunchTemplateSpecificationOverrideOutputTypeDef
+]
+
+class LinuxParametersOutputTypeDef(TypedDict):
+    devices: NotRequired[List[DeviceOutputTypeDef]]
+    initProcessEnabled: NotRequired[bool]
+    sharedMemorySize: NotRequired[int]
+    tmpfs: NotRequired[List[TmpfsOutputTypeDef]]
+    maxSwap: NotRequired[int]
+    swappiness: NotRequired[int]
+
+class LinuxParametersTypeDef(TypedDict):
+    devices: NotRequired[Sequence[DeviceTypeDef]]
+    initProcessEnabled: NotRequired[bool]
+    sharedMemorySize: NotRequired[int]
+    tmpfs: NotRequired[Sequence[TmpfsTypeDef]]
+    maxSwap: NotRequired[int]
+    swappiness: NotRequired[int]
+
+class ListSchedulingPoliciesResponseTypeDef(TypedDict):
+    schedulingPolicies: List[SchedulingPolicyListingDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AttemptEcsTaskDetailsTypeDef(TypedDict):
+    containerInstanceArn: NotRequired[str]
+    taskArn: NotRequired[str]
+    containers: NotRequired[List[AttemptTaskContainerDetailsTypeDef]]
+
+class ListJobsByConsumableResourceSummaryTypeDef(TypedDict):
+    jobArn: str
+    jobQueueArn: str
+    jobName: str
+    jobStatus: str
+    quantity: int
+    createdAt: int
+    consumableResourceProperties: ConsumableResourcePropertiesOutputTypeDef
+    jobDefinitionArn: NotRequired[str]
+    shareIdentifier: NotRequired[str]
+    statusReason: NotRequired[str]
+    startedAt: NotRequired[int]
+
+ConsumableResourcePropertiesUnionTypeDef = Union[
+    ConsumableResourcePropertiesTypeDef, ConsumableResourcePropertiesOutputTypeDef
+]
+
+class TaskPropertiesOverrideTypeDef(TypedDict):
+    containers: NotRequired[Sequence[TaskContainerOverridesTypeDef]]
+
+class DescribeJobQueuesResponseTypeDef(TypedDict):
+    jobQueues: List[JobQueueDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class VolumeTypeDef(TypedDict):
+    host: NotRequired[HostTypeDef]
+    name: NotRequired[str]
+    efsVolumeConfiguration: NotRequired[EFSVolumeConfigurationTypeDef]
+
+class EksContainerOverrideTypeDef(TypedDict):
+    name: NotRequired[str]
+    image: NotRequired[str]
+    command: NotRequired[Sequence[str]]
+    args: NotRequired[Sequence[str]]
+    env: NotRequired[Sequence[EksContainerEnvironmentVariableTypeDef]]
+    resources: NotRequired[EksContainerResourceRequirementsUnionTypeDef]
+
+class EksPodPropertiesDetailTypeDef(TypedDict):
+    serviceAccountName: NotRequired[str]
+    hostNetwork: NotRequired[bool]
+    dnsPolicy: NotRequired[str]
+    imagePullSecrets: NotRequired[List[ImagePullSecretTypeDef]]
+    containers: NotRequired[List[EksContainerDetailTypeDef]]
+    initContainers: NotRequired[List[EksContainerDetailTypeDef]]
+    volumes: NotRequired[List[EksVolumeTypeDef]]
+    podName: NotRequired[str]
+    nodeName: NotRequired[str]
+    metadata: NotRequired[EksMetadataOutputTypeDef]
+    shareProcessNamespace: NotRequired[bool]
+
+class EksPodPropertiesOutputTypeDef(TypedDict):
+    serviceAccountName: NotRequired[str]
+    hostNetwork: NotRequired[bool]
+    dnsPolicy: NotRequired[str]
+    imagePullSecrets: NotRequired[List[ImagePullSecretTypeDef]]
+    containers: NotRequired[List[EksContainerOutputTypeDef]]
+    initContainers: NotRequired[List[EksContainerOutputTypeDef]]
+    volumes: NotRequired[List[EksVolumeTypeDef]]
+    metadata: NotRequired[EksMetadataOutputTypeDef]
+    shareProcessNamespace: NotRequired[bool]
+
+class EksPodPropertiesTypeDef(TypedDict):
+    serviceAccountName: NotRequired[str]
+    hostNetwork: NotRequired[bool]
+    dnsPolicy: NotRequired[str]
+    imagePullSecrets: NotRequired[Sequence[ImagePullSecretTypeDef]]
+    containers: NotRequired[Sequence[EksContainerTypeDef]]
+    initContainers: NotRequired[Sequence[EksContainerTypeDef]]
+    volumes: NotRequired[Sequence[EksVolumeTypeDef]]
+    metadata: NotRequired[EksMetadataTypeDef]
+    shareProcessNamespace: NotRequired[bool]
+
+RetryStrategyUnionTypeDef = Union[RetryStrategyTypeDef, RetryStrategyOutputTypeDef]
+
+class SchedulingPolicyDetailTypeDef(TypedDict):
+    name: str
+    arn: str
+    fairsharePolicy: NotRequired[FairsharePolicyOutputTypeDef]
+    tags: NotRequired[Dict[str, str]]
+
+FairsharePolicyUnionTypeDef = Union[FairsharePolicyTypeDef, FairsharePolicyOutputTypeDef]
+
+class GetJobQueueSnapshotResponseTypeDef(TypedDict):
+    frontOfQueue: FrontOfQueueDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListJobsResponseTypeDef(TypedDict):
+    jobSummaryList: List[JobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ComputeResourceOutputTypeDef = TypedDict(
+    "ComputeResourceOutputTypeDef",
     {
-        "name": str,
-        "valueFrom": str,
+        "type": CRTypeType,
+        "maxvCpus": int,
+        "subnets": List[str],
+        "allocationStrategy": NotRequired[CRAllocationStrategyType],
+        "minvCpus": NotRequired[int],
+        "desiredvCpus": NotRequired[int],
+        "instanceTypes": NotRequired[List[str]],
+        "imageId": NotRequired[str],
+        "securityGroupIds": NotRequired[List[str]],
+        "ec2KeyPair": NotRequired[str],
+        "instanceRole": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+        "placementGroup": NotRequired[str],
+        "bidPercentage": NotRequired[int],
+        "spotIamFleetRole": NotRequired[str],
+        "launchTemplate": NotRequired[LaunchTemplateSpecificationOutputTypeDef],
+        "ec2Configuration": NotRequired[List[Ec2ConfigurationTypeDef]],
     },
 )
 
-_RequiredShareAttributesTypeDef = TypedDict(
-    "_RequiredShareAttributesTypeDef",
-    {
-        "shareIdentifier": str,
-    },
-)
-_OptionalShareAttributesTypeDef = TypedDict(
-    "_OptionalShareAttributesTypeDef",
-    {
-        "weightFactor": float,
-    },
-    total=False,
-)
+class LaunchTemplateSpecificationTypeDef(TypedDict):
+    launchTemplateId: NotRequired[str]
+    launchTemplateName: NotRequired[str]
+    version: NotRequired[str]
+    overrides: NotRequired[Sequence[LaunchTemplateSpecificationOverrideUnionTypeDef]]
 
-class ShareAttributesTypeDef(_RequiredShareAttributesTypeDef, _OptionalShareAttributesTypeDef):
-    pass
+class TaskContainerDetailsTypeDef(TypedDict):
+    command: NotRequired[List[str]]
+    dependsOn: NotRequired[List[TaskContainerDependencyTypeDef]]
+    environment: NotRequired[List[KeyValuePairTypeDef]]
+    essential: NotRequired[bool]
+    firelensConfiguration: NotRequired[FirelensConfigurationOutputTypeDef]
+    image: NotRequired[str]
+    linuxParameters: NotRequired[LinuxParametersOutputTypeDef]
+    logConfiguration: NotRequired[LogConfigurationOutputTypeDef]
+    mountPoints: NotRequired[List[MountPointTypeDef]]
+    name: NotRequired[str]
+    privileged: NotRequired[bool]
+    readonlyRootFilesystem: NotRequired[bool]
+    repositoryCredentials: NotRequired[RepositoryCredentialsTypeDef]
+    resourceRequirements: NotRequired[List[ResourceRequirementTypeDef]]
+    secrets: NotRequired[List[SecretTypeDef]]
+    ulimits: NotRequired[List[UlimitTypeDef]]
+    user: NotRequired[str]
+    exitCode: NotRequired[int]
+    reason: NotRequired[str]
+    logStreamName: NotRequired[str]
+    networkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
 
-_RequiredSubmitJobRequestRequestTypeDef = TypedDict(
-    "_RequiredSubmitJobRequestRequestTypeDef",
-    {
-        "jobName": str,
-        "jobQueue": str,
-        "jobDefinition": str,
-    },
-)
-_OptionalSubmitJobRequestRequestTypeDef = TypedDict(
-    "_OptionalSubmitJobRequestRequestTypeDef",
-    {
-        "shareIdentifier": str,
-        "schedulingPriorityOverride": int,
-        "arrayProperties": "ArrayPropertiesTypeDef",
-        "dependsOn": List["JobDependencyTypeDef"],
-        "parameters": Dict[str, str],
-        "containerOverrides": "ContainerOverridesTypeDef",
-        "nodeOverrides": "NodeOverridesTypeDef",
-        "retryStrategy": "RetryStrategyTypeDef",
-        "propagateTags": bool,
-        "timeout": "JobTimeoutTypeDef",
-        "tags": Dict[str, str],
-        "eksPropertiesOverride": "EksPropertiesOverrideTypeDef",
-        "ecsPropertiesOverride": "EcsPropertiesOverrideTypeDef",
-    },
-    total=False,
-)
+class TaskContainerPropertiesOutputTypeDef(TypedDict):
+    image: str
+    command: NotRequired[List[str]]
+    dependsOn: NotRequired[List[TaskContainerDependencyTypeDef]]
+    environment: NotRequired[List[KeyValuePairTypeDef]]
+    essential: NotRequired[bool]
+    firelensConfiguration: NotRequired[FirelensConfigurationOutputTypeDef]
+    linuxParameters: NotRequired[LinuxParametersOutputTypeDef]
+    logConfiguration: NotRequired[LogConfigurationOutputTypeDef]
+    mountPoints: NotRequired[List[MountPointTypeDef]]
+    name: NotRequired[str]
+    privileged: NotRequired[bool]
+    readonlyRootFilesystem: NotRequired[bool]
+    repositoryCredentials: NotRequired[RepositoryCredentialsTypeDef]
+    resourceRequirements: NotRequired[List[ResourceRequirementTypeDef]]
+    secrets: NotRequired[List[SecretTypeDef]]
+    ulimits: NotRequired[List[UlimitTypeDef]]
+    user: NotRequired[str]
 
-class SubmitJobRequestRequestTypeDef(
-    _RequiredSubmitJobRequestRequestTypeDef, _OptionalSubmitJobRequestRequestTypeDef
-):
-    pass
+class TaskContainerPropertiesTypeDef(TypedDict):
+    image: str
+    command: NotRequired[Sequence[str]]
+    dependsOn: NotRequired[Sequence[TaskContainerDependencyTypeDef]]
+    environment: NotRequired[Sequence[KeyValuePairTypeDef]]
+    essential: NotRequired[bool]
+    firelensConfiguration: NotRequired[FirelensConfigurationTypeDef]
+    linuxParameters: NotRequired[LinuxParametersTypeDef]
+    logConfiguration: NotRequired[LogConfigurationTypeDef]
+    mountPoints: NotRequired[Sequence[MountPointTypeDef]]
+    name: NotRequired[str]
+    privileged: NotRequired[bool]
+    readonlyRootFilesystem: NotRequired[bool]
+    repositoryCredentials: NotRequired[RepositoryCredentialsTypeDef]
+    resourceRequirements: NotRequired[Sequence[ResourceRequirementTypeDef]]
+    secrets: NotRequired[Sequence[SecretTypeDef]]
+    ulimits: NotRequired[Sequence[UlimitTypeDef]]
+    user: NotRequired[str]
 
-SubmitJobResponseTypeDef = TypedDict(
-    "SubmitJobResponseTypeDef",
-    {
-        "jobArn": str,
-        "jobName": str,
-        "jobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AttemptDetailTypeDef(TypedDict):
+    container: NotRequired[AttemptContainerDetailTypeDef]
+    startedAt: NotRequired[int]
+    stoppedAt: NotRequired[int]
+    statusReason: NotRequired[str]
+    taskProperties: NotRequired[List[AttemptEcsTaskDetailsTypeDef]]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class ListJobsByConsumableResourceResponseTypeDef(TypedDict):
+    jobs: List[ListJobsByConsumableResourceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-TaskContainerDependencyTypeDef = TypedDict(
-    "TaskContainerDependencyTypeDef",
-    {
-        "containerName": str,
-        "condition": str,
-    },
-    total=False,
-)
+class EcsPropertiesOverrideTypeDef(TypedDict):
+    taskProperties: NotRequired[Sequence[TaskPropertiesOverrideTypeDef]]
 
-TaskContainerDetailsTypeDef = TypedDict(
-    "TaskContainerDetailsTypeDef",
-    {
-        "command": List[str],
-        "dependsOn": List["TaskContainerDependencyTypeDef"],
-        "environment": List["KeyValuePairTypeDef"],
-        "essential": bool,
-        "image": str,
-        "linuxParameters": "LinuxParametersTypeDef",
-        "logConfiguration": "LogConfigurationTypeDef",
-        "mountPoints": List["MountPointTypeDef"],
-        "name": str,
-        "privileged": bool,
-        "readonlyRootFilesystem": bool,
-        "repositoryCredentials": "RepositoryCredentialsTypeDef",
-        "resourceRequirements": List["ResourceRequirementTypeDef"],
-        "secrets": List["SecretTypeDef"],
-        "ulimits": List["UlimitTypeDef"],
-        "user": str,
-        "exitCode": int,
-        "reason": str,
-        "logStreamName": str,
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-    },
-    total=False,
-)
+class ContainerDetailTypeDef(TypedDict):
+    image: NotRequired[str]
+    vcpus: NotRequired[int]
+    memory: NotRequired[int]
+    command: NotRequired[List[str]]
+    jobRoleArn: NotRequired[str]
+    executionRoleArn: NotRequired[str]
+    volumes: NotRequired[List[VolumeTypeDef]]
+    environment: NotRequired[List[KeyValuePairTypeDef]]
+    mountPoints: NotRequired[List[MountPointTypeDef]]
+    readonlyRootFilesystem: NotRequired[bool]
+    ulimits: NotRequired[List[UlimitTypeDef]]
+    privileged: NotRequired[bool]
+    user: NotRequired[str]
+    exitCode: NotRequired[int]
+    reason: NotRequired[str]
+    containerInstanceArn: NotRequired[str]
+    taskArn: NotRequired[str]
+    logStreamName: NotRequired[str]
+    instanceType: NotRequired[str]
+    networkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
+    resourceRequirements: NotRequired[List[ResourceRequirementTypeDef]]
+    linuxParameters: NotRequired[LinuxParametersOutputTypeDef]
+    logConfiguration: NotRequired[LogConfigurationOutputTypeDef]
+    secrets: NotRequired[List[SecretTypeDef]]
+    networkConfiguration: NotRequired[NetworkConfigurationTypeDef]
+    fargatePlatformConfiguration: NotRequired[FargatePlatformConfigurationTypeDef]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    runtimePlatform: NotRequired[RuntimePlatformTypeDef]
+    repositoryCredentials: NotRequired[RepositoryCredentialsTypeDef]
+    enableExecuteCommand: NotRequired[bool]
 
-TaskContainerOverridesTypeDef = TypedDict(
-    "TaskContainerOverridesTypeDef",
-    {
-        "command": List[str],
-        "environment": List["KeyValuePairTypeDef"],
-        "name": str,
-        "resourceRequirements": List["ResourceRequirementTypeDef"],
-    },
-    total=False,
-)
+class ContainerPropertiesOutputTypeDef(TypedDict):
+    image: NotRequired[str]
+    vcpus: NotRequired[int]
+    memory: NotRequired[int]
+    command: NotRequired[List[str]]
+    jobRoleArn: NotRequired[str]
+    executionRoleArn: NotRequired[str]
+    volumes: NotRequired[List[VolumeTypeDef]]
+    environment: NotRequired[List[KeyValuePairTypeDef]]
+    mountPoints: NotRequired[List[MountPointTypeDef]]
+    readonlyRootFilesystem: NotRequired[bool]
+    privileged: NotRequired[bool]
+    ulimits: NotRequired[List[UlimitTypeDef]]
+    user: NotRequired[str]
+    instanceType: NotRequired[str]
+    resourceRequirements: NotRequired[List[ResourceRequirementTypeDef]]
+    linuxParameters: NotRequired[LinuxParametersOutputTypeDef]
+    logConfiguration: NotRequired[LogConfigurationOutputTypeDef]
+    secrets: NotRequired[List[SecretTypeDef]]
+    networkConfiguration: NotRequired[NetworkConfigurationTypeDef]
+    fargatePlatformConfiguration: NotRequired[FargatePlatformConfigurationTypeDef]
+    enableExecuteCommand: NotRequired[bool]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    runtimePlatform: NotRequired[RuntimePlatformTypeDef]
+    repositoryCredentials: NotRequired[RepositoryCredentialsTypeDef]
 
-_RequiredTaskContainerPropertiesTypeDef = TypedDict(
-    "_RequiredTaskContainerPropertiesTypeDef",
-    {
-        "image": str,
-    },
-)
-_OptionalTaskContainerPropertiesTypeDef = TypedDict(
-    "_OptionalTaskContainerPropertiesTypeDef",
-    {
-        "command": List[str],
-        "dependsOn": List["TaskContainerDependencyTypeDef"],
-        "environment": List["KeyValuePairTypeDef"],
-        "essential": bool,
-        "linuxParameters": "LinuxParametersTypeDef",
-        "logConfiguration": "LogConfigurationTypeDef",
-        "mountPoints": List["MountPointTypeDef"],
-        "name": str,
-        "privileged": bool,
-        "readonlyRootFilesystem": bool,
-        "repositoryCredentials": "RepositoryCredentialsTypeDef",
-        "resourceRequirements": List["ResourceRequirementTypeDef"],
-        "secrets": List["SecretTypeDef"],
-        "ulimits": List["UlimitTypeDef"],
-        "user": str,
-    },
-    total=False,
-)
+class ContainerPropertiesTypeDef(TypedDict):
+    image: NotRequired[str]
+    vcpus: NotRequired[int]
+    memory: NotRequired[int]
+    command: NotRequired[Sequence[str]]
+    jobRoleArn: NotRequired[str]
+    executionRoleArn: NotRequired[str]
+    volumes: NotRequired[Sequence[VolumeTypeDef]]
+    environment: NotRequired[Sequence[KeyValuePairTypeDef]]
+    mountPoints: NotRequired[Sequence[MountPointTypeDef]]
+    readonlyRootFilesystem: NotRequired[bool]
+    privileged: NotRequired[bool]
+    ulimits: NotRequired[Sequence[UlimitTypeDef]]
+    user: NotRequired[str]
+    instanceType: NotRequired[str]
+    resourceRequirements: NotRequired[Sequence[ResourceRequirementTypeDef]]
+    linuxParameters: NotRequired[LinuxParametersTypeDef]
+    logConfiguration: NotRequired[LogConfigurationTypeDef]
+    secrets: NotRequired[Sequence[SecretTypeDef]]
+    networkConfiguration: NotRequired[NetworkConfigurationTypeDef]
+    fargatePlatformConfiguration: NotRequired[FargatePlatformConfigurationTypeDef]
+    enableExecuteCommand: NotRequired[bool]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    runtimePlatform: NotRequired[RuntimePlatformTypeDef]
+    repositoryCredentials: NotRequired[RepositoryCredentialsTypeDef]
 
-class TaskContainerPropertiesTypeDef(
-    _RequiredTaskContainerPropertiesTypeDef, _OptionalTaskContainerPropertiesTypeDef
-):
-    pass
+class EksPodPropertiesOverrideTypeDef(TypedDict):
+    containers: NotRequired[Sequence[EksContainerOverrideTypeDef]]
+    initContainers: NotRequired[Sequence[EksContainerOverrideTypeDef]]
+    metadata: NotRequired[EksMetadataUnionTypeDef]
 
-TaskPropertiesOverrideTypeDef = TypedDict(
-    "TaskPropertiesOverrideTypeDef",
-    {
-        "containers": List["TaskContainerOverridesTypeDef"],
-    },
-    total=False,
-)
+class EksPropertiesDetailTypeDef(TypedDict):
+    podProperties: NotRequired[EksPodPropertiesDetailTypeDef]
 
-TerminateJobRequestRequestTypeDef = TypedDict(
-    "TerminateJobRequestRequestTypeDef",
-    {
-        "jobId": str,
-        "reason": str,
-    },
-)
+class EksPropertiesOutputTypeDef(TypedDict):
+    podProperties: NotRequired[EksPodPropertiesOutputTypeDef]
 
-_RequiredTmpfsTypeDef = TypedDict(
-    "_RequiredTmpfsTypeDef",
-    {
-        "containerPath": str,
-        "size": int,
-    },
-)
-_OptionalTmpfsTypeDef = TypedDict(
-    "_OptionalTmpfsTypeDef",
-    {
-        "mountOptions": List[str],
-    },
-    total=False,
-)
+class EksPropertiesTypeDef(TypedDict):
+    podProperties: NotRequired[EksPodPropertiesTypeDef]
 
-class TmpfsTypeDef(_RequiredTmpfsTypeDef, _OptionalTmpfsTypeDef):
-    pass
+class DescribeSchedulingPoliciesResponseTypeDef(TypedDict):
+    schedulingPolicies: List[SchedulingPolicyDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UlimitTypeDef = TypedDict(
-    "UlimitTypeDef",
-    {
-        "hardLimit": int,
-        "name": str,
-        "softLimit": int,
-    },
-)
+class CreateSchedulingPolicyRequestTypeDef(TypedDict):
+    name: str
+    fairsharePolicy: NotRequired[FairsharePolicyUnionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class UpdateSchedulingPolicyRequestTypeDef(TypedDict):
+    arn: str
+    fairsharePolicy: NotRequired[FairsharePolicyUnionTypeDef]
 
-_RequiredUpdateComputeEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateComputeEnvironmentRequestRequestTypeDef",
-    {
-        "computeEnvironment": str,
-    },
-)
-_OptionalUpdateComputeEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateComputeEnvironmentRequestRequestTypeDef",
-    {
-        "state": CEStateType,
-        "unmanagedvCpus": int,
-        "computeResources": "ComputeResourceUpdateTypeDef",
-        "serviceRole": str,
-        "updatePolicy": "UpdatePolicyTypeDef",
-    },
-    total=False,
-)
-
-class UpdateComputeEnvironmentRequestRequestTypeDef(
-    _RequiredUpdateComputeEnvironmentRequestRequestTypeDef,
-    _OptionalUpdateComputeEnvironmentRequestRequestTypeDef,
-):
-    pass
-
-UpdateComputeEnvironmentResponseTypeDef = TypedDict(
-    "UpdateComputeEnvironmentResponseTypeDef",
+ComputeEnvironmentDetailTypeDef = TypedDict(
+    "ComputeEnvironmentDetailTypeDef",
     {
         "computeEnvironmentName": str,
         "computeEnvironmentArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "unmanagedvCpus": NotRequired[int],
+        "ecsClusterArn": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+        "type": NotRequired[CETypeType],
+        "state": NotRequired[CEStateType],
+        "status": NotRequired[CEStatusType],
+        "statusReason": NotRequired[str],
+        "computeResources": NotRequired[ComputeResourceOutputTypeDef],
+        "serviceRole": NotRequired[str],
+        "updatePolicy": NotRequired[UpdatePolicyTypeDef],
+        "eksConfiguration": NotRequired[EksConfigurationTypeDef],
+        "containerOrchestrationType": NotRequired[OrchestrationTypeType],
+        "uuid": NotRequired[str],
+        "context": NotRequired[str],
+    },
+)
+ComputeResourceTypeDef = TypedDict(
+    "ComputeResourceTypeDef",
+    {
+        "type": CRTypeType,
+        "maxvCpus": int,
+        "subnets": Sequence[str],
+        "allocationStrategy": NotRequired[CRAllocationStrategyType],
+        "minvCpus": NotRequired[int],
+        "desiredvCpus": NotRequired[int],
+        "instanceTypes": NotRequired[Sequence[str]],
+        "imageId": NotRequired[str],
+        "securityGroupIds": NotRequired[Sequence[str]],
+        "ec2KeyPair": NotRequired[str],
+        "instanceRole": NotRequired[str],
+        "tags": NotRequired[Mapping[str, str]],
+        "placementGroup": NotRequired[str],
+        "bidPercentage": NotRequired[int],
+        "spotIamFleetRole": NotRequired[str],
+        "launchTemplate": NotRequired[LaunchTemplateSpecificationTypeDef],
+        "ec2Configuration": NotRequired[Sequence[Ec2ConfigurationTypeDef]],
+    },
+)
+LaunchTemplateSpecificationUnionTypeDef = Union[
+    LaunchTemplateSpecificationTypeDef, LaunchTemplateSpecificationOutputTypeDef
+]
+
+class EcsTaskDetailsTypeDef(TypedDict):
+    containers: NotRequired[List[TaskContainerDetailsTypeDef]]
+    containerInstanceArn: NotRequired[str]
+    taskArn: NotRequired[str]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    executionRoleArn: NotRequired[str]
+    platformVersion: NotRequired[str]
+    ipcMode: NotRequired[str]
+    taskRoleArn: NotRequired[str]
+    pidMode: NotRequired[str]
+    networkConfiguration: NotRequired[NetworkConfigurationTypeDef]
+    runtimePlatform: NotRequired[RuntimePlatformTypeDef]
+    volumes: NotRequired[List[VolumeTypeDef]]
+    enableExecuteCommand: NotRequired[bool]
+
+class EcsTaskPropertiesOutputTypeDef(TypedDict):
+    containers: List[TaskContainerPropertiesOutputTypeDef]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    executionRoleArn: NotRequired[str]
+    platformVersion: NotRequired[str]
+    ipcMode: NotRequired[str]
+    taskRoleArn: NotRequired[str]
+    pidMode: NotRequired[str]
+    networkConfiguration: NotRequired[NetworkConfigurationTypeDef]
+    runtimePlatform: NotRequired[RuntimePlatformTypeDef]
+    volumes: NotRequired[List[VolumeTypeDef]]
+    enableExecuteCommand: NotRequired[bool]
+
+class EcsTaskPropertiesTypeDef(TypedDict):
+    containers: Sequence[TaskContainerPropertiesTypeDef]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    executionRoleArn: NotRequired[str]
+    platformVersion: NotRequired[str]
+    ipcMode: NotRequired[str]
+    taskRoleArn: NotRequired[str]
+    pidMode: NotRequired[str]
+    networkConfiguration: NotRequired[NetworkConfigurationTypeDef]
+    runtimePlatform: NotRequired[RuntimePlatformTypeDef]
+    volumes: NotRequired[Sequence[VolumeTypeDef]]
+    enableExecuteCommand: NotRequired[bool]
+
+ContainerPropertiesUnionTypeDef = Union[
+    ContainerPropertiesTypeDef, ContainerPropertiesOutputTypeDef
+]
+
+class EksPropertiesOverrideTypeDef(TypedDict):
+    podProperties: NotRequired[EksPodPropertiesOverrideTypeDef]
+
+EksPropertiesUnionTypeDef = Union[EksPropertiesTypeDef, EksPropertiesOutputTypeDef]
+
+class DescribeComputeEnvironmentsResponseTypeDef(TypedDict):
+    computeEnvironments: List[ComputeEnvironmentDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ComputeResourceUnionTypeDef = Union[ComputeResourceTypeDef, ComputeResourceOutputTypeDef]
+ComputeResourceUpdateTypeDef = TypedDict(
+    "ComputeResourceUpdateTypeDef",
+    {
+        "minvCpus": NotRequired[int],
+        "maxvCpus": NotRequired[int],
+        "desiredvCpus": NotRequired[int],
+        "subnets": NotRequired[Sequence[str]],
+        "securityGroupIds": NotRequired[Sequence[str]],
+        "allocationStrategy": NotRequired[CRUpdateAllocationStrategyType],
+        "instanceTypes": NotRequired[Sequence[str]],
+        "ec2KeyPair": NotRequired[str],
+        "instanceRole": NotRequired[str],
+        "tags": NotRequired[Mapping[str, str]],
+        "placementGroup": NotRequired[str],
+        "bidPercentage": NotRequired[int],
+        "launchTemplate": NotRequired[LaunchTemplateSpecificationUnionTypeDef],
+        "ec2Configuration": NotRequired[Sequence[Ec2ConfigurationTypeDef]],
+        "updateToLatestImageVersion": NotRequired[bool],
+        "type": NotRequired[CRTypeType],
+        "imageId": NotRequired[str],
     },
 )
 
-_RequiredUpdateJobQueueRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateJobQueueRequestRequestTypeDef",
+class EcsPropertiesDetailTypeDef(TypedDict):
+    taskProperties: NotRequired[List[EcsTaskDetailsTypeDef]]
+
+class EcsPropertiesOutputTypeDef(TypedDict):
+    taskProperties: List[EcsTaskPropertiesOutputTypeDef]
+
+class EcsPropertiesTypeDef(TypedDict):
+    taskProperties: Sequence[EcsTaskPropertiesTypeDef]
+
+class NodePropertyOverrideTypeDef(TypedDict):
+    targetNodes: str
+    containerOverrides: NotRequired[ContainerOverridesTypeDef]
+    ecsPropertiesOverride: NotRequired[EcsPropertiesOverrideTypeDef]
+    instanceTypes: NotRequired[Sequence[str]]
+    eksPropertiesOverride: NotRequired[EksPropertiesOverrideTypeDef]
+    consumableResourcePropertiesOverride: NotRequired[ConsumableResourcePropertiesUnionTypeDef]
+
+CreateComputeEnvironmentRequestTypeDef = TypedDict(
+    "CreateComputeEnvironmentRequestTypeDef",
     {
-        "jobQueue": str,
+        "computeEnvironmentName": str,
+        "type": CETypeType,
+        "state": NotRequired[CEStateType],
+        "unmanagedvCpus": NotRequired[int],
+        "computeResources": NotRequired[ComputeResourceUnionTypeDef],
+        "serviceRole": NotRequired[str],
+        "tags": NotRequired[Mapping[str, str]],
+        "eksConfiguration": NotRequired[EksConfigurationTypeDef],
+        "context": NotRequired[str],
     },
 )
-_OptionalUpdateJobQueueRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateJobQueueRequestRequestTypeDef",
+
+class UpdateComputeEnvironmentRequestTypeDef(TypedDict):
+    computeEnvironment: str
+    state: NotRequired[CEStateType]
+    unmanagedvCpus: NotRequired[int]
+    computeResources: NotRequired[ComputeResourceUpdateTypeDef]
+    serviceRole: NotRequired[str]
+    updatePolicy: NotRequired[UpdatePolicyTypeDef]
+    context: NotRequired[str]
+
+class NodeRangePropertyOutputTypeDef(TypedDict):
+    targetNodes: str
+    container: NotRequired[ContainerPropertiesOutputTypeDef]
+    instanceTypes: NotRequired[List[str]]
+    ecsProperties: NotRequired[EcsPropertiesOutputTypeDef]
+    eksProperties: NotRequired[EksPropertiesOutputTypeDef]
+    consumableResourceProperties: NotRequired[ConsumableResourcePropertiesOutputTypeDef]
+
+EcsPropertiesUnionTypeDef = Union[EcsPropertiesTypeDef, EcsPropertiesOutputTypeDef]
+
+class NodeRangePropertyTypeDef(TypedDict):
+    targetNodes: str
+    container: NotRequired[ContainerPropertiesTypeDef]
+    instanceTypes: NotRequired[Sequence[str]]
+    ecsProperties: NotRequired[EcsPropertiesTypeDef]
+    eksProperties: NotRequired[EksPropertiesTypeDef]
+    consumableResourceProperties: NotRequired[ConsumableResourcePropertiesTypeDef]
+
+class NodeOverridesTypeDef(TypedDict):
+    numNodes: NotRequired[int]
+    nodePropertyOverrides: NotRequired[Sequence[NodePropertyOverrideTypeDef]]
+
+class NodePropertiesOutputTypeDef(TypedDict):
+    numNodes: int
+    mainNode: int
+    nodeRangeProperties: List[NodeRangePropertyOutputTypeDef]
+
+class NodePropertiesTypeDef(TypedDict):
+    numNodes: int
+    mainNode: int
+    nodeRangeProperties: Sequence[NodeRangePropertyTypeDef]
+
+class SubmitJobRequestTypeDef(TypedDict):
+    jobName: str
+    jobQueue: str
+    jobDefinition: str
+    shareIdentifier: NotRequired[str]
+    schedulingPriorityOverride: NotRequired[int]
+    arrayProperties: NotRequired[ArrayPropertiesTypeDef]
+    dependsOn: NotRequired[Sequence[JobDependencyTypeDef]]
+    parameters: NotRequired[Mapping[str, str]]
+    containerOverrides: NotRequired[ContainerOverridesTypeDef]
+    nodeOverrides: NotRequired[NodeOverridesTypeDef]
+    retryStrategy: NotRequired[RetryStrategyUnionTypeDef]
+    propagateTags: NotRequired[bool]
+    timeout: NotRequired[JobTimeoutTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    eksPropertiesOverride: NotRequired[EksPropertiesOverrideTypeDef]
+    ecsPropertiesOverride: NotRequired[EcsPropertiesOverrideTypeDef]
+    consumableResourcePropertiesOverride: NotRequired[ConsumableResourcePropertiesUnionTypeDef]
+
+JobDefinitionTypeDef = TypedDict(
+    "JobDefinitionTypeDef",
     {
-        "state": JQStateType,
-        "schedulingPolicyArn": str,
-        "priority": int,
-        "computeEnvironmentOrder": List["ComputeEnvironmentOrderTypeDef"],
-        "jobStateTimeLimitActions": List["JobStateTimeLimitActionTypeDef"],
+        "jobDefinitionName": str,
+        "jobDefinitionArn": str,
+        "revision": int,
+        "type": str,
+        "status": NotRequired[str],
+        "schedulingPriority": NotRequired[int],
+        "parameters": NotRequired[Dict[str, str]],
+        "retryStrategy": NotRequired[RetryStrategyOutputTypeDef],
+        "containerProperties": NotRequired[ContainerPropertiesOutputTypeDef],
+        "timeout": NotRequired[JobTimeoutTypeDef],
+        "nodeProperties": NotRequired[NodePropertiesOutputTypeDef],
+        "tags": NotRequired[Dict[str, str]],
+        "propagateTags": NotRequired[bool],
+        "platformCapabilities": NotRequired[List[PlatformCapabilityType]],
+        "ecsProperties": NotRequired[EcsPropertiesOutputTypeDef],
+        "eksProperties": NotRequired[EksPropertiesOutputTypeDef],
+        "containerOrchestrationType": NotRequired[OrchestrationTypeType],
+        "consumableResourceProperties": NotRequired[ConsumableResourcePropertiesOutputTypeDef],
     },
-    total=False,
 )
 
-class UpdateJobQueueRequestRequestTypeDef(
-    _RequiredUpdateJobQueueRequestRequestTypeDef, _OptionalUpdateJobQueueRequestRequestTypeDef
-):
-    pass
+class JobDetailTypeDef(TypedDict):
+    jobName: str
+    jobId: str
+    jobQueue: str
+    status: JobStatusType
+    startedAt: int
+    jobDefinition: str
+    jobArn: NotRequired[str]
+    shareIdentifier: NotRequired[str]
+    schedulingPriority: NotRequired[int]
+    attempts: NotRequired[List[AttemptDetailTypeDef]]
+    statusReason: NotRequired[str]
+    createdAt: NotRequired[int]
+    retryStrategy: NotRequired[RetryStrategyOutputTypeDef]
+    stoppedAt: NotRequired[int]
+    dependsOn: NotRequired[List[JobDependencyTypeDef]]
+    parameters: NotRequired[Dict[str, str]]
+    container: NotRequired[ContainerDetailTypeDef]
+    nodeDetails: NotRequired[NodeDetailsTypeDef]
+    nodeProperties: NotRequired[NodePropertiesOutputTypeDef]
+    arrayProperties: NotRequired[ArrayPropertiesDetailTypeDef]
+    timeout: NotRequired[JobTimeoutTypeDef]
+    tags: NotRequired[Dict[str, str]]
+    propagateTags: NotRequired[bool]
+    platformCapabilities: NotRequired[List[PlatformCapabilityType]]
+    eksProperties: NotRequired[EksPropertiesDetailTypeDef]
+    eksAttempts: NotRequired[List[EksAttemptDetailTypeDef]]
+    ecsProperties: NotRequired[EcsPropertiesDetailTypeDef]
+    isCancelled: NotRequired[bool]
+    isTerminated: NotRequired[bool]
+    consumableResourceProperties: NotRequired[ConsumableResourcePropertiesOutputTypeDef]
 
-UpdateJobQueueResponseTypeDef = TypedDict(
-    "UpdateJobQueueResponseTypeDef",
-    {
-        "jobQueueName": str,
-        "jobQueueArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+NodePropertiesUnionTypeDef = Union[NodePropertiesTypeDef, NodePropertiesOutputTypeDef]
 
-UpdatePolicyTypeDef = TypedDict(
-    "UpdatePolicyTypeDef",
-    {
-        "terminateJobsOnUpdate": bool,
-        "jobExecutionTimeoutMinutes": int,
-    },
-    total=False,
-)
+class DescribeJobDefinitionsResponseTypeDef(TypedDict):
+    jobDefinitions: List[JobDefinitionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredUpdateSchedulingPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSchedulingPolicyRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalUpdateSchedulingPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSchedulingPolicyRequestRequestTypeDef",
-    {
-        "fairsharePolicy": "FairsharePolicyTypeDef",
-    },
-    total=False,
-)
+class DescribeJobsResponseTypeDef(TypedDict):
+    jobs: List[JobDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSchedulingPolicyRequestRequestTypeDef(
-    _RequiredUpdateSchedulingPolicyRequestRequestTypeDef,
-    _OptionalUpdateSchedulingPolicyRequestRequestTypeDef,
-):
-    pass
-
-VolumeTypeDef = TypedDict(
-    "VolumeTypeDef",
+RegisterJobDefinitionRequestTypeDef = TypedDict(
+    "RegisterJobDefinitionRequestTypeDef",
     {
-        "host": "HostTypeDef",
-        "name": str,
-        "efsVolumeConfiguration": "EFSVolumeConfigurationTypeDef",
+        "jobDefinitionName": str,
+        "type": JobDefinitionTypeType,
+        "parameters": NotRequired[Mapping[str, str]],
+        "schedulingPriority": NotRequired[int],
+        "containerProperties": NotRequired[ContainerPropertiesUnionTypeDef],
+        "nodeProperties": NotRequired[NodePropertiesUnionTypeDef],
+        "retryStrategy": NotRequired[RetryStrategyUnionTypeDef],
+        "propagateTags": NotRequired[bool],
+        "timeout": NotRequired[JobTimeoutTypeDef],
+        "tags": NotRequired[Mapping[str, str]],
+        "platformCapabilities": NotRequired[Sequence[PlatformCapabilityType]],
+        "eksProperties": NotRequired[EksPropertiesUnionTypeDef],
+        "ecsProperties": NotRequired[EcsPropertiesUnionTypeDef],
+        "consumableResourceProperties": NotRequired[ConsumableResourcePropertiesUnionTypeDef],
     },
-    total=False,
 )

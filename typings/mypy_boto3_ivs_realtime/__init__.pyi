@@ -1,28 +1,37 @@
 """
 Main interface for ivs-realtime service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ivs_realtime import (
         Client,
+        IvsrealtimeClient,
+        ListIngestConfigurationsPaginator,
         ListPublicKeysPaginator,
-        ivsrealtimeClient,
     )
 
-    session = boto3.Session()
+    session = Session()
+    client: IvsrealtimeClient = session.client("ivs-realtime")
 
-    client: ivsrealtimeClient = boto3.client("ivs-realtime")
-    session_client: ivsrealtimeClient = session.client("ivs-realtime")
-
+    list_ingest_configurations_paginator: ListIngestConfigurationsPaginator = client.get_paginator("list_ingest_configurations")
     list_public_keys_paginator: ListPublicKeysPaginator = client.get_paginator("list_public_keys")
     ```
 """
 
-from .client import ivsrealtimeClient
-from .paginator import ListPublicKeysPaginator
+from .client import IvsrealtimeClient
+from .paginator import ListIngestConfigurationsPaginator, ListPublicKeysPaginator
 
-Client = ivsrealtimeClient
+Client = IvsrealtimeClient
 
-__all__ = ("Client", "ListPublicKeysPaginator", "ivsrealtimeClient")
+__all__ = (
+    "Client",
+    "IvsrealtimeClient",
+    "ListIngestConfigurationsPaginator",
+    "ListPublicKeysPaginator",
+)

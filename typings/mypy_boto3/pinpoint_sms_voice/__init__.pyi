@@ -1,19 +1,21 @@
 """
 Main interface for pinpoint-sms-voice service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_pinpoint_sms_voice import (
         Client,
         PinpointSMSVoiceClient,
     )
 
-    session = boto3.Session()
-
-    client: PinpointSMSVoiceClient = boto3.client("pinpoint-sms-voice")
-    session_client: PinpointSMSVoiceClient = session.client("pinpoint-sms-voice")
+    session = Session()
+    client: PinpointSMSVoiceClient = session.client("pinpoint-sms-voice")
     ```
 """
 

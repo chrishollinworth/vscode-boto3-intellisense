@@ -1,28 +1,32 @@
 """
 Main interface for artifact service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_artifact/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_artifact import (
         ArtifactClient,
         Client,
+        ListCustomerAgreementsPaginator,
         ListReportsPaginator,
     )
 
-    session = boto3.Session()
+    session = Session()
+    client: ArtifactClient = session.client("artifact")
 
-    client: ArtifactClient = boto3.client("artifact")
-    session_client: ArtifactClient = session.client("artifact")
-
+    list_customer_agreements_paginator: ListCustomerAgreementsPaginator = client.get_paginator("list_customer_agreements")
     list_reports_paginator: ListReportsPaginator = client.get_paginator("list_reports")
     ```
 """
 
 from .client import ArtifactClient
-from .paginator import ListReportsPaginator
+from .paginator import ListCustomerAgreementsPaginator, ListReportsPaginator
 
 Client = ArtifactClient
 
-__all__ = ("ArtifactClient", "Client", "ListReportsPaginator")
+__all__ = ("ArtifactClient", "Client", "ListCustomerAgreementsPaginator", "ListReportsPaginator")

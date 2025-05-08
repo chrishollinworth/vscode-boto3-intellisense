@@ -1,59 +1,30 @@
 """
-Type annotations for connect service client.
+Type annotations for connect service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_connect import ConnectClient
+    from boto3.session import Session
+    from mypy_boto3_connect.client import ConnectClient
 
-    client: ConnectClient = boto3.client("connect")
+    session = Session()
+    client: ConnectClient = session.client("connect")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    AgentAvailabilityTimerType,
-    AgentStatusStateType,
-    AgentStatusTypeType,
-    ContactFlowModuleStateType,
-    ContactFlowStateType,
-    ContactFlowStatusType,
-    ContactFlowTypeType,
-    DirectoryTypeType,
-    EventSourceNameType,
-    GroupingType,
-    InstanceAttributeTypeType,
-    InstanceStorageResourceTypeType,
-    IntegrationTypeType,
-    LexVersionType,
-    MonitorCapabilityType,
-    PhoneNumberCountryCodeType,
-    PhoneNumberTypeType,
-    QueueStatusType,
-    QueueTypeType,
-    QuickConnectTypeType,
-    RealTimeContactAnalysisOutputTypeType,
-    RealTimeContactAnalysisSegmentTypeType,
-    ReferenceTypeType,
-    RehydrationTypeType,
-    RulePublishStatusType,
-    SourceTypeType,
-    TaskTemplateStatusType,
-    TrafficTypeType,
-    UseCaseTypeType,
-    ViewStatusType,
-    ViewTypeType,
-    VocabularyLanguageCodeType,
-    VocabularyStateType,
-)
 from .paginator import (
     GetMetricDataPaginator,
     ListAgentStatusesPaginator,
@@ -63,11 +34,13 @@ from .paginator import (
     ListContactEvaluationsPaginator,
     ListContactFlowModulesPaginator,
     ListContactFlowsPaginator,
+    ListContactFlowVersionsPaginator,
     ListContactReferencesPaginator,
     ListDefaultVocabulariesPaginator,
     ListEvaluationFormsPaginator,
     ListEvaluationFormVersionsPaginator,
     ListFlowAssociationsPaginator,
+    ListHoursOfOperationOverridesPaginator,
     ListHoursOfOperationsPaginator,
     ListInstanceAttributesPaginator,
     ListInstancesPaginator,
@@ -98,10 +71,12 @@ from .paginator import (
     ListUsersPaginator,
     ListViewsPaginator,
     ListViewVersionsPaginator,
+    SearchAgentStatusesPaginator,
     SearchAvailablePhoneNumbersPaginator,
     SearchContactFlowModulesPaginator,
     SearchContactFlowsPaginator,
     SearchContactsPaginator,
+    SearchHoursOfOperationOverridesPaginator,
     SearchHoursOfOperationsPaginator,
     SearchPredefinedAttributesPaginator,
     SearchPromptsPaginator,
@@ -110,254 +85,482 @@ from .paginator import (
     SearchResourceTagsPaginator,
     SearchRoutingProfilesPaginator,
     SearchSecurityProfilesPaginator,
+    SearchUserHierarchyGroupsPaginator,
     SearchUsersPaginator,
     SearchVocabulariesPaginator,
 )
 from .type_defs import (
+    ActivateEvaluationFormRequestTypeDef,
     ActivateEvaluationFormResponseTypeDef,
-    AgentConfigTypeDef,
-    AllowedCapabilitiesTypeDef,
-    AnswerMachineDetectionConfigTypeDef,
-    ApplicationTypeDef,
+    AssociateAnalyticsDataSetRequestTypeDef,
     AssociateAnalyticsDataSetResponseTypeDef,
+    AssociateApprovedOriginRequestTypeDef,
+    AssociateBotRequestTypeDef,
+    AssociateDefaultVocabularyRequestTypeDef,
+    AssociateFlowRequestTypeDef,
+    AssociateInstanceStorageConfigRequestTypeDef,
     AssociateInstanceStorageConfigResponseTypeDef,
+    AssociateLambdaFunctionRequestTypeDef,
+    AssociateLexBotRequestTypeDef,
+    AssociatePhoneNumberContactFlowRequestTypeDef,
+    AssociateQueueQuickConnectsRequestTypeDef,
+    AssociateRoutingProfileQueuesRequestTypeDef,
+    AssociateSecurityKeyRequestTypeDef,
     AssociateSecurityKeyResponseTypeDef,
+    AssociateTrafficDistributionGroupUserRequestTypeDef,
+    AssociateUserProficienciesRequestTypeDef,
+    BatchAssociateAnalyticsDataSetRequestTypeDef,
     BatchAssociateAnalyticsDataSetResponseTypeDef,
+    BatchDisassociateAnalyticsDataSetRequestTypeDef,
     BatchDisassociateAnalyticsDataSetResponseTypeDef,
+    BatchGetAttachedFileMetadataRequestTypeDef,
     BatchGetAttachedFileMetadataResponseTypeDef,
+    BatchGetFlowAssociationRequestTypeDef,
     BatchGetFlowAssociationResponseTypeDef,
+    BatchPutContactRequestTypeDef,
     BatchPutContactResponseTypeDef,
-    ChatEventTypeDef,
-    ChatMessageTypeDef,
-    ChatStreamingConfigurationTypeDef,
+    ClaimPhoneNumberRequestTypeDef,
     ClaimPhoneNumberResponseTypeDef,
-    ContactDataRequestTypeDef,
-    ContactFlowModuleSearchCriteriaTypeDef,
-    ContactFlowModuleSearchFilterTypeDef,
-    ContactFlowSearchCriteriaTypeDef,
-    ContactFlowSearchFilterTypeDef,
+    CompleteAttachedFileUploadRequestTypeDef,
+    CreateAgentStatusRequestTypeDef,
     CreateAgentStatusResponseTypeDef,
+    CreateContactFlowModuleRequestTypeDef,
     CreateContactFlowModuleResponseTypeDef,
+    CreateContactFlowRequestTypeDef,
     CreateContactFlowResponseTypeDef,
-    CreatedByInfoTypeDef,
+    CreateContactFlowVersionRequestTypeDef,
+    CreateContactFlowVersionResponseTypeDef,
+    CreateContactRequestTypeDef,
+    CreateContactResponseTypeDef,
+    CreateEmailAddressRequestTypeDef,
+    CreateEmailAddressResponseTypeDef,
+    CreateEvaluationFormRequestTypeDef,
     CreateEvaluationFormResponseTypeDef,
+    CreateHoursOfOperationOverrideRequestTypeDef,
+    CreateHoursOfOperationOverrideResponseTypeDef,
+    CreateHoursOfOperationRequestTypeDef,
     CreateHoursOfOperationResponseTypeDef,
+    CreateInstanceRequestTypeDef,
     CreateInstanceResponseTypeDef,
+    CreateIntegrationAssociationRequestTypeDef,
     CreateIntegrationAssociationResponseTypeDef,
+    CreateParticipantRequestTypeDef,
     CreateParticipantResponseTypeDef,
+    CreatePersistentContactAssociationRequestTypeDef,
     CreatePersistentContactAssociationResponseTypeDef,
+    CreatePredefinedAttributeRequestTypeDef,
+    CreatePromptRequestTypeDef,
     CreatePromptResponseTypeDef,
+    CreatePushNotificationRegistrationRequestTypeDef,
+    CreatePushNotificationRegistrationResponseTypeDef,
+    CreateQueueRequestTypeDef,
     CreateQueueResponseTypeDef,
+    CreateQuickConnectRequestTypeDef,
     CreateQuickConnectResponseTypeDef,
+    CreateRoutingProfileRequestTypeDef,
     CreateRoutingProfileResponseTypeDef,
+    CreateRuleRequestTypeDef,
     CreateRuleResponseTypeDef,
+    CreateSecurityProfileRequestTypeDef,
     CreateSecurityProfileResponseTypeDef,
+    CreateTaskTemplateRequestTypeDef,
     CreateTaskTemplateResponseTypeDef,
+    CreateTrafficDistributionGroupRequestTypeDef,
     CreateTrafficDistributionGroupResponseTypeDef,
+    CreateUseCaseRequestTypeDef,
     CreateUseCaseResponseTypeDef,
+    CreateUserHierarchyGroupRequestTypeDef,
     CreateUserHierarchyGroupResponseTypeDef,
+    CreateUserRequestTypeDef,
     CreateUserResponseTypeDef,
+    CreateViewRequestTypeDef,
     CreateViewResponseTypeDef,
+    CreateViewVersionRequestTypeDef,
     CreateViewVersionResponseTypeDef,
+    CreateVocabularyRequestTypeDef,
     CreateVocabularyResponseTypeDef,
-    CurrentMetricSortCriteriaTypeDef,
-    CurrentMetricTypeDef,
+    DeactivateEvaluationFormRequestTypeDef,
     DeactivateEvaluationFormResponseTypeDef,
+    DeleteAttachedFileRequestTypeDef,
+    DeleteContactEvaluationRequestTypeDef,
+    DeleteContactFlowModuleRequestTypeDef,
+    DeleteContactFlowRequestTypeDef,
+    DeleteContactFlowVersionRequestTypeDef,
+    DeleteEmailAddressRequestTypeDef,
+    DeleteEvaluationFormRequestTypeDef,
+    DeleteHoursOfOperationOverrideRequestTypeDef,
+    DeleteHoursOfOperationRequestTypeDef,
+    DeleteInstanceRequestTypeDef,
+    DeleteIntegrationAssociationRequestTypeDef,
+    DeletePredefinedAttributeRequestTypeDef,
+    DeletePromptRequestTypeDef,
+    DeletePushNotificationRegistrationRequestTypeDef,
+    DeleteQueueRequestTypeDef,
+    DeleteQuickConnectRequestTypeDef,
+    DeleteRoutingProfileRequestTypeDef,
+    DeleteRuleRequestTypeDef,
+    DeleteSecurityProfileRequestTypeDef,
+    DeleteTaskTemplateRequestTypeDef,
+    DeleteTrafficDistributionGroupRequestTypeDef,
+    DeleteUseCaseRequestTypeDef,
+    DeleteUserHierarchyGroupRequestTypeDef,
+    DeleteUserRequestTypeDef,
+    DeleteViewRequestTypeDef,
+    DeleteViewVersionRequestTypeDef,
+    DeleteVocabularyRequestTypeDef,
     DeleteVocabularyResponseTypeDef,
+    DescribeAgentStatusRequestTypeDef,
     DescribeAgentStatusResponseTypeDef,
+    DescribeAuthenticationProfileRequestTypeDef,
     DescribeAuthenticationProfileResponseTypeDef,
+    DescribeContactEvaluationRequestTypeDef,
     DescribeContactEvaluationResponseTypeDef,
+    DescribeContactFlowModuleRequestTypeDef,
     DescribeContactFlowModuleResponseTypeDef,
+    DescribeContactFlowRequestTypeDef,
     DescribeContactFlowResponseTypeDef,
+    DescribeContactRequestTypeDef,
     DescribeContactResponseTypeDef,
+    DescribeEmailAddressRequestTypeDef,
+    DescribeEmailAddressResponseTypeDef,
+    DescribeEvaluationFormRequestTypeDef,
     DescribeEvaluationFormResponseTypeDef,
+    DescribeHoursOfOperationOverrideRequestTypeDef,
+    DescribeHoursOfOperationOverrideResponseTypeDef,
+    DescribeHoursOfOperationRequestTypeDef,
     DescribeHoursOfOperationResponseTypeDef,
+    DescribeInstanceAttributeRequestTypeDef,
     DescribeInstanceAttributeResponseTypeDef,
+    DescribeInstanceRequestTypeDef,
     DescribeInstanceResponseTypeDef,
+    DescribeInstanceStorageConfigRequestTypeDef,
     DescribeInstanceStorageConfigResponseTypeDef,
+    DescribePhoneNumberRequestTypeDef,
     DescribePhoneNumberResponseTypeDef,
+    DescribePredefinedAttributeRequestTypeDef,
     DescribePredefinedAttributeResponseTypeDef,
+    DescribePromptRequestTypeDef,
     DescribePromptResponseTypeDef,
+    DescribeQueueRequestTypeDef,
     DescribeQueueResponseTypeDef,
+    DescribeQuickConnectRequestTypeDef,
     DescribeQuickConnectResponseTypeDef,
+    DescribeRoutingProfileRequestTypeDef,
     DescribeRoutingProfileResponseTypeDef,
+    DescribeRuleRequestTypeDef,
     DescribeRuleResponseTypeDef,
+    DescribeSecurityProfileRequestTypeDef,
     DescribeSecurityProfileResponseTypeDef,
+    DescribeTrafficDistributionGroupRequestTypeDef,
     DescribeTrafficDistributionGroupResponseTypeDef,
+    DescribeUserHierarchyGroupRequestTypeDef,
     DescribeUserHierarchyGroupResponseTypeDef,
+    DescribeUserHierarchyStructureRequestTypeDef,
     DescribeUserHierarchyStructureResponseTypeDef,
+    DescribeUserRequestTypeDef,
     DescribeUserResponseTypeDef,
+    DescribeViewRequestTypeDef,
     DescribeViewResponseTypeDef,
+    DescribeVocabularyRequestTypeDef,
     DescribeVocabularyResponseTypeDef,
-    DisconnectReasonTypeDef,
-    EvaluationAnswerInputTypeDef,
-    EvaluationFormItemTypeDef,
-    EvaluationFormScoringStrategyTypeDef,
-    EvaluationNoteTypeDef,
-    FiltersTypeDef,
-    FilterV2TypeDef,
+    DisassociateAnalyticsDataSetRequestTypeDef,
+    DisassociateApprovedOriginRequestTypeDef,
+    DisassociateBotRequestTypeDef,
+    DisassociateFlowRequestTypeDef,
+    DisassociateInstanceStorageConfigRequestTypeDef,
+    DisassociateLambdaFunctionRequestTypeDef,
+    DisassociateLexBotRequestTypeDef,
+    DisassociatePhoneNumberContactFlowRequestTypeDef,
+    DisassociateQueueQuickConnectsRequestTypeDef,
+    DisassociateRoutingProfileQueuesRequestTypeDef,
+    DisassociateSecurityKeyRequestTypeDef,
+    DisassociateTrafficDistributionGroupUserRequestTypeDef,
+    DisassociateUserProficienciesRequestTypeDef,
+    DismissUserContactRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetAttachedFileRequestTypeDef,
     GetAttachedFileResponseTypeDef,
+    GetContactAttributesRequestTypeDef,
     GetContactAttributesResponseTypeDef,
+    GetCurrentMetricDataRequestTypeDef,
     GetCurrentMetricDataResponseTypeDef,
+    GetCurrentUserDataRequestTypeDef,
     GetCurrentUserDataResponseTypeDef,
+    GetEffectiveHoursOfOperationsRequestTypeDef,
+    GetEffectiveHoursOfOperationsResponseTypeDef,
+    GetFederationTokenRequestTypeDef,
     GetFederationTokenResponseTypeDef,
+    GetFlowAssociationRequestTypeDef,
     GetFlowAssociationResponseTypeDef,
+    GetMetricDataRequestTypeDef,
     GetMetricDataResponseTypeDef,
+    GetMetricDataV2RequestTypeDef,
     GetMetricDataV2ResponseTypeDef,
+    GetPromptFileRequestTypeDef,
     GetPromptFileResponseTypeDef,
+    GetTaskTemplateRequestTypeDef,
     GetTaskTemplateResponseTypeDef,
+    GetTrafficDistributionRequestTypeDef,
     GetTrafficDistributionResponseTypeDef,
-    HierarchyStructureUpdateTypeDef,
-    HistoricalMetricTypeDef,
-    HoursOfOperationConfigTypeDef,
-    HoursOfOperationSearchCriteriaTypeDef,
-    HoursOfOperationSearchFilterTypeDef,
+    ImportPhoneNumberRequestTypeDef,
     ImportPhoneNumberResponseTypeDef,
-    InstanceStorageConfigTypeDef,
-    IntervalDetailsTypeDef,
-    LexBotTypeDef,
-    LexV2BotTypeDef,
+    ListAgentStatusRequestTypeDef,
     ListAgentStatusResponseTypeDef,
+    ListAnalyticsDataAssociationsRequestTypeDef,
     ListAnalyticsDataAssociationsResponseTypeDef,
+    ListAnalyticsDataLakeDataSetsRequestTypeDef,
+    ListAnalyticsDataLakeDataSetsResponseTypeDef,
+    ListApprovedOriginsRequestTypeDef,
     ListApprovedOriginsResponseTypeDef,
+    ListAssociatedContactsRequestTypeDef,
+    ListAssociatedContactsResponseTypeDef,
+    ListAuthenticationProfilesRequestTypeDef,
     ListAuthenticationProfilesResponseTypeDef,
+    ListBotsRequestTypeDef,
     ListBotsResponseTypeDef,
+    ListContactEvaluationsRequestTypeDef,
     ListContactEvaluationsResponseTypeDef,
+    ListContactFlowModulesRequestTypeDef,
     ListContactFlowModulesResponseTypeDef,
+    ListContactFlowsRequestTypeDef,
     ListContactFlowsResponseTypeDef,
+    ListContactFlowVersionsRequestTypeDef,
+    ListContactFlowVersionsResponseTypeDef,
+    ListContactReferencesRequestTypeDef,
     ListContactReferencesResponseTypeDef,
+    ListDefaultVocabulariesRequestTypeDef,
     ListDefaultVocabulariesResponseTypeDef,
+    ListEvaluationFormsRequestTypeDef,
     ListEvaluationFormsResponseTypeDef,
+    ListEvaluationFormVersionsRequestTypeDef,
     ListEvaluationFormVersionsResponseTypeDef,
+    ListFlowAssociationsRequestTypeDef,
     ListFlowAssociationsResponseTypeDef,
+    ListHoursOfOperationOverridesRequestTypeDef,
+    ListHoursOfOperationOverridesResponseTypeDef,
+    ListHoursOfOperationsRequestTypeDef,
     ListHoursOfOperationsResponseTypeDef,
+    ListInstanceAttributesRequestTypeDef,
     ListInstanceAttributesResponseTypeDef,
+    ListInstancesRequestTypeDef,
     ListInstancesResponseTypeDef,
+    ListInstanceStorageConfigsRequestTypeDef,
     ListInstanceStorageConfigsResponseTypeDef,
+    ListIntegrationAssociationsRequestTypeDef,
     ListIntegrationAssociationsResponseTypeDef,
+    ListLambdaFunctionsRequestTypeDef,
     ListLambdaFunctionsResponseTypeDef,
+    ListLexBotsRequestTypeDef,
     ListLexBotsResponseTypeDef,
+    ListPhoneNumbersRequestTypeDef,
     ListPhoneNumbersResponseTypeDef,
+    ListPhoneNumbersV2RequestTypeDef,
     ListPhoneNumbersV2ResponseTypeDef,
+    ListPredefinedAttributesRequestTypeDef,
     ListPredefinedAttributesResponseTypeDef,
+    ListPromptsRequestTypeDef,
     ListPromptsResponseTypeDef,
+    ListQueueQuickConnectsRequestTypeDef,
     ListQueueQuickConnectsResponseTypeDef,
+    ListQueuesRequestTypeDef,
     ListQueuesResponseTypeDef,
+    ListQuickConnectsRequestTypeDef,
     ListQuickConnectsResponseTypeDef,
+    ListRealtimeContactAnalysisSegmentsV2RequestTypeDef,
     ListRealtimeContactAnalysisSegmentsV2ResponseTypeDef,
+    ListRoutingProfileQueuesRequestTypeDef,
     ListRoutingProfileQueuesResponseTypeDef,
+    ListRoutingProfilesRequestTypeDef,
     ListRoutingProfilesResponseTypeDef,
+    ListRulesRequestTypeDef,
     ListRulesResponseTypeDef,
+    ListSecurityKeysRequestTypeDef,
     ListSecurityKeysResponseTypeDef,
+    ListSecurityProfileApplicationsRequestTypeDef,
     ListSecurityProfileApplicationsResponseTypeDef,
+    ListSecurityProfilePermissionsRequestTypeDef,
     ListSecurityProfilePermissionsResponseTypeDef,
+    ListSecurityProfilesRequestTypeDef,
     ListSecurityProfilesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTaskTemplatesRequestTypeDef,
     ListTaskTemplatesResponseTypeDef,
+    ListTrafficDistributionGroupsRequestTypeDef,
     ListTrafficDistributionGroupsResponseTypeDef,
+    ListTrafficDistributionGroupUsersRequestTypeDef,
     ListTrafficDistributionGroupUsersResponseTypeDef,
+    ListUseCasesRequestTypeDef,
     ListUseCasesResponseTypeDef,
+    ListUserHierarchyGroupsRequestTypeDef,
     ListUserHierarchyGroupsResponseTypeDef,
+    ListUserProficienciesRequestTypeDef,
     ListUserProficienciesResponseTypeDef,
+    ListUsersRequestTypeDef,
     ListUsersResponseTypeDef,
+    ListViewsRequestTypeDef,
     ListViewsResponseTypeDef,
+    ListViewVersionsRequestTypeDef,
     ListViewVersionsResponseTypeDef,
-    MediaConcurrencyTypeDef,
-    MetricV2TypeDef,
+    MonitorContactRequestTypeDef,
     MonitorContactResponseTypeDef,
-    NewSessionDetailsTypeDef,
-    OutboundCallerConfigTypeDef,
-    ParticipantDetailsToAddTypeDef,
-    ParticipantDetailsTypeDef,
-    PersistentChatTypeDef,
-    PredefinedAttributeSearchCriteriaTypeDef,
-    PredefinedAttributeValuesTypeDef,
-    PromptSearchCriteriaTypeDef,
-    PromptSearchFilterTypeDef,
-    QueueSearchCriteriaTypeDef,
-    QueueSearchFilterTypeDef,
-    QuickConnectConfigTypeDef,
-    QuickConnectSearchCriteriaTypeDef,
-    QuickConnectSearchFilterTypeDef,
-    ReferenceTypeDef,
+    PauseContactRequestTypeDef,
+    PutUserStatusRequestTypeDef,
+    ReleasePhoneNumberRequestTypeDef,
+    ReplicateInstanceRequestTypeDef,
     ReplicateInstanceResponseTypeDef,
-    ResourceTagsSearchCriteriaTypeDef,
-    RoutingProfileQueueConfigTypeDef,
-    RoutingProfileQueueReferenceTypeDef,
-    RoutingProfileSearchCriteriaTypeDef,
-    RoutingProfileSearchFilterTypeDef,
-    RuleActionTypeDef,
-    RuleTriggerEventSourceTypeDef,
+    ResumeContactRecordingRequestTypeDef,
+    ResumeContactRequestTypeDef,
+    SearchAgentStatusesRequestTypeDef,
+    SearchAgentStatusesResponseTypeDef,
+    SearchAvailablePhoneNumbersRequestTypeDef,
     SearchAvailablePhoneNumbersResponseTypeDef,
+    SearchContactFlowModulesRequestTypeDef,
     SearchContactFlowModulesResponseTypeDef,
+    SearchContactFlowsRequestTypeDef,
     SearchContactFlowsResponseTypeDef,
+    SearchContactsRequestTypeDef,
     SearchContactsResponseTypeDef,
-    SearchContactsTimeRangeTypeDef,
-    SearchCriteriaTypeDef,
+    SearchEmailAddressesRequestTypeDef,
+    SearchEmailAddressesResponseTypeDef,
+    SearchHoursOfOperationOverridesRequestTypeDef,
+    SearchHoursOfOperationOverridesResponseTypeDef,
+    SearchHoursOfOperationsRequestTypeDef,
     SearchHoursOfOperationsResponseTypeDef,
+    SearchPredefinedAttributesRequestTypeDef,
     SearchPredefinedAttributesResponseTypeDef,
+    SearchPromptsRequestTypeDef,
     SearchPromptsResponseTypeDef,
+    SearchQueuesRequestTypeDef,
     SearchQueuesResponseTypeDef,
+    SearchQuickConnectsRequestTypeDef,
     SearchQuickConnectsResponseTypeDef,
+    SearchResourceTagsRequestTypeDef,
     SearchResourceTagsResponseTypeDef,
+    SearchRoutingProfilesRequestTypeDef,
     SearchRoutingProfilesResponseTypeDef,
+    SearchSecurityProfilesRequestTypeDef,
     SearchSecurityProfilesResponseTypeDef,
+    SearchUserHierarchyGroupsRequestTypeDef,
+    SearchUserHierarchyGroupsResponseTypeDef,
+    SearchUsersRequestTypeDef,
     SearchUsersResponseTypeDef,
+    SearchVocabulariesRequestTypeDef,
     SearchVocabulariesResponseTypeDef,
-    SecurityProfileSearchCriteriaTypeDef,
-    SecurityProfilesSearchFilterTypeDef,
-    SegmentAttributeValueTypeDef,
+    SendChatIntegrationEventRequestTypeDef,
     SendChatIntegrationEventResponseTypeDef,
-    SignInConfigTypeDef,
-    SortTypeDef,
+    SendOutboundEmailRequestTypeDef,
+    StartAttachedFileUploadRequestTypeDef,
     StartAttachedFileUploadResponseTypeDef,
+    StartChatContactRequestTypeDef,
     StartChatContactResponseTypeDef,
+    StartContactEvaluationRequestTypeDef,
     StartContactEvaluationResponseTypeDef,
+    StartContactRecordingRequestTypeDef,
+    StartContactStreamingRequestTypeDef,
     StartContactStreamingResponseTypeDef,
+    StartEmailContactRequestTypeDef,
+    StartEmailContactResponseTypeDef,
+    StartOutboundChatContactRequestTypeDef,
+    StartOutboundChatContactResponseTypeDef,
+    StartOutboundEmailContactRequestTypeDef,
+    StartOutboundEmailContactResponseTypeDef,
+    StartOutboundVoiceContactRequestTypeDef,
     StartOutboundVoiceContactResponseTypeDef,
+    StartScreenSharingRequestTypeDef,
+    StartTaskContactRequestTypeDef,
     StartTaskContactResponseTypeDef,
+    StartWebRTCContactRequestTypeDef,
     StartWebRTCContactResponseTypeDef,
+    StopContactRecordingRequestTypeDef,
+    StopContactRequestTypeDef,
+    StopContactStreamingRequestTypeDef,
+    SubmitContactEvaluationRequestTypeDef,
     SubmitContactEvaluationResponseTypeDef,
-    TaskTemplateConstraintsTypeDef,
-    TaskTemplateDefaultsTypeDef,
-    TaskTemplateFieldTypeDef,
-    TelephonyConfigTypeDef,
+    SuspendContactRecordingRequestTypeDef,
+    TagContactRequestTypeDef,
+    TagResourceRequestTypeDef,
+    TransferContactRequestTypeDef,
     TransferContactResponseTypeDef,
+    UntagContactRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateAgentStatusRequestTypeDef,
+    UpdateAuthenticationProfileRequestTypeDef,
+    UpdateContactAttributesRequestTypeDef,
+    UpdateContactEvaluationRequestTypeDef,
     UpdateContactEvaluationResponseTypeDef,
+    UpdateContactFlowContentRequestTypeDef,
+    UpdateContactFlowMetadataRequestTypeDef,
+    UpdateContactFlowModuleContentRequestTypeDef,
+    UpdateContactFlowModuleMetadataRequestTypeDef,
+    UpdateContactFlowNameRequestTypeDef,
+    UpdateContactRequestTypeDef,
+    UpdateContactRoutingDataRequestTypeDef,
+    UpdateContactScheduleRequestTypeDef,
+    UpdateEmailAddressMetadataRequestTypeDef,
+    UpdateEmailAddressMetadataResponseTypeDef,
+    UpdateEvaluationFormRequestTypeDef,
     UpdateEvaluationFormResponseTypeDef,
-    UpdateParticipantRoleConfigChannelInfoTypeDef,
+    UpdateHoursOfOperationOverrideRequestTypeDef,
+    UpdateHoursOfOperationRequestTypeDef,
+    UpdateInstanceAttributeRequestTypeDef,
+    UpdateInstanceStorageConfigRequestTypeDef,
+    UpdateParticipantAuthenticationRequestTypeDef,
+    UpdateParticipantRoleConfigRequestTypeDef,
+    UpdatePhoneNumberMetadataRequestTypeDef,
+    UpdatePhoneNumberRequestTypeDef,
     UpdatePhoneNumberResponseTypeDef,
+    UpdatePredefinedAttributeRequestTypeDef,
+    UpdatePromptRequestTypeDef,
     UpdatePromptResponseTypeDef,
+    UpdateQueueHoursOfOperationRequestTypeDef,
+    UpdateQueueMaxContactsRequestTypeDef,
+    UpdateQueueNameRequestTypeDef,
+    UpdateQueueOutboundCallerConfigRequestTypeDef,
+    UpdateQueueOutboundEmailConfigRequestTypeDef,
+    UpdateQueueStatusRequestTypeDef,
+    UpdateQuickConnectConfigRequestTypeDef,
+    UpdateQuickConnectNameRequestTypeDef,
+    UpdateRoutingProfileAgentAvailabilityTimerRequestTypeDef,
+    UpdateRoutingProfileConcurrencyRequestTypeDef,
+    UpdateRoutingProfileDefaultOutboundQueueRequestTypeDef,
+    UpdateRoutingProfileNameRequestTypeDef,
+    UpdateRoutingProfileQueuesRequestTypeDef,
+    UpdateRuleRequestTypeDef,
+    UpdateSecurityProfileRequestTypeDef,
+    UpdateTaskTemplateRequestTypeDef,
     UpdateTaskTemplateResponseTypeDef,
+    UpdateTrafficDistributionRequestTypeDef,
+    UpdateUserHierarchyGroupNameRequestTypeDef,
+    UpdateUserHierarchyRequestTypeDef,
+    UpdateUserHierarchyStructureRequestTypeDef,
+    UpdateUserIdentityInfoRequestTypeDef,
+    UpdateUserPhoneConfigRequestTypeDef,
+    UpdateUserProficienciesRequestTypeDef,
+    UpdateUserRoutingProfileRequestTypeDef,
+    UpdateUserSecurityProfilesRequestTypeDef,
+    UpdateViewContentRequestTypeDef,
     UpdateViewContentResponseTypeDef,
-    UserDataFiltersTypeDef,
-    UserIdentityInfoTypeDef,
-    UserPhoneConfigTypeDef,
-    UserProficiencyDisassociateTypeDef,
-    UserProficiencyTypeDef,
-    UserSearchCriteriaTypeDef,
-    UserSearchFilterTypeDef,
-    ViewInputContentTypeDef,
-    VoiceRecordingConfigurationTypeDef,
+    UpdateViewMetadataRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("ConnectClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
+    ConditionalOperationFailedException: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     ContactFlowNotPublishedException: Type[BotocoreClientError]
     ContactNotFoundException: Type[BotocoreClientError]
@@ -385,8 +588,8 @@ class Exceptions:
 
 class ConnectClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/)
     """
 
     meta: ClientMeta
@@ -395,3715 +598,3560 @@ class ConnectClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ConnectClient exceptions.
-        """
 
-    def activate_evaluation_form(
-        self, *, InstanceId: str, EvaluationFormId: str, EvaluationFormVersion: int
-    ) -> ActivateEvaluationFormResponseTypeDef:
-        """
-        Activates an evaluation form in the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.activate_evaluation_form)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#activate_evaluation_form)
-        """
-
-    def associate_analytics_data_set(
-        self, *, InstanceId: str, DataSetId: str, TargetAccountId: str = None
-    ) -> AssociateAnalyticsDataSetResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_analytics_data_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_analytics_data_set)
-        """
-
-    def associate_approved_origin(self, *, InstanceId: str, Origin: str) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_approved_origin)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_approved_origin)
-        """
-
-    def associate_bot(
-        self, *, InstanceId: str, LexBot: "LexBotTypeDef" = None, LexV2Bot: "LexV2BotTypeDef" = None
-    ) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_bot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_bot)
-        """
-
-    def associate_default_vocabulary(
-        self, *, InstanceId: str, LanguageCode: VocabularyLanguageCodeType, VocabularyId: str = None
-    ) -> Dict[str, Any]:
-        """
-        Associates an existing vocabulary as the default.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_default_vocabulary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_default_vocabulary)
-        """
-
-    def associate_flow(
-        self,
-        *,
-        InstanceId: str,
-        ResourceId: str,
-        FlowId: str,
-        ResourceType: Literal["SMS_PHONE_NUMBER"]
-    ) -> Dict[str, Any]:
-        """
-        Associates a connect resource to a flow.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_flow)
-        """
-
-    def associate_instance_storage_config(
-        self,
-        *,
-        InstanceId: str,
-        ResourceType: InstanceStorageResourceTypeType,
-        StorageConfig: "InstanceStorageConfigTypeDef"
-    ) -> AssociateInstanceStorageConfigResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_instance_storage_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_instance_storage_config)
-        """
-
-    def associate_lambda_function(self, *, InstanceId: str, FunctionArn: str) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_lambda_function)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_lambda_function)
-        """
-
-    def associate_lex_bot(self, *, InstanceId: str, LexBot: "LexBotTypeDef") -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_lex_bot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_lex_bot)
-        """
-
-    def associate_phone_number_contact_flow(
-        self, *, PhoneNumberId: str, InstanceId: str, ContactFlowId: str
-    ) -> None:
-        """
-        Associates a flow with a phone number claimed to your Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_phone_number_contact_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_phone_number_contact_flow)
-        """
-
-    def associate_queue_quick_connects(
-        self, *, InstanceId: str, QueueId: str, QuickConnectIds: List[str]
-    ) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_queue_quick_connects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_queue_quick_connects)
-        """
-
-    def associate_routing_profile_queues(
-        self,
-        *,
-        InstanceId: str,
-        RoutingProfileId: str,
-        QueueConfigs: List["RoutingProfileQueueConfigTypeDef"]
-    ) -> None:
-        """
-        Associates a set of queues with a routing profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_routing_profile_queues)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_routing_profile_queues)
-        """
-
-    def associate_security_key(
-        self, *, InstanceId: str, Key: str
-    ) -> AssociateSecurityKeyResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_security_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_security_key)
-        """
-
-    def associate_traffic_distribution_group_user(
-        self, *, TrafficDistributionGroupId: str, UserId: str, InstanceId: str
-    ) -> Dict[str, Any]:
-        """
-        Associates an agent with a traffic distribution group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_traffic_distribution_group_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_traffic_distribution_group_user)
-        """
-
-    def associate_user_proficiencies(
-        self, *, InstanceId: str, UserId: str, UserProficiencies: List["UserProficiencyTypeDef"]
-    ) -> None:
-        """
-        >Associates a set of proficiencies with a user.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_user_proficiencies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_user_proficiencies)
-        """
-
-    def batch_associate_analytics_data_set(
-        self, *, InstanceId: str, DataSetIds: List[str], TargetAccountId: str = None
-    ) -> BatchAssociateAnalyticsDataSetResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.batch_associate_analytics_data_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#batch_associate_analytics_data_set)
-        """
-
-    def batch_disassociate_analytics_data_set(
-        self, *, InstanceId: str, DataSetIds: List[str], TargetAccountId: str = None
-    ) -> BatchDisassociateAnalyticsDataSetResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.batch_disassociate_analytics_data_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#batch_disassociate_analytics_data_set)
-        """
-
-    def batch_get_attached_file_metadata(
-        self, *, FileIds: List[str], InstanceId: str, AssociatedResourceArn: str
-    ) -> BatchGetAttachedFileMetadataResponseTypeDef:
-        """
-        Allows you to retrieve metadata about multiple attached files on an associated
-        resource.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.batch_get_attached_file_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#batch_get_attached_file_metadata)
-        """
-
-    def batch_get_flow_association(
-        self,
-        *,
-        InstanceId: str,
-        ResourceIds: List[str],
-        ResourceType: Literal["VOICE_PHONE_NUMBER"] = None
-    ) -> BatchGetFlowAssociationResponseTypeDef:
-        """
-        Retrieve the flow associations for the given resources.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.batch_get_flow_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#batch_get_flow_association)
-        """
-
-    def batch_put_contact(
-        self,
-        *,
-        InstanceId: str,
-        ContactDataRequestList: List["ContactDataRequestTypeDef"],
-        ClientToken: str = None
-    ) -> BatchPutContactResponseTypeDef:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.batch_put_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#batch_put_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#can_paginate)
-        """
-
-    def claim_phone_number(
-        self,
-        *,
-        PhoneNumber: str,
-        TargetArn: str = None,
-        InstanceId: str = None,
-        PhoneNumberDescription: str = None,
-        Tags: Dict[str, str] = None,
-        ClientToken: str = None
-    ) -> ClaimPhoneNumberResponseTypeDef:
-        """
-        Claims an available phone number to your Amazon Connect instance or traffic
-        distribution group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.claim_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#claim_phone_number)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#close)
-        """
-
-    def complete_attached_file_upload(
-        self, *, InstanceId: str, FileId: str, AssociatedResourceArn: str
-    ) -> Dict[str, Any]:
-        """
-        Allows you to confirm that the attached file has been uploaded using the pre-
-        signed URL provided in the StartAttachedFileUpload API.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.complete_attached_file_upload)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#complete_attached_file_upload)
-        """
-
-    def create_agent_status(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        State: AgentStatusStateType,
-        Description: str = None,
-        DisplayOrder: int = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateAgentStatusResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_agent_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_agent_status)
-        """
-
-    def create_contact_flow(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        Type: ContactFlowTypeType,
-        Content: str,
-        Description: str = None,
-        Status: ContactFlowStatusType = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateContactFlowResponseTypeDef:
-        """
-        Creates a flow for the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_contact_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_contact_flow)
-        """
-
-    def create_contact_flow_module(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        Content: str,
-        Description: str = None,
-        Tags: Dict[str, str] = None,
-        ClientToken: str = None
-    ) -> CreateContactFlowModuleResponseTypeDef:
-        """
-        Creates a flow module for the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_contact_flow_module)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_contact_flow_module)
-        """
-
-    def create_evaluation_form(
-        self,
-        *,
-        InstanceId: str,
-        Title: str,
-        Items: List["EvaluationFormItemTypeDef"],
-        Description: str = None,
-        ScoringStrategy: "EvaluationFormScoringStrategyTypeDef" = None,
-        ClientToken: str = None
-    ) -> CreateEvaluationFormResponseTypeDef:
-        """
-        Creates an evaluation form in the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_evaluation_form)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_evaluation_form)
-        """
-
-    def create_hours_of_operation(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        TimeZone: str,
-        Config: List["HoursOfOperationConfigTypeDef"],
-        Description: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateHoursOfOperationResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_hours_of_operation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_hours_of_operation)
-        """
-
-    def create_instance(
-        self,
-        *,
-        IdentityManagementType: DirectoryTypeType,
-        InboundCallsEnabled: bool,
-        OutboundCallsEnabled: bool,
-        ClientToken: str = None,
-        InstanceAlias: str = None,
-        DirectoryId: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateInstanceResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_instance)
-        """
-
-    def create_integration_association(
-        self,
-        *,
-        InstanceId: str,
-        IntegrationType: IntegrationTypeType,
-        IntegrationArn: str,
-        SourceApplicationUrl: str = None,
-        SourceApplicationName: str = None,
-        SourceType: SourceTypeType = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateIntegrationAssociationResponseTypeDef:
-        """
-        Creates an Amazon Web Services resource association with an Amazon Connect
-        instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_integration_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_integration_association)
-        """
-
-    def create_participant(
-        self,
-        *,
-        InstanceId: str,
-        ContactId: str,
-        ParticipantDetails: "ParticipantDetailsToAddTypeDef",
-        ClientToken: str = None
-    ) -> CreateParticipantResponseTypeDef:
-        """
-        Adds a new participant into an on-going chat contact.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_participant)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_participant)
-        """
-
-    def create_persistent_contact_association(
-        self,
-        *,
-        InstanceId: str,
-        InitialContactId: str,
-        RehydrationType: RehydrationTypeType,
-        SourceContactId: str,
-        ClientToken: str = None
-    ) -> CreatePersistentContactAssociationResponseTypeDef:
-        """
-        Enables rehydration of chats for the lifespan of a contact.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_persistent_contact_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_persistent_contact_association)
-        """
-
-    def create_predefined_attribute(
-        self, *, InstanceId: str, Name: str, Values: "PredefinedAttributeValuesTypeDef"
-    ) -> None:
-        """
-        Creates a new predefined attribute for the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_predefined_attribute)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_predefined_attribute)
-        """
-
-    def create_prompt(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        S3Uri: str,
-        Description: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreatePromptResponseTypeDef:
-        """
-        Creates a prompt.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_prompt)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_prompt)
-        """
-
-    def create_queue(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        HoursOfOperationId: str,
-        Description: str = None,
-        OutboundCallerConfig: "OutboundCallerConfigTypeDef" = None,
-        MaxContacts: int = None,
-        QuickConnectIds: List[str] = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateQueueResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_queue)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_queue)
-        """
-
-    def create_quick_connect(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        QuickConnectConfig: "QuickConnectConfigTypeDef",
-        Description: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateQuickConnectResponseTypeDef:
-        """
-        Creates a quick connect for the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_quick_connect)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_quick_connect)
-        """
-
-    def create_routing_profile(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        Description: str,
-        DefaultOutboundQueueId: str,
-        MediaConcurrencies: List["MediaConcurrencyTypeDef"],
-        QueueConfigs: List["RoutingProfileQueueConfigTypeDef"] = None,
-        Tags: Dict[str, str] = None,
-        AgentAvailabilityTimer: AgentAvailabilityTimerType = None
-    ) -> CreateRoutingProfileResponseTypeDef:
-        """
-        Creates a new routing profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_routing_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_routing_profile)
-        """
-
-    def create_rule(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        TriggerEventSource: "RuleTriggerEventSourceTypeDef",
-        Function: str,
-        Actions: List["RuleActionTypeDef"],
-        PublishStatus: RulePublishStatusType,
-        ClientToken: str = None
-    ) -> CreateRuleResponseTypeDef:
-        """
-        Creates a rule for the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_rule)
-        """
-
-    def create_security_profile(
-        self,
-        *,
-        SecurityProfileName: str,
-        InstanceId: str,
-        Description: str = None,
-        Permissions: List[str] = None,
-        Tags: Dict[str, str] = None,
-        AllowedAccessControlTags: Dict[str, str] = None,
-        TagRestrictedResources: List[str] = None,
-        Applications: List["ApplicationTypeDef"] = None,
-        HierarchyRestrictedResources: List[str] = None,
-        AllowedAccessControlHierarchyGroupId: str = None
-    ) -> CreateSecurityProfileResponseTypeDef:
-        """
-        Creates a security profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_security_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_security_profile)
-        """
-
-    def create_task_template(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        Fields: List["TaskTemplateFieldTypeDef"],
-        Description: str = None,
-        ContactFlowId: str = None,
-        Constraints: "TaskTemplateConstraintsTypeDef" = None,
-        Defaults: "TaskTemplateDefaultsTypeDef" = None,
-        Status: TaskTemplateStatusType = None,
-        ClientToken: str = None
-    ) -> CreateTaskTemplateResponseTypeDef:
-        """
-        Creates a new task template in the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_task_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_task_template)
-        """
-
-    def create_traffic_distribution_group(
-        self,
-        *,
-        Name: str,
-        InstanceId: str,
-        Description: str = None,
-        ClientToken: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateTrafficDistributionGroupResponseTypeDef:
-        """
-        Creates a traffic distribution group given an Amazon Connect instance that has
-        been replicated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_traffic_distribution_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_traffic_distribution_group)
-        """
-
-    def create_use_case(
-        self,
-        *,
-        InstanceId: str,
-        IntegrationAssociationId: str,
-        UseCaseType: UseCaseTypeType,
-        Tags: Dict[str, str] = None
-    ) -> CreateUseCaseResponseTypeDef:
-        """
-        Creates a use case for an integration association.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_use_case)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_use_case)
-        """
-
-    def create_user(
-        self,
-        *,
-        Username: str,
-        PhoneConfig: "UserPhoneConfigTypeDef",
-        SecurityProfileIds: List[str],
-        RoutingProfileId: str,
-        InstanceId: str,
-        Password: str = None,
-        IdentityInfo: "UserIdentityInfoTypeDef" = None,
-        DirectoryUserId: str = None,
-        HierarchyGroupId: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateUserResponseTypeDef:
-        """
-        Creates a user account for the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_user)
-        """
-
-    def create_user_hierarchy_group(
-        self, *, Name: str, InstanceId: str, ParentGroupId: str = None, Tags: Dict[str, str] = None
-    ) -> CreateUserHierarchyGroupResponseTypeDef:
-        """
-        Creates a new user hierarchy group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_user_hierarchy_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_user_hierarchy_group)
-        """
-
-    def create_view(
-        self,
-        *,
-        InstanceId: str,
-        Status: ViewStatusType,
-        Content: "ViewInputContentTypeDef",
-        Name: str,
-        ClientToken: str = None,
-        Description: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateViewResponseTypeDef:
-        """
-        Creates a new view with the possible status of `SAVED` or `PUBLISHED`.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_view)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_view)
-        """
-
-    def create_view_version(
-        self,
-        *,
-        InstanceId: str,
-        ViewId: str,
-        VersionDescription: str = None,
-        ViewContentSha256: str = None
-    ) -> CreateViewVersionResponseTypeDef:
-        """
-        Publishes a new version of the view identifier.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_view_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_view_version)
-        """
-
-    def create_vocabulary(
-        self,
-        *,
-        InstanceId: str,
-        VocabularyName: str,
-        LanguageCode: VocabularyLanguageCodeType,
-        Content: str,
-        ClientToken: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateVocabularyResponseTypeDef:
-        """
-        Creates a custom vocabulary associated with your Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_vocabulary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_vocabulary)
-        """
-
-    def deactivate_evaluation_form(
-        self, *, InstanceId: str, EvaluationFormId: str, EvaluationFormVersion: int
-    ) -> DeactivateEvaluationFormResponseTypeDef:
-        """
-        Deactivates an evaluation form in the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.deactivate_evaluation_form)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#deactivate_evaluation_form)
-        """
-
-    def delete_attached_file(
-        self, *, InstanceId: str, FileId: str, AssociatedResourceArn: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes an attached file along with the underlying S3 Object.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_attached_file)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_attached_file)
-        """
-
-    def delete_contact_evaluation(self, *, InstanceId: str, EvaluationId: str) -> None:
-        """
-        Deletes a contact evaluation in the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_contact_evaluation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_contact_evaluation)
-        """
-
-    def delete_contact_flow(self, *, InstanceId: str, ContactFlowId: str) -> Dict[str, Any]:
-        """
-        Deletes a flow for the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_contact_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_contact_flow)
-        """
-
-    def delete_contact_flow_module(
-        self, *, InstanceId: str, ContactFlowModuleId: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes the specified flow module.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_contact_flow_module)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_contact_flow_module)
-        """
-
-    def delete_evaluation_form(
-        self, *, InstanceId: str, EvaluationFormId: str, EvaluationFormVersion: int = None
-    ) -> None:
-        """
-        Deletes an evaluation form in the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_evaluation_form)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_evaluation_form)
-        """
-
-    def delete_hours_of_operation(self, *, InstanceId: str, HoursOfOperationId: str) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_hours_of_operation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_hours_of_operation)
-        """
-
-    def delete_instance(self, *, InstanceId: str) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_instance)
-        """
-
-    def delete_integration_association(
-        self, *, InstanceId: str, IntegrationAssociationId: str
-    ) -> None:
-        """
-        Deletes an Amazon Web Services resource association from an Amazon Connect
-        instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_integration_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_integration_association)
-        """
-
-    def delete_predefined_attribute(self, *, InstanceId: str, Name: str) -> None:
-        """
-        Deletes a predefined attribute from the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_predefined_attribute)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_predefined_attribute)
-        """
-
-    def delete_prompt(self, *, InstanceId: str, PromptId: str) -> None:
-        """
-        Deletes a prompt.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_prompt)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_prompt)
-        """
-
-    def delete_queue(self, *, InstanceId: str, QueueId: str) -> None:
-        """
-        Deletes a queue.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_queue)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_queue)
-        """
-
-    def delete_quick_connect(self, *, InstanceId: str, QuickConnectId: str) -> None:
-        """
-        Deletes a quick connect.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_quick_connect)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_quick_connect)
-        """
-
-    def delete_routing_profile(self, *, InstanceId: str, RoutingProfileId: str) -> None:
-        """
-        Deletes a routing profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_routing_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_routing_profile)
-        """
-
-    def delete_rule(self, *, InstanceId: str, RuleId: str) -> None:
-        """
-        Deletes a rule for the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_rule)
-        """
-
-    def delete_security_profile(self, *, InstanceId: str, SecurityProfileId: str) -> None:
-        """
-        Deletes a security profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_security_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_security_profile)
-        """
-
-    def delete_task_template(self, *, InstanceId: str, TaskTemplateId: str) -> Dict[str, Any]:
-        """
-        Deletes the task template.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_task_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_task_template)
-        """
-
-    def delete_traffic_distribution_group(
-        self, *, TrafficDistributionGroupId: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes a traffic distribution group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_traffic_distribution_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_traffic_distribution_group)
-        """
-
-    def delete_use_case(
-        self, *, InstanceId: str, IntegrationAssociationId: str, UseCaseId: str
-    ) -> None:
-        """
-        Deletes a use case from an integration association.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_use_case)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_use_case)
-        """
-
-    def delete_user(self, *, InstanceId: str, UserId: str) -> None:
-        """
-        Deletes a user account from the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_user)
-        """
-
-    def delete_user_hierarchy_group(self, *, HierarchyGroupId: str, InstanceId: str) -> None:
-        """
-        Deletes an existing user hierarchy group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_user_hierarchy_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_user_hierarchy_group)
-        """
-
-    def delete_view(self, *, InstanceId: str, ViewId: str) -> Dict[str, Any]:
-        """
-        Deletes the view entirely.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_view)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_view)
-        """
-
-    def delete_view_version(
-        self, *, InstanceId: str, ViewId: str, ViewVersion: int
-    ) -> Dict[str, Any]:
-        """
-        Deletes the particular version specified in `ViewVersion` identifier.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_view_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_view_version)
-        """
-
-    def delete_vocabulary(
-        self, *, InstanceId: str, VocabularyId: str
-    ) -> DeleteVocabularyResponseTypeDef:
-        """
-        Deletes the vocabulary that has the given identifier.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_vocabulary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_vocabulary)
-        """
-
-    def describe_agent_status(
-        self, *, InstanceId: str, AgentStatusId: str
-    ) -> DescribeAgentStatusResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_agent_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_agent_status)
-        """
-
-    def describe_authentication_profile(
-        self, *, AuthenticationProfileId: str, InstanceId: str
-    ) -> DescribeAuthenticationProfileResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_authentication_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_authentication_profile)
-        """
-
-    def describe_contact(
-        self, *, InstanceId: str, ContactId: str
-    ) -> DescribeContactResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_contact)
-        """
-
-    def describe_contact_evaluation(
-        self, *, InstanceId: str, EvaluationId: str
-    ) -> DescribeContactEvaluationResponseTypeDef:
-        """
-        Describes a contact evaluation in the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_contact_evaluation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_contact_evaluation)
-        """
-
-    def describe_contact_flow(
-        self, *, InstanceId: str, ContactFlowId: str
-    ) -> DescribeContactFlowResponseTypeDef:
-        """
-        Describes the specified flow.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_contact_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_contact_flow)
-        """
-
-    def describe_contact_flow_module(
-        self, *, InstanceId: str, ContactFlowModuleId: str
-    ) -> DescribeContactFlowModuleResponseTypeDef:
-        """
-        Describes the specified flow module.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_contact_flow_module)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_contact_flow_module)
-        """
-
-    def describe_evaluation_form(
-        self, *, InstanceId: str, EvaluationFormId: str, EvaluationFormVersion: int = None
-    ) -> DescribeEvaluationFormResponseTypeDef:
-        """
-        Describes an evaluation form in the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_evaluation_form)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_evaluation_form)
-        """
-
-    def describe_hours_of_operation(
-        self, *, InstanceId: str, HoursOfOperationId: str
-    ) -> DescribeHoursOfOperationResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_hours_of_operation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_hours_of_operation)
-        """
-
-    def describe_instance(self, *, InstanceId: str) -> DescribeInstanceResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_instance)
-        """
-
-    def describe_instance_attribute(
-        self, *, InstanceId: str, AttributeType: InstanceAttributeTypeType
-    ) -> DescribeInstanceAttributeResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_instance_attribute)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_instance_attribute)
-        """
-
-    def describe_instance_storage_config(
-        self, *, InstanceId: str, AssociationId: str, ResourceType: InstanceStorageResourceTypeType
-    ) -> DescribeInstanceStorageConfigResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_instance_storage_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_instance_storage_config)
-        """
-
-    def describe_phone_number(self, *, PhoneNumberId: str) -> DescribePhoneNumberResponseTypeDef:
-        """
-        Gets details and status of a phone number that’s claimed to your Amazon Connect
-        instance or traffic distribution group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_phone_number)
-        """
-
-    def describe_predefined_attribute(
-        self, *, InstanceId: str, Name: str
-    ) -> DescribePredefinedAttributeResponseTypeDef:
-        """
-        Describes a predefined attribute for the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_predefined_attribute)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_predefined_attribute)
-        """
-
-    def describe_prompt(self, *, InstanceId: str, PromptId: str) -> DescribePromptResponseTypeDef:
-        """
-        Describes the prompt.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_prompt)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_prompt)
-        """
-
-    def describe_queue(self, *, InstanceId: str, QueueId: str) -> DescribeQueueResponseTypeDef:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_queue)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_queue)
-        """
-
-    def describe_quick_connect(
-        self, *, InstanceId: str, QuickConnectId: str
-    ) -> DescribeQuickConnectResponseTypeDef:
-        """
-        Describes the quick connect.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_quick_connect)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_quick_connect)
-        """
-
-    def describe_routing_profile(
-        self, *, InstanceId: str, RoutingProfileId: str
-    ) -> DescribeRoutingProfileResponseTypeDef:
-        """
-        Describes the specified routing profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_routing_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_routing_profile)
-        """
-
-    def describe_rule(self, *, InstanceId: str, RuleId: str) -> DescribeRuleResponseTypeDef:
-        """
-        Describes a rule for the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_rule)
-        """
-
-    def describe_security_profile(
-        self, *, SecurityProfileId: str, InstanceId: str
-    ) -> DescribeSecurityProfileResponseTypeDef:
-        """
-        Gets basic information about the security profle.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_security_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_security_profile)
-        """
-
-    def describe_traffic_distribution_group(
-        self, *, TrafficDistributionGroupId: str
-    ) -> DescribeTrafficDistributionGroupResponseTypeDef:
-        """
-        Gets details and status of a traffic distribution group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_traffic_distribution_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_traffic_distribution_group)
-        """
-
-    def describe_user(self, *, UserId: str, InstanceId: str) -> DescribeUserResponseTypeDef:
-        """
-        Describes the specified user.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_user)
-        """
-
-    def describe_user_hierarchy_group(
-        self, *, HierarchyGroupId: str, InstanceId: str
-    ) -> DescribeUserHierarchyGroupResponseTypeDef:
-        """
-        Describes the specified hierarchy group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_user_hierarchy_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_user_hierarchy_group)
-        """
-
-    def describe_user_hierarchy_structure(
-        self, *, InstanceId: str
-    ) -> DescribeUserHierarchyStructureResponseTypeDef:
-        """
-        Describes the hierarchy structure of the specified Amazon Connect instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_user_hierarchy_structure)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_user_hierarchy_structure)
-        """
-
-    def describe_view(self, *, InstanceId: str, ViewId: str) -> DescribeViewResponseTypeDef:
-        """
-        Retrieves the view for the specified Amazon Connect instance and view
-        identifier.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_view)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_view)
-        """
-
-    def describe_vocabulary(
-        self, *, InstanceId: str, VocabularyId: str
-    ) -> DescribeVocabularyResponseTypeDef:
-        """
-        Describes the specified vocabulary.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_vocabulary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_vocabulary)
-        """
-
-    def disassociate_analytics_data_set(
-        self, *, InstanceId: str, DataSetId: str, TargetAccountId: str = None
-    ) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_analytics_data_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_analytics_data_set)
-        """
-
-    def disassociate_approved_origin(self, *, InstanceId: str, Origin: str) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_approved_origin)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_approved_origin)
-        """
-
-    def disassociate_bot(
-        self, *, InstanceId: str, LexBot: "LexBotTypeDef" = None, LexV2Bot: "LexV2BotTypeDef" = None
-    ) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_bot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_bot)
-        """
-
-    def disassociate_flow(
-        self, *, InstanceId: str, ResourceId: str, ResourceType: Literal["SMS_PHONE_NUMBER"]
-    ) -> Dict[str, Any]:
-        """
-        Disassociates a connect resource from a flow.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_flow)
-        """
-
-    def disassociate_instance_storage_config(
-        self, *, InstanceId: str, AssociationId: str, ResourceType: InstanceStorageResourceTypeType
-    ) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_instance_storage_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_instance_storage_config)
-        """
-
-    def disassociate_lambda_function(self, *, InstanceId: str, FunctionArn: str) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_lambda_function)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_lambda_function)
-        """
-
-    def disassociate_lex_bot(self, *, InstanceId: str, BotName: str, LexRegion: str) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_lex_bot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_lex_bot)
-        """
-
-    def disassociate_phone_number_contact_flow(
-        self, *, PhoneNumberId: str, InstanceId: str
-    ) -> None:
-        """
-        Removes the flow association from a phone number claimed to your Amazon Connect
-        instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_phone_number_contact_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_phone_number_contact_flow)
-        """
-
-    def disassociate_queue_quick_connects(
-        self, *, InstanceId: str, QueueId: str, QuickConnectIds: List[str]
-    ) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_queue_quick_connects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_queue_quick_connects)
-        """
-
-    def disassociate_routing_profile_queues(
-        self,
-        *,
-        InstanceId: str,
-        RoutingProfileId: str,
-        QueueReferences: List["RoutingProfileQueueReferenceTypeDef"]
-    ) -> None:
-        """
-        Disassociates a set of queues from a routing profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_routing_profile_queues)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_routing_profile_queues)
-        """
-
-    def disassociate_security_key(self, *, InstanceId: str, AssociationId: str) -> None:
-        """
-        This API is in preview release for Amazon Connect and is subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_security_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_security_key)
-        """
-
-    def disassociate_traffic_distribution_group_user(
-        self, *, TrafficDistributionGroupId: str, UserId: str, InstanceId: str
-    ) -> Dict[str, Any]:
-        """
-        Disassociates an agent from a traffic distribution group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_traffic_distribution_group_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_traffic_distribution_group_user)
-        """
-
-    def disassociate_user_proficiencies(
-        self,
-        *,
-        InstanceId: str,
-        UserId: str,
-        UserProficiencies: List["UserProficiencyDisassociateTypeDef"]
-    ) -> None:
-        """
-        Disassociates a set of proficiencies from a user.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_user_proficiencies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_user_proficiencies)
-        """
-
-    def dismiss_user_contact(
-        self, *, UserId: str, InstanceId: str, ContactId: str
-    ) -> Dict[str, Any]:
-        """
-        Dismisses contacts from an agent’s CCP and returns the agent to an available
-        state, which allows the agent to receive a new routed contact.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.dismiss_user_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#dismiss_user_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#generate_presigned_url)
+    def activate_evaluation_form(
+        self, **kwargs: Unpack[ActivateEvaluationFormRequestTypeDef]
+    ) -> ActivateEvaluationFormResponseTypeDef:
+        """
+        Activates an evaluation form in the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/activate_evaluation_form.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#activate_evaluation_form)
+        """
+
+    def associate_analytics_data_set(
+        self, **kwargs: Unpack[AssociateAnalyticsDataSetRequestTypeDef]
+    ) -> AssociateAnalyticsDataSetResponseTypeDef:
+        """
+        Associates the specified dataset for a Amazon Connect instance with the target
+        account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_analytics_data_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_analytics_data_set)
+        """
+
+    def associate_approved_origin(
+        self, **kwargs: Unpack[AssociateApprovedOriginRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_approved_origin.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_approved_origin)
+        """
+
+    def associate_bot(
+        self, **kwargs: Unpack[AssociateBotRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_bot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_bot)
+        """
+
+    def associate_default_vocabulary(
+        self, **kwargs: Unpack[AssociateDefaultVocabularyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associates an existing vocabulary as the default.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_default_vocabulary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_default_vocabulary)
+        """
+
+    def associate_flow(self, **kwargs: Unpack[AssociateFlowRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Associates a connect resource to a flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_flow)
+        """
+
+    def associate_instance_storage_config(
+        self, **kwargs: Unpack[AssociateInstanceStorageConfigRequestTypeDef]
+    ) -> AssociateInstanceStorageConfigResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_instance_storage_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_instance_storage_config)
+        """
+
+    def associate_lambda_function(
+        self, **kwargs: Unpack[AssociateLambdaFunctionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_lambda_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_lambda_function)
+        """
+
+    def associate_lex_bot(
+        self, **kwargs: Unpack[AssociateLexBotRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_lex_bot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_lex_bot)
+        """
+
+    def associate_phone_number_contact_flow(
+        self, **kwargs: Unpack[AssociatePhoneNumberContactFlowRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Associates a flow with a phone number claimed to your Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_phone_number_contact_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_phone_number_contact_flow)
+        """
+
+    def associate_queue_quick_connects(
+        self, **kwargs: Unpack[AssociateQueueQuickConnectsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_queue_quick_connects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_queue_quick_connects)
+        """
+
+    def associate_routing_profile_queues(
+        self, **kwargs: Unpack[AssociateRoutingProfileQueuesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Associates a set of queues with a routing profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_routing_profile_queues.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_routing_profile_queues)
+        """
+
+    def associate_security_key(
+        self, **kwargs: Unpack[AssociateSecurityKeyRequestTypeDef]
+    ) -> AssociateSecurityKeyResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_security_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_security_key)
+        """
+
+    def associate_traffic_distribution_group_user(
+        self, **kwargs: Unpack[AssociateTrafficDistributionGroupUserRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associates an agent with a traffic distribution group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_traffic_distribution_group_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_traffic_distribution_group_user)
+        """
+
+    def associate_user_proficiencies(
+        self, **kwargs: Unpack[AssociateUserProficienciesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Associates a set of proficiencies with a user.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/associate_user_proficiencies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#associate_user_proficiencies)
+        """
+
+    def batch_associate_analytics_data_set(
+        self, **kwargs: Unpack[BatchAssociateAnalyticsDataSetRequestTypeDef]
+    ) -> BatchAssociateAnalyticsDataSetResponseTypeDef:
+        """
+        Associates a list of analytics datasets for a given Amazon Connect instance to
+        a target account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/batch_associate_analytics_data_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#batch_associate_analytics_data_set)
+        """
+
+    def batch_disassociate_analytics_data_set(
+        self, **kwargs: Unpack[BatchDisassociateAnalyticsDataSetRequestTypeDef]
+    ) -> BatchDisassociateAnalyticsDataSetResponseTypeDef:
+        """
+        Removes a list of analytics datasets associated with a given Amazon Connect
+        instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/batch_disassociate_analytics_data_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#batch_disassociate_analytics_data_set)
+        """
+
+    def batch_get_attached_file_metadata(
+        self, **kwargs: Unpack[BatchGetAttachedFileMetadataRequestTypeDef]
+    ) -> BatchGetAttachedFileMetadataResponseTypeDef:
+        """
+        Allows you to retrieve metadata about multiple attached files on an associated
+        resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/batch_get_attached_file_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#batch_get_attached_file_metadata)
+        """
+
+    def batch_get_flow_association(
+        self, **kwargs: Unpack[BatchGetFlowAssociationRequestTypeDef]
+    ) -> BatchGetFlowAssociationResponseTypeDef:
+        """
+        Retrieve the flow associations for the given resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/batch_get_flow_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#batch_get_flow_association)
+        """
+
+    def batch_put_contact(
+        self, **kwargs: Unpack[BatchPutContactRequestTypeDef]
+    ) -> BatchPutContactResponseTypeDef:
+        """
+        Only the Amazon Connect outbound campaigns service principal is allowed to
+        assume a role in your account and call this API.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/batch_put_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#batch_put_contact)
+        """
+
+    def claim_phone_number(
+        self, **kwargs: Unpack[ClaimPhoneNumberRequestTypeDef]
+    ) -> ClaimPhoneNumberResponseTypeDef:
+        """
+        Claims an available phone number to your Amazon Connect instance or traffic
+        distribution group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/claim_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#claim_phone_number)
+        """
+
+    def complete_attached_file_upload(
+        self, **kwargs: Unpack[CompleteAttachedFileUploadRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Allows you to confirm that the attached file has been uploaded using the
+        pre-signed URL provided in the StartAttachedFileUpload API.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/complete_attached_file_upload.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#complete_attached_file_upload)
+        """
+
+    def create_agent_status(
+        self, **kwargs: Unpack[CreateAgentStatusRequestTypeDef]
+    ) -> CreateAgentStatusResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_agent_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_agent_status)
+        """
+
+    def create_contact(
+        self, **kwargs: Unpack[CreateContactRequestTypeDef]
+    ) -> CreateContactResponseTypeDef:
+        """
+        Only the EMAIL and VOICE channels are supported.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_contact)
+        """
+
+    def create_contact_flow(
+        self, **kwargs: Unpack[CreateContactFlowRequestTypeDef]
+    ) -> CreateContactFlowResponseTypeDef:
+        """
+        Creates a flow for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_contact_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_contact_flow)
+        """
+
+    def create_contact_flow_module(
+        self, **kwargs: Unpack[CreateContactFlowModuleRequestTypeDef]
+    ) -> CreateContactFlowModuleResponseTypeDef:
+        """
+        Creates a flow module for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_contact_flow_module.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_contact_flow_module)
+        """
+
+    def create_contact_flow_version(
+        self, **kwargs: Unpack[CreateContactFlowVersionRequestTypeDef]
+    ) -> CreateContactFlowVersionResponseTypeDef:
+        """
+        Publishes a new version of the flow provided.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_contact_flow_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_contact_flow_version)
+        """
+
+    def create_email_address(
+        self, **kwargs: Unpack[CreateEmailAddressRequestTypeDef]
+    ) -> CreateEmailAddressResponseTypeDef:
+        """
+        Create new email address in the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_email_address.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_email_address)
+        """
+
+    def create_evaluation_form(
+        self, **kwargs: Unpack[CreateEvaluationFormRequestTypeDef]
+    ) -> CreateEvaluationFormResponseTypeDef:
+        """
+        Creates an evaluation form in the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_evaluation_form.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_evaluation_form)
+        """
+
+    def create_hours_of_operation(
+        self, **kwargs: Unpack[CreateHoursOfOperationRequestTypeDef]
+    ) -> CreateHoursOfOperationResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_hours_of_operation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_hours_of_operation)
+        """
+
+    def create_hours_of_operation_override(
+        self, **kwargs: Unpack[CreateHoursOfOperationOverrideRequestTypeDef]
+    ) -> CreateHoursOfOperationOverrideResponseTypeDef:
+        """
+        Creates an hours of operation override in an Amazon Connect hours of operation
+        resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_hours_of_operation_override.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_hours_of_operation_override)
+        """
+
+    def create_instance(
+        self, **kwargs: Unpack[CreateInstanceRequestTypeDef]
+    ) -> CreateInstanceResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_instance)
+        """
+
+    def create_integration_association(
+        self, **kwargs: Unpack[CreateIntegrationAssociationRequestTypeDef]
+    ) -> CreateIntegrationAssociationResponseTypeDef:
+        """
+        Creates an Amazon Web Services resource association with an Amazon Connect
+        instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_integration_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_integration_association)
+        """
+
+    def create_participant(
+        self, **kwargs: Unpack[CreateParticipantRequestTypeDef]
+    ) -> CreateParticipantResponseTypeDef:
+        """
+        Adds a new participant into an on-going chat contact.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_participant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_participant)
+        """
+
+    def create_persistent_contact_association(
+        self, **kwargs: Unpack[CreatePersistentContactAssociationRequestTypeDef]
+    ) -> CreatePersistentContactAssociationResponseTypeDef:
+        """
+        Enables rehydration of chats for the lifespan of a contact.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_persistent_contact_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_persistent_contact_association)
+        """
+
+    def create_predefined_attribute(
+        self, **kwargs: Unpack[CreatePredefinedAttributeRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Creates a new predefined attribute for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_predefined_attribute.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_predefined_attribute)
+        """
+
+    def create_prompt(
+        self, **kwargs: Unpack[CreatePromptRequestTypeDef]
+    ) -> CreatePromptResponseTypeDef:
+        """
+        Creates a prompt.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_prompt.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_prompt)
+        """
+
+    def create_push_notification_registration(
+        self, **kwargs: Unpack[CreatePushNotificationRegistrationRequestTypeDef]
+    ) -> CreatePushNotificationRegistrationResponseTypeDef:
+        """
+        Creates registration for a device token and a chat contact to receive real-time
+        push notifications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_push_notification_registration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_push_notification_registration)
+        """
+
+    def create_queue(
+        self, **kwargs: Unpack[CreateQueueRequestTypeDef]
+    ) -> CreateQueueResponseTypeDef:
+        """
+        Creates a new queue for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_queue.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_queue)
+        """
+
+    def create_quick_connect(
+        self, **kwargs: Unpack[CreateQuickConnectRequestTypeDef]
+    ) -> CreateQuickConnectResponseTypeDef:
+        """
+        Creates a quick connect for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_quick_connect.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_quick_connect)
+        """
+
+    def create_routing_profile(
+        self, **kwargs: Unpack[CreateRoutingProfileRequestTypeDef]
+    ) -> CreateRoutingProfileResponseTypeDef:
+        """
+        Creates a new routing profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_routing_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_routing_profile)
+        """
+
+    def create_rule(self, **kwargs: Unpack[CreateRuleRequestTypeDef]) -> CreateRuleResponseTypeDef:
+        """
+        Creates a rule for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_rule)
+        """
+
+    def create_security_profile(
+        self, **kwargs: Unpack[CreateSecurityProfileRequestTypeDef]
+    ) -> CreateSecurityProfileResponseTypeDef:
+        """
+        Creates a security profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_security_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_security_profile)
+        """
+
+    def create_task_template(
+        self, **kwargs: Unpack[CreateTaskTemplateRequestTypeDef]
+    ) -> CreateTaskTemplateResponseTypeDef:
+        """
+        Creates a new task template in the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_task_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_task_template)
+        """
+
+    def create_traffic_distribution_group(
+        self, **kwargs: Unpack[CreateTrafficDistributionGroupRequestTypeDef]
+    ) -> CreateTrafficDistributionGroupResponseTypeDef:
+        """
+        Creates a traffic distribution group given an Amazon Connect instance that has
+        been replicated.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_traffic_distribution_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_traffic_distribution_group)
+        """
+
+    def create_use_case(
+        self, **kwargs: Unpack[CreateUseCaseRequestTypeDef]
+    ) -> CreateUseCaseResponseTypeDef:
+        """
+        Creates a use case for an integration association.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_use_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_use_case)
+        """
+
+    def create_user(self, **kwargs: Unpack[CreateUserRequestTypeDef]) -> CreateUserResponseTypeDef:
+        """
+        Creates a user account for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_user)
+        """
+
+    def create_user_hierarchy_group(
+        self, **kwargs: Unpack[CreateUserHierarchyGroupRequestTypeDef]
+    ) -> CreateUserHierarchyGroupResponseTypeDef:
+        """
+        Creates a new user hierarchy group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_user_hierarchy_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_user_hierarchy_group)
+        """
+
+    def create_view(self, **kwargs: Unpack[CreateViewRequestTypeDef]) -> CreateViewResponseTypeDef:
+        """
+        Creates a new view with the possible status of <code>SAVED</code> or
+        <code>PUBLISHED</code>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_view.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_view)
+        """
+
+    def create_view_version(
+        self, **kwargs: Unpack[CreateViewVersionRequestTypeDef]
+    ) -> CreateViewVersionResponseTypeDef:
+        """
+        Publishes a new version of the view identifier.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_view_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_view_version)
+        """
+
+    def create_vocabulary(
+        self, **kwargs: Unpack[CreateVocabularyRequestTypeDef]
+    ) -> CreateVocabularyResponseTypeDef:
+        """
+        Creates a custom vocabulary associated with your Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/create_vocabulary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#create_vocabulary)
+        """
+
+    def deactivate_evaluation_form(
+        self, **kwargs: Unpack[DeactivateEvaluationFormRequestTypeDef]
+    ) -> DeactivateEvaluationFormResponseTypeDef:
+        """
+        Deactivates an evaluation form in the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/deactivate_evaluation_form.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#deactivate_evaluation_form)
+        """
+
+    def delete_attached_file(
+        self, **kwargs: Unpack[DeleteAttachedFileRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an attached file along with the underlying S3 Object.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_attached_file.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_attached_file)
+        """
+
+    def delete_contact_evaluation(
+        self, **kwargs: Unpack[DeleteContactEvaluationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a contact evaluation in the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_contact_evaluation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_contact_evaluation)
+        """
+
+    def delete_contact_flow(
+        self, **kwargs: Unpack[DeleteContactFlowRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a flow for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_contact_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_contact_flow)
+        """
+
+    def delete_contact_flow_module(
+        self, **kwargs: Unpack[DeleteContactFlowModuleRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the specified flow module.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_contact_flow_module.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_contact_flow_module)
+        """
+
+    def delete_contact_flow_version(
+        self, **kwargs: Unpack[DeleteContactFlowVersionRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the particular version specified in flow version identifier.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_contact_flow_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_contact_flow_version)
+        """
+
+    def delete_email_address(
+        self, **kwargs: Unpack[DeleteEmailAddressRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes email address from the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_email_address.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_email_address)
+        """
+
+    def delete_evaluation_form(
+        self, **kwargs: Unpack[DeleteEvaluationFormRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an evaluation form in the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_evaluation_form.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_evaluation_form)
+        """
+
+    def delete_hours_of_operation(
+        self, **kwargs: Unpack[DeleteHoursOfOperationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_hours_of_operation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_hours_of_operation)
+        """
+
+    def delete_hours_of_operation_override(
+        self, **kwargs: Unpack[DeleteHoursOfOperationOverrideRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an hours of operation override in an Amazon Connect hours of operation
+        resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_hours_of_operation_override.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_hours_of_operation_override)
+        """
+
+    def delete_instance(
+        self, **kwargs: Unpack[DeleteInstanceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_instance)
+        """
+
+    def delete_integration_association(
+        self, **kwargs: Unpack[DeleteIntegrationAssociationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an Amazon Web Services resource association from an Amazon Connect
+        instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_integration_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_integration_association)
+        """
+
+    def delete_predefined_attribute(
+        self, **kwargs: Unpack[DeletePredefinedAttributeRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a predefined attribute from the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_predefined_attribute.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_predefined_attribute)
+        """
+
+    def delete_prompt(
+        self, **kwargs: Unpack[DeletePromptRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a prompt.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_prompt.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_prompt)
+        """
+
+    def delete_push_notification_registration(
+        self, **kwargs: Unpack[DeletePushNotificationRegistrationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes registration for a device token and a chat contact.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_push_notification_registration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_push_notification_registration)
+        """
+
+    def delete_queue(
+        self, **kwargs: Unpack[DeleteQueueRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a queue.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_queue.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_queue)
+        """
+
+    def delete_quick_connect(
+        self, **kwargs: Unpack[DeleteQuickConnectRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a quick connect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_quick_connect.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_quick_connect)
+        """
+
+    def delete_routing_profile(
+        self, **kwargs: Unpack[DeleteRoutingProfileRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a routing profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_routing_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_routing_profile)
+        """
+
+    def delete_rule(
+        self, **kwargs: Unpack[DeleteRuleRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a rule for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_rule)
+        """
+
+    def delete_security_profile(
+        self, **kwargs: Unpack[DeleteSecurityProfileRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a security profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_security_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_security_profile)
+        """
+
+    def delete_task_template(
+        self, **kwargs: Unpack[DeleteTaskTemplateRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the task template.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_task_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_task_template)
+        """
+
+    def delete_traffic_distribution_group(
+        self, **kwargs: Unpack[DeleteTrafficDistributionGroupRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a traffic distribution group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_traffic_distribution_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_traffic_distribution_group)
+        """
+
+    def delete_use_case(
+        self, **kwargs: Unpack[DeleteUseCaseRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a use case from an integration association.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_use_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_use_case)
+        """
+
+    def delete_user(
+        self, **kwargs: Unpack[DeleteUserRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a user account from the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_user)
+        """
+
+    def delete_user_hierarchy_group(
+        self, **kwargs: Unpack[DeleteUserHierarchyGroupRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an existing user hierarchy group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_user_hierarchy_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_user_hierarchy_group)
+        """
+
+    def delete_view(self, **kwargs: Unpack[DeleteViewRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes the view entirely.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_view.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_view)
+        """
+
+    def delete_view_version(
+        self, **kwargs: Unpack[DeleteViewVersionRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the particular version specified in <code>ViewVersion</code> identifier.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_view_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_view_version)
+        """
+
+    def delete_vocabulary(
+        self, **kwargs: Unpack[DeleteVocabularyRequestTypeDef]
+    ) -> DeleteVocabularyResponseTypeDef:
+        """
+        Deletes the vocabulary that has the given identifier.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/delete_vocabulary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#delete_vocabulary)
+        """
+
+    def describe_agent_status(
+        self, **kwargs: Unpack[DescribeAgentStatusRequestTypeDef]
+    ) -> DescribeAgentStatusResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_agent_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_agent_status)
+        """
+
+    def describe_authentication_profile(
+        self, **kwargs: Unpack[DescribeAuthenticationProfileRequestTypeDef]
+    ) -> DescribeAuthenticationProfileResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_authentication_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_authentication_profile)
+        """
+
+    def describe_contact(
+        self, **kwargs: Unpack[DescribeContactRequestTypeDef]
+    ) -> DescribeContactResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_contact)
+        """
+
+    def describe_contact_evaluation(
+        self, **kwargs: Unpack[DescribeContactEvaluationRequestTypeDef]
+    ) -> DescribeContactEvaluationResponseTypeDef:
+        """
+        Describes a contact evaluation in the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_contact_evaluation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_contact_evaluation)
+        """
+
+    def describe_contact_flow(
+        self, **kwargs: Unpack[DescribeContactFlowRequestTypeDef]
+    ) -> DescribeContactFlowResponseTypeDef:
+        """
+        Describes the specified flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_contact_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_contact_flow)
+        """
+
+    def describe_contact_flow_module(
+        self, **kwargs: Unpack[DescribeContactFlowModuleRequestTypeDef]
+    ) -> DescribeContactFlowModuleResponseTypeDef:
+        """
+        Describes the specified flow module.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_contact_flow_module.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_contact_flow_module)
+        """
+
+    def describe_email_address(
+        self, **kwargs: Unpack[DescribeEmailAddressRequestTypeDef]
+    ) -> DescribeEmailAddressResponseTypeDef:
+        """
+        Describe email address form the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_email_address.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_email_address)
+        """
+
+    def describe_evaluation_form(
+        self, **kwargs: Unpack[DescribeEvaluationFormRequestTypeDef]
+    ) -> DescribeEvaluationFormResponseTypeDef:
+        """
+        Describes an evaluation form in the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_evaluation_form.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_evaluation_form)
+        """
+
+    def describe_hours_of_operation(
+        self, **kwargs: Unpack[DescribeHoursOfOperationRequestTypeDef]
+    ) -> DescribeHoursOfOperationResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_hours_of_operation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_hours_of_operation)
+        """
+
+    def describe_hours_of_operation_override(
+        self, **kwargs: Unpack[DescribeHoursOfOperationOverrideRequestTypeDef]
+    ) -> DescribeHoursOfOperationOverrideResponseTypeDef:
+        """
+        Describes the hours of operation override.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_hours_of_operation_override.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_hours_of_operation_override)
+        """
+
+    def describe_instance(
+        self, **kwargs: Unpack[DescribeInstanceRequestTypeDef]
+    ) -> DescribeInstanceResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_instance)
+        """
+
+    def describe_instance_attribute(
+        self, **kwargs: Unpack[DescribeInstanceAttributeRequestTypeDef]
+    ) -> DescribeInstanceAttributeResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_instance_attribute.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_instance_attribute)
+        """
+
+    def describe_instance_storage_config(
+        self, **kwargs: Unpack[DescribeInstanceStorageConfigRequestTypeDef]
+    ) -> DescribeInstanceStorageConfigResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_instance_storage_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_instance_storage_config)
+        """
+
+    def describe_phone_number(
+        self, **kwargs: Unpack[DescribePhoneNumberRequestTypeDef]
+    ) -> DescribePhoneNumberResponseTypeDef:
+        """
+        Gets details and status of a phone number that's claimed to your Amazon Connect
+        instance or traffic distribution group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_phone_number)
+        """
+
+    def describe_predefined_attribute(
+        self, **kwargs: Unpack[DescribePredefinedAttributeRequestTypeDef]
+    ) -> DescribePredefinedAttributeResponseTypeDef:
+        """
+        Describes a predefined attribute for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_predefined_attribute.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_predefined_attribute)
+        """
+
+    def describe_prompt(
+        self, **kwargs: Unpack[DescribePromptRequestTypeDef]
+    ) -> DescribePromptResponseTypeDef:
+        """
+        Describes the prompt.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_prompt.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_prompt)
+        """
+
+    def describe_queue(
+        self, **kwargs: Unpack[DescribeQueueRequestTypeDef]
+    ) -> DescribeQueueResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_queue.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_queue)
+        """
+
+    def describe_quick_connect(
+        self, **kwargs: Unpack[DescribeQuickConnectRequestTypeDef]
+    ) -> DescribeQuickConnectResponseTypeDef:
+        """
+        Describes the quick connect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_quick_connect.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_quick_connect)
+        """
+
+    def describe_routing_profile(
+        self, **kwargs: Unpack[DescribeRoutingProfileRequestTypeDef]
+    ) -> DescribeRoutingProfileResponseTypeDef:
+        """
+        Describes the specified routing profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_routing_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_routing_profile)
+        """
+
+    def describe_rule(
+        self, **kwargs: Unpack[DescribeRuleRequestTypeDef]
+    ) -> DescribeRuleResponseTypeDef:
+        """
+        Describes a rule for the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_rule)
+        """
+
+    def describe_security_profile(
+        self, **kwargs: Unpack[DescribeSecurityProfileRequestTypeDef]
+    ) -> DescribeSecurityProfileResponseTypeDef:
+        """
+        Gets basic information about the security profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_security_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_security_profile)
+        """
+
+    def describe_traffic_distribution_group(
+        self, **kwargs: Unpack[DescribeTrafficDistributionGroupRequestTypeDef]
+    ) -> DescribeTrafficDistributionGroupResponseTypeDef:
+        """
+        Gets details and status of a traffic distribution group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_traffic_distribution_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_traffic_distribution_group)
+        """
+
+    def describe_user(
+        self, **kwargs: Unpack[DescribeUserRequestTypeDef]
+    ) -> DescribeUserResponseTypeDef:
+        """
+        Describes the specified user.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_user)
+        """
+
+    def describe_user_hierarchy_group(
+        self, **kwargs: Unpack[DescribeUserHierarchyGroupRequestTypeDef]
+    ) -> DescribeUserHierarchyGroupResponseTypeDef:
+        """
+        Describes the specified hierarchy group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_user_hierarchy_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_user_hierarchy_group)
+        """
+
+    def describe_user_hierarchy_structure(
+        self, **kwargs: Unpack[DescribeUserHierarchyStructureRequestTypeDef]
+    ) -> DescribeUserHierarchyStructureResponseTypeDef:
+        """
+        Describes the hierarchy structure of the specified Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_user_hierarchy_structure.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_user_hierarchy_structure)
+        """
+
+    def describe_view(
+        self, **kwargs: Unpack[DescribeViewRequestTypeDef]
+    ) -> DescribeViewResponseTypeDef:
+        """
+        Retrieves the view for the specified Amazon Connect instance and view
+        identifier.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_view.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_view)
+        """
+
+    def describe_vocabulary(
+        self, **kwargs: Unpack[DescribeVocabularyRequestTypeDef]
+    ) -> DescribeVocabularyResponseTypeDef:
+        """
+        Describes the specified vocabulary.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/describe_vocabulary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#describe_vocabulary)
+        """
+
+    def disassociate_analytics_data_set(
+        self, **kwargs: Unpack[DisassociateAnalyticsDataSetRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Removes the dataset ID associated with a given Amazon Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_analytics_data_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_analytics_data_set)
+        """
+
+    def disassociate_approved_origin(
+        self, **kwargs: Unpack[DisassociateApprovedOriginRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_approved_origin.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_approved_origin)
+        """
+
+    def disassociate_bot(
+        self, **kwargs: Unpack[DisassociateBotRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_bot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_bot)
+        """
+
+    def disassociate_flow(self, **kwargs: Unpack[DisassociateFlowRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Disassociates a connect resource from a flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_flow)
+        """
+
+    def disassociate_instance_storage_config(
+        self, **kwargs: Unpack[DisassociateInstanceStorageConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_instance_storage_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_instance_storage_config)
+        """
+
+    def disassociate_lambda_function(
+        self, **kwargs: Unpack[DisassociateLambdaFunctionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_lambda_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_lambda_function)
+        """
+
+    def disassociate_lex_bot(
+        self, **kwargs: Unpack[DisassociateLexBotRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_lex_bot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_lex_bot)
+        """
+
+    def disassociate_phone_number_contact_flow(
+        self, **kwargs: Unpack[DisassociatePhoneNumberContactFlowRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Removes the flow association from a phone number claimed to your Amazon Connect
+        instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_phone_number_contact_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_phone_number_contact_flow)
+        """
+
+    def disassociate_queue_quick_connects(
+        self, **kwargs: Unpack[DisassociateQueueQuickConnectsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_queue_quick_connects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_queue_quick_connects)
+        """
+
+    def disassociate_routing_profile_queues(
+        self, **kwargs: Unpack[DisassociateRoutingProfileQueuesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Disassociates a set of queues from a routing profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_routing_profile_queues.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_routing_profile_queues)
+        """
+
+    def disassociate_security_key(
+        self, **kwargs: Unpack[DisassociateSecurityKeyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_security_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_security_key)
+        """
+
+    def disassociate_traffic_distribution_group_user(
+        self, **kwargs: Unpack[DisassociateTrafficDistributionGroupUserRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates an agent from a traffic distribution group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_traffic_distribution_group_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_traffic_distribution_group_user)
+        """
+
+    def disassociate_user_proficiencies(
+        self, **kwargs: Unpack[DisassociateUserProficienciesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Disassociates a set of proficiencies from a user.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/disassociate_user_proficiencies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#disassociate_user_proficiencies)
+        """
+
+    def dismiss_user_contact(
+        self, **kwargs: Unpack[DismissUserContactRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Dismisses contacts from an agent's CCP and returns the agent to an available
+        state, which allows the agent to receive a new routed contact.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/dismiss_user_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#dismiss_user_contact)
         """
 
     def get_attached_file(
-        self,
-        *,
-        InstanceId: str,
-        FileId: str,
-        AssociatedResourceArn: str,
-        UrlExpiryInSeconds: int = None
+        self, **kwargs: Unpack[GetAttachedFileRequestTypeDef]
     ) -> GetAttachedFileResponseTypeDef:
         """
         Provides a pre-signed URL for download of an approved attached file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_attached_file)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_attached_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_attached_file.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_attached_file)
         """
 
     def get_contact_attributes(
-        self, *, InstanceId: str, InitialContactId: str
+        self, **kwargs: Unpack[GetContactAttributesRequestTypeDef]
     ) -> GetContactAttributesResponseTypeDef:
         """
         Retrieves the contact attributes for the specified contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_contact_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_contact_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_contact_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_contact_attributes)
         """
 
     def get_current_metric_data(
-        self,
-        *,
-        InstanceId: str,
-        Filters: "FiltersTypeDef",
-        CurrentMetrics: List["CurrentMetricTypeDef"],
-        Groupings: List[GroupingType] = None,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SortCriteria: List["CurrentMetricSortCriteriaTypeDef"] = None
+        self, **kwargs: Unpack[GetCurrentMetricDataRequestTypeDef]
     ) -> GetCurrentMetricDataResponseTypeDef:
         """
         Gets the real-time metric data from the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_current_metric_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_current_metric_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_current_metric_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_current_metric_data)
         """
 
     def get_current_user_data(
-        self,
-        *,
-        InstanceId: str,
-        Filters: "UserDataFiltersTypeDef",
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[GetCurrentUserDataRequestTypeDef]
     ) -> GetCurrentUserDataResponseTypeDef:
         """
         Gets the real-time active user data from the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_current_user_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_current_user_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_current_user_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_current_user_data)
         """
 
-    def get_federation_token(self, *, InstanceId: str) -> GetFederationTokenResponseTypeDef:
+    def get_effective_hours_of_operations(
+        self, **kwargs: Unpack[GetEffectiveHoursOfOperationsRequestTypeDef]
+    ) -> GetEffectiveHoursOfOperationsResponseTypeDef:
+        """
+        Get the hours of operations with the effective override applied.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_effective_hours_of_operations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_effective_hours_of_operations)
+        """
+
+    def get_federation_token(
+        self, **kwargs: Unpack[GetFederationTokenRequestTypeDef]
+    ) -> GetFederationTokenResponseTypeDef:
         """
         Supports SAML sign-in for Amazon Connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_federation_token)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_federation_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_federation_token.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_federation_token)
         """
 
     def get_flow_association(
-        self, *, InstanceId: str, ResourceId: str, ResourceType: Literal["SMS_PHONE_NUMBER"]
+        self, **kwargs: Unpack[GetFlowAssociationRequestTypeDef]
     ) -> GetFlowAssociationResponseTypeDef:
         """
         Retrieves the flow associated for a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_flow_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_flow_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_flow_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_flow_association)
         """
 
     def get_metric_data(
-        self,
-        *,
-        InstanceId: str,
-        StartTime: Union[datetime, str],
-        EndTime: Union[datetime, str],
-        Filters: "FiltersTypeDef",
-        HistoricalMetrics: List["HistoricalMetricTypeDef"],
-        Groupings: List[GroupingType] = None,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[GetMetricDataRequestTypeDef]
     ) -> GetMetricDataResponseTypeDef:
         """
         Gets historical metric data from the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_metric_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_metric_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_metric_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_metric_data)
         """
 
     def get_metric_data_v2(
-        self,
-        *,
-        ResourceArn: str,
-        StartTime: Union[datetime, str],
-        EndTime: Union[datetime, str],
-        Filters: List["FilterV2TypeDef"],
-        Metrics: List["MetricV2TypeDef"],
-        Interval: "IntervalDetailsTypeDef" = None,
-        Groupings: List[str] = None,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[GetMetricDataV2RequestTypeDef]
     ) -> GetMetricDataV2ResponseTypeDef:
         """
         Gets metric data from the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_metric_data_v2)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_metric_data_v2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_metric_data_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_metric_data_v2)
         """
 
-    def get_prompt_file(self, *, InstanceId: str, PromptId: str) -> GetPromptFileResponseTypeDef:
+    def get_prompt_file(
+        self, **kwargs: Unpack[GetPromptFileRequestTypeDef]
+    ) -> GetPromptFileResponseTypeDef:
         """
         Gets the prompt file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_prompt_file)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_prompt_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_prompt_file.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_prompt_file)
         """
 
     def get_task_template(
-        self, *, InstanceId: str, TaskTemplateId: str, SnapshotVersion: str = None
+        self, **kwargs: Unpack[GetTaskTemplateRequestTypeDef]
     ) -> GetTaskTemplateResponseTypeDef:
         """
         Gets details about a specific task template in the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_task_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_task_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_task_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_task_template)
         """
 
-    def get_traffic_distribution(self, *, Id: str) -> GetTrafficDistributionResponseTypeDef:
+    def get_traffic_distribution(
+        self, **kwargs: Unpack[GetTrafficDistributionRequestTypeDef]
+    ) -> GetTrafficDistributionResponseTypeDef:
         """
         Retrieves the current traffic distribution for a given traffic distribution
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_traffic_distribution)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_traffic_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_traffic_distribution.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_traffic_distribution)
         """
 
     def import_phone_number(
-        self,
-        *,
-        InstanceId: str,
-        SourcePhoneNumberArn: str,
-        PhoneNumberDescription: str = None,
-        Tags: Dict[str, str] = None,
-        ClientToken: str = None
+        self, **kwargs: Unpack[ImportPhoneNumberRequestTypeDef]
     ) -> ImportPhoneNumberResponseTypeDef:
         """
-        Imports a claimed phone number from an external service, such as Amazon
-        Pinpoint, into an Amazon Connect instance.
+        Imports a claimed phone number from an external service, such as Amazon Web
+        Services End User Messaging, into an Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.import_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#import_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/import_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#import_phone_number)
         """
 
     def list_agent_statuses(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        AgentStatusTypes: List[AgentStatusTypeType] = None
+        self, **kwargs: Unpack[ListAgentStatusRequestTypeDef]
     ) -> ListAgentStatusResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_agent_statuses)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_agent_statuses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_agent_statuses.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_agent_statuses)
         """
 
     def list_analytics_data_associations(
-        self,
-        *,
-        InstanceId: str,
-        DataSetId: str = None,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListAnalyticsDataAssociationsRequestTypeDef]
     ) -> ListAnalyticsDataAssociationsResponseTypeDef:
         """
-        This API is in preview release for Amazon Connect and is subject to change.
+        Lists the association status of requested dataset ID for a given Amazon Connect
+        instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_analytics_data_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_analytics_data_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_analytics_data_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_analytics_data_associations)
+        """
+
+    def list_analytics_data_lake_data_sets(
+        self, **kwargs: Unpack[ListAnalyticsDataLakeDataSetsRequestTypeDef]
+    ) -> ListAnalyticsDataLakeDataSetsResponseTypeDef:
+        """
+        Lists the data lake datasets available to associate with for a given Amazon
+        Connect instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_analytics_data_lake_data_sets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_analytics_data_lake_data_sets)
         """
 
     def list_approved_origins(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListApprovedOriginsRequestTypeDef]
     ) -> ListApprovedOriginsResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_approved_origins)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_approved_origins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_approved_origins.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_approved_origins)
+        """
+
+    def list_associated_contacts(
+        self, **kwargs: Unpack[ListAssociatedContactsRequestTypeDef]
+    ) -> ListAssociatedContactsResponseTypeDef:
+        """
+        Provides information about contact tree, a list of associated contacts with a
+        unique identifier.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_associated_contacts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_associated_contacts)
         """
 
     def list_authentication_profiles(
-        self, *, InstanceId: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListAuthenticationProfilesRequestTypeDef]
     ) -> ListAuthenticationProfilesResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_authentication_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_authentication_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_authentication_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_authentication_profiles)
         """
 
-    def list_bots(
-        self,
-        *,
-        InstanceId: str,
-        LexVersion: LexVersionType,
-        NextToken: str = None,
-        MaxResults: int = None
-    ) -> ListBotsResponseTypeDef:
+    def list_bots(self, **kwargs: Unpack[ListBotsRequestTypeDef]) -> ListBotsResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_bots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_bots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_bots.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_bots)
         """
 
     def list_contact_evaluations(
-        self, *, InstanceId: str, ContactId: str, NextToken: str = None
+        self, **kwargs: Unpack[ListContactEvaluationsRequestTypeDef]
     ) -> ListContactEvaluationsResponseTypeDef:
         """
         Lists contact evaluations in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_contact_evaluations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_contact_evaluations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_contact_evaluations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_contact_evaluations)
         """
 
     def list_contact_flow_modules(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        ContactFlowModuleState: ContactFlowModuleStateType = None
+        self, **kwargs: Unpack[ListContactFlowModulesRequestTypeDef]
     ) -> ListContactFlowModulesResponseTypeDef:
         """
         Provides information about the flow modules for the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_contact_flow_modules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_contact_flow_modules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_contact_flow_modules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_contact_flow_modules)
+        """
+
+    def list_contact_flow_versions(
+        self, **kwargs: Unpack[ListContactFlowVersionsRequestTypeDef]
+    ) -> ListContactFlowVersionsResponseTypeDef:
+        """
+        Returns all the available versions for the specified Amazon Connect instance
+        and flow identifier.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_contact_flow_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_contact_flow_versions)
         """
 
     def list_contact_flows(
-        self,
-        *,
-        InstanceId: str,
-        ContactFlowTypes: List[ContactFlowTypeType] = None,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListContactFlowsRequestTypeDef]
     ) -> ListContactFlowsResponseTypeDef:
         """
         Provides information about the flows for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_contact_flows)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_contact_flows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_contact_flows.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_contact_flows)
         """
 
     def list_contact_references(
-        self,
-        *,
-        InstanceId: str,
-        ContactId: str,
-        ReferenceTypes: List[ReferenceTypeType],
-        NextToken: str = None
+        self, **kwargs: Unpack[ListContactReferencesRequestTypeDef]
     ) -> ListContactReferencesResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_contact_references)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_contact_references)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_contact_references.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_contact_references)
         """
 
     def list_default_vocabularies(
-        self,
-        *,
-        InstanceId: str,
-        LanguageCode: VocabularyLanguageCodeType = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListDefaultVocabulariesRequestTypeDef]
     ) -> ListDefaultVocabulariesResponseTypeDef:
         """
         Lists the default vocabularies for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_default_vocabularies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_default_vocabularies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_default_vocabularies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_default_vocabularies)
         """
 
     def list_evaluation_form_versions(
-        self,
-        *,
-        InstanceId: str,
-        EvaluationFormId: str,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListEvaluationFormVersionsRequestTypeDef]
     ) -> ListEvaluationFormVersionsResponseTypeDef:
         """
         Lists versions of an evaluation form in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_evaluation_form_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_evaluation_form_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_evaluation_form_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_evaluation_form_versions)
         """
 
     def list_evaluation_forms(
-        self, *, InstanceId: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListEvaluationFormsRequestTypeDef]
     ) -> ListEvaluationFormsResponseTypeDef:
         """
         Lists evaluation forms in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_evaluation_forms)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_evaluation_forms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_evaluation_forms.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_evaluation_forms)
         """
 
     def list_flow_associations(
-        self,
-        *,
-        InstanceId: str,
-        ResourceType: Literal["VOICE_PHONE_NUMBER"] = None,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListFlowAssociationsRequestTypeDef]
     ) -> ListFlowAssociationsResponseTypeDef:
         """
         List the flow association based on the filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_flow_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_flow_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_flow_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_flow_associations)
+        """
+
+    def list_hours_of_operation_overrides(
+        self, **kwargs: Unpack[ListHoursOfOperationOverridesRequestTypeDef]
+    ) -> ListHoursOfOperationOverridesResponseTypeDef:
+        """
+        List the hours of operation overrides.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_hours_of_operation_overrides.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_hours_of_operation_overrides)
         """
 
     def list_hours_of_operations(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListHoursOfOperationsRequestTypeDef]
     ) -> ListHoursOfOperationsResponseTypeDef:
         """
         Provides information about the hours of operation for the specified Amazon
         Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_hours_of_operations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_hours_of_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_hours_of_operations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_hours_of_operations)
         """
 
     def list_instance_attributes(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListInstanceAttributesRequestTypeDef]
     ) -> ListInstanceAttributesResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_instance_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_instance_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_instance_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_instance_attributes)
         """
 
     def list_instance_storage_configs(
-        self,
-        *,
-        InstanceId: str,
-        ResourceType: InstanceStorageResourceTypeType,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListInstanceStorageConfigsRequestTypeDef]
     ) -> ListInstanceStorageConfigsResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_instance_storage_configs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_instance_storage_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_instance_storage_configs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_instance_storage_configs)
         """
 
     def list_instances(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListInstancesRequestTypeDef]
     ) -> ListInstancesResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_instances)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_instances.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_instances)
         """
 
     def list_integration_associations(
-        self,
-        *,
-        InstanceId: str,
-        IntegrationType: IntegrationTypeType = None,
-        NextToken: str = None,
-        MaxResults: int = None,
-        IntegrationArn: str = None
+        self, **kwargs: Unpack[ListIntegrationAssociationsRequestTypeDef]
     ) -> ListIntegrationAssociationsResponseTypeDef:
         """
-        Provides summary information about the Amazon Web Services resource associations
-        for the specified Amazon Connect instance.
+        Provides summary information about the Amazon Web Services resource
+        associations for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_integration_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_integration_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_integration_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_integration_associations)
         """
 
     def list_lambda_functions(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListLambdaFunctionsRequestTypeDef]
     ) -> ListLambdaFunctionsResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_lambda_functions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_lambda_functions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_lambda_functions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_lambda_functions)
         """
 
     def list_lex_bots(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListLexBotsRequestTypeDef]
     ) -> ListLexBotsResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_lex_bots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_lex_bots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_lex_bots.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_lex_bots)
         """
 
     def list_phone_numbers(
-        self,
-        *,
-        InstanceId: str,
-        PhoneNumberTypes: List[PhoneNumberTypeType] = None,
-        PhoneNumberCountryCodes: List[PhoneNumberCountryCodeType] = None,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListPhoneNumbersRequestTypeDef]
     ) -> ListPhoneNumbersResponseTypeDef:
         """
         Provides information about the phone numbers for the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_phone_numbers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_phone_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_phone_numbers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_phone_numbers)
         """
 
     def list_phone_numbers_v2(
-        self,
-        *,
-        TargetArn: str = None,
-        InstanceId: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        PhoneNumberCountryCodes: List[PhoneNumberCountryCodeType] = None,
-        PhoneNumberTypes: List[PhoneNumberTypeType] = None,
-        PhoneNumberPrefix: str = None
+        self, **kwargs: Unpack[ListPhoneNumbersV2RequestTypeDef]
     ) -> ListPhoneNumbersV2ResponseTypeDef:
         """
         Lists phone numbers claimed to your Amazon Connect instance or traffic
         distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_phone_numbers_v2)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_phone_numbers_v2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_phone_numbers_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_phone_numbers_v2)
         """
 
     def list_predefined_attributes(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListPredefinedAttributesRequestTypeDef]
     ) -> ListPredefinedAttributesResponseTypeDef:
         """
         Lists predefined attributes for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_predefined_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_predefined_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_predefined_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_predefined_attributes)
         """
 
     def list_prompts(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListPromptsRequestTypeDef]
     ) -> ListPromptsResponseTypeDef:
         """
         Provides information about the prompts for the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_prompts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_prompts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_prompts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_prompts)
         """
 
     def list_queue_quick_connects(
-        self, *, InstanceId: str, QueueId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListQueueQuickConnectsRequestTypeDef]
     ) -> ListQueueQuickConnectsResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_queue_quick_connects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_queue_quick_connects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_queue_quick_connects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_queue_quick_connects)
         """
 
-    def list_queues(
-        self,
-        *,
-        InstanceId: str,
-        QueueTypes: List[QueueTypeType] = None,
-        NextToken: str = None,
-        MaxResults: int = None
-    ) -> ListQueuesResponseTypeDef:
+    def list_queues(self, **kwargs: Unpack[ListQueuesRequestTypeDef]) -> ListQueuesResponseTypeDef:
         """
         Provides information about the queues for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_queues)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_queues.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_queues)
         """
 
     def list_quick_connects(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        QuickConnectTypes: List[QuickConnectTypeType] = None
+        self, **kwargs: Unpack[ListQuickConnectsRequestTypeDef]
     ) -> ListQuickConnectsResponseTypeDef:
         """
         Provides information about the quick connects for the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_quick_connects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_quick_connects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_quick_connects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_quick_connects)
         """
 
     def list_realtime_contact_analysis_segments_v2(
-        self,
-        *,
-        InstanceId: str,
-        ContactId: str,
-        OutputType: RealTimeContactAnalysisOutputTypeType,
-        SegmentTypes: List[RealTimeContactAnalysisSegmentTypeType],
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListRealtimeContactAnalysisSegmentsV2RequestTypeDef]
     ) -> ListRealtimeContactAnalysisSegmentsV2ResponseTypeDef:
         """
-        Provides a list of analysis segments for a real-time analysis session.
+        Provides a list of analysis segments for a real-time chat analysis session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_realtime_contact_analysis_segments_v2)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_realtime_contact_analysis_segments_v2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_realtime_contact_analysis_segments_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_realtime_contact_analysis_segments_v2)
         """
 
     def list_routing_profile_queues(
-        self,
-        *,
-        InstanceId: str,
-        RoutingProfileId: str,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListRoutingProfileQueuesRequestTypeDef]
     ) -> ListRoutingProfileQueuesResponseTypeDef:
         """
         Lists the queues associated with a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_routing_profile_queues)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_routing_profile_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_routing_profile_queues.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_routing_profile_queues)
         """
 
     def list_routing_profiles(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListRoutingProfilesRequestTypeDef]
     ) -> ListRoutingProfilesResponseTypeDef:
         """
-        Provides summary information about the routing profiles for the specified Amazon
-        Connect instance.
+        Provides summary information about the routing profiles for the specified
+        Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_routing_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_routing_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_routing_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_routing_profiles)
         """
 
-    def list_rules(
-        self,
-        *,
-        InstanceId: str,
-        PublishStatus: RulePublishStatusType = None,
-        EventSourceName: EventSourceNameType = None,
-        MaxResults: int = None,
-        NextToken: str = None
-    ) -> ListRulesResponseTypeDef:
+    def list_rules(self, **kwargs: Unpack[ListRulesRequestTypeDef]) -> ListRulesResponseTypeDef:
         """
         List all rules for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_rules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_rules)
         """
 
     def list_security_keys(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListSecurityKeysRequestTypeDef]
     ) -> ListSecurityKeysResponseTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_security_keys)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_security_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_security_keys.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_security_keys)
         """
 
     def list_security_profile_applications(
-        self,
-        *,
-        SecurityProfileId: str,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListSecurityProfileApplicationsRequestTypeDef]
     ) -> ListSecurityProfileApplicationsResponseTypeDef:
         """
         Returns a list of third-party applications in a specific security profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_security_profile_applications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_security_profile_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_security_profile_applications.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_security_profile_applications)
         """
 
     def list_security_profile_permissions(
-        self,
-        *,
-        SecurityProfileId: str,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListSecurityProfilePermissionsRequestTypeDef]
     ) -> ListSecurityProfilePermissionsResponseTypeDef:
         """
         Lists the permissions granted to a security profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_security_profile_permissions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_security_profile_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_security_profile_permissions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_security_profile_permissions)
         """
 
     def list_security_profiles(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListSecurityProfilesRequestTypeDef]
     ) -> ListSecurityProfilesResponseTypeDef:
         """
         Provides summary information about the security profiles for the specified
         Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_security_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_security_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_security_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_security_profiles)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_tags_for_resource)
         """
 
     def list_task_templates(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        Status: TaskTemplateStatusType = None,
-        Name: str = None
+        self, **kwargs: Unpack[ListTaskTemplatesRequestTypeDef]
     ) -> ListTaskTemplatesResponseTypeDef:
         """
         Lists task templates for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_task_templates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_task_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_task_templates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_task_templates)
         """
 
     def list_traffic_distribution_group_users(
-        self, *, TrafficDistributionGroupId: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListTrafficDistributionGroupUsersRequestTypeDef]
     ) -> ListTrafficDistributionGroupUsersResponseTypeDef:
         """
         Lists traffic distribution group users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_traffic_distribution_group_users)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_traffic_distribution_group_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_traffic_distribution_group_users.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_traffic_distribution_group_users)
         """
 
     def list_traffic_distribution_groups(
-        self, *, MaxResults: int = None, NextToken: str = None, InstanceId: str = None
+        self, **kwargs: Unpack[ListTrafficDistributionGroupsRequestTypeDef]
     ) -> ListTrafficDistributionGroupsResponseTypeDef:
         """
         Lists traffic distribution groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_traffic_distribution_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_traffic_distribution_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_traffic_distribution_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_traffic_distribution_groups)
         """
 
     def list_use_cases(
-        self,
-        *,
-        InstanceId: str,
-        IntegrationAssociationId: str,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListUseCasesRequestTypeDef]
     ) -> ListUseCasesResponseTypeDef:
         """
         Lists the use cases for the integration association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_use_cases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_use_cases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_use_cases.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_use_cases)
         """
 
     def list_user_hierarchy_groups(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListUserHierarchyGroupsRequestTypeDef]
     ) -> ListUserHierarchyGroupsResponseTypeDef:
         """
-        Provides summary information about the hierarchy groups for the specified Amazon
-        Connect instance.
+        Provides summary information about the hierarchy groups for the specified
+        Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_user_hierarchy_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_user_hierarchy_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_user_hierarchy_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_user_hierarchy_groups)
         """
 
     def list_user_proficiencies(
-        self, *, InstanceId: str, UserId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListUserProficienciesRequestTypeDef]
     ) -> ListUserProficienciesResponseTypeDef:
         """
         Lists proficiencies associated with a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_user_proficiencies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_user_proficiencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_user_proficiencies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_user_proficiencies)
         """
 
-    def list_users(
-        self, *, InstanceId: str, NextToken: str = None, MaxResults: int = None
-    ) -> ListUsersResponseTypeDef:
+    def list_users(self, **kwargs: Unpack[ListUsersRequestTypeDef]) -> ListUsersResponseTypeDef:
         """
         Provides summary information about the users for the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_users)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_users.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_users)
         """
 
     def list_view_versions(
-        self, *, InstanceId: str, ViewId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListViewVersionsRequestTypeDef]
     ) -> ListViewVersionsResponseTypeDef:
         """
-        Returns all the available versions for the specified Amazon Connect instance and
-        view identifier.
+        Returns all the available versions for the specified Amazon Connect instance
+        and view identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_view_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_view_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_view_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_view_versions)
         """
 
-    def list_views(
-        self,
-        *,
-        InstanceId: str,
-        Type: ViewTypeType = None,
-        NextToken: str = None,
-        MaxResults: int = None
-    ) -> ListViewsResponseTypeDef:
+    def list_views(self, **kwargs: Unpack[ListViewsRequestTypeDef]) -> ListViewsResponseTypeDef:
         """
         Returns views in the given instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_views)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_views)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/list_views.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#list_views)
         """
 
     def monitor_contact(
-        self,
-        *,
-        InstanceId: str,
-        ContactId: str,
-        UserId: str,
-        AllowedMonitorCapabilities: List[MonitorCapabilityType] = None,
-        ClientToken: str = None
+        self, **kwargs: Unpack[MonitorContactRequestTypeDef]
     ) -> MonitorContactResponseTypeDef:
         """
         Initiates silent monitoring of a contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.monitor_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#monitor_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/monitor_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#monitor_contact)
         """
 
-    def pause_contact(
-        self, *, ContactId: str, InstanceId: str, ContactFlowId: str = None
-    ) -> Dict[str, Any]:
+    def pause_contact(self, **kwargs: Unpack[PauseContactRequestTypeDef]) -> Dict[str, Any]:
         """
         Allows pausing an ongoing task contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.pause_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#pause_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/pause_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#pause_contact)
         """
 
-    def put_user_status(
-        self, *, UserId: str, InstanceId: str, AgentStatusId: str
-    ) -> Dict[str, Any]:
+    def put_user_status(self, **kwargs: Unpack[PutUserStatusRequestTypeDef]) -> Dict[str, Any]:
         """
         Changes the current status of a user or agent in Amazon Connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.put_user_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#put_user_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/put_user_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#put_user_status)
         """
 
-    def release_phone_number(self, *, PhoneNumberId: str, ClientToken: str = None) -> None:
+    def release_phone_number(
+        self, **kwargs: Unpack[ReleasePhoneNumberRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Releases a phone number previously claimed to an Amazon Connect instance or
         traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.release_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#release_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/release_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#release_phone_number)
         """
 
     def replicate_instance(
-        self, *, InstanceId: str, ReplicaRegion: str, ReplicaAlias: str, ClientToken: str = None
+        self, **kwargs: Unpack[ReplicateInstanceRequestTypeDef]
     ) -> ReplicateInstanceResponseTypeDef:
         """
         Replicates an Amazon Connect instance in the specified Amazon Web Services
         Region and copies configuration information for Amazon Connect resources across
         Amazon Web Services Regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.replicate_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#replicate_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/replicate_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#replicate_instance)
         """
 
-    def resume_contact(
-        self, *, ContactId: str, InstanceId: str, ContactFlowId: str = None
-    ) -> Dict[str, Any]:
+    def resume_contact(self, **kwargs: Unpack[ResumeContactRequestTypeDef]) -> Dict[str, Any]:
         """
         Allows resuming a task contact in a paused state.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.resume_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#resume_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/resume_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#resume_contact)
         """
 
     def resume_contact_recording(
-        self, *, InstanceId: str, ContactId: str, InitialContactId: str
+        self, **kwargs: Unpack[ResumeContactRecordingRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         When a contact is being recorded, and the recording has been suspended using
         SuspendContactRecording, this API resumes recording whatever recording is
         selected in the flow configuration: call, screen, or both.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.resume_contact_recording)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#resume_contact_recording)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/resume_contact_recording.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#resume_contact_recording)
+        """
+
+    def search_agent_statuses(
+        self, **kwargs: Unpack[SearchAgentStatusesRequestTypeDef]
+    ) -> SearchAgentStatusesResponseTypeDef:
+        """
+        Searches AgentStatuses in an Amazon Connect instance, with optional filtering.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_agent_statuses.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_agent_statuses)
         """
 
     def search_available_phone_numbers(
-        self,
-        *,
-        PhoneNumberCountryCode: PhoneNumberCountryCodeType,
-        PhoneNumberType: PhoneNumberTypeType,
-        TargetArn: str = None,
-        InstanceId: str = None,
-        PhoneNumberPrefix: str = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[SearchAvailablePhoneNumbersRequestTypeDef]
     ) -> SearchAvailablePhoneNumbersResponseTypeDef:
         """
         Searches for available phone numbers that you can claim to your Amazon Connect
         instance or traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_available_phone_numbers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_available_phone_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_available_phone_numbers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_available_phone_numbers)
         """
 
     def search_contact_flow_modules(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchFilter: "ContactFlowModuleSearchFilterTypeDef" = None,
-        SearchCriteria: "ContactFlowModuleSearchCriteriaTypeDef" = None
+        self, **kwargs: Unpack[SearchContactFlowModulesRequestTypeDef]
     ) -> SearchContactFlowModulesResponseTypeDef:
         """
         Searches the flow modules in an Amazon Connect instance, with optional
         filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_contact_flow_modules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_contact_flow_modules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_contact_flow_modules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_contact_flow_modules)
         """
 
     def search_contact_flows(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchFilter: "ContactFlowSearchFilterTypeDef" = None,
-        SearchCriteria: "ContactFlowSearchCriteriaTypeDef" = None
+        self, **kwargs: Unpack[SearchContactFlowsRequestTypeDef]
     ) -> SearchContactFlowsResponseTypeDef:
         """
-        Searches the contact flows in an Amazon Connect instance, with optional
-        filtering.
+        Searches the flows in an Amazon Connect instance, with optional filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_contact_flows)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_contact_flows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_contact_flows.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_contact_flows)
         """
 
     def search_contacts(
-        self,
-        *,
-        InstanceId: str,
-        TimeRange: "SearchContactsTimeRangeTypeDef",
-        SearchCriteria: "SearchCriteriaTypeDef" = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Sort: "SortTypeDef" = None
+        self, **kwargs: Unpack[SearchContactsRequestTypeDef]
     ) -> SearchContactsResponseTypeDef:
         """
         Searches contacts in an Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_contacts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_contacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_contacts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_contacts)
+        """
+
+    def search_email_addresses(
+        self, **kwargs: Unpack[SearchEmailAddressesRequestTypeDef]
+    ) -> SearchEmailAddressesResponseTypeDef:
+        """
+        Searches email address in an instance, with optional filtering.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_email_addresses.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_email_addresses)
+        """
+
+    def search_hours_of_operation_overrides(
+        self, **kwargs: Unpack[SearchHoursOfOperationOverridesRequestTypeDef]
+    ) -> SearchHoursOfOperationOverridesResponseTypeDef:
+        """
+        Searches the hours of operation overrides.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_hours_of_operation_overrides.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_hours_of_operation_overrides)
         """
 
     def search_hours_of_operations(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchFilter: "HoursOfOperationSearchFilterTypeDef" = None,
-        SearchCriteria: "HoursOfOperationSearchCriteriaTypeDef" = None
+        self, **kwargs: Unpack[SearchHoursOfOperationsRequestTypeDef]
     ) -> SearchHoursOfOperationsResponseTypeDef:
         """
         Searches the hours of operation in an Amazon Connect instance, with optional
         filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_hours_of_operations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_hours_of_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_hours_of_operations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_hours_of_operations)
         """
 
     def search_predefined_attributes(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchCriteria: "PredefinedAttributeSearchCriteriaTypeDef" = None
+        self, **kwargs: Unpack[SearchPredefinedAttributesRequestTypeDef]
     ) -> SearchPredefinedAttributesResponseTypeDef:
         """
-        Predefined attributes that meet certain criteria.
+        Searches predefined attributes that meet certain criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_predefined_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_predefined_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_predefined_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_predefined_attributes)
         """
 
     def search_prompts(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchFilter: "PromptSearchFilterTypeDef" = None,
-        SearchCriteria: "PromptSearchCriteriaTypeDef" = None
+        self, **kwargs: Unpack[SearchPromptsRequestTypeDef]
     ) -> SearchPromptsResponseTypeDef:
         """
         Searches prompts in an Amazon Connect instance, with optional filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_prompts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_prompts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_prompts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_prompts)
         """
 
     def search_queues(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchFilter: "QueueSearchFilterTypeDef" = None,
-        SearchCriteria: "QueueSearchCriteriaTypeDef" = None
+        self, **kwargs: Unpack[SearchQueuesRequestTypeDef]
     ) -> SearchQueuesResponseTypeDef:
         """
         Searches queues in an Amazon Connect instance, with optional filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_queues)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_queues.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_queues)
         """
 
     def search_quick_connects(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchFilter: "QuickConnectSearchFilterTypeDef" = None,
-        SearchCriteria: "QuickConnectSearchCriteriaTypeDef" = None
+        self, **kwargs: Unpack[SearchQuickConnectsRequestTypeDef]
     ) -> SearchQuickConnectsResponseTypeDef:
         """
         Searches quick connects in an Amazon Connect instance, with optional filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_quick_connects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_quick_connects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_quick_connects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_quick_connects)
         """
 
     def search_resource_tags(
-        self,
-        *,
-        InstanceId: str,
-        ResourceTypes: List[str] = None,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchCriteria: "ResourceTagsSearchCriteriaTypeDef" = None
+        self, **kwargs: Unpack[SearchResourceTagsRequestTypeDef]
     ) -> SearchResourceTagsResponseTypeDef:
         """
         Searches tags used in an Amazon Connect instance using optional search criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_resource_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_resource_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_resource_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_resource_tags)
         """
 
     def search_routing_profiles(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchFilter: "RoutingProfileSearchFilterTypeDef" = None,
-        SearchCriteria: "RoutingProfileSearchCriteriaTypeDef" = None
+        self, **kwargs: Unpack[SearchRoutingProfilesRequestTypeDef]
     ) -> SearchRoutingProfilesResponseTypeDef:
         """
         Searches routing profiles in an Amazon Connect instance, with optional
         filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_routing_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_routing_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_routing_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_routing_profiles)
         """
 
     def search_security_profiles(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchCriteria: "SecurityProfileSearchCriteriaTypeDef" = None,
-        SearchFilter: "SecurityProfilesSearchFilterTypeDef" = None
+        self, **kwargs: Unpack[SearchSecurityProfilesRequestTypeDef]
     ) -> SearchSecurityProfilesResponseTypeDef:
         """
         Searches security profiles in an Amazon Connect instance, with optional
         filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_security_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_security_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_security_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_security_profiles)
+        """
+
+    def search_user_hierarchy_groups(
+        self, **kwargs: Unpack[SearchUserHierarchyGroupsRequestTypeDef]
+    ) -> SearchUserHierarchyGroupsResponseTypeDef:
+        """
+        Searches UserHierarchyGroups in an Amazon Connect instance, with optional
+        filtering.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_user_hierarchy_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_user_hierarchy_groups)
         """
 
     def search_users(
-        self,
-        *,
-        InstanceId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SearchFilter: "UserSearchFilterTypeDef" = None,
-        SearchCriteria: "UserSearchCriteriaTypeDef" = None
+        self, **kwargs: Unpack[SearchUsersRequestTypeDef]
     ) -> SearchUsersResponseTypeDef:
         """
         Searches users in an Amazon Connect instance, with optional filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_users)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_users.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_users)
         """
 
     def search_vocabularies(
-        self,
-        *,
-        InstanceId: str,
-        MaxResults: int = None,
-        NextToken: str = None,
-        State: VocabularyStateType = None,
-        NameStartsWith: str = None,
-        LanguageCode: VocabularyLanguageCodeType = None
+        self, **kwargs: Unpack[SearchVocabulariesRequestTypeDef]
     ) -> SearchVocabulariesResponseTypeDef:
         """
         Searches for vocabularies within a specific Amazon Connect instance using
-        `State`, `NameStartsWith`, and `LanguageCode`.
+        <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_vocabularies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_vocabularies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/search_vocabularies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#search_vocabularies)
         """
 
     def send_chat_integration_event(
-        self,
-        *,
-        SourceId: str,
-        DestinationId: str,
-        Event: "ChatEventTypeDef",
-        Subtype: str = None,
-        NewSessionDetails: "NewSessionDetailsTypeDef" = None
+        self, **kwargs: Unpack[SendChatIntegrationEventRequestTypeDef]
     ) -> SendChatIntegrationEventResponseTypeDef:
         """
         Processes chat integration events from Amazon Web Services or external
         integrations to Amazon Connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.send_chat_integration_event)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#send_chat_integration_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/send_chat_integration_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#send_chat_integration_event)
+        """
+
+    def send_outbound_email(
+        self, **kwargs: Unpack[SendOutboundEmailRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Send outbound email for outbound campaigns.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/send_outbound_email.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#send_outbound_email)
         """
 
     def start_attached_file_upload(
-        self,
-        *,
-        InstanceId: str,
-        FileName: str,
-        FileSizeInBytes: int,
-        FileUseCaseType: Literal["ATTACHMENT"],
-        AssociatedResourceArn: str,
-        ClientToken: str = None,
-        UrlExpiryInSeconds: int = None,
-        CreatedBy: "CreatedByInfoTypeDef" = None,
-        Tags: Dict[str, str] = None
+        self, **kwargs: Unpack[StartAttachedFileUploadRequestTypeDef]
     ) -> StartAttachedFileUploadResponseTypeDef:
         """
         Provides a pre-signed Amazon S3 URL in response for uploading your content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_attached_file_upload)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_attached_file_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_attached_file_upload.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_attached_file_upload)
         """
 
     def start_chat_contact(
-        self,
-        *,
-        InstanceId: str,
-        ContactFlowId: str,
-        ParticipantDetails: "ParticipantDetailsTypeDef",
-        Attributes: Dict[str, str] = None,
-        InitialMessage: "ChatMessageTypeDef" = None,
-        ClientToken: str = None,
-        ChatDurationInMinutes: int = None,
-        SupportedMessagingContentTypes: List[str] = None,
-        PersistentChat: "PersistentChatTypeDef" = None,
-        RelatedContactId: str = None,
-        SegmentAttributes: Dict[str, "SegmentAttributeValueTypeDef"] = None
+        self, **kwargs: Unpack[StartChatContactRequestTypeDef]
     ) -> StartChatContactResponseTypeDef:
         """
         Initiates a flow to start a new chat for the customer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_chat_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_chat_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_chat_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_chat_contact)
         """
 
     def start_contact_evaluation(
-        self, *, InstanceId: str, ContactId: str, EvaluationFormId: str, ClientToken: str = None
+        self, **kwargs: Unpack[StartContactEvaluationRequestTypeDef]
     ) -> StartContactEvaluationResponseTypeDef:
         """
         Starts an empty evaluation in the specified Amazon Connect instance, using the
         given evaluation form for the particular contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_contact_evaluation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_contact_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_contact_evaluation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_contact_evaluation)
         """
 
     def start_contact_recording(
-        self,
-        *,
-        InstanceId: str,
-        ContactId: str,
-        InitialContactId: str,
-        VoiceRecordingConfiguration: "VoiceRecordingConfigurationTypeDef"
+        self, **kwargs: Unpack[StartContactRecordingRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Starts recording the contact * If the API is called *before* the agent joins the
-        call, recording starts when the agent joins the call.
+        Starts recording the contact:.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_contact_recording)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_contact_recording)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_contact_recording.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_contact_recording)
         """
 
     def start_contact_streaming(
-        self,
-        *,
-        InstanceId: str,
-        ContactId: str,
-        ChatStreamingConfiguration: "ChatStreamingConfigurationTypeDef",
-        ClientToken: str
+        self, **kwargs: Unpack[StartContactStreamingRequestTypeDef]
     ) -> StartContactStreamingResponseTypeDef:
         """
         Initiates real-time message streaming for a new chat contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_contact_streaming)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_contact_streaming)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_contact_streaming.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_contact_streaming)
+        """
+
+    def start_email_contact(
+        self, **kwargs: Unpack[StartEmailContactRequestTypeDef]
+    ) -> StartEmailContactResponseTypeDef:
+        """
+        Creates an inbound email contact and initiates a flow to start the email
+        contact for the customer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_email_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_email_contact)
+        """
+
+    def start_outbound_chat_contact(
+        self, **kwargs: Unpack[StartOutboundChatContactRequestTypeDef]
+    ) -> StartOutboundChatContactResponseTypeDef:
+        """
+        Initiates a new outbound SMS contact to a customer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_outbound_chat_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_outbound_chat_contact)
+        """
+
+    def start_outbound_email_contact(
+        self, **kwargs: Unpack[StartOutboundEmailContactRequestTypeDef]
+    ) -> StartOutboundEmailContactResponseTypeDef:
+        """
+        Initiates a flow to send an agent reply or outbound email contact (created from
+        the CreateContact API) to a customer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_outbound_email_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_outbound_email_contact)
         """
 
     def start_outbound_voice_contact(
-        self,
-        *,
-        DestinationPhoneNumber: str,
-        ContactFlowId: str,
-        InstanceId: str,
-        Name: str = None,
-        Description: str = None,
-        References: Dict[str, "ReferenceTypeDef"] = None,
-        RelatedContactId: str = None,
-        ClientToken: str = None,
-        SourcePhoneNumber: str = None,
-        QueueId: str = None,
-        Attributes: Dict[str, str] = None,
-        AnswerMachineDetectionConfig: "AnswerMachineDetectionConfigTypeDef" = None,
-        CampaignId: str = None,
-        TrafficType: TrafficTypeType = None
+        self, **kwargs: Unpack[StartOutboundVoiceContactRequestTypeDef]
     ) -> StartOutboundVoiceContactResponseTypeDef:
         """
         Places an outbound call to a contact, and then initiates the flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_outbound_voice_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_outbound_voice_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_outbound_voice_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_outbound_voice_contact)
+        """
+
+    def start_screen_sharing(
+        self, **kwargs: Unpack[StartScreenSharingRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Starts screen sharing for a contact.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_screen_sharing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_screen_sharing)
         """
 
     def start_task_contact(
-        self,
-        *,
-        InstanceId: str,
-        Name: str,
-        PreviousContactId: str = None,
-        ContactFlowId: str = None,
-        Attributes: Dict[str, str] = None,
-        References: Dict[str, "ReferenceTypeDef"] = None,
-        Description: str = None,
-        ClientToken: str = None,
-        ScheduledTime: Union[datetime, str] = None,
-        TaskTemplateId: str = None,
-        QuickConnectId: str = None,
-        RelatedContactId: str = None
+        self, **kwargs: Unpack[StartTaskContactRequestTypeDef]
     ) -> StartTaskContactResponseTypeDef:
         """
         Initiates a flow to start a new task contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_task_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_task_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_task_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_task_contact)
         """
 
     def start_web_rtc_contact(
-        self,
-        *,
-        ContactFlowId: str,
-        InstanceId: str,
-        ParticipantDetails: "ParticipantDetailsTypeDef",
-        Attributes: Dict[str, str] = None,
-        ClientToken: str = None,
-        AllowedCapabilities: "AllowedCapabilitiesTypeDef" = None,
-        RelatedContactId: str = None,
-        References: Dict[str, "ReferenceTypeDef"] = None,
-        Description: str = None
+        self, **kwargs: Unpack[StartWebRTCContactRequestTypeDef]
     ) -> StartWebRTCContactResponseTypeDef:
         """
         Places an inbound in-app, web, or video call to a contact, and then initiates
         the flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_web_rtc_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_web_rtc_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/start_web_rtc_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#start_web_rtc_contact)
         """
 
-    def stop_contact(
-        self, *, ContactId: str, InstanceId: str, DisconnectReason: "DisconnectReasonTypeDef" = None
-    ) -> Dict[str, Any]:
+    def stop_contact(self, **kwargs: Unpack[StopContactRequestTypeDef]) -> Dict[str, Any]:
         """
         Ends the specified contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.stop_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#stop_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/stop_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#stop_contact)
         """
 
     def stop_contact_recording(
-        self, *, InstanceId: str, ContactId: str, InitialContactId: str
+        self, **kwargs: Unpack[StopContactRecordingRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Stops recording a call when a contact is being recorded.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.stop_contact_recording)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#stop_contact_recording)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/stop_contact_recording.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#stop_contact_recording)
         """
 
     def stop_contact_streaming(
-        self, *, InstanceId: str, ContactId: str, StreamingId: str
+        self, **kwargs: Unpack[StopContactStreamingRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Ends message streaming on a specified contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.stop_contact_streaming)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#stop_contact_streaming)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/stop_contact_streaming.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#stop_contact_streaming)
         """
 
     def submit_contact_evaluation(
-        self,
-        *,
-        InstanceId: str,
-        EvaluationId: str,
-        Answers: Dict[str, "EvaluationAnswerInputTypeDef"] = None,
-        Notes: Dict[str, "EvaluationNoteTypeDef"] = None
+        self, **kwargs: Unpack[SubmitContactEvaluationRequestTypeDef]
     ) -> SubmitContactEvaluationResponseTypeDef:
         """
         Submits a contact evaluation in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.submit_contact_evaluation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#submit_contact_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/submit_contact_evaluation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#submit_contact_evaluation)
         """
 
     def suspend_contact_recording(
-        self, *, InstanceId: str, ContactId: str, InitialContactId: str
+        self, **kwargs: Unpack[SuspendContactRecordingRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         When a contact is being recorded, this API suspends recording whatever is
-        selected in the flow configuration: call, screen, or both.
+        selected in the flow configuration: call (IVR or agent), screen, or both.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.suspend_contact_recording)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#suspend_contact_recording)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/suspend_contact_recording.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#suspend_contact_recording)
         """
 
-    def tag_contact(
-        self, *, ContactId: str, InstanceId: str, Tags: Dict[str, str]
-    ) -> Dict[str, Any]:
+    def tag_contact(self, **kwargs: Unpack[TagContactRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds the specified tags to the contact resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.tag_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#tag_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/tag_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#tag_contact)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#tag_resource)
         """
 
     def transfer_contact(
-        self,
-        *,
-        InstanceId: str,
-        ContactId: str,
-        ContactFlowId: str,
-        QueueId: str = None,
-        UserId: str = None,
-        ClientToken: str = None
+        self, **kwargs: Unpack[TransferContactRequestTypeDef]
     ) -> TransferContactResponseTypeDef:
         """
-        Transfers contacts from one agent or queue to another agent or queue at any
-        point after a contact is created.
+        Transfers <code>TASK</code> or <code>EMAIL</code> contacts from one agent or
+        queue to another agent or queue at any point after a contact is created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.transfer_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#transfer_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/transfer_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#transfer_contact)
         """
 
-    def untag_contact(
-        self, *, ContactId: str, InstanceId: str, TagKeys: List[str]
-    ) -> Dict[str, Any]:
+    def untag_contact(self, **kwargs: Unpack[UntagContactRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes the specified tags from the contact resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.untag_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#untag_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/untag_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#untag_contact)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#untag_resource)
         """
 
     def update_agent_status(
-        self,
-        *,
-        InstanceId: str,
-        AgentStatusId: str,
-        Name: str = None,
-        Description: str = None,
-        State: AgentStatusStateType = None,
-        DisplayOrder: int = None,
-        ResetOrderNumber: bool = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateAgentStatusRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_agent_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_agent_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_agent_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_agent_status)
         """
 
     def update_authentication_profile(
-        self,
-        *,
-        AuthenticationProfileId: str,
-        InstanceId: str,
-        Name: str = None,
-        Description: str = None,
-        AllowedIps: List[str] = None,
-        BlockedIps: List[str] = None,
-        PeriodicSessionDuration: int = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateAuthenticationProfileRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_authentication_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_authentication_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_authentication_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_authentication_profile)
         """
 
-    def update_contact(
-        self,
-        *,
-        InstanceId: str,
-        ContactId: str,
-        Name: str = None,
-        Description: str = None,
-        References: Dict[str, "ReferenceTypeDef"] = None
-    ) -> Dict[str, Any]:
+    def update_contact(self, **kwargs: Unpack[UpdateContactRequestTypeDef]) -> Dict[str, Any]:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_contact)
         """
 
     def update_contact_attributes(
-        self, *, InitialContactId: str, InstanceId: str, Attributes: Dict[str, str]
+        self, **kwargs: Unpack[UpdateContactAttributesRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Creates or updates user-defined contact attributes associated with the specified
-        contact.
+        Creates or updates user-defined contact attributes associated with the
+        specified contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_contact_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_contact_attributes)
         """
 
     def update_contact_evaluation(
-        self,
-        *,
-        InstanceId: str,
-        EvaluationId: str,
-        Answers: Dict[str, "EvaluationAnswerInputTypeDef"] = None,
-        Notes: Dict[str, "EvaluationNoteTypeDef"] = None
+        self, **kwargs: Unpack[UpdateContactEvaluationRequestTypeDef]
     ) -> UpdateContactEvaluationResponseTypeDef:
         """
         Updates details about a contact evaluation in the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_evaluation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_contact_evaluation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_contact_evaluation)
         """
 
     def update_contact_flow_content(
-        self, *, InstanceId: str, ContactFlowId: str, Content: str
+        self, **kwargs: Unpack[UpdateContactFlowContentRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the specified flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_flow_content)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_flow_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_contact_flow_content.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_contact_flow_content)
         """
 
     def update_contact_flow_metadata(
-        self,
-        *,
-        InstanceId: str,
-        ContactFlowId: str,
-        Name: str = None,
-        Description: str = None,
-        ContactFlowState: ContactFlowStateType = None
+        self, **kwargs: Unpack[UpdateContactFlowMetadataRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates metadata about specified flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_flow_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_flow_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_contact_flow_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_contact_flow_metadata)
         """
 
     def update_contact_flow_module_content(
-        self, *, InstanceId: str, ContactFlowModuleId: str, Content: str
+        self, **kwargs: Unpack[UpdateContactFlowModuleContentRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates specified flow module for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_flow_module_content)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_flow_module_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_contact_flow_module_content.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_contact_flow_module_content)
         """
 
     def update_contact_flow_module_metadata(
-        self,
-        *,
-        InstanceId: str,
-        ContactFlowModuleId: str,
-        Name: str = None,
-        Description: str = None,
-        State: ContactFlowModuleStateType = None
+        self, **kwargs: Unpack[UpdateContactFlowModuleMetadataRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates metadata about specified flow module.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_flow_module_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_flow_module_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_contact_flow_module_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_contact_flow_module_metadata)
         """
 
     def update_contact_flow_name(
-        self, *, InstanceId: str, ContactFlowId: str, Name: str = None, Description: str = None
+        self, **kwargs: Unpack[UpdateContactFlowNameRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         The name of the flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_flow_name)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_flow_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_contact_flow_name.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_contact_flow_name)
         """
 
     def update_contact_routing_data(
-        self,
-        *,
-        InstanceId: str,
-        ContactId: str,
-        QueueTimeAdjustmentSeconds: int = None,
-        QueuePriority: int = None
+        self, **kwargs: Unpack[UpdateContactRoutingDataRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Updates routing priority and age on the contact (**QueuePriority** and
-        **QueueTimeAdjustmentInSeconds**).
+        Updates routing priority and age on the contact (<b>QueuePriority</b> and
+        <b>QueueTimeAdjustmentInSeconds</b>).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_routing_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_routing_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_contact_routing_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_contact_routing_data)
         """
 
     def update_contact_schedule(
-        self, *, InstanceId: str, ContactId: str, ScheduledTime: Union[datetime, str]
+        self, **kwargs: Unpack[UpdateContactScheduleRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the scheduled time of a task contact that is already scheduled.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_contact_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_contact_schedule)
+        """
+
+    def update_email_address_metadata(
+        self, **kwargs: Unpack[UpdateEmailAddressMetadataRequestTypeDef]
+    ) -> UpdateEmailAddressMetadataResponseTypeDef:
+        """
+        Updates an email address metadata.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_email_address_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_email_address_metadata)
         """
 
     def update_evaluation_form(
-        self,
-        *,
-        InstanceId: str,
-        EvaluationFormId: str,
-        EvaluationFormVersion: int,
-        Title: str,
-        Items: List["EvaluationFormItemTypeDef"],
-        CreateNewVersion: bool = None,
-        Description: str = None,
-        ScoringStrategy: "EvaluationFormScoringStrategyTypeDef" = None,
-        ClientToken: str = None
+        self, **kwargs: Unpack[UpdateEvaluationFormRequestTypeDef]
     ) -> UpdateEvaluationFormResponseTypeDef:
         """
-        Updates details about a specific evaluation form version in the specified Amazon
-        Connect instance.
+        Updates details about a specific evaluation form version in the specified
+        Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_evaluation_form)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_evaluation_form)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_evaluation_form.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_evaluation_form)
         """
 
     def update_hours_of_operation(
-        self,
-        *,
-        InstanceId: str,
-        HoursOfOperationId: str,
-        Name: str = None,
-        Description: str = None,
-        TimeZone: str = None,
-        Config: List["HoursOfOperationConfigTypeDef"] = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateHoursOfOperationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_hours_of_operation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_hours_of_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_hours_of_operation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_hours_of_operation)
+        """
+
+    def update_hours_of_operation_override(
+        self, **kwargs: Unpack[UpdateHoursOfOperationOverrideRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Update the hours of operation override.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_hours_of_operation_override.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_hours_of_operation_override)
         """
 
     def update_instance_attribute(
-        self, *, InstanceId: str, AttributeType: InstanceAttributeTypeType, Value: str
-    ) -> None:
+        self, **kwargs: Unpack[UpdateInstanceAttributeRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_instance_attribute)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_instance_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_instance_attribute.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_instance_attribute)
         """
 
     def update_instance_storage_config(
-        self,
-        *,
-        InstanceId: str,
-        AssociationId: str,
-        ResourceType: InstanceStorageResourceTypeType,
-        StorageConfig: "InstanceStorageConfigTypeDef"
-    ) -> None:
+        self, **kwargs: Unpack[UpdateInstanceStorageConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_instance_storage_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_instance_storage_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_instance_storage_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_instance_storage_config)
+        """
+
+    def update_participant_authentication(
+        self, **kwargs: Unpack[UpdateParticipantAuthenticationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Instructs Amazon Connect to resume the authentication process.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_participant_authentication.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_participant_authentication)
         """
 
     def update_participant_role_config(
-        self,
-        *,
-        InstanceId: str,
-        ContactId: str,
-        ChannelConfiguration: "UpdateParticipantRoleConfigChannelInfoTypeDef"
+        self, **kwargs: Unpack[UpdateParticipantRoleConfigRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Updates timeouts for when human chat participants are to be considered idle, and
-        when agents are automatically disconnected from a chat due to idleness.
+        Updates timeouts for when human chat participants are to be considered idle,
+        and when agents are automatically disconnected from a chat due to idleness.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_participant_role_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_participant_role_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_participant_role_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_participant_role_config)
         """
 
     def update_phone_number(
-        self,
-        *,
-        PhoneNumberId: str,
-        TargetArn: str = None,
-        InstanceId: str = None,
-        ClientToken: str = None
+        self, **kwargs: Unpack[UpdatePhoneNumberRequestTypeDef]
     ) -> UpdatePhoneNumberResponseTypeDef:
         """
         Updates your claimed phone number from its current Amazon Connect instance or
         traffic distribution group to another Amazon Connect instance or traffic
         distribution group in the same Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_phone_number)
         """
 
     def update_phone_number_metadata(
-        self, *, PhoneNumberId: str, PhoneNumberDescription: str = None, ClientToken: str = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdatePhoneNumberMetadataRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Updates a phone number’s metadata.
+        Updates a phone number's metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_phone_number_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_phone_number_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_phone_number_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_phone_number_metadata)
         """
 
     def update_predefined_attribute(
-        self, *, InstanceId: str, Name: str, Values: "PredefinedAttributeValuesTypeDef" = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdatePredefinedAttributeRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates a predefined attribute for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_predefined_attribute)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_predefined_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_predefined_attribute.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_predefined_attribute)
         """
 
     def update_prompt(
-        self,
-        *,
-        InstanceId: str,
-        PromptId: str,
-        Name: str = None,
-        Description: str = None,
-        S3Uri: str = None
+        self, **kwargs: Unpack[UpdatePromptRequestTypeDef]
     ) -> UpdatePromptResponseTypeDef:
         """
         Updates a prompt.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_prompt)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_prompt)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_prompt.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_prompt)
         """
 
     def update_queue_hours_of_operation(
-        self, *, InstanceId: str, QueueId: str, HoursOfOperationId: str
-    ) -> None:
+        self, **kwargs: Unpack[UpdateQueueHoursOfOperationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_queue_hours_of_operation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_queue_hours_of_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_queue_hours_of_operation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_queue_hours_of_operation)
         """
 
     def update_queue_max_contacts(
-        self, *, InstanceId: str, QueueId: str, MaxContacts: int = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateQueueMaxContactsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_queue_max_contacts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_queue_max_contacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_queue_max_contacts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_queue_max_contacts)
         """
 
     def update_queue_name(
-        self, *, InstanceId: str, QueueId: str, Name: str = None, Description: str = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateQueueNameRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_queue_name)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_queue_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_queue_name.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_queue_name)
         """
 
     def update_queue_outbound_caller_config(
-        self, *, InstanceId: str, QueueId: str, OutboundCallerConfig: "OutboundCallerConfigTypeDef"
-    ) -> None:
+        self, **kwargs: Unpack[UpdateQueueOutboundCallerConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_queue_outbound_caller_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_queue_outbound_caller_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_queue_outbound_caller_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_queue_outbound_caller_config)
+        """
+
+    def update_queue_outbound_email_config(
+        self, **kwargs: Unpack[UpdateQueueOutboundEmailConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Updates the outbound email address Id for a specified queue.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_queue_outbound_email_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_queue_outbound_email_config)
         """
 
     def update_queue_status(
-        self, *, InstanceId: str, QueueId: str, Status: QueueStatusType
-    ) -> None:
+        self, **kwargs: Unpack[UpdateQueueStatusRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_queue_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_queue_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_queue_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_queue_status)
         """
 
     def update_quick_connect_config(
-        self,
-        *,
-        InstanceId: str,
-        QuickConnectId: str,
-        QuickConnectConfig: "QuickConnectConfigTypeDef"
-    ) -> None:
+        self, **kwargs: Unpack[UpdateQuickConnectConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the configuration settings for the specified quick connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_quick_connect_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_quick_connect_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_quick_connect_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_quick_connect_config)
         """
 
     def update_quick_connect_name(
-        self, *, InstanceId: str, QuickConnectId: str, Name: str = None, Description: str = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateQuickConnectNameRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the name and description of a quick connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_quick_connect_name)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_quick_connect_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_quick_connect_name.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_quick_connect_name)
         """
 
     def update_routing_profile_agent_availability_timer(
-        self,
-        *,
-        InstanceId: str,
-        RoutingProfileId: str,
-        AgentAvailabilityTimer: AgentAvailabilityTimerType
-    ) -> None:
+        self, **kwargs: Unpack[UpdateRoutingProfileAgentAvailabilityTimerRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Whether agents with this routing profile will have their routing order
-        calculated based on *time since their last inbound contact* or *longest idle
-        time*.
+        calculated based on <i>time since their last inbound contact</i> or <i>longest
+        idle time</i>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_routing_profile_agent_availability_timer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_routing_profile_agent_availability_timer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_routing_profile_agent_availability_timer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_routing_profile_agent_availability_timer)
         """
 
     def update_routing_profile_concurrency(
-        self,
-        *,
-        InstanceId: str,
-        RoutingProfileId: str,
-        MediaConcurrencies: List["MediaConcurrencyTypeDef"]
-    ) -> None:
+        self, **kwargs: Unpack[UpdateRoutingProfileConcurrencyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the channels that agents can handle in the Contact Control Panel (CCP)
         for a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_routing_profile_concurrency)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_routing_profile_concurrency)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_routing_profile_concurrency.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_routing_profile_concurrency)
         """
 
     def update_routing_profile_default_outbound_queue(
-        self, *, InstanceId: str, RoutingProfileId: str, DefaultOutboundQueueId: str
-    ) -> None:
+        self, **kwargs: Unpack[UpdateRoutingProfileDefaultOutboundQueueRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the default outbound queue of a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_routing_profile_default_outbound_queue)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_routing_profile_default_outbound_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_routing_profile_default_outbound_queue.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_routing_profile_default_outbound_queue)
         """
 
     def update_routing_profile_name(
-        self, *, InstanceId: str, RoutingProfileId: str, Name: str = None, Description: str = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateRoutingProfileNameRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the name and description of a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_routing_profile_name)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_routing_profile_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_routing_profile_name.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_routing_profile_name)
         """
 
     def update_routing_profile_queues(
-        self,
-        *,
-        InstanceId: str,
-        RoutingProfileId: str,
-        QueueConfigs: List["RoutingProfileQueueConfigTypeDef"]
-    ) -> None:
+        self, **kwargs: Unpack[UpdateRoutingProfileQueuesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the properties associated with a set of queues for a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_routing_profile_queues)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_routing_profile_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_routing_profile_queues.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_routing_profile_queues)
         """
 
     def update_rule(
-        self,
-        *,
-        RuleId: str,
-        InstanceId: str,
-        Name: str,
-        Function: str,
-        Actions: List["RuleActionTypeDef"],
-        PublishStatus: RulePublishStatusType
-    ) -> None:
+        self, **kwargs: Unpack[UpdateRuleRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates a rule for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_rule)
         """
 
     def update_security_profile(
-        self,
-        *,
-        SecurityProfileId: str,
-        InstanceId: str,
-        Description: str = None,
-        Permissions: List[str] = None,
-        AllowedAccessControlTags: Dict[str, str] = None,
-        TagRestrictedResources: List[str] = None,
-        Applications: List["ApplicationTypeDef"] = None,
-        HierarchyRestrictedResources: List[str] = None,
-        AllowedAccessControlHierarchyGroupId: str = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateSecurityProfileRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates a security profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_security_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_security_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_security_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_security_profile)
         """
 
     def update_task_template(
-        self,
-        *,
-        TaskTemplateId: str,
-        InstanceId: str,
-        Name: str = None,
-        Description: str = None,
-        ContactFlowId: str = None,
-        Constraints: "TaskTemplateConstraintsTypeDef" = None,
-        Defaults: "TaskTemplateDefaultsTypeDef" = None,
-        Status: TaskTemplateStatusType = None,
-        Fields: List["TaskTemplateFieldTypeDef"] = None
+        self, **kwargs: Unpack[UpdateTaskTemplateRequestTypeDef]
     ) -> UpdateTaskTemplateResponseTypeDef:
         """
         Updates details about a specific task template in the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_task_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_task_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_task_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_task_template)
         """
 
     def update_traffic_distribution(
-        self,
-        *,
-        Id: str,
-        TelephonyConfig: "TelephonyConfigTypeDef" = None,
-        SignInConfig: "SignInConfigTypeDef" = None,
-        AgentConfig: "AgentConfigTypeDef" = None
+        self, **kwargs: Unpack[UpdateTrafficDistributionRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the traffic distribution for a given traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_traffic_distribution)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_traffic_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_traffic_distribution.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_traffic_distribution)
         """
 
     def update_user_hierarchy(
-        self, *, UserId: str, InstanceId: str, HierarchyGroupId: str = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateUserHierarchyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Assigns the specified hierarchy group to the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_hierarchy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_hierarchy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_user_hierarchy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_user_hierarchy)
         """
 
     def update_user_hierarchy_group_name(
-        self, *, Name: str, HierarchyGroupId: str, InstanceId: str
-    ) -> None:
+        self, **kwargs: Unpack[UpdateUserHierarchyGroupNameRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the name of the user hierarchy group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_hierarchy_group_name)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_hierarchy_group_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_user_hierarchy_group_name.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_user_hierarchy_group_name)
         """
 
     def update_user_hierarchy_structure(
-        self, *, HierarchyStructure: "HierarchyStructureUpdateTypeDef", InstanceId: str
-    ) -> None:
+        self, **kwargs: Unpack[UpdateUserHierarchyStructureRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the user hierarchy structure: add, remove, and rename user hierarchy
         levels.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_hierarchy_structure)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_hierarchy_structure)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_user_hierarchy_structure.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_user_hierarchy_structure)
         """
 
     def update_user_identity_info(
-        self, *, IdentityInfo: "UserIdentityInfoTypeDef", UserId: str, InstanceId: str
-    ) -> None:
+        self, **kwargs: Unpack[UpdateUserIdentityInfoRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the identity information for the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_identity_info)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_identity_info)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_user_identity_info.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_user_identity_info)
         """
 
     def update_user_phone_config(
-        self, *, PhoneConfig: "UserPhoneConfigTypeDef", UserId: str, InstanceId: str
-    ) -> None:
+        self, **kwargs: Unpack[UpdateUserPhoneConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the phone configuration settings for the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_phone_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_phone_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_user_phone_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_user_phone_config)
         """
 
     def update_user_proficiencies(
-        self, *, InstanceId: str, UserId: str, UserProficiencies: List["UserProficiencyTypeDef"]
-    ) -> None:
+        self, **kwargs: Unpack[UpdateUserProficienciesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the properties associated with the proficiencies of a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_proficiencies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_proficiencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_user_proficiencies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_user_proficiencies)
         """
 
     def update_user_routing_profile(
-        self, *, RoutingProfileId: str, UserId: str, InstanceId: str
-    ) -> None:
+        self, **kwargs: Unpack[UpdateUserRoutingProfileRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Assigns the specified routing profile to the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_routing_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_routing_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_user_routing_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_user_routing_profile)
         """
 
     def update_user_security_profiles(
-        self, *, SecurityProfileIds: List[str], UserId: str, InstanceId: str
-    ) -> None:
+        self, **kwargs: Unpack[UpdateUserSecurityProfilesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Assigns the specified security profiles to the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_security_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_security_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_user_security_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_user_security_profiles)
         """
 
     def update_view_content(
-        self,
-        *,
-        InstanceId: str,
-        ViewId: str,
-        Status: ViewStatusType,
-        Content: "ViewInputContentTypeDef"
+        self, **kwargs: Unpack[UpdateViewContentRequestTypeDef]
     ) -> UpdateViewContentResponseTypeDef:
         """
         Updates the view content of the given view identifier in the specified Amazon
         Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_view_content)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_view_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_view_content.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_view_content)
         """
 
     def update_view_metadata(
-        self, *, InstanceId: str, ViewId: str, Name: str = None, Description: str = None
+        self, **kwargs: Unpack[UpdateViewMetadataRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the view metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_view_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_view_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/update_view_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#update_view_metadata)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["get_metric_data"]) -> GetMetricDataPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_metric_data"]
+    ) -> GetMetricDataPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.GetMetricData)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#getmetricdatapaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_agent_statuses"]
     ) -> ListAgentStatusesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListAgentStatuses)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listagentstatusespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_approved_origins"]
     ) -> ListApprovedOriginsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListApprovedOrigins)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listapprovedoriginspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_authentication_profiles"]
     ) -> ListAuthenticationProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListAuthenticationProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listauthenticationprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_bots"]) -> ListBotsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_bots"]
+    ) -> ListBotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListBots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listbotspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_contact_evaluations"]
     ) -> ListContactEvaluationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListContactEvaluations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactevaluationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_contact_flow_modules"]
     ) -> ListContactFlowModulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListContactFlowModules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactflowmodulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_contact_flow_versions"]
+    ) -> ListContactFlowVersionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_contact_flows"]
     ) -> ListContactFlowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListContactFlows)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactflowspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_contact_references"]
     ) -> ListContactReferencesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListContactReferences)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactreferencespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_default_vocabularies"]
     ) -> ListDefaultVocabulariesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListDefaultVocabularies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listdefaultvocabulariespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_evaluation_form_versions"]
     ) -> ListEvaluationFormVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListEvaluationFormVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listevaluationformversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_evaluation_forms"]
     ) -> ListEvaluationFormsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListEvaluationForms)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listevaluationformspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_flow_associations"]
     ) -> ListFlowAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListFlowAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listflowassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_hours_of_operation_overrides"]
+    ) -> ListHoursOfOperationOverridesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_hours_of_operations"]
     ) -> ListHoursOfOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listhoursofoperationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_instance_attributes"]
     ) -> ListInstanceAttributesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListInstanceAttributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstanceattributespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_instance_storage_configs"]
     ) -> ListInstanceStorageConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListInstanceStorageConfigs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstancestorageconfigspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_instances"]) -> ListInstancesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_instances"]
+    ) -> ListInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListInstances)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstancespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_integration_associations"]
     ) -> ListIntegrationAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListIntegrationAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listintegrationassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_lambda_functions"]
     ) -> ListLambdaFunctionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListLambdaFunctions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listlambdafunctionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_lex_bots"]) -> ListLexBotsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_lex_bots"]
+    ) -> ListLexBotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListLexBots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listlexbotspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_phone_numbers"]
     ) -> ListPhoneNumbersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listphonenumberspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_phone_numbers_v2"]
     ) -> ListPhoneNumbersV2Paginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListPhoneNumbersV2)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listphonenumbersv2paginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_predefined_attributes"]
     ) -> ListPredefinedAttributesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListPredefinedAttributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listpredefinedattributespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_prompts"]) -> ListPromptsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_prompts"]
+    ) -> ListPromptsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListPrompts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listpromptspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_queue_quick_connects"]
     ) -> ListQueueQuickConnectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListQueueQuickConnects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listqueuequickconnectspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_queues"]) -> ListQueuesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_queues"]
+    ) -> ListQueuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListQueues)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listqueuespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_quick_connects"]
     ) -> ListQuickConnectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListQuickConnects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listquickconnectspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_routing_profile_queues"]
     ) -> ListRoutingProfileQueuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listroutingprofilequeuespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_routing_profiles"]
     ) -> ListRoutingProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listroutingprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_rules"]) -> ListRulesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_rules"]
+    ) -> ListRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListRules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listrulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_security_keys"]
     ) -> ListSecurityKeysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListSecurityKeys)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecuritykeyspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_security_profile_applications"]
     ) -> ListSecurityProfileApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListSecurityProfileApplications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecurityprofileapplicationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_security_profile_permissions"]
     ) -> ListSecurityProfilePermissionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListSecurityProfilePermissions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecurityprofilepermissionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_security_profiles"]
     ) -> ListSecurityProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecurityprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_task_templates"]
     ) -> ListTaskTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListTaskTemplates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listtasktemplatespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_traffic_distribution_group_users"]
     ) -> ListTrafficDistributionGroupUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListTrafficDistributionGroupUsers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listtrafficdistributiongroupuserspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_traffic_distribution_groups"]
     ) -> ListTrafficDistributionGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListTrafficDistributionGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listtrafficdistributiongroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_use_cases"]) -> ListUseCasesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_use_cases"]
+    ) -> ListUseCasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListUseCases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listusecasespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_user_hierarchy_groups"]
     ) -> ListUserHierarchyGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listuserhierarchygroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_user_proficiencies"]
     ) -> ListUserProficienciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListUserProficiencies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listuserproficienciespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_users"]) -> ListUsersPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_users"]
+    ) -> ListUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListUsers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listuserspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_view_versions"]
     ) -> ListViewVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListViewVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listviewversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_views"]) -> ListViewsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_views"]
+    ) -> ListViewsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListViews)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listviewspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_agent_statuses"]
+    ) -> SearchAgentStatusesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_available_phone_numbers"]
     ) -> SearchAvailablePhoneNumbersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchAvailablePhoneNumbers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchavailablephonenumberspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_contact_flow_modules"]
     ) -> SearchContactFlowModulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchContactFlowModules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchcontactflowmodulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_contact_flows"]
     ) -> SearchContactFlowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchContactFlows)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchcontactflowspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search_contacts"]) -> SearchContactsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_contacts"]
+    ) -> SearchContactsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchContacts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchcontactspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_hours_of_operation_overrides"]
+    ) -> SearchHoursOfOperationOverridesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_hours_of_operations"]
     ) -> SearchHoursOfOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchHoursOfOperations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchhoursofoperationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_predefined_attributes"]
     ) -> SearchPredefinedAttributesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchPredefinedAttributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchpredefinedattributespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search_prompts"]) -> SearchPromptsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_prompts"]
+    ) -> SearchPromptsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchPrompts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchpromptspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search_queues"]) -> SearchQueuesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_queues"]
+    ) -> SearchQueuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchQueues)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchqueuespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_quick_connects"]
     ) -> SearchQuickConnectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchQuickConnects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchquickconnectspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_resource_tags"]
     ) -> SearchResourceTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchResourceTags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchresourcetagspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_routing_profiles"]
     ) -> SearchRoutingProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchRoutingProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchroutingprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_security_profiles"]
     ) -> SearchSecurityProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchSecurityProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchsecurityprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search_users"]) -> SearchUsersPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_user_hierarchy_groups"]
+    ) -> SearchUserHierarchyGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchUsers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchuserspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_users"]
+    ) -> SearchUsersPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_vocabularies"]
     ) -> SearchVocabulariesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchVocabularies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchvocabulariespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/client/#get_paginator)
         """

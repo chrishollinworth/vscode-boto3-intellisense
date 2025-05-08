@@ -1,10 +1,14 @@
 """
 Main interface for elbv2 service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_elbv2 import (
         Client,
         DescribeAccountLimitsPaginator,
@@ -22,10 +26,8 @@ Usage::
         TargetInServiceWaiter,
     )
 
-    session = boto3.Session()
-
-    client: ElasticLoadBalancingv2Client = boto3.client("elbv2")
-    session_client: ElasticLoadBalancingv2Client = session.client("elbv2")
+    session = Session()
+    client: ElasticLoadBalancingv2Client = session.client("elbv2")
 
     load_balancer_available_waiter: LoadBalancerAvailableWaiter = client.get_waiter("load_balancer_available")
     load_balancer_exists_waiter: LoadBalancerExistsWaiter = client.get_waiter("load_balancer_exists")

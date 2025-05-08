@@ -1,10 +1,14 @@
 """
 Main interface for ssm service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ssm import (
         Client,
         CommandExecutedWaiter,
@@ -51,6 +55,8 @@ Usage::
         ListComplianceSummariesPaginator,
         ListDocumentVersionsPaginator,
         ListDocumentsPaginator,
+        ListNodesPaginator,
+        ListNodesSummaryPaginator,
         ListOpsItemEventsPaginator,
         ListOpsItemRelatedItemsPaginator,
         ListOpsMetadataPaginator,
@@ -59,10 +65,8 @@ Usage::
         SSMClient,
     )
 
-    session = boto3.Session()
-
-    client: SSMClient = boto3.client("ssm")
-    session_client: SSMClient = session.client("ssm")
+    session = Session()
+    client: SSMClient = session.client("ssm")
 
     command_executed_waiter: CommandExecutedWaiter = client.get_waiter("command_executed")
 
@@ -76,8 +80,8 @@ Usage::
     describe_effective_patches_for_patch_baseline_paginator: DescribeEffectivePatchesForPatchBaselinePaginator = client.get_paginator("describe_effective_patches_for_patch_baseline")
     describe_instance_associations_status_paginator: DescribeInstanceAssociationsStatusPaginator = client.get_paginator("describe_instance_associations_status")
     describe_instance_information_paginator: DescribeInstanceInformationPaginator = client.get_paginator("describe_instance_information")
-    describe_instance_patch_states_paginator: DescribeInstancePatchStatesPaginator = client.get_paginator("describe_instance_patch_states")
     describe_instance_patch_states_for_patch_group_paginator: DescribeInstancePatchStatesForPatchGroupPaginator = client.get_paginator("describe_instance_patch_states_for_patch_group")
+    describe_instance_patch_states_paginator: DescribeInstancePatchStatesPaginator = client.get_paginator("describe_instance_patch_states")
     describe_instance_patches_paginator: DescribeInstancePatchesPaginator = client.get_paginator("describe_instance_patches")
     describe_instance_properties_paginator: DescribeInstancePropertiesPaginator = client.get_paginator("describe_instance_properties")
     describe_inventory_deletions_paginator: DescribeInventoryDeletionsPaginator = client.get_paginator("describe_inventory_deletions")
@@ -87,8 +91,8 @@ Usage::
     describe_maintenance_window_schedule_paginator: DescribeMaintenanceWindowSchedulePaginator = client.get_paginator("describe_maintenance_window_schedule")
     describe_maintenance_window_targets_paginator: DescribeMaintenanceWindowTargetsPaginator = client.get_paginator("describe_maintenance_window_targets")
     describe_maintenance_window_tasks_paginator: DescribeMaintenanceWindowTasksPaginator = client.get_paginator("describe_maintenance_window_tasks")
-    describe_maintenance_windows_paginator: DescribeMaintenanceWindowsPaginator = client.get_paginator("describe_maintenance_windows")
     describe_maintenance_windows_for_target_paginator: DescribeMaintenanceWindowsForTargetPaginator = client.get_paginator("describe_maintenance_windows_for_target")
+    describe_maintenance_windows_paginator: DescribeMaintenanceWindowsPaginator = client.get_paginator("describe_maintenance_windows")
     describe_ops_items_paginator: DescribeOpsItemsPaginator = client.get_paginator("describe_ops_items")
     describe_parameters_paginator: DescribeParametersPaginator = client.get_paginator("describe_parameters")
     describe_patch_baselines_paginator: DescribePatchBaselinesPaginator = client.get_paginator("describe_patch_baselines")
@@ -109,6 +113,8 @@ Usage::
     list_compliance_summaries_paginator: ListComplianceSummariesPaginator = client.get_paginator("list_compliance_summaries")
     list_document_versions_paginator: ListDocumentVersionsPaginator = client.get_paginator("list_document_versions")
     list_documents_paginator: ListDocumentsPaginator = client.get_paginator("list_documents")
+    list_nodes_paginator: ListNodesPaginator = client.get_paginator("list_nodes")
+    list_nodes_summary_paginator: ListNodesSummaryPaginator = client.get_paginator("list_nodes_summary")
     list_ops_item_events_paginator: ListOpsItemEventsPaginator = client.get_paginator("list_ops_item_events")
     list_ops_item_related_items_paginator: ListOpsItemRelatedItemsPaginator = client.get_paginator("list_ops_item_related_items")
     list_ops_metadata_paginator: ListOpsMetadataPaginator = client.get_paginator("list_ops_metadata")
@@ -162,6 +168,8 @@ from .paginator import (
     ListComplianceSummariesPaginator,
     ListDocumentsPaginator,
     ListDocumentVersionsPaginator,
+    ListNodesPaginator,
+    ListNodesSummaryPaginator,
     ListOpsItemEventsPaginator,
     ListOpsItemRelatedItemsPaginator,
     ListOpsMetadataPaginator,
@@ -218,6 +226,8 @@ __all__ = (
     "ListComplianceSummariesPaginator",
     "ListDocumentVersionsPaginator",
     "ListDocumentsPaginator",
+    "ListNodesPaginator",
+    "ListNodesSummaryPaginator",
     "ListOpsItemEventsPaginator",
     "ListOpsItemRelatedItemsPaginator",
     "ListOpsMetadataPaginator",

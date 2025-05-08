@@ -1,10 +1,14 @@
 """
 Main interface for codeguru-security service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeguru_security/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_codeguru_security import (
         Client,
         CodeGuruSecurityClient,
@@ -13,10 +17,8 @@ Usage::
         ListScansPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CodeGuruSecurityClient = boto3.client("codeguru-security")
-    session_client: CodeGuruSecurityClient = session.client("codeguru-security")
+    session = Session()
+    client: CodeGuruSecurityClient = session.client("codeguru-security")
 
     get_findings_paginator: GetFindingsPaginator = client.get_paginator("get_findings")
     list_findings_metrics_paginator: ListFindingsMetricsPaginator = client.get_paginator("list_findings_metrics")

@@ -1,20 +1,24 @@
 """
 Type annotations for voice-id service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_voice_id.type_defs import AssociateFraudsterRequestRequestTypeDef
+    from mypy_boto3_voice_id.type_defs import AssociateFraudsterRequestTypeDef
 
-    data: AssociateFraudsterRequestRequestTypeDef = {...}
+    data: AssociateFraudsterRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AuthenticationDecisionType,
@@ -31,43 +35,53 @@ from .literals import (
     StreamingStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AssociateFraudsterRequestRequestTypeDef",
+    "AssociateFraudsterRequestTypeDef",
     "AssociateFraudsterResponseTypeDef",
     "AuthenticationConfigurationTypeDef",
     "AuthenticationResultTypeDef",
-    "CreateDomainRequestRequestTypeDef",
+    "CreateDomainRequestTypeDef",
     "CreateDomainResponseTypeDef",
-    "CreateWatchlistRequestRequestTypeDef",
+    "CreateWatchlistRequestTypeDef",
     "CreateWatchlistResponseTypeDef",
-    "DeleteDomainRequestRequestTypeDef",
-    "DeleteFraudsterRequestRequestTypeDef",
-    "DeleteSpeakerRequestRequestTypeDef",
-    "DeleteWatchlistRequestRequestTypeDef",
-    "DescribeDomainRequestRequestTypeDef",
+    "DeleteDomainRequestTypeDef",
+    "DeleteFraudsterRequestTypeDef",
+    "DeleteSpeakerRequestTypeDef",
+    "DeleteWatchlistRequestTypeDef",
+    "DescribeDomainRequestTypeDef",
     "DescribeDomainResponseTypeDef",
-    "DescribeFraudsterRegistrationJobRequestRequestTypeDef",
+    "DescribeFraudsterRegistrationJobRequestTypeDef",
     "DescribeFraudsterRegistrationJobResponseTypeDef",
-    "DescribeFraudsterRequestRequestTypeDef",
+    "DescribeFraudsterRequestTypeDef",
     "DescribeFraudsterResponseTypeDef",
-    "DescribeSpeakerEnrollmentJobRequestRequestTypeDef",
+    "DescribeSpeakerEnrollmentJobRequestTypeDef",
     "DescribeSpeakerEnrollmentJobResponseTypeDef",
-    "DescribeSpeakerRequestRequestTypeDef",
+    "DescribeSpeakerRequestTypeDef",
     "DescribeSpeakerResponseTypeDef",
-    "DescribeWatchlistRequestRequestTypeDef",
+    "DescribeWatchlistRequestTypeDef",
     "DescribeWatchlistResponseTypeDef",
-    "DisassociateFraudsterRequestRequestTypeDef",
+    "DisassociateFraudsterRequestTypeDef",
     "DisassociateFraudsterResponseTypeDef",
     "DomainSummaryTypeDef",
     "DomainTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EnrollmentConfigOutputTypeDef",
     "EnrollmentConfigTypeDef",
+    "EnrollmentConfigUnionTypeDef",
+    "EnrollmentJobFraudDetectionConfigOutputTypeDef",
     "EnrollmentJobFraudDetectionConfigTypeDef",
-    "EvaluateSessionRequestRequestTypeDef",
+    "EvaluateSessionRequestTypeDef",
     "EvaluateSessionResponseTypeDef",
     "FailureDetailsTypeDef",
     "FraudDetectionConfigurationTypeDef",
@@ -80,25 +94,33 @@ __all__ = (
     "InputDataConfigTypeDef",
     "JobProgressTypeDef",
     "KnownFraudsterRiskTypeDef",
-    "ListDomainsRequestRequestTypeDef",
+    "ListDomainsRequestPaginateTypeDef",
+    "ListDomainsRequestTypeDef",
     "ListDomainsResponseTypeDef",
-    "ListFraudsterRegistrationJobsRequestRequestTypeDef",
+    "ListFraudsterRegistrationJobsRequestPaginateTypeDef",
+    "ListFraudsterRegistrationJobsRequestTypeDef",
     "ListFraudsterRegistrationJobsResponseTypeDef",
-    "ListFraudstersRequestRequestTypeDef",
+    "ListFraudstersRequestPaginateTypeDef",
+    "ListFraudstersRequestTypeDef",
     "ListFraudstersResponseTypeDef",
-    "ListSpeakerEnrollmentJobsRequestRequestTypeDef",
+    "ListSpeakerEnrollmentJobsRequestPaginateTypeDef",
+    "ListSpeakerEnrollmentJobsRequestTypeDef",
     "ListSpeakerEnrollmentJobsResponseTypeDef",
-    "ListSpeakersRequestRequestTypeDef",
+    "ListSpeakersRequestPaginateTypeDef",
+    "ListSpeakersRequestTypeDef",
     "ListSpeakersResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListWatchlistsRequestRequestTypeDef",
+    "ListWatchlistsRequestPaginateTypeDef",
+    "ListWatchlistsRequestTypeDef",
     "ListWatchlistsResponseTypeDef",
-    "OptOutSpeakerRequestRequestTypeDef",
+    "OptOutSpeakerRequestTypeDef",
     "OptOutSpeakerResponseTypeDef",
     "OutputDataConfigTypeDef",
     "PaginatorConfigTypeDef",
+    "RegistrationConfigOutputTypeDef",
     "RegistrationConfigTypeDef",
+    "RegistrationConfigUnionTypeDef",
     "ResponseMetadataTypeDef",
     "ServerSideEncryptionConfigurationTypeDef",
     "ServerSideEncryptionUpdateDetailsTypeDef",
@@ -106,16 +128,16 @@ __all__ = (
     "SpeakerEnrollmentJobTypeDef",
     "SpeakerSummaryTypeDef",
     "SpeakerTypeDef",
-    "StartFraudsterRegistrationJobRequestRequestTypeDef",
+    "StartFraudsterRegistrationJobRequestTypeDef",
     "StartFraudsterRegistrationJobResponseTypeDef",
-    "StartSpeakerEnrollmentJobRequestRequestTypeDef",
+    "StartSpeakerEnrollmentJobRequestTypeDef",
     "StartSpeakerEnrollmentJobResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDomainRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDomainRequestTypeDef",
     "UpdateDomainResponseTypeDef",
-    "UpdateWatchlistRequestRequestTypeDef",
+    "UpdateWatchlistRequestTypeDef",
     "UpdateWatchlistResponseTypeDef",
     "VoiceSpoofingRiskTypeDef",
     "WatchlistDetailsTypeDef",
@@ -123,963 +145,506 @@ __all__ = (
     "WatchlistTypeDef",
 )
 
-AssociateFraudsterRequestRequestTypeDef = TypedDict(
-    "AssociateFraudsterRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "FraudsterId": str,
-        "WatchlistId": str,
-    },
-)
-
-AssociateFraudsterResponseTypeDef = TypedDict(
-    "AssociateFraudsterResponseTypeDef",
-    {
-        "Fraudster": "FraudsterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AuthenticationConfigurationTypeDef = TypedDict(
-    "AuthenticationConfigurationTypeDef",
-    {
-        "AcceptanceThreshold": int,
-    },
-)
-
-AuthenticationResultTypeDef = TypedDict(
-    "AuthenticationResultTypeDef",
-    {
-        "AudioAggregationEndedAt": datetime,
-        "AudioAggregationStartedAt": datetime,
-        "AuthenticationResultId": str,
-        "Configuration": "AuthenticationConfigurationTypeDef",
-        "CustomerSpeakerId": str,
-        "Decision": AuthenticationDecisionType,
-        "GeneratedSpeakerId": str,
-        "Score": int,
-    },
-    total=False,
-)
-
-_RequiredCreateDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDomainRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
-    },
-)
-_OptionalCreateDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDomainRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDomainRequestRequestTypeDef(
-    _RequiredCreateDomainRequestRequestTypeDef, _OptionalCreateDomainRequestRequestTypeDef
-):
-    pass
-
-CreateDomainResponseTypeDef = TypedDict(
-    "CreateDomainResponseTypeDef",
-    {
-        "Domain": "DomainTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWatchlistRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWatchlistRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "Name": str,
-    },
-)
-_OptionalCreateWatchlistRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWatchlistRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-class CreateWatchlistRequestRequestTypeDef(
-    _RequiredCreateWatchlistRequestRequestTypeDef, _OptionalCreateWatchlistRequestRequestTypeDef
-):
-    pass
-
-CreateWatchlistResponseTypeDef = TypedDict(
-    "CreateWatchlistResponseTypeDef",
-    {
-        "Watchlist": "WatchlistTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDomainRequestRequestTypeDef = TypedDict(
-    "DeleteDomainRequestRequestTypeDef",
-    {
-        "DomainId": str,
-    },
-)
-
-DeleteFraudsterRequestRequestTypeDef = TypedDict(
-    "DeleteFraudsterRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "FraudsterId": str,
-    },
-)
-
-DeleteSpeakerRequestRequestTypeDef = TypedDict(
-    "DeleteSpeakerRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "SpeakerId": str,
-    },
-)
-
-DeleteWatchlistRequestRequestTypeDef = TypedDict(
-    "DeleteWatchlistRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "WatchlistId": str,
-    },
-)
-
-DescribeDomainRequestRequestTypeDef = TypedDict(
-    "DescribeDomainRequestRequestTypeDef",
-    {
-        "DomainId": str,
-    },
-)
-
-DescribeDomainResponseTypeDef = TypedDict(
-    "DescribeDomainResponseTypeDef",
-    {
-        "Domain": "DomainTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFraudsterRegistrationJobRequestRequestTypeDef = TypedDict(
-    "DescribeFraudsterRegistrationJobRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "JobId": str,
-    },
-)
-
-DescribeFraudsterRegistrationJobResponseTypeDef = TypedDict(
-    "DescribeFraudsterRegistrationJobResponseTypeDef",
-    {
-        "Job": "FraudsterRegistrationJobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFraudsterRequestRequestTypeDef = TypedDict(
-    "DescribeFraudsterRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "FraudsterId": str,
-    },
-)
-
-DescribeFraudsterResponseTypeDef = TypedDict(
-    "DescribeFraudsterResponseTypeDef",
-    {
-        "Fraudster": "FraudsterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSpeakerEnrollmentJobRequestRequestTypeDef = TypedDict(
-    "DescribeSpeakerEnrollmentJobRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "JobId": str,
-    },
-)
-
-DescribeSpeakerEnrollmentJobResponseTypeDef = TypedDict(
-    "DescribeSpeakerEnrollmentJobResponseTypeDef",
-    {
-        "Job": "SpeakerEnrollmentJobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSpeakerRequestRequestTypeDef = TypedDict(
-    "DescribeSpeakerRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "SpeakerId": str,
-    },
-)
-
-DescribeSpeakerResponseTypeDef = TypedDict(
-    "DescribeSpeakerResponseTypeDef",
-    {
-        "Speaker": "SpeakerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWatchlistRequestRequestTypeDef = TypedDict(
-    "DescribeWatchlistRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "WatchlistId": str,
-    },
-)
-
-DescribeWatchlistResponseTypeDef = TypedDict(
-    "DescribeWatchlistResponseTypeDef",
-    {
-        "Watchlist": "WatchlistTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateFraudsterRequestRequestTypeDef = TypedDict(
-    "DisassociateFraudsterRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "FraudsterId": str,
-        "WatchlistId": str,
-    },
-)
-
-DisassociateFraudsterResponseTypeDef = TypedDict(
-    "DisassociateFraudsterResponseTypeDef",
-    {
-        "Fraudster": "FraudsterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DomainSummaryTypeDef = TypedDict(
-    "DomainSummaryTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": datetime,
-        "Description": str,
-        "DomainId": str,
-        "DomainStatus": DomainStatusType,
-        "Name": str,
-        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
-        "ServerSideEncryptionUpdateDetails": "ServerSideEncryptionUpdateDetailsTypeDef",
-        "UpdatedAt": datetime,
-        "WatchlistDetails": "WatchlistDetailsTypeDef",
-    },
-    total=False,
-)
-
-DomainTypeDef = TypedDict(
-    "DomainTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": datetime,
-        "Description": str,
-        "DomainId": str,
-        "DomainStatus": DomainStatusType,
-        "Name": str,
-        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
-        "ServerSideEncryptionUpdateDetails": "ServerSideEncryptionUpdateDetailsTypeDef",
-        "UpdatedAt": datetime,
-        "WatchlistDetails": "WatchlistDetailsTypeDef",
-    },
-    total=False,
-)
-
-EnrollmentConfigTypeDef = TypedDict(
-    "EnrollmentConfigTypeDef",
-    {
-        "ExistingEnrollmentAction": ExistingEnrollmentActionType,
-        "FraudDetectionConfig": "EnrollmentJobFraudDetectionConfigTypeDef",
-    },
-    total=False,
-)
-
-EnrollmentJobFraudDetectionConfigTypeDef = TypedDict(
-    "EnrollmentJobFraudDetectionConfigTypeDef",
-    {
-        "FraudDetectionAction": FraudDetectionActionType,
-        "RiskThreshold": int,
-        "WatchlistIds": List[str],
-    },
-    total=False,
-)
-
-EvaluateSessionRequestRequestTypeDef = TypedDict(
-    "EvaluateSessionRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "SessionNameOrId": str,
-    },
-)
-
-EvaluateSessionResponseTypeDef = TypedDict(
-    "EvaluateSessionResponseTypeDef",
-    {
-        "AuthenticationResult": "AuthenticationResultTypeDef",
-        "DomainId": str,
-        "FraudDetectionResult": "FraudDetectionResultTypeDef",
-        "SessionId": str,
-        "SessionName": str,
-        "StreamingStatus": StreamingStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FailureDetailsTypeDef = TypedDict(
-    "FailureDetailsTypeDef",
-    {
-        "Message": str,
-        "StatusCode": int,
-    },
-    total=False,
-)
-
-FraudDetectionConfigurationTypeDef = TypedDict(
-    "FraudDetectionConfigurationTypeDef",
-    {
-        "RiskThreshold": int,
-        "WatchlistId": str,
-    },
-    total=False,
-)
-
-FraudDetectionResultTypeDef = TypedDict(
-    "FraudDetectionResultTypeDef",
-    {
-        "AudioAggregationEndedAt": datetime,
-        "AudioAggregationStartedAt": datetime,
-        "Configuration": "FraudDetectionConfigurationTypeDef",
-        "Decision": FraudDetectionDecisionType,
-        "FraudDetectionResultId": str,
-        "Reasons": List[FraudDetectionReasonType],
-        "RiskDetails": "FraudRiskDetailsTypeDef",
-    },
-    total=False,
-)
-
-FraudRiskDetailsTypeDef = TypedDict(
-    "FraudRiskDetailsTypeDef",
-    {
-        "KnownFraudsterRisk": "KnownFraudsterRiskTypeDef",
-        "VoiceSpoofingRisk": "VoiceSpoofingRiskTypeDef",
-    },
-)
-
-FraudsterRegistrationJobSummaryTypeDef = TypedDict(
-    "FraudsterRegistrationJobSummaryTypeDef",
-    {
-        "CreatedAt": datetime,
-        "DomainId": str,
-        "EndedAt": datetime,
-        "FailureDetails": "FailureDetailsTypeDef",
-        "JobId": str,
-        "JobName": str,
-        "JobProgress": "JobProgressTypeDef",
-        "JobStatus": FraudsterRegistrationJobStatusType,
-    },
-    total=False,
-)
-
-FraudsterRegistrationJobTypeDef = TypedDict(
-    "FraudsterRegistrationJobTypeDef",
-    {
-        "CreatedAt": datetime,
-        "DataAccessRoleArn": str,
-        "DomainId": str,
-        "EndedAt": datetime,
-        "FailureDetails": "FailureDetailsTypeDef",
-        "InputDataConfig": "InputDataConfigTypeDef",
-        "JobId": str,
-        "JobName": str,
-        "JobProgress": "JobProgressTypeDef",
-        "JobStatus": FraudsterRegistrationJobStatusType,
-        "OutputDataConfig": "OutputDataConfigTypeDef",
-        "RegistrationConfig": "RegistrationConfigTypeDef",
-    },
-    total=False,
-)
-
-FraudsterSummaryTypeDef = TypedDict(
-    "FraudsterSummaryTypeDef",
-    {
-        "CreatedAt": datetime,
-        "DomainId": str,
-        "GeneratedFraudsterId": str,
-        "WatchlistIds": List[str],
-    },
-    total=False,
-)
-
-FraudsterTypeDef = TypedDict(
-    "FraudsterTypeDef",
-    {
-        "CreatedAt": datetime,
-        "DomainId": str,
-        "GeneratedFraudsterId": str,
-        "WatchlistIds": List[str],
-    },
-    total=False,
-)
-
-InputDataConfigTypeDef = TypedDict(
-    "InputDataConfigTypeDef",
-    {
-        "S3Uri": str,
-    },
-)
-
-JobProgressTypeDef = TypedDict(
-    "JobProgressTypeDef",
-    {
-        "PercentComplete": int,
-    },
-    total=False,
-)
-
-_RequiredKnownFraudsterRiskTypeDef = TypedDict(
-    "_RequiredKnownFraudsterRiskTypeDef",
-    {
-        "RiskScore": int,
-    },
-)
-_OptionalKnownFraudsterRiskTypeDef = TypedDict(
-    "_OptionalKnownFraudsterRiskTypeDef",
-    {
-        "GeneratedFraudsterId": str,
-    },
-    total=False,
-)
-
-class KnownFraudsterRiskTypeDef(
-    _RequiredKnownFraudsterRiskTypeDef, _OptionalKnownFraudsterRiskTypeDef
-):
-    pass
-
-ListDomainsRequestRequestTypeDef = TypedDict(
-    "ListDomainsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListDomainsResponseTypeDef = TypedDict(
-    "ListDomainsResponseTypeDef",
-    {
-        "DomainSummaries": List["DomainSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFraudsterRegistrationJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFraudsterRegistrationJobsRequestRequestTypeDef",
-    {
-        "DomainId": str,
-    },
-)
-_OptionalListFraudsterRegistrationJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFraudsterRegistrationJobsRequestRequestTypeDef",
-    {
-        "JobStatus": FraudsterRegistrationJobStatusType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListFraudsterRegistrationJobsRequestRequestTypeDef(
-    _RequiredListFraudsterRegistrationJobsRequestRequestTypeDef,
-    _OptionalListFraudsterRegistrationJobsRequestRequestTypeDef,
-):
-    pass
-
-ListFraudsterRegistrationJobsResponseTypeDef = TypedDict(
-    "ListFraudsterRegistrationJobsResponseTypeDef",
-    {
-        "JobSummaries": List["FraudsterRegistrationJobSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFraudstersRequestRequestTypeDef = TypedDict(
-    "_RequiredListFraudstersRequestRequestTypeDef",
-    {
-        "DomainId": str,
-    },
-)
-_OptionalListFraudstersRequestRequestTypeDef = TypedDict(
-    "_OptionalListFraudstersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "WatchlistId": str,
-    },
-    total=False,
-)
-
-class ListFraudstersRequestRequestTypeDef(
-    _RequiredListFraudstersRequestRequestTypeDef, _OptionalListFraudstersRequestRequestTypeDef
-):
-    pass
-
-ListFraudstersResponseTypeDef = TypedDict(
-    "ListFraudstersResponseTypeDef",
-    {
-        "FraudsterSummaries": List["FraudsterSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSpeakerEnrollmentJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSpeakerEnrollmentJobsRequestRequestTypeDef",
-    {
-        "DomainId": str,
-    },
-)
-_OptionalListSpeakerEnrollmentJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSpeakerEnrollmentJobsRequestRequestTypeDef",
-    {
-        "JobStatus": SpeakerEnrollmentJobStatusType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListSpeakerEnrollmentJobsRequestRequestTypeDef(
-    _RequiredListSpeakerEnrollmentJobsRequestRequestTypeDef,
-    _OptionalListSpeakerEnrollmentJobsRequestRequestTypeDef,
-):
-    pass
-
-ListSpeakerEnrollmentJobsResponseTypeDef = TypedDict(
-    "ListSpeakerEnrollmentJobsResponseTypeDef",
-    {
-        "JobSummaries": List["SpeakerEnrollmentJobSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSpeakersRequestRequestTypeDef = TypedDict(
-    "_RequiredListSpeakersRequestRequestTypeDef",
-    {
-        "DomainId": str,
-    },
-)
-_OptionalListSpeakersRequestRequestTypeDef = TypedDict(
-    "_OptionalListSpeakersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListSpeakersRequestRequestTypeDef(
-    _RequiredListSpeakersRequestRequestTypeDef, _OptionalListSpeakersRequestRequestTypeDef
-):
-    pass
-
-ListSpeakersResponseTypeDef = TypedDict(
-    "ListSpeakersResponseTypeDef",
-    {
-        "NextToken": str,
-        "SpeakerSummaries": List["SpeakerSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWatchlistsRequestRequestTypeDef = TypedDict(
-    "_RequiredListWatchlistsRequestRequestTypeDef",
-    {
-        "DomainId": str,
-    },
-)
-_OptionalListWatchlistsRequestRequestTypeDef = TypedDict(
-    "_OptionalListWatchlistsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListWatchlistsRequestRequestTypeDef(
-    _RequiredListWatchlistsRequestRequestTypeDef, _OptionalListWatchlistsRequestRequestTypeDef
-):
-    pass
-
-ListWatchlistsResponseTypeDef = TypedDict(
-    "ListWatchlistsResponseTypeDef",
-    {
-        "NextToken": str,
-        "WatchlistSummaries": List["WatchlistSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-OptOutSpeakerRequestRequestTypeDef = TypedDict(
-    "OptOutSpeakerRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "SpeakerId": str,
-    },
-)
-
-OptOutSpeakerResponseTypeDef = TypedDict(
-    "OptOutSpeakerResponseTypeDef",
-    {
-        "Speaker": "SpeakerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredOutputDataConfigTypeDef = TypedDict(
-    "_RequiredOutputDataConfigTypeDef",
-    {
-        "S3Uri": str,
-    },
-)
-_OptionalOutputDataConfigTypeDef = TypedDict(
-    "_OptionalOutputDataConfigTypeDef",
-    {
-        "KmsKeyId": str,
-    },
-    total=False,
-)
-
-class OutputDataConfigTypeDef(_RequiredOutputDataConfigTypeDef, _OptionalOutputDataConfigTypeDef):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-RegistrationConfigTypeDef = TypedDict(
-    "RegistrationConfigTypeDef",
-    {
-        "DuplicateRegistrationAction": DuplicateRegistrationActionType,
-        "FraudsterSimilarityThreshold": int,
-        "WatchlistIds": List[str],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ServerSideEncryptionConfigurationTypeDef = TypedDict(
-    "ServerSideEncryptionConfigurationTypeDef",
-    {
-        "KmsKeyId": str,
-    },
-)
-
-ServerSideEncryptionUpdateDetailsTypeDef = TypedDict(
-    "ServerSideEncryptionUpdateDetailsTypeDef",
-    {
-        "Message": str,
-        "OldKmsKeyId": str,
-        "UpdateStatus": ServerSideEncryptionUpdateStatusType,
-    },
-    total=False,
-)
-
-SpeakerEnrollmentJobSummaryTypeDef = TypedDict(
-    "SpeakerEnrollmentJobSummaryTypeDef",
-    {
-        "CreatedAt": datetime,
-        "DomainId": str,
-        "EndedAt": datetime,
-        "FailureDetails": "FailureDetailsTypeDef",
-        "JobId": str,
-        "JobName": str,
-        "JobProgress": "JobProgressTypeDef",
-        "JobStatus": SpeakerEnrollmentJobStatusType,
-    },
-    total=False,
-)
-
-SpeakerEnrollmentJobTypeDef = TypedDict(
-    "SpeakerEnrollmentJobTypeDef",
-    {
-        "CreatedAt": datetime,
-        "DataAccessRoleArn": str,
-        "DomainId": str,
-        "EndedAt": datetime,
-        "EnrollmentConfig": "EnrollmentConfigTypeDef",
-        "FailureDetails": "FailureDetailsTypeDef",
-        "InputDataConfig": "InputDataConfigTypeDef",
-        "JobId": str,
-        "JobName": str,
-        "JobProgress": "JobProgressTypeDef",
-        "JobStatus": SpeakerEnrollmentJobStatusType,
-        "OutputDataConfig": "OutputDataConfigTypeDef",
-    },
-    total=False,
-)
-
-SpeakerSummaryTypeDef = TypedDict(
-    "SpeakerSummaryTypeDef",
-    {
-        "CreatedAt": datetime,
-        "CustomerSpeakerId": str,
-        "DomainId": str,
-        "GeneratedSpeakerId": str,
-        "LastAccessedAt": datetime,
-        "Status": SpeakerStatusType,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-SpeakerTypeDef = TypedDict(
-    "SpeakerTypeDef",
-    {
-        "CreatedAt": datetime,
-        "CustomerSpeakerId": str,
-        "DomainId": str,
-        "GeneratedSpeakerId": str,
-        "LastAccessedAt": datetime,
-        "Status": SpeakerStatusType,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-_RequiredStartFraudsterRegistrationJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartFraudsterRegistrationJobRequestRequestTypeDef",
-    {
-        "DataAccessRoleArn": str,
-        "DomainId": str,
-        "InputDataConfig": "InputDataConfigTypeDef",
-        "OutputDataConfig": "OutputDataConfigTypeDef",
-    },
-)
-_OptionalStartFraudsterRegistrationJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartFraudsterRegistrationJobRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "JobName": str,
-        "RegistrationConfig": "RegistrationConfigTypeDef",
-    },
-    total=False,
-)
-
-class StartFraudsterRegistrationJobRequestRequestTypeDef(
-    _RequiredStartFraudsterRegistrationJobRequestRequestTypeDef,
-    _OptionalStartFraudsterRegistrationJobRequestRequestTypeDef,
-):
-    pass
-
-StartFraudsterRegistrationJobResponseTypeDef = TypedDict(
-    "StartFraudsterRegistrationJobResponseTypeDef",
-    {
-        "Job": "FraudsterRegistrationJobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartSpeakerEnrollmentJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartSpeakerEnrollmentJobRequestRequestTypeDef",
-    {
-        "DataAccessRoleArn": str,
-        "DomainId": str,
-        "InputDataConfig": "InputDataConfigTypeDef",
-        "OutputDataConfig": "OutputDataConfigTypeDef",
-    },
-)
-_OptionalStartSpeakerEnrollmentJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartSpeakerEnrollmentJobRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "EnrollmentConfig": "EnrollmentConfigTypeDef",
-        "JobName": str,
-    },
-    total=False,
-)
-
-class StartSpeakerEnrollmentJobRequestRequestTypeDef(
-    _RequiredStartSpeakerEnrollmentJobRequestRequestTypeDef,
-    _OptionalStartSpeakerEnrollmentJobRequestRequestTypeDef,
-):
-    pass
-
-StartSpeakerEnrollmentJobResponseTypeDef = TypedDict(
-    "StartSpeakerEnrollmentJobResponseTypeDef",
-    {
-        "Job": "SpeakerEnrollmentJobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDomainRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "Name": str,
-        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
-    },
-)
-_OptionalUpdateDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDomainRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateDomainRequestRequestTypeDef(
-    _RequiredUpdateDomainRequestRequestTypeDef, _OptionalUpdateDomainRequestRequestTypeDef
-):
-    pass
-
-UpdateDomainResponseTypeDef = TypedDict(
-    "UpdateDomainResponseTypeDef",
-    {
-        "Domain": "DomainTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateWatchlistRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWatchlistRequestRequestTypeDef",
-    {
-        "DomainId": str,
-        "WatchlistId": str,
-    },
-)
-_OptionalUpdateWatchlistRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWatchlistRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-class UpdateWatchlistRequestRequestTypeDef(
-    _RequiredUpdateWatchlistRequestRequestTypeDef, _OptionalUpdateWatchlistRequestRequestTypeDef
-):
-    pass
-
-UpdateWatchlistResponseTypeDef = TypedDict(
-    "UpdateWatchlistResponseTypeDef",
-    {
-        "Watchlist": "WatchlistTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VoiceSpoofingRiskTypeDef = TypedDict(
-    "VoiceSpoofingRiskTypeDef",
-    {
-        "RiskScore": int,
-    },
-)
-
-WatchlistDetailsTypeDef = TypedDict(
-    "WatchlistDetailsTypeDef",
-    {
-        "DefaultWatchlistId": str,
-    },
-)
-
-WatchlistSummaryTypeDef = TypedDict(
-    "WatchlistSummaryTypeDef",
-    {
-        "CreatedAt": datetime,
-        "DefaultWatchlist": bool,
-        "Description": str,
-        "DomainId": str,
-        "Name": str,
-        "UpdatedAt": datetime,
-        "WatchlistId": str,
-    },
-    total=False,
-)
-
-WatchlistTypeDef = TypedDict(
-    "WatchlistTypeDef",
-    {
-        "CreatedAt": datetime,
-        "DefaultWatchlist": bool,
-        "Description": str,
-        "DomainId": str,
-        "Name": str,
-        "UpdatedAt": datetime,
-        "WatchlistId": str,
-    },
-    total=False,
-)
+class AssociateFraudsterRequestTypeDef(TypedDict):
+    DomainId: str
+    FraudsterId: str
+    WatchlistId: str
+
+class FraudsterTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    DomainId: NotRequired[str]
+    GeneratedFraudsterId: NotRequired[str]
+    WatchlistIds: NotRequired[List[str]]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AuthenticationConfigurationTypeDef(TypedDict):
+    AcceptanceThreshold: int
+
+class ServerSideEncryptionConfigurationTypeDef(TypedDict):
+    KmsKeyId: str
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class CreateWatchlistRequestTypeDef(TypedDict):
+    DomainId: str
+    Name: str
+    ClientToken: NotRequired[str]
+    Description: NotRequired[str]
+
+class WatchlistTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    DefaultWatchlist: NotRequired[bool]
+    Description: NotRequired[str]
+    DomainId: NotRequired[str]
+    Name: NotRequired[str]
+    UpdatedAt: NotRequired[datetime]
+    WatchlistId: NotRequired[str]
+
+class DeleteDomainRequestTypeDef(TypedDict):
+    DomainId: str
+
+class DeleteFraudsterRequestTypeDef(TypedDict):
+    DomainId: str
+    FraudsterId: str
+
+class DeleteSpeakerRequestTypeDef(TypedDict):
+    DomainId: str
+    SpeakerId: str
+
+class DeleteWatchlistRequestTypeDef(TypedDict):
+    DomainId: str
+    WatchlistId: str
+
+class DescribeDomainRequestTypeDef(TypedDict):
+    DomainId: str
+
+class DescribeFraudsterRegistrationJobRequestTypeDef(TypedDict):
+    DomainId: str
+    JobId: str
+
+class DescribeFraudsterRequestTypeDef(TypedDict):
+    DomainId: str
+    FraudsterId: str
+
+class DescribeSpeakerEnrollmentJobRequestTypeDef(TypedDict):
+    DomainId: str
+    JobId: str
+
+class DescribeSpeakerRequestTypeDef(TypedDict):
+    DomainId: str
+    SpeakerId: str
+
+class SpeakerTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    CustomerSpeakerId: NotRequired[str]
+    DomainId: NotRequired[str]
+    GeneratedSpeakerId: NotRequired[str]
+    LastAccessedAt: NotRequired[datetime]
+    Status: NotRequired[SpeakerStatusType]
+    UpdatedAt: NotRequired[datetime]
+
+class DescribeWatchlistRequestTypeDef(TypedDict):
+    DomainId: str
+    WatchlistId: str
+
+class DisassociateFraudsterRequestTypeDef(TypedDict):
+    DomainId: str
+    FraudsterId: str
+    WatchlistId: str
+
+class ServerSideEncryptionUpdateDetailsTypeDef(TypedDict):
+    Message: NotRequired[str]
+    OldKmsKeyId: NotRequired[str]
+    UpdateStatus: NotRequired[ServerSideEncryptionUpdateStatusType]
+
+class WatchlistDetailsTypeDef(TypedDict):
+    DefaultWatchlistId: str
+
+class EnrollmentJobFraudDetectionConfigOutputTypeDef(TypedDict):
+    FraudDetectionAction: NotRequired[FraudDetectionActionType]
+    RiskThreshold: NotRequired[int]
+    WatchlistIds: NotRequired[List[str]]
+
+class EnrollmentJobFraudDetectionConfigTypeDef(TypedDict):
+    FraudDetectionAction: NotRequired[FraudDetectionActionType]
+    RiskThreshold: NotRequired[int]
+    WatchlistIds: NotRequired[Sequence[str]]
+
+class EvaluateSessionRequestTypeDef(TypedDict):
+    DomainId: str
+    SessionNameOrId: str
+
+class FailureDetailsTypeDef(TypedDict):
+    Message: NotRequired[str]
+    StatusCode: NotRequired[int]
+
+class FraudDetectionConfigurationTypeDef(TypedDict):
+    RiskThreshold: NotRequired[int]
+    WatchlistId: NotRequired[str]
+
+class KnownFraudsterRiskTypeDef(TypedDict):
+    RiskScore: int
+    GeneratedFraudsterId: NotRequired[str]
+
+class VoiceSpoofingRiskTypeDef(TypedDict):
+    RiskScore: int
+
+class JobProgressTypeDef(TypedDict):
+    PercentComplete: NotRequired[int]
+
+class InputDataConfigTypeDef(TypedDict):
+    S3Uri: str
+
+class OutputDataConfigTypeDef(TypedDict):
+    S3Uri: str
+    KmsKeyId: NotRequired[str]
+
+class RegistrationConfigOutputTypeDef(TypedDict):
+    DuplicateRegistrationAction: NotRequired[DuplicateRegistrationActionType]
+    FraudsterSimilarityThreshold: NotRequired[int]
+    WatchlistIds: NotRequired[List[str]]
+
+class FraudsterSummaryTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    DomainId: NotRequired[str]
+    GeneratedFraudsterId: NotRequired[str]
+    WatchlistIds: NotRequired[List[str]]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListDomainsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListFraudsterRegistrationJobsRequestTypeDef(TypedDict):
+    DomainId: str
+    JobStatus: NotRequired[FraudsterRegistrationJobStatusType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListFraudstersRequestTypeDef(TypedDict):
+    DomainId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    WatchlistId: NotRequired[str]
+
+class ListSpeakerEnrollmentJobsRequestTypeDef(TypedDict):
+    DomainId: str
+    JobStatus: NotRequired[SpeakerEnrollmentJobStatusType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListSpeakersRequestTypeDef(TypedDict):
+    DomainId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class SpeakerSummaryTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    CustomerSpeakerId: NotRequired[str]
+    DomainId: NotRequired[str]
+    GeneratedSpeakerId: NotRequired[str]
+    LastAccessedAt: NotRequired[datetime]
+    Status: NotRequired[SpeakerStatusType]
+    UpdatedAt: NotRequired[datetime]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class ListWatchlistsRequestTypeDef(TypedDict):
+    DomainId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class WatchlistSummaryTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    DefaultWatchlist: NotRequired[bool]
+    Description: NotRequired[str]
+    DomainId: NotRequired[str]
+    Name: NotRequired[str]
+    UpdatedAt: NotRequired[datetime]
+    WatchlistId: NotRequired[str]
+
+class OptOutSpeakerRequestTypeDef(TypedDict):
+    DomainId: str
+    SpeakerId: str
+
+class RegistrationConfigTypeDef(TypedDict):
+    DuplicateRegistrationAction: NotRequired[DuplicateRegistrationActionType]
+    FraudsterSimilarityThreshold: NotRequired[int]
+    WatchlistIds: NotRequired[Sequence[str]]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateWatchlistRequestTypeDef(TypedDict):
+    DomainId: str
+    WatchlistId: str
+    Description: NotRequired[str]
+    Name: NotRequired[str]
+
+class AssociateFraudsterResponseTypeDef(TypedDict):
+    Fraudster: FraudsterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeFraudsterResponseTypeDef(TypedDict):
+    Fraudster: FraudsterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateFraudsterResponseTypeDef(TypedDict):
+    Fraudster: FraudsterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AuthenticationResultTypeDef(TypedDict):
+    AudioAggregationEndedAt: NotRequired[datetime]
+    AudioAggregationStartedAt: NotRequired[datetime]
+    AuthenticationResultId: NotRequired[str]
+    Configuration: NotRequired[AuthenticationConfigurationTypeDef]
+    CustomerSpeakerId: NotRequired[str]
+    Decision: NotRequired[AuthenticationDecisionType]
+    GeneratedSpeakerId: NotRequired[str]
+    Score: NotRequired[int]
+
+class UpdateDomainRequestTypeDef(TypedDict):
+    DomainId: str
+    Name: str
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
+    Description: NotRequired[str]
+
+class CreateDomainRequestTypeDef(TypedDict):
+    Name: str
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
+    ClientToken: NotRequired[str]
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateWatchlistResponseTypeDef(TypedDict):
+    Watchlist: WatchlistTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeWatchlistResponseTypeDef(TypedDict):
+    Watchlist: WatchlistTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateWatchlistResponseTypeDef(TypedDict):
+    Watchlist: WatchlistTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSpeakerResponseTypeDef(TypedDict):
+    Speaker: SpeakerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OptOutSpeakerResponseTypeDef(TypedDict):
+    Speaker: SpeakerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DomainSummaryTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    Description: NotRequired[str]
+    DomainId: NotRequired[str]
+    DomainStatus: NotRequired[DomainStatusType]
+    Name: NotRequired[str]
+    ServerSideEncryptionConfiguration: NotRequired[ServerSideEncryptionConfigurationTypeDef]
+    ServerSideEncryptionUpdateDetails: NotRequired[ServerSideEncryptionUpdateDetailsTypeDef]
+    UpdatedAt: NotRequired[datetime]
+    WatchlistDetails: NotRequired[WatchlistDetailsTypeDef]
+
+class DomainTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    Description: NotRequired[str]
+    DomainId: NotRequired[str]
+    DomainStatus: NotRequired[DomainStatusType]
+    Name: NotRequired[str]
+    ServerSideEncryptionConfiguration: NotRequired[ServerSideEncryptionConfigurationTypeDef]
+    ServerSideEncryptionUpdateDetails: NotRequired[ServerSideEncryptionUpdateDetailsTypeDef]
+    UpdatedAt: NotRequired[datetime]
+    WatchlistDetails: NotRequired[WatchlistDetailsTypeDef]
+
+class EnrollmentConfigOutputTypeDef(TypedDict):
+    ExistingEnrollmentAction: NotRequired[ExistingEnrollmentActionType]
+    FraudDetectionConfig: NotRequired[EnrollmentJobFraudDetectionConfigOutputTypeDef]
+
+class EnrollmentConfigTypeDef(TypedDict):
+    ExistingEnrollmentAction: NotRequired[ExistingEnrollmentActionType]
+    FraudDetectionConfig: NotRequired[EnrollmentJobFraudDetectionConfigTypeDef]
+
+class FraudRiskDetailsTypeDef(TypedDict):
+    KnownFraudsterRisk: KnownFraudsterRiskTypeDef
+    VoiceSpoofingRisk: VoiceSpoofingRiskTypeDef
+
+class FraudsterRegistrationJobSummaryTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    DomainId: NotRequired[str]
+    EndedAt: NotRequired[datetime]
+    FailureDetails: NotRequired[FailureDetailsTypeDef]
+    JobId: NotRequired[str]
+    JobName: NotRequired[str]
+    JobProgress: NotRequired[JobProgressTypeDef]
+    JobStatus: NotRequired[FraudsterRegistrationJobStatusType]
+
+class SpeakerEnrollmentJobSummaryTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    DomainId: NotRequired[str]
+    EndedAt: NotRequired[datetime]
+    FailureDetails: NotRequired[FailureDetailsTypeDef]
+    JobId: NotRequired[str]
+    JobName: NotRequired[str]
+    JobProgress: NotRequired[JobProgressTypeDef]
+    JobStatus: NotRequired[SpeakerEnrollmentJobStatusType]
+
+class FraudsterRegistrationJobTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    DataAccessRoleArn: NotRequired[str]
+    DomainId: NotRequired[str]
+    EndedAt: NotRequired[datetime]
+    FailureDetails: NotRequired[FailureDetailsTypeDef]
+    InputDataConfig: NotRequired[InputDataConfigTypeDef]
+    JobId: NotRequired[str]
+    JobName: NotRequired[str]
+    JobProgress: NotRequired[JobProgressTypeDef]
+    JobStatus: NotRequired[FraudsterRegistrationJobStatusType]
+    OutputDataConfig: NotRequired[OutputDataConfigTypeDef]
+    RegistrationConfig: NotRequired[RegistrationConfigOutputTypeDef]
+
+class ListFraudstersResponseTypeDef(TypedDict):
+    FraudsterSummaries: List[FraudsterSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDomainsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFraudsterRegistrationJobsRequestPaginateTypeDef(TypedDict):
+    DomainId: str
+    JobStatus: NotRequired[FraudsterRegistrationJobStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFraudstersRequestPaginateTypeDef(TypedDict):
+    DomainId: str
+    WatchlistId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSpeakerEnrollmentJobsRequestPaginateTypeDef(TypedDict):
+    DomainId: str
+    JobStatus: NotRequired[SpeakerEnrollmentJobStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSpeakersRequestPaginateTypeDef(TypedDict):
+    DomainId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWatchlistsRequestPaginateTypeDef(TypedDict):
+    DomainId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSpeakersResponseTypeDef(TypedDict):
+    SpeakerSummaries: List[SpeakerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListWatchlistsResponseTypeDef(TypedDict):
+    WatchlistSummaries: List[WatchlistSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+RegistrationConfigUnionTypeDef = Union[RegistrationConfigTypeDef, RegistrationConfigOutputTypeDef]
+
+class ListDomainsResponseTypeDef(TypedDict):
+    DomainSummaries: List[DomainSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateDomainResponseTypeDef(TypedDict):
+    Domain: DomainTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDomainResponseTypeDef(TypedDict):
+    Domain: DomainTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDomainResponseTypeDef(TypedDict):
+    Domain: DomainTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SpeakerEnrollmentJobTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    DataAccessRoleArn: NotRequired[str]
+    DomainId: NotRequired[str]
+    EndedAt: NotRequired[datetime]
+    EnrollmentConfig: NotRequired[EnrollmentConfigOutputTypeDef]
+    FailureDetails: NotRequired[FailureDetailsTypeDef]
+    InputDataConfig: NotRequired[InputDataConfigTypeDef]
+    JobId: NotRequired[str]
+    JobName: NotRequired[str]
+    JobProgress: NotRequired[JobProgressTypeDef]
+    JobStatus: NotRequired[SpeakerEnrollmentJobStatusType]
+    OutputDataConfig: NotRequired[OutputDataConfigTypeDef]
+
+EnrollmentConfigUnionTypeDef = Union[EnrollmentConfigTypeDef, EnrollmentConfigOutputTypeDef]
+
+class FraudDetectionResultTypeDef(TypedDict):
+    AudioAggregationEndedAt: NotRequired[datetime]
+    AudioAggregationStartedAt: NotRequired[datetime]
+    Configuration: NotRequired[FraudDetectionConfigurationTypeDef]
+    Decision: NotRequired[FraudDetectionDecisionType]
+    FraudDetectionResultId: NotRequired[str]
+    Reasons: NotRequired[List[FraudDetectionReasonType]]
+    RiskDetails: NotRequired[FraudRiskDetailsTypeDef]
+
+class ListFraudsterRegistrationJobsResponseTypeDef(TypedDict):
+    JobSummaries: List[FraudsterRegistrationJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSpeakerEnrollmentJobsResponseTypeDef(TypedDict):
+    JobSummaries: List[SpeakerEnrollmentJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeFraudsterRegistrationJobResponseTypeDef(TypedDict):
+    Job: FraudsterRegistrationJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartFraudsterRegistrationJobResponseTypeDef(TypedDict):
+    Job: FraudsterRegistrationJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartFraudsterRegistrationJobRequestTypeDef(TypedDict):
+    DataAccessRoleArn: str
+    DomainId: str
+    InputDataConfig: InputDataConfigTypeDef
+    OutputDataConfig: OutputDataConfigTypeDef
+    ClientToken: NotRequired[str]
+    JobName: NotRequired[str]
+    RegistrationConfig: NotRequired[RegistrationConfigUnionTypeDef]
+
+class DescribeSpeakerEnrollmentJobResponseTypeDef(TypedDict):
+    Job: SpeakerEnrollmentJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSpeakerEnrollmentJobResponseTypeDef(TypedDict):
+    Job: SpeakerEnrollmentJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSpeakerEnrollmentJobRequestTypeDef(TypedDict):
+    DataAccessRoleArn: str
+    DomainId: str
+    InputDataConfig: InputDataConfigTypeDef
+    OutputDataConfig: OutputDataConfigTypeDef
+    ClientToken: NotRequired[str]
+    EnrollmentConfig: NotRequired[EnrollmentConfigUnionTypeDef]
+    JobName: NotRequired[str]
+
+class EvaluateSessionResponseTypeDef(TypedDict):
+    AuthenticationResult: AuthenticationResultTypeDef
+    DomainId: str
+    FraudDetectionResult: FraudDetectionResultTypeDef
+    SessionId: str
+    SessionName: str
+    StreamingStatus: StreamingStatusType
+    ResponseMetadata: ResponseMetadataTypeDef

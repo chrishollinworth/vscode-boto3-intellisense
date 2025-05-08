@@ -1,20 +1,22 @@
 """
 Main interface for freetier service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_freetier/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_freetier import (
         Client,
         FreeTierClient,
         GetFreeTierUsagePaginator,
     )
 
-    session = boto3.Session()
-
-    client: FreeTierClient = boto3.client("freetier")
-    session_client: FreeTierClient = session.client("freetier")
+    session = Session()
+    client: FreeTierClient = session.client("freetier")
 
     get_free_tier_usage_paginator: GetFreeTierUsagePaginator = client.get_paginator("get_free_tier_usage")
     ```

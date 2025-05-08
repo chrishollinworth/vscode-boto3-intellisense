@@ -1,20 +1,24 @@
 """
 Type annotations for wellarchitected service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_wellarchitected.type_defs import AccountJiraConfigurationInputTypeDef
 
-    data: AccountJiraConfigurationInputTypeDef = {...}
+    data: AccountJiraConfigurationInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AccountJiraIssueManagementStatusType,
@@ -54,14 +58,16 @@ from .literals import (
     WorkloadIssueManagementStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccountJiraConfigurationInputTypeDef",
@@ -69,8 +75,8 @@ __all__ = (
     "AdditionalResourcesTypeDef",
     "AnswerSummaryTypeDef",
     "AnswerTypeDef",
-    "AssociateLensesInputRequestTypeDef",
-    "AssociateProfilesInputRequestTypeDef",
+    "AssociateLensesInputTypeDef",
+    "AssociateProfilesInputTypeDef",
     "BestPracticeTypeDef",
     "CheckDetailTypeDef",
     "CheckSummaryTypeDef",
@@ -81,67 +87,70 @@ __all__ = (
     "ChoiceTypeDef",
     "ChoiceUpdateTypeDef",
     "ConsolidatedReportMetricTypeDef",
-    "CreateLensShareInputRequestTypeDef",
+    "CreateLensShareInputTypeDef",
     "CreateLensShareOutputTypeDef",
-    "CreateLensVersionInputRequestTypeDef",
+    "CreateLensVersionInputTypeDef",
     "CreateLensVersionOutputTypeDef",
-    "CreateMilestoneInputRequestTypeDef",
+    "CreateMilestoneInputTypeDef",
     "CreateMilestoneOutputTypeDef",
-    "CreateProfileInputRequestTypeDef",
+    "CreateProfileInputTypeDef",
     "CreateProfileOutputTypeDef",
-    "CreateProfileShareInputRequestTypeDef",
+    "CreateProfileShareInputTypeDef",
     "CreateProfileShareOutputTypeDef",
-    "CreateReviewTemplateInputRequestTypeDef",
+    "CreateReviewTemplateInputTypeDef",
     "CreateReviewTemplateOutputTypeDef",
-    "CreateTemplateShareInputRequestTypeDef",
+    "CreateTemplateShareInputTypeDef",
     "CreateTemplateShareOutputTypeDef",
-    "CreateWorkloadInputRequestTypeDef",
+    "CreateWorkloadInputTypeDef",
     "CreateWorkloadOutputTypeDef",
-    "CreateWorkloadShareInputRequestTypeDef",
+    "CreateWorkloadShareInputTypeDef",
     "CreateWorkloadShareOutputTypeDef",
-    "DeleteLensInputRequestTypeDef",
-    "DeleteLensShareInputRequestTypeDef",
-    "DeleteProfileInputRequestTypeDef",
-    "DeleteProfileShareInputRequestTypeDef",
-    "DeleteReviewTemplateInputRequestTypeDef",
-    "DeleteTemplateShareInputRequestTypeDef",
-    "DeleteWorkloadInputRequestTypeDef",
-    "DeleteWorkloadShareInputRequestTypeDef",
-    "DisassociateLensesInputRequestTypeDef",
-    "DisassociateProfilesInputRequestTypeDef",
-    "ExportLensInputRequestTypeDef",
+    "DeleteLensInputTypeDef",
+    "DeleteLensShareInputTypeDef",
+    "DeleteProfileInputTypeDef",
+    "DeleteProfileShareInputTypeDef",
+    "DeleteReviewTemplateInputTypeDef",
+    "DeleteTemplateShareInputTypeDef",
+    "DeleteWorkloadInputTypeDef",
+    "DeleteWorkloadShareInputTypeDef",
+    "DisassociateLensesInputTypeDef",
+    "DisassociateProfilesInputTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "ExportLensInputTypeDef",
     "ExportLensOutputTypeDef",
-    "GetAnswerInputRequestTypeDef",
+    "GetAnswerInputTypeDef",
     "GetAnswerOutputTypeDef",
-    "GetConsolidatedReportInputRequestTypeDef",
+    "GetConsolidatedReportInputTypeDef",
     "GetConsolidatedReportOutputTypeDef",
     "GetGlobalSettingsOutputTypeDef",
-    "GetLensInputRequestTypeDef",
+    "GetLensInputTypeDef",
     "GetLensOutputTypeDef",
-    "GetLensReviewInputRequestTypeDef",
+    "GetLensReviewInputTypeDef",
     "GetLensReviewOutputTypeDef",
-    "GetLensReviewReportInputRequestTypeDef",
+    "GetLensReviewReportInputTypeDef",
     "GetLensReviewReportOutputTypeDef",
-    "GetLensVersionDifferenceInputRequestTypeDef",
+    "GetLensVersionDifferenceInputTypeDef",
     "GetLensVersionDifferenceOutputTypeDef",
-    "GetMilestoneInputRequestTypeDef",
+    "GetMilestoneInputTypeDef",
     "GetMilestoneOutputTypeDef",
-    "GetProfileInputRequestTypeDef",
+    "GetProfileInputTypeDef",
     "GetProfileOutputTypeDef",
     "GetProfileTemplateOutputTypeDef",
-    "GetReviewTemplateAnswerInputRequestTypeDef",
+    "GetReviewTemplateAnswerInputTypeDef",
     "GetReviewTemplateAnswerOutputTypeDef",
-    "GetReviewTemplateInputRequestTypeDef",
-    "GetReviewTemplateLensReviewInputRequestTypeDef",
+    "GetReviewTemplateInputTypeDef",
+    "GetReviewTemplateLensReviewInputTypeDef",
     "GetReviewTemplateLensReviewOutputTypeDef",
     "GetReviewTemplateOutputTypeDef",
-    "GetWorkloadInputRequestTypeDef",
+    "GetWorkloadInputTypeDef",
     "GetWorkloadOutputTypeDef",
-    "ImportLensInputRequestTypeDef",
+    "ImportLensInputTypeDef",
     "ImportLensOutputTypeDef",
     "ImprovementSummaryTypeDef",
     "JiraConfigurationTypeDef",
+    "JiraSelectedQuestionConfigurationOutputTypeDef",
     "JiraSelectedQuestionConfigurationTypeDef",
+    "JiraSelectedQuestionConfigurationUnionTypeDef",
     "LensMetricTypeDef",
     "LensReviewReportTypeDef",
     "LensReviewSummaryTypeDef",
@@ -150,43 +159,43 @@ __all__ = (
     "LensSummaryTypeDef",
     "LensTypeDef",
     "LensUpgradeSummaryTypeDef",
-    "ListAnswersInputRequestTypeDef",
+    "ListAnswersInputTypeDef",
     "ListAnswersOutputTypeDef",
-    "ListCheckDetailsInputRequestTypeDef",
+    "ListCheckDetailsInputTypeDef",
     "ListCheckDetailsOutputTypeDef",
-    "ListCheckSummariesInputRequestTypeDef",
+    "ListCheckSummariesInputTypeDef",
     "ListCheckSummariesOutputTypeDef",
-    "ListLensReviewImprovementsInputRequestTypeDef",
+    "ListLensReviewImprovementsInputTypeDef",
     "ListLensReviewImprovementsOutputTypeDef",
-    "ListLensReviewsInputRequestTypeDef",
+    "ListLensReviewsInputTypeDef",
     "ListLensReviewsOutputTypeDef",
-    "ListLensSharesInputRequestTypeDef",
+    "ListLensSharesInputTypeDef",
     "ListLensSharesOutputTypeDef",
-    "ListLensesInputRequestTypeDef",
+    "ListLensesInputTypeDef",
     "ListLensesOutputTypeDef",
-    "ListMilestonesInputRequestTypeDef",
+    "ListMilestonesInputTypeDef",
     "ListMilestonesOutputTypeDef",
-    "ListNotificationsInputRequestTypeDef",
+    "ListNotificationsInputTypeDef",
     "ListNotificationsOutputTypeDef",
-    "ListProfileNotificationsInputRequestTypeDef",
+    "ListProfileNotificationsInputTypeDef",
     "ListProfileNotificationsOutputTypeDef",
-    "ListProfileSharesInputRequestTypeDef",
+    "ListProfileSharesInputTypeDef",
     "ListProfileSharesOutputTypeDef",
-    "ListProfilesInputRequestTypeDef",
+    "ListProfilesInputTypeDef",
     "ListProfilesOutputTypeDef",
-    "ListReviewTemplateAnswersInputRequestTypeDef",
+    "ListReviewTemplateAnswersInputTypeDef",
     "ListReviewTemplateAnswersOutputTypeDef",
-    "ListReviewTemplatesInputRequestTypeDef",
+    "ListReviewTemplatesInputTypeDef",
     "ListReviewTemplatesOutputTypeDef",
-    "ListShareInvitationsInputRequestTypeDef",
+    "ListShareInvitationsInputTypeDef",
     "ListShareInvitationsOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
-    "ListTemplateSharesInputRequestTypeDef",
+    "ListTemplateSharesInputTypeDef",
     "ListTemplateSharesOutputTypeDef",
-    "ListWorkloadSharesInputRequestTypeDef",
+    "ListWorkloadSharesInputTypeDef",
     "ListWorkloadSharesOutputTypeDef",
-    "ListWorkloadsInputRequestTypeDef",
+    "ListWorkloadsInputTypeDef",
     "ListWorkloadsOutputTypeDef",
     "MilestoneSummaryTypeDef",
     "MilestoneTypeDef",
@@ -213,37 +222,40 @@ __all__ = (
     "ReviewTemplatePillarReviewSummaryTypeDef",
     "ReviewTemplateSummaryTypeDef",
     "ReviewTemplateTypeDef",
+    "SelectedPillarOutputTypeDef",
     "SelectedPillarTypeDef",
     "ShareInvitationSummaryTypeDef",
     "ShareInvitationTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
     "TemplateShareSummaryTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateAnswerInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateAnswerInputTypeDef",
     "UpdateAnswerOutputTypeDef",
-    "UpdateGlobalSettingsInputRequestTypeDef",
-    "UpdateIntegrationInputRequestTypeDef",
-    "UpdateLensReviewInputRequestTypeDef",
+    "UpdateGlobalSettingsInputTypeDef",
+    "UpdateIntegrationInputTypeDef",
+    "UpdateLensReviewInputTypeDef",
     "UpdateLensReviewOutputTypeDef",
-    "UpdateProfileInputRequestTypeDef",
+    "UpdateProfileInputTypeDef",
     "UpdateProfileOutputTypeDef",
-    "UpdateReviewTemplateAnswerInputRequestTypeDef",
+    "UpdateReviewTemplateAnswerInputTypeDef",
     "UpdateReviewTemplateAnswerOutputTypeDef",
-    "UpdateReviewTemplateInputRequestTypeDef",
-    "UpdateReviewTemplateLensReviewInputRequestTypeDef",
+    "UpdateReviewTemplateInputTypeDef",
+    "UpdateReviewTemplateLensReviewInputTypeDef",
     "UpdateReviewTemplateLensReviewOutputTypeDef",
     "UpdateReviewTemplateOutputTypeDef",
-    "UpdateShareInvitationInputRequestTypeDef",
+    "UpdateShareInvitationInputTypeDef",
     "UpdateShareInvitationOutputTypeDef",
-    "UpdateWorkloadInputRequestTypeDef",
+    "UpdateWorkloadInputTypeDef",
     "UpdateWorkloadOutputTypeDef",
-    "UpdateWorkloadShareInputRequestTypeDef",
+    "UpdateWorkloadShareInputTypeDef",
     "UpdateWorkloadShareOutputTypeDef",
-    "UpgradeLensReviewInputRequestTypeDef",
-    "UpgradeProfileVersionInputRequestTypeDef",
-    "UpgradeReviewTemplateLensReviewInputRequestTypeDef",
+    "UpgradeLensReviewInputTypeDef",
+    "UpgradeProfileVersionInputTypeDef",
+    "UpgradeReviewTemplateLensReviewInputTypeDef",
     "VersionDifferencesTypeDef",
+    "WorkloadDiscoveryConfigOutputTypeDef",
     "WorkloadDiscoveryConfigTypeDef",
+    "WorkloadDiscoveryConfigUnionTypeDef",
     "WorkloadJiraConfigurationInputTypeDef",
     "WorkloadJiraConfigurationOutputTypeDef",
     "WorkloadProfileTypeDef",
@@ -253,2436 +265,1267 @@ __all__ = (
     "WorkloadTypeDef",
 )
 
-AccountJiraConfigurationInputTypeDef = TypedDict(
-    "AccountJiraConfigurationInputTypeDef",
-    {
-        "IssueManagementStatus": AccountJiraIssueManagementStatusType,
-        "IssueManagementType": IssueManagementTypeType,
-        "JiraProjectKey": str,
-        "IntegrationStatus": Literal["NOT_CONFIGURED"],
-    },
-    total=False,
-)
-
-AccountJiraConfigurationOutputTypeDef = TypedDict(
-    "AccountJiraConfigurationOutputTypeDef",
-    {
-        "IntegrationStatus": IntegrationStatusType,
-        "IssueManagementStatus": AccountJiraIssueManagementStatusType,
-        "IssueManagementType": IssueManagementTypeType,
-        "Subdomain": str,
-        "JiraProjectKey": str,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-AdditionalResourcesTypeDef = TypedDict(
-    "AdditionalResourcesTypeDef",
-    {
-        "Type": AdditionalResourceTypeType,
-        "Content": List["ChoiceContentTypeDef"],
-    },
-    total=False,
-)
-
-AnswerSummaryTypeDef = TypedDict(
-    "AnswerSummaryTypeDef",
-    {
-        "QuestionId": str,
-        "PillarId": str,
-        "QuestionTitle": str,
-        "Choices": List["ChoiceTypeDef"],
-        "SelectedChoices": List[str],
-        "ChoiceAnswerSummaries": List["ChoiceAnswerSummaryTypeDef"],
-        "IsApplicable": bool,
-        "Risk": RiskType,
-        "Reason": AnswerReasonType,
-        "QuestionType": QuestionTypeType,
-        "JiraConfiguration": "JiraConfigurationTypeDef",
-    },
-    total=False,
-)
-
-AnswerTypeDef = TypedDict(
-    "AnswerTypeDef",
-    {
-        "QuestionId": str,
-        "PillarId": str,
-        "QuestionTitle": str,
-        "QuestionDescription": str,
-        "ImprovementPlanUrl": str,
-        "HelpfulResourceUrl": str,
-        "HelpfulResourceDisplayText": str,
-        "Choices": List["ChoiceTypeDef"],
-        "SelectedChoices": List[str],
-        "ChoiceAnswers": List["ChoiceAnswerTypeDef"],
-        "IsApplicable": bool,
-        "Risk": RiskType,
-        "Notes": str,
-        "Reason": AnswerReasonType,
-        "JiraConfiguration": "JiraConfigurationTypeDef",
-    },
-    total=False,
-)
-
-AssociateLensesInputRequestTypeDef = TypedDict(
-    "AssociateLensesInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAliases": List[str],
-    },
-)
-
-AssociateProfilesInputRequestTypeDef = TypedDict(
-    "AssociateProfilesInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "ProfileArns": List[str],
-    },
-)
-
-BestPracticeTypeDef = TypedDict(
-    "BestPracticeTypeDef",
-    {
-        "ChoiceId": str,
-        "ChoiceTitle": str,
-    },
-    total=False,
-)
-
-CheckDetailTypeDef = TypedDict(
-    "CheckDetailTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "Provider": Literal["TRUSTED_ADVISOR"],
-        "LensArn": str,
-        "PillarId": str,
-        "QuestionId": str,
-        "ChoiceId": str,
-        "Status": CheckStatusType,
-        "AccountId": str,
-        "FlaggedResources": int,
-        "Reason": CheckFailureReasonType,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-CheckSummaryTypeDef = TypedDict(
-    "CheckSummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Provider": Literal["TRUSTED_ADVISOR"],
-        "Description": str,
-        "UpdatedAt": datetime,
-        "LensArn": str,
-        "PillarId": str,
-        "QuestionId": str,
-        "ChoiceId": str,
-        "Status": CheckStatusType,
-        "AccountSummary": Dict[CheckStatusType, int],
-    },
-    total=False,
-)
-
-ChoiceAnswerSummaryTypeDef = TypedDict(
-    "ChoiceAnswerSummaryTypeDef",
-    {
-        "ChoiceId": str,
-        "Status": ChoiceStatusType,
-        "Reason": ChoiceReasonType,
-    },
-    total=False,
-)
-
-ChoiceAnswerTypeDef = TypedDict(
-    "ChoiceAnswerTypeDef",
-    {
-        "ChoiceId": str,
-        "Status": ChoiceStatusType,
-        "Reason": ChoiceReasonType,
-        "Notes": str,
-    },
-    total=False,
-)
-
-ChoiceContentTypeDef = TypedDict(
-    "ChoiceContentTypeDef",
-    {
-        "DisplayText": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-ChoiceImprovementPlanTypeDef = TypedDict(
-    "ChoiceImprovementPlanTypeDef",
-    {
-        "ChoiceId": str,
-        "DisplayText": str,
-        "ImprovementPlanUrl": str,
-    },
-    total=False,
-)
-
-ChoiceTypeDef = TypedDict(
-    "ChoiceTypeDef",
-    {
-        "ChoiceId": str,
-        "Title": str,
-        "Description": str,
-        "HelpfulResource": "ChoiceContentTypeDef",
-        "ImprovementPlan": "ChoiceContentTypeDef",
-        "AdditionalResources": List["AdditionalResourcesTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredChoiceUpdateTypeDef = TypedDict(
-    "_RequiredChoiceUpdateTypeDef",
-    {
-        "Status": ChoiceStatusType,
-    },
-)
-_OptionalChoiceUpdateTypeDef = TypedDict(
-    "_OptionalChoiceUpdateTypeDef",
-    {
-        "Reason": ChoiceReasonType,
-        "Notes": str,
-    },
-    total=False,
-)
-
-class ChoiceUpdateTypeDef(_RequiredChoiceUpdateTypeDef, _OptionalChoiceUpdateTypeDef):
-    pass
-
-ConsolidatedReportMetricTypeDef = TypedDict(
-    "ConsolidatedReportMetricTypeDef",
-    {
-        "MetricType": Literal["WORKLOAD"],
-        "RiskCounts": Dict[RiskType, int],
-        "WorkloadId": str,
-        "WorkloadName": str,
-        "WorkloadArn": str,
-        "UpdatedAt": datetime,
-        "Lenses": List["LensMetricTypeDef"],
-        "LensesAppliedCount": int,
-    },
-    total=False,
-)
-
-CreateLensShareInputRequestTypeDef = TypedDict(
-    "CreateLensShareInputRequestTypeDef",
-    {
-        "LensAlias": str,
-        "SharedWith": str,
-        "ClientRequestToken": str,
-    },
-)
-
-CreateLensShareOutputTypeDef = TypedDict(
-    "CreateLensShareOutputTypeDef",
-    {
-        "ShareId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLensVersionInputRequestTypeDef = TypedDict(
-    "_RequiredCreateLensVersionInputRequestTypeDef",
-    {
-        "LensAlias": str,
-        "LensVersion": str,
-        "ClientRequestToken": str,
-    },
-)
-_OptionalCreateLensVersionInputRequestTypeDef = TypedDict(
-    "_OptionalCreateLensVersionInputRequestTypeDef",
-    {
-        "IsMajorVersion": bool,
-    },
-    total=False,
-)
-
-class CreateLensVersionInputRequestTypeDef(
-    _RequiredCreateLensVersionInputRequestTypeDef, _OptionalCreateLensVersionInputRequestTypeDef
-):
-    pass
-
-CreateLensVersionOutputTypeDef = TypedDict(
-    "CreateLensVersionOutputTypeDef",
-    {
-        "LensArn": str,
-        "LensVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateMilestoneInputRequestTypeDef = TypedDict(
-    "CreateMilestoneInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "MilestoneName": str,
-        "ClientRequestToken": str,
-    },
-)
-
-CreateMilestoneOutputTypeDef = TypedDict(
-    "CreateMilestoneOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "MilestoneNumber": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProfileInputRequestTypeDef = TypedDict(
-    "_RequiredCreateProfileInputRequestTypeDef",
-    {
-        "ProfileName": str,
-        "ProfileDescription": str,
-        "ProfileQuestions": List["ProfileQuestionUpdateTypeDef"],
-        "ClientRequestToken": str,
-    },
-)
-_OptionalCreateProfileInputRequestTypeDef = TypedDict(
-    "_OptionalCreateProfileInputRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateProfileInputRequestTypeDef(
-    _RequiredCreateProfileInputRequestTypeDef, _OptionalCreateProfileInputRequestTypeDef
-):
-    pass
-
-CreateProfileOutputTypeDef = TypedDict(
-    "CreateProfileOutputTypeDef",
-    {
-        "ProfileArn": str,
-        "ProfileVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateProfileShareInputRequestTypeDef = TypedDict(
-    "CreateProfileShareInputRequestTypeDef",
-    {
-        "ProfileArn": str,
-        "SharedWith": str,
-        "ClientRequestToken": str,
-    },
-)
-
-CreateProfileShareOutputTypeDef = TypedDict(
-    "CreateProfileShareOutputTypeDef",
-    {
-        "ShareId": str,
-        "ProfileArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateReviewTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredCreateReviewTemplateInputRequestTypeDef",
-    {
-        "TemplateName": str,
-        "Description": str,
-        "Lenses": List[str],
-        "ClientRequestToken": str,
-    },
-)
-_OptionalCreateReviewTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalCreateReviewTemplateInputRequestTypeDef",
-    {
-        "Notes": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateReviewTemplateInputRequestTypeDef(
-    _RequiredCreateReviewTemplateInputRequestTypeDef,
-    _OptionalCreateReviewTemplateInputRequestTypeDef,
-):
-    pass
-
-CreateReviewTemplateOutputTypeDef = TypedDict(
-    "CreateReviewTemplateOutputTypeDef",
-    {
-        "TemplateArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTemplateShareInputRequestTypeDef = TypedDict(
-    "CreateTemplateShareInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-        "SharedWith": str,
-        "ClientRequestToken": str,
-    },
-)
-
-CreateTemplateShareOutputTypeDef = TypedDict(
-    "CreateTemplateShareOutputTypeDef",
-    {
-        "TemplateArn": str,
-        "ShareId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorkloadInputRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkloadInputRequestTypeDef",
-    {
-        "WorkloadName": str,
-        "Description": str,
-        "Environment": WorkloadEnvironmentType,
-        "Lenses": List[str],
-        "ClientRequestToken": str,
-    },
-)
-_OptionalCreateWorkloadInputRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkloadInputRequestTypeDef",
-    {
-        "AccountIds": List[str],
-        "AwsRegions": List[str],
-        "NonAwsRegions": List[str],
-        "PillarPriorities": List[str],
-        "ArchitecturalDesign": str,
-        "ReviewOwner": str,
-        "IndustryType": str,
-        "Industry": str,
-        "Notes": str,
-        "Tags": Dict[str, str],
-        "DiscoveryConfig": "WorkloadDiscoveryConfigTypeDef",
-        "Applications": List[str],
-        "ProfileArns": List[str],
-        "ReviewTemplateArns": List[str],
-        "JiraConfiguration": "WorkloadJiraConfigurationInputTypeDef",
-    },
-    total=False,
-)
-
-class CreateWorkloadInputRequestTypeDef(
-    _RequiredCreateWorkloadInputRequestTypeDef, _OptionalCreateWorkloadInputRequestTypeDef
-):
-    pass
-
-CreateWorkloadOutputTypeDef = TypedDict(
-    "CreateWorkloadOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "WorkloadArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateWorkloadShareInputRequestTypeDef = TypedDict(
-    "CreateWorkloadShareInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "SharedWith": str,
-        "PermissionType": PermissionTypeType,
-        "ClientRequestToken": str,
-    },
-)
-
-CreateWorkloadShareOutputTypeDef = TypedDict(
-    "CreateWorkloadShareOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "ShareId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteLensInputRequestTypeDef = TypedDict(
-    "DeleteLensInputRequestTypeDef",
-    {
-        "LensAlias": str,
-        "ClientRequestToken": str,
-        "LensStatus": LensStatusTypeType,
-    },
-)
-
-DeleteLensShareInputRequestTypeDef = TypedDict(
-    "DeleteLensShareInputRequestTypeDef",
-    {
-        "ShareId": str,
-        "LensAlias": str,
-        "ClientRequestToken": str,
-    },
-)
-
-DeleteProfileInputRequestTypeDef = TypedDict(
-    "DeleteProfileInputRequestTypeDef",
-    {
-        "ProfileArn": str,
-        "ClientRequestToken": str,
-    },
-)
-
-DeleteProfileShareInputRequestTypeDef = TypedDict(
-    "DeleteProfileShareInputRequestTypeDef",
-    {
-        "ShareId": str,
-        "ProfileArn": str,
-        "ClientRequestToken": str,
-    },
-)
-
-DeleteReviewTemplateInputRequestTypeDef = TypedDict(
-    "DeleteReviewTemplateInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-        "ClientRequestToken": str,
-    },
-)
-
-DeleteTemplateShareInputRequestTypeDef = TypedDict(
-    "DeleteTemplateShareInputRequestTypeDef",
-    {
-        "ShareId": str,
-        "TemplateArn": str,
-        "ClientRequestToken": str,
-    },
-)
-
-DeleteWorkloadInputRequestTypeDef = TypedDict(
-    "DeleteWorkloadInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "ClientRequestToken": str,
-    },
-)
-
-DeleteWorkloadShareInputRequestTypeDef = TypedDict(
-    "DeleteWorkloadShareInputRequestTypeDef",
-    {
-        "ShareId": str,
-        "WorkloadId": str,
-        "ClientRequestToken": str,
-    },
-)
-
-DisassociateLensesInputRequestTypeDef = TypedDict(
-    "DisassociateLensesInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAliases": List[str],
-    },
-)
-
-DisassociateProfilesInputRequestTypeDef = TypedDict(
-    "DisassociateProfilesInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "ProfileArns": List[str],
-    },
-)
-
-_RequiredExportLensInputRequestTypeDef = TypedDict(
-    "_RequiredExportLensInputRequestTypeDef",
-    {
-        "LensAlias": str,
-    },
-)
-_OptionalExportLensInputRequestTypeDef = TypedDict(
-    "_OptionalExportLensInputRequestTypeDef",
-    {
-        "LensVersion": str,
-    },
-    total=False,
-)
-
-class ExportLensInputRequestTypeDef(
-    _RequiredExportLensInputRequestTypeDef, _OptionalExportLensInputRequestTypeDef
-):
-    pass
-
-ExportLensOutputTypeDef = TypedDict(
-    "ExportLensOutputTypeDef",
-    {
-        "LensJSON": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetAnswerInputRequestTypeDef = TypedDict(
-    "_RequiredGetAnswerInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAlias": str,
-        "QuestionId": str,
-    },
-)
-_OptionalGetAnswerInputRequestTypeDef = TypedDict(
-    "_OptionalGetAnswerInputRequestTypeDef",
-    {
-        "MilestoneNumber": int,
-    },
-    total=False,
-)
-
-class GetAnswerInputRequestTypeDef(
-    _RequiredGetAnswerInputRequestTypeDef, _OptionalGetAnswerInputRequestTypeDef
-):
-    pass
-
-GetAnswerOutputTypeDef = TypedDict(
-    "GetAnswerOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "MilestoneNumber": int,
-        "LensAlias": str,
-        "LensArn": str,
-        "Answer": "AnswerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetConsolidatedReportInputRequestTypeDef = TypedDict(
-    "_RequiredGetConsolidatedReportInputRequestTypeDef",
-    {
-        "Format": ReportFormatType,
-    },
-)
-_OptionalGetConsolidatedReportInputRequestTypeDef = TypedDict(
-    "_OptionalGetConsolidatedReportInputRequestTypeDef",
-    {
-        "IncludeSharedResources": bool,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class GetConsolidatedReportInputRequestTypeDef(
-    _RequiredGetConsolidatedReportInputRequestTypeDef,
-    _OptionalGetConsolidatedReportInputRequestTypeDef,
-):
-    pass
-
-GetConsolidatedReportOutputTypeDef = TypedDict(
-    "GetConsolidatedReportOutputTypeDef",
-    {
-        "Metrics": List["ConsolidatedReportMetricTypeDef"],
-        "NextToken": str,
-        "Base64String": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGlobalSettingsOutputTypeDef = TypedDict(
-    "GetGlobalSettingsOutputTypeDef",
-    {
-        "OrganizationSharingStatus": OrganizationSharingStatusType,
-        "DiscoveryIntegrationStatus": DiscoveryIntegrationStatusType,
-        "JiraConfiguration": "AccountJiraConfigurationOutputTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetLensInputRequestTypeDef = TypedDict(
-    "_RequiredGetLensInputRequestTypeDef",
-    {
-        "LensAlias": str,
-    },
-)
-_OptionalGetLensInputRequestTypeDef = TypedDict(
-    "_OptionalGetLensInputRequestTypeDef",
-    {
-        "LensVersion": str,
-    },
-    total=False,
-)
-
-class GetLensInputRequestTypeDef(
-    _RequiredGetLensInputRequestTypeDef, _OptionalGetLensInputRequestTypeDef
-):
-    pass
-
-GetLensOutputTypeDef = TypedDict(
-    "GetLensOutputTypeDef",
-    {
-        "Lens": "LensTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetLensReviewInputRequestTypeDef = TypedDict(
-    "_RequiredGetLensReviewInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAlias": str,
-    },
-)
-_OptionalGetLensReviewInputRequestTypeDef = TypedDict(
-    "_OptionalGetLensReviewInputRequestTypeDef",
-    {
-        "MilestoneNumber": int,
-    },
-    total=False,
-)
-
-class GetLensReviewInputRequestTypeDef(
-    _RequiredGetLensReviewInputRequestTypeDef, _OptionalGetLensReviewInputRequestTypeDef
-):
-    pass
-
-GetLensReviewOutputTypeDef = TypedDict(
-    "GetLensReviewOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "MilestoneNumber": int,
-        "LensReview": "LensReviewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetLensReviewReportInputRequestTypeDef = TypedDict(
-    "_RequiredGetLensReviewReportInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAlias": str,
-    },
-)
-_OptionalGetLensReviewReportInputRequestTypeDef = TypedDict(
-    "_OptionalGetLensReviewReportInputRequestTypeDef",
-    {
-        "MilestoneNumber": int,
-    },
-    total=False,
-)
-
-class GetLensReviewReportInputRequestTypeDef(
-    _RequiredGetLensReviewReportInputRequestTypeDef, _OptionalGetLensReviewReportInputRequestTypeDef
-):
-    pass
-
-GetLensReviewReportOutputTypeDef = TypedDict(
-    "GetLensReviewReportOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "MilestoneNumber": int,
-        "LensReviewReport": "LensReviewReportTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetLensVersionDifferenceInputRequestTypeDef = TypedDict(
-    "_RequiredGetLensVersionDifferenceInputRequestTypeDef",
-    {
-        "LensAlias": str,
-    },
-)
-_OptionalGetLensVersionDifferenceInputRequestTypeDef = TypedDict(
-    "_OptionalGetLensVersionDifferenceInputRequestTypeDef",
-    {
-        "BaseLensVersion": str,
-        "TargetLensVersion": str,
-    },
-    total=False,
-)
-
-class GetLensVersionDifferenceInputRequestTypeDef(
-    _RequiredGetLensVersionDifferenceInputRequestTypeDef,
-    _OptionalGetLensVersionDifferenceInputRequestTypeDef,
-):
-    pass
-
-GetLensVersionDifferenceOutputTypeDef = TypedDict(
-    "GetLensVersionDifferenceOutputTypeDef",
-    {
-        "LensAlias": str,
-        "LensArn": str,
-        "BaseLensVersion": str,
-        "TargetLensVersion": str,
-        "LatestLensVersion": str,
-        "VersionDifferences": "VersionDifferencesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMilestoneInputRequestTypeDef = TypedDict(
-    "GetMilestoneInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "MilestoneNumber": int,
-    },
-)
-
-GetMilestoneOutputTypeDef = TypedDict(
-    "GetMilestoneOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "Milestone": "MilestoneTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetProfileInputRequestTypeDef = TypedDict(
-    "_RequiredGetProfileInputRequestTypeDef",
-    {
-        "ProfileArn": str,
-    },
-)
-_OptionalGetProfileInputRequestTypeDef = TypedDict(
-    "_OptionalGetProfileInputRequestTypeDef",
-    {
-        "ProfileVersion": str,
-    },
-    total=False,
-)
-
-class GetProfileInputRequestTypeDef(
-    _RequiredGetProfileInputRequestTypeDef, _OptionalGetProfileInputRequestTypeDef
-):
-    pass
-
-GetProfileOutputTypeDef = TypedDict(
-    "GetProfileOutputTypeDef",
-    {
-        "Profile": "ProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetProfileTemplateOutputTypeDef = TypedDict(
-    "GetProfileTemplateOutputTypeDef",
-    {
-        "ProfileTemplate": "ProfileTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetReviewTemplateAnswerInputRequestTypeDef = TypedDict(
-    "GetReviewTemplateAnswerInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-        "LensAlias": str,
-        "QuestionId": str,
-    },
-)
-
-GetReviewTemplateAnswerOutputTypeDef = TypedDict(
-    "GetReviewTemplateAnswerOutputTypeDef",
-    {
-        "TemplateArn": str,
-        "LensAlias": str,
-        "Answer": "ReviewTemplateAnswerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetReviewTemplateInputRequestTypeDef = TypedDict(
-    "GetReviewTemplateInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-    },
-)
-
-GetReviewTemplateLensReviewInputRequestTypeDef = TypedDict(
-    "GetReviewTemplateLensReviewInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-        "LensAlias": str,
-    },
-)
-
-GetReviewTemplateLensReviewOutputTypeDef = TypedDict(
-    "GetReviewTemplateLensReviewOutputTypeDef",
-    {
-        "TemplateArn": str,
-        "LensReview": "ReviewTemplateLensReviewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetReviewTemplateOutputTypeDef = TypedDict(
-    "GetReviewTemplateOutputTypeDef",
-    {
-        "ReviewTemplate": "ReviewTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetWorkloadInputRequestTypeDef = TypedDict(
-    "GetWorkloadInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-    },
-)
-
-GetWorkloadOutputTypeDef = TypedDict(
-    "GetWorkloadOutputTypeDef",
-    {
-        "Workload": "WorkloadTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImportLensInputRequestTypeDef = TypedDict(
-    "_RequiredImportLensInputRequestTypeDef",
-    {
-        "JSONString": str,
-        "ClientRequestToken": str,
-    },
-)
-_OptionalImportLensInputRequestTypeDef = TypedDict(
-    "_OptionalImportLensInputRequestTypeDef",
-    {
-        "LensAlias": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class ImportLensInputRequestTypeDef(
-    _RequiredImportLensInputRequestTypeDef, _OptionalImportLensInputRequestTypeDef
-):
-    pass
-
-ImportLensOutputTypeDef = TypedDict(
-    "ImportLensOutputTypeDef",
-    {
-        "LensArn": str,
-        "Status": ImportLensStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ImprovementSummaryTypeDef = TypedDict(
-    "ImprovementSummaryTypeDef",
-    {
-        "QuestionId": str,
-        "PillarId": str,
-        "QuestionTitle": str,
-        "Risk": RiskType,
-        "ImprovementPlanUrl": str,
-        "ImprovementPlans": List["ChoiceImprovementPlanTypeDef"],
-        "JiraConfiguration": "JiraConfigurationTypeDef",
-    },
-    total=False,
-)
-
-JiraConfigurationTypeDef = TypedDict(
-    "JiraConfigurationTypeDef",
-    {
-        "JiraIssueUrl": str,
-        "LastSyncedTime": datetime,
-    },
-    total=False,
-)
-
-JiraSelectedQuestionConfigurationTypeDef = TypedDict(
-    "JiraSelectedQuestionConfigurationTypeDef",
-    {
-        "SelectedPillars": List["SelectedPillarTypeDef"],
-    },
-    total=False,
-)
-
-LensMetricTypeDef = TypedDict(
-    "LensMetricTypeDef",
-    {
-        "LensArn": str,
-        "Pillars": List["PillarMetricTypeDef"],
-        "RiskCounts": Dict[RiskType, int],
-    },
-    total=False,
-)
-
-LensReviewReportTypeDef = TypedDict(
-    "LensReviewReportTypeDef",
-    {
-        "LensAlias": str,
-        "LensArn": str,
-        "Base64String": str,
-    },
-    total=False,
-)
-
-LensReviewSummaryTypeDef = TypedDict(
-    "LensReviewSummaryTypeDef",
-    {
-        "LensAlias": str,
-        "LensArn": str,
-        "LensVersion": str,
-        "LensName": str,
-        "LensStatus": LensStatusType,
-        "UpdatedAt": datetime,
-        "RiskCounts": Dict[RiskType, int],
-        "Profiles": List["WorkloadProfileTypeDef"],
-        "PrioritizedRiskCounts": Dict[RiskType, int],
-    },
-    total=False,
-)
-
-LensReviewTypeDef = TypedDict(
-    "LensReviewTypeDef",
-    {
-        "LensAlias": str,
-        "LensArn": str,
-        "LensVersion": str,
-        "LensName": str,
-        "LensStatus": LensStatusType,
-        "PillarReviewSummaries": List["PillarReviewSummaryTypeDef"],
-        "JiraConfiguration": "JiraSelectedQuestionConfigurationTypeDef",
-        "UpdatedAt": datetime,
-        "Notes": str,
-        "RiskCounts": Dict[RiskType, int],
-        "NextToken": str,
-        "Profiles": List["WorkloadProfileTypeDef"],
-        "PrioritizedRiskCounts": Dict[RiskType, int],
-    },
-    total=False,
-)
-
-LensShareSummaryTypeDef = TypedDict(
-    "LensShareSummaryTypeDef",
-    {
-        "ShareId": str,
-        "SharedWith": str,
-        "Status": ShareStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-LensSummaryTypeDef = TypedDict(
-    "LensSummaryTypeDef",
-    {
-        "LensArn": str,
-        "LensAlias": str,
-        "LensName": str,
-        "LensType": LensTypeType,
-        "Description": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "LensVersion": str,
-        "Owner": str,
-        "LensStatus": LensStatusType,
-    },
-    total=False,
-)
-
-LensTypeDef = TypedDict(
-    "LensTypeDef",
-    {
-        "LensArn": str,
-        "LensVersion": str,
-        "Name": str,
-        "Description": str,
-        "Owner": str,
-        "ShareInvitationId": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-LensUpgradeSummaryTypeDef = TypedDict(
-    "LensUpgradeSummaryTypeDef",
-    {
-        "WorkloadId": str,
-        "WorkloadName": str,
-        "LensAlias": str,
-        "LensArn": str,
-        "CurrentLensVersion": str,
-        "LatestLensVersion": str,
-        "ResourceArn": str,
-        "ResourceName": str,
-    },
-    total=False,
-)
-
-_RequiredListAnswersInputRequestTypeDef = TypedDict(
-    "_RequiredListAnswersInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAlias": str,
-    },
-)
-_OptionalListAnswersInputRequestTypeDef = TypedDict(
-    "_OptionalListAnswersInputRequestTypeDef",
-    {
-        "PillarId": str,
-        "MilestoneNumber": int,
-        "NextToken": str,
-        "MaxResults": int,
-        "QuestionPriority": QuestionPriorityType,
-    },
-    total=False,
-)
-
-class ListAnswersInputRequestTypeDef(
-    _RequiredListAnswersInputRequestTypeDef, _OptionalListAnswersInputRequestTypeDef
-):
-    pass
-
-ListAnswersOutputTypeDef = TypedDict(
-    "ListAnswersOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "MilestoneNumber": int,
-        "LensAlias": str,
-        "LensArn": str,
-        "AnswerSummaries": List["AnswerSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCheckDetailsInputRequestTypeDef = TypedDict(
-    "_RequiredListCheckDetailsInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensArn": str,
-        "PillarId": str,
-        "QuestionId": str,
-        "ChoiceId": str,
-    },
-)
-_OptionalListCheckDetailsInputRequestTypeDef = TypedDict(
-    "_OptionalListCheckDetailsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListCheckDetailsInputRequestTypeDef(
-    _RequiredListCheckDetailsInputRequestTypeDef, _OptionalListCheckDetailsInputRequestTypeDef
-):
-    pass
-
-ListCheckDetailsOutputTypeDef = TypedDict(
-    "ListCheckDetailsOutputTypeDef",
-    {
-        "CheckDetails": List["CheckDetailTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCheckSummariesInputRequestTypeDef = TypedDict(
-    "_RequiredListCheckSummariesInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensArn": str,
-        "PillarId": str,
-        "QuestionId": str,
-        "ChoiceId": str,
-    },
-)
-_OptionalListCheckSummariesInputRequestTypeDef = TypedDict(
-    "_OptionalListCheckSummariesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListCheckSummariesInputRequestTypeDef(
-    _RequiredListCheckSummariesInputRequestTypeDef, _OptionalListCheckSummariesInputRequestTypeDef
-):
-    pass
-
-ListCheckSummariesOutputTypeDef = TypedDict(
-    "ListCheckSummariesOutputTypeDef",
-    {
-        "CheckSummaries": List["CheckSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLensReviewImprovementsInputRequestTypeDef = TypedDict(
-    "_RequiredListLensReviewImprovementsInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAlias": str,
-    },
-)
-_OptionalListLensReviewImprovementsInputRequestTypeDef = TypedDict(
-    "_OptionalListLensReviewImprovementsInputRequestTypeDef",
-    {
-        "PillarId": str,
-        "MilestoneNumber": int,
-        "NextToken": str,
-        "MaxResults": int,
-        "QuestionPriority": QuestionPriorityType,
-    },
-    total=False,
-)
-
-class ListLensReviewImprovementsInputRequestTypeDef(
-    _RequiredListLensReviewImprovementsInputRequestTypeDef,
-    _OptionalListLensReviewImprovementsInputRequestTypeDef,
-):
-    pass
-
-ListLensReviewImprovementsOutputTypeDef = TypedDict(
-    "ListLensReviewImprovementsOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "MilestoneNumber": int,
-        "LensAlias": str,
-        "LensArn": str,
-        "ImprovementSummaries": List["ImprovementSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLensReviewsInputRequestTypeDef = TypedDict(
-    "_RequiredListLensReviewsInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-    },
-)
-_OptionalListLensReviewsInputRequestTypeDef = TypedDict(
-    "_OptionalListLensReviewsInputRequestTypeDef",
-    {
-        "MilestoneNumber": int,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListLensReviewsInputRequestTypeDef(
-    _RequiredListLensReviewsInputRequestTypeDef, _OptionalListLensReviewsInputRequestTypeDef
-):
-    pass
-
-ListLensReviewsOutputTypeDef = TypedDict(
-    "ListLensReviewsOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "MilestoneNumber": int,
-        "LensReviewSummaries": List["LensReviewSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLensSharesInputRequestTypeDef = TypedDict(
-    "_RequiredListLensSharesInputRequestTypeDef",
-    {
-        "LensAlias": str,
-    },
-)
-_OptionalListLensSharesInputRequestTypeDef = TypedDict(
-    "_OptionalListLensSharesInputRequestTypeDef",
-    {
-        "SharedWithPrefix": str,
-        "NextToken": str,
-        "MaxResults": int,
-        "Status": ShareStatusType,
-    },
-    total=False,
-)
-
-class ListLensSharesInputRequestTypeDef(
-    _RequiredListLensSharesInputRequestTypeDef, _OptionalListLensSharesInputRequestTypeDef
-):
-    pass
-
-ListLensSharesOutputTypeDef = TypedDict(
-    "ListLensSharesOutputTypeDef",
-    {
-        "LensShareSummaries": List["LensShareSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLensesInputRequestTypeDef = TypedDict(
-    "ListLensesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "LensType": LensTypeType,
-        "LensStatus": LensStatusTypeType,
-        "LensName": str,
-    },
-    total=False,
-)
-
-ListLensesOutputTypeDef = TypedDict(
-    "ListLensesOutputTypeDef",
-    {
-        "LensSummaries": List["LensSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMilestonesInputRequestTypeDef = TypedDict(
-    "_RequiredListMilestonesInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-    },
-)
-_OptionalListMilestonesInputRequestTypeDef = TypedDict(
-    "_OptionalListMilestonesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListMilestonesInputRequestTypeDef(
-    _RequiredListMilestonesInputRequestTypeDef, _OptionalListMilestonesInputRequestTypeDef
-):
-    pass
-
-ListMilestonesOutputTypeDef = TypedDict(
-    "ListMilestonesOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "MilestoneSummaries": List["MilestoneSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListNotificationsInputRequestTypeDef = TypedDict(
-    "ListNotificationsInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "NextToken": str,
-        "MaxResults": int,
-        "ResourceArn": str,
-    },
-    total=False,
-)
-
-ListNotificationsOutputTypeDef = TypedDict(
-    "ListNotificationsOutputTypeDef",
-    {
-        "NotificationSummaries": List["NotificationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListProfileNotificationsInputRequestTypeDef = TypedDict(
-    "ListProfileNotificationsInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListProfileNotificationsOutputTypeDef = TypedDict(
-    "ListProfileNotificationsOutputTypeDef",
-    {
-        "NotificationSummaries": List["ProfileNotificationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProfileSharesInputRequestTypeDef = TypedDict(
-    "_RequiredListProfileSharesInputRequestTypeDef",
-    {
-        "ProfileArn": str,
-    },
-)
-_OptionalListProfileSharesInputRequestTypeDef = TypedDict(
-    "_OptionalListProfileSharesInputRequestTypeDef",
-    {
-        "SharedWithPrefix": str,
-        "NextToken": str,
-        "MaxResults": int,
-        "Status": ShareStatusType,
-    },
-    total=False,
-)
-
-class ListProfileSharesInputRequestTypeDef(
-    _RequiredListProfileSharesInputRequestTypeDef, _OptionalListProfileSharesInputRequestTypeDef
-):
-    pass
-
-ListProfileSharesOutputTypeDef = TypedDict(
-    "ListProfileSharesOutputTypeDef",
-    {
-        "ProfileShareSummaries": List["ProfileShareSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListProfilesInputRequestTypeDef = TypedDict(
-    "ListProfilesInputRequestTypeDef",
-    {
-        "ProfileNamePrefix": str,
-        "ProfileOwnerType": ProfileOwnerTypeType,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListProfilesOutputTypeDef = TypedDict(
-    "ListProfilesOutputTypeDef",
-    {
-        "ProfileSummaries": List["ProfileSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListReviewTemplateAnswersInputRequestTypeDef = TypedDict(
-    "_RequiredListReviewTemplateAnswersInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-        "LensAlias": str,
-    },
-)
-_OptionalListReviewTemplateAnswersInputRequestTypeDef = TypedDict(
-    "_OptionalListReviewTemplateAnswersInputRequestTypeDef",
-    {
-        "PillarId": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListReviewTemplateAnswersInputRequestTypeDef(
-    _RequiredListReviewTemplateAnswersInputRequestTypeDef,
-    _OptionalListReviewTemplateAnswersInputRequestTypeDef,
-):
-    pass
-
-ListReviewTemplateAnswersOutputTypeDef = TypedDict(
-    "ListReviewTemplateAnswersOutputTypeDef",
-    {
-        "TemplateArn": str,
-        "LensAlias": str,
-        "AnswerSummaries": List["ReviewTemplateAnswerSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListReviewTemplatesInputRequestTypeDef = TypedDict(
-    "ListReviewTemplatesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListReviewTemplatesOutputTypeDef = TypedDict(
-    "ListReviewTemplatesOutputTypeDef",
-    {
-        "ReviewTemplates": List["ReviewTemplateSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListShareInvitationsInputRequestTypeDef = TypedDict(
-    "ListShareInvitationsInputRequestTypeDef",
-    {
-        "WorkloadNamePrefix": str,
-        "LensNamePrefix": str,
-        "ShareResourceType": ShareResourceTypeType,
-        "NextToken": str,
-        "MaxResults": int,
-        "ProfileNamePrefix": str,
-        "TemplateNamePrefix": str,
-    },
-    total=False,
-)
-
-ListShareInvitationsOutputTypeDef = TypedDict(
-    "ListShareInvitationsOutputTypeDef",
-    {
-        "ShareInvitationSummaries": List["ShareInvitationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "WorkloadArn": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTemplateSharesInputRequestTypeDef = TypedDict(
-    "_RequiredListTemplateSharesInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-    },
-)
-_OptionalListTemplateSharesInputRequestTypeDef = TypedDict(
-    "_OptionalListTemplateSharesInputRequestTypeDef",
-    {
-        "SharedWithPrefix": str,
-        "NextToken": str,
-        "MaxResults": int,
-        "Status": ShareStatusType,
-    },
-    total=False,
-)
-
-class ListTemplateSharesInputRequestTypeDef(
-    _RequiredListTemplateSharesInputRequestTypeDef, _OptionalListTemplateSharesInputRequestTypeDef
-):
-    pass
-
-ListTemplateSharesOutputTypeDef = TypedDict(
-    "ListTemplateSharesOutputTypeDef",
-    {
-        "TemplateArn": str,
-        "TemplateShareSummaries": List["TemplateShareSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWorkloadSharesInputRequestTypeDef = TypedDict(
-    "_RequiredListWorkloadSharesInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-    },
-)
-_OptionalListWorkloadSharesInputRequestTypeDef = TypedDict(
-    "_OptionalListWorkloadSharesInputRequestTypeDef",
-    {
-        "SharedWithPrefix": str,
-        "NextToken": str,
-        "MaxResults": int,
-        "Status": ShareStatusType,
-    },
-    total=False,
-)
-
-class ListWorkloadSharesInputRequestTypeDef(
-    _RequiredListWorkloadSharesInputRequestTypeDef, _OptionalListWorkloadSharesInputRequestTypeDef
-):
-    pass
-
-ListWorkloadSharesOutputTypeDef = TypedDict(
-    "ListWorkloadSharesOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "WorkloadShareSummaries": List["WorkloadShareSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorkloadsInputRequestTypeDef = TypedDict(
-    "ListWorkloadsInputRequestTypeDef",
-    {
-        "WorkloadNamePrefix": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListWorkloadsOutputTypeDef = TypedDict(
-    "ListWorkloadsOutputTypeDef",
-    {
-        "WorkloadSummaries": List["WorkloadSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MilestoneSummaryTypeDef = TypedDict(
-    "MilestoneSummaryTypeDef",
-    {
-        "MilestoneNumber": int,
-        "MilestoneName": str,
-        "RecordedAt": datetime,
-        "WorkloadSummary": "WorkloadSummaryTypeDef",
-    },
-    total=False,
-)
-
-MilestoneTypeDef = TypedDict(
-    "MilestoneTypeDef",
-    {
-        "MilestoneNumber": int,
-        "MilestoneName": str,
-        "RecordedAt": datetime,
-        "Workload": "WorkloadTypeDef",
-    },
-    total=False,
-)
-
-NotificationSummaryTypeDef = TypedDict(
-    "NotificationSummaryTypeDef",
-    {
-        "Type": NotificationTypeType,
-        "LensUpgradeSummary": "LensUpgradeSummaryTypeDef",
-    },
-    total=False,
-)
-
-PillarDifferenceTypeDef = TypedDict(
-    "PillarDifferenceTypeDef",
-    {
-        "PillarId": str,
-        "PillarName": str,
-        "DifferenceStatus": DifferenceStatusType,
-        "QuestionDifferences": List["QuestionDifferenceTypeDef"],
-    },
-    total=False,
-)
-
-PillarMetricTypeDef = TypedDict(
-    "PillarMetricTypeDef",
-    {
-        "PillarId": str,
-        "RiskCounts": Dict[RiskType, int],
-        "Questions": List["QuestionMetricTypeDef"],
-    },
-    total=False,
-)
-
-PillarReviewSummaryTypeDef = TypedDict(
-    "PillarReviewSummaryTypeDef",
-    {
-        "PillarId": str,
-        "PillarName": str,
-        "Notes": str,
-        "RiskCounts": Dict[RiskType, int],
-        "PrioritizedRiskCounts": Dict[RiskType, int],
-    },
-    total=False,
-)
-
-ProfileChoiceTypeDef = TypedDict(
-    "ProfileChoiceTypeDef",
-    {
-        "ChoiceId": str,
-        "ChoiceTitle": str,
-        "ChoiceDescription": str,
-    },
-    total=False,
-)
+class AccountJiraConfigurationInputTypeDef(TypedDict):
+    IssueManagementStatus: NotRequired[AccountJiraIssueManagementStatusType]
+    IssueManagementType: NotRequired[IssueManagementTypeType]
+    JiraProjectKey: NotRequired[str]
+    IntegrationStatus: NotRequired[Literal["NOT_CONFIGURED"]]
+
+class AccountJiraConfigurationOutputTypeDef(TypedDict):
+    IntegrationStatus: NotRequired[IntegrationStatusType]
+    IssueManagementStatus: NotRequired[AccountJiraIssueManagementStatusType]
+    IssueManagementType: NotRequired[IssueManagementTypeType]
+    Subdomain: NotRequired[str]
+    JiraProjectKey: NotRequired[str]
+    StatusMessage: NotRequired[str]
+
+class ChoiceContentTypeDef(TypedDict):
+    DisplayText: NotRequired[str]
+    Url: NotRequired[str]
+
+class ChoiceAnswerSummaryTypeDef(TypedDict):
+    ChoiceId: NotRequired[str]
+    Status: NotRequired[ChoiceStatusType]
+    Reason: NotRequired[ChoiceReasonType]
+
+class JiraConfigurationTypeDef(TypedDict):
+    JiraIssueUrl: NotRequired[str]
+    LastSyncedTime: NotRequired[datetime]
+
+class ChoiceAnswerTypeDef(TypedDict):
+    ChoiceId: NotRequired[str]
+    Status: NotRequired[ChoiceStatusType]
+    Reason: NotRequired[ChoiceReasonType]
+    Notes: NotRequired[str]
+
+class AssociateLensesInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAliases: Sequence[str]
+
+class AssociateProfilesInputTypeDef(TypedDict):
+    WorkloadId: str
+    ProfileArns: Sequence[str]
+
+class BestPracticeTypeDef(TypedDict):
+    ChoiceId: NotRequired[str]
+    ChoiceTitle: NotRequired[str]
+
+class CheckDetailTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Provider: NotRequired[Literal["TRUSTED_ADVISOR"]]
+    LensArn: NotRequired[str]
+    PillarId: NotRequired[str]
+    QuestionId: NotRequired[str]
+    ChoiceId: NotRequired[str]
+    Status: NotRequired[CheckStatusType]
+    AccountId: NotRequired[str]
+    FlaggedResources: NotRequired[int]
+    Reason: NotRequired[CheckFailureReasonType]
+    UpdatedAt: NotRequired[datetime]
+
+class CheckSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Provider: NotRequired[Literal["TRUSTED_ADVISOR"]]
+    Description: NotRequired[str]
+    UpdatedAt: NotRequired[datetime]
+    LensArn: NotRequired[str]
+    PillarId: NotRequired[str]
+    QuestionId: NotRequired[str]
+    ChoiceId: NotRequired[str]
+    Status: NotRequired[CheckStatusType]
+    AccountSummary: NotRequired[Dict[CheckStatusType, int]]
+
+class ChoiceImprovementPlanTypeDef(TypedDict):
+    ChoiceId: NotRequired[str]
+    DisplayText: NotRequired[str]
+    ImprovementPlanUrl: NotRequired[str]
+
+class ChoiceUpdateTypeDef(TypedDict):
+    Status: ChoiceStatusType
+    Reason: NotRequired[ChoiceReasonType]
+    Notes: NotRequired[str]
+
+class CreateLensShareInputTypeDef(TypedDict):
+    LensAlias: str
+    SharedWith: str
+    ClientRequestToken: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateLensVersionInputTypeDef(TypedDict):
+    LensAlias: str
+    LensVersion: str
+    ClientRequestToken: str
+    IsMajorVersion: NotRequired[bool]
+
+class CreateMilestoneInputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneName: str
+    ClientRequestToken: str
+
+class ProfileQuestionUpdateTypeDef(TypedDict):
+    QuestionId: NotRequired[str]
+    SelectedChoiceIds: NotRequired[Sequence[str]]
+
+class CreateProfileShareInputTypeDef(TypedDict):
+    ProfileArn: str
+    SharedWith: str
+    ClientRequestToken: str
+
+class CreateReviewTemplateInputTypeDef(TypedDict):
+    TemplateName: str
+    Description: str
+    Lenses: Sequence[str]
+    ClientRequestToken: str
+    Notes: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class CreateTemplateShareInputTypeDef(TypedDict):
+    TemplateArn: str
+    SharedWith: str
+    ClientRequestToken: str
+
+class WorkloadJiraConfigurationInputTypeDef(TypedDict):
+    IssueManagementStatus: NotRequired[WorkloadIssueManagementStatusType]
+    IssueManagementType: NotRequired[IssueManagementTypeType]
+    JiraProjectKey: NotRequired[str]
+
+class CreateWorkloadShareInputTypeDef(TypedDict):
+    WorkloadId: str
+    SharedWith: str
+    PermissionType: PermissionTypeType
+    ClientRequestToken: str
+
+class DeleteLensInputTypeDef(TypedDict):
+    LensAlias: str
+    ClientRequestToken: str
+    LensStatus: LensStatusTypeType
+
+class DeleteLensShareInputTypeDef(TypedDict):
+    ShareId: str
+    LensAlias: str
+    ClientRequestToken: str
+
+class DeleteProfileInputTypeDef(TypedDict):
+    ProfileArn: str
+    ClientRequestToken: str
+
+class DeleteProfileShareInputTypeDef(TypedDict):
+    ShareId: str
+    ProfileArn: str
+    ClientRequestToken: str
+
+class DeleteReviewTemplateInputTypeDef(TypedDict):
+    TemplateArn: str
+    ClientRequestToken: str
+
+class DeleteTemplateShareInputTypeDef(TypedDict):
+    ShareId: str
+    TemplateArn: str
+    ClientRequestToken: str
+
+class DeleteWorkloadInputTypeDef(TypedDict):
+    WorkloadId: str
+    ClientRequestToken: str
+
+class DeleteWorkloadShareInputTypeDef(TypedDict):
+    ShareId: str
+    WorkloadId: str
+    ClientRequestToken: str
+
+class DisassociateLensesInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAliases: Sequence[str]
+
+class DisassociateProfilesInputTypeDef(TypedDict):
+    WorkloadId: str
+    ProfileArns: Sequence[str]
+
+class ExportLensInputTypeDef(TypedDict):
+    LensAlias: str
+    LensVersion: NotRequired[str]
+
+class GetAnswerInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAlias: str
+    QuestionId: str
+    MilestoneNumber: NotRequired[int]
+
+class GetConsolidatedReportInputTypeDef(TypedDict):
+    Format: ReportFormatType
+    IncludeSharedResources: NotRequired[bool]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class GetLensInputTypeDef(TypedDict):
+    LensAlias: str
+    LensVersion: NotRequired[str]
+
+class LensTypeDef(TypedDict):
+    LensArn: NotRequired[str]
+    LensVersion: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Owner: NotRequired[str]
+    ShareInvitationId: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
+
+class GetLensReviewInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAlias: str
+    MilestoneNumber: NotRequired[int]
+
+class GetLensReviewReportInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAlias: str
+    MilestoneNumber: NotRequired[int]
+
+class LensReviewReportTypeDef(TypedDict):
+    LensAlias: NotRequired[str]
+    LensArn: NotRequired[str]
+    Base64String: NotRequired[str]
+
+class GetLensVersionDifferenceInputTypeDef(TypedDict):
+    LensAlias: str
+    BaseLensVersion: NotRequired[str]
+    TargetLensVersion: NotRequired[str]
+
+class GetMilestoneInputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneNumber: int
+
+class GetProfileInputTypeDef(TypedDict):
+    ProfileArn: str
+    ProfileVersion: NotRequired[str]
+
+class GetReviewTemplateAnswerInputTypeDef(TypedDict):
+    TemplateArn: str
+    LensAlias: str
+    QuestionId: str
+
+class GetReviewTemplateInputTypeDef(TypedDict):
+    TemplateArn: str
+
+class GetReviewTemplateLensReviewInputTypeDef(TypedDict):
+    TemplateArn: str
+    LensAlias: str
+
+class ReviewTemplateTypeDef(TypedDict):
+    Description: NotRequired[str]
+    Lenses: NotRequired[List[str]]
+    Notes: NotRequired[str]
+    QuestionCounts: NotRequired[Dict[QuestionType, int]]
+    Owner: NotRequired[str]
+    UpdatedAt: NotRequired[datetime]
+    TemplateArn: NotRequired[str]
+    TemplateName: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
+    UpdateStatus: NotRequired[ReviewTemplateUpdateStatusType]
+    ShareInvitationId: NotRequired[str]
+
+class GetWorkloadInputTypeDef(TypedDict):
+    WorkloadId: str
+
+class ImportLensInputTypeDef(TypedDict):
+    JSONString: str
+    ClientRequestToken: str
+    LensAlias: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class SelectedPillarOutputTypeDef(TypedDict):
+    PillarId: NotRequired[str]
+    SelectedQuestionIds: NotRequired[List[str]]
+
+class SelectedPillarTypeDef(TypedDict):
+    PillarId: NotRequired[str]
+    SelectedQuestionIds: NotRequired[Sequence[str]]
+
+class WorkloadProfileTypeDef(TypedDict):
+    ProfileArn: NotRequired[str]
+    ProfileVersion: NotRequired[str]
+
+class PillarReviewSummaryTypeDef(TypedDict):
+    PillarId: NotRequired[str]
+    PillarName: NotRequired[str]
+    Notes: NotRequired[str]
+    RiskCounts: NotRequired[Dict[RiskType, int]]
+    PrioritizedRiskCounts: NotRequired[Dict[RiskType, int]]
+
+class LensShareSummaryTypeDef(TypedDict):
+    ShareId: NotRequired[str]
+    SharedWith: NotRequired[str]
+    Status: NotRequired[ShareStatusType]
+    StatusMessage: NotRequired[str]
+
+class LensSummaryTypeDef(TypedDict):
+    LensArn: NotRequired[str]
+    LensAlias: NotRequired[str]
+    LensName: NotRequired[str]
+    LensType: NotRequired[LensTypeType]
+    Description: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    LensVersion: NotRequired[str]
+    Owner: NotRequired[str]
+    LensStatus: NotRequired[LensStatusType]
+
+class LensUpgradeSummaryTypeDef(TypedDict):
+    WorkloadId: NotRequired[str]
+    WorkloadName: NotRequired[str]
+    LensAlias: NotRequired[str]
+    LensArn: NotRequired[str]
+    CurrentLensVersion: NotRequired[str]
+    LatestLensVersion: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    ResourceName: NotRequired[str]
+
+class ListAnswersInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAlias: str
+    PillarId: NotRequired[str]
+    MilestoneNumber: NotRequired[int]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    QuestionPriority: NotRequired[QuestionPriorityType]
+
+class ListCheckDetailsInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensArn: str
+    PillarId: str
+    QuestionId: str
+    ChoiceId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListCheckSummariesInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensArn: str
+    PillarId: str
+    QuestionId: str
+    ChoiceId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListLensReviewImprovementsInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAlias: str
+    PillarId: NotRequired[str]
+    MilestoneNumber: NotRequired[int]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    QuestionPriority: NotRequired[QuestionPriorityType]
+
+class ListLensReviewsInputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneNumber: NotRequired[int]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListLensSharesInputTypeDef(TypedDict):
+    LensAlias: str
+    SharedWithPrefix: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Status: NotRequired[ShareStatusType]
+
+class ListLensesInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    LensType: NotRequired[LensTypeType]
+    LensStatus: NotRequired[LensStatusTypeType]
+    LensName: NotRequired[str]
+
+class ListMilestonesInputTypeDef(TypedDict):
+    WorkloadId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListNotificationsInputTypeDef(TypedDict):
+    WorkloadId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ResourceArn: NotRequired[str]
+
+class ListProfileNotificationsInputTypeDef(TypedDict):
+    WorkloadId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
 ProfileNotificationSummaryTypeDef = TypedDict(
     "ProfileNotificationSummaryTypeDef",
     {
-        "CurrentProfileVersion": str,
-        "LatestProfileVersion": str,
-        "Type": ProfileNotificationTypeType,
-        "ProfileArn": str,
-        "ProfileName": str,
-        "WorkloadId": str,
-        "WorkloadName": str,
+        "CurrentProfileVersion": NotRequired[str],
+        "LatestProfileVersion": NotRequired[str],
+        "Type": NotRequired[ProfileNotificationTypeType],
+        "ProfileArn": NotRequired[str],
+        "ProfileName": NotRequired[str],
+        "WorkloadId": NotRequired[str],
+        "WorkloadName": NotRequired[str],
     },
-    total=False,
 )
 
-ProfileQuestionTypeDef = TypedDict(
-    "ProfileQuestionTypeDef",
+class ListProfileSharesInputTypeDef(TypedDict):
+    ProfileArn: str
+    SharedWithPrefix: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Status: NotRequired[ShareStatusType]
+
+class ProfileShareSummaryTypeDef(TypedDict):
+    ShareId: NotRequired[str]
+    SharedWith: NotRequired[str]
+    Status: NotRequired[ShareStatusType]
+    StatusMessage: NotRequired[str]
+
+class ListProfilesInputTypeDef(TypedDict):
+    ProfileNamePrefix: NotRequired[str]
+    ProfileOwnerType: NotRequired[ProfileOwnerTypeType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ProfileSummaryTypeDef(TypedDict):
+    ProfileArn: NotRequired[str]
+    ProfileVersion: NotRequired[str]
+    ProfileName: NotRequired[str]
+    ProfileDescription: NotRequired[str]
+    Owner: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+
+class ListReviewTemplateAnswersInputTypeDef(TypedDict):
+    TemplateArn: str
+    LensAlias: str
+    PillarId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListReviewTemplatesInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ReviewTemplateSummaryTypeDef(TypedDict):
+    Description: NotRequired[str]
+    Lenses: NotRequired[List[str]]
+    Owner: NotRequired[str]
+    UpdatedAt: NotRequired[datetime]
+    TemplateArn: NotRequired[str]
+    TemplateName: NotRequired[str]
+    UpdateStatus: NotRequired[ReviewTemplateUpdateStatusType]
+
+class ListShareInvitationsInputTypeDef(TypedDict):
+    WorkloadNamePrefix: NotRequired[str]
+    LensNamePrefix: NotRequired[str]
+    ShareResourceType: NotRequired[ShareResourceTypeType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ProfileNamePrefix: NotRequired[str]
+    TemplateNamePrefix: NotRequired[str]
+
+class ShareInvitationSummaryTypeDef(TypedDict):
+    ShareInvitationId: NotRequired[str]
+    SharedBy: NotRequired[str]
+    SharedWith: NotRequired[str]
+    PermissionType: NotRequired[PermissionTypeType]
+    ShareResourceType: NotRequired[ShareResourceTypeType]
+    WorkloadName: NotRequired[str]
+    WorkloadId: NotRequired[str]
+    LensName: NotRequired[str]
+    LensArn: NotRequired[str]
+    ProfileName: NotRequired[str]
+    ProfileArn: NotRequired[str]
+    TemplateName: NotRequired[str]
+    TemplateArn: NotRequired[str]
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    WorkloadArn: str
+
+class ListTemplateSharesInputTypeDef(TypedDict):
+    TemplateArn: str
+    SharedWithPrefix: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Status: NotRequired[ShareStatusType]
+
+class TemplateShareSummaryTypeDef(TypedDict):
+    ShareId: NotRequired[str]
+    SharedWith: NotRequired[str]
+    Status: NotRequired[ShareStatusType]
+    StatusMessage: NotRequired[str]
+
+class ListWorkloadSharesInputTypeDef(TypedDict):
+    WorkloadId: str
+    SharedWithPrefix: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Status: NotRequired[ShareStatusType]
+
+class WorkloadShareSummaryTypeDef(TypedDict):
+    ShareId: NotRequired[str]
+    SharedWith: NotRequired[str]
+    PermissionType: NotRequired[PermissionTypeType]
+    Status: NotRequired[ShareStatusType]
+    StatusMessage: NotRequired[str]
+
+class ListWorkloadsInputTypeDef(TypedDict):
+    WorkloadNamePrefix: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class QuestionDifferenceTypeDef(TypedDict):
+    QuestionId: NotRequired[str]
+    QuestionTitle: NotRequired[str]
+    DifferenceStatus: NotRequired[DifferenceStatusType]
+
+class ProfileChoiceTypeDef(TypedDict):
+    ChoiceId: NotRequired[str]
+    ChoiceTitle: NotRequired[str]
+    ChoiceDescription: NotRequired[str]
+
+class ProfileTemplateChoiceTypeDef(TypedDict):
+    ChoiceId: NotRequired[str]
+    ChoiceTitle: NotRequired[str]
+    ChoiceDescription: NotRequired[str]
+
+class ReviewTemplatePillarReviewSummaryTypeDef(TypedDict):
+    PillarId: NotRequired[str]
+    PillarName: NotRequired[str]
+    Notes: NotRequired[str]
+    QuestionCounts: NotRequired[Dict[QuestionType, int]]
+
+class ShareInvitationTypeDef(TypedDict):
+    ShareInvitationId: NotRequired[str]
+    ShareResourceType: NotRequired[ShareResourceTypeType]
+    WorkloadId: NotRequired[str]
+    LensAlias: NotRequired[str]
+    LensArn: NotRequired[str]
+    ProfileArn: NotRequired[str]
+    TemplateArn: NotRequired[str]
+
+class TagResourceInputTypeDef(TypedDict):
+    WorkloadArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    WorkloadArn: str
+    TagKeys: Sequence[str]
+
+class UpdateIntegrationInputTypeDef(TypedDict):
+    WorkloadId: str
+    ClientRequestToken: str
+    IntegratingService: Literal["JIRA"]
+
+class UpdateReviewTemplateInputTypeDef(TypedDict):
+    TemplateArn: str
+    TemplateName: NotRequired[str]
+    Description: NotRequired[str]
+    Notes: NotRequired[str]
+    LensesToAssociate: NotRequired[Sequence[str]]
+    LensesToDisassociate: NotRequired[Sequence[str]]
+
+class UpdateReviewTemplateLensReviewInputTypeDef(TypedDict):
+    TemplateArn: str
+    LensAlias: str
+    LensNotes: NotRequired[str]
+    PillarNotes: NotRequired[Mapping[str, str]]
+
+class UpdateShareInvitationInputTypeDef(TypedDict):
+    ShareInvitationId: str
+    ShareInvitationAction: ShareInvitationActionType
+
+class UpdateWorkloadShareInputTypeDef(TypedDict):
+    ShareId: str
+    WorkloadId: str
+    PermissionType: PermissionTypeType
+
+class WorkloadShareTypeDef(TypedDict):
+    ShareId: NotRequired[str]
+    SharedBy: NotRequired[str]
+    SharedWith: NotRequired[str]
+    PermissionType: NotRequired[PermissionTypeType]
+    Status: NotRequired[ShareStatusType]
+    WorkloadName: NotRequired[str]
+    WorkloadId: NotRequired[str]
+
+class UpgradeLensReviewInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAlias: str
+    MilestoneName: str
+    ClientRequestToken: NotRequired[str]
+
+class UpgradeProfileVersionInputTypeDef(TypedDict):
+    WorkloadId: str
+    ProfileArn: str
+    MilestoneName: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+
+class UpgradeReviewTemplateLensReviewInputTypeDef(TypedDict):
+    TemplateArn: str
+    LensAlias: str
+    ClientRequestToken: NotRequired[str]
+
+class WorkloadDiscoveryConfigOutputTypeDef(TypedDict):
+    TrustedAdvisorIntegrationStatus: NotRequired[TrustedAdvisorIntegrationStatusType]
+    WorkloadResourceDefinition: NotRequired[List[DefinitionTypeType]]
+
+class WorkloadDiscoveryConfigTypeDef(TypedDict):
+    TrustedAdvisorIntegrationStatus: NotRequired[TrustedAdvisorIntegrationStatusType]
+    WorkloadResourceDefinition: NotRequired[Sequence[DefinitionTypeType]]
+
+class WorkloadJiraConfigurationOutputTypeDef(TypedDict):
+    IssueManagementStatus: NotRequired[WorkloadIssueManagementStatusType]
+    IssueManagementType: NotRequired[IssueManagementTypeType]
+    JiraProjectKey: NotRequired[str]
+    StatusMessage: NotRequired[str]
+
+class UpdateGlobalSettingsInputTypeDef(TypedDict):
+    OrganizationSharingStatus: NotRequired[OrganizationSharingStatusType]
+    DiscoveryIntegrationStatus: NotRequired[DiscoveryIntegrationStatusType]
+    JiraConfiguration: NotRequired[AccountJiraConfigurationInputTypeDef]
+
+AdditionalResourcesTypeDef = TypedDict(
+    "AdditionalResourcesTypeDef",
     {
-        "QuestionId": str,
-        "QuestionTitle": str,
-        "QuestionDescription": str,
-        "QuestionChoices": List["ProfileChoiceTypeDef"],
-        "SelectedChoiceIds": List[str],
-        "MinSelectedChoices": int,
-        "MaxSelectedChoices": int,
+        "Type": NotRequired[AdditionalResourceTypeType],
+        "Content": NotRequired[List[ChoiceContentTypeDef]],
     },
-    total=False,
 )
 
-ProfileQuestionUpdateTypeDef = TypedDict(
-    "ProfileQuestionUpdateTypeDef",
+class QuestionMetricTypeDef(TypedDict):
+    QuestionId: NotRequired[str]
+    Risk: NotRequired[RiskType]
+    BestPractices: NotRequired[List[BestPracticeTypeDef]]
+
+class ImprovementSummaryTypeDef(TypedDict):
+    QuestionId: NotRequired[str]
+    PillarId: NotRequired[str]
+    QuestionTitle: NotRequired[str]
+    Risk: NotRequired[RiskType]
+    ImprovementPlanUrl: NotRequired[str]
+    ImprovementPlans: NotRequired[List[ChoiceImprovementPlanTypeDef]]
+    JiraConfiguration: NotRequired[JiraConfigurationTypeDef]
+
+class UpdateAnswerInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAlias: str
+    QuestionId: str
+    SelectedChoices: NotRequired[Sequence[str]]
+    ChoiceUpdates: NotRequired[Mapping[str, ChoiceUpdateTypeDef]]
+    Notes: NotRequired[str]
+    IsApplicable: NotRequired[bool]
+    Reason: NotRequired[AnswerReasonType]
+
+class UpdateReviewTemplateAnswerInputTypeDef(TypedDict):
+    TemplateArn: str
+    LensAlias: str
+    QuestionId: str
+    SelectedChoices: NotRequired[Sequence[str]]
+    ChoiceUpdates: NotRequired[Mapping[str, ChoiceUpdateTypeDef]]
+    Notes: NotRequired[str]
+    IsApplicable: NotRequired[bool]
+    Reason: NotRequired[AnswerReasonType]
+
+class CreateLensShareOutputTypeDef(TypedDict):
+    ShareId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLensVersionOutputTypeDef(TypedDict):
+    LensArn: str
+    LensVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMilestoneOutputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneNumber: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProfileOutputTypeDef(TypedDict):
+    ProfileArn: str
+    ProfileVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProfileShareOutputTypeDef(TypedDict):
+    ShareId: str
+    ProfileArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateReviewTemplateOutputTypeDef(TypedDict):
+    TemplateArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTemplateShareOutputTypeDef(TypedDict):
+    TemplateArn: str
+    ShareId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWorkloadOutputTypeDef(TypedDict):
+    WorkloadId: str
+    WorkloadArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWorkloadShareOutputTypeDef(TypedDict):
+    WorkloadId: str
+    ShareId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportLensOutputTypeDef(TypedDict):
+    LensJSON: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGlobalSettingsOutputTypeDef(TypedDict):
+    OrganizationSharingStatus: OrganizationSharingStatusType
+    DiscoveryIntegrationStatus: DiscoveryIntegrationStatusType
+    JiraConfiguration: AccountJiraConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportLensOutputTypeDef(TypedDict):
+    LensArn: str
+    Status: ImportLensStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCheckDetailsOutputTypeDef(TypedDict):
+    CheckDetails: List[CheckDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCheckSummariesOutputTypeDef(TypedDict):
+    CheckSummaries: List[CheckSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProfileInputTypeDef(TypedDict):
+    ProfileName: str
+    ProfileDescription: str
+    ProfileQuestions: Sequence[ProfileQuestionUpdateTypeDef]
+    ClientRequestToken: str
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdateProfileInputTypeDef(TypedDict):
+    ProfileArn: str
+    ProfileDescription: NotRequired[str]
+    ProfileQuestions: NotRequired[Sequence[ProfileQuestionUpdateTypeDef]]
+
+class GetLensOutputTypeDef(TypedDict):
+    Lens: LensTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLensReviewReportOutputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneNumber: int
+    LensReviewReport: LensReviewReportTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetReviewTemplateOutputTypeDef(TypedDict):
+    ReviewTemplate: ReviewTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateReviewTemplateOutputTypeDef(TypedDict):
+    ReviewTemplate: ReviewTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class JiraSelectedQuestionConfigurationOutputTypeDef(TypedDict):
+    SelectedPillars: NotRequired[List[SelectedPillarOutputTypeDef]]
+
+class JiraSelectedQuestionConfigurationTypeDef(TypedDict):
+    SelectedPillars: NotRequired[Sequence[SelectedPillarTypeDef]]
+
+class LensReviewSummaryTypeDef(TypedDict):
+    LensAlias: NotRequired[str]
+    LensArn: NotRequired[str]
+    LensVersion: NotRequired[str]
+    LensName: NotRequired[str]
+    LensStatus: NotRequired[LensStatusType]
+    UpdatedAt: NotRequired[datetime]
+    RiskCounts: NotRequired[Dict[RiskType, int]]
+    Profiles: NotRequired[List[WorkloadProfileTypeDef]]
+    PrioritizedRiskCounts: NotRequired[Dict[RiskType, int]]
+
+class WorkloadSummaryTypeDef(TypedDict):
+    WorkloadId: NotRequired[str]
+    WorkloadArn: NotRequired[str]
+    WorkloadName: NotRequired[str]
+    Owner: NotRequired[str]
+    UpdatedAt: NotRequired[datetime]
+    Lenses: NotRequired[List[str]]
+    RiskCounts: NotRequired[Dict[RiskType, int]]
+    ImprovementStatus: NotRequired[WorkloadImprovementStatusType]
+    Profiles: NotRequired[List[WorkloadProfileTypeDef]]
+    PrioritizedRiskCounts: NotRequired[Dict[RiskType, int]]
+
+class ListLensSharesOutputTypeDef(TypedDict):
+    LensShareSummaries: List[LensShareSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListLensesOutputTypeDef(TypedDict):
+    LensSummaries: List[LensSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+NotificationSummaryTypeDef = TypedDict(
+    "NotificationSummaryTypeDef",
     {
-        "QuestionId": str,
-        "SelectedChoiceIds": List[str],
+        "Type": NotRequired[NotificationTypeType],
+        "LensUpgradeSummary": NotRequired[LensUpgradeSummaryTypeDef],
     },
-    total=False,
 )
 
-ProfileShareSummaryTypeDef = TypedDict(
-    "ProfileShareSummaryTypeDef",
+class ListProfileNotificationsOutputTypeDef(TypedDict):
+    NotificationSummaries: List[ProfileNotificationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListProfileSharesOutputTypeDef(TypedDict):
+    ProfileShareSummaries: List[ProfileShareSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListProfilesOutputTypeDef(TypedDict):
+    ProfileSummaries: List[ProfileSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListReviewTemplatesOutputTypeDef(TypedDict):
+    ReviewTemplates: List[ReviewTemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListShareInvitationsOutputTypeDef(TypedDict):
+    ShareInvitationSummaries: List[ShareInvitationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTemplateSharesOutputTypeDef(TypedDict):
+    TemplateArn: str
+    TemplateShareSummaries: List[TemplateShareSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListWorkloadSharesOutputTypeDef(TypedDict):
+    WorkloadId: str
+    WorkloadShareSummaries: List[WorkloadShareSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PillarDifferenceTypeDef(TypedDict):
+    PillarId: NotRequired[str]
+    PillarName: NotRequired[str]
+    DifferenceStatus: NotRequired[DifferenceStatusType]
+    QuestionDifferences: NotRequired[List[QuestionDifferenceTypeDef]]
+
+class ProfileQuestionTypeDef(TypedDict):
+    QuestionId: NotRequired[str]
+    QuestionTitle: NotRequired[str]
+    QuestionDescription: NotRequired[str]
+    QuestionChoices: NotRequired[List[ProfileChoiceTypeDef]]
+    SelectedChoiceIds: NotRequired[List[str]]
+    MinSelectedChoices: NotRequired[int]
+    MaxSelectedChoices: NotRequired[int]
+
+class ProfileTemplateQuestionTypeDef(TypedDict):
+    QuestionId: NotRequired[str]
+    QuestionTitle: NotRequired[str]
+    QuestionDescription: NotRequired[str]
+    QuestionChoices: NotRequired[List[ProfileTemplateChoiceTypeDef]]
+    MinSelectedChoices: NotRequired[int]
+    MaxSelectedChoices: NotRequired[int]
+
+class ReviewTemplateLensReviewTypeDef(TypedDict):
+    LensAlias: NotRequired[str]
+    LensArn: NotRequired[str]
+    LensVersion: NotRequired[str]
+    LensName: NotRequired[str]
+    LensStatus: NotRequired[LensStatusType]
+    PillarReviewSummaries: NotRequired[List[ReviewTemplatePillarReviewSummaryTypeDef]]
+    UpdatedAt: NotRequired[datetime]
+    Notes: NotRequired[str]
+    QuestionCounts: NotRequired[Dict[QuestionType, int]]
+    NextToken: NotRequired[str]
+
+class UpdateShareInvitationOutputTypeDef(TypedDict):
+    ShareInvitation: ShareInvitationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateWorkloadShareOutputTypeDef(TypedDict):
+    WorkloadId: str
+    WorkloadShare: WorkloadShareTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+WorkloadDiscoveryConfigUnionTypeDef = Union[
+    WorkloadDiscoveryConfigTypeDef, WorkloadDiscoveryConfigOutputTypeDef
+]
+
+class WorkloadTypeDef(TypedDict):
+    WorkloadId: NotRequired[str]
+    WorkloadArn: NotRequired[str]
+    WorkloadName: NotRequired[str]
+    Description: NotRequired[str]
+    Environment: NotRequired[WorkloadEnvironmentType]
+    UpdatedAt: NotRequired[datetime]
+    AccountIds: NotRequired[List[str]]
+    AwsRegions: NotRequired[List[str]]
+    NonAwsRegions: NotRequired[List[str]]
+    ArchitecturalDesign: NotRequired[str]
+    ReviewOwner: NotRequired[str]
+    ReviewRestrictionDate: NotRequired[datetime]
+    IsReviewOwnerUpdateAcknowledged: NotRequired[bool]
+    IndustryType: NotRequired[str]
+    Industry: NotRequired[str]
+    Notes: NotRequired[str]
+    ImprovementStatus: NotRequired[WorkloadImprovementStatusType]
+    RiskCounts: NotRequired[Dict[RiskType, int]]
+    PillarPriorities: NotRequired[List[str]]
+    Lenses: NotRequired[List[str]]
+    Owner: NotRequired[str]
+    ShareInvitationId: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
+    DiscoveryConfig: NotRequired[WorkloadDiscoveryConfigOutputTypeDef]
+    Applications: NotRequired[List[str]]
+    Profiles: NotRequired[List[WorkloadProfileTypeDef]]
+    PrioritizedRiskCounts: NotRequired[Dict[RiskType, int]]
+    JiraConfiguration: NotRequired[WorkloadJiraConfigurationOutputTypeDef]
+
+class ChoiceTypeDef(TypedDict):
+    ChoiceId: NotRequired[str]
+    Title: NotRequired[str]
+    Description: NotRequired[str]
+    HelpfulResource: NotRequired[ChoiceContentTypeDef]
+    ImprovementPlan: NotRequired[ChoiceContentTypeDef]
+    AdditionalResources: NotRequired[List[AdditionalResourcesTypeDef]]
+
+class PillarMetricTypeDef(TypedDict):
+    PillarId: NotRequired[str]
+    RiskCounts: NotRequired[Dict[RiskType, int]]
+    Questions: NotRequired[List[QuestionMetricTypeDef]]
+
+class ListLensReviewImprovementsOutputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneNumber: int
+    LensAlias: str
+    LensArn: str
+    ImprovementSummaries: List[ImprovementSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class LensReviewTypeDef(TypedDict):
+    LensAlias: NotRequired[str]
+    LensArn: NotRequired[str]
+    LensVersion: NotRequired[str]
+    LensName: NotRequired[str]
+    LensStatus: NotRequired[LensStatusType]
+    PillarReviewSummaries: NotRequired[List[PillarReviewSummaryTypeDef]]
+    JiraConfiguration: NotRequired[JiraSelectedQuestionConfigurationOutputTypeDef]
+    UpdatedAt: NotRequired[datetime]
+    Notes: NotRequired[str]
+    RiskCounts: NotRequired[Dict[RiskType, int]]
+    NextToken: NotRequired[str]
+    Profiles: NotRequired[List[WorkloadProfileTypeDef]]
+    PrioritizedRiskCounts: NotRequired[Dict[RiskType, int]]
+
+JiraSelectedQuestionConfigurationUnionTypeDef = Union[
+    JiraSelectedQuestionConfigurationTypeDef, JiraSelectedQuestionConfigurationOutputTypeDef
+]
+
+class ListLensReviewsOutputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneNumber: int
+    LensReviewSummaries: List[LensReviewSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListWorkloadsOutputTypeDef(TypedDict):
+    WorkloadSummaries: List[WorkloadSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class MilestoneSummaryTypeDef(TypedDict):
+    MilestoneNumber: NotRequired[int]
+    MilestoneName: NotRequired[str]
+    RecordedAt: NotRequired[datetime]
+    WorkloadSummary: NotRequired[WorkloadSummaryTypeDef]
+
+class ListNotificationsOutputTypeDef(TypedDict):
+    NotificationSummaries: List[NotificationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class VersionDifferencesTypeDef(TypedDict):
+    PillarDifferences: NotRequired[List[PillarDifferenceTypeDef]]
+
+class ProfileTypeDef(TypedDict):
+    ProfileArn: NotRequired[str]
+    ProfileVersion: NotRequired[str]
+    ProfileName: NotRequired[str]
+    ProfileDescription: NotRequired[str]
+    ProfileQuestions: NotRequired[List[ProfileQuestionTypeDef]]
+    Owner: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    ShareInvitationId: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
+
+class ProfileTemplateTypeDef(TypedDict):
+    TemplateName: NotRequired[str]
+    TemplateQuestions: NotRequired[List[ProfileTemplateQuestionTypeDef]]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+
+class GetReviewTemplateLensReviewOutputTypeDef(TypedDict):
+    TemplateArn: str
+    LensReview: ReviewTemplateLensReviewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateReviewTemplateLensReviewOutputTypeDef(TypedDict):
+    TemplateArn: str
+    LensReview: ReviewTemplateLensReviewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWorkloadInputTypeDef(TypedDict):
+    WorkloadName: str
+    Description: str
+    Environment: WorkloadEnvironmentType
+    Lenses: Sequence[str]
+    ClientRequestToken: str
+    AccountIds: NotRequired[Sequence[str]]
+    AwsRegions: NotRequired[Sequence[str]]
+    NonAwsRegions: NotRequired[Sequence[str]]
+    PillarPriorities: NotRequired[Sequence[str]]
+    ArchitecturalDesign: NotRequired[str]
+    ReviewOwner: NotRequired[str]
+    IndustryType: NotRequired[str]
+    Industry: NotRequired[str]
+    Notes: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    DiscoveryConfig: NotRequired[WorkloadDiscoveryConfigUnionTypeDef]
+    Applications: NotRequired[Sequence[str]]
+    ProfileArns: NotRequired[Sequence[str]]
+    ReviewTemplateArns: NotRequired[Sequence[str]]
+    JiraConfiguration: NotRequired[WorkloadJiraConfigurationInputTypeDef]
+
+class UpdateWorkloadInputTypeDef(TypedDict):
+    WorkloadId: str
+    WorkloadName: NotRequired[str]
+    Description: NotRequired[str]
+    Environment: NotRequired[WorkloadEnvironmentType]
+    AccountIds: NotRequired[Sequence[str]]
+    AwsRegions: NotRequired[Sequence[str]]
+    NonAwsRegions: NotRequired[Sequence[str]]
+    PillarPriorities: NotRequired[Sequence[str]]
+    ArchitecturalDesign: NotRequired[str]
+    ReviewOwner: NotRequired[str]
+    IsReviewOwnerUpdateAcknowledged: NotRequired[bool]
+    IndustryType: NotRequired[str]
+    Industry: NotRequired[str]
+    Notes: NotRequired[str]
+    ImprovementStatus: NotRequired[WorkloadImprovementStatusType]
+    DiscoveryConfig: NotRequired[WorkloadDiscoveryConfigUnionTypeDef]
+    Applications: NotRequired[Sequence[str]]
+    JiraConfiguration: NotRequired[WorkloadJiraConfigurationInputTypeDef]
+
+class GetWorkloadOutputTypeDef(TypedDict):
+    Workload: WorkloadTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MilestoneTypeDef(TypedDict):
+    MilestoneNumber: NotRequired[int]
+    MilestoneName: NotRequired[str]
+    RecordedAt: NotRequired[datetime]
+    Workload: NotRequired[WorkloadTypeDef]
+
+class UpdateWorkloadOutputTypeDef(TypedDict):
+    Workload: WorkloadTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+AnswerSummaryTypeDef = TypedDict(
+    "AnswerSummaryTypeDef",
     {
-        "ShareId": str,
-        "SharedWith": str,
-        "Status": ShareStatusType,
-        "StatusMessage": str,
+        "QuestionId": NotRequired[str],
+        "PillarId": NotRequired[str],
+        "QuestionTitle": NotRequired[str],
+        "Choices": NotRequired[List[ChoiceTypeDef]],
+        "SelectedChoices": NotRequired[List[str]],
+        "ChoiceAnswerSummaries": NotRequired[List[ChoiceAnswerSummaryTypeDef]],
+        "IsApplicable": NotRequired[bool],
+        "Risk": NotRequired[RiskType],
+        "Reason": NotRequired[AnswerReasonType],
+        "QuestionType": NotRequired[QuestionTypeType],
+        "JiraConfiguration": NotRequired[JiraConfigurationTypeDef],
     },
-    total=False,
 )
 
-ProfileSummaryTypeDef = TypedDict(
-    "ProfileSummaryTypeDef",
-    {
-        "ProfileArn": str,
-        "ProfileVersion": str,
-        "ProfileName": str,
-        "ProfileDescription": str,
-        "Owner": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-ProfileTemplateChoiceTypeDef = TypedDict(
-    "ProfileTemplateChoiceTypeDef",
-    {
-        "ChoiceId": str,
-        "ChoiceTitle": str,
-        "ChoiceDescription": str,
-    },
-    total=False,
-)
-
-ProfileTemplateQuestionTypeDef = TypedDict(
-    "ProfileTemplateQuestionTypeDef",
-    {
-        "QuestionId": str,
-        "QuestionTitle": str,
-        "QuestionDescription": str,
-        "QuestionChoices": List["ProfileTemplateChoiceTypeDef"],
-        "MinSelectedChoices": int,
-        "MaxSelectedChoices": int,
-    },
-    total=False,
-)
-
-ProfileTemplateTypeDef = TypedDict(
-    "ProfileTemplateTypeDef",
-    {
-        "TemplateName": str,
-        "TemplateQuestions": List["ProfileTemplateQuestionTypeDef"],
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-ProfileTypeDef = TypedDict(
-    "ProfileTypeDef",
-    {
-        "ProfileArn": str,
-        "ProfileVersion": str,
-        "ProfileName": str,
-        "ProfileDescription": str,
-        "ProfileQuestions": List["ProfileQuestionTypeDef"],
-        "Owner": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "ShareInvitationId": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-QuestionDifferenceTypeDef = TypedDict(
-    "QuestionDifferenceTypeDef",
-    {
-        "QuestionId": str,
-        "QuestionTitle": str,
-        "DifferenceStatus": DifferenceStatusType,
-    },
-    total=False,
-)
-
-QuestionMetricTypeDef = TypedDict(
-    "QuestionMetricTypeDef",
-    {
-        "QuestionId": str,
-        "Risk": RiskType,
-        "BestPractices": List["BestPracticeTypeDef"],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class AnswerTypeDef(TypedDict):
+    QuestionId: NotRequired[str]
+    PillarId: NotRequired[str]
+    QuestionTitle: NotRequired[str]
+    QuestionDescription: NotRequired[str]
+    ImprovementPlanUrl: NotRequired[str]
+    HelpfulResourceUrl: NotRequired[str]
+    HelpfulResourceDisplayText: NotRequired[str]
+    Choices: NotRequired[List[ChoiceTypeDef]]
+    SelectedChoices: NotRequired[List[str]]
+    ChoiceAnswers: NotRequired[List[ChoiceAnswerTypeDef]]
+    IsApplicable: NotRequired[bool]
+    Risk: NotRequired[RiskType]
+    Notes: NotRequired[str]
+    Reason: NotRequired[AnswerReasonType]
+    JiraConfiguration: NotRequired[JiraConfigurationTypeDef]
 
 ReviewTemplateAnswerSummaryTypeDef = TypedDict(
     "ReviewTemplateAnswerSummaryTypeDef",
     {
-        "QuestionId": str,
-        "PillarId": str,
-        "QuestionTitle": str,
-        "Choices": List["ChoiceTypeDef"],
-        "SelectedChoices": List[str],
-        "ChoiceAnswerSummaries": List["ChoiceAnswerSummaryTypeDef"],
-        "IsApplicable": bool,
-        "AnswerStatus": ReviewTemplateAnswerStatusType,
-        "Reason": AnswerReasonType,
-        "QuestionType": QuestionTypeType,
-    },
-    total=False,
-)
-
-ReviewTemplateAnswerTypeDef = TypedDict(
-    "ReviewTemplateAnswerTypeDef",
-    {
-        "QuestionId": str,
-        "PillarId": str,
-        "QuestionTitle": str,
-        "QuestionDescription": str,
-        "ImprovementPlanUrl": str,
-        "HelpfulResourceUrl": str,
-        "HelpfulResourceDisplayText": str,
-        "Choices": List["ChoiceTypeDef"],
-        "SelectedChoices": List[str],
-        "ChoiceAnswers": List["ChoiceAnswerTypeDef"],
-        "IsApplicable": bool,
-        "AnswerStatus": ReviewTemplateAnswerStatusType,
-        "Notes": str,
-        "Reason": AnswerReasonType,
-    },
-    total=False,
-)
-
-ReviewTemplateLensReviewTypeDef = TypedDict(
-    "ReviewTemplateLensReviewTypeDef",
-    {
-        "LensAlias": str,
-        "LensArn": str,
-        "LensVersion": str,
-        "LensName": str,
-        "LensStatus": LensStatusType,
-        "PillarReviewSummaries": List["ReviewTemplatePillarReviewSummaryTypeDef"],
-        "UpdatedAt": datetime,
-        "Notes": str,
-        "QuestionCounts": Dict[QuestionType, int],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ReviewTemplatePillarReviewSummaryTypeDef = TypedDict(
-    "ReviewTemplatePillarReviewSummaryTypeDef",
-    {
-        "PillarId": str,
-        "PillarName": str,
-        "Notes": str,
-        "QuestionCounts": Dict[QuestionType, int],
-    },
-    total=False,
-)
-
-ReviewTemplateSummaryTypeDef = TypedDict(
-    "ReviewTemplateSummaryTypeDef",
-    {
-        "Description": str,
-        "Lenses": List[str],
-        "Owner": str,
-        "UpdatedAt": datetime,
-        "TemplateArn": str,
-        "TemplateName": str,
-        "UpdateStatus": ReviewTemplateUpdateStatusType,
-    },
-    total=False,
-)
-
-ReviewTemplateTypeDef = TypedDict(
-    "ReviewTemplateTypeDef",
-    {
-        "Description": str,
-        "Lenses": List[str],
-        "Notes": str,
-        "QuestionCounts": Dict[QuestionType, int],
-        "Owner": str,
-        "UpdatedAt": datetime,
-        "TemplateArn": str,
-        "TemplateName": str,
-        "Tags": Dict[str, str],
-        "UpdateStatus": ReviewTemplateUpdateStatusType,
-        "ShareInvitationId": str,
-    },
-    total=False,
-)
-
-SelectedPillarTypeDef = TypedDict(
-    "SelectedPillarTypeDef",
-    {
-        "PillarId": str,
-        "SelectedQuestionIds": List[str],
-    },
-    total=False,
-)
-
-ShareInvitationSummaryTypeDef = TypedDict(
-    "ShareInvitationSummaryTypeDef",
-    {
-        "ShareInvitationId": str,
-        "SharedBy": str,
-        "SharedWith": str,
-        "PermissionType": PermissionTypeType,
-        "ShareResourceType": ShareResourceTypeType,
-        "WorkloadName": str,
-        "WorkloadId": str,
-        "LensName": str,
-        "LensArn": str,
-        "ProfileName": str,
-        "ProfileArn": str,
-        "TemplateName": str,
-        "TemplateArn": str,
-    },
-    total=False,
-)
-
-ShareInvitationTypeDef = TypedDict(
-    "ShareInvitationTypeDef",
-    {
-        "ShareInvitationId": str,
-        "ShareResourceType": ShareResourceTypeType,
-        "WorkloadId": str,
-        "LensAlias": str,
-        "LensArn": str,
-        "ProfileArn": str,
-        "TemplateArn": str,
-    },
-    total=False,
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "WorkloadArn": str,
-        "Tags": Dict[str, str],
+        "QuestionId": NotRequired[str],
+        "PillarId": NotRequired[str],
+        "QuestionTitle": NotRequired[str],
+        "Choices": NotRequired[List[ChoiceTypeDef]],
+        "SelectedChoices": NotRequired[List[str]],
+        "ChoiceAnswerSummaries": NotRequired[List[ChoiceAnswerSummaryTypeDef]],
+        "IsApplicable": NotRequired[bool],
+        "AnswerStatus": NotRequired[ReviewTemplateAnswerStatusType],
+        "Reason": NotRequired[AnswerReasonType],
+        "QuestionType": NotRequired[QuestionTypeType],
     },
 )
 
-TemplateShareSummaryTypeDef = TypedDict(
-    "TemplateShareSummaryTypeDef",
-    {
-        "ShareId": str,
-        "SharedWith": str,
-        "Status": ShareStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class ReviewTemplateAnswerTypeDef(TypedDict):
+    QuestionId: NotRequired[str]
+    PillarId: NotRequired[str]
+    QuestionTitle: NotRequired[str]
+    QuestionDescription: NotRequired[str]
+    ImprovementPlanUrl: NotRequired[str]
+    HelpfulResourceUrl: NotRequired[str]
+    HelpfulResourceDisplayText: NotRequired[str]
+    Choices: NotRequired[List[ChoiceTypeDef]]
+    SelectedChoices: NotRequired[List[str]]
+    ChoiceAnswers: NotRequired[List[ChoiceAnswerTypeDef]]
+    IsApplicable: NotRequired[bool]
+    AnswerStatus: NotRequired[ReviewTemplateAnswerStatusType]
+    Notes: NotRequired[str]
+    Reason: NotRequired[AnswerReasonType]
 
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "WorkloadArn": str,
-        "TagKeys": List[str],
-    },
-)
+class LensMetricTypeDef(TypedDict):
+    LensArn: NotRequired[str]
+    Pillars: NotRequired[List[PillarMetricTypeDef]]
+    RiskCounts: NotRequired[Dict[RiskType, int]]
 
-_RequiredUpdateAnswerInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateAnswerInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAlias": str,
-        "QuestionId": str,
-    },
-)
-_OptionalUpdateAnswerInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateAnswerInputRequestTypeDef",
-    {
-        "SelectedChoices": List[str],
-        "ChoiceUpdates": Dict[str, "ChoiceUpdateTypeDef"],
-        "Notes": str,
-        "IsApplicable": bool,
-        "Reason": AnswerReasonType,
-    },
-    total=False,
-)
+class GetLensReviewOutputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneNumber: int
+    LensReview: LensReviewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAnswerInputRequestTypeDef(
-    _RequiredUpdateAnswerInputRequestTypeDef, _OptionalUpdateAnswerInputRequestTypeDef
-):
-    pass
+class UpdateLensReviewOutputTypeDef(TypedDict):
+    WorkloadId: str
+    LensReview: LensReviewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateAnswerOutputTypeDef = TypedDict(
-    "UpdateAnswerOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAlias": str,
-        "LensArn": str,
-        "Answer": "AnswerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateLensReviewInputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAlias: str
+    LensNotes: NotRequired[str]
+    PillarNotes: NotRequired[Mapping[str, str]]
+    JiraConfiguration: NotRequired[JiraSelectedQuestionConfigurationUnionTypeDef]
 
-UpdateGlobalSettingsInputRequestTypeDef = TypedDict(
-    "UpdateGlobalSettingsInputRequestTypeDef",
-    {
-        "OrganizationSharingStatus": OrganizationSharingStatusType,
-        "DiscoveryIntegrationStatus": DiscoveryIntegrationStatusType,
-        "JiraConfiguration": "AccountJiraConfigurationInputTypeDef",
-    },
-    total=False,
-)
+class ListMilestonesOutputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneSummaries: List[MilestoneSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UpdateIntegrationInputRequestTypeDef = TypedDict(
-    "UpdateIntegrationInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "ClientRequestToken": str,
-        "IntegratingService": Literal["JIRA"],
-    },
-)
+class GetLensVersionDifferenceOutputTypeDef(TypedDict):
+    LensAlias: str
+    LensArn: str
+    BaseLensVersion: str
+    TargetLensVersion: str
+    LatestLensVersion: str
+    VersionDifferences: VersionDifferencesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateLensReviewInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateLensReviewInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAlias": str,
-    },
-)
-_OptionalUpdateLensReviewInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateLensReviewInputRequestTypeDef",
-    {
-        "LensNotes": str,
-        "PillarNotes": Dict[str, str],
-        "JiraConfiguration": "JiraSelectedQuestionConfigurationTypeDef",
-    },
-    total=False,
-)
+class GetProfileOutputTypeDef(TypedDict):
+    Profile: ProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLensReviewInputRequestTypeDef(
-    _RequiredUpdateLensReviewInputRequestTypeDef, _OptionalUpdateLensReviewInputRequestTypeDef
-):
-    pass
+class UpdateProfileOutputTypeDef(TypedDict):
+    Profile: ProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateLensReviewOutputTypeDef = TypedDict(
-    "UpdateLensReviewOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "LensReview": "LensReviewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetProfileTemplateOutputTypeDef(TypedDict):
+    ProfileTemplate: ProfileTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateProfileInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateProfileInputRequestTypeDef",
-    {
-        "ProfileArn": str,
-    },
-)
-_OptionalUpdateProfileInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateProfileInputRequestTypeDef",
-    {
-        "ProfileDescription": str,
-        "ProfileQuestions": List["ProfileQuestionUpdateTypeDef"],
-    },
-    total=False,
-)
+class GetMilestoneOutputTypeDef(TypedDict):
+    WorkloadId: str
+    Milestone: MilestoneTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateProfileInputRequestTypeDef(
-    _RequiredUpdateProfileInputRequestTypeDef, _OptionalUpdateProfileInputRequestTypeDef
-):
-    pass
+class ListAnswersOutputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneNumber: int
+    LensAlias: str
+    LensArn: str
+    AnswerSummaries: List[AnswerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UpdateProfileOutputTypeDef = TypedDict(
-    "UpdateProfileOutputTypeDef",
-    {
-        "Profile": "ProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetAnswerOutputTypeDef(TypedDict):
+    WorkloadId: str
+    MilestoneNumber: int
+    LensAlias: str
+    LensArn: str
+    Answer: AnswerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateReviewTemplateAnswerInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateReviewTemplateAnswerInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-        "LensAlias": str,
-        "QuestionId": str,
-    },
-)
-_OptionalUpdateReviewTemplateAnswerInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateReviewTemplateAnswerInputRequestTypeDef",
-    {
-        "SelectedChoices": List[str],
-        "ChoiceUpdates": Dict[str, "ChoiceUpdateTypeDef"],
-        "Notes": str,
-        "IsApplicable": bool,
-        "Reason": AnswerReasonType,
-    },
-    total=False,
-)
+class UpdateAnswerOutputTypeDef(TypedDict):
+    WorkloadId: str
+    LensAlias: str
+    LensArn: str
+    Answer: AnswerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateReviewTemplateAnswerInputRequestTypeDef(
-    _RequiredUpdateReviewTemplateAnswerInputRequestTypeDef,
-    _OptionalUpdateReviewTemplateAnswerInputRequestTypeDef,
-):
-    pass
+class ListReviewTemplateAnswersOutputTypeDef(TypedDict):
+    TemplateArn: str
+    LensAlias: str
+    AnswerSummaries: List[ReviewTemplateAnswerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UpdateReviewTemplateAnswerOutputTypeDef = TypedDict(
-    "UpdateReviewTemplateAnswerOutputTypeDef",
-    {
-        "TemplateArn": str,
-        "LensAlias": str,
-        "Answer": "ReviewTemplateAnswerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetReviewTemplateAnswerOutputTypeDef(TypedDict):
+    TemplateArn: str
+    LensAlias: str
+    Answer: ReviewTemplateAnswerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateReviewTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateReviewTemplateInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-    },
-)
-_OptionalUpdateReviewTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateReviewTemplateInputRequestTypeDef",
-    {
-        "TemplateName": str,
-        "Description": str,
-        "Notes": str,
-        "LensesToAssociate": List[str],
-        "LensesToDisassociate": List[str],
-    },
-    total=False,
-)
+class UpdateReviewTemplateAnswerOutputTypeDef(TypedDict):
+    TemplateArn: str
+    LensAlias: str
+    Answer: ReviewTemplateAnswerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateReviewTemplateInputRequestTypeDef(
-    _RequiredUpdateReviewTemplateInputRequestTypeDef,
-    _OptionalUpdateReviewTemplateInputRequestTypeDef,
-):
-    pass
+class ConsolidatedReportMetricTypeDef(TypedDict):
+    MetricType: NotRequired[Literal["WORKLOAD"]]
+    RiskCounts: NotRequired[Dict[RiskType, int]]
+    WorkloadId: NotRequired[str]
+    WorkloadName: NotRequired[str]
+    WorkloadArn: NotRequired[str]
+    UpdatedAt: NotRequired[datetime]
+    Lenses: NotRequired[List[LensMetricTypeDef]]
+    LensesAppliedCount: NotRequired[int]
 
-_RequiredUpdateReviewTemplateLensReviewInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateReviewTemplateLensReviewInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-        "LensAlias": str,
-    },
-)
-_OptionalUpdateReviewTemplateLensReviewInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateReviewTemplateLensReviewInputRequestTypeDef",
-    {
-        "LensNotes": str,
-        "PillarNotes": Dict[str, str],
-    },
-    total=False,
-)
-
-class UpdateReviewTemplateLensReviewInputRequestTypeDef(
-    _RequiredUpdateReviewTemplateLensReviewInputRequestTypeDef,
-    _OptionalUpdateReviewTemplateLensReviewInputRequestTypeDef,
-):
-    pass
-
-UpdateReviewTemplateLensReviewOutputTypeDef = TypedDict(
-    "UpdateReviewTemplateLensReviewOutputTypeDef",
-    {
-        "TemplateArn": str,
-        "LensReview": "ReviewTemplateLensReviewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateReviewTemplateOutputTypeDef = TypedDict(
-    "UpdateReviewTemplateOutputTypeDef",
-    {
-        "ReviewTemplate": "ReviewTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateShareInvitationInputRequestTypeDef = TypedDict(
-    "UpdateShareInvitationInputRequestTypeDef",
-    {
-        "ShareInvitationId": str,
-        "ShareInvitationAction": ShareInvitationActionType,
-    },
-)
-
-UpdateShareInvitationOutputTypeDef = TypedDict(
-    "UpdateShareInvitationOutputTypeDef",
-    {
-        "ShareInvitation": "ShareInvitationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateWorkloadInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkloadInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-    },
-)
-_OptionalUpdateWorkloadInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkloadInputRequestTypeDef",
-    {
-        "WorkloadName": str,
-        "Description": str,
-        "Environment": WorkloadEnvironmentType,
-        "AccountIds": List[str],
-        "AwsRegions": List[str],
-        "NonAwsRegions": List[str],
-        "PillarPriorities": List[str],
-        "ArchitecturalDesign": str,
-        "ReviewOwner": str,
-        "IsReviewOwnerUpdateAcknowledged": bool,
-        "IndustryType": str,
-        "Industry": str,
-        "Notes": str,
-        "ImprovementStatus": WorkloadImprovementStatusType,
-        "DiscoveryConfig": "WorkloadDiscoveryConfigTypeDef",
-        "Applications": List[str],
-        "JiraConfiguration": "WorkloadJiraConfigurationInputTypeDef",
-    },
-    total=False,
-)
-
-class UpdateWorkloadInputRequestTypeDef(
-    _RequiredUpdateWorkloadInputRequestTypeDef, _OptionalUpdateWorkloadInputRequestTypeDef
-):
-    pass
-
-UpdateWorkloadOutputTypeDef = TypedDict(
-    "UpdateWorkloadOutputTypeDef",
-    {
-        "Workload": "WorkloadTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateWorkloadShareInputRequestTypeDef = TypedDict(
-    "UpdateWorkloadShareInputRequestTypeDef",
-    {
-        "ShareId": str,
-        "WorkloadId": str,
-        "PermissionType": PermissionTypeType,
-    },
-)
-
-UpdateWorkloadShareOutputTypeDef = TypedDict(
-    "UpdateWorkloadShareOutputTypeDef",
-    {
-        "WorkloadId": str,
-        "WorkloadShare": "WorkloadShareTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpgradeLensReviewInputRequestTypeDef = TypedDict(
-    "_RequiredUpgradeLensReviewInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "LensAlias": str,
-        "MilestoneName": str,
-    },
-)
-_OptionalUpgradeLensReviewInputRequestTypeDef = TypedDict(
-    "_OptionalUpgradeLensReviewInputRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class UpgradeLensReviewInputRequestTypeDef(
-    _RequiredUpgradeLensReviewInputRequestTypeDef, _OptionalUpgradeLensReviewInputRequestTypeDef
-):
-    pass
-
-_RequiredUpgradeProfileVersionInputRequestTypeDef = TypedDict(
-    "_RequiredUpgradeProfileVersionInputRequestTypeDef",
-    {
-        "WorkloadId": str,
-        "ProfileArn": str,
-    },
-)
-_OptionalUpgradeProfileVersionInputRequestTypeDef = TypedDict(
-    "_OptionalUpgradeProfileVersionInputRequestTypeDef",
-    {
-        "MilestoneName": str,
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class UpgradeProfileVersionInputRequestTypeDef(
-    _RequiredUpgradeProfileVersionInputRequestTypeDef,
-    _OptionalUpgradeProfileVersionInputRequestTypeDef,
-):
-    pass
-
-_RequiredUpgradeReviewTemplateLensReviewInputRequestTypeDef = TypedDict(
-    "_RequiredUpgradeReviewTemplateLensReviewInputRequestTypeDef",
-    {
-        "TemplateArn": str,
-        "LensAlias": str,
-    },
-)
-_OptionalUpgradeReviewTemplateLensReviewInputRequestTypeDef = TypedDict(
-    "_OptionalUpgradeReviewTemplateLensReviewInputRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class UpgradeReviewTemplateLensReviewInputRequestTypeDef(
-    _RequiredUpgradeReviewTemplateLensReviewInputRequestTypeDef,
-    _OptionalUpgradeReviewTemplateLensReviewInputRequestTypeDef,
-):
-    pass
-
-VersionDifferencesTypeDef = TypedDict(
-    "VersionDifferencesTypeDef",
-    {
-        "PillarDifferences": List["PillarDifferenceTypeDef"],
-    },
-    total=False,
-)
-
-WorkloadDiscoveryConfigTypeDef = TypedDict(
-    "WorkloadDiscoveryConfigTypeDef",
-    {
-        "TrustedAdvisorIntegrationStatus": TrustedAdvisorIntegrationStatusType,
-        "WorkloadResourceDefinition": List[DefinitionTypeType],
-    },
-    total=False,
-)
-
-WorkloadJiraConfigurationInputTypeDef = TypedDict(
-    "WorkloadJiraConfigurationInputTypeDef",
-    {
-        "IssueManagementStatus": WorkloadIssueManagementStatusType,
-        "IssueManagementType": IssueManagementTypeType,
-        "JiraProjectKey": str,
-    },
-    total=False,
-)
-
-WorkloadJiraConfigurationOutputTypeDef = TypedDict(
-    "WorkloadJiraConfigurationOutputTypeDef",
-    {
-        "IssueManagementStatus": WorkloadIssueManagementStatusType,
-        "IssueManagementType": IssueManagementTypeType,
-        "JiraProjectKey": str,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-WorkloadProfileTypeDef = TypedDict(
-    "WorkloadProfileTypeDef",
-    {
-        "ProfileArn": str,
-        "ProfileVersion": str,
-    },
-    total=False,
-)
-
-WorkloadShareSummaryTypeDef = TypedDict(
-    "WorkloadShareSummaryTypeDef",
-    {
-        "ShareId": str,
-        "SharedWith": str,
-        "PermissionType": PermissionTypeType,
-        "Status": ShareStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-WorkloadShareTypeDef = TypedDict(
-    "WorkloadShareTypeDef",
-    {
-        "ShareId": str,
-        "SharedBy": str,
-        "SharedWith": str,
-        "PermissionType": PermissionTypeType,
-        "Status": ShareStatusType,
-        "WorkloadName": str,
-        "WorkloadId": str,
-    },
-    total=False,
-)
-
-WorkloadSummaryTypeDef = TypedDict(
-    "WorkloadSummaryTypeDef",
-    {
-        "WorkloadId": str,
-        "WorkloadArn": str,
-        "WorkloadName": str,
-        "Owner": str,
-        "UpdatedAt": datetime,
-        "Lenses": List[str],
-        "RiskCounts": Dict[RiskType, int],
-        "ImprovementStatus": WorkloadImprovementStatusType,
-        "Profiles": List["WorkloadProfileTypeDef"],
-        "PrioritizedRiskCounts": Dict[RiskType, int],
-    },
-    total=False,
-)
-
-WorkloadTypeDef = TypedDict(
-    "WorkloadTypeDef",
-    {
-        "WorkloadId": str,
-        "WorkloadArn": str,
-        "WorkloadName": str,
-        "Description": str,
-        "Environment": WorkloadEnvironmentType,
-        "UpdatedAt": datetime,
-        "AccountIds": List[str],
-        "AwsRegions": List[str],
-        "NonAwsRegions": List[str],
-        "ArchitecturalDesign": str,
-        "ReviewOwner": str,
-        "ReviewRestrictionDate": datetime,
-        "IsReviewOwnerUpdateAcknowledged": bool,
-        "IndustryType": str,
-        "Industry": str,
-        "Notes": str,
-        "ImprovementStatus": WorkloadImprovementStatusType,
-        "RiskCounts": Dict[RiskType, int],
-        "PillarPriorities": List[str],
-        "Lenses": List[str],
-        "Owner": str,
-        "ShareInvitationId": str,
-        "Tags": Dict[str, str],
-        "DiscoveryConfig": "WorkloadDiscoveryConfigTypeDef",
-        "Applications": List[str],
-        "Profiles": List["WorkloadProfileTypeDef"],
-        "PrioritizedRiskCounts": Dict[RiskType, int],
-        "JiraConfiguration": "WorkloadJiraConfigurationOutputTypeDef",
-    },
-    total=False,
-)
+class GetConsolidatedReportOutputTypeDef(TypedDict):
+    Metrics: List[ConsolidatedReportMetricTypeDef]
+    Base64String: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

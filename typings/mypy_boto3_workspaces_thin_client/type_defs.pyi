@@ -1,20 +1,24 @@
 """
 Type annotations for workspaces-thin-client service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_workspaces_thin_client.type_defs import CreateEnvironmentRequestRequestTypeDef
+    from mypy_boto3_workspaces_thin_client.type_defs import ResponseMetadataTypeDef
 
-    data: CreateEnvironmentRequestRequestTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     ApplyTimeOfType,
@@ -31,511 +35,377 @@ from .literals import (
     TargetDeviceStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateEnvironmentRequestRequestTypeDef",
+    "CreateEnvironmentRequestTypeDef",
     "CreateEnvironmentResponseTypeDef",
-    "DeleteDeviceRequestRequestTypeDef",
-    "DeleteEnvironmentRequestRequestTypeDef",
-    "DeregisterDeviceRequestRequestTypeDef",
+    "DeleteDeviceRequestTypeDef",
+    "DeleteEnvironmentRequestTypeDef",
+    "DeregisterDeviceRequestTypeDef",
     "DeviceSummaryTypeDef",
     "DeviceTypeDef",
     "EnvironmentSummaryTypeDef",
     "EnvironmentTypeDef",
-    "GetDeviceRequestRequestTypeDef",
+    "GetDeviceRequestTypeDef",
     "GetDeviceResponseTypeDef",
-    "GetEnvironmentRequestRequestTypeDef",
+    "GetEnvironmentRequestTypeDef",
     "GetEnvironmentResponseTypeDef",
-    "GetSoftwareSetRequestRequestTypeDef",
+    "GetSoftwareSetRequestTypeDef",
     "GetSoftwareSetResponseTypeDef",
-    "ListDevicesRequestRequestTypeDef",
+    "ListDevicesRequestPaginateTypeDef",
+    "ListDevicesRequestTypeDef",
     "ListDevicesResponseTypeDef",
-    "ListEnvironmentsRequestRequestTypeDef",
+    "ListEnvironmentsRequestPaginateTypeDef",
+    "ListEnvironmentsRequestTypeDef",
     "ListEnvironmentsResponseTypeDef",
-    "ListSoftwareSetsRequestRequestTypeDef",
+    "ListSoftwareSetsRequestPaginateTypeDef",
+    "ListSoftwareSetsRequestTypeDef",
     "ListSoftwareSetsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MaintenanceWindowOutputTypeDef",
     "MaintenanceWindowTypeDef",
+    "MaintenanceWindowUnionTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
     "SoftwareSetSummaryTypeDef",
     "SoftwareSetTypeDef",
     "SoftwareTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDeviceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDeviceRequestTypeDef",
     "UpdateDeviceResponseTypeDef",
-    "UpdateEnvironmentRequestRequestTypeDef",
+    "UpdateEnvironmentRequestTypeDef",
     "UpdateEnvironmentResponseTypeDef",
-    "UpdateSoftwareSetRequestRequestTypeDef",
+    "UpdateSoftwareSetRequestTypeDef",
 )
 
-_RequiredCreateEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentRequestRequestTypeDef",
-    {
-        "desktopArn": str,
-    },
-)
-_OptionalCreateEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentRequestRequestTypeDef",
-    {
-        "name": str,
-        "desktopEndpoint": str,
-        "softwareSetUpdateSchedule": SoftwareSetUpdateScheduleType,
-        "maintenanceWindow": "MaintenanceWindowTypeDef",
-        "softwareSetUpdateMode": SoftwareSetUpdateModeType,
-        "desiredSoftwareSetId": str,
-        "kmsKeyArn": str,
-        "clientToken": str,
-        "tags": Dict[str, str],
-        "deviceCreationTags": Dict[str, str],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateEnvironmentRequestRequestTypeDef(
-    _RequiredCreateEnvironmentRequestRequestTypeDef, _OptionalCreateEnvironmentRequestRequestTypeDef
-):
-    pass
-
-CreateEnvironmentResponseTypeDef = TypedDict(
-    "CreateEnvironmentResponseTypeDef",
-    {
-        "environment": "EnvironmentSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteDeviceRequestRequestTypeDef",
+DeleteDeviceRequestTypeDef = TypedDict(
+    "DeleteDeviceRequestTypeDef",
     {
         "id": str,
+        "clientToken": NotRequired[str],
     },
 )
-_OptionalDeleteDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteDeviceRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteDeviceRequestRequestTypeDef(
-    _RequiredDeleteDeviceRequestRequestTypeDef, _OptionalDeleteDeviceRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeleteEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteEnvironmentRequestRequestTypeDef",
+DeleteEnvironmentRequestTypeDef = TypedDict(
+    "DeleteEnvironmentRequestTypeDef",
     {
         "id": str,
+        "clientToken": NotRequired[str],
     },
 )
-_OptionalDeleteEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteEnvironmentRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteEnvironmentRequestRequestTypeDef(
-    _RequiredDeleteEnvironmentRequestRequestTypeDef, _OptionalDeleteEnvironmentRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeregisterDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredDeregisterDeviceRequestRequestTypeDef",
+DeregisterDeviceRequestTypeDef = TypedDict(
+    "DeregisterDeviceRequestTypeDef",
     {
         "id": str,
+        "targetDeviceStatus": NotRequired[TargetDeviceStatusType],
+        "clientToken": NotRequired[str],
     },
 )
-_OptionalDeregisterDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalDeregisterDeviceRequestRequestTypeDef",
-    {
-        "targetDeviceStatus": TargetDeviceStatusType,
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeregisterDeviceRequestRequestTypeDef(
-    _RequiredDeregisterDeviceRequestRequestTypeDef, _OptionalDeregisterDeviceRequestRequestTypeDef
-):
-    pass
-
 DeviceSummaryTypeDef = TypedDict(
     "DeviceSummaryTypeDef",
     {
-        "id": str,
-        "serialNumber": str,
-        "name": str,
-        "model": str,
-        "environmentId": str,
-        "status": DeviceStatusType,
-        "currentSoftwareSetId": str,
-        "desiredSoftwareSetId": str,
-        "pendingSoftwareSetId": str,
-        "softwareSetUpdateSchedule": SoftwareSetUpdateScheduleType,
-        "lastConnectedAt": datetime,
-        "lastPostureAt": datetime,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "arn": str,
+        "id": NotRequired[str],
+        "serialNumber": NotRequired[str],
+        "name": NotRequired[str],
+        "model": NotRequired[str],
+        "environmentId": NotRequired[str],
+        "status": NotRequired[DeviceStatusType],
+        "currentSoftwareSetId": NotRequired[str],
+        "desiredSoftwareSetId": NotRequired[str],
+        "pendingSoftwareSetId": NotRequired[str],
+        "softwareSetUpdateSchedule": NotRequired[SoftwareSetUpdateScheduleType],
+        "lastConnectedAt": NotRequired[datetime],
+        "lastPostureAt": NotRequired[datetime],
+        "createdAt": NotRequired[datetime],
+        "updatedAt": NotRequired[datetime],
+        "arn": NotRequired[str],
     },
-    total=False,
 )
-
 DeviceTypeDef = TypedDict(
     "DeviceTypeDef",
     {
-        "id": str,
-        "serialNumber": str,
-        "name": str,
-        "model": str,
-        "environmentId": str,
-        "status": DeviceStatusType,
-        "currentSoftwareSetId": str,
-        "currentSoftwareSetVersion": str,
-        "desiredSoftwareSetId": str,
-        "pendingSoftwareSetId": str,
-        "pendingSoftwareSetVersion": str,
-        "softwareSetUpdateSchedule": SoftwareSetUpdateScheduleType,
-        "softwareSetComplianceStatus": DeviceSoftwareSetComplianceStatusType,
-        "softwareSetUpdateStatus": SoftwareSetUpdateStatusType,
-        "lastConnectedAt": datetime,
-        "lastPostureAt": datetime,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "arn": str,
-        "kmsKeyArn": str,
-        "tags": Dict[str, str],
+        "id": NotRequired[str],
+        "serialNumber": NotRequired[str],
+        "name": NotRequired[str],
+        "model": NotRequired[str],
+        "environmentId": NotRequired[str],
+        "status": NotRequired[DeviceStatusType],
+        "currentSoftwareSetId": NotRequired[str],
+        "currentSoftwareSetVersion": NotRequired[str],
+        "desiredSoftwareSetId": NotRequired[str],
+        "pendingSoftwareSetId": NotRequired[str],
+        "pendingSoftwareSetVersion": NotRequired[str],
+        "softwareSetUpdateSchedule": NotRequired[SoftwareSetUpdateScheduleType],
+        "softwareSetComplianceStatus": NotRequired[DeviceSoftwareSetComplianceStatusType],
+        "softwareSetUpdateStatus": NotRequired[SoftwareSetUpdateStatusType],
+        "lastConnectedAt": NotRequired[datetime],
+        "lastPostureAt": NotRequired[datetime],
+        "createdAt": NotRequired[datetime],
+        "updatedAt": NotRequired[datetime],
+        "arn": NotRequired[str],
+        "kmsKeyArn": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
     },
-    total=False,
 )
-
-EnvironmentSummaryTypeDef = TypedDict(
-    "EnvironmentSummaryTypeDef",
+MaintenanceWindowOutputTypeDef = TypedDict(
+    "MaintenanceWindowOutputTypeDef",
+    {
+        "type": MaintenanceWindowTypeType,
+        "startTimeHour": NotRequired[int],
+        "startTimeMinute": NotRequired[int],
+        "endTimeHour": NotRequired[int],
+        "endTimeMinute": NotRequired[int],
+        "daysOfTheWeek": NotRequired[List[DayOfWeekType]],
+        "applyTimeOf": NotRequired[ApplyTimeOfType],
+    },
+)
+GetDeviceRequestTypeDef = TypedDict(
+    "GetDeviceRequestTypeDef",
     {
         "id": str,
-        "name": str,
-        "desktopArn": str,
-        "desktopEndpoint": str,
-        "desktopType": DesktopTypeType,
-        "activationCode": str,
-        "softwareSetUpdateSchedule": SoftwareSetUpdateScheduleType,
-        "maintenanceWindow": "MaintenanceWindowTypeDef",
-        "softwareSetUpdateMode": SoftwareSetUpdateModeType,
-        "desiredSoftwareSetId": str,
-        "pendingSoftwareSetId": str,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "arn": str,
     },
-    total=False,
 )
-
-EnvironmentTypeDef = TypedDict(
-    "EnvironmentTypeDef",
+GetEnvironmentRequestTypeDef = TypedDict(
+    "GetEnvironmentRequestTypeDef",
     {
         "id": str,
-        "name": str,
-        "desktopArn": str,
-        "desktopEndpoint": str,
-        "desktopType": DesktopTypeType,
-        "activationCode": str,
-        "registeredDevicesCount": int,
-        "softwareSetUpdateSchedule": SoftwareSetUpdateScheduleType,
-        "maintenanceWindow": "MaintenanceWindowTypeDef",
-        "softwareSetUpdateMode": SoftwareSetUpdateModeType,
-        "desiredSoftwareSetId": str,
-        "pendingSoftwareSetId": str,
-        "pendingSoftwareSetVersion": str,
-        "softwareSetComplianceStatus": EnvironmentSoftwareSetComplianceStatusType,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "arn": str,
-        "kmsKeyArn": str,
-        "tags": Dict[str, str],
-        "deviceCreationTags": Dict[str, str],
     },
-    total=False,
 )
-
-GetDeviceRequestRequestTypeDef = TypedDict(
-    "GetDeviceRequestRequestTypeDef",
+GetSoftwareSetRequestTypeDef = TypedDict(
+    "GetSoftwareSetRequestTypeDef",
     {
         "id": str,
     },
 )
 
-GetDeviceResponseTypeDef = TypedDict(
-    "GetDeviceResponseTypeDef",
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListDevicesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListEnvironmentsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListSoftwareSetsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+SoftwareSetSummaryTypeDef = TypedDict(
+    "SoftwareSetSummaryTypeDef",
     {
-        "device": "DeviceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "version": NotRequired[str],
+        "releasedAt": NotRequired[datetime],
+        "supportedUntil": NotRequired[datetime],
+        "validationStatus": NotRequired[SoftwareSetValidationStatusType],
+        "arn": NotRequired[str],
     },
 )
 
-GetEnvironmentRequestRequestTypeDef = TypedDict(
-    "GetEnvironmentRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetEnvironmentResponseTypeDef = TypedDict(
-    "GetEnvironmentResponseTypeDef",
-    {
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSoftwareSetRequestRequestTypeDef = TypedDict(
-    "GetSoftwareSetRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetSoftwareSetResponseTypeDef = TypedDict(
-    "GetSoftwareSetResponseTypeDef",
-    {
-        "softwareSet": "SoftwareSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDevicesRequestRequestTypeDef = TypedDict(
-    "ListDevicesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDevicesResponseTypeDef = TypedDict(
-    "ListDevicesResponseTypeDef",
-    {
-        "devices": List["DeviceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEnvironmentsRequestRequestTypeDef = TypedDict(
-    "ListEnvironmentsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListEnvironmentsResponseTypeDef = TypedDict(
-    "ListEnvironmentsResponseTypeDef",
-    {
-        "environments": List["EnvironmentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSoftwareSetsRequestRequestTypeDef = TypedDict(
-    "ListSoftwareSetsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListSoftwareSetsResponseTypeDef = TypedDict(
-    "ListSoftwareSetsResponseTypeDef",
-    {
-        "softwareSets": List["SoftwareSetSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
 MaintenanceWindowTypeDef = TypedDict(
     "MaintenanceWindowTypeDef",
     {
         "type": MaintenanceWindowTypeType,
-        "startTimeHour": int,
-        "startTimeMinute": int,
-        "endTimeHour": int,
-        "endTimeMinute": int,
-        "daysOfTheWeek": List[DayOfWeekType],
-        "applyTimeOf": ApplyTimeOfType,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "startTimeHour": NotRequired[int],
+        "startTimeMinute": NotRequired[int],
+        "endTimeHour": NotRequired[int],
+        "endTimeMinute": NotRequired[int],
+        "daysOfTheWeek": NotRequired[Sequence[DayOfWeekType]],
+        "applyTimeOf": NotRequired[ApplyTimeOfType],
     },
 )
 
-SoftwareSetSummaryTypeDef = TypedDict(
-    "SoftwareSetSummaryTypeDef",
+class SoftwareTypeDef(TypedDict):
+    name: NotRequired[str]
+    version: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+UpdateDeviceRequestTypeDef = TypedDict(
+    "UpdateDeviceRequestTypeDef",
     {
         "id": str,
-        "version": str,
-        "releasedAt": datetime,
-        "supportedUntil": datetime,
-        "validationStatus": SoftwareSetValidationStatusType,
-        "arn": str,
+        "name": NotRequired[str],
+        "desiredSoftwareSetId": NotRequired[str],
+        "softwareSetUpdateSchedule": NotRequired[SoftwareSetUpdateScheduleType],
     },
-    total=False,
+)
+UpdateSoftwareSetRequestTypeDef = TypedDict(
+    "UpdateSoftwareSetRequestTypeDef",
+    {
+        "id": str,
+        "validationStatus": SoftwareSetValidationStatusType,
+    },
 )
 
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDevicesResponseTypeDef(TypedDict):
+    devices: List[DeviceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateDeviceResponseTypeDef(TypedDict):
+    device: DeviceSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDeviceResponseTypeDef(TypedDict):
+    device: DeviceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+EnvironmentSummaryTypeDef = TypedDict(
+    "EnvironmentSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "desktopArn": NotRequired[str],
+        "desktopEndpoint": NotRequired[str],
+        "desktopType": NotRequired[DesktopTypeType],
+        "activationCode": NotRequired[str],
+        "softwareSetUpdateSchedule": NotRequired[SoftwareSetUpdateScheduleType],
+        "maintenanceWindow": NotRequired[MaintenanceWindowOutputTypeDef],
+        "softwareSetUpdateMode": NotRequired[SoftwareSetUpdateModeType],
+        "desiredSoftwareSetId": NotRequired[str],
+        "pendingSoftwareSetId": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "updatedAt": NotRequired[datetime],
+        "arn": NotRequired[str],
+    },
+)
+EnvironmentTypeDef = TypedDict(
+    "EnvironmentTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "desktopArn": NotRequired[str],
+        "desktopEndpoint": NotRequired[str],
+        "desktopType": NotRequired[DesktopTypeType],
+        "activationCode": NotRequired[str],
+        "registeredDevicesCount": NotRequired[int],
+        "softwareSetUpdateSchedule": NotRequired[SoftwareSetUpdateScheduleType],
+        "maintenanceWindow": NotRequired[MaintenanceWindowOutputTypeDef],
+        "softwareSetUpdateMode": NotRequired[SoftwareSetUpdateModeType],
+        "desiredSoftwareSetId": NotRequired[str],
+        "pendingSoftwareSetId": NotRequired[str],
+        "pendingSoftwareSetVersion": NotRequired[str],
+        "softwareSetComplianceStatus": NotRequired[EnvironmentSoftwareSetComplianceStatusType],
+        "createdAt": NotRequired[datetime],
+        "updatedAt": NotRequired[datetime],
+        "arn": NotRequired[str],
+        "kmsKeyArn": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+        "deviceCreationTags": NotRequired[Dict[str, str]],
+    },
+)
+
+class ListDevicesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSoftwareSetsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSoftwareSetsResponseTypeDef(TypedDict):
+    softwareSets: List[SoftwareSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+MaintenanceWindowUnionTypeDef = Union[MaintenanceWindowTypeDef, MaintenanceWindowOutputTypeDef]
 SoftwareSetTypeDef = TypedDict(
     "SoftwareSetTypeDef",
     {
-        "id": str,
-        "version": str,
-        "releasedAt": datetime,
-        "supportedUntil": datetime,
-        "validationStatus": SoftwareSetValidationStatusType,
-        "software": List["SoftwareTypeDef"],
-        "arn": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-SoftwareTypeDef = TypedDict(
-    "SoftwareTypeDef",
-    {
-        "name": str,
-        "version": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
+        "id": NotRequired[str],
+        "version": NotRequired[str],
+        "releasedAt": NotRequired[datetime],
+        "supportedUntil": NotRequired[datetime],
+        "validationStatus": NotRequired[SoftwareSetValidationStatusType],
+        "software": NotRequired[List[SoftwareTypeDef]],
+        "arn": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
     },
 )
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class CreateEnvironmentResponseTypeDef(TypedDict):
+    environment: EnvironmentSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDeviceRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalUpdateDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDeviceRequestRequestTypeDef",
-    {
-        "name": str,
-        "desiredSoftwareSetId": str,
-        "softwareSetUpdateSchedule": SoftwareSetUpdateScheduleType,
-    },
-    total=False,
-)
+class ListEnvironmentsResponseTypeDef(TypedDict):
+    environments: List[EnvironmentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class UpdateDeviceRequestRequestTypeDef(
-    _RequiredUpdateDeviceRequestRequestTypeDef, _OptionalUpdateDeviceRequestRequestTypeDef
-):
-    pass
+class UpdateEnvironmentResponseTypeDef(TypedDict):
+    environment: EnvironmentSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateDeviceResponseTypeDef = TypedDict(
-    "UpdateDeviceResponseTypeDef",
-    {
-        "device": "DeviceSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetEnvironmentResponseTypeDef(TypedDict):
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentRequestRequestTypeDef",
+class CreateEnvironmentRequestTypeDef(TypedDict):
+    desktopArn: str
+    name: NotRequired[str]
+    desktopEndpoint: NotRequired[str]
+    softwareSetUpdateSchedule: NotRequired[SoftwareSetUpdateScheduleType]
+    maintenanceWindow: NotRequired[MaintenanceWindowUnionTypeDef]
+    softwareSetUpdateMode: NotRequired[SoftwareSetUpdateModeType]
+    desiredSoftwareSetId: NotRequired[str]
+    kmsKeyArn: NotRequired[str]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    deviceCreationTags: NotRequired[Mapping[str, str]]
+
+UpdateEnvironmentRequestTypeDef = TypedDict(
+    "UpdateEnvironmentRequestTypeDef",
     {
         "id": str,
-    },
-)
-_OptionalUpdateEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentRequestRequestTypeDef",
-    {
-        "name": str,
-        "desktopArn": str,
-        "desktopEndpoint": str,
-        "softwareSetUpdateSchedule": SoftwareSetUpdateScheduleType,
-        "maintenanceWindow": "MaintenanceWindowTypeDef",
-        "softwareSetUpdateMode": SoftwareSetUpdateModeType,
-        "desiredSoftwareSetId": str,
-        "deviceCreationTags": Dict[str, str],
-    },
-    total=False,
-)
-
-class UpdateEnvironmentRequestRequestTypeDef(
-    _RequiredUpdateEnvironmentRequestRequestTypeDef, _OptionalUpdateEnvironmentRequestRequestTypeDef
-):
-    pass
-
-UpdateEnvironmentResponseTypeDef = TypedDict(
-    "UpdateEnvironmentResponseTypeDef",
-    {
-        "environment": "EnvironmentSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "name": NotRequired[str],
+        "desktopArn": NotRequired[str],
+        "desktopEndpoint": NotRequired[str],
+        "softwareSetUpdateSchedule": NotRequired[SoftwareSetUpdateScheduleType],
+        "maintenanceWindow": NotRequired[MaintenanceWindowUnionTypeDef],
+        "softwareSetUpdateMode": NotRequired[SoftwareSetUpdateModeType],
+        "desiredSoftwareSetId": NotRequired[str],
+        "deviceCreationTags": NotRequired[Mapping[str, str]],
     },
 )
 
-UpdateSoftwareSetRequestRequestTypeDef = TypedDict(
-    "UpdateSoftwareSetRequestRequestTypeDef",
-    {
-        "id": str,
-        "validationStatus": SoftwareSetValidationStatusType,
-    },
-)
+class GetSoftwareSetResponseTypeDef(TypedDict):
+    softwareSet: SoftwareSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

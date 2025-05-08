@@ -1,20 +1,24 @@
 """
 Type annotations for iotfleetwise service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_iotfleetwise.type_defs import ActuatorTypeDef
+    from mypy_boto3_iotfleetwise.type_defs import ActuatorOutputTypeDef
 
-    data: ActuatorTypeDef = {...}
+    data: ActuatorOutputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -34,9 +38,13 @@ from .literals import (
     ROS2PrimitiveTypeType,
     SignalDecoderTypeType,
     SignalNodeTypeType,
+    SignalValueTypeType,
     SpoolingModeType,
     StorageCompressionFormatType,
+    StorageMaximumSizeUnitType,
+    StorageMinimumTimeToLiveUnitType,
     StructuredMessageListTypeType,
+    TimeUnitType,
     TriggerModeType,
     UpdateCampaignActionType,
     UpdateModeType,
@@ -44,23 +52,30 @@ from .literals import (
     VehicleStateType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ActuatorOutputTypeDef",
     "ActuatorTypeDef",
-    "AssociateVehicleFleetRequestRequestTypeDef",
+    "ActuatorUnionTypeDef",
+    "AssociateVehicleFleetRequestTypeDef",
+    "AttributeOutputTypeDef",
     "AttributeTypeDef",
-    "BatchCreateVehicleRequestRequestTypeDef",
+    "AttributeUnionTypeDef",
+    "BatchCreateVehicleRequestTypeDef",
     "BatchCreateVehicleResponseTypeDef",
-    "BatchUpdateVehicleRequestRequestTypeDef",
+    "BatchUpdateVehicleRequestTypeDef",
     "BatchUpdateVehicleResponseTypeDef",
+    "BlobTypeDef",
     "BranchTypeDef",
     "CampaignSummaryTypeDef",
     "CanDbcDefinitionTypeDef",
@@ -69,134 +84,202 @@ __all__ = (
     "CloudWatchLogDeliveryOptionsTypeDef",
     "CollectionSchemeTypeDef",
     "ConditionBasedCollectionSchemeTypeDef",
-    "CreateCampaignRequestRequestTypeDef",
+    "ConditionBasedSignalFetchConfigTypeDef",
+    "CreateCampaignRequestTypeDef",
     "CreateCampaignResponseTypeDef",
-    "CreateDecoderManifestRequestRequestTypeDef",
+    "CreateDecoderManifestRequestTypeDef",
     "CreateDecoderManifestResponseTypeDef",
-    "CreateFleetRequestRequestTypeDef",
+    "CreateFleetRequestTypeDef",
     "CreateFleetResponseTypeDef",
-    "CreateModelManifestRequestRequestTypeDef",
+    "CreateModelManifestRequestTypeDef",
     "CreateModelManifestResponseTypeDef",
-    "CreateSignalCatalogRequestRequestTypeDef",
+    "CreateSignalCatalogRequestTypeDef",
     "CreateSignalCatalogResponseTypeDef",
+    "CreateStateTemplateRequestTypeDef",
+    "CreateStateTemplateResponseTypeDef",
     "CreateVehicleErrorTypeDef",
     "CreateVehicleRequestItemTypeDef",
-    "CreateVehicleRequestRequestTypeDef",
+    "CreateVehicleRequestTypeDef",
     "CreateVehicleResponseItemTypeDef",
     "CreateVehicleResponseTypeDef",
+    "CustomDecodingInterfaceTypeDef",
+    "CustomDecodingSignalTypeDef",
     "CustomPropertyTypeDef",
     "CustomStructTypeDef",
     "DataDestinationConfigTypeDef",
+    "DataPartitionStorageOptionsTypeDef",
+    "DataPartitionTypeDef",
+    "DataPartitionUploadOptionsTypeDef",
     "DecoderManifestSummaryTypeDef",
-    "DeleteCampaignRequestRequestTypeDef",
+    "DeleteCampaignRequestTypeDef",
     "DeleteCampaignResponseTypeDef",
-    "DeleteDecoderManifestRequestRequestTypeDef",
+    "DeleteDecoderManifestRequestTypeDef",
     "DeleteDecoderManifestResponseTypeDef",
-    "DeleteFleetRequestRequestTypeDef",
+    "DeleteFleetRequestTypeDef",
     "DeleteFleetResponseTypeDef",
-    "DeleteModelManifestRequestRequestTypeDef",
+    "DeleteModelManifestRequestTypeDef",
     "DeleteModelManifestResponseTypeDef",
-    "DeleteSignalCatalogRequestRequestTypeDef",
+    "DeleteSignalCatalogRequestTypeDef",
     "DeleteSignalCatalogResponseTypeDef",
-    "DeleteVehicleRequestRequestTypeDef",
+    "DeleteStateTemplateRequestTypeDef",
+    "DeleteStateTemplateResponseTypeDef",
+    "DeleteVehicleRequestTypeDef",
     "DeleteVehicleResponseTypeDef",
-    "DisassociateVehicleFleetRequestRequestTypeDef",
+    "DisassociateVehicleFleetRequestTypeDef",
     "FleetSummaryTypeDef",
     "FormattedVssTypeDef",
-    "GetCampaignRequestRequestTypeDef",
+    "GetCampaignRequestTypeDef",
     "GetCampaignResponseTypeDef",
-    "GetDecoderManifestRequestRequestTypeDef",
+    "GetDecoderManifestRequestTypeDef",
     "GetDecoderManifestResponseTypeDef",
     "GetEncryptionConfigurationResponseTypeDef",
-    "GetFleetRequestRequestTypeDef",
+    "GetFleetRequestTypeDef",
     "GetFleetResponseTypeDef",
     "GetLoggingOptionsResponseTypeDef",
-    "GetModelManifestRequestRequestTypeDef",
+    "GetModelManifestRequestTypeDef",
     "GetModelManifestResponseTypeDef",
     "GetRegisterAccountStatusResponseTypeDef",
-    "GetSignalCatalogRequestRequestTypeDef",
+    "GetSignalCatalogRequestTypeDef",
     "GetSignalCatalogResponseTypeDef",
-    "GetVehicleRequestRequestTypeDef",
+    "GetStateTemplateRequestTypeDef",
+    "GetStateTemplateResponseTypeDef",
+    "GetVehicleRequestTypeDef",
     "GetVehicleResponseTypeDef",
-    "GetVehicleStatusRequestRequestTypeDef",
+    "GetVehicleStatusRequestPaginateTypeDef",
+    "GetVehicleStatusRequestTypeDef",
     "GetVehicleStatusResponseTypeDef",
     "IamRegistrationResponseTypeDef",
     "IamResourcesTypeDef",
-    "ImportDecoderManifestRequestRequestTypeDef",
+    "ImportDecoderManifestRequestTypeDef",
     "ImportDecoderManifestResponseTypeDef",
-    "ImportSignalCatalogRequestRequestTypeDef",
+    "ImportSignalCatalogRequestTypeDef",
     "ImportSignalCatalogResponseTypeDef",
-    "ListCampaignsRequestRequestTypeDef",
+    "ListCampaignsRequestPaginateTypeDef",
+    "ListCampaignsRequestTypeDef",
     "ListCampaignsResponseTypeDef",
-    "ListDecoderManifestNetworkInterfacesRequestRequestTypeDef",
+    "ListDecoderManifestNetworkInterfacesRequestPaginateTypeDef",
+    "ListDecoderManifestNetworkInterfacesRequestTypeDef",
     "ListDecoderManifestNetworkInterfacesResponseTypeDef",
-    "ListDecoderManifestSignalsRequestRequestTypeDef",
+    "ListDecoderManifestSignalsRequestPaginateTypeDef",
+    "ListDecoderManifestSignalsRequestTypeDef",
+    "ListDecoderManifestSignalsResponsePaginatorTypeDef",
     "ListDecoderManifestSignalsResponseTypeDef",
-    "ListDecoderManifestsRequestRequestTypeDef",
+    "ListDecoderManifestsRequestPaginateTypeDef",
+    "ListDecoderManifestsRequestTypeDef",
     "ListDecoderManifestsResponseTypeDef",
-    "ListFleetsForVehicleRequestRequestTypeDef",
+    "ListFleetsForVehicleRequestPaginateTypeDef",
+    "ListFleetsForVehicleRequestTypeDef",
     "ListFleetsForVehicleResponseTypeDef",
-    "ListFleetsRequestRequestTypeDef",
+    "ListFleetsRequestPaginateTypeDef",
+    "ListFleetsRequestTypeDef",
     "ListFleetsResponseTypeDef",
-    "ListModelManifestNodesRequestRequestTypeDef",
+    "ListModelManifestNodesRequestPaginateTypeDef",
+    "ListModelManifestNodesRequestTypeDef",
     "ListModelManifestNodesResponseTypeDef",
-    "ListModelManifestsRequestRequestTypeDef",
+    "ListModelManifestsRequestPaginateTypeDef",
+    "ListModelManifestsRequestTypeDef",
     "ListModelManifestsResponseTypeDef",
-    "ListSignalCatalogNodesRequestRequestTypeDef",
+    "ListSignalCatalogNodesRequestPaginateTypeDef",
+    "ListSignalCatalogNodesRequestTypeDef",
     "ListSignalCatalogNodesResponseTypeDef",
-    "ListSignalCatalogsRequestRequestTypeDef",
+    "ListSignalCatalogsRequestPaginateTypeDef",
+    "ListSignalCatalogsRequestTypeDef",
     "ListSignalCatalogsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListStateTemplatesRequestPaginateTypeDef",
+    "ListStateTemplatesRequestTypeDef",
+    "ListStateTemplatesResponseTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListVehiclesInFleetRequestRequestTypeDef",
+    "ListVehiclesInFleetRequestPaginateTypeDef",
+    "ListVehiclesInFleetRequestTypeDef",
     "ListVehiclesInFleetResponseTypeDef",
-    "ListVehiclesRequestRequestTypeDef",
+    "ListVehiclesRequestPaginateTypeDef",
+    "ListVehiclesRequestTypeDef",
     "ListVehiclesResponseTypeDef",
+    "MessageSignalOutputTypeDef",
+    "MessageSignalPaginatorTypeDef",
     "MessageSignalTypeDef",
+    "MessageSignalUnionTypeDef",
     "ModelManifestSummaryTypeDef",
+    "MqttTopicConfigTypeDef",
     "NetworkFileDefinitionTypeDef",
     "NetworkInterfaceTypeDef",
     "NodeCountsTypeDef",
+    "NodeOutputTypeDef",
     "NodeTypeDef",
+    "NodeUnionTypeDef",
     "ObdInterfaceTypeDef",
     "ObdSignalTypeDef",
     "PaginatorConfigTypeDef",
+    "PeriodicStateTemplateUpdateStrategyTypeDef",
     "PrimitiveMessageDefinitionTypeDef",
-    "PutEncryptionConfigurationRequestRequestTypeDef",
+    "PutEncryptionConfigurationRequestTypeDef",
     "PutEncryptionConfigurationResponseTypeDef",
-    "PutLoggingOptionsRequestRequestTypeDef",
+    "PutLoggingOptionsRequestTypeDef",
     "ROS2PrimitiveMessageDefinitionTypeDef",
-    "RegisterAccountRequestRequestTypeDef",
+    "RegisterAccountRequestTypeDef",
     "RegisterAccountResponseTypeDef",
     "ResponseMetadataTypeDef",
     "S3ConfigTypeDef",
+    "SensorOutputTypeDef",
     "SensorTypeDef",
+    "SensorUnionTypeDef",
     "SignalCatalogSummaryTypeDef",
+    "SignalDecoderOutputTypeDef",
+    "SignalDecoderPaginatorTypeDef",
     "SignalDecoderTypeDef",
+    "SignalDecoderUnionTypeDef",
+    "SignalFetchConfigTypeDef",
+    "SignalFetchInformationOutputTypeDef",
+    "SignalFetchInformationTypeDef",
+    "SignalFetchInformationUnionTypeDef",
     "SignalInformationTypeDef",
+    "StateTemplateAssociationOutputTypeDef",
+    "StateTemplateAssociationTypeDef",
+    "StateTemplateAssociationUnionTypeDef",
+    "StateTemplateSummaryTypeDef",
+    "StateTemplateUpdateStrategyOutputTypeDef",
+    "StateTemplateUpdateStrategyTypeDef",
+    "StateTemplateUpdateStrategyUnionTypeDef",
+    "StorageMaximumSizeTypeDef",
+    "StorageMinimumTimeToLiveTypeDef",
+    "StructuredMessageFieldNameAndDataTypePairOutputTypeDef",
+    "StructuredMessageFieldNameAndDataTypePairPaginatorTypeDef",
     "StructuredMessageFieldNameAndDataTypePairTypeDef",
+    "StructuredMessageFieldNameAndDataTypePairUnionTypeDef",
+    "StructuredMessageListDefinitionOutputTypeDef",
+    "StructuredMessageListDefinitionPaginatorTypeDef",
     "StructuredMessageListDefinitionTypeDef",
+    "StructuredMessageListDefinitionUnionTypeDef",
+    "StructuredMessageOutputTypeDef",
+    "StructuredMessagePaginatorTypeDef",
     "StructuredMessageTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StructuredMessageUnionTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TimeBasedCollectionSchemeTypeDef",
+    "TimeBasedSignalFetchConfigTypeDef",
+    "TimePeriodTypeDef",
+    "TimestampTypeDef",
     "TimestreamConfigTypeDef",
     "TimestreamRegistrationResponseTypeDef",
     "TimestreamResourcesTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateCampaignRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateCampaignRequestTypeDef",
     "UpdateCampaignResponseTypeDef",
-    "UpdateDecoderManifestRequestRequestTypeDef",
+    "UpdateDecoderManifestRequestTypeDef",
     "UpdateDecoderManifestResponseTypeDef",
-    "UpdateFleetRequestRequestTypeDef",
+    "UpdateFleetRequestTypeDef",
     "UpdateFleetResponseTypeDef",
-    "UpdateModelManifestRequestRequestTypeDef",
+    "UpdateModelManifestRequestTypeDef",
     "UpdateModelManifestResponseTypeDef",
-    "UpdateSignalCatalogRequestRequestTypeDef",
+    "UpdateSignalCatalogRequestTypeDef",
     "UpdateSignalCatalogResponseTypeDef",
+    "UpdateStateTemplateRequestTypeDef",
+    "UpdateStateTemplateResponseTypeDef",
     "UpdateVehicleErrorTypeDef",
     "UpdateVehicleRequestItemTypeDef",
-    "UpdateVehicleRequestRequestTypeDef",
+    "UpdateVehicleRequestTypeDef",
     "UpdateVehicleResponseItemTypeDef",
     "UpdateVehicleResponseTypeDef",
     "VehicleMiddlewareTypeDef",
@@ -204,774 +287,692 @@ __all__ = (
     "VehicleSummaryTypeDef",
 )
 
-_RequiredActuatorTypeDef = TypedDict(
-    "_RequiredActuatorTypeDef",
+ActuatorOutputTypeDef = TypedDict(
+    "ActuatorOutputTypeDef",
     {
         "fullyQualifiedName": str,
         "dataType": NodeDataTypeType,
+        "description": NotRequired[str],
+        "unit": NotRequired[str],
+        "allowedValues": NotRequired[List[str]],
+        "min": NotRequired[float],
+        "max": NotRequired[float],
+        "assignedValue": NotRequired[str],
+        "deprecationMessage": NotRequired[str],
+        "comment": NotRequired[str],
+        "structFullyQualifiedName": NotRequired[str],
     },
 )
-_OptionalActuatorTypeDef = TypedDict(
-    "_OptionalActuatorTypeDef",
-    {
-        "description": str,
-        "unit": str,
-        "allowedValues": List[str],
-        "min": float,
-        "max": float,
-        "assignedValue": str,
-        "deprecationMessage": str,
-        "comment": str,
-        "structFullyQualifiedName": str,
-    },
-    total=False,
-)
-
-class ActuatorTypeDef(_RequiredActuatorTypeDef, _OptionalActuatorTypeDef):
-    pass
-
-AssociateVehicleFleetRequestRequestTypeDef = TypedDict(
-    "AssociateVehicleFleetRequestRequestTypeDef",
-    {
-        "vehicleName": str,
-        "fleetId": str,
-    },
-)
-
-_RequiredAttributeTypeDef = TypedDict(
-    "_RequiredAttributeTypeDef",
+ActuatorTypeDef = TypedDict(
+    "ActuatorTypeDef",
     {
         "fullyQualifiedName": str,
         "dataType": NodeDataTypeType,
-    },
-)
-_OptionalAttributeTypeDef = TypedDict(
-    "_OptionalAttributeTypeDef",
-    {
-        "description": str,
-        "unit": str,
-        "allowedValues": List[str],
-        "min": float,
-        "max": float,
-        "assignedValue": str,
-        "defaultValue": str,
-        "deprecationMessage": str,
-        "comment": str,
-    },
-    total=False,
-)
-
-class AttributeTypeDef(_RequiredAttributeTypeDef, _OptionalAttributeTypeDef):
-    pass
-
-BatchCreateVehicleRequestRequestTypeDef = TypedDict(
-    "BatchCreateVehicleRequestRequestTypeDef",
-    {
-        "vehicles": List["CreateVehicleRequestItemTypeDef"],
+        "description": NotRequired[str],
+        "unit": NotRequired[str],
+        "allowedValues": NotRequired[Sequence[str]],
+        "min": NotRequired[float],
+        "max": NotRequired[float],
+        "assignedValue": NotRequired[str],
+        "deprecationMessage": NotRequired[str],
+        "comment": NotRequired[str],
+        "structFullyQualifiedName": NotRequired[str],
     },
 )
 
-BatchCreateVehicleResponseTypeDef = TypedDict(
-    "BatchCreateVehicleResponseTypeDef",
-    {
-        "vehicles": List["CreateVehicleResponseItemTypeDef"],
-        "errors": List["CreateVehicleErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociateVehicleFleetRequestTypeDef(TypedDict):
+    vehicleName: str
+    fleetId: str
 
-BatchUpdateVehicleRequestRequestTypeDef = TypedDict(
-    "BatchUpdateVehicleRequestRequestTypeDef",
-    {
-        "vehicles": List["UpdateVehicleRequestItemTypeDef"],
-    },
-)
-
-BatchUpdateVehicleResponseTypeDef = TypedDict(
-    "BatchUpdateVehicleResponseTypeDef",
-    {
-        "vehicles": List["UpdateVehicleResponseItemTypeDef"],
-        "errors": List["UpdateVehicleErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredBranchTypeDef = TypedDict(
-    "_RequiredBranchTypeDef",
+AttributeOutputTypeDef = TypedDict(
+    "AttributeOutputTypeDef",
     {
         "fullyQualifiedName": str,
+        "dataType": NodeDataTypeType,
+        "description": NotRequired[str],
+        "unit": NotRequired[str],
+        "allowedValues": NotRequired[List[str]],
+        "min": NotRequired[float],
+        "max": NotRequired[float],
+        "assignedValue": NotRequired[str],
+        "defaultValue": NotRequired[str],
+        "deprecationMessage": NotRequired[str],
+        "comment": NotRequired[str],
     },
 )
-_OptionalBranchTypeDef = TypedDict(
-    "_OptionalBranchTypeDef",
+AttributeTypeDef = TypedDict(
+    "AttributeTypeDef",
     {
-        "description": str,
-        "deprecationMessage": str,
-        "comment": str,
+        "fullyQualifiedName": str,
+        "dataType": NodeDataTypeType,
+        "description": NotRequired[str],
+        "unit": NotRequired[str],
+        "allowedValues": NotRequired[Sequence[str]],
+        "min": NotRequired[float],
+        "max": NotRequired[float],
+        "assignedValue": NotRequired[str],
+        "defaultValue": NotRequired[str],
+        "deprecationMessage": NotRequired[str],
+        "comment": NotRequired[str],
     },
-    total=False,
 )
 
-class BranchTypeDef(_RequiredBranchTypeDef, _OptionalBranchTypeDef):
-    pass
+class CreateVehicleErrorTypeDef(TypedDict):
+    vehicleName: NotRequired[str]
+    code: NotRequired[str]
+    message: NotRequired[str]
 
-_RequiredCampaignSummaryTypeDef = TypedDict(
-    "_RequiredCampaignSummaryTypeDef",
+class CreateVehicleResponseItemTypeDef(TypedDict):
+    vehicleName: NotRequired[str]
+    arn: NotRequired[str]
+    thingArn: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class UpdateVehicleErrorTypeDef(TypedDict):
+    vehicleName: NotRequired[str]
+    code: NotRequired[int]
+    message: NotRequired[str]
+
+class UpdateVehicleResponseItemTypeDef(TypedDict):
+    vehicleName: NotRequired[str]
+    arn: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class BranchTypeDef(TypedDict):
+    fullyQualifiedName: str
+    description: NotRequired[str]
+    deprecationMessage: NotRequired[str]
+    comment: NotRequired[str]
+
+class CampaignSummaryTypeDef(TypedDict):
+    creationTime: datetime
+    lastModificationTime: datetime
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    description: NotRequired[str]
+    signalCatalogArn: NotRequired[str]
+    targetArn: NotRequired[str]
+    status: NotRequired[CampaignStatusType]
+
+class CanInterfaceTypeDef(TypedDict):
+    name: str
+    protocolName: NotRequired[str]
+    protocolVersion: NotRequired[str]
+
+class CanSignalTypeDef(TypedDict):
+    messageId: int
+    isBigEndian: bool
+    isSigned: bool
+    startBit: int
+    offset: float
+    factor: float
+    length: int
+    name: NotRequired[str]
+    signalValueType: NotRequired[SignalValueTypeType]
+
+class CloudWatchLogDeliveryOptionsTypeDef(TypedDict):
+    logType: LogTypeType
+    logGroupName: NotRequired[str]
+
+class ConditionBasedCollectionSchemeTypeDef(TypedDict):
+    expression: str
+    minimumTriggerIntervalMs: NotRequired[int]
+    triggerMode: NotRequired[TriggerModeType]
+    conditionLanguageVersion: NotRequired[int]
+
+class TimeBasedCollectionSchemeTypeDef(TypedDict):
+    periodMs: int
+
+class ConditionBasedSignalFetchConfigTypeDef(TypedDict):
+    conditionExpression: str
+    triggerMode: TriggerModeType
+
+class SignalInformationTypeDef(TypedDict):
+    name: str
+    maxSampleCount: NotRequired[int]
+    minimumSamplingIntervalMs: NotRequired[int]
+    dataPartitionId: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+TimestampTypeDef = Union[datetime, str]
+
+class CustomDecodingInterfaceTypeDef(TypedDict):
+    name: str
+
+CustomDecodingSignalTypeDef = TypedDict(
+    "CustomDecodingSignalTypeDef",
     {
+        "id": str,
+    },
+)
+
+class CustomPropertyTypeDef(TypedDict):
+    fullyQualifiedName: str
+    dataType: NodeDataTypeType
+    dataEncoding: NotRequired[NodeDataEncodingType]
+    description: NotRequired[str]
+    deprecationMessage: NotRequired[str]
+    comment: NotRequired[str]
+    structFullyQualifiedName: NotRequired[str]
+
+class CustomStructTypeDef(TypedDict):
+    fullyQualifiedName: str
+    description: NotRequired[str]
+    deprecationMessage: NotRequired[str]
+    comment: NotRequired[str]
+
+class MqttTopicConfigTypeDef(TypedDict):
+    mqttTopicArn: str
+    executionRoleArn: str
+
+class S3ConfigTypeDef(TypedDict):
+    bucketArn: str
+    dataFormat: NotRequired[DataFormatType]
+    storageCompressionFormat: NotRequired[StorageCompressionFormatType]
+    prefix: NotRequired[str]
+
+class TimestreamConfigTypeDef(TypedDict):
+    timestreamTableArn: str
+    executionRoleArn: str
+
+class StorageMaximumSizeTypeDef(TypedDict):
+    unit: StorageMaximumSizeUnitType
+    value: int
+
+class StorageMinimumTimeToLiveTypeDef(TypedDict):
+    unit: StorageMinimumTimeToLiveUnitType
+    value: int
+
+class DataPartitionUploadOptionsTypeDef(TypedDict):
+    expression: str
+    conditionLanguageVersion: NotRequired[int]
+
+class DecoderManifestSummaryTypeDef(TypedDict):
+    creationTime: datetime
+    lastModificationTime: datetime
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    modelManifestArn: NotRequired[str]
+    description: NotRequired[str]
+    status: NotRequired[ManifestStatusType]
+    message: NotRequired[str]
+
+class DeleteCampaignRequestTypeDef(TypedDict):
+    name: str
+
+class DeleteDecoderManifestRequestTypeDef(TypedDict):
+    name: str
+
+class DeleteFleetRequestTypeDef(TypedDict):
+    fleetId: str
+
+class DeleteModelManifestRequestTypeDef(TypedDict):
+    name: str
+
+class DeleteSignalCatalogRequestTypeDef(TypedDict):
+    name: str
+
+class DeleteStateTemplateRequestTypeDef(TypedDict):
+    identifier: str
+
+class DeleteVehicleRequestTypeDef(TypedDict):
+    vehicleName: str
+
+class DisassociateVehicleFleetRequestTypeDef(TypedDict):
+    vehicleName: str
+    fleetId: str
+
+FleetSummaryTypeDef = TypedDict(
+    "FleetSummaryTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "signalCatalogArn": str,
         "creationTime": datetime,
-        "lastModificationTime": datetime,
-    },
-)
-_OptionalCampaignSummaryTypeDef = TypedDict(
-    "_OptionalCampaignSummaryTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "description": str,
-        "signalCatalogArn": str,
-        "targetArn": str,
-        "status": CampaignStatusType,
-    },
-    total=False,
-)
-
-class CampaignSummaryTypeDef(_RequiredCampaignSummaryTypeDef, _OptionalCampaignSummaryTypeDef):
-    pass
-
-_RequiredCanDbcDefinitionTypeDef = TypedDict(
-    "_RequiredCanDbcDefinitionTypeDef",
-    {
-        "networkInterface": str,
-        "canDbcFiles": List[Union[bytes, IO[bytes], StreamingBody]],
-    },
-)
-_OptionalCanDbcDefinitionTypeDef = TypedDict(
-    "_OptionalCanDbcDefinitionTypeDef",
-    {
-        "signalsMap": Dict[str, str],
-    },
-    total=False,
-)
-
-class CanDbcDefinitionTypeDef(_RequiredCanDbcDefinitionTypeDef, _OptionalCanDbcDefinitionTypeDef):
-    pass
-
-_RequiredCanInterfaceTypeDef = TypedDict(
-    "_RequiredCanInterfaceTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCanInterfaceTypeDef = TypedDict(
-    "_OptionalCanInterfaceTypeDef",
-    {
-        "protocolName": str,
-        "protocolVersion": str,
-    },
-    total=False,
-)
-
-class CanInterfaceTypeDef(_RequiredCanInterfaceTypeDef, _OptionalCanInterfaceTypeDef):
-    pass
-
-_RequiredCanSignalTypeDef = TypedDict(
-    "_RequiredCanSignalTypeDef",
-    {
-        "messageId": int,
-        "isBigEndian": bool,
-        "isSigned": bool,
-        "startBit": int,
-        "offset": float,
-        "factor": float,
-        "length": int,
-    },
-)
-_OptionalCanSignalTypeDef = TypedDict(
-    "_OptionalCanSignalTypeDef",
-    {
-        "name": str,
-    },
-    total=False,
-)
-
-class CanSignalTypeDef(_RequiredCanSignalTypeDef, _OptionalCanSignalTypeDef):
-    pass
-
-_RequiredCloudWatchLogDeliveryOptionsTypeDef = TypedDict(
-    "_RequiredCloudWatchLogDeliveryOptionsTypeDef",
-    {
-        "logType": LogTypeType,
-    },
-)
-_OptionalCloudWatchLogDeliveryOptionsTypeDef = TypedDict(
-    "_OptionalCloudWatchLogDeliveryOptionsTypeDef",
-    {
-        "logGroupName": str,
-    },
-    total=False,
-)
-
-class CloudWatchLogDeliveryOptionsTypeDef(
-    _RequiredCloudWatchLogDeliveryOptionsTypeDef, _OptionalCloudWatchLogDeliveryOptionsTypeDef
-):
-    pass
-
-CollectionSchemeTypeDef = TypedDict(
-    "CollectionSchemeTypeDef",
-    {
-        "timeBasedCollectionScheme": "TimeBasedCollectionSchemeTypeDef",
-        "conditionBasedCollectionScheme": "ConditionBasedCollectionSchemeTypeDef",
-    },
-    total=False,
-)
-
-_RequiredConditionBasedCollectionSchemeTypeDef = TypedDict(
-    "_RequiredConditionBasedCollectionSchemeTypeDef",
-    {
-        "expression": str,
-    },
-)
-_OptionalConditionBasedCollectionSchemeTypeDef = TypedDict(
-    "_OptionalConditionBasedCollectionSchemeTypeDef",
-    {
-        "minimumTriggerIntervalMs": int,
-        "triggerMode": TriggerModeType,
-        "conditionLanguageVersion": int,
-    },
-    total=False,
-)
-
-class ConditionBasedCollectionSchemeTypeDef(
-    _RequiredConditionBasedCollectionSchemeTypeDef, _OptionalConditionBasedCollectionSchemeTypeDef
-):
-    pass
-
-_RequiredCreateCampaignRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCampaignRequestRequestTypeDef",
-    {
-        "name": str,
-        "signalCatalogArn": str,
-        "targetArn": str,
-        "collectionScheme": "CollectionSchemeTypeDef",
-    },
-)
-_OptionalCreateCampaignRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCampaignRequestRequestTypeDef",
-    {
-        "description": str,
-        "startTime": Union[datetime, str],
-        "expiryTime": Union[datetime, str],
-        "postTriggerCollectionDuration": int,
-        "diagnosticsMode": DiagnosticsModeType,
-        "spoolingMode": SpoolingModeType,
-        "compression": CompressionType,
-        "priority": int,
-        "signalsToCollect": List["SignalInformationTypeDef"],
-        "dataExtraDimensions": List[str],
-        "tags": List["TagTypeDef"],
-        "dataDestinationConfigs": List["DataDestinationConfigTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCampaignRequestRequestTypeDef(
-    _RequiredCreateCampaignRequestRequestTypeDef, _OptionalCreateCampaignRequestRequestTypeDef
-):
-    pass
-
-CreateCampaignResponseTypeDef = TypedDict(
-    "CreateCampaignResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "description": NotRequired[str],
+        "lastModificationTime": NotRequired[datetime],
     },
 )
 
-_RequiredCreateDecoderManifestRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDecoderManifestRequestRequestTypeDef",
+class FormattedVssTypeDef(TypedDict):
+    vssJson: NotRequired[str]
+
+class GetCampaignRequestTypeDef(TypedDict):
+    name: str
+
+class GetDecoderManifestRequestTypeDef(TypedDict):
+    name: str
+
+class GetFleetRequestTypeDef(TypedDict):
+    fleetId: str
+
+class GetModelManifestRequestTypeDef(TypedDict):
+    name: str
+
+class IamRegistrationResponseTypeDef(TypedDict):
+    roleArn: str
+    registrationStatus: RegistrationStatusType
+    errorMessage: NotRequired[str]
+
+class TimestreamRegistrationResponseTypeDef(TypedDict):
+    timestreamDatabaseName: str
+    timestreamTableName: str
+    registrationStatus: RegistrationStatusType
+    timestreamDatabaseArn: NotRequired[str]
+    timestreamTableArn: NotRequired[str]
+    errorMessage: NotRequired[str]
+
+class GetSignalCatalogRequestTypeDef(TypedDict):
+    name: str
+
+class NodeCountsTypeDef(TypedDict):
+    totalNodes: NotRequired[int]
+    totalBranches: NotRequired[int]
+    totalSensors: NotRequired[int]
+    totalAttributes: NotRequired[int]
+    totalActuators: NotRequired[int]
+    totalStructs: NotRequired[int]
+    totalProperties: NotRequired[int]
+
+class GetStateTemplateRequestTypeDef(TypedDict):
+    identifier: str
+
+class GetVehicleRequestTypeDef(TypedDict):
+    vehicleName: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetVehicleStatusRequestTypeDef(TypedDict):
+    vehicleName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class VehicleStatusTypeDef(TypedDict):
+    campaignName: NotRequired[str]
+    vehicleName: NotRequired[str]
+    status: NotRequired[VehicleStateType]
+
+class IamResourcesTypeDef(TypedDict):
+    roleArn: str
+
+class ListCampaignsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    status: NotRequired[str]
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+
+class ListDecoderManifestNetworkInterfacesRequestTypeDef(TypedDict):
+    name: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDecoderManifestSignalsRequestTypeDef(TypedDict):
+    name: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDecoderManifestsRequestTypeDef(TypedDict):
+    modelManifestArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+
+class ListFleetsForVehicleRequestTypeDef(TypedDict):
+    vehicleName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListFleetsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+
+class ListModelManifestNodesRequestTypeDef(TypedDict):
+    name: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListModelManifestsRequestTypeDef(TypedDict):
+    signalCatalogArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+
+class ModelManifestSummaryTypeDef(TypedDict):
+    creationTime: datetime
+    lastModificationTime: datetime
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    signalCatalogArn: NotRequired[str]
+    description: NotRequired[str]
+    status: NotRequired[ManifestStatusType]
+
+class ListSignalCatalogNodesRequestTypeDef(TypedDict):
+    name: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    signalNodeType: NotRequired[SignalNodeTypeType]
+
+class ListSignalCatalogsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SignalCatalogSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    creationTime: NotRequired[datetime]
+    lastModificationTime: NotRequired[datetime]
+
+class ListStateTemplatesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+
+StateTemplateSummaryTypeDef = TypedDict(
+    "StateTemplateSummaryTypeDef",
     {
-        "name": str,
-        "modelManifestArn": str,
+        "name": NotRequired[str],
+        "arn": NotRequired[str],
+        "signalCatalogArn": NotRequired[str],
+        "description": NotRequired[str],
+        "creationTime": NotRequired[datetime],
+        "lastModificationTime": NotRequired[datetime],
+        "id": NotRequired[str],
     },
-)
-_OptionalCreateDecoderManifestRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDecoderManifestRequestRequestTypeDef",
-    {
-        "description": str,
-        "signalDecoders": List["SignalDecoderTypeDef"],
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
 )
 
-class CreateDecoderManifestRequestRequestTypeDef(
-    _RequiredCreateDecoderManifestRequestRequestTypeDef,
-    _OptionalCreateDecoderManifestRequestRequestTypeDef,
-):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
 
-CreateDecoderManifestResponseTypeDef = TypedDict(
-    "CreateDecoderManifestResponseTypeDef",
+class ListVehiclesInFleetRequestTypeDef(TypedDict):
+    fleetId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListVehiclesRequestTypeDef(TypedDict):
+    modelManifestArn: NotRequired[str]
+    attributeNames: NotRequired[Sequence[str]]
+    attributeValues: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+
+class VehicleSummaryTypeDef(TypedDict):
+    vehicleName: str
+    arn: str
+    modelManifestArn: str
+    decoderManifestArn: str
+    creationTime: datetime
+    lastModificationTime: datetime
+    attributes: NotRequired[Dict[str, str]]
+
+class ObdInterfaceTypeDef(TypedDict):
+    name: str
+    requestMessageId: int
+    obdStandard: NotRequired[str]
+    pidRequestIntervalSeconds: NotRequired[int]
+    dtcRequestIntervalSeconds: NotRequired[int]
+    useExtendedIds: NotRequired[bool]
+    hasTransmissionEcu: NotRequired[bool]
+
+class VehicleMiddlewareTypeDef(TypedDict):
+    name: str
+    protocolName: Literal["ROS_2"]
+
+SensorOutputTypeDef = TypedDict(
+    "SensorOutputTypeDef",
     {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "fullyQualifiedName": str,
+        "dataType": NodeDataTypeType,
+        "description": NotRequired[str],
+        "unit": NotRequired[str],
+        "allowedValues": NotRequired[List[str]],
+        "min": NotRequired[float],
+        "max": NotRequired[float],
+        "deprecationMessage": NotRequired[str],
+        "comment": NotRequired[str],
+        "structFullyQualifiedName": NotRequired[str],
     },
 )
 
-_RequiredCreateFleetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFleetRequestRequestTypeDef",
+class ObdSignalTypeDef(TypedDict):
+    pidResponseLength: int
+    serviceMode: int
+    pid: int
+    scaling: float
+    offset: float
+    startByte: int
+    byteLength: int
+    bitRightShift: NotRequired[int]
+    bitMaskLength: NotRequired[int]
+    isSigned: NotRequired[bool]
+    signalValueType: NotRequired[SignalValueTypeType]
+
+class TimePeriodTypeDef(TypedDict):
+    unit: TimeUnitType
+    value: int
+
+class ROS2PrimitiveMessageDefinitionTypeDef(TypedDict):
+    primitiveType: ROS2PrimitiveTypeType
+    offset: NotRequired[float]
+    scaling: NotRequired[float]
+    upperBound: NotRequired[int]
+
+class PutEncryptionConfigurationRequestTypeDef(TypedDict):
+    encryptionType: EncryptionTypeType
+    kmsKeyId: NotRequired[str]
+
+class TimestreamResourcesTypeDef(TypedDict):
+    timestreamDatabaseName: str
+    timestreamTableName: str
+
+SensorTypeDef = TypedDict(
+    "SensorTypeDef",
     {
-        "fleetId": str,
-        "signalCatalogArn": str,
+        "fullyQualifiedName": str,
+        "dataType": NodeDataTypeType,
+        "description": NotRequired[str],
+        "unit": NotRequired[str],
+        "allowedValues": NotRequired[Sequence[str]],
+        "min": NotRequired[float],
+        "max": NotRequired[float],
+        "deprecationMessage": NotRequired[str],
+        "comment": NotRequired[str],
+        "structFullyQualifiedName": NotRequired[str],
     },
-)
-_OptionalCreateFleetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFleetRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
 )
 
-class CreateFleetRequestRequestTypeDef(
-    _RequiredCreateFleetRequestRequestTypeDef, _OptionalCreateFleetRequestRequestTypeDef
-):
-    pass
+class TimeBasedSignalFetchConfigTypeDef(TypedDict):
+    executionFrequencyMs: int
+
+class StructuredMessageFieldNameAndDataTypePairOutputTypeDef(TypedDict):
+    fieldName: str
+    dataType: Dict[str, Any]
+
+class StructuredMessageFieldNameAndDataTypePairPaginatorTypeDef(TypedDict):
+    fieldName: str
+    dataType: Dict[str, Any]
+
+class StructuredMessageFieldNameAndDataTypePairTypeDef(TypedDict):
+    fieldName: str
+    dataType: Mapping[str, Any]
+
+class StructuredMessageListDefinitionOutputTypeDef(TypedDict):
+    name: str
+    memberType: Dict[str, Any]
+    listType: StructuredMessageListTypeType
+    capacity: NotRequired[int]
+
+class StructuredMessageListDefinitionPaginatorTypeDef(TypedDict):
+    name: str
+    memberType: Dict[str, Any]
+    listType: StructuredMessageListTypeType
+    capacity: NotRequired[int]
+
+class StructuredMessageListDefinitionTypeDef(TypedDict):
+    name: str
+    memberType: Mapping[str, Any]
+    listType: StructuredMessageListTypeType
+    capacity: NotRequired[int]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class UpdateCampaignRequestTypeDef(TypedDict):
+    name: str
+    action: UpdateCampaignActionType
+    description: NotRequired[str]
+    dataExtraDimensions: NotRequired[Sequence[str]]
+
+class UpdateFleetRequestTypeDef(TypedDict):
+    fleetId: str
+    description: NotRequired[str]
+
+class UpdateModelManifestRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    nodesToAdd: NotRequired[Sequence[str]]
+    nodesToRemove: NotRequired[Sequence[str]]
+    status: NotRequired[ManifestStatusType]
+
+class UpdateStateTemplateRequestTypeDef(TypedDict):
+    identifier: str
+    description: NotRequired[str]
+    stateTemplatePropertiesToAdd: NotRequired[Sequence[str]]
+    stateTemplatePropertiesToRemove: NotRequired[Sequence[str]]
+    dataExtraDimensions: NotRequired[Sequence[str]]
+    metadataExtraDimensions: NotRequired[Sequence[str]]
+
+ActuatorUnionTypeDef = Union[ActuatorTypeDef, ActuatorOutputTypeDef]
+AttributeUnionTypeDef = Union[AttributeTypeDef, AttributeOutputTypeDef]
+
+class BatchCreateVehicleResponseTypeDef(TypedDict):
+    vehicles: List[CreateVehicleResponseItemTypeDef]
+    errors: List[CreateVehicleErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCampaignResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDecoderManifestResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 CreateFleetResponseTypeDef = TypedDict(
     "CreateFleetResponseTypeDef",
     {
         "id": str,
         "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredCreateModelManifestRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateModelManifestRequestRequestTypeDef",
-    {
-        "name": str,
-        "nodes": List[str],
-        "signalCatalogArn": str,
-    },
-)
-_OptionalCreateModelManifestRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateModelManifestRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class CreateModelManifestResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateModelManifestRequestRequestTypeDef(
-    _RequiredCreateModelManifestRequestRequestTypeDef,
-    _OptionalCreateModelManifestRequestRequestTypeDef,
-):
-    pass
+class CreateSignalCatalogResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateModelManifestResponseTypeDef = TypedDict(
-    "CreateModelManifestResponseTypeDef",
+CreateStateTemplateResponseTypeDef = TypedDict(
+    "CreateStateTemplateResponseTypeDef",
     {
         "name": str,
         "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredCreateSignalCatalogRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSignalCatalogRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateSignalCatalogRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSignalCatalogRequestRequestTypeDef",
-    {
-        "description": str,
-        "nodes": List["NodeTypeDef"],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class CreateVehicleResponseTypeDef(TypedDict):
+    vehicleName: str
+    arn: str
+    thingArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSignalCatalogRequestRequestTypeDef(
-    _RequiredCreateSignalCatalogRequestRequestTypeDef,
-    _OptionalCreateSignalCatalogRequestRequestTypeDef,
-):
-    pass
+class DeleteCampaignResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateSignalCatalogResponseTypeDef = TypedDict(
-    "CreateSignalCatalogResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateVehicleErrorTypeDef = TypedDict(
-    "CreateVehicleErrorTypeDef",
-    {
-        "vehicleName": str,
-        "code": str,
-        "message": str,
-    },
-    total=False,
-)
-
-_RequiredCreateVehicleRequestItemTypeDef = TypedDict(
-    "_RequiredCreateVehicleRequestItemTypeDef",
-    {
-        "vehicleName": str,
-        "modelManifestArn": str,
-        "decoderManifestArn": str,
-    },
-)
-_OptionalCreateVehicleRequestItemTypeDef = TypedDict(
-    "_OptionalCreateVehicleRequestItemTypeDef",
-    {
-        "attributes": Dict[str, str],
-        "associationBehavior": VehicleAssociationBehaviorType,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVehicleRequestItemTypeDef(
-    _RequiredCreateVehicleRequestItemTypeDef, _OptionalCreateVehicleRequestItemTypeDef
-):
-    pass
-
-_RequiredCreateVehicleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVehicleRequestRequestTypeDef",
-    {
-        "vehicleName": str,
-        "modelManifestArn": str,
-        "decoderManifestArn": str,
-    },
-)
-_OptionalCreateVehicleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVehicleRequestRequestTypeDef",
-    {
-        "attributes": Dict[str, str],
-        "associationBehavior": VehicleAssociationBehaviorType,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVehicleRequestRequestTypeDef(
-    _RequiredCreateVehicleRequestRequestTypeDef, _OptionalCreateVehicleRequestRequestTypeDef
-):
-    pass
-
-CreateVehicleResponseItemTypeDef = TypedDict(
-    "CreateVehicleResponseItemTypeDef",
-    {
-        "vehicleName": str,
-        "arn": str,
-        "thingArn": str,
-    },
-    total=False,
-)
-
-CreateVehicleResponseTypeDef = TypedDict(
-    "CreateVehicleResponseTypeDef",
-    {
-        "vehicleName": str,
-        "arn": str,
-        "thingArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCustomPropertyTypeDef = TypedDict(
-    "_RequiredCustomPropertyTypeDef",
-    {
-        "fullyQualifiedName": str,
-        "dataType": NodeDataTypeType,
-    },
-)
-_OptionalCustomPropertyTypeDef = TypedDict(
-    "_OptionalCustomPropertyTypeDef",
-    {
-        "dataEncoding": NodeDataEncodingType,
-        "description": str,
-        "deprecationMessage": str,
-        "comment": str,
-        "structFullyQualifiedName": str,
-    },
-    total=False,
-)
-
-class CustomPropertyTypeDef(_RequiredCustomPropertyTypeDef, _OptionalCustomPropertyTypeDef):
-    pass
-
-_RequiredCustomStructTypeDef = TypedDict(
-    "_RequiredCustomStructTypeDef",
-    {
-        "fullyQualifiedName": str,
-    },
-)
-_OptionalCustomStructTypeDef = TypedDict(
-    "_OptionalCustomStructTypeDef",
-    {
-        "description": str,
-        "deprecationMessage": str,
-        "comment": str,
-    },
-    total=False,
-)
-
-class CustomStructTypeDef(_RequiredCustomStructTypeDef, _OptionalCustomStructTypeDef):
-    pass
-
-DataDestinationConfigTypeDef = TypedDict(
-    "DataDestinationConfigTypeDef",
-    {
-        "s3Config": "S3ConfigTypeDef",
-        "timestreamConfig": "TimestreamConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDecoderManifestSummaryTypeDef = TypedDict(
-    "_RequiredDecoderManifestSummaryTypeDef",
-    {
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-    },
-)
-_OptionalDecoderManifestSummaryTypeDef = TypedDict(
-    "_OptionalDecoderManifestSummaryTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "modelManifestArn": str,
-        "description": str,
-        "status": ManifestStatusType,
-        "message": str,
-    },
-    total=False,
-)
-
-class DecoderManifestSummaryTypeDef(
-    _RequiredDecoderManifestSummaryTypeDef, _OptionalDecoderManifestSummaryTypeDef
-):
-    pass
-
-DeleteCampaignRequestRequestTypeDef = TypedDict(
-    "DeleteCampaignRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteCampaignResponseTypeDef = TypedDict(
-    "DeleteCampaignResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDecoderManifestRequestRequestTypeDef = TypedDict(
-    "DeleteDecoderManifestRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteDecoderManifestResponseTypeDef = TypedDict(
-    "DeleteDecoderManifestResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteFleetRequestRequestTypeDef = TypedDict(
-    "DeleteFleetRequestRequestTypeDef",
-    {
-        "fleetId": str,
-    },
-)
+class DeleteDecoderManifestResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 DeleteFleetResponseTypeDef = TypedDict(
     "DeleteFleetResponseTypeDef",
     {
         "id": str,
         "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-DeleteModelManifestRequestRequestTypeDef = TypedDict(
-    "DeleteModelManifestRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
+class DeleteModelManifestResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteModelManifestResponseTypeDef = TypedDict(
-    "DeleteModelManifestResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteSignalCatalogResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteSignalCatalogRequestRequestTypeDef = TypedDict(
-    "DeleteSignalCatalogRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteSignalCatalogResponseTypeDef = TypedDict(
-    "DeleteSignalCatalogResponseTypeDef",
+DeleteStateTemplateResponseTypeDef = TypedDict(
+    "DeleteStateTemplateResponseTypeDef",
     {
         "name": str,
         "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteVehicleRequestRequestTypeDef = TypedDict(
-    "DeleteVehicleRequestRequestTypeDef",
-    {
-        "vehicleName": str,
-    },
-)
-
-DeleteVehicleResponseTypeDef = TypedDict(
-    "DeleteVehicleResponseTypeDef",
-    {
-        "vehicleName": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateVehicleFleetRequestRequestTypeDef = TypedDict(
-    "DisassociateVehicleFleetRequestRequestTypeDef",
-    {
-        "vehicleName": str,
-        "fleetId": str,
-    },
-)
-
-_RequiredFleetSummaryTypeDef = TypedDict(
-    "_RequiredFleetSummaryTypeDef",
-    {
         "id": str,
-        "arn": str,
-        "signalCatalogArn": str,
-        "creationTime": datetime,
-    },
-)
-_OptionalFleetSummaryTypeDef = TypedDict(
-    "_OptionalFleetSummaryTypeDef",
-    {
-        "description": str,
-        "lastModificationTime": datetime,
-    },
-    total=False,
-)
-
-class FleetSummaryTypeDef(_RequiredFleetSummaryTypeDef, _OptionalFleetSummaryTypeDef):
-    pass
-
-FormattedVssTypeDef = TypedDict(
-    "FormattedVssTypeDef",
-    {
-        "vssJson": str,
-    },
-    total=False,
-)
-
-GetCampaignRequestRequestTypeDef = TypedDict(
-    "GetCampaignRequestRequestTypeDef",
-    {
-        "name": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetCampaignResponseTypeDef = TypedDict(
-    "GetCampaignResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "description": str,
-        "signalCatalogArn": str,
-        "targetArn": str,
-        "status": CampaignStatusType,
-        "startTime": datetime,
-        "expiryTime": datetime,
-        "postTriggerCollectionDuration": int,
-        "diagnosticsMode": DiagnosticsModeType,
-        "spoolingMode": SpoolingModeType,
-        "compression": CompressionType,
-        "priority": int,
-        "signalsToCollect": List["SignalInformationTypeDef"],
-        "collectionScheme": "CollectionSchemeTypeDef",
-        "dataExtraDimensions": List[str],
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-        "dataDestinationConfigs": List["DataDestinationConfigTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteVehicleResponseTypeDef(TypedDict):
+    vehicleName: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetDecoderManifestRequestRequestTypeDef = TypedDict(
-    "GetDecoderManifestRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
+class GetDecoderManifestResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    description: str
+    modelManifestArn: str
+    status: ManifestStatusType
+    creationTime: datetime
+    lastModificationTime: datetime
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetDecoderManifestResponseTypeDef = TypedDict(
-    "GetDecoderManifestResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "description": str,
-        "modelManifestArn": str,
-        "status": ManifestStatusType,
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEncryptionConfigurationResponseTypeDef = TypedDict(
-    "GetEncryptionConfigurationResponseTypeDef",
-    {
-        "kmsKeyId": str,
-        "encryptionStatus": EncryptionStatusType,
-        "encryptionType": EncryptionTypeType,
-        "errorMessage": str,
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFleetRequestRequestTypeDef = TypedDict(
-    "GetFleetRequestRequestTypeDef",
-    {
-        "fleetId": str,
-    },
-)
+class GetEncryptionConfigurationResponseTypeDef(TypedDict):
+    kmsKeyId: str
+    encryptionStatus: EncryptionStatusType
+    encryptionType: EncryptionTypeType
+    errorMessage: str
+    creationTime: datetime
+    lastModificationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetFleetResponseTypeDef = TypedDict(
     "GetFleetResponseTypeDef",
@@ -982,1220 +983,650 @@ GetFleetResponseTypeDef = TypedDict(
         "signalCatalogArn": str,
         "creationTime": datetime,
         "lastModificationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetLoggingOptionsResponseTypeDef = TypedDict(
-    "GetLoggingOptionsResponseTypeDef",
-    {
-        "cloudWatchLogDelivery": "CloudWatchLogDeliveryOptionsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetModelManifestResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    description: str
+    signalCatalogArn: str
+    status: ManifestStatusType
+    creationTime: datetime
+    lastModificationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetModelManifestRequestRequestTypeDef = TypedDict(
-    "GetModelManifestRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-GetModelManifestResponseTypeDef = TypedDict(
-    "GetModelManifestResponseTypeDef",
+GetStateTemplateResponseTypeDef = TypedDict(
+    "GetStateTemplateResponseTypeDef",
     {
         "name": str,
         "arn": str,
         "description": str,
         "signalCatalogArn": str,
-        "status": ManifestStatusType,
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRegisterAccountStatusResponseTypeDef = TypedDict(
-    "GetRegisterAccountStatusResponseTypeDef",
-    {
-        "customerAccountId": str,
-        "accountStatus": RegistrationStatusType,
-        "timestreamRegistrationResponse": "TimestreamRegistrationResponseTypeDef",
-        "iamRegistrationResponse": "IamRegistrationResponseTypeDef",
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSignalCatalogRequestRequestTypeDef = TypedDict(
-    "GetSignalCatalogRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-GetSignalCatalogResponseTypeDef = TypedDict(
-    "GetSignalCatalogResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "description": str,
-        "nodeCounts": "NodeCountsTypeDef",
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVehicleRequestRequestTypeDef = TypedDict(
-    "GetVehicleRequestRequestTypeDef",
-    {
-        "vehicleName": str,
-    },
-)
-
-GetVehicleResponseTypeDef = TypedDict(
-    "GetVehicleResponseTypeDef",
-    {
-        "vehicleName": str,
-        "arn": str,
-        "modelManifestArn": str,
-        "decoderManifestArn": str,
-        "attributes": Dict[str, str],
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetVehicleStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredGetVehicleStatusRequestRequestTypeDef",
-    {
-        "vehicleName": str,
-    },
-)
-_OptionalGetVehicleStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalGetVehicleStatusRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetVehicleStatusRequestRequestTypeDef(
-    _RequiredGetVehicleStatusRequestRequestTypeDef, _OptionalGetVehicleStatusRequestRequestTypeDef
-):
-    pass
-
-GetVehicleStatusResponseTypeDef = TypedDict(
-    "GetVehicleStatusResponseTypeDef",
-    {
-        "campaigns": List["VehicleStatusTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredIamRegistrationResponseTypeDef = TypedDict(
-    "_RequiredIamRegistrationResponseTypeDef",
-    {
-        "roleArn": str,
-        "registrationStatus": RegistrationStatusType,
-    },
-)
-_OptionalIamRegistrationResponseTypeDef = TypedDict(
-    "_OptionalIamRegistrationResponseTypeDef",
-    {
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-class IamRegistrationResponseTypeDef(
-    _RequiredIamRegistrationResponseTypeDef, _OptionalIamRegistrationResponseTypeDef
-):
-    pass
-
-IamResourcesTypeDef = TypedDict(
-    "IamResourcesTypeDef",
-    {
-        "roleArn": str,
-    },
-)
-
-ImportDecoderManifestRequestRequestTypeDef = TypedDict(
-    "ImportDecoderManifestRequestRequestTypeDef",
-    {
-        "name": str,
-        "networkFileDefinitions": List["NetworkFileDefinitionTypeDef"],
-    },
-)
-
-ImportDecoderManifestResponseTypeDef = TypedDict(
-    "ImportDecoderManifestResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImportSignalCatalogRequestRequestTypeDef = TypedDict(
-    "_RequiredImportSignalCatalogRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalImportSignalCatalogRequestRequestTypeDef = TypedDict(
-    "_OptionalImportSignalCatalogRequestRequestTypeDef",
-    {
-        "description": str,
-        "vss": "FormattedVssTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class ImportSignalCatalogRequestRequestTypeDef(
-    _RequiredImportSignalCatalogRequestRequestTypeDef,
-    _OptionalImportSignalCatalogRequestRequestTypeDef,
-):
-    pass
-
-ImportSignalCatalogResponseTypeDef = TypedDict(
-    "ImportSignalCatalogResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCampaignsRequestRequestTypeDef = TypedDict(
-    "ListCampaignsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "status": str,
-    },
-    total=False,
-)
-
-ListCampaignsResponseTypeDef = TypedDict(
-    "ListCampaignsResponseTypeDef",
-    {
-        "campaignSummaries": List["CampaignSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDecoderManifestNetworkInterfacesRequestRequestTypeDef = TypedDict(
-    "_RequiredListDecoderManifestNetworkInterfacesRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalListDecoderManifestNetworkInterfacesRequestRequestTypeDef = TypedDict(
-    "_OptionalListDecoderManifestNetworkInterfacesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListDecoderManifestNetworkInterfacesRequestRequestTypeDef(
-    _RequiredListDecoderManifestNetworkInterfacesRequestRequestTypeDef,
-    _OptionalListDecoderManifestNetworkInterfacesRequestRequestTypeDef,
-):
-    pass
-
-ListDecoderManifestNetworkInterfacesResponseTypeDef = TypedDict(
-    "ListDecoderManifestNetworkInterfacesResponseTypeDef",
-    {
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDecoderManifestSignalsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDecoderManifestSignalsRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalListDecoderManifestSignalsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDecoderManifestSignalsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListDecoderManifestSignalsRequestRequestTypeDef(
-    _RequiredListDecoderManifestSignalsRequestRequestTypeDef,
-    _OptionalListDecoderManifestSignalsRequestRequestTypeDef,
-):
-    pass
-
-ListDecoderManifestSignalsResponseTypeDef = TypedDict(
-    "ListDecoderManifestSignalsResponseTypeDef",
-    {
-        "signalDecoders": List["SignalDecoderTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDecoderManifestsRequestRequestTypeDef = TypedDict(
-    "ListDecoderManifestsRequestRequestTypeDef",
-    {
-        "modelManifestArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDecoderManifestsResponseTypeDef = TypedDict(
-    "ListDecoderManifestsResponseTypeDef",
-    {
-        "summaries": List["DecoderManifestSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFleetsForVehicleRequestRequestTypeDef = TypedDict(
-    "_RequiredListFleetsForVehicleRequestRequestTypeDef",
-    {
-        "vehicleName": str,
-    },
-)
-_OptionalListFleetsForVehicleRequestRequestTypeDef = TypedDict(
-    "_OptionalListFleetsForVehicleRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListFleetsForVehicleRequestRequestTypeDef(
-    _RequiredListFleetsForVehicleRequestRequestTypeDef,
-    _OptionalListFleetsForVehicleRequestRequestTypeDef,
-):
-    pass
-
-ListFleetsForVehicleResponseTypeDef = TypedDict(
-    "ListFleetsForVehicleResponseTypeDef",
-    {
-        "fleets": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFleetsRequestRequestTypeDef = TypedDict(
-    "ListFleetsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListFleetsResponseTypeDef = TypedDict(
-    "ListFleetsResponseTypeDef",
-    {
-        "fleetSummaries": List["FleetSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListModelManifestNodesRequestRequestTypeDef = TypedDict(
-    "_RequiredListModelManifestNodesRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalListModelManifestNodesRequestRequestTypeDef = TypedDict(
-    "_OptionalListModelManifestNodesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListModelManifestNodesRequestRequestTypeDef(
-    _RequiredListModelManifestNodesRequestRequestTypeDef,
-    _OptionalListModelManifestNodesRequestRequestTypeDef,
-):
-    pass
-
-ListModelManifestNodesResponseTypeDef = TypedDict(
-    "ListModelManifestNodesResponseTypeDef",
-    {
-        "nodes": List["NodeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListModelManifestsRequestRequestTypeDef = TypedDict(
-    "ListModelManifestsRequestRequestTypeDef",
-    {
-        "signalCatalogArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListModelManifestsResponseTypeDef = TypedDict(
-    "ListModelManifestsResponseTypeDef",
-    {
-        "summaries": List["ModelManifestSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSignalCatalogNodesRequestRequestTypeDef = TypedDict(
-    "_RequiredListSignalCatalogNodesRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalListSignalCatalogNodesRequestRequestTypeDef = TypedDict(
-    "_OptionalListSignalCatalogNodesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "signalNodeType": SignalNodeTypeType,
-    },
-    total=False,
-)
-
-class ListSignalCatalogNodesRequestRequestTypeDef(
-    _RequiredListSignalCatalogNodesRequestRequestTypeDef,
-    _OptionalListSignalCatalogNodesRequestRequestTypeDef,
-):
-    pass
-
-ListSignalCatalogNodesResponseTypeDef = TypedDict(
-    "ListSignalCatalogNodesResponseTypeDef",
-    {
-        "nodes": List["NodeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSignalCatalogsRequestRequestTypeDef = TypedDict(
-    "ListSignalCatalogsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListSignalCatalogsResponseTypeDef = TypedDict(
-    "ListSignalCatalogsResponseTypeDef",
-    {
-        "summaries": List["SignalCatalogSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListVehiclesInFleetRequestRequestTypeDef = TypedDict(
-    "_RequiredListVehiclesInFleetRequestRequestTypeDef",
-    {
-        "fleetId": str,
-    },
-)
-_OptionalListVehiclesInFleetRequestRequestTypeDef = TypedDict(
-    "_OptionalListVehiclesInFleetRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListVehiclesInFleetRequestRequestTypeDef(
-    _RequiredListVehiclesInFleetRequestRequestTypeDef,
-    _OptionalListVehiclesInFleetRequestRequestTypeDef,
-):
-    pass
-
-ListVehiclesInFleetResponseTypeDef = TypedDict(
-    "ListVehiclesInFleetResponseTypeDef",
-    {
-        "vehicles": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVehiclesRequestRequestTypeDef = TypedDict(
-    "ListVehiclesRequestRequestTypeDef",
-    {
-        "modelManifestArn": str,
-        "attributeNames": List[str],
-        "attributeValues": List[str],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListVehiclesResponseTypeDef = TypedDict(
-    "ListVehiclesResponseTypeDef",
-    {
-        "vehicleSummaries": List["VehicleSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MessageSignalTypeDef = TypedDict(
-    "MessageSignalTypeDef",
-    {
-        "topicName": str,
-        "structuredMessage": "StructuredMessageTypeDef",
-    },
-)
-
-_RequiredModelManifestSummaryTypeDef = TypedDict(
-    "_RequiredModelManifestSummaryTypeDef",
-    {
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-    },
-)
-_OptionalModelManifestSummaryTypeDef = TypedDict(
-    "_OptionalModelManifestSummaryTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "signalCatalogArn": str,
-        "description": str,
-        "status": ManifestStatusType,
-    },
-    total=False,
-)
-
-class ModelManifestSummaryTypeDef(
-    _RequiredModelManifestSummaryTypeDef, _OptionalModelManifestSummaryTypeDef
-):
-    pass
-
-NetworkFileDefinitionTypeDef = TypedDict(
-    "NetworkFileDefinitionTypeDef",
-    {
-        "canDbc": "CanDbcDefinitionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredNetworkInterfaceTypeDef = TypedDict(
-    "_RequiredNetworkInterfaceTypeDef",
-    {
-        "interfaceId": str,
-        "type": NetworkInterfaceTypeType,
-    },
-)
-_OptionalNetworkInterfaceTypeDef = TypedDict(
-    "_OptionalNetworkInterfaceTypeDef",
-    {
-        "canInterface": "CanInterfaceTypeDef",
-        "obdInterface": "ObdInterfaceTypeDef",
-        "vehicleMiddleware": "VehicleMiddlewareTypeDef",
-    },
-    total=False,
-)
-
-class NetworkInterfaceTypeDef(_RequiredNetworkInterfaceTypeDef, _OptionalNetworkInterfaceTypeDef):
-    pass
-
-NodeCountsTypeDef = TypedDict(
-    "NodeCountsTypeDef",
-    {
-        "totalNodes": int,
-        "totalBranches": int,
-        "totalSensors": int,
-        "totalAttributes": int,
-        "totalActuators": int,
-        "totalStructs": int,
-        "totalProperties": int,
-    },
-    total=False,
-)
-
-NodeTypeDef = TypedDict(
-    "NodeTypeDef",
-    {
-        "branch": "BranchTypeDef",
-        "sensor": "SensorTypeDef",
-        "actuator": "ActuatorTypeDef",
-        "attribute": "AttributeTypeDef",
-        "struct": "CustomStructTypeDef",
-        "property": "CustomPropertyTypeDef",
-    },
-    total=False,
-)
-
-_RequiredObdInterfaceTypeDef = TypedDict(
-    "_RequiredObdInterfaceTypeDef",
-    {
-        "name": str,
-        "requestMessageId": int,
-    },
-)
-_OptionalObdInterfaceTypeDef = TypedDict(
-    "_OptionalObdInterfaceTypeDef",
-    {
-        "obdStandard": str,
-        "pidRequestIntervalSeconds": int,
-        "dtcRequestIntervalSeconds": int,
-        "useExtendedIds": bool,
-        "hasTransmissionEcu": bool,
-    },
-    total=False,
-)
-
-class ObdInterfaceTypeDef(_RequiredObdInterfaceTypeDef, _OptionalObdInterfaceTypeDef):
-    pass
-
-_RequiredObdSignalTypeDef = TypedDict(
-    "_RequiredObdSignalTypeDef",
-    {
-        "pidResponseLength": int,
-        "serviceMode": int,
-        "pid": int,
-        "scaling": float,
-        "offset": float,
-        "startByte": int,
-        "byteLength": int,
-    },
-)
-_OptionalObdSignalTypeDef = TypedDict(
-    "_OptionalObdSignalTypeDef",
-    {
-        "bitRightShift": int,
-        "bitMaskLength": int,
-    },
-    total=False,
-)
-
-class ObdSignalTypeDef(_RequiredObdSignalTypeDef, _OptionalObdSignalTypeDef):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PrimitiveMessageDefinitionTypeDef = TypedDict(
-    "PrimitiveMessageDefinitionTypeDef",
-    {
-        "ros2PrimitiveMessageDefinition": "ROS2PrimitiveMessageDefinitionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredPutEncryptionConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutEncryptionConfigurationRequestRequestTypeDef",
-    {
-        "encryptionType": EncryptionTypeType,
-    },
-)
-_OptionalPutEncryptionConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutEncryptionConfigurationRequestRequestTypeDef",
-    {
-        "kmsKeyId": str,
-    },
-    total=False,
-)
-
-class PutEncryptionConfigurationRequestRequestTypeDef(
-    _RequiredPutEncryptionConfigurationRequestRequestTypeDef,
-    _OptionalPutEncryptionConfigurationRequestRequestTypeDef,
-):
-    pass
-
-PutEncryptionConfigurationResponseTypeDef = TypedDict(
-    "PutEncryptionConfigurationResponseTypeDef",
-    {
-        "kmsKeyId": str,
-        "encryptionStatus": EncryptionStatusType,
-        "encryptionType": EncryptionTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutLoggingOptionsRequestRequestTypeDef = TypedDict(
-    "PutLoggingOptionsRequestRequestTypeDef",
-    {
-        "cloudWatchLogDelivery": "CloudWatchLogDeliveryOptionsTypeDef",
-    },
-)
-
-_RequiredROS2PrimitiveMessageDefinitionTypeDef = TypedDict(
-    "_RequiredROS2PrimitiveMessageDefinitionTypeDef",
-    {
-        "primitiveType": ROS2PrimitiveTypeType,
-    },
-)
-_OptionalROS2PrimitiveMessageDefinitionTypeDef = TypedDict(
-    "_OptionalROS2PrimitiveMessageDefinitionTypeDef",
-    {
-        "offset": float,
-        "scaling": float,
-        "upperBound": int,
-    },
-    total=False,
-)
-
-class ROS2PrimitiveMessageDefinitionTypeDef(
-    _RequiredROS2PrimitiveMessageDefinitionTypeDef, _OptionalROS2PrimitiveMessageDefinitionTypeDef
-):
-    pass
-
-RegisterAccountRequestRequestTypeDef = TypedDict(
-    "RegisterAccountRequestRequestTypeDef",
-    {
-        "timestreamResources": "TimestreamResourcesTypeDef",
-        "iamResources": "IamResourcesTypeDef",
-    },
-    total=False,
-)
-
-RegisterAccountResponseTypeDef = TypedDict(
-    "RegisterAccountResponseTypeDef",
-    {
-        "registerAccountStatus": RegistrationStatusType,
-        "timestreamResources": "TimestreamResourcesTypeDef",
-        "iamResources": "IamResourcesTypeDef",
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredS3ConfigTypeDef = TypedDict(
-    "_RequiredS3ConfigTypeDef",
-    {
-        "bucketArn": str,
-    },
-)
-_OptionalS3ConfigTypeDef = TypedDict(
-    "_OptionalS3ConfigTypeDef",
-    {
-        "dataFormat": DataFormatType,
-        "storageCompressionFormat": StorageCompressionFormatType,
-        "prefix": str,
-    },
-    total=False,
-)
-
-class S3ConfigTypeDef(_RequiredS3ConfigTypeDef, _OptionalS3ConfigTypeDef):
-    pass
-
-_RequiredSensorTypeDef = TypedDict(
-    "_RequiredSensorTypeDef",
-    {
-        "fullyQualifiedName": str,
-        "dataType": NodeDataTypeType,
-    },
-)
-_OptionalSensorTypeDef = TypedDict(
-    "_OptionalSensorTypeDef",
-    {
-        "description": str,
-        "unit": str,
-        "allowedValues": List[str],
-        "min": float,
-        "max": float,
-        "deprecationMessage": str,
-        "comment": str,
-        "structFullyQualifiedName": str,
-    },
-    total=False,
-)
-
-class SensorTypeDef(_RequiredSensorTypeDef, _OptionalSensorTypeDef):
-    pass
-
-SignalCatalogSummaryTypeDef = TypedDict(
-    "SignalCatalogSummaryTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-    },
-    total=False,
-)
-
-_RequiredSignalDecoderTypeDef = TypedDict(
-    "_RequiredSignalDecoderTypeDef",
-    {
-        "fullyQualifiedName": str,
-        "type": SignalDecoderTypeType,
-        "interfaceId": str,
-    },
-)
-_OptionalSignalDecoderTypeDef = TypedDict(
-    "_OptionalSignalDecoderTypeDef",
-    {
-        "canSignal": "CanSignalTypeDef",
-        "obdSignal": "ObdSignalTypeDef",
-        "messageSignal": "MessageSignalTypeDef",
-    },
-    total=False,
-)
-
-class SignalDecoderTypeDef(_RequiredSignalDecoderTypeDef, _OptionalSignalDecoderTypeDef):
-    pass
-
-_RequiredSignalInformationTypeDef = TypedDict(
-    "_RequiredSignalInformationTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalSignalInformationTypeDef = TypedDict(
-    "_OptionalSignalInformationTypeDef",
-    {
-        "maxSampleCount": int,
-        "minimumSamplingIntervalMs": int,
-    },
-    total=False,
-)
-
-class SignalInformationTypeDef(
-    _RequiredSignalInformationTypeDef, _OptionalSignalInformationTypeDef
-):
-    pass
-
-StructuredMessageFieldNameAndDataTypePairTypeDef = TypedDict(
-    "StructuredMessageFieldNameAndDataTypePairTypeDef",
-    {
-        "fieldName": str,
-        "dataType": "StructuredMessageTypeDef",
-    },
-)
-
-_RequiredStructuredMessageListDefinitionTypeDef = TypedDict(
-    "_RequiredStructuredMessageListDefinitionTypeDef",
-    {
-        "name": str,
-        "memberType": Dict[str, Any],
-        "listType": StructuredMessageListTypeType,
-    },
-)
-_OptionalStructuredMessageListDefinitionTypeDef = TypedDict(
-    "_OptionalStructuredMessageListDefinitionTypeDef",
-    {
-        "capacity": int,
-    },
-    total=False,
-)
-
-class StructuredMessageListDefinitionTypeDef(
-    _RequiredStructuredMessageListDefinitionTypeDef, _OptionalStructuredMessageListDefinitionTypeDef
-):
-    pass
-
-StructuredMessageTypeDef = TypedDict(
-    "StructuredMessageTypeDef",
-    {
-        "primitiveMessageDefinition": "PrimitiveMessageDefinitionTypeDef",
-        "structuredMessageListDefinition": Dict[str, Any],
-        "structuredMessageDefinition": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TimeBasedCollectionSchemeTypeDef = TypedDict(
-    "TimeBasedCollectionSchemeTypeDef",
-    {
-        "periodMs": int,
-    },
-)
-
-TimestreamConfigTypeDef = TypedDict(
-    "TimestreamConfigTypeDef",
-    {
-        "timestreamTableArn": str,
-        "executionRoleArn": str,
-    },
-)
-
-_RequiredTimestreamRegistrationResponseTypeDef = TypedDict(
-    "_RequiredTimestreamRegistrationResponseTypeDef",
-    {
-        "timestreamDatabaseName": str,
-        "timestreamTableName": str,
-        "registrationStatus": RegistrationStatusType,
-    },
-)
-_OptionalTimestreamRegistrationResponseTypeDef = TypedDict(
-    "_OptionalTimestreamRegistrationResponseTypeDef",
-    {
-        "timestreamDatabaseArn": str,
-        "timestreamTableArn": str,
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-class TimestreamRegistrationResponseTypeDef(
-    _RequiredTimestreamRegistrationResponseTypeDef, _OptionalTimestreamRegistrationResponseTypeDef
-):
-    pass
-
-TimestreamResourcesTypeDef = TypedDict(
-    "TimestreamResourcesTypeDef",
-    {
-        "timestreamDatabaseName": str,
-        "timestreamTableName": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateCampaignRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCampaignRequestRequestTypeDef",
-    {
-        "name": str,
-        "action": UpdateCampaignActionType,
-    },
-)
-_OptionalUpdateCampaignRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCampaignRequestRequestTypeDef",
-    {
-        "description": str,
+        "stateTemplateProperties": List[str],
         "dataExtraDimensions": List[str],
-    },
-    total=False,
-)
-
-class UpdateCampaignRequestRequestTypeDef(
-    _RequiredUpdateCampaignRequestRequestTypeDef, _OptionalUpdateCampaignRequestRequestTypeDef
-):
-    pass
-
-UpdateCampaignResponseTypeDef = TypedDict(
-    "UpdateCampaignResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "status": CampaignStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "metadataExtraDimensions": List[str],
+        "creationTime": datetime,
+        "lastModificationTime": datetime,
+        "id": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateDecoderManifestRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDecoderManifestRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateDecoderManifestRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDecoderManifestRequestRequestTypeDef",
-    {
-        "description": str,
-        "signalDecodersToAdd": List["SignalDecoderTypeDef"],
-        "signalDecodersToUpdate": List["SignalDecoderTypeDef"],
-        "signalDecodersToRemove": List[str],
-        "networkInterfacesToAdd": List["NetworkInterfaceTypeDef"],
-        "networkInterfacesToUpdate": List["NetworkInterfaceTypeDef"],
-        "networkInterfacesToRemove": List[str],
-        "status": ManifestStatusType,
-    },
-    total=False,
-)
+class ImportDecoderManifestResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDecoderManifestRequestRequestTypeDef(
-    _RequiredUpdateDecoderManifestRequestRequestTypeDef,
-    _OptionalUpdateDecoderManifestRequestRequestTypeDef,
-):
-    pass
+class ImportSignalCatalogResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateDecoderManifestResponseTypeDef = TypedDict(
-    "UpdateDecoderManifestResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListFleetsForVehicleResponseTypeDef(TypedDict):
+    fleets: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredUpdateFleetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFleetRequestRequestTypeDef",
-    {
-        "fleetId": str,
-    },
-)
-_OptionalUpdateFleetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFleetRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
+class ListVehiclesInFleetResponseTypeDef(TypedDict):
+    vehicles: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class UpdateFleetRequestRequestTypeDef(
-    _RequiredUpdateFleetRequestRequestTypeDef, _OptionalUpdateFleetRequestRequestTypeDef
-):
-    pass
+class PutEncryptionConfigurationResponseTypeDef(TypedDict):
+    kmsKeyId: str
+    encryptionStatus: EncryptionStatusType
+    encryptionType: EncryptionTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCampaignResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    status: CampaignStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDecoderManifestResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 UpdateFleetResponseTypeDef = TypedDict(
     "UpdateFleetResponseTypeDef",
     {
         "id": str,
         "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateModelManifestRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateModelManifestRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateModelManifestRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateModelManifestRequestRequestTypeDef",
-    {
-        "description": str,
-        "nodesToAdd": List[str],
-        "nodesToRemove": List[str],
-        "status": ManifestStatusType,
-    },
-    total=False,
-)
+class UpdateModelManifestResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateModelManifestRequestRequestTypeDef(
-    _RequiredUpdateModelManifestRequestRequestTypeDef,
-    _OptionalUpdateModelManifestRequestRequestTypeDef,
-):
-    pass
+class UpdateSignalCatalogResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateModelManifestResponseTypeDef = TypedDict(
-    "UpdateModelManifestResponseTypeDef",
+UpdateStateTemplateResponseTypeDef = TypedDict(
+    "UpdateStateTemplateResponseTypeDef",
     {
         "name": str,
         "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateSignalCatalogRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSignalCatalogRequestRequestTypeDef",
+class UpdateVehicleResponseTypeDef(TypedDict):
+    vehicleName: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdateVehicleResponseTypeDef(TypedDict):
+    vehicles: List[UpdateVehicleResponseItemTypeDef]
+    errors: List[UpdateVehicleErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CanDbcDefinitionTypeDef(TypedDict):
+    networkInterface: str
+    canDbcFiles: Sequence[BlobTypeDef]
+    signalsMap: NotRequired[Mapping[str, str]]
+
+class ListCampaignsResponseTypeDef(TypedDict):
+    campaignSummaries: List[CampaignSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetLoggingOptionsResponseTypeDef(TypedDict):
+    cloudWatchLogDelivery: CloudWatchLogDeliveryOptionsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutLoggingOptionsRequestTypeDef(TypedDict):
+    cloudWatchLogDelivery: CloudWatchLogDeliveryOptionsTypeDef
+
+class CollectionSchemeTypeDef(TypedDict):
+    timeBasedCollectionScheme: NotRequired[TimeBasedCollectionSchemeTypeDef]
+    conditionBasedCollectionScheme: NotRequired[ConditionBasedCollectionSchemeTypeDef]
+
+class CreateFleetRequestTypeDef(TypedDict):
+    fleetId: str
+    signalCatalogArn: str
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateModelManifestRequestTypeDef(TypedDict):
+    name: str
+    nodes: Sequence[str]
+    signalCatalogArn: str
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateStateTemplateRequestTypeDef(TypedDict):
+    name: str
+    signalCatalogArn: str
+    stateTemplateProperties: Sequence[str]
+    description: NotRequired[str]
+    dataExtraDimensions: NotRequired[Sequence[str]]
+    metadataExtraDimensions: NotRequired[Sequence[str]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class DataDestinationConfigTypeDef(TypedDict):
+    s3Config: NotRequired[S3ConfigTypeDef]
+    timestreamConfig: NotRequired[TimestreamConfigTypeDef]
+    mqttTopicConfig: NotRequired[MqttTopicConfigTypeDef]
+
+class DataPartitionStorageOptionsTypeDef(TypedDict):
+    maximumSize: StorageMaximumSizeTypeDef
+    storageLocation: str
+    minimumTimeToLive: StorageMinimumTimeToLiveTypeDef
+
+class ListDecoderManifestsResponseTypeDef(TypedDict):
+    summaries: List[DecoderManifestSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListFleetsResponseTypeDef(TypedDict):
+    fleetSummaries: List[FleetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ImportSignalCatalogRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    vss: NotRequired[FormattedVssTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class GetRegisterAccountStatusResponseTypeDef(TypedDict):
+    customerAccountId: str
+    accountStatus: RegistrationStatusType
+    timestreamRegistrationResponse: TimestreamRegistrationResponseTypeDef
+    iamRegistrationResponse: IamRegistrationResponseTypeDef
+    creationTime: datetime
+    lastModificationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSignalCatalogResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    description: str
+    nodeCounts: NodeCountsTypeDef
+    creationTime: datetime
+    lastModificationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVehicleStatusRequestPaginateTypeDef(TypedDict):
+    vehicleName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCampaignsRequestPaginateTypeDef(TypedDict):
+    status: NotRequired[str]
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDecoderManifestNetworkInterfacesRequestPaginateTypeDef(TypedDict):
+    name: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDecoderManifestSignalsRequestPaginateTypeDef(TypedDict):
+    name: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDecoderManifestsRequestPaginateTypeDef(TypedDict):
+    modelManifestArn: NotRequired[str]
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFleetsForVehicleRequestPaginateTypeDef(TypedDict):
+    vehicleName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFleetsRequestPaginateTypeDef(TypedDict):
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListModelManifestNodesRequestPaginateTypeDef(TypedDict):
+    name: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListModelManifestsRequestPaginateTypeDef(TypedDict):
+    signalCatalogArn: NotRequired[str]
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSignalCatalogNodesRequestPaginateTypeDef(TypedDict):
+    name: str
+    signalNodeType: NotRequired[SignalNodeTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSignalCatalogsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStateTemplatesRequestPaginateTypeDef(TypedDict):
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVehiclesInFleetRequestPaginateTypeDef(TypedDict):
+    fleetId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVehiclesRequestPaginateTypeDef(TypedDict):
+    modelManifestArn: NotRequired[str]
+    attributeNames: NotRequired[Sequence[str]]
+    attributeValues: NotRequired[Sequence[str]]
+    listResponseScope: NotRequired[Literal["METADATA_ONLY"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetVehicleStatusResponseTypeDef(TypedDict):
+    campaigns: List[VehicleStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListModelManifestsResponseTypeDef(TypedDict):
+    summaries: List[ModelManifestSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSignalCatalogsResponseTypeDef(TypedDict):
+    summaries: List[SignalCatalogSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStateTemplatesResponseTypeDef(TypedDict):
+    summaries: List[StateTemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListVehiclesResponseTypeDef(TypedDict):
+    vehicleSummaries: List[VehicleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+NetworkInterfaceTypeDef = TypedDict(
+    "NetworkInterfaceTypeDef",
     {
-        "name": str,
+        "interfaceId": str,
+        "type": NetworkInterfaceTypeType,
+        "canInterface": NotRequired[CanInterfaceTypeDef],
+        "obdInterface": NotRequired[ObdInterfaceTypeDef],
+        "vehicleMiddleware": NotRequired[VehicleMiddlewareTypeDef],
+        "customDecodingInterface": NotRequired[CustomDecodingInterfaceTypeDef],
     },
 )
-_OptionalUpdateSignalCatalogRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSignalCatalogRequestRequestTypeDef",
+NodeOutputTypeDef = TypedDict(
+    "NodeOutputTypeDef",
     {
-        "description": str,
-        "nodesToAdd": List["NodeTypeDef"],
-        "nodesToUpdate": List["NodeTypeDef"],
-        "nodesToRemove": List[str],
+        "branch": NotRequired[BranchTypeDef],
+        "sensor": NotRequired[SensorOutputTypeDef],
+        "actuator": NotRequired[ActuatorOutputTypeDef],
+        "attribute": NotRequired[AttributeOutputTypeDef],
+        "struct": NotRequired[CustomStructTypeDef],
+        "property": NotRequired[CustomPropertyTypeDef],
     },
-    total=False,
 )
 
-class UpdateSignalCatalogRequestRequestTypeDef(
-    _RequiredUpdateSignalCatalogRequestRequestTypeDef,
-    _OptionalUpdateSignalCatalogRequestRequestTypeDef,
-):
-    pass
+class PeriodicStateTemplateUpdateStrategyTypeDef(TypedDict):
+    stateTemplateUpdateRate: TimePeriodTypeDef
 
-UpdateSignalCatalogResponseTypeDef = TypedDict(
-    "UpdateSignalCatalogResponseTypeDef",
+class PrimitiveMessageDefinitionTypeDef(TypedDict):
+    ros2PrimitiveMessageDefinition: NotRequired[ROS2PrimitiveMessageDefinitionTypeDef]
+
+class RegisterAccountRequestTypeDef(TypedDict):
+    timestreamResources: NotRequired[TimestreamResourcesTypeDef]
+    iamResources: NotRequired[IamResourcesTypeDef]
+
+class RegisterAccountResponseTypeDef(TypedDict):
+    registerAccountStatus: RegistrationStatusType
+    timestreamResources: TimestreamResourcesTypeDef
+    iamResources: IamResourcesTypeDef
+    creationTime: datetime
+    lastModificationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+SensorUnionTypeDef = Union[SensorTypeDef, SensorOutputTypeDef]
+
+class SignalFetchConfigTypeDef(TypedDict):
+    timeBased: NotRequired[TimeBasedSignalFetchConfigTypeDef]
+    conditionBased: NotRequired[ConditionBasedSignalFetchConfigTypeDef]
+
+StructuredMessageFieldNameAndDataTypePairUnionTypeDef = Union[
+    StructuredMessageFieldNameAndDataTypePairTypeDef,
+    StructuredMessageFieldNameAndDataTypePairOutputTypeDef,
+]
+StructuredMessageListDefinitionUnionTypeDef = Union[
+    StructuredMessageListDefinitionTypeDef, StructuredMessageListDefinitionOutputTypeDef
+]
+
+class NetworkFileDefinitionTypeDef(TypedDict):
+    canDbc: NotRequired[CanDbcDefinitionTypeDef]
+
+DataPartitionTypeDef = TypedDict(
+    "DataPartitionTypeDef",
     {
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": str,
+        "storageOptions": DataPartitionStorageOptionsTypeDef,
+        "uploadOptions": NotRequired[DataPartitionUploadOptionsTypeDef],
     },
 )
 
-UpdateVehicleErrorTypeDef = TypedDict(
-    "UpdateVehicleErrorTypeDef",
-    {
-        "vehicleName": str,
-        "code": int,
-        "message": str,
-    },
-    total=False,
-)
+class ListDecoderManifestNetworkInterfacesResponseTypeDef(TypedDict):
+    networkInterfaces: List[NetworkInterfaceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredUpdateVehicleRequestItemTypeDef = TypedDict(
-    "_RequiredUpdateVehicleRequestItemTypeDef",
-    {
-        "vehicleName": str,
-    },
-)
-_OptionalUpdateVehicleRequestItemTypeDef = TypedDict(
-    "_OptionalUpdateVehicleRequestItemTypeDef",
-    {
-        "modelManifestArn": str,
-        "decoderManifestArn": str,
-        "attributes": Dict[str, str],
-        "attributeUpdateMode": UpdateModeType,
-    },
-    total=False,
-)
+class ListModelManifestNodesResponseTypeDef(TypedDict):
+    nodes: List[NodeOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class UpdateVehicleRequestItemTypeDef(
-    _RequiredUpdateVehicleRequestItemTypeDef, _OptionalUpdateVehicleRequestItemTypeDef
-):
-    pass
+class ListSignalCatalogNodesResponseTypeDef(TypedDict):
+    nodes: List[NodeOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredUpdateVehicleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVehicleRequestRequestTypeDef",
-    {
-        "vehicleName": str,
-    },
-)
-_OptionalUpdateVehicleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVehicleRequestRequestTypeDef",
-    {
-        "modelManifestArn": str,
-        "decoderManifestArn": str,
-        "attributes": Dict[str, str],
-        "attributeUpdateMode": UpdateModeType,
-    },
-    total=False,
-)
+class StateTemplateUpdateStrategyOutputTypeDef(TypedDict):
+    periodic: NotRequired[PeriodicStateTemplateUpdateStrategyTypeDef]
+    onChange: NotRequired[Dict[str, Any]]
 
-class UpdateVehicleRequestRequestTypeDef(
-    _RequiredUpdateVehicleRequestRequestTypeDef, _OptionalUpdateVehicleRequestRequestTypeDef
-):
-    pass
+class StateTemplateUpdateStrategyTypeDef(TypedDict):
+    periodic: NotRequired[PeriodicStateTemplateUpdateStrategyTypeDef]
+    onChange: NotRequired[Mapping[str, Any]]
 
-UpdateVehicleResponseItemTypeDef = TypedDict(
-    "UpdateVehicleResponseItemTypeDef",
-    {
-        "vehicleName": str,
-        "arn": str,
-    },
-    total=False,
-)
+class StructuredMessageOutputTypeDef(TypedDict):
+    primitiveMessageDefinition: NotRequired[PrimitiveMessageDefinitionTypeDef]
+    structuredMessageListDefinition: NotRequired[StructuredMessageListDefinitionOutputTypeDef]
+    structuredMessageDefinition: NotRequired[
+        List[StructuredMessageFieldNameAndDataTypePairOutputTypeDef]
+    ]
 
-UpdateVehicleResponseTypeDef = TypedDict(
-    "UpdateVehicleResponseTypeDef",
+class StructuredMessagePaginatorTypeDef(TypedDict):
+    primitiveMessageDefinition: NotRequired[PrimitiveMessageDefinitionTypeDef]
+    structuredMessageListDefinition: NotRequired[StructuredMessageListDefinitionPaginatorTypeDef]
+    structuredMessageDefinition: NotRequired[
+        List[StructuredMessageFieldNameAndDataTypePairPaginatorTypeDef]
+    ]
+
+NodeTypeDef = TypedDict(
+    "NodeTypeDef",
     {
-        "vehicleName": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "branch": NotRequired[BranchTypeDef],
+        "sensor": NotRequired[SensorUnionTypeDef],
+        "actuator": NotRequired[ActuatorUnionTypeDef],
+        "attribute": NotRequired[AttributeUnionTypeDef],
+        "struct": NotRequired[CustomStructTypeDef],
+        "property": NotRequired[CustomPropertyTypeDef],
     },
 )
 
-VehicleMiddlewareTypeDef = TypedDict(
-    "VehicleMiddlewareTypeDef",
+class SignalFetchInformationOutputTypeDef(TypedDict):
+    fullyQualifiedName: str
+    signalFetchConfig: SignalFetchConfigTypeDef
+    actions: List[str]
+    conditionLanguageVersion: NotRequired[int]
+
+class SignalFetchInformationTypeDef(TypedDict):
+    fullyQualifiedName: str
+    signalFetchConfig: SignalFetchConfigTypeDef
+    actions: Sequence[str]
+    conditionLanguageVersion: NotRequired[int]
+
+class StructuredMessageTypeDef(TypedDict):
+    primitiveMessageDefinition: NotRequired[PrimitiveMessageDefinitionTypeDef]
+    structuredMessageListDefinition: NotRequired[StructuredMessageListDefinitionUnionTypeDef]
+    structuredMessageDefinition: NotRequired[
+        Sequence[StructuredMessageFieldNameAndDataTypePairUnionTypeDef]
+    ]
+
+class ImportDecoderManifestRequestTypeDef(TypedDict):
+    name: str
+    networkFileDefinitions: Sequence[NetworkFileDefinitionTypeDef]
+
+class StateTemplateAssociationOutputTypeDef(TypedDict):
+    identifier: str
+    stateTemplateUpdateStrategy: StateTemplateUpdateStrategyOutputTypeDef
+
+StateTemplateUpdateStrategyUnionTypeDef = Union[
+    StateTemplateUpdateStrategyTypeDef, StateTemplateUpdateStrategyOutputTypeDef
+]
+
+class MessageSignalOutputTypeDef(TypedDict):
+    topicName: str
+    structuredMessage: StructuredMessageOutputTypeDef
+
+class MessageSignalPaginatorTypeDef(TypedDict):
+    topicName: str
+    structuredMessage: StructuredMessagePaginatorTypeDef
+
+NodeUnionTypeDef = Union[NodeTypeDef, NodeOutputTypeDef]
+
+class GetCampaignResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    description: str
+    signalCatalogArn: str
+    targetArn: str
+    status: CampaignStatusType
+    startTime: datetime
+    expiryTime: datetime
+    postTriggerCollectionDuration: int
+    diagnosticsMode: DiagnosticsModeType
+    spoolingMode: SpoolingModeType
+    compression: CompressionType
+    priority: int
+    signalsToCollect: List[SignalInformationTypeDef]
+    collectionScheme: CollectionSchemeTypeDef
+    dataExtraDimensions: List[str]
+    creationTime: datetime
+    lastModificationTime: datetime
+    dataDestinationConfigs: List[DataDestinationConfigTypeDef]
+    dataPartitions: List[DataPartitionTypeDef]
+    signalsToFetch: List[SignalFetchInformationOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+SignalFetchInformationUnionTypeDef = Union[
+    SignalFetchInformationTypeDef, SignalFetchInformationOutputTypeDef
+]
+StructuredMessageUnionTypeDef = Union[StructuredMessageTypeDef, StructuredMessageOutputTypeDef]
+
+class GetVehicleResponseTypeDef(TypedDict):
+    vehicleName: str
+    arn: str
+    modelManifestArn: str
+    decoderManifestArn: str
+    attributes: Dict[str, str]
+    stateTemplates: List[StateTemplateAssociationOutputTypeDef]
+    creationTime: datetime
+    lastModificationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StateTemplateAssociationTypeDef(TypedDict):
+    identifier: str
+    stateTemplateUpdateStrategy: StateTemplateUpdateStrategyUnionTypeDef
+
+SignalDecoderOutputTypeDef = TypedDict(
+    "SignalDecoderOutputTypeDef",
     {
-        "name": str,
-        "protocolName": Literal["ROS_2"],
+        "fullyQualifiedName": str,
+        "type": SignalDecoderTypeType,
+        "interfaceId": str,
+        "canSignal": NotRequired[CanSignalTypeDef],
+        "obdSignal": NotRequired[ObdSignalTypeDef],
+        "messageSignal": NotRequired[MessageSignalOutputTypeDef],
+        "customDecodingSignal": NotRequired[CustomDecodingSignalTypeDef],
+    },
+)
+SignalDecoderPaginatorTypeDef = TypedDict(
+    "SignalDecoderPaginatorTypeDef",
+    {
+        "fullyQualifiedName": str,
+        "type": SignalDecoderTypeType,
+        "interfaceId": str,
+        "canSignal": NotRequired[CanSignalTypeDef],
+        "obdSignal": NotRequired[ObdSignalTypeDef],
+        "messageSignal": NotRequired[MessageSignalPaginatorTypeDef],
+        "customDecodingSignal": NotRequired[CustomDecodingSignalTypeDef],
     },
 )
 
-VehicleStatusTypeDef = TypedDict(
-    "VehicleStatusTypeDef",
+class CreateSignalCatalogRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    nodes: NotRequired[Sequence[NodeUnionTypeDef]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateSignalCatalogRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    nodesToAdd: NotRequired[Sequence[NodeUnionTypeDef]]
+    nodesToUpdate: NotRequired[Sequence[NodeUnionTypeDef]]
+    nodesToRemove: NotRequired[Sequence[str]]
+
+class CreateCampaignRequestTypeDef(TypedDict):
+    name: str
+    signalCatalogArn: str
+    targetArn: str
+    collectionScheme: CollectionSchemeTypeDef
+    description: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+    expiryTime: NotRequired[TimestampTypeDef]
+    postTriggerCollectionDuration: NotRequired[int]
+    diagnosticsMode: NotRequired[DiagnosticsModeType]
+    spoolingMode: NotRequired[SpoolingModeType]
+    compression: NotRequired[CompressionType]
+    priority: NotRequired[int]
+    signalsToCollect: NotRequired[Sequence[SignalInformationTypeDef]]
+    dataExtraDimensions: NotRequired[Sequence[str]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    dataDestinationConfigs: NotRequired[Sequence[DataDestinationConfigTypeDef]]
+    dataPartitions: NotRequired[Sequence[DataPartitionTypeDef]]
+    signalsToFetch: NotRequired[Sequence[SignalFetchInformationUnionTypeDef]]
+
+class MessageSignalTypeDef(TypedDict):
+    topicName: str
+    structuredMessage: StructuredMessageUnionTypeDef
+
+StateTemplateAssociationUnionTypeDef = Union[
+    StateTemplateAssociationTypeDef, StateTemplateAssociationOutputTypeDef
+]
+
+class ListDecoderManifestSignalsResponseTypeDef(TypedDict):
+    signalDecoders: List[SignalDecoderOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDecoderManifestSignalsResponsePaginatorTypeDef(TypedDict):
+    signalDecoders: List[SignalDecoderPaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+MessageSignalUnionTypeDef = Union[MessageSignalTypeDef, MessageSignalOutputTypeDef]
+
+class CreateVehicleRequestItemTypeDef(TypedDict):
+    vehicleName: str
+    modelManifestArn: str
+    decoderManifestArn: str
+    attributes: NotRequired[Mapping[str, str]]
+    associationBehavior: NotRequired[VehicleAssociationBehaviorType]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    stateTemplates: NotRequired[Sequence[StateTemplateAssociationUnionTypeDef]]
+
+class CreateVehicleRequestTypeDef(TypedDict):
+    vehicleName: str
+    modelManifestArn: str
+    decoderManifestArn: str
+    attributes: NotRequired[Mapping[str, str]]
+    associationBehavior: NotRequired[VehicleAssociationBehaviorType]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    stateTemplates: NotRequired[Sequence[StateTemplateAssociationUnionTypeDef]]
+
+class UpdateVehicleRequestItemTypeDef(TypedDict):
+    vehicleName: str
+    modelManifestArn: NotRequired[str]
+    decoderManifestArn: NotRequired[str]
+    attributes: NotRequired[Mapping[str, str]]
+    attributeUpdateMode: NotRequired[UpdateModeType]
+    stateTemplatesToAdd: NotRequired[Sequence[StateTemplateAssociationUnionTypeDef]]
+    stateTemplatesToRemove: NotRequired[Sequence[str]]
+    stateTemplatesToUpdate: NotRequired[Sequence[StateTemplateAssociationTypeDef]]
+
+class UpdateVehicleRequestTypeDef(TypedDict):
+    vehicleName: str
+    modelManifestArn: NotRequired[str]
+    decoderManifestArn: NotRequired[str]
+    attributes: NotRequired[Mapping[str, str]]
+    attributeUpdateMode: NotRequired[UpdateModeType]
+    stateTemplatesToAdd: NotRequired[Sequence[StateTemplateAssociationUnionTypeDef]]
+    stateTemplatesToRemove: NotRequired[Sequence[str]]
+    stateTemplatesToUpdate: NotRequired[Sequence[StateTemplateAssociationUnionTypeDef]]
+
+SignalDecoderTypeDef = TypedDict(
+    "SignalDecoderTypeDef",
     {
-        "campaignName": str,
-        "vehicleName": str,
-        "status": VehicleStateType,
+        "fullyQualifiedName": str,
+        "type": SignalDecoderTypeType,
+        "interfaceId": str,
+        "canSignal": NotRequired[CanSignalTypeDef],
+        "obdSignal": NotRequired[ObdSignalTypeDef],
+        "messageSignal": NotRequired[MessageSignalUnionTypeDef],
+        "customDecodingSignal": NotRequired[CustomDecodingSignalTypeDef],
     },
-    total=False,
 )
 
-_RequiredVehicleSummaryTypeDef = TypedDict(
-    "_RequiredVehicleSummaryTypeDef",
-    {
-        "vehicleName": str,
-        "arn": str,
-        "modelManifestArn": str,
-        "decoderManifestArn": str,
-        "creationTime": datetime,
-        "lastModificationTime": datetime,
-    },
-)
-_OptionalVehicleSummaryTypeDef = TypedDict(
-    "_OptionalVehicleSummaryTypeDef",
-    {
-        "attributes": Dict[str, str],
-    },
-    total=False,
-)
+class BatchCreateVehicleRequestTypeDef(TypedDict):
+    vehicles: Sequence[CreateVehicleRequestItemTypeDef]
 
-class VehicleSummaryTypeDef(_RequiredVehicleSummaryTypeDef, _OptionalVehicleSummaryTypeDef):
-    pass
+class BatchUpdateVehicleRequestTypeDef(TypedDict):
+    vehicles: Sequence[UpdateVehicleRequestItemTypeDef]
+
+SignalDecoderUnionTypeDef = Union[SignalDecoderTypeDef, SignalDecoderOutputTypeDef]
+
+class CreateDecoderManifestRequestTypeDef(TypedDict):
+    name: str
+    modelManifestArn: str
+    description: NotRequired[str]
+    signalDecoders: NotRequired[Sequence[SignalDecoderUnionTypeDef]]
+    networkInterfaces: NotRequired[Sequence[NetworkInterfaceTypeDef]]
+    defaultForUnmappedSignals: NotRequired[Literal["CUSTOM_DECODING"]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateDecoderManifestRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    signalDecodersToAdd: NotRequired[Sequence[SignalDecoderUnionTypeDef]]
+    signalDecodersToUpdate: NotRequired[Sequence[SignalDecoderUnionTypeDef]]
+    signalDecodersToRemove: NotRequired[Sequence[str]]
+    networkInterfacesToAdd: NotRequired[Sequence[NetworkInterfaceTypeDef]]
+    networkInterfacesToUpdate: NotRequired[Sequence[NetworkInterfaceTypeDef]]
+    networkInterfacesToRemove: NotRequired[Sequence[str]]
+    status: NotRequired[ManifestStatusType]
+    defaultForUnmappedSignals: NotRequired[Literal["CUSTOM_DECODING"]]

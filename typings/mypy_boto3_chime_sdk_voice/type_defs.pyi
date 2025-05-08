@@ -1,26 +1,31 @@
 """
 Type annotations for chime-sdk-voice service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_chime_sdk_voice.type_defs import AddressTypeDef
 
-    data: AddressTypeDef = {...}
+    data: AddressTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AlexaSkillStatusType,
     CallingNameStatusType,
     CallLegTypeType,
     CapabilityType,
+    ContactCenterSystemTypeType,
     ErrorCodeType,
     GeoMatchLevelType,
     NotificationTargetType,
@@ -34,143 +39,158 @@ from .literals import (
     PhoneNumberStatusType,
     PhoneNumberTypeType,
     ProxySessionStatusType,
+    SessionBorderControllerTypeType,
     SipRuleTriggerTypeType,
     VoiceConnectorAwsRegionType,
+    VoiceConnectorIntegrationTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AddressTypeDef",
-    "AssociatePhoneNumbersWithVoiceConnectorGroupRequestRequestTypeDef",
+    "AssociatePhoneNumbersWithVoiceConnectorGroupRequestTypeDef",
     "AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef",
-    "AssociatePhoneNumbersWithVoiceConnectorRequestRequestTypeDef",
+    "AssociatePhoneNumbersWithVoiceConnectorRequestTypeDef",
     "AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef",
-    "BatchDeletePhoneNumberRequestRequestTypeDef",
+    "BatchDeletePhoneNumberRequestTypeDef",
     "BatchDeletePhoneNumberResponseTypeDef",
-    "BatchUpdatePhoneNumberRequestRequestTypeDef",
+    "BatchUpdatePhoneNumberRequestTypeDef",
     "BatchUpdatePhoneNumberResponseTypeDef",
     "CallDetailsTypeDef",
     "CandidateAddressTypeDef",
-    "CreatePhoneNumberOrderRequestRequestTypeDef",
+    "CreatePhoneNumberOrderRequestTypeDef",
     "CreatePhoneNumberOrderResponseTypeDef",
-    "CreateProxySessionRequestRequestTypeDef",
+    "CreateProxySessionRequestTypeDef",
     "CreateProxySessionResponseTypeDef",
-    "CreateSipMediaApplicationCallRequestRequestTypeDef",
+    "CreateSipMediaApplicationCallRequestTypeDef",
     "CreateSipMediaApplicationCallResponseTypeDef",
-    "CreateSipMediaApplicationRequestRequestTypeDef",
+    "CreateSipMediaApplicationRequestTypeDef",
     "CreateSipMediaApplicationResponseTypeDef",
-    "CreateSipRuleRequestRequestTypeDef",
+    "CreateSipRuleRequestTypeDef",
     "CreateSipRuleResponseTypeDef",
-    "CreateVoiceConnectorGroupRequestRequestTypeDef",
+    "CreateVoiceConnectorGroupRequestTypeDef",
     "CreateVoiceConnectorGroupResponseTypeDef",
-    "CreateVoiceConnectorRequestRequestTypeDef",
+    "CreateVoiceConnectorRequestTypeDef",
     "CreateVoiceConnectorResponseTypeDef",
-    "CreateVoiceProfileDomainRequestRequestTypeDef",
+    "CreateVoiceProfileDomainRequestTypeDef",
     "CreateVoiceProfileDomainResponseTypeDef",
-    "CreateVoiceProfileRequestRequestTypeDef",
+    "CreateVoiceProfileRequestTypeDef",
     "CreateVoiceProfileResponseTypeDef",
     "CredentialTypeDef",
     "DNISEmergencyCallingConfigurationTypeDef",
-    "DeletePhoneNumberRequestRequestTypeDef",
-    "DeleteProxySessionRequestRequestTypeDef",
-    "DeleteSipMediaApplicationRequestRequestTypeDef",
-    "DeleteSipRuleRequestRequestTypeDef",
-    "DeleteVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef",
-    "DeleteVoiceConnectorGroupRequestRequestTypeDef",
-    "DeleteVoiceConnectorOriginationRequestRequestTypeDef",
-    "DeleteVoiceConnectorProxyRequestRequestTypeDef",
-    "DeleteVoiceConnectorRequestRequestTypeDef",
-    "DeleteVoiceConnectorStreamingConfigurationRequestRequestTypeDef",
-    "DeleteVoiceConnectorTerminationCredentialsRequestRequestTypeDef",
-    "DeleteVoiceConnectorTerminationRequestRequestTypeDef",
-    "DeleteVoiceProfileDomainRequestRequestTypeDef",
-    "DeleteVoiceProfileRequestRequestTypeDef",
-    "DisassociatePhoneNumbersFromVoiceConnectorGroupRequestRequestTypeDef",
+    "DeletePhoneNumberRequestTypeDef",
+    "DeleteProxySessionRequestTypeDef",
+    "DeleteSipMediaApplicationRequestTypeDef",
+    "DeleteSipRuleRequestTypeDef",
+    "DeleteVoiceConnectorEmergencyCallingConfigurationRequestTypeDef",
+    "DeleteVoiceConnectorExternalSystemsConfigurationRequestTypeDef",
+    "DeleteVoiceConnectorGroupRequestTypeDef",
+    "DeleteVoiceConnectorOriginationRequestTypeDef",
+    "DeleteVoiceConnectorProxyRequestTypeDef",
+    "DeleteVoiceConnectorRequestTypeDef",
+    "DeleteVoiceConnectorStreamingConfigurationRequestTypeDef",
+    "DeleteVoiceConnectorTerminationCredentialsRequestTypeDef",
+    "DeleteVoiceConnectorTerminationRequestTypeDef",
+    "DeleteVoiceProfileDomainRequestTypeDef",
+    "DeleteVoiceProfileRequestTypeDef",
+    "DisassociatePhoneNumbersFromVoiceConnectorGroupRequestTypeDef",
     "DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef",
-    "DisassociatePhoneNumbersFromVoiceConnectorRequestRequestTypeDef",
+    "DisassociatePhoneNumbersFromVoiceConnectorRequestTypeDef",
     "DisassociatePhoneNumbersFromVoiceConnectorResponseTypeDef",
+    "EmergencyCallingConfigurationOutputTypeDef",
     "EmergencyCallingConfigurationTypeDef",
+    "EmergencyCallingConfigurationUnionTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "ExternalSystemsConfigurationTypeDef",
     "GeoMatchParamsTypeDef",
     "GetGlobalSettingsResponseTypeDef",
-    "GetPhoneNumberOrderRequestRequestTypeDef",
+    "GetPhoneNumberOrderRequestTypeDef",
     "GetPhoneNumberOrderResponseTypeDef",
-    "GetPhoneNumberRequestRequestTypeDef",
+    "GetPhoneNumberRequestTypeDef",
     "GetPhoneNumberResponseTypeDef",
     "GetPhoneNumberSettingsResponseTypeDef",
-    "GetProxySessionRequestRequestTypeDef",
+    "GetProxySessionRequestTypeDef",
     "GetProxySessionResponseTypeDef",
-    "GetSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef",
+    "GetSipMediaApplicationAlexaSkillConfigurationRequestTypeDef",
     "GetSipMediaApplicationAlexaSkillConfigurationResponseTypeDef",
-    "GetSipMediaApplicationLoggingConfigurationRequestRequestTypeDef",
+    "GetSipMediaApplicationLoggingConfigurationRequestTypeDef",
     "GetSipMediaApplicationLoggingConfigurationResponseTypeDef",
-    "GetSipMediaApplicationRequestRequestTypeDef",
+    "GetSipMediaApplicationRequestTypeDef",
     "GetSipMediaApplicationResponseTypeDef",
-    "GetSipRuleRequestRequestTypeDef",
+    "GetSipRuleRequestTypeDef",
     "GetSipRuleResponseTypeDef",
-    "GetSpeakerSearchTaskRequestRequestTypeDef",
+    "GetSpeakerSearchTaskRequestTypeDef",
     "GetSpeakerSearchTaskResponseTypeDef",
-    "GetVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef",
+    "GetVoiceConnectorEmergencyCallingConfigurationRequestTypeDef",
     "GetVoiceConnectorEmergencyCallingConfigurationResponseTypeDef",
-    "GetVoiceConnectorGroupRequestRequestTypeDef",
+    "GetVoiceConnectorExternalSystemsConfigurationRequestTypeDef",
+    "GetVoiceConnectorExternalSystemsConfigurationResponseTypeDef",
+    "GetVoiceConnectorGroupRequestTypeDef",
     "GetVoiceConnectorGroupResponseTypeDef",
-    "GetVoiceConnectorLoggingConfigurationRequestRequestTypeDef",
+    "GetVoiceConnectorLoggingConfigurationRequestTypeDef",
     "GetVoiceConnectorLoggingConfigurationResponseTypeDef",
-    "GetVoiceConnectorOriginationRequestRequestTypeDef",
+    "GetVoiceConnectorOriginationRequestTypeDef",
     "GetVoiceConnectorOriginationResponseTypeDef",
-    "GetVoiceConnectorProxyRequestRequestTypeDef",
+    "GetVoiceConnectorProxyRequestTypeDef",
     "GetVoiceConnectorProxyResponseTypeDef",
-    "GetVoiceConnectorRequestRequestTypeDef",
+    "GetVoiceConnectorRequestTypeDef",
     "GetVoiceConnectorResponseTypeDef",
-    "GetVoiceConnectorStreamingConfigurationRequestRequestTypeDef",
+    "GetVoiceConnectorStreamingConfigurationRequestTypeDef",
     "GetVoiceConnectorStreamingConfigurationResponseTypeDef",
-    "GetVoiceConnectorTerminationHealthRequestRequestTypeDef",
+    "GetVoiceConnectorTerminationHealthRequestTypeDef",
     "GetVoiceConnectorTerminationHealthResponseTypeDef",
-    "GetVoiceConnectorTerminationRequestRequestTypeDef",
+    "GetVoiceConnectorTerminationRequestTypeDef",
     "GetVoiceConnectorTerminationResponseTypeDef",
-    "GetVoiceProfileDomainRequestRequestTypeDef",
+    "GetVoiceProfileDomainRequestTypeDef",
     "GetVoiceProfileDomainResponseTypeDef",
-    "GetVoiceProfileRequestRequestTypeDef",
+    "GetVoiceProfileRequestTypeDef",
     "GetVoiceProfileResponseTypeDef",
-    "GetVoiceToneAnalysisTaskRequestRequestTypeDef",
+    "GetVoiceToneAnalysisTaskRequestTypeDef",
     "GetVoiceToneAnalysisTaskResponseTypeDef",
     "ListAvailableVoiceConnectorRegionsResponseTypeDef",
-    "ListPhoneNumberOrdersRequestRequestTypeDef",
+    "ListPhoneNumberOrdersRequestTypeDef",
     "ListPhoneNumberOrdersResponseTypeDef",
-    "ListPhoneNumbersRequestRequestTypeDef",
+    "ListPhoneNumbersRequestTypeDef",
     "ListPhoneNumbersResponseTypeDef",
-    "ListProxySessionsRequestRequestTypeDef",
+    "ListProxySessionsRequestTypeDef",
     "ListProxySessionsResponseTypeDef",
-    "ListSipMediaApplicationsRequestRequestTypeDef",
+    "ListSipMediaApplicationsRequestPaginateTypeDef",
+    "ListSipMediaApplicationsRequestTypeDef",
     "ListSipMediaApplicationsResponseTypeDef",
-    "ListSipRulesRequestRequestTypeDef",
+    "ListSipRulesRequestPaginateTypeDef",
+    "ListSipRulesRequestTypeDef",
     "ListSipRulesResponseTypeDef",
-    "ListSupportedPhoneNumberCountriesRequestRequestTypeDef",
+    "ListSupportedPhoneNumberCountriesRequestTypeDef",
     "ListSupportedPhoneNumberCountriesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListVoiceConnectorGroupsRequestRequestTypeDef",
+    "ListVoiceConnectorGroupsRequestTypeDef",
     "ListVoiceConnectorGroupsResponseTypeDef",
-    "ListVoiceConnectorTerminationCredentialsRequestRequestTypeDef",
+    "ListVoiceConnectorTerminationCredentialsRequestTypeDef",
     "ListVoiceConnectorTerminationCredentialsResponseTypeDef",
-    "ListVoiceConnectorsRequestRequestTypeDef",
+    "ListVoiceConnectorsRequestTypeDef",
     "ListVoiceConnectorsResponseTypeDef",
-    "ListVoiceProfileDomainsRequestRequestTypeDef",
+    "ListVoiceProfileDomainsRequestTypeDef",
     "ListVoiceProfileDomainsResponseTypeDef",
-    "ListVoiceProfilesRequestRequestTypeDef",
+    "ListVoiceProfilesRequestTypeDef",
     "ListVoiceProfilesResponseTypeDef",
     "LoggingConfigurationTypeDef",
     "MediaInsightsConfigurationTypeDef",
     "OrderedPhoneNumberTypeDef",
+    "OriginationOutputTypeDef",
     "OriginationRouteTypeDef",
     "OriginationTypeDef",
+    "OriginationUnionTypeDef",
     "PaginatorConfigTypeDef",
     "ParticipantTypeDef",
     "PhoneNumberAssociationTypeDef",
@@ -181,30 +201,34 @@ __all__ = (
     "PhoneNumberTypeDef",
     "ProxySessionTypeDef",
     "ProxyTypeDef",
-    "PutSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef",
+    "PutSipMediaApplicationAlexaSkillConfigurationRequestTypeDef",
     "PutSipMediaApplicationAlexaSkillConfigurationResponseTypeDef",
-    "PutSipMediaApplicationLoggingConfigurationRequestRequestTypeDef",
+    "PutSipMediaApplicationLoggingConfigurationRequestTypeDef",
     "PutSipMediaApplicationLoggingConfigurationResponseTypeDef",
-    "PutVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef",
+    "PutVoiceConnectorEmergencyCallingConfigurationRequestTypeDef",
     "PutVoiceConnectorEmergencyCallingConfigurationResponseTypeDef",
-    "PutVoiceConnectorLoggingConfigurationRequestRequestTypeDef",
+    "PutVoiceConnectorExternalSystemsConfigurationRequestTypeDef",
+    "PutVoiceConnectorExternalSystemsConfigurationResponseTypeDef",
+    "PutVoiceConnectorLoggingConfigurationRequestTypeDef",
     "PutVoiceConnectorLoggingConfigurationResponseTypeDef",
-    "PutVoiceConnectorOriginationRequestRequestTypeDef",
+    "PutVoiceConnectorOriginationRequestTypeDef",
     "PutVoiceConnectorOriginationResponseTypeDef",
-    "PutVoiceConnectorProxyRequestRequestTypeDef",
+    "PutVoiceConnectorProxyRequestTypeDef",
     "PutVoiceConnectorProxyResponseTypeDef",
-    "PutVoiceConnectorStreamingConfigurationRequestRequestTypeDef",
+    "PutVoiceConnectorStreamingConfigurationRequestTypeDef",
     "PutVoiceConnectorStreamingConfigurationResponseTypeDef",
-    "PutVoiceConnectorTerminationCredentialsRequestRequestTypeDef",
-    "PutVoiceConnectorTerminationRequestRequestTypeDef",
+    "PutVoiceConnectorTerminationCredentialsRequestTypeDef",
+    "PutVoiceConnectorTerminationRequestTypeDef",
     "PutVoiceConnectorTerminationResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "RestorePhoneNumberRequestRequestTypeDef",
+    "RestorePhoneNumberRequestTypeDef",
     "RestorePhoneNumberResponseTypeDef",
-    "SearchAvailablePhoneNumbersRequestRequestTypeDef",
+    "SearchAvailablePhoneNumbersRequestTypeDef",
     "SearchAvailablePhoneNumbersResponseTypeDef",
     "ServerSideEncryptionConfigurationTypeDef",
+    "SipMediaApplicationAlexaSkillConfigurationOutputTypeDef",
     "SipMediaApplicationAlexaSkillConfigurationTypeDef",
+    "SipMediaApplicationAlexaSkillConfigurationUnionTypeDef",
     "SipMediaApplicationCallTypeDef",
     "SipMediaApplicationEndpointTypeDef",
     "SipMediaApplicationLoggingConfigurationTypeDef",
@@ -214,41 +238,45 @@ __all__ = (
     "SpeakerSearchDetailsTypeDef",
     "SpeakerSearchResultTypeDef",
     "SpeakerSearchTaskTypeDef",
-    "StartSpeakerSearchTaskRequestRequestTypeDef",
+    "StartSpeakerSearchTaskRequestTypeDef",
     "StartSpeakerSearchTaskResponseTypeDef",
-    "StartVoiceToneAnalysisTaskRequestRequestTypeDef",
+    "StartVoiceToneAnalysisTaskRequestTypeDef",
     "StartVoiceToneAnalysisTaskResponseTypeDef",
-    "StopSpeakerSearchTaskRequestRequestTypeDef",
-    "StopVoiceToneAnalysisTaskRequestRequestTypeDef",
+    "StopSpeakerSearchTaskRequestTypeDef",
+    "StopVoiceToneAnalysisTaskRequestTypeDef",
+    "StreamingConfigurationOutputTypeDef",
     "StreamingConfigurationTypeDef",
+    "StreamingConfigurationUnionTypeDef",
     "StreamingNotificationTargetTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TerminationHealthTypeDef",
+    "TerminationOutputTypeDef",
     "TerminationTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateGlobalSettingsRequestRequestTypeDef",
+    "TerminationUnionTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateGlobalSettingsRequestTypeDef",
     "UpdatePhoneNumberRequestItemTypeDef",
-    "UpdatePhoneNumberRequestRequestTypeDef",
+    "UpdatePhoneNumberRequestTypeDef",
     "UpdatePhoneNumberResponseTypeDef",
-    "UpdatePhoneNumberSettingsRequestRequestTypeDef",
-    "UpdateProxySessionRequestRequestTypeDef",
+    "UpdatePhoneNumberSettingsRequestTypeDef",
+    "UpdateProxySessionRequestTypeDef",
     "UpdateProxySessionResponseTypeDef",
-    "UpdateSipMediaApplicationCallRequestRequestTypeDef",
+    "UpdateSipMediaApplicationCallRequestTypeDef",
     "UpdateSipMediaApplicationCallResponseTypeDef",
-    "UpdateSipMediaApplicationRequestRequestTypeDef",
+    "UpdateSipMediaApplicationRequestTypeDef",
     "UpdateSipMediaApplicationResponseTypeDef",
-    "UpdateSipRuleRequestRequestTypeDef",
+    "UpdateSipRuleRequestTypeDef",
     "UpdateSipRuleResponseTypeDef",
-    "UpdateVoiceConnectorGroupRequestRequestTypeDef",
+    "UpdateVoiceConnectorGroupRequestTypeDef",
     "UpdateVoiceConnectorGroupResponseTypeDef",
-    "UpdateVoiceConnectorRequestRequestTypeDef",
+    "UpdateVoiceConnectorRequestTypeDef",
     "UpdateVoiceConnectorResponseTypeDef",
-    "UpdateVoiceProfileDomainRequestRequestTypeDef",
+    "UpdateVoiceProfileDomainRequestTypeDef",
     "UpdateVoiceProfileDomainResponseTypeDef",
-    "UpdateVoiceProfileRequestRequestTypeDef",
+    "UpdateVoiceProfileRequestTypeDef",
     "UpdateVoiceProfileResponseTypeDef",
-    "ValidateE911AddressRequestRequestTypeDef",
+    "ValidateE911AddressRequestTypeDef",
     "ValidateE911AddressResponseTypeDef",
     "VoiceConnectorGroupTypeDef",
     "VoiceConnectorItemTypeDef",
@@ -261,2190 +289,1084 @@ __all__ = (
     "VoiceToneAnalysisTaskTypeDef",
 )
 
-AddressTypeDef = TypedDict(
-    "AddressTypeDef",
-    {
-        "streetName": str,
-        "streetSuffix": str,
-        "postDirectional": str,
-        "preDirectional": str,
-        "streetNumber": str,
-        "city": str,
-        "state": str,
-        "postalCode": str,
-        "postalCodePlus4": str,
-        "country": str,
-    },
-    total=False,
-)
-
-_RequiredAssociatePhoneNumbersWithVoiceConnectorGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociatePhoneNumbersWithVoiceConnectorGroupRequestRequestTypeDef",
-    {
-        "VoiceConnectorGroupId": str,
-        "E164PhoneNumbers": List[str],
-    },
-)
-_OptionalAssociatePhoneNumbersWithVoiceConnectorGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociatePhoneNumbersWithVoiceConnectorGroupRequestRequestTypeDef",
-    {
-        "ForceAssociate": bool,
-    },
-    total=False,
-)
-
-class AssociatePhoneNumbersWithVoiceConnectorGroupRequestRequestTypeDef(
-    _RequiredAssociatePhoneNumbersWithVoiceConnectorGroupRequestRequestTypeDef,
-    _OptionalAssociatePhoneNumbersWithVoiceConnectorGroupRequestRequestTypeDef,
-):
-    pass
-
-AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef = TypedDict(
-    "AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef",
-    {
-        "PhoneNumberErrors": List["PhoneNumberErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAssociatePhoneNumbersWithVoiceConnectorRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociatePhoneNumbersWithVoiceConnectorRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "E164PhoneNumbers": List[str],
-    },
-)
-_OptionalAssociatePhoneNumbersWithVoiceConnectorRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociatePhoneNumbersWithVoiceConnectorRequestRequestTypeDef",
-    {
-        "ForceAssociate": bool,
-    },
-    total=False,
-)
-
-class AssociatePhoneNumbersWithVoiceConnectorRequestRequestTypeDef(
-    _RequiredAssociatePhoneNumbersWithVoiceConnectorRequestRequestTypeDef,
-    _OptionalAssociatePhoneNumbersWithVoiceConnectorRequestRequestTypeDef,
-):
-    pass
-
-AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef = TypedDict(
-    "AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef",
-    {
-        "PhoneNumberErrors": List["PhoneNumberErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchDeletePhoneNumberRequestRequestTypeDef = TypedDict(
-    "BatchDeletePhoneNumberRequestRequestTypeDef",
-    {
-        "PhoneNumberIds": List[str],
-    },
-)
-
-BatchDeletePhoneNumberResponseTypeDef = TypedDict(
-    "BatchDeletePhoneNumberResponseTypeDef",
-    {
-        "PhoneNumberErrors": List["PhoneNumberErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchUpdatePhoneNumberRequestRequestTypeDef = TypedDict(
-    "BatchUpdatePhoneNumberRequestRequestTypeDef",
-    {
-        "UpdatePhoneNumberRequestItems": List["UpdatePhoneNumberRequestItemTypeDef"],
-    },
-)
-
-BatchUpdatePhoneNumberResponseTypeDef = TypedDict(
-    "BatchUpdatePhoneNumberResponseTypeDef",
-    {
-        "PhoneNumberErrors": List["PhoneNumberErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CallDetailsTypeDef = TypedDict(
-    "CallDetailsTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "TransactionId": str,
-        "IsCaller": bool,
-    },
-    total=False,
-)
-
-CandidateAddressTypeDef = TypedDict(
-    "CandidateAddressTypeDef",
-    {
-        "streetInfo": str,
-        "streetNumber": str,
-        "city": str,
-        "state": str,
-        "postalCode": str,
-        "postalCodePlus4": str,
-        "country": str,
-    },
-    total=False,
-)
-
-_RequiredCreatePhoneNumberOrderRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePhoneNumberOrderRequestRequestTypeDef",
-    {
-        "ProductType": PhoneNumberProductTypeType,
-        "E164PhoneNumbers": List[str],
-    },
-)
-_OptionalCreatePhoneNumberOrderRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePhoneNumberOrderRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-class CreatePhoneNumberOrderRequestRequestTypeDef(
-    _RequiredCreatePhoneNumberOrderRequestRequestTypeDef,
-    _OptionalCreatePhoneNumberOrderRequestRequestTypeDef,
-):
-    pass
-
-CreatePhoneNumberOrderResponseTypeDef = TypedDict(
-    "CreatePhoneNumberOrderResponseTypeDef",
-    {
-        "PhoneNumberOrder": "PhoneNumberOrderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProxySessionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProxySessionRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "ParticipantPhoneNumbers": List[str],
-        "Capabilities": List[CapabilityType],
-    },
-)
-_OptionalCreateProxySessionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProxySessionRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ExpiryMinutes": int,
-        "NumberSelectionBehavior": NumberSelectionBehaviorType,
-        "GeoMatchLevel": GeoMatchLevelType,
-        "GeoMatchParams": "GeoMatchParamsTypeDef",
-    },
-    total=False,
-)
-
-class CreateProxySessionRequestRequestTypeDef(
-    _RequiredCreateProxySessionRequestRequestTypeDef,
-    _OptionalCreateProxySessionRequestRequestTypeDef,
-):
-    pass
-
-CreateProxySessionResponseTypeDef = TypedDict(
-    "CreateProxySessionResponseTypeDef",
-    {
-        "ProxySession": "ProxySessionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSipMediaApplicationCallRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSipMediaApplicationCallRequestRequestTypeDef",
-    {
-        "FromPhoneNumber": str,
-        "ToPhoneNumber": str,
-        "SipMediaApplicationId": str,
-    },
-)
-_OptionalCreateSipMediaApplicationCallRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSipMediaApplicationCallRequestRequestTypeDef",
-    {
-        "SipHeaders": Dict[str, str],
-        "ArgumentsMap": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateSipMediaApplicationCallRequestRequestTypeDef(
-    _RequiredCreateSipMediaApplicationCallRequestRequestTypeDef,
-    _OptionalCreateSipMediaApplicationCallRequestRequestTypeDef,
-):
-    pass
-
-CreateSipMediaApplicationCallResponseTypeDef = TypedDict(
-    "CreateSipMediaApplicationCallResponseTypeDef",
-    {
-        "SipMediaApplicationCall": "SipMediaApplicationCallTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSipMediaApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSipMediaApplicationRequestRequestTypeDef",
-    {
-        "AwsRegion": str,
-        "Name": str,
-        "Endpoints": List["SipMediaApplicationEndpointTypeDef"],
-    },
-)
-_OptionalCreateSipMediaApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSipMediaApplicationRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSipMediaApplicationRequestRequestTypeDef(
-    _RequiredCreateSipMediaApplicationRequestRequestTypeDef,
-    _OptionalCreateSipMediaApplicationRequestRequestTypeDef,
-):
-    pass
-
-CreateSipMediaApplicationResponseTypeDef = TypedDict(
-    "CreateSipMediaApplicationResponseTypeDef",
-    {
-        "SipMediaApplication": "SipMediaApplicationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSipRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSipRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-        "TriggerType": SipRuleTriggerTypeType,
-        "TriggerValue": str,
-    },
-)
-_OptionalCreateSipRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSipRuleRequestRequestTypeDef",
-    {
-        "Disabled": bool,
-        "TargetApplications": List["SipRuleTargetApplicationTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSipRuleRequestRequestTypeDef(
-    _RequiredCreateSipRuleRequestRequestTypeDef, _OptionalCreateSipRuleRequestRequestTypeDef
-):
-    pass
-
-CreateSipRuleResponseTypeDef = TypedDict(
-    "CreateSipRuleResponseTypeDef",
-    {
-        "SipRule": "SipRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVoiceConnectorGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVoiceConnectorGroupRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateVoiceConnectorGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVoiceConnectorGroupRequestRequestTypeDef",
-    {
-        "VoiceConnectorItems": List["VoiceConnectorItemTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVoiceConnectorGroupRequestRequestTypeDef(
-    _RequiredCreateVoiceConnectorGroupRequestRequestTypeDef,
-    _OptionalCreateVoiceConnectorGroupRequestRequestTypeDef,
-):
-    pass
-
-CreateVoiceConnectorGroupResponseTypeDef = TypedDict(
-    "CreateVoiceConnectorGroupResponseTypeDef",
-    {
-        "VoiceConnectorGroup": "VoiceConnectorGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVoiceConnectorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVoiceConnectorRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RequireEncryption": bool,
-    },
-)
-_OptionalCreateVoiceConnectorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVoiceConnectorRequestRequestTypeDef",
-    {
-        "AwsRegion": VoiceConnectorAwsRegionType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVoiceConnectorRequestRequestTypeDef(
-    _RequiredCreateVoiceConnectorRequestRequestTypeDef,
-    _OptionalCreateVoiceConnectorRequestRequestTypeDef,
-):
-    pass
-
-CreateVoiceConnectorResponseTypeDef = TypedDict(
-    "CreateVoiceConnectorResponseTypeDef",
-    {
-        "VoiceConnector": "VoiceConnectorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVoiceProfileDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVoiceProfileDomainRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
-    },
-)
-_OptionalCreateVoiceProfileDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVoiceProfileDomainRequestRequestTypeDef",
-    {
-        "Description": str,
-        "ClientRequestToken": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVoiceProfileDomainRequestRequestTypeDef(
-    _RequiredCreateVoiceProfileDomainRequestRequestTypeDef,
-    _OptionalCreateVoiceProfileDomainRequestRequestTypeDef,
-):
-    pass
-
-CreateVoiceProfileDomainResponseTypeDef = TypedDict(
-    "CreateVoiceProfileDomainResponseTypeDef",
-    {
-        "VoiceProfileDomain": "VoiceProfileDomainTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateVoiceProfileRequestRequestTypeDef = TypedDict(
-    "CreateVoiceProfileRequestRequestTypeDef",
-    {
-        "SpeakerSearchTaskId": str,
-    },
-)
-
-CreateVoiceProfileResponseTypeDef = TypedDict(
-    "CreateVoiceProfileResponseTypeDef",
-    {
-        "VoiceProfile": "VoiceProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CredentialTypeDef = TypedDict(
-    "CredentialTypeDef",
-    {
-        "Username": str,
-        "Password": str,
-    },
-    total=False,
-)
-
-_RequiredDNISEmergencyCallingConfigurationTypeDef = TypedDict(
-    "_RequiredDNISEmergencyCallingConfigurationTypeDef",
-    {
-        "EmergencyPhoneNumber": str,
-        "CallingCountry": str,
-    },
-)
-_OptionalDNISEmergencyCallingConfigurationTypeDef = TypedDict(
-    "_OptionalDNISEmergencyCallingConfigurationTypeDef",
-    {
-        "TestPhoneNumber": str,
-    },
-    total=False,
-)
-
-class DNISEmergencyCallingConfigurationTypeDef(
-    _RequiredDNISEmergencyCallingConfigurationTypeDef,
-    _OptionalDNISEmergencyCallingConfigurationTypeDef,
-):
-    pass
-
-DeletePhoneNumberRequestRequestTypeDef = TypedDict(
-    "DeletePhoneNumberRequestRequestTypeDef",
-    {
-        "PhoneNumberId": str,
-    },
-)
-
-DeleteProxySessionRequestRequestTypeDef = TypedDict(
-    "DeleteProxySessionRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "ProxySessionId": str,
-    },
-)
-
-DeleteSipMediaApplicationRequestRequestTypeDef = TypedDict(
-    "DeleteSipMediaApplicationRequestRequestTypeDef",
-    {
-        "SipMediaApplicationId": str,
-    },
-)
-
-DeleteSipRuleRequestRequestTypeDef = TypedDict(
-    "DeleteSipRuleRequestRequestTypeDef",
-    {
-        "SipRuleId": str,
-    },
-)
-
-DeleteVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-DeleteVoiceConnectorGroupRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceConnectorGroupRequestRequestTypeDef",
-    {
-        "VoiceConnectorGroupId": str,
-    },
-)
-
-DeleteVoiceConnectorOriginationRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceConnectorOriginationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-DeleteVoiceConnectorProxyRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceConnectorProxyRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-DeleteVoiceConnectorRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceConnectorRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-DeleteVoiceConnectorStreamingConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceConnectorStreamingConfigurationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-DeleteVoiceConnectorTerminationCredentialsRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceConnectorTerminationCredentialsRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "Usernames": List[str],
-    },
-)
-
-DeleteVoiceConnectorTerminationRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceConnectorTerminationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-DeleteVoiceProfileDomainRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceProfileDomainRequestRequestTypeDef",
-    {
-        "VoiceProfileDomainId": str,
-    },
-)
-
-DeleteVoiceProfileRequestRequestTypeDef = TypedDict(
-    "DeleteVoiceProfileRequestRequestTypeDef",
-    {
-        "VoiceProfileId": str,
-    },
-)
-
-DisassociatePhoneNumbersFromVoiceConnectorGroupRequestRequestTypeDef = TypedDict(
-    "DisassociatePhoneNumbersFromVoiceConnectorGroupRequestRequestTypeDef",
-    {
-        "VoiceConnectorGroupId": str,
-        "E164PhoneNumbers": List[str],
-    },
-)
-
-DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef = TypedDict(
-    "DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef",
-    {
-        "PhoneNumberErrors": List["PhoneNumberErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociatePhoneNumbersFromVoiceConnectorRequestRequestTypeDef = TypedDict(
-    "DisassociatePhoneNumbersFromVoiceConnectorRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "E164PhoneNumbers": List[str],
-    },
-)
-
-DisassociatePhoneNumbersFromVoiceConnectorResponseTypeDef = TypedDict(
-    "DisassociatePhoneNumbersFromVoiceConnectorResponseTypeDef",
-    {
-        "PhoneNumberErrors": List["PhoneNumberErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EmergencyCallingConfigurationTypeDef = TypedDict(
-    "EmergencyCallingConfigurationTypeDef",
-    {
-        "DNIS": List["DNISEmergencyCallingConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-GeoMatchParamsTypeDef = TypedDict(
-    "GeoMatchParamsTypeDef",
-    {
-        "Country": str,
-        "AreaCode": str,
-    },
-)
-
-GetGlobalSettingsResponseTypeDef = TypedDict(
-    "GetGlobalSettingsResponseTypeDef",
-    {
-        "VoiceConnector": "VoiceConnectorSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPhoneNumberOrderRequestRequestTypeDef = TypedDict(
-    "GetPhoneNumberOrderRequestRequestTypeDef",
-    {
-        "PhoneNumberOrderId": str,
-    },
-)
-
-GetPhoneNumberOrderResponseTypeDef = TypedDict(
-    "GetPhoneNumberOrderResponseTypeDef",
-    {
-        "PhoneNumberOrder": "PhoneNumberOrderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPhoneNumberRequestRequestTypeDef = TypedDict(
-    "GetPhoneNumberRequestRequestTypeDef",
-    {
-        "PhoneNumberId": str,
-    },
-)
-
-GetPhoneNumberResponseTypeDef = TypedDict(
-    "GetPhoneNumberResponseTypeDef",
-    {
-        "PhoneNumber": "PhoneNumberTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPhoneNumberSettingsResponseTypeDef = TypedDict(
-    "GetPhoneNumberSettingsResponseTypeDef",
-    {
-        "CallingName": str,
-        "CallingNameUpdatedTimestamp": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetProxySessionRequestRequestTypeDef = TypedDict(
-    "GetProxySessionRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "ProxySessionId": str,
-    },
-)
-
-GetProxySessionResponseTypeDef = TypedDict(
-    "GetProxySessionResponseTypeDef",
-    {
-        "ProxySession": "ProxySessionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef = TypedDict(
-    "GetSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef",
-    {
-        "SipMediaApplicationId": str,
-    },
-)
-
-GetSipMediaApplicationAlexaSkillConfigurationResponseTypeDef = TypedDict(
-    "GetSipMediaApplicationAlexaSkillConfigurationResponseTypeDef",
-    {
-        "SipMediaApplicationAlexaSkillConfiguration": "SipMediaApplicationAlexaSkillConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSipMediaApplicationLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "GetSipMediaApplicationLoggingConfigurationRequestRequestTypeDef",
-    {
-        "SipMediaApplicationId": str,
-    },
-)
-
-GetSipMediaApplicationLoggingConfigurationResponseTypeDef = TypedDict(
-    "GetSipMediaApplicationLoggingConfigurationResponseTypeDef",
-    {
-        "SipMediaApplicationLoggingConfiguration": "SipMediaApplicationLoggingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSipMediaApplicationRequestRequestTypeDef = TypedDict(
-    "GetSipMediaApplicationRequestRequestTypeDef",
-    {
-        "SipMediaApplicationId": str,
-    },
-)
-
-GetSipMediaApplicationResponseTypeDef = TypedDict(
-    "GetSipMediaApplicationResponseTypeDef",
-    {
-        "SipMediaApplication": "SipMediaApplicationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSipRuleRequestRequestTypeDef = TypedDict(
-    "GetSipRuleRequestRequestTypeDef",
-    {
-        "SipRuleId": str,
-    },
-)
-
-GetSipRuleResponseTypeDef = TypedDict(
-    "GetSipRuleResponseTypeDef",
-    {
-        "SipRule": "SipRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSpeakerSearchTaskRequestRequestTypeDef = TypedDict(
-    "GetSpeakerSearchTaskRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "SpeakerSearchTaskId": str,
-    },
-)
-
-GetSpeakerSearchTaskResponseTypeDef = TypedDict(
-    "GetSpeakerSearchTaskResponseTypeDef",
-    {
-        "SpeakerSearchTask": "SpeakerSearchTaskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef = TypedDict(
-    "GetVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-GetVoiceConnectorEmergencyCallingConfigurationResponseTypeDef = TypedDict(
-    "GetVoiceConnectorEmergencyCallingConfigurationResponseTypeDef",
-    {
-        "EmergencyCallingConfiguration": "EmergencyCallingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceConnectorGroupRequestRequestTypeDef = TypedDict(
-    "GetVoiceConnectorGroupRequestRequestTypeDef",
-    {
-        "VoiceConnectorGroupId": str,
-    },
-)
-
-GetVoiceConnectorGroupResponseTypeDef = TypedDict(
-    "GetVoiceConnectorGroupResponseTypeDef",
-    {
-        "VoiceConnectorGroup": "VoiceConnectorGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceConnectorLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "GetVoiceConnectorLoggingConfigurationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-GetVoiceConnectorLoggingConfigurationResponseTypeDef = TypedDict(
-    "GetVoiceConnectorLoggingConfigurationResponseTypeDef",
-    {
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceConnectorOriginationRequestRequestTypeDef = TypedDict(
-    "GetVoiceConnectorOriginationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-GetVoiceConnectorOriginationResponseTypeDef = TypedDict(
-    "GetVoiceConnectorOriginationResponseTypeDef",
-    {
-        "Origination": "OriginationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceConnectorProxyRequestRequestTypeDef = TypedDict(
-    "GetVoiceConnectorProxyRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-GetVoiceConnectorProxyResponseTypeDef = TypedDict(
-    "GetVoiceConnectorProxyResponseTypeDef",
-    {
-        "Proxy": "ProxyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceConnectorRequestRequestTypeDef = TypedDict(
-    "GetVoiceConnectorRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-GetVoiceConnectorResponseTypeDef = TypedDict(
-    "GetVoiceConnectorResponseTypeDef",
-    {
-        "VoiceConnector": "VoiceConnectorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceConnectorStreamingConfigurationRequestRequestTypeDef = TypedDict(
-    "GetVoiceConnectorStreamingConfigurationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-GetVoiceConnectorStreamingConfigurationResponseTypeDef = TypedDict(
-    "GetVoiceConnectorStreamingConfigurationResponseTypeDef",
-    {
-        "StreamingConfiguration": "StreamingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceConnectorTerminationHealthRequestRequestTypeDef = TypedDict(
-    "GetVoiceConnectorTerminationHealthRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-GetVoiceConnectorTerminationHealthResponseTypeDef = TypedDict(
-    "GetVoiceConnectorTerminationHealthResponseTypeDef",
-    {
-        "TerminationHealth": "TerminationHealthTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceConnectorTerminationRequestRequestTypeDef = TypedDict(
-    "GetVoiceConnectorTerminationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-GetVoiceConnectorTerminationResponseTypeDef = TypedDict(
-    "GetVoiceConnectorTerminationResponseTypeDef",
-    {
-        "Termination": "TerminationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceProfileDomainRequestRequestTypeDef = TypedDict(
-    "GetVoiceProfileDomainRequestRequestTypeDef",
-    {
-        "VoiceProfileDomainId": str,
-    },
-)
-
-GetVoiceProfileDomainResponseTypeDef = TypedDict(
-    "GetVoiceProfileDomainResponseTypeDef",
-    {
-        "VoiceProfileDomain": "VoiceProfileDomainTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceProfileRequestRequestTypeDef = TypedDict(
-    "GetVoiceProfileRequestRequestTypeDef",
-    {
-        "VoiceProfileId": str,
-    },
-)
-
-GetVoiceProfileResponseTypeDef = TypedDict(
-    "GetVoiceProfileResponseTypeDef",
-    {
-        "VoiceProfile": "VoiceProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVoiceToneAnalysisTaskRequestRequestTypeDef = TypedDict(
-    "GetVoiceToneAnalysisTaskRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "VoiceToneAnalysisTaskId": str,
-        "IsCaller": bool,
-    },
-)
-
-GetVoiceToneAnalysisTaskResponseTypeDef = TypedDict(
-    "GetVoiceToneAnalysisTaskResponseTypeDef",
-    {
-        "VoiceToneAnalysisTask": "VoiceToneAnalysisTaskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAvailableVoiceConnectorRegionsResponseTypeDef = TypedDict(
-    "ListAvailableVoiceConnectorRegionsResponseTypeDef",
-    {
-        "VoiceConnectorRegions": List[VoiceConnectorAwsRegionType],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPhoneNumberOrdersRequestRequestTypeDef = TypedDict(
-    "ListPhoneNumberOrdersRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListPhoneNumberOrdersResponseTypeDef = TypedDict(
-    "ListPhoneNumberOrdersResponseTypeDef",
-    {
-        "PhoneNumberOrders": List["PhoneNumberOrderTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPhoneNumbersRequestRequestTypeDef = TypedDict(
-    "ListPhoneNumbersRequestRequestTypeDef",
-    {
-        "Status": str,
-        "ProductType": PhoneNumberProductTypeType,
-        "FilterName": PhoneNumberAssociationNameType,
-        "FilterValue": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPhoneNumbersResponseTypeDef = TypedDict(
-    "ListPhoneNumbersResponseTypeDef",
-    {
-        "PhoneNumbers": List["PhoneNumberTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProxySessionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListProxySessionsRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-_OptionalListProxySessionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListProxySessionsRequestRequestTypeDef",
-    {
-        "Status": ProxySessionStatusType,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListProxySessionsRequestRequestTypeDef(
-    _RequiredListProxySessionsRequestRequestTypeDef, _OptionalListProxySessionsRequestRequestTypeDef
-):
-    pass
-
-ListProxySessionsResponseTypeDef = TypedDict(
-    "ListProxySessionsResponseTypeDef",
-    {
-        "ProxySessions": List["ProxySessionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSipMediaApplicationsRequestRequestTypeDef = TypedDict(
-    "ListSipMediaApplicationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListSipMediaApplicationsResponseTypeDef = TypedDict(
-    "ListSipMediaApplicationsResponseTypeDef",
-    {
-        "SipMediaApplications": List["SipMediaApplicationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSipRulesRequestRequestTypeDef = TypedDict(
-    "ListSipRulesRequestRequestTypeDef",
-    {
-        "SipMediaApplicationId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListSipRulesResponseTypeDef = TypedDict(
-    "ListSipRulesResponseTypeDef",
-    {
-        "SipRules": List["SipRuleTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSupportedPhoneNumberCountriesRequestRequestTypeDef = TypedDict(
-    "ListSupportedPhoneNumberCountriesRequestRequestTypeDef",
-    {
-        "ProductType": PhoneNumberProductTypeType,
-    },
-)
-
-ListSupportedPhoneNumberCountriesResponseTypeDef = TypedDict(
-    "ListSupportedPhoneNumberCountriesResponseTypeDef",
-    {
-        "PhoneNumberCountries": List["PhoneNumberCountryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVoiceConnectorGroupsRequestRequestTypeDef = TypedDict(
-    "ListVoiceConnectorGroupsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListVoiceConnectorGroupsResponseTypeDef = TypedDict(
-    "ListVoiceConnectorGroupsResponseTypeDef",
-    {
-        "VoiceConnectorGroups": List["VoiceConnectorGroupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVoiceConnectorTerminationCredentialsRequestRequestTypeDef = TypedDict(
-    "ListVoiceConnectorTerminationCredentialsRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-
-ListVoiceConnectorTerminationCredentialsResponseTypeDef = TypedDict(
-    "ListVoiceConnectorTerminationCredentialsResponseTypeDef",
-    {
-        "Usernames": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVoiceConnectorsRequestRequestTypeDef = TypedDict(
-    "ListVoiceConnectorsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListVoiceConnectorsResponseTypeDef = TypedDict(
-    "ListVoiceConnectorsResponseTypeDef",
-    {
-        "VoiceConnectors": List["VoiceConnectorTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVoiceProfileDomainsRequestRequestTypeDef = TypedDict(
-    "ListVoiceProfileDomainsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListVoiceProfileDomainsResponseTypeDef = TypedDict(
-    "ListVoiceProfileDomainsResponseTypeDef",
-    {
-        "VoiceProfileDomains": List["VoiceProfileDomainSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListVoiceProfilesRequestRequestTypeDef = TypedDict(
-    "_RequiredListVoiceProfilesRequestRequestTypeDef",
-    {
-        "VoiceProfileDomainId": str,
-    },
-)
-_OptionalListVoiceProfilesRequestRequestTypeDef = TypedDict(
-    "_OptionalListVoiceProfilesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListVoiceProfilesRequestRequestTypeDef(
-    _RequiredListVoiceProfilesRequestRequestTypeDef, _OptionalListVoiceProfilesRequestRequestTypeDef
-):
-    pass
-
-ListVoiceProfilesResponseTypeDef = TypedDict(
-    "ListVoiceProfilesResponseTypeDef",
-    {
-        "VoiceProfiles": List["VoiceProfileSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LoggingConfigurationTypeDef = TypedDict(
-    "LoggingConfigurationTypeDef",
-    {
-        "EnableSIPLogs": bool,
-        "EnableMediaMetricLogs": bool,
-    },
-    total=False,
-)
-
-MediaInsightsConfigurationTypeDef = TypedDict(
-    "MediaInsightsConfigurationTypeDef",
-    {
-        "Disabled": bool,
-        "ConfigurationArn": str,
-    },
-    total=False,
-)
-
-OrderedPhoneNumberTypeDef = TypedDict(
-    "OrderedPhoneNumberTypeDef",
-    {
-        "E164PhoneNumber": str,
-        "Status": OrderedPhoneNumberStatusType,
-    },
-    total=False,
-)
+class AddressTypeDef(TypedDict):
+    streetName: NotRequired[str]
+    streetSuffix: NotRequired[str]
+    postDirectional: NotRequired[str]
+    preDirectional: NotRequired[str]
+    streetNumber: NotRequired[str]
+    city: NotRequired[str]
+    state: NotRequired[str]
+    postalCode: NotRequired[str]
+    postalCodePlus4: NotRequired[str]
+    country: NotRequired[str]
+
+class AssociatePhoneNumbersWithVoiceConnectorGroupRequestTypeDef(TypedDict):
+    VoiceConnectorGroupId: str
+    E164PhoneNumbers: Sequence[str]
+    ForceAssociate: NotRequired[bool]
+
+class PhoneNumberErrorTypeDef(TypedDict):
+    PhoneNumberId: NotRequired[str]
+    ErrorCode: NotRequired[ErrorCodeType]
+    ErrorMessage: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AssociatePhoneNumbersWithVoiceConnectorRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    E164PhoneNumbers: Sequence[str]
+    ForceAssociate: NotRequired[bool]
+
+class BatchDeletePhoneNumberRequestTypeDef(TypedDict):
+    PhoneNumberIds: Sequence[str]
+
+class UpdatePhoneNumberRequestItemTypeDef(TypedDict):
+    PhoneNumberId: str
+    ProductType: NotRequired[PhoneNumberProductTypeType]
+    CallingName: NotRequired[str]
+    Name: NotRequired[str]
+
+class CallDetailsTypeDef(TypedDict):
+    VoiceConnectorId: NotRequired[str]
+    TransactionId: NotRequired[str]
+    IsCaller: NotRequired[bool]
+
+class CandidateAddressTypeDef(TypedDict):
+    streetInfo: NotRequired[str]
+    streetNumber: NotRequired[str]
+    city: NotRequired[str]
+    state: NotRequired[str]
+    postalCode: NotRequired[str]
+    postalCodePlus4: NotRequired[str]
+    country: NotRequired[str]
+
+class CreatePhoneNumberOrderRequestTypeDef(TypedDict):
+    ProductType: PhoneNumberProductTypeType
+    E164PhoneNumbers: Sequence[str]
+    Name: NotRequired[str]
+
+class GeoMatchParamsTypeDef(TypedDict):
+    Country: str
+    AreaCode: str
+
+class CreateSipMediaApplicationCallRequestTypeDef(TypedDict):
+    FromPhoneNumber: str
+    ToPhoneNumber: str
+    SipMediaApplicationId: str
+    SipHeaders: NotRequired[Mapping[str, str]]
+    ArgumentsMap: NotRequired[Mapping[str, str]]
+
+class SipMediaApplicationCallTypeDef(TypedDict):
+    TransactionId: NotRequired[str]
+
+class SipMediaApplicationEndpointTypeDef(TypedDict):
+    LambdaArn: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class SipRuleTargetApplicationTypeDef(TypedDict):
+    SipMediaApplicationId: NotRequired[str]
+    Priority: NotRequired[int]
+    AwsRegion: NotRequired[str]
+
+class VoiceConnectorItemTypeDef(TypedDict):
+    VoiceConnectorId: str
+    Priority: int
+
+class VoiceConnectorTypeDef(TypedDict):
+    VoiceConnectorId: NotRequired[str]
+    AwsRegion: NotRequired[VoiceConnectorAwsRegionType]
+    Name: NotRequired[str]
+    OutboundHostName: NotRequired[str]
+    RequireEncryption: NotRequired[bool]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+    VoiceConnectorArn: NotRequired[str]
+    IntegrationType: NotRequired[VoiceConnectorIntegrationTypeType]
+
+class ServerSideEncryptionConfigurationTypeDef(TypedDict):
+    KmsKeyArn: str
+
+class CreateVoiceProfileRequestTypeDef(TypedDict):
+    SpeakerSearchTaskId: str
+
+class VoiceProfileTypeDef(TypedDict):
+    VoiceProfileId: NotRequired[str]
+    VoiceProfileArn: NotRequired[str]
+    VoiceProfileDomainId: NotRequired[str]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+    ExpirationTimestamp: NotRequired[datetime]
+
+class CredentialTypeDef(TypedDict):
+    Username: NotRequired[str]
+    Password: NotRequired[str]
+
+class DNISEmergencyCallingConfigurationTypeDef(TypedDict):
+    EmergencyPhoneNumber: str
+    CallingCountry: str
+    TestPhoneNumber: NotRequired[str]
+
+class DeletePhoneNumberRequestTypeDef(TypedDict):
+    PhoneNumberId: str
+
+class DeleteProxySessionRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    ProxySessionId: str
+
+class DeleteSipMediaApplicationRequestTypeDef(TypedDict):
+    SipMediaApplicationId: str
+
+class DeleteSipRuleRequestTypeDef(TypedDict):
+    SipRuleId: str
+
+class DeleteVoiceConnectorEmergencyCallingConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class DeleteVoiceConnectorExternalSystemsConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class DeleteVoiceConnectorGroupRequestTypeDef(TypedDict):
+    VoiceConnectorGroupId: str
+
+class DeleteVoiceConnectorOriginationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class DeleteVoiceConnectorProxyRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class DeleteVoiceConnectorRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class DeleteVoiceConnectorStreamingConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class DeleteVoiceConnectorTerminationCredentialsRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    Usernames: Sequence[str]
+
+class DeleteVoiceConnectorTerminationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class DeleteVoiceProfileDomainRequestTypeDef(TypedDict):
+    VoiceProfileDomainId: str
+
+class DeleteVoiceProfileRequestTypeDef(TypedDict):
+    VoiceProfileId: str
+
+class DisassociatePhoneNumbersFromVoiceConnectorGroupRequestTypeDef(TypedDict):
+    VoiceConnectorGroupId: str
+    E164PhoneNumbers: Sequence[str]
+
+class DisassociatePhoneNumbersFromVoiceConnectorRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    E164PhoneNumbers: Sequence[str]
+
+class ExternalSystemsConfigurationTypeDef(TypedDict):
+    SessionBorderControllerTypes: NotRequired[List[SessionBorderControllerTypeType]]
+    ContactCenterSystemTypes: NotRequired[List[ContactCenterSystemTypeType]]
+
+class VoiceConnectorSettingsTypeDef(TypedDict):
+    CdrBucket: NotRequired[str]
+
+class GetPhoneNumberOrderRequestTypeDef(TypedDict):
+    PhoneNumberOrderId: str
+
+class GetPhoneNumberRequestTypeDef(TypedDict):
+    PhoneNumberId: str
+
+class GetProxySessionRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    ProxySessionId: str
+
+class GetSipMediaApplicationAlexaSkillConfigurationRequestTypeDef(TypedDict):
+    SipMediaApplicationId: str
+
+class SipMediaApplicationAlexaSkillConfigurationOutputTypeDef(TypedDict):
+    AlexaSkillStatus: AlexaSkillStatusType
+    AlexaSkillIds: List[str]
+
+class GetSipMediaApplicationLoggingConfigurationRequestTypeDef(TypedDict):
+    SipMediaApplicationId: str
+
+class SipMediaApplicationLoggingConfigurationTypeDef(TypedDict):
+    EnableSipMediaApplicationMessageLogs: NotRequired[bool]
+
+class GetSipMediaApplicationRequestTypeDef(TypedDict):
+    SipMediaApplicationId: str
+
+class GetSipRuleRequestTypeDef(TypedDict):
+    SipRuleId: str
+
+class GetSpeakerSearchTaskRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    SpeakerSearchTaskId: str
+
+class GetVoiceConnectorEmergencyCallingConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class GetVoiceConnectorExternalSystemsConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class GetVoiceConnectorGroupRequestTypeDef(TypedDict):
+    VoiceConnectorGroupId: str
+
+class GetVoiceConnectorLoggingConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class LoggingConfigurationTypeDef(TypedDict):
+    EnableSIPLogs: NotRequired[bool]
+    EnableMediaMetricLogs: NotRequired[bool]
+
+class GetVoiceConnectorOriginationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class GetVoiceConnectorProxyRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class ProxyTypeDef(TypedDict):
+    DefaultSessionExpiryMinutes: NotRequired[int]
+    Disabled: NotRequired[bool]
+    FallBackPhoneNumber: NotRequired[str]
+    PhoneNumberCountries: NotRequired[List[str]]
+
+class GetVoiceConnectorRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class GetVoiceConnectorStreamingConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class GetVoiceConnectorTerminationHealthRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class TerminationHealthTypeDef(TypedDict):
+    Timestamp: NotRequired[datetime]
+    Source: NotRequired[str]
+
+class GetVoiceConnectorTerminationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class TerminationOutputTypeDef(TypedDict):
+    CpsLimit: NotRequired[int]
+    DefaultPhoneNumber: NotRequired[str]
+    CallingRegions: NotRequired[List[str]]
+    CidrAllowedList: NotRequired[List[str]]
+    Disabled: NotRequired[bool]
+
+class GetVoiceProfileDomainRequestTypeDef(TypedDict):
+    VoiceProfileDomainId: str
+
+class GetVoiceProfileRequestTypeDef(TypedDict):
+    VoiceProfileId: str
+
+class GetVoiceToneAnalysisTaskRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    VoiceToneAnalysisTaskId: str
+    IsCaller: bool
+
+class ListPhoneNumberOrdersRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListPhoneNumbersRequestTypeDef(TypedDict):
+    Status: NotRequired[str]
+    ProductType: NotRequired[PhoneNumberProductTypeType]
+    FilterName: NotRequired[PhoneNumberAssociationNameType]
+    FilterValue: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListProxySessionsRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    Status: NotRequired[ProxySessionStatusType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListSipMediaApplicationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListSipRulesRequestTypeDef(TypedDict):
+    SipMediaApplicationId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListSupportedPhoneNumberCountriesRequestTypeDef(TypedDict):
+    ProductType: PhoneNumberProductTypeType
+
+class PhoneNumberCountryTypeDef(TypedDict):
+    CountryCode: NotRequired[str]
+    SupportedPhoneNumberTypes: NotRequired[List[PhoneNumberTypeType]]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+
+class ListVoiceConnectorGroupsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListVoiceConnectorTerminationCredentialsRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+
+class ListVoiceConnectorsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListVoiceProfileDomainsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class VoiceProfileDomainSummaryTypeDef(TypedDict):
+    VoiceProfileDomainId: NotRequired[str]
+    VoiceProfileDomainArn: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+
+class ListVoiceProfilesRequestTypeDef(TypedDict):
+    VoiceProfileDomainId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class VoiceProfileSummaryTypeDef(TypedDict):
+    VoiceProfileId: NotRequired[str]
+    VoiceProfileArn: NotRequired[str]
+    VoiceProfileDomainId: NotRequired[str]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+    ExpirationTimestamp: NotRequired[datetime]
+
+class MediaInsightsConfigurationTypeDef(TypedDict):
+    Disabled: NotRequired[bool]
+    ConfigurationArn: NotRequired[str]
+
+class OrderedPhoneNumberTypeDef(TypedDict):
+    E164PhoneNumber: NotRequired[str]
+    Status: NotRequired[OrderedPhoneNumberStatusType]
 
 OriginationRouteTypeDef = TypedDict(
     "OriginationRouteTypeDef",
     {
-        "Host": str,
-        "Port": int,
-        "Protocol": OriginationRouteProtocolType,
-        "Priority": int,
-        "Weight": int,
+        "Host": NotRequired[str],
+        "Port": NotRequired[int],
+        "Protocol": NotRequired[OriginationRouteProtocolType],
+        "Priority": NotRequired[int],
+        "Weight": NotRequired[int],
     },
-    total=False,
 )
 
-OriginationTypeDef = TypedDict(
-    "OriginationTypeDef",
-    {
-        "Routes": List["OriginationRouteTypeDef"],
-        "Disabled": bool,
-    },
-    total=False,
-)
+class ParticipantTypeDef(TypedDict):
+    PhoneNumber: NotRequired[str]
+    ProxyPhoneNumber: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class PhoneNumberAssociationTypeDef(TypedDict):
+    Value: NotRequired[str]
+    Name: NotRequired[PhoneNumberAssociationNameType]
+    AssociatedTimestamp: NotRequired[datetime]
 
-ParticipantTypeDef = TypedDict(
-    "ParticipantTypeDef",
-    {
-        "PhoneNumber": str,
-        "ProxyPhoneNumber": str,
-    },
-    total=False,
-)
+class PhoneNumberCapabilitiesTypeDef(TypedDict):
+    InboundCall: NotRequired[bool]
+    OutboundCall: NotRequired[bool]
+    InboundSMS: NotRequired[bool]
+    OutboundSMS: NotRequired[bool]
+    InboundMMS: NotRequired[bool]
+    OutboundMMS: NotRequired[bool]
 
-PhoneNumberAssociationTypeDef = TypedDict(
-    "PhoneNumberAssociationTypeDef",
-    {
-        "Value": str,
-        "Name": PhoneNumberAssociationNameType,
-        "AssociatedTimestamp": datetime,
-    },
-    total=False,
-)
+class PutVoiceConnectorExternalSystemsConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    SessionBorderControllerTypes: NotRequired[Sequence[SessionBorderControllerTypeType]]
+    ContactCenterSystemTypes: NotRequired[Sequence[ContactCenterSystemTypeType]]
 
-PhoneNumberCapabilitiesTypeDef = TypedDict(
-    "PhoneNumberCapabilitiesTypeDef",
-    {
-        "InboundCall": bool,
-        "OutboundCall": bool,
-        "InboundSMS": bool,
-        "OutboundSMS": bool,
-        "InboundMMS": bool,
-        "OutboundMMS": bool,
-    },
-    total=False,
-)
+class PutVoiceConnectorProxyRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    DefaultSessionExpiryMinutes: int
+    PhoneNumberPoolCountries: Sequence[str]
+    FallBackPhoneNumber: NotRequired[str]
+    Disabled: NotRequired[bool]
 
-PhoneNumberCountryTypeDef = TypedDict(
-    "PhoneNumberCountryTypeDef",
-    {
-        "CountryCode": str,
-        "SupportedPhoneNumberTypes": List[PhoneNumberTypeType],
-    },
-    total=False,
-)
+class RestorePhoneNumberRequestTypeDef(TypedDict):
+    PhoneNumberId: str
 
-PhoneNumberErrorTypeDef = TypedDict(
-    "PhoneNumberErrorTypeDef",
-    {
-        "PhoneNumberId": str,
-        "ErrorCode": ErrorCodeType,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class SearchAvailablePhoneNumbersRequestTypeDef(TypedDict):
+    AreaCode: NotRequired[str]
+    City: NotRequired[str]
+    Country: NotRequired[str]
+    State: NotRequired[str]
+    TollFreePrefix: NotRequired[str]
+    PhoneNumberType: NotRequired[PhoneNumberTypeType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-PhoneNumberOrderTypeDef = TypedDict(
-    "PhoneNumberOrderTypeDef",
-    {
-        "PhoneNumberOrderId": str,
-        "ProductType": PhoneNumberProductTypeType,
-        "Status": PhoneNumberOrderStatusType,
-        "OrderType": PhoneNumberOrderTypeType,
-        "OrderedPhoneNumbers": List["OrderedPhoneNumberTypeDef"],
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-    },
-    total=False,
-)
+class SipMediaApplicationAlexaSkillConfigurationTypeDef(TypedDict):
+    AlexaSkillStatus: AlexaSkillStatusType
+    AlexaSkillIds: Sequence[str]
+
+class SpeakerSearchResultTypeDef(TypedDict):
+    ConfidenceScore: NotRequired[float]
+    VoiceProfileId: NotRequired[str]
+
+class StartSpeakerSearchTaskRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    TransactionId: str
+    VoiceProfileDomainId: str
+    ClientRequestToken: NotRequired[str]
+    CallLeg: NotRequired[CallLegTypeType]
+
+class StartVoiceToneAnalysisTaskRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    TransactionId: str
+    LanguageCode: Literal["en-US"]
+    ClientRequestToken: NotRequired[str]
+
+class StopSpeakerSearchTaskRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    SpeakerSearchTaskId: str
+
+class StopVoiceToneAnalysisTaskRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    VoiceToneAnalysisTaskId: str
+
+class StreamingNotificationTargetTypeDef(TypedDict):
+    NotificationTarget: NotRequired[NotificationTargetType]
+
+class TerminationTypeDef(TypedDict):
+    CpsLimit: NotRequired[int]
+    DefaultPhoneNumber: NotRequired[str]
+    CallingRegions: NotRequired[Sequence[str]]
+    CidrAllowedList: NotRequired[Sequence[str]]
+    Disabled: NotRequired[bool]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class UpdatePhoneNumberRequestTypeDef(TypedDict):
+    PhoneNumberId: str
+    ProductType: NotRequired[PhoneNumberProductTypeType]
+    CallingName: NotRequired[str]
+    Name: NotRequired[str]
+
+class UpdatePhoneNumberSettingsRequestTypeDef(TypedDict):
+    CallingName: str
+
+class UpdateProxySessionRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    ProxySessionId: str
+    Capabilities: Sequence[CapabilityType]
+    ExpiryMinutes: NotRequired[int]
+
+class UpdateSipMediaApplicationCallRequestTypeDef(TypedDict):
+    SipMediaApplicationId: str
+    TransactionId: str
+    Arguments: Mapping[str, str]
+
+class UpdateVoiceConnectorRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    Name: str
+    RequireEncryption: bool
+
+class UpdateVoiceProfileDomainRequestTypeDef(TypedDict):
+    VoiceProfileDomainId: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+
+class UpdateVoiceProfileRequestTypeDef(TypedDict):
+    VoiceProfileId: str
+    SpeakerSearchTaskId: str
+
+class ValidateE911AddressRequestTypeDef(TypedDict):
+    AwsAccountId: str
+    StreetNumber: str
+    StreetInfo: str
+    City: str
+    State: str
+    Country: str
+    PostalCode: str
+
+class AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef(TypedDict):
+    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef(TypedDict):
+    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDeletePhoneNumberResponseTypeDef(TypedDict):
+    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdatePhoneNumberResponseTypeDef(TypedDict):
+    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef(TypedDict):
+    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociatePhoneNumbersFromVoiceConnectorResponseTypeDef(TypedDict):
+    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPhoneNumberSettingsResponseTypeDef(TypedDict):
+    CallingName: str
+    CallingNameUpdatedTimestamp: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAvailableVoiceConnectorRegionsResponseTypeDef(TypedDict):
+    VoiceConnectorRegions: List[VoiceConnectorAwsRegionType]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVoiceConnectorTerminationCredentialsResponseTypeDef(TypedDict):
+    Usernames: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchAvailablePhoneNumbersResponseTypeDef(TypedDict):
+    E164PhoneNumbers: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class BatchUpdatePhoneNumberRequestTypeDef(TypedDict):
+    UpdatePhoneNumberRequestItems: Sequence[UpdatePhoneNumberRequestItemTypeDef]
+
+class VoiceToneAnalysisTaskTypeDef(TypedDict):
+    VoiceToneAnalysisTaskId: NotRequired[str]
+    VoiceToneAnalysisTaskStatus: NotRequired[str]
+    CallDetails: NotRequired[CallDetailsTypeDef]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+    StartedTimestamp: NotRequired[datetime]
+    StatusMessage: NotRequired[str]
+
+class ValidateE911AddressResponseTypeDef(TypedDict):
+    ValidationResult: int
+    AddressExternalId: str
+    Address: AddressTypeDef
+    CandidateAddressList: List[CandidateAddressTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProxySessionRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    ParticipantPhoneNumbers: Sequence[str]
+    Capabilities: Sequence[CapabilityType]
+    Name: NotRequired[str]
+    ExpiryMinutes: NotRequired[int]
+    NumberSelectionBehavior: NotRequired[NumberSelectionBehaviorType]
+    GeoMatchLevel: NotRequired[GeoMatchLevelType]
+    GeoMatchParams: NotRequired[GeoMatchParamsTypeDef]
+
+class CreateSipMediaApplicationCallResponseTypeDef(TypedDict):
+    SipMediaApplicationCall: SipMediaApplicationCallTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSipMediaApplicationCallResponseTypeDef(TypedDict):
+    SipMediaApplicationCall: SipMediaApplicationCallTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SipMediaApplicationTypeDef(TypedDict):
+    SipMediaApplicationId: NotRequired[str]
+    AwsRegion: NotRequired[str]
+    Name: NotRequired[str]
+    Endpoints: NotRequired[List[SipMediaApplicationEndpointTypeDef]]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+    SipMediaApplicationArn: NotRequired[str]
+
+class UpdateSipMediaApplicationRequestTypeDef(TypedDict):
+    SipMediaApplicationId: str
+    Name: NotRequired[str]
+    Endpoints: NotRequired[Sequence[SipMediaApplicationEndpointTypeDef]]
+
+class CreateSipMediaApplicationRequestTypeDef(TypedDict):
+    AwsRegion: str
+    Name: str
+    Endpoints: Sequence[SipMediaApplicationEndpointTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateVoiceConnectorRequestTypeDef(TypedDict):
+    Name: str
+    RequireEncryption: bool
+    AwsRegion: NotRequired[VoiceConnectorAwsRegionType]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    IntegrationType: NotRequired[VoiceConnectorIntegrationTypeType]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateSipRuleRequestTypeDef(TypedDict):
+    Name: str
+    TriggerType: SipRuleTriggerTypeType
+    TriggerValue: str
+    Disabled: NotRequired[bool]
+    TargetApplications: NotRequired[Sequence[SipRuleTargetApplicationTypeDef]]
+
+class SipRuleTypeDef(TypedDict):
+    SipRuleId: NotRequired[str]
+    Name: NotRequired[str]
+    Disabled: NotRequired[bool]
+    TriggerType: NotRequired[SipRuleTriggerTypeType]
+    TriggerValue: NotRequired[str]
+    TargetApplications: NotRequired[List[SipRuleTargetApplicationTypeDef]]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+
+class UpdateSipRuleRequestTypeDef(TypedDict):
+    SipRuleId: str
+    Name: str
+    Disabled: NotRequired[bool]
+    TargetApplications: NotRequired[Sequence[SipRuleTargetApplicationTypeDef]]
+
+class CreateVoiceConnectorGroupRequestTypeDef(TypedDict):
+    Name: str
+    VoiceConnectorItems: NotRequired[Sequence[VoiceConnectorItemTypeDef]]
+
+class UpdateVoiceConnectorGroupRequestTypeDef(TypedDict):
+    VoiceConnectorGroupId: str
+    Name: str
+    VoiceConnectorItems: Sequence[VoiceConnectorItemTypeDef]
+
+class VoiceConnectorGroupTypeDef(TypedDict):
+    VoiceConnectorGroupId: NotRequired[str]
+    Name: NotRequired[str]
+    VoiceConnectorItems: NotRequired[List[VoiceConnectorItemTypeDef]]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+    VoiceConnectorGroupArn: NotRequired[str]
+
+class CreateVoiceConnectorResponseTypeDef(TypedDict):
+    VoiceConnector: VoiceConnectorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceConnectorResponseTypeDef(TypedDict):
+    VoiceConnector: VoiceConnectorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVoiceConnectorsResponseTypeDef(TypedDict):
+    VoiceConnectors: List[VoiceConnectorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateVoiceConnectorResponseTypeDef(TypedDict):
+    VoiceConnector: VoiceConnectorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVoiceProfileDomainRequestTypeDef(TypedDict):
+    Name: str
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
+    Description: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class VoiceProfileDomainTypeDef(TypedDict):
+    VoiceProfileDomainId: NotRequired[str]
+    VoiceProfileDomainArn: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    ServerSideEncryptionConfiguration: NotRequired[ServerSideEncryptionConfigurationTypeDef]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+
+class CreateVoiceProfileResponseTypeDef(TypedDict):
+    VoiceProfile: VoiceProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceProfileResponseTypeDef(TypedDict):
+    VoiceProfile: VoiceProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVoiceProfileResponseTypeDef(TypedDict):
+    VoiceProfile: VoiceProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutVoiceConnectorTerminationCredentialsRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    Credentials: NotRequired[Sequence[CredentialTypeDef]]
+
+class EmergencyCallingConfigurationOutputTypeDef(TypedDict):
+    DNIS: NotRequired[List[DNISEmergencyCallingConfigurationTypeDef]]
+
+class EmergencyCallingConfigurationTypeDef(TypedDict):
+    DNIS: NotRequired[Sequence[DNISEmergencyCallingConfigurationTypeDef]]
+
+class GetVoiceConnectorExternalSystemsConfigurationResponseTypeDef(TypedDict):
+    ExternalSystemsConfiguration: ExternalSystemsConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutVoiceConnectorExternalSystemsConfigurationResponseTypeDef(TypedDict):
+    ExternalSystemsConfiguration: ExternalSystemsConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGlobalSettingsResponseTypeDef(TypedDict):
+    VoiceConnector: VoiceConnectorSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGlobalSettingsRequestTypeDef(TypedDict):
+    VoiceConnector: NotRequired[VoiceConnectorSettingsTypeDef]
+
+class GetSipMediaApplicationAlexaSkillConfigurationResponseTypeDef(TypedDict):
+    SipMediaApplicationAlexaSkillConfiguration: (
+        SipMediaApplicationAlexaSkillConfigurationOutputTypeDef
+    )
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutSipMediaApplicationAlexaSkillConfigurationResponseTypeDef(TypedDict):
+    SipMediaApplicationAlexaSkillConfiguration: (
+        SipMediaApplicationAlexaSkillConfigurationOutputTypeDef
+    )
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSipMediaApplicationLoggingConfigurationResponseTypeDef(TypedDict):
+    SipMediaApplicationLoggingConfiguration: SipMediaApplicationLoggingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutSipMediaApplicationLoggingConfigurationRequestTypeDef(TypedDict):
+    SipMediaApplicationId: str
+    SipMediaApplicationLoggingConfiguration: NotRequired[
+        SipMediaApplicationLoggingConfigurationTypeDef
+    ]
+
+class PutSipMediaApplicationLoggingConfigurationResponseTypeDef(TypedDict):
+    SipMediaApplicationLoggingConfiguration: SipMediaApplicationLoggingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceConnectorLoggingConfigurationResponseTypeDef(TypedDict):
+    LoggingConfiguration: LoggingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutVoiceConnectorLoggingConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    LoggingConfiguration: LoggingConfigurationTypeDef
+
+class PutVoiceConnectorLoggingConfigurationResponseTypeDef(TypedDict):
+    LoggingConfiguration: LoggingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceConnectorProxyResponseTypeDef(TypedDict):
+    Proxy: ProxyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutVoiceConnectorProxyResponseTypeDef(TypedDict):
+    Proxy: ProxyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceConnectorTerminationHealthResponseTypeDef(TypedDict):
+    TerminationHealth: TerminationHealthTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceConnectorTerminationResponseTypeDef(TypedDict):
+    Termination: TerminationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutVoiceConnectorTerminationResponseTypeDef(TypedDict):
+    Termination: TerminationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSipMediaApplicationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSipRulesRequestPaginateTypeDef(TypedDict):
+    SipMediaApplicationId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSupportedPhoneNumberCountriesResponseTypeDef(TypedDict):
+    PhoneNumberCountries: List[PhoneNumberCountryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVoiceProfileDomainsResponseTypeDef(TypedDict):
+    VoiceProfileDomains: List[VoiceProfileDomainSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListVoiceProfilesResponseTypeDef(TypedDict):
+    VoiceProfiles: List[VoiceProfileSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PhoneNumberOrderTypeDef(TypedDict):
+    PhoneNumberOrderId: NotRequired[str]
+    ProductType: NotRequired[PhoneNumberProductTypeType]
+    Status: NotRequired[PhoneNumberOrderStatusType]
+    OrderType: NotRequired[PhoneNumberOrderTypeType]
+    OrderedPhoneNumbers: NotRequired[List[OrderedPhoneNumberTypeDef]]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+    FocDate: NotRequired[datetime]
+
+class OriginationOutputTypeDef(TypedDict):
+    Routes: NotRequired[List[OriginationRouteTypeDef]]
+    Disabled: NotRequired[bool]
+
+class OriginationTypeDef(TypedDict):
+    Routes: NotRequired[Sequence[OriginationRouteTypeDef]]
+    Disabled: NotRequired[bool]
+
+class ProxySessionTypeDef(TypedDict):
+    VoiceConnectorId: NotRequired[str]
+    ProxySessionId: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[ProxySessionStatusType]
+    ExpiryMinutes: NotRequired[int]
+    Capabilities: NotRequired[List[CapabilityType]]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+    EndedTimestamp: NotRequired[datetime]
+    Participants: NotRequired[List[ParticipantTypeDef]]
+    NumberSelectionBehavior: NotRequired[NumberSelectionBehaviorType]
+    GeoMatchLevel: NotRequired[GeoMatchLevelType]
+    GeoMatchParams: NotRequired[GeoMatchParamsTypeDef]
 
 PhoneNumberTypeDef = TypedDict(
     "PhoneNumberTypeDef",
     {
-        "PhoneNumberId": str,
-        "E164PhoneNumber": str,
-        "Country": str,
-        "Type": PhoneNumberTypeType,
-        "ProductType": PhoneNumberProductTypeType,
-        "Status": PhoneNumberStatusType,
-        "Capabilities": "PhoneNumberCapabilitiesTypeDef",
-        "Associations": List["PhoneNumberAssociationTypeDef"],
-        "CallingName": str,
-        "CallingNameStatus": CallingNameStatusType,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "DeletionTimestamp": datetime,
-        "OrderId": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-ProxySessionTypeDef = TypedDict(
-    "ProxySessionTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "ProxySessionId": str,
-        "Name": str,
-        "Status": ProxySessionStatusType,
-        "ExpiryMinutes": int,
-        "Capabilities": List[CapabilityType],
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "EndedTimestamp": datetime,
-        "Participants": List["ParticipantTypeDef"],
-        "NumberSelectionBehavior": NumberSelectionBehaviorType,
-        "GeoMatchLevel": GeoMatchLevelType,
-        "GeoMatchParams": "GeoMatchParamsTypeDef",
-    },
-    total=False,
-)
-
-ProxyTypeDef = TypedDict(
-    "ProxyTypeDef",
-    {
-        "DefaultSessionExpiryMinutes": int,
-        "Disabled": bool,
-        "FallBackPhoneNumber": str,
-        "PhoneNumberCountries": List[str],
-    },
-    total=False,
-)
-
-_RequiredPutSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef",
-    {
-        "SipMediaApplicationId": str,
-    },
-)
-_OptionalPutSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef",
-    {
-        "SipMediaApplicationAlexaSkillConfiguration": "SipMediaApplicationAlexaSkillConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class PutSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef(
-    _RequiredPutSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef,
-    _OptionalPutSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef,
-):
-    pass
-
-PutSipMediaApplicationAlexaSkillConfigurationResponseTypeDef = TypedDict(
-    "PutSipMediaApplicationAlexaSkillConfigurationResponseTypeDef",
-    {
-        "SipMediaApplicationAlexaSkillConfiguration": "SipMediaApplicationAlexaSkillConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutSipMediaApplicationLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutSipMediaApplicationLoggingConfigurationRequestRequestTypeDef",
-    {
-        "SipMediaApplicationId": str,
-    },
-)
-_OptionalPutSipMediaApplicationLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutSipMediaApplicationLoggingConfigurationRequestRequestTypeDef",
-    {
-        "SipMediaApplicationLoggingConfiguration": "SipMediaApplicationLoggingConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class PutSipMediaApplicationLoggingConfigurationRequestRequestTypeDef(
-    _RequiredPutSipMediaApplicationLoggingConfigurationRequestRequestTypeDef,
-    _OptionalPutSipMediaApplicationLoggingConfigurationRequestRequestTypeDef,
-):
-    pass
-
-PutSipMediaApplicationLoggingConfigurationResponseTypeDef = TypedDict(
-    "PutSipMediaApplicationLoggingConfigurationResponseTypeDef",
-    {
-        "SipMediaApplicationLoggingConfiguration": "SipMediaApplicationLoggingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef = TypedDict(
-    "PutVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "EmergencyCallingConfiguration": "EmergencyCallingConfigurationTypeDef",
-    },
-)
-
-PutVoiceConnectorEmergencyCallingConfigurationResponseTypeDef = TypedDict(
-    "PutVoiceConnectorEmergencyCallingConfigurationResponseTypeDef",
-    {
-        "EmergencyCallingConfiguration": "EmergencyCallingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutVoiceConnectorLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "PutVoiceConnectorLoggingConfigurationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-    },
-)
-
-PutVoiceConnectorLoggingConfigurationResponseTypeDef = TypedDict(
-    "PutVoiceConnectorLoggingConfigurationResponseTypeDef",
-    {
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutVoiceConnectorOriginationRequestRequestTypeDef = TypedDict(
-    "PutVoiceConnectorOriginationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "Origination": "OriginationTypeDef",
-    },
-)
-
-PutVoiceConnectorOriginationResponseTypeDef = TypedDict(
-    "PutVoiceConnectorOriginationResponseTypeDef",
-    {
-        "Origination": "OriginationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutVoiceConnectorProxyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutVoiceConnectorProxyRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "DefaultSessionExpiryMinutes": int,
-        "PhoneNumberPoolCountries": List[str],
-    },
-)
-_OptionalPutVoiceConnectorProxyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutVoiceConnectorProxyRequestRequestTypeDef",
-    {
-        "FallBackPhoneNumber": str,
-        "Disabled": bool,
-    },
-    total=False,
-)
-
-class PutVoiceConnectorProxyRequestRequestTypeDef(
-    _RequiredPutVoiceConnectorProxyRequestRequestTypeDef,
-    _OptionalPutVoiceConnectorProxyRequestRequestTypeDef,
-):
-    pass
-
-PutVoiceConnectorProxyResponseTypeDef = TypedDict(
-    "PutVoiceConnectorProxyResponseTypeDef",
-    {
-        "Proxy": "ProxyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutVoiceConnectorStreamingConfigurationRequestRequestTypeDef = TypedDict(
-    "PutVoiceConnectorStreamingConfigurationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "StreamingConfiguration": "StreamingConfigurationTypeDef",
-    },
-)
-
-PutVoiceConnectorStreamingConfigurationResponseTypeDef = TypedDict(
-    "PutVoiceConnectorStreamingConfigurationResponseTypeDef",
-    {
-        "StreamingConfiguration": "StreamingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutVoiceConnectorTerminationCredentialsRequestRequestTypeDef = TypedDict(
-    "_RequiredPutVoiceConnectorTerminationCredentialsRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-    },
-)
-_OptionalPutVoiceConnectorTerminationCredentialsRequestRequestTypeDef = TypedDict(
-    "_OptionalPutVoiceConnectorTerminationCredentialsRequestRequestTypeDef",
-    {
-        "Credentials": List["CredentialTypeDef"],
-    },
-    total=False,
-)
-
-class PutVoiceConnectorTerminationCredentialsRequestRequestTypeDef(
-    _RequiredPutVoiceConnectorTerminationCredentialsRequestRequestTypeDef,
-    _OptionalPutVoiceConnectorTerminationCredentialsRequestRequestTypeDef,
-):
-    pass
-
-PutVoiceConnectorTerminationRequestRequestTypeDef = TypedDict(
-    "PutVoiceConnectorTerminationRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "Termination": "TerminationTypeDef",
-    },
-)
-
-PutVoiceConnectorTerminationResponseTypeDef = TypedDict(
-    "PutVoiceConnectorTerminationResponseTypeDef",
-    {
-        "Termination": "TerminationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RestorePhoneNumberRequestRequestTypeDef = TypedDict(
-    "RestorePhoneNumberRequestRequestTypeDef",
-    {
-        "PhoneNumberId": str,
-    },
-)
-
-RestorePhoneNumberResponseTypeDef = TypedDict(
-    "RestorePhoneNumberResponseTypeDef",
-    {
-        "PhoneNumber": "PhoneNumberTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchAvailablePhoneNumbersRequestRequestTypeDef = TypedDict(
-    "SearchAvailablePhoneNumbersRequestRequestTypeDef",
-    {
-        "AreaCode": str,
-        "City": str,
-        "Country": str,
-        "State": str,
-        "TollFreePrefix": str,
-        "PhoneNumberType": PhoneNumberTypeType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-SearchAvailablePhoneNumbersResponseTypeDef = TypedDict(
-    "SearchAvailablePhoneNumbersResponseTypeDef",
-    {
-        "E164PhoneNumbers": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ServerSideEncryptionConfigurationTypeDef = TypedDict(
-    "ServerSideEncryptionConfigurationTypeDef",
-    {
-        "KmsKeyArn": str,
-    },
-)
-
-SipMediaApplicationAlexaSkillConfigurationTypeDef = TypedDict(
-    "SipMediaApplicationAlexaSkillConfigurationTypeDef",
-    {
-        "AlexaSkillStatus": AlexaSkillStatusType,
-        "AlexaSkillIds": List[str],
-    },
-)
-
-SipMediaApplicationCallTypeDef = TypedDict(
-    "SipMediaApplicationCallTypeDef",
-    {
-        "TransactionId": str,
-    },
-    total=False,
-)
-
-SipMediaApplicationEndpointTypeDef = TypedDict(
-    "SipMediaApplicationEndpointTypeDef",
-    {
-        "LambdaArn": str,
-    },
-    total=False,
-)
-
-SipMediaApplicationLoggingConfigurationTypeDef = TypedDict(
-    "SipMediaApplicationLoggingConfigurationTypeDef",
-    {
-        "EnableSipMediaApplicationMessageLogs": bool,
-    },
-    total=False,
-)
-
-SipMediaApplicationTypeDef = TypedDict(
-    "SipMediaApplicationTypeDef",
-    {
-        "SipMediaApplicationId": str,
-        "AwsRegion": str,
-        "Name": str,
-        "Endpoints": List["SipMediaApplicationEndpointTypeDef"],
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "SipMediaApplicationArn": str,
-    },
-    total=False,
-)
-
-SipRuleTargetApplicationTypeDef = TypedDict(
-    "SipRuleTargetApplicationTypeDef",
-    {
-        "SipMediaApplicationId": str,
-        "Priority": int,
-        "AwsRegion": str,
-    },
-    total=False,
-)
-
-SipRuleTypeDef = TypedDict(
-    "SipRuleTypeDef",
-    {
-        "SipRuleId": str,
-        "Name": str,
-        "Disabled": bool,
-        "TriggerType": SipRuleTriggerTypeType,
-        "TriggerValue": str,
-        "TargetApplications": List["SipRuleTargetApplicationTypeDef"],
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-    },
-    total=False,
-)
-
-SpeakerSearchDetailsTypeDef = TypedDict(
-    "SpeakerSearchDetailsTypeDef",
-    {
-        "Results": List["SpeakerSearchResultTypeDef"],
-        "VoiceprintGenerationStatus": str,
-    },
-    total=False,
-)
-
-SpeakerSearchResultTypeDef = TypedDict(
-    "SpeakerSearchResultTypeDef",
-    {
-        "ConfidenceScore": float,
-        "VoiceProfileId": str,
-    },
-    total=False,
-)
-
-SpeakerSearchTaskTypeDef = TypedDict(
-    "SpeakerSearchTaskTypeDef",
-    {
-        "SpeakerSearchTaskId": str,
-        "SpeakerSearchTaskStatus": str,
-        "CallDetails": "CallDetailsTypeDef",
-        "SpeakerSearchDetails": "SpeakerSearchDetailsTypeDef",
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "StartedTimestamp": datetime,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-_RequiredStartSpeakerSearchTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredStartSpeakerSearchTaskRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "TransactionId": str,
-        "VoiceProfileDomainId": str,
-    },
-)
-_OptionalStartSpeakerSearchTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalStartSpeakerSearchTaskRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "CallLeg": CallLegTypeType,
-    },
-    total=False,
-)
-
-class StartSpeakerSearchTaskRequestRequestTypeDef(
-    _RequiredStartSpeakerSearchTaskRequestRequestTypeDef,
-    _OptionalStartSpeakerSearchTaskRequestRequestTypeDef,
-):
-    pass
-
-StartSpeakerSearchTaskResponseTypeDef = TypedDict(
-    "StartSpeakerSearchTaskResponseTypeDef",
-    {
-        "SpeakerSearchTask": "SpeakerSearchTaskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartVoiceToneAnalysisTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredStartVoiceToneAnalysisTaskRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "TransactionId": str,
-        "LanguageCode": Literal["en-US"],
-    },
-)
-_OptionalStartVoiceToneAnalysisTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalStartVoiceToneAnalysisTaskRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class StartVoiceToneAnalysisTaskRequestRequestTypeDef(
-    _RequiredStartVoiceToneAnalysisTaskRequestRequestTypeDef,
-    _OptionalStartVoiceToneAnalysisTaskRequestRequestTypeDef,
-):
-    pass
-
-StartVoiceToneAnalysisTaskResponseTypeDef = TypedDict(
-    "StartVoiceToneAnalysisTaskResponseTypeDef",
-    {
-        "VoiceToneAnalysisTask": "VoiceToneAnalysisTaskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopSpeakerSearchTaskRequestRequestTypeDef = TypedDict(
-    "StopSpeakerSearchTaskRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "SpeakerSearchTaskId": str,
-    },
-)
-
-StopVoiceToneAnalysisTaskRequestRequestTypeDef = TypedDict(
-    "StopVoiceToneAnalysisTaskRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "VoiceToneAnalysisTaskId": str,
-    },
-)
-
-_RequiredStreamingConfigurationTypeDef = TypedDict(
-    "_RequiredStreamingConfigurationTypeDef",
-    {
-        "DataRetentionInHours": int,
-        "Disabled": bool,
-    },
-)
-_OptionalStreamingConfigurationTypeDef = TypedDict(
-    "_OptionalStreamingConfigurationTypeDef",
-    {
-        "StreamingNotificationTargets": List["StreamingNotificationTargetTypeDef"],
-        "MediaInsightsConfiguration": "MediaInsightsConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class StreamingConfigurationTypeDef(
-    _RequiredStreamingConfigurationTypeDef, _OptionalStreamingConfigurationTypeDef
-):
-    pass
-
-StreamingNotificationTargetTypeDef = TypedDict(
-    "StreamingNotificationTargetTypeDef",
-    {
-        "NotificationTarget": NotificationTargetType,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TerminationHealthTypeDef = TypedDict(
-    "TerminationHealthTypeDef",
-    {
-        "Timestamp": datetime,
-        "Source": str,
-    },
-    total=False,
-)
-
-TerminationTypeDef = TypedDict(
-    "TerminationTypeDef",
-    {
-        "CpsLimit": int,
-        "DefaultPhoneNumber": str,
-        "CallingRegions": List[str],
-        "CidrAllowedList": List[str],
-        "Disabled": bool,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-UpdateGlobalSettingsRequestRequestTypeDef = TypedDict(
-    "UpdateGlobalSettingsRequestRequestTypeDef",
-    {
-        "VoiceConnector": "VoiceConnectorSettingsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredUpdatePhoneNumberRequestItemTypeDef = TypedDict(
-    "_RequiredUpdatePhoneNumberRequestItemTypeDef",
-    {
-        "PhoneNumberId": str,
-    },
-)
-_OptionalUpdatePhoneNumberRequestItemTypeDef = TypedDict(
-    "_OptionalUpdatePhoneNumberRequestItemTypeDef",
-    {
-        "ProductType": PhoneNumberProductTypeType,
-        "CallingName": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-class UpdatePhoneNumberRequestItemTypeDef(
-    _RequiredUpdatePhoneNumberRequestItemTypeDef, _OptionalUpdatePhoneNumberRequestItemTypeDef
-):
-    pass
-
-_RequiredUpdatePhoneNumberRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePhoneNumberRequestRequestTypeDef",
-    {
-        "PhoneNumberId": str,
-    },
-)
-_OptionalUpdatePhoneNumberRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePhoneNumberRequestRequestTypeDef",
-    {
-        "ProductType": PhoneNumberProductTypeType,
-        "CallingName": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-class UpdatePhoneNumberRequestRequestTypeDef(
-    _RequiredUpdatePhoneNumberRequestRequestTypeDef, _OptionalUpdatePhoneNumberRequestRequestTypeDef
-):
-    pass
-
-UpdatePhoneNumberResponseTypeDef = TypedDict(
-    "UpdatePhoneNumberResponseTypeDef",
-    {
-        "PhoneNumber": "PhoneNumberTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdatePhoneNumberSettingsRequestRequestTypeDef = TypedDict(
-    "UpdatePhoneNumberSettingsRequestRequestTypeDef",
-    {
-        "CallingName": str,
-    },
-)
-
-_RequiredUpdateProxySessionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateProxySessionRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "ProxySessionId": str,
-        "Capabilities": List[CapabilityType],
-    },
-)
-_OptionalUpdateProxySessionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateProxySessionRequestRequestTypeDef",
-    {
-        "ExpiryMinutes": int,
-    },
-    total=False,
-)
-
-class UpdateProxySessionRequestRequestTypeDef(
-    _RequiredUpdateProxySessionRequestRequestTypeDef,
-    _OptionalUpdateProxySessionRequestRequestTypeDef,
-):
-    pass
-
-UpdateProxySessionResponseTypeDef = TypedDict(
-    "UpdateProxySessionResponseTypeDef",
-    {
-        "ProxySession": "ProxySessionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateSipMediaApplicationCallRequestRequestTypeDef = TypedDict(
-    "UpdateSipMediaApplicationCallRequestRequestTypeDef",
-    {
-        "SipMediaApplicationId": str,
-        "TransactionId": str,
-        "Arguments": Dict[str, str],
-    },
-)
-
-UpdateSipMediaApplicationCallResponseTypeDef = TypedDict(
-    "UpdateSipMediaApplicationCallResponseTypeDef",
-    {
-        "SipMediaApplicationCall": "SipMediaApplicationCallTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSipMediaApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSipMediaApplicationRequestRequestTypeDef",
-    {
-        "SipMediaApplicationId": str,
-    },
-)
-_OptionalUpdateSipMediaApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSipMediaApplicationRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Endpoints": List["SipMediaApplicationEndpointTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateSipMediaApplicationRequestRequestTypeDef(
-    _RequiredUpdateSipMediaApplicationRequestRequestTypeDef,
-    _OptionalUpdateSipMediaApplicationRequestRequestTypeDef,
-):
-    pass
-
-UpdateSipMediaApplicationResponseTypeDef = TypedDict(
-    "UpdateSipMediaApplicationResponseTypeDef",
-    {
-        "SipMediaApplication": "SipMediaApplicationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSipRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSipRuleRequestRequestTypeDef",
-    {
-        "SipRuleId": str,
-        "Name": str,
-    },
-)
-_OptionalUpdateSipRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSipRuleRequestRequestTypeDef",
-    {
-        "Disabled": bool,
-        "TargetApplications": List["SipRuleTargetApplicationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateSipRuleRequestRequestTypeDef(
-    _RequiredUpdateSipRuleRequestRequestTypeDef, _OptionalUpdateSipRuleRequestRequestTypeDef
-):
-    pass
-
-UpdateSipRuleResponseTypeDef = TypedDict(
-    "UpdateSipRuleResponseTypeDef",
-    {
-        "SipRule": "SipRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateVoiceConnectorGroupRequestRequestTypeDef = TypedDict(
-    "UpdateVoiceConnectorGroupRequestRequestTypeDef",
-    {
-        "VoiceConnectorGroupId": str,
-        "Name": str,
-        "VoiceConnectorItems": List["VoiceConnectorItemTypeDef"],
-    },
-)
-
-UpdateVoiceConnectorGroupResponseTypeDef = TypedDict(
-    "UpdateVoiceConnectorGroupResponseTypeDef",
-    {
-        "VoiceConnectorGroup": "VoiceConnectorGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateVoiceConnectorRequestRequestTypeDef = TypedDict(
-    "UpdateVoiceConnectorRequestRequestTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "Name": str,
-        "RequireEncryption": bool,
-    },
-)
-
-UpdateVoiceConnectorResponseTypeDef = TypedDict(
-    "UpdateVoiceConnectorResponseTypeDef",
-    {
-        "VoiceConnector": "VoiceConnectorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateVoiceProfileDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVoiceProfileDomainRequestRequestTypeDef",
-    {
-        "VoiceProfileDomainId": str,
-    },
-)
-_OptionalUpdateVoiceProfileDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVoiceProfileDomainRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateVoiceProfileDomainRequestRequestTypeDef(
-    _RequiredUpdateVoiceProfileDomainRequestRequestTypeDef,
-    _OptionalUpdateVoiceProfileDomainRequestRequestTypeDef,
-):
-    pass
-
-UpdateVoiceProfileDomainResponseTypeDef = TypedDict(
-    "UpdateVoiceProfileDomainResponseTypeDef",
-    {
-        "VoiceProfileDomain": "VoiceProfileDomainTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateVoiceProfileRequestRequestTypeDef = TypedDict(
-    "UpdateVoiceProfileRequestRequestTypeDef",
-    {
-        "VoiceProfileId": str,
-        "SpeakerSearchTaskId": str,
-    },
-)
-
-UpdateVoiceProfileResponseTypeDef = TypedDict(
-    "UpdateVoiceProfileResponseTypeDef",
-    {
-        "VoiceProfile": "VoiceProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ValidateE911AddressRequestRequestTypeDef = TypedDict(
-    "ValidateE911AddressRequestRequestTypeDef",
-    {
-        "AwsAccountId": str,
-        "StreetNumber": str,
-        "StreetInfo": str,
-        "City": str,
-        "State": str,
-        "Country": str,
-        "PostalCode": str,
-    },
-)
-
-ValidateE911AddressResponseTypeDef = TypedDict(
-    "ValidateE911AddressResponseTypeDef",
-    {
-        "ValidationResult": int,
-        "AddressExternalId": str,
-        "Address": "AddressTypeDef",
-        "CandidateAddressList": List["CandidateAddressTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VoiceConnectorGroupTypeDef = TypedDict(
-    "VoiceConnectorGroupTypeDef",
-    {
-        "VoiceConnectorGroupId": str,
-        "Name": str,
-        "VoiceConnectorItems": List["VoiceConnectorItemTypeDef"],
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "VoiceConnectorGroupArn": str,
-    },
-    total=False,
-)
-
-VoiceConnectorItemTypeDef = TypedDict(
-    "VoiceConnectorItemTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "Priority": int,
-    },
-)
-
-VoiceConnectorSettingsTypeDef = TypedDict(
-    "VoiceConnectorSettingsTypeDef",
-    {
-        "CdrBucket": str,
-    },
-    total=False,
-)
-
-VoiceConnectorTypeDef = TypedDict(
-    "VoiceConnectorTypeDef",
-    {
-        "VoiceConnectorId": str,
-        "AwsRegion": VoiceConnectorAwsRegionType,
-        "Name": str,
-        "OutboundHostName": str,
-        "RequireEncryption": bool,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "VoiceConnectorArn": str,
-    },
-    total=False,
-)
-
-VoiceProfileDomainSummaryTypeDef = TypedDict(
-    "VoiceProfileDomainSummaryTypeDef",
-    {
-        "VoiceProfileDomainId": str,
-        "VoiceProfileDomainArn": str,
-        "Name": str,
-        "Description": str,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-    },
-    total=False,
-)
-
-VoiceProfileDomainTypeDef = TypedDict(
-    "VoiceProfileDomainTypeDef",
-    {
-        "VoiceProfileDomainId": str,
-        "VoiceProfileDomainArn": str,
-        "Name": str,
-        "Description": str,
-        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-    },
-    total=False,
-)
-
-VoiceProfileSummaryTypeDef = TypedDict(
-    "VoiceProfileSummaryTypeDef",
-    {
-        "VoiceProfileId": str,
-        "VoiceProfileArn": str,
-        "VoiceProfileDomainId": str,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "ExpirationTimestamp": datetime,
-    },
-    total=False,
-)
-
-VoiceProfileTypeDef = TypedDict(
-    "VoiceProfileTypeDef",
-    {
-        "VoiceProfileId": str,
-        "VoiceProfileArn": str,
-        "VoiceProfileDomainId": str,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "ExpirationTimestamp": datetime,
-    },
-    total=False,
-)
-
-VoiceToneAnalysisTaskTypeDef = TypedDict(
-    "VoiceToneAnalysisTaskTypeDef",
-    {
-        "VoiceToneAnalysisTaskId": str,
-        "VoiceToneAnalysisTaskStatus": str,
-        "CallDetails": "CallDetailsTypeDef",
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "StartedTimestamp": datetime,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+        "PhoneNumberId": NotRequired[str],
+        "E164PhoneNumber": NotRequired[str],
+        "Country": NotRequired[str],
+        "Type": NotRequired[PhoneNumberTypeType],
+        "ProductType": NotRequired[PhoneNumberProductTypeType],
+        "Status": NotRequired[PhoneNumberStatusType],
+        "Capabilities": NotRequired[PhoneNumberCapabilitiesTypeDef],
+        "Associations": NotRequired[List[PhoneNumberAssociationTypeDef]],
+        "CallingName": NotRequired[str],
+        "CallingNameStatus": NotRequired[CallingNameStatusType],
+        "CreatedTimestamp": NotRequired[datetime],
+        "UpdatedTimestamp": NotRequired[datetime],
+        "DeletionTimestamp": NotRequired[datetime],
+        "OrderId": NotRequired[str],
+        "Name": NotRequired[str],
+    },
+)
+SipMediaApplicationAlexaSkillConfigurationUnionTypeDef = Union[
+    SipMediaApplicationAlexaSkillConfigurationTypeDef,
+    SipMediaApplicationAlexaSkillConfigurationOutputTypeDef,
+]
+
+class SpeakerSearchDetailsTypeDef(TypedDict):
+    Results: NotRequired[List[SpeakerSearchResultTypeDef]]
+    VoiceprintGenerationStatus: NotRequired[str]
+
+class StreamingConfigurationOutputTypeDef(TypedDict):
+    DataRetentionInHours: int
+    Disabled: bool
+    StreamingNotificationTargets: NotRequired[List[StreamingNotificationTargetTypeDef]]
+    MediaInsightsConfiguration: NotRequired[MediaInsightsConfigurationTypeDef]
+
+class StreamingConfigurationTypeDef(TypedDict):
+    DataRetentionInHours: int
+    Disabled: bool
+    StreamingNotificationTargets: NotRequired[Sequence[StreamingNotificationTargetTypeDef]]
+    MediaInsightsConfiguration: NotRequired[MediaInsightsConfigurationTypeDef]
+
+TerminationUnionTypeDef = Union[TerminationTypeDef, TerminationOutputTypeDef]
+
+class GetVoiceToneAnalysisTaskResponseTypeDef(TypedDict):
+    VoiceToneAnalysisTask: VoiceToneAnalysisTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartVoiceToneAnalysisTaskResponseTypeDef(TypedDict):
+    VoiceToneAnalysisTask: VoiceToneAnalysisTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSipMediaApplicationResponseTypeDef(TypedDict):
+    SipMediaApplication: SipMediaApplicationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSipMediaApplicationResponseTypeDef(TypedDict):
+    SipMediaApplication: SipMediaApplicationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSipMediaApplicationsResponseTypeDef(TypedDict):
+    SipMediaApplications: List[SipMediaApplicationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateSipMediaApplicationResponseTypeDef(TypedDict):
+    SipMediaApplication: SipMediaApplicationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSipRuleResponseTypeDef(TypedDict):
+    SipRule: SipRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSipRuleResponseTypeDef(TypedDict):
+    SipRule: SipRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSipRulesResponseTypeDef(TypedDict):
+    SipRules: List[SipRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateSipRuleResponseTypeDef(TypedDict):
+    SipRule: SipRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVoiceConnectorGroupResponseTypeDef(TypedDict):
+    VoiceConnectorGroup: VoiceConnectorGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceConnectorGroupResponseTypeDef(TypedDict):
+    VoiceConnectorGroup: VoiceConnectorGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVoiceConnectorGroupsResponseTypeDef(TypedDict):
+    VoiceConnectorGroups: List[VoiceConnectorGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateVoiceConnectorGroupResponseTypeDef(TypedDict):
+    VoiceConnectorGroup: VoiceConnectorGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVoiceProfileDomainResponseTypeDef(TypedDict):
+    VoiceProfileDomain: VoiceProfileDomainTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceProfileDomainResponseTypeDef(TypedDict):
+    VoiceProfileDomain: VoiceProfileDomainTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVoiceProfileDomainResponseTypeDef(TypedDict):
+    VoiceProfileDomain: VoiceProfileDomainTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVoiceConnectorEmergencyCallingConfigurationResponseTypeDef(TypedDict):
+    EmergencyCallingConfiguration: EmergencyCallingConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutVoiceConnectorEmergencyCallingConfigurationResponseTypeDef(TypedDict):
+    EmergencyCallingConfiguration: EmergencyCallingConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+EmergencyCallingConfigurationUnionTypeDef = Union[
+    EmergencyCallingConfigurationTypeDef, EmergencyCallingConfigurationOutputTypeDef
+]
+
+class CreatePhoneNumberOrderResponseTypeDef(TypedDict):
+    PhoneNumberOrder: PhoneNumberOrderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPhoneNumberOrderResponseTypeDef(TypedDict):
+    PhoneNumberOrder: PhoneNumberOrderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPhoneNumberOrdersResponseTypeDef(TypedDict):
+    PhoneNumberOrders: List[PhoneNumberOrderTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetVoiceConnectorOriginationResponseTypeDef(TypedDict):
+    Origination: OriginationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutVoiceConnectorOriginationResponseTypeDef(TypedDict):
+    Origination: OriginationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+OriginationUnionTypeDef = Union[OriginationTypeDef, OriginationOutputTypeDef]
+
+class CreateProxySessionResponseTypeDef(TypedDict):
+    ProxySession: ProxySessionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetProxySessionResponseTypeDef(TypedDict):
+    ProxySession: ProxySessionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListProxySessionsResponseTypeDef(TypedDict):
+    ProxySessions: List[ProxySessionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateProxySessionResponseTypeDef(TypedDict):
+    ProxySession: ProxySessionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPhoneNumberResponseTypeDef(TypedDict):
+    PhoneNumber: PhoneNumberTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPhoneNumbersResponseTypeDef(TypedDict):
+    PhoneNumbers: List[PhoneNumberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RestorePhoneNumberResponseTypeDef(TypedDict):
+    PhoneNumber: PhoneNumberTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePhoneNumberResponseTypeDef(TypedDict):
+    PhoneNumber: PhoneNumberTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutSipMediaApplicationAlexaSkillConfigurationRequestTypeDef(TypedDict):
+    SipMediaApplicationId: str
+    SipMediaApplicationAlexaSkillConfiguration: NotRequired[
+        SipMediaApplicationAlexaSkillConfigurationUnionTypeDef
+    ]
+
+class SpeakerSearchTaskTypeDef(TypedDict):
+    SpeakerSearchTaskId: NotRequired[str]
+    SpeakerSearchTaskStatus: NotRequired[str]
+    CallDetails: NotRequired[CallDetailsTypeDef]
+    SpeakerSearchDetails: NotRequired[SpeakerSearchDetailsTypeDef]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+    StartedTimestamp: NotRequired[datetime]
+    StatusMessage: NotRequired[str]
+
+class GetVoiceConnectorStreamingConfigurationResponseTypeDef(TypedDict):
+    StreamingConfiguration: StreamingConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutVoiceConnectorStreamingConfigurationResponseTypeDef(TypedDict):
+    StreamingConfiguration: StreamingConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+StreamingConfigurationUnionTypeDef = Union[
+    StreamingConfigurationTypeDef, StreamingConfigurationOutputTypeDef
+]
+
+class PutVoiceConnectorTerminationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    Termination: TerminationUnionTypeDef
+
+class PutVoiceConnectorEmergencyCallingConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    EmergencyCallingConfiguration: EmergencyCallingConfigurationUnionTypeDef
+
+class PutVoiceConnectorOriginationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    Origination: OriginationUnionTypeDef
+
+class GetSpeakerSearchTaskResponseTypeDef(TypedDict):
+    SpeakerSearchTask: SpeakerSearchTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSpeakerSearchTaskResponseTypeDef(TypedDict):
+    SpeakerSearchTask: SpeakerSearchTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutVoiceConnectorStreamingConfigurationRequestTypeDef(TypedDict):
+    VoiceConnectorId: str
+    StreamingConfiguration: StreamingConfigurationUnionTypeDef

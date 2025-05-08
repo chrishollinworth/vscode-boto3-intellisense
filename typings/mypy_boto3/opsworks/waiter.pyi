@@ -1,14 +1,16 @@
 """
 Type annotations for opsworks service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_opsworks import OpsWorksClient
+    from mypy_boto3_opsworks.client import OpsWorksClient
     from mypy_boto3_opsworks.waiter import (
         AppExistsWaiter,
         DeploymentSuccessfulWaiter,
@@ -18,7 +20,8 @@ Usage::
         InstanceTerminatedWaiter,
     )
 
-    client: OpsWorksClient = boto3.client("opsworks")
+    session = Session()
+    client: OpsWorksClient = session.client("opsworks")
 
     app_exists_waiter: AppExistsWaiter = client.get_waiter("app_exists")
     deployment_successful_waiter: DeploymentSuccessfulWaiter = client.get_waiter("deployment_successful")
@@ -29,11 +32,25 @@ Usage::
     ```
 """
 
-from typing import List
+from __future__ import annotations
 
-from botocore.waiter import Waiter as Boto3Waiter
+import sys
 
-from .type_defs import WaiterConfigTypeDef
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    DescribeAppsRequestWaitTypeDef,
+    DescribeDeploymentsRequestWaitTypeDef,
+    DescribeInstancesRequestWaitExtraExtraExtraTypeDef,
+    DescribeInstancesRequestWaitExtraExtraTypeDef,
+    DescribeInstancesRequestWaitExtraTypeDef,
+    DescribeInstancesRequestWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "AppExistsWaiter",
@@ -44,115 +61,80 @@ __all__ = (
     "InstanceTerminatedWaiter",
 )
 
-class AppExistsWaiter(Boto3Waiter):
+class AppExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.AppExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#appexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/AppExists.html#OpsWorks.Waiter.AppExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#appexistswaiter)
     """
-
-    def wait(
-        self,
-        *,
-        StackId: str = None,
-        AppIds: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAppsRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.AppExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#appexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/AppExists.html#OpsWorks.Waiter.AppExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#appexistswaiter)
         """
 
-class DeploymentSuccessfulWaiter(Boto3Waiter):
+class DeploymentSuccessfulWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.DeploymentSuccessful)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#deploymentsuccessfulwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/DeploymentSuccessful.html#OpsWorks.Waiter.DeploymentSuccessful)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#deploymentsuccessfulwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        StackId: str = None,
-        AppId: str = None,
-        DeploymentIds: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeDeploymentsRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.DeploymentSuccessful.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#deploymentsuccessfulwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/DeploymentSuccessful.html#OpsWorks.Waiter.DeploymentSuccessful.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#deploymentsuccessfulwaiter)
         """
 
-class InstanceOnlineWaiter(Boto3Waiter):
+class InstanceOnlineWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.InstanceOnline)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#instanceonlinewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/InstanceOnline.html#OpsWorks.Waiter.InstanceOnline)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#instanceonlinewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        StackId: str = None,
-        LayerId: str = None,
-        InstanceIds: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInstancesRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.InstanceOnline.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#instanceonlinewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/InstanceOnline.html#OpsWorks.Waiter.InstanceOnline.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#instanceonlinewaiter)
         """
 
-class InstanceRegisteredWaiter(Boto3Waiter):
+class InstanceRegisteredWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.InstanceRegistered)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#instanceregisteredwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/InstanceRegistered.html#OpsWorks.Waiter.InstanceRegistered)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#instanceregisteredwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        StackId: str = None,
-        LayerId: str = None,
-        InstanceIds: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInstancesRequestWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.InstanceRegistered.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#instanceregisteredwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/InstanceRegistered.html#OpsWorks.Waiter.InstanceRegistered.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#instanceregisteredwaiter)
         """
 
-class InstanceStoppedWaiter(Boto3Waiter):
+class InstanceStoppedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.InstanceStopped)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#instancestoppedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/InstanceStopped.html#OpsWorks.Waiter.InstanceStopped)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#instancestoppedwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        StackId: str = None,
-        LayerId: str = None,
-        InstanceIds: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInstancesRequestWaitExtraExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.InstanceStopped.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#instancestoppedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/InstanceStopped.html#OpsWorks.Waiter.InstanceStopped.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#instancestoppedwaiter)
         """
 
-class InstanceTerminatedWaiter(Boto3Waiter):
+class InstanceTerminatedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.InstanceTerminated)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#instanceterminatedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/InstanceTerminated.html#OpsWorks.Waiter.InstanceTerminated)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#instanceterminatedwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        StackId: str = None,
-        LayerId: str = None,
-        InstanceIds: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInstancesRequestWaitExtraExtraExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Waiter.InstanceTerminated.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters.html#instanceterminatedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/waiter/InstanceTerminated.html#OpsWorks.Waiter.InstanceTerminated.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/waiters/#instanceterminatedwaiter)
         """

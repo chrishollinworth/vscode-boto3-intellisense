@@ -1,19 +1,21 @@
 """
 Main interface for iotwireless service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_iotwireless import (
         Client,
         IoTWirelessClient,
     )
 
-    session = boto3.Session()
-
-    client: IoTWirelessClient = boto3.client("iotwireless")
-    session_client: IoTWirelessClient = session.client("iotwireless")
+    session = Session()
+    client: IoTWirelessClient = session.client("iotwireless")
     ```
 """
 
