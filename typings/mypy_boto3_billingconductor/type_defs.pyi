@@ -22,10 +22,14 @@ from typing import Union
 from .literals import (
     AssociateResourceErrorReasonType,
     BillingGroupStatusType,
+    BillingGroupTypeType,
+    ComputationRuleEnumType,
     CurrencyCodeType,
     CustomLineItemRelationshipType,
     CustomLineItemTypeType,
     GroupByAttributeNameType,
+    LineItemFilterAttributeNameType,
+    MatchOptionType,
     PricingRuleScopeType,
     PricingRuleTypeType,
 )
@@ -142,9 +146,11 @@ __all__ = (
     "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PresentationObjectTypeDef",
     "PricingPlanListElementTypeDef",
     "PricingRuleListElementTypeDef",
     "ResponseMetadataTypeDef",
+    "StringSearchTypeDef",
     "TagResourceRequestTypeDef",
     "TieringTypeDef",
     "UntagResourceRequestTypeDef",
@@ -171,8 +177,9 @@ class AccountAssociationsListElementTypeDef(TypedDict):
     AccountEmail: NotRequired[str]
 
 class AccountGroupingTypeDef(TypedDict):
-    LinkedAccountIds: Sequence[str]
+    LinkedAccountIds: NotRequired[Sequence[str]]
     AutoAssociate: NotRequired[bool]
+    ResponsibilityTransferArn: NotRequired[str]
 
 class AssociateAccountsInputTypeDef(TypedDict):
     Arn: str
@@ -214,10 +221,14 @@ class ComputationPreferenceTypeDef(TypedDict):
 
 class ListBillingGroupAccountGroupingTypeDef(TypedDict):
     AutoAssociate: NotRequired[bool]
+    ResponsibilityTransferArn: NotRequired[str]
 
 class BillingPeriodRangeTypeDef(TypedDict):
     InclusiveStartBillingPeriod: str
     ExclusiveEndBillingPeriod: str
+
+class PresentationObjectTypeDef(TypedDict):
+    Service: str
 
 class CreateFreeTierConfigTypeDef(TypedDict):
     Activated: bool
@@ -257,14 +268,16 @@ class FreeTierConfigTypeDef(TypedDict):
     Activated: bool
 
 class LineItemFilterOutputTypeDef(TypedDict):
-    Attribute: Literal["LINE_ITEM_TYPE"]
-    MatchOption: Literal["NOT_EQUAL"]
-    Values: List[Literal["SAVINGS_PLAN_NEGATION"]]
+    Attribute: LineItemFilterAttributeNameType
+    MatchOption: MatchOptionType
+    Values: NotRequired[List[Literal["SAVINGS_PLAN_NEGATION"]]]
+    AttributeValues: NotRequired[List[str]]
 
 class LineItemFilterTypeDef(TypedDict):
-    Attribute: Literal["LINE_ITEM_TYPE"]
-    MatchOption: Literal["NOT_EQUAL"]
-    Values: Sequence[Literal["SAVINGS_PLAN_NEGATION"]]
+    Attribute: LineItemFilterAttributeNameType
+    MatchOption: MatchOptionType
+    Values: NotRequired[Sequence[Literal["SAVINGS_PLAN_NEGATION"]]]
+    AttributeValues: NotRequired[Sequence[str]]
 
 class ListAccountAssociationsFilterTypeDef(TypedDict):
     Association: NotRequired[str]
@@ -279,11 +292,9 @@ class PaginatorConfigTypeDef(TypedDict):
 class ListBillingGroupCostReportsFilterTypeDef(TypedDict):
     BillingGroupArns: NotRequired[Sequence[str]]
 
-class ListBillingGroupsFilterTypeDef(TypedDict):
-    Arns: NotRequired[Sequence[str]]
-    PricingPlan: NotRequired[str]
-    Statuses: NotRequired[Sequence[BillingGroupStatusType]]
-    AutoAssociate: NotRequired[bool]
+class StringSearchTypeDef(TypedDict):
+    SearchOption: Literal["STARTS_WITH"]
+    SearchValue: str
 
 class ListCustomLineItemFlatChargeDetailsTypeDef(TypedDict):
     ChargeValue: float
@@ -348,6 +359,7 @@ class UntagResourceRequestTypeDef(TypedDict):
 
 class UpdateBillingGroupAccountGroupingTypeDef(TypedDict):
     AutoAssociate: NotRequired[bool]
+    ResponsibilityTransferArn: NotRequired[str]
 
 class UpdateCustomLineItemFlatChargeDetailsTypeDef(TypedDict):
     ChargeValue: float
@@ -499,6 +511,7 @@ class BillingGroupListElementTypeDef(TypedDict):
     Status: NotRequired[BillingGroupStatusType]
     StatusReason: NotRequired[str]
     AccountGrouping: NotRequired[ListBillingGroupAccountGroupingTypeDef]
+    BillingGroupType: NotRequired[BillingGroupTypeType]
 
 class GetBillingGroupCostReportInputTypeDef(TypedDict):
     Arn: str
@@ -546,16 +559,15 @@ class ListBillingGroupCostReportsInputTypeDef(TypedDict):
     NextToken: NotRequired[str]
     Filters: NotRequired[ListBillingGroupCostReportsFilterTypeDef]
 
-class ListBillingGroupsInputPaginateTypeDef(TypedDict):
-    BillingPeriod: NotRequired[str]
-    Filters: NotRequired[ListBillingGroupsFilterTypeDef]
-    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
-
-class ListBillingGroupsInputTypeDef(TypedDict):
-    BillingPeriod: NotRequired[str]
-    MaxResults: NotRequired[int]
-    NextToken: NotRequired[str]
-    Filters: NotRequired[ListBillingGroupsFilterTypeDef]
+class ListBillingGroupsFilterTypeDef(TypedDict):
+    Arns: NotRequired[Sequence[str]]
+    PricingPlan: NotRequired[str]
+    Statuses: NotRequired[Sequence[BillingGroupStatusType]]
+    AutoAssociate: NotRequired[bool]
+    PrimaryAccountIds: NotRequired[Sequence[str]]
+    BillingGroupTypes: NotRequired[Sequence[BillingGroupTypeType]]
+    Names: NotRequired[Sequence[StringSearchTypeDef]]
+    ResponsibilityTransferArns: NotRequired[Sequence[str]]
 
 ListCustomLineItemChargeDetailsTypeDef = TypedDict(
     "ListCustomLineItemChargeDetailsTypeDef",
@@ -723,6 +735,17 @@ class UpdateCustomLineItemChargeDetailsTypeDef(TypedDict):
     Percentage: NotRequired[UpdateCustomLineItemPercentageChargeDetailsTypeDef]
     LineItemFilters: NotRequired[Sequence[LineItemFilterUnionTypeDef]]
 
+class ListBillingGroupsInputPaginateTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListBillingGroupsFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBillingGroupsInputTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[ListBillingGroupsFilterTypeDef]
+
 class CustomLineItemListElementTypeDef(TypedDict):
     Arn: NotRequired[str]
     Name: NotRequired[str]
@@ -735,6 +758,8 @@ class CustomLineItemListElementTypeDef(TypedDict):
     LastModifiedTime: NotRequired[int]
     AssociationSize: NotRequired[int]
     AccountId: NotRequired[str]
+    ComputationRule: NotRequired[ComputationRuleEnumType]
+    PresentationDetails: NotRequired[PresentationObjectTypeDef]
 
 class CustomLineItemVersionListElementTypeDef(TypedDict):
     Name: NotRequired[str]
@@ -751,6 +776,8 @@ class CustomLineItemVersionListElementTypeDef(TypedDict):
     Arn: NotRequired[str]
     StartTime: NotRequired[int]
     AccountId: NotRequired[str]
+    ComputationRule: NotRequired[ComputationRuleEnumType]
+    PresentationDetails: NotRequired[PresentationObjectTypeDef]
 
 class UpdateCustomLineItemOutputTypeDef(TypedDict):
     Arn: str
@@ -819,6 +846,8 @@ class CreateCustomLineItemInputTypeDef(TypedDict):
     BillingPeriodRange: NotRequired[CustomLineItemBillingPeriodRangeTypeDef]
     Tags: NotRequired[Mapping[str, str]]
     AccountId: NotRequired[str]
+    ComputationRule: NotRequired[ComputationRuleEnumType]
+    PresentationDetails: NotRequired[PresentationObjectTypeDef]
 
 class UpdateCustomLineItemInputTypeDef(TypedDict):
     Arn: str

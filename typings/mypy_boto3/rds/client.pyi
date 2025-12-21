@@ -39,6 +39,7 @@ from .paginator import (
     DescribeDBInstanceAutomatedBackupsPaginator,
     DescribeDBInstancesPaginator,
     DescribeDBLogFilesPaginator,
+    DescribeDBMajorEngineVersionsPaginator,
     DescribeDBParameterGroupsPaginator,
     DescribeDBParametersPaginator,
     DescribeDBProxiesPaginator,
@@ -203,6 +204,8 @@ from .type_defs import (
     DescribeDBInstancesMessageTypeDef,
     DescribeDBLogFilesMessageTypeDef,
     DescribeDBLogFilesResponseTypeDef,
+    DescribeDBMajorEngineVersionsRequestTypeDef,
+    DescribeDBMajorEngineVersionsResponseTypeDef,
     DescribeDBParameterGroupsMessageTypeDef,
     DescribeDBParametersMessageTypeDef,
     DescribeDBProxiesRequestTypeDef,
@@ -543,6 +546,7 @@ class Exceptions(BaseClientExceptions):
     TenantDatabaseNotFoundFault: Type[BotocoreClientError]
     TenantDatabaseQuotaExceededFault: Type[BotocoreClientError]
     UnsupportedDBEngineVersionFault: Type[BotocoreClientError]
+    VpcEncryptionControlViolationException: Type[BotocoreClientError]
 
 class RDSClient(BaseClient):
     """
@@ -1288,6 +1292,16 @@ class RDSClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds/client/describe_db_log_files.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rds/client/#describe_db_log_files)
+        """
+
+    def describe_db_major_engine_versions(
+        self, **kwargs: Unpack[DescribeDBMajorEngineVersionsRequestTypeDef]
+    ) -> DescribeDBMajorEngineVersionsResponseTypeDef:
+        """
+        Describes the properties of specific major versions of DB engines.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds/client/describe_db_major_engine_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rds/client/#describe_db_major_engine_versions)
         """
 
     def describe_db_parameter_groups(
@@ -2394,6 +2408,17 @@ class RDSClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_db_log_files"]
     ) -> DescribeDBLogFilesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rds/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_db_major_engine_versions"]
+    ) -> DescribeDBMajorEngineVersionsPaginator:
         """
         Create a paginator for an operation.
 

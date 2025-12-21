@@ -23,6 +23,7 @@ from typing import IO, Any, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    CertificateExportType,
     CertificateStatusType,
     CertificateTransparencyLoggingPreferenceType,
     CertificateTypeType,
@@ -89,6 +90,8 @@ __all__ = (
     "ResendValidationEmailRequestTypeDef",
     "ResourceRecordTypeDef",
     "ResponseMetadataTypeDef",
+    "RevokeCertificateRequestTypeDef",
+    "RevokeCertificateResponseTypeDef",
     "TagTypeDef",
     "UpdateCertificateOptionsRequestTypeDef",
     "WaiterConfigTypeDef",
@@ -104,6 +107,7 @@ class CertificateOptionsTypeDef(TypedDict):
     CertificateTransparencyLoggingPreference: NotRequired[
         CertificateTransparencyLoggingPreferenceType
     ]
+    Export: NotRequired[CertificateExportType]
 
 class ExtendedKeyUsageTypeDef(TypedDict):
     Name: NotRequired[ExtendedKeyUsageNameType]
@@ -124,6 +128,7 @@ CertificateSummaryTypeDef = TypedDict(
         "KeyAlgorithm": NotRequired[KeyAlgorithmType],
         "KeyUsages": NotRequired[List[KeyUsageNameType]],
         "ExtendedKeyUsages": NotRequired[List[ExtendedKeyUsageNameType]],
+        "ExportOption": NotRequired[CertificateExportType],
         "InUse": NotRequired[bool],
         "Exported": NotRequired[bool],
         "RenewalEligibility": NotRequired[RenewalEligibilityType],
@@ -178,6 +183,7 @@ class FiltersTypeDef(TypedDict):
     extendedKeyUsage: NotRequired[Sequence[ExtendedKeyUsageNameType]]
     keyUsage: NotRequired[Sequence[KeyUsageNameType]]
     keyTypes: NotRequired[Sequence[KeyAlgorithmType]]
+    exportOption: NotRequired[CertificateExportType]
     managedBy: NotRequired[Literal["CLOUDFRONT"]]
 
 class GetCertificateRequestTypeDef(TypedDict):
@@ -198,6 +204,10 @@ class ResendValidationEmailRequestTypeDef(TypedDict):
     CertificateArn: str
     Domain: str
     ValidationDomain: str
+
+class RevokeCertificateRequestTypeDef(TypedDict):
+    CertificateArn: str
+    RevocationReason: RevocationReasonType
 
 class AddTagsToCertificateRequestTypeDef(TypedDict):
     CertificateArn: str
@@ -254,6 +264,10 @@ class ListTagsForCertificateResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class RequestCertificateResponseTypeDef(TypedDict):
+    CertificateArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RevokeCertificateResponseTypeDef(TypedDict):
     CertificateArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 

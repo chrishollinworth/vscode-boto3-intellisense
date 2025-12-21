@@ -35,6 +35,7 @@ from .paginator import (
     DescribeSnapshotsPaginator,
     DescribeTrustsPaginator,
     DescribeUpdateDirectoryPaginator,
+    ListADAssessmentsPaginator,
     ListCertificatesPaginator,
     ListIpRoutesPaginator,
     ListLogSubscriptionsPaginator,
@@ -57,6 +58,8 @@ from .type_defs import (
     CreateConditionalForwarderRequestTypeDef,
     CreateDirectoryRequestTypeDef,
     CreateDirectoryResultTypeDef,
+    CreateHybridADRequestTypeDef,
+    CreateHybridADResultTypeDef,
     CreateLogSubscriptionRequestTypeDef,
     CreateMicrosoftADRequestTypeDef,
     CreateMicrosoftADResultTypeDef,
@@ -64,6 +67,8 @@ from .type_defs import (
     CreateSnapshotResultTypeDef,
     CreateTrustRequestTypeDef,
     CreateTrustResultTypeDef,
+    DeleteADAssessmentRequestTypeDef,
+    DeleteADAssessmentResultTypeDef,
     DeleteConditionalForwarderRequestTypeDef,
     DeleteDirectoryRequestTypeDef,
     DeleteDirectoryResultTypeDef,
@@ -74,6 +79,10 @@ from .type_defs import (
     DeleteTrustResultTypeDef,
     DeregisterCertificateRequestTypeDef,
     DeregisterEventTopicRequestTypeDef,
+    DescribeADAssessmentRequestTypeDef,
+    DescribeADAssessmentResultTypeDef,
+    DescribeCAEnrollmentPolicyRequestTypeDef,
+    DescribeCAEnrollmentPolicyResultTypeDef,
     DescribeCertificateRequestTypeDef,
     DescribeCertificateResultTypeDef,
     DescribeClientAuthenticationSettingsRequestTypeDef,
@@ -88,6 +97,8 @@ from .type_defs import (
     DescribeDomainControllersResultTypeDef,
     DescribeEventTopicsRequestTypeDef,
     DescribeEventTopicsResultTypeDef,
+    DescribeHybridADUpdateRequestTypeDef,
+    DescribeHybridADUpdateResultTypeDef,
     DescribeLDAPSSettingsRequestTypeDef,
     DescribeLDAPSSettingsResultTypeDef,
     DescribeRegionsRequestTypeDef,
@@ -102,11 +113,13 @@ from .type_defs import (
     DescribeTrustsResultTypeDef,
     DescribeUpdateDirectoryRequestTypeDef,
     DescribeUpdateDirectoryResultTypeDef,
+    DisableCAEnrollmentPolicyRequestTypeDef,
     DisableClientAuthenticationRequestTypeDef,
     DisableDirectoryDataAccessRequestTypeDef,
     DisableLDAPSRequestTypeDef,
     DisableRadiusRequestTypeDef,
     DisableSsoRequestTypeDef,
+    EnableCAEnrollmentPolicyRequestTypeDef,
     EnableClientAuthenticationRequestTypeDef,
     EnableDirectoryDataAccessRequestTypeDef,
     EnableLDAPSRequestTypeDef,
@@ -115,6 +128,8 @@ from .type_defs import (
     GetDirectoryLimitsResultTypeDef,
     GetSnapshotLimitsRequestTypeDef,
     GetSnapshotLimitsResultTypeDef,
+    ListADAssessmentsRequestTypeDef,
+    ListADAssessmentsResultTypeDef,
     ListCertificatesRequestTypeDef,
     ListCertificatesResultTypeDef,
     ListIpRoutesRequestTypeDef,
@@ -137,12 +152,16 @@ from .type_defs import (
     RestoreFromSnapshotRequestTypeDef,
     ShareDirectoryRequestTypeDef,
     ShareDirectoryResultTypeDef,
+    StartADAssessmentRequestTypeDef,
+    StartADAssessmentResultTypeDef,
     StartSchemaExtensionRequestTypeDef,
     StartSchemaExtensionResultTypeDef,
     UnshareDirectoryRequestTypeDef,
     UnshareDirectoryResultTypeDef,
     UpdateConditionalForwarderRequestTypeDef,
     UpdateDirectorySetupRequestTypeDef,
+    UpdateHybridADRequestTypeDef,
+    UpdateHybridADResultTypeDef,
     UpdateNumberOfDomainControllersRequestTypeDef,
     UpdateRadiusRequestTypeDef,
     UpdateSettingsRequestTypeDef,
@@ -152,6 +171,7 @@ from .type_defs import (
     VerifyTrustRequestTypeDef,
     VerifyTrustResultTypeDef,
 )
+from .waiter import HybridADUpdatedWaiter
 
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
@@ -167,6 +187,7 @@ else:
 __all__ = ("DirectoryServiceClient",)
 
 class Exceptions(BaseClientExceptions):
+    ADAssessmentLimitExceededException: Type[BotocoreClientError]
     AccessDeniedException: Type[BotocoreClientError]
     AuthenticationFailedException: Type[BotocoreClientError]
     CertificateAlreadyExistsException: Type[BotocoreClientError]
@@ -182,7 +203,9 @@ class Exceptions(BaseClientExceptions):
     DirectoryLimitExceededException: Type[BotocoreClientError]
     DirectoryNotSharedException: Type[BotocoreClientError]
     DirectoryUnavailableException: Type[BotocoreClientError]
+    DisableAlreadyInProgressException: Type[BotocoreClientError]
     DomainControllerLimitExceededException: Type[BotocoreClientError]
+    EnableAlreadyInProgressException: Type[BotocoreClientError]
     EntityAlreadyExistsException: Type[BotocoreClientError]
     EntityDoesNotExistException: Type[BotocoreClientError]
     IncompatibleSettingsException: Type[BotocoreClientError]
@@ -339,6 +362,17 @@ class DirectoryServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#create_directory)
         """
 
+    def create_hybrid_ad(
+        self, **kwargs: Unpack[CreateHybridADRequestTypeDef]
+    ) -> CreateHybridADResultTypeDef:
+        """
+        Creates a hybrid directory that connects your self-managed Active Directory
+        (AD) infrastructure and Amazon Web Services.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/create_hybrid_ad.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#create_hybrid_ad)
+        """
+
     def create_log_subscription(
         self, **kwargs: Unpack[CreateLogSubscriptionRequestTypeDef]
     ) -> Dict[str, Any]:
@@ -379,6 +413,16 @@ class DirectoryServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/create_trust.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#create_trust)
+        """
+
+    def delete_ad_assessment(
+        self, **kwargs: Unpack[DeleteADAssessmentRequestTypeDef]
+    ) -> DeleteADAssessmentResultTypeDef:
+        """
+        Deletes a directory assessment and all associated data.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/delete_ad_assessment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#delete_ad_assessment)
         """
 
     def delete_conditional_forwarder(
@@ -451,6 +495,28 @@ class DirectoryServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/deregister_event_topic.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#deregister_event_topic)
+        """
+
+    def describe_ad_assessment(
+        self, **kwargs: Unpack[DescribeADAssessmentRequestTypeDef]
+    ) -> DescribeADAssessmentResultTypeDef:
+        """
+        Retrieves detailed information about a directory assessment, including its
+        current status, validation results, and configuration details.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/describe_ad_assessment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#describe_ad_assessment)
+        """
+
+    def describe_ca_enrollment_policy(
+        self, **kwargs: Unpack[DescribeCAEnrollmentPolicyRequestTypeDef]
+    ) -> DescribeCAEnrollmentPolicyResultTypeDef:
+        """
+        Retrieves detailed information about the certificate authority (CA) enrollment
+        policy for the specified directory.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/describe_ca_enrollment_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#describe_ca_enrollment_policy)
         """
 
     def describe_certificate(
@@ -527,6 +593,16 @@ class DirectoryServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#describe_event_topics)
         """
 
+    def describe_hybrid_ad_update(
+        self, **kwargs: Unpack[DescribeHybridADUpdateRequestTypeDef]
+    ) -> DescribeHybridADUpdateResultTypeDef:
+        """
+        Retrieves information about update activities for a hybrid directory.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/describe_hybrid_ad_update.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#describe_hybrid_ad_update)
+        """
+
     def describe_ldaps_settings(
         self, **kwargs: Unpack[DescribeLDAPSSettingsRequestTypeDef]
     ) -> DescribeLDAPSSettingsResultTypeDef:
@@ -599,6 +675,17 @@ class DirectoryServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#describe_update_directory)
         """
 
+    def disable_ca_enrollment_policy(
+        self, **kwargs: Unpack[DisableCAEnrollmentPolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disables the certificate authority (CA) enrollment policy for the specified
+        directory.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/disable_ca_enrollment_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#disable_ca_enrollment_policy)
+        """
+
     def disable_client_authentication(
         self, **kwargs: Unpack[DisableClientAuthenticationRequestTypeDef]
     ) -> Dict[str, Any]:
@@ -643,6 +730,17 @@ class DirectoryServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/disable_sso.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#disable_sso)
+        """
+
+    def enable_ca_enrollment_policy(
+        self, **kwargs: Unpack[EnableCAEnrollmentPolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Enables certificate authority (CA) enrollment policy for the specified
+        directory.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/enable_ca_enrollment_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#enable_ca_enrollment_policy)
         """
 
     def enable_client_authentication(
@@ -707,6 +805,17 @@ class DirectoryServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/get_snapshot_limits.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#get_snapshot_limits)
+        """
+
+    def list_ad_assessments(
+        self, **kwargs: Unpack[ListADAssessmentsRequestTypeDef]
+    ) -> ListADAssessmentsResultTypeDef:
+        """
+        Retrieves a list of directory assessments for the specified directory or all
+        assessments in your account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/list_ad_assessments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#list_ad_assessments)
         """
 
     def list_certificates(
@@ -851,6 +960,17 @@ class DirectoryServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#share_directory)
         """
 
+    def start_ad_assessment(
+        self, **kwargs: Unpack[StartADAssessmentRequestTypeDef]
+    ) -> StartADAssessmentResultTypeDef:
+        """
+        Initiates a directory assessment to validate your self-managed AD environment
+        for hybrid domain join.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/start_ad_assessment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#start_ad_assessment)
+        """
+
     def start_schema_extension(
         self, **kwargs: Unpack[StartSchemaExtensionRequestTypeDef]
     ) -> StartSchemaExtensionResultTypeDef:
@@ -886,10 +1006,20 @@ class DirectoryServiceClient(BaseClient):
         self, **kwargs: Unpack[UpdateDirectorySetupRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Updates the directory for a particular update type.
+        Updates directory configuration for the specified update type.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/update_directory_setup.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#update_directory_setup)
+        """
+
+    def update_hybrid_ad(
+        self, **kwargs: Unpack[UpdateHybridADRequestTypeDef]
+    ) -> UpdateHybridADResultTypeDef:
+        """
+        Updates the configuration of an existing hybrid directory.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/update_hybrid_ad.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#update_hybrid_ad)
         """
 
     def update_number_of_domain_controllers(
@@ -1040,6 +1170,17 @@ class DirectoryServiceClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_ad_assessments"]
+    ) -> ListADAssessmentsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_certificates"]
     ) -> ListCertificatesPaginator:
         """
@@ -1091,4 +1232,14 @@ class DirectoryServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/get_paginator.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#get_paginator)
+        """
+
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["hybrid_ad_updated"]
+    ) -> HybridADUpdatedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/client/#get_waiter)
         """

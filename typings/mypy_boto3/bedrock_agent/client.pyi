@@ -602,7 +602,7 @@ class AgentsforBedrockClient(BaseClient):
         self, **kwargs: Unpack[GetKnowledgeBaseRequestTypeDef]
     ) -> GetKnowledgeBaseResponseTypeDef:
         """
-        Gets information about a knoweldge base.
+        Gets information about a knowledge base.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agent/client/get_knowledge_base.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client/#get_knowledge_base)

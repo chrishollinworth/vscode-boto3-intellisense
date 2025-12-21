@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_cleanroomsml.literals import AudienceExportJobStatusType
+    from mypy_boto3_cleanroomsml.literals import AccessBudgetTypeType
 
-    data: AudienceExportJobStatusType = "ACTIVE"
+    data: AccessBudgetTypeType = "CALENDAR_DAY"
     ```
 """
 
@@ -22,14 +22,17 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AccessBudgetTypeType",
     "AudienceExportJobStatusType",
     "AudienceGenerationJobStatusType",
     "AudienceModelStatusType",
     "AudienceSizeTypeType",
+    "AutoRefreshModeType",
     "CleanRoomsMLServiceName",
     "ColumnTypeType",
     "ConfiguredAudienceModelStatusType",
     "DatasetTypeType",
+    "EntityTypeType",
     "InferenceInstanceTypeType",
     "InstanceTypeType",
     "ListAudienceExportJobsPaginatorName",
@@ -45,18 +48,25 @@ __all__ = (
     "ListConfiguredModelAlgorithmsPaginatorName",
     "ListMLInputChannelsPaginatorName",
     "ListTrainedModelInferenceJobsPaginatorName",
+    "ListTrainedModelVersionsPaginatorName",
     "ListTrainedModelsPaginatorName",
     "ListTrainingDatasetsPaginatorName",
+    "LogTypeType",
     "LogsStatusType",
     "MLInputChannelStatusType",
+    "MembershipInferenceAttackVersionType",
     "MetricsStatusType",
     "NoiseLevelTypeType",
     "PaginatorName",
     "PolicyExistenceConditionType",
     "ResourceServiceName",
+    "ResultFormatType",
+    "S3DataDistributionTypeType",
     "ServiceName",
     "SharedAudienceMetricsType",
+    "SyntheticDataColumnTypeType",
     "TagOnCreatePolicyType",
+    "TrainedModelArtifactMaxSizeUnitTypeType",
     "TrainedModelExportFileTypeType",
     "TrainedModelExportJobStatusType",
     "TrainedModelExportsMaxSizeUnitTypeType",
@@ -64,9 +74,11 @@ __all__ = (
     "TrainedModelInferenceMaxOutputSizeUnitTypeType",
     "TrainedModelStatusType",
     "TrainingDatasetStatusType",
+    "TrainingInputModeType",
     "WorkerComputeTypeType",
 )
 
+AccessBudgetTypeType = Literal["CALENDAR_DAY", "CALENDAR_MONTH", "CALENDAR_WEEK", "LIFETIME"]
 AudienceExportJobStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATE_IN_PROGRESS", "CREATE_PENDING"
 ]
@@ -89,11 +101,13 @@ AudienceModelStatusType = Literal[
     "DELETE_PENDING",
 ]
 AudienceSizeTypeType = Literal["ABSOLUTE", "PERCENTAGE"]
+AutoRefreshModeType = Literal["DISABLED", "ENABLED"]
 ColumnTypeType = Literal[
     "CATEGORICAL_FEATURE", "ITEM_ID", "NUMERICAL_FEATURE", "TIMESTAMP", "USER_ID"
 ]
 ConfiguredAudienceModelStatusType = Literal["ACTIVE"]
 DatasetTypeType = Literal["INTERACTIONS"]
+EntityTypeType = Literal["ALL_PERSONALLY_IDENTIFIABLE_INFORMATION", "CUSTOM", "NUMBERS"]
 InferenceInstanceTypeType = Literal[
     "ml.c4.2xlarge",
     "ml.c4.4xlarge",
@@ -213,6 +227,15 @@ InstanceTypeType = Literal[
     "ml.c6i.4xlarge",
     "ml.c6i.8xlarge",
     "ml.c6i.xlarge",
+    "ml.c7i.12xlarge",
+    "ml.c7i.16xlarge",
+    "ml.c7i.24xlarge",
+    "ml.c7i.2xlarge",
+    "ml.c7i.48xlarge",
+    "ml.c7i.4xlarge",
+    "ml.c7i.8xlarge",
+    "ml.c7i.large",
+    "ml.c7i.xlarge",
     "ml.g4dn.12xlarge",
     "ml.g4dn.16xlarge",
     "ml.g4dn.2xlarge",
@@ -227,6 +250,22 @@ InstanceTypeType = Literal[
     "ml.g5.4xlarge",
     "ml.g5.8xlarge",
     "ml.g5.xlarge",
+    "ml.g6.12xlarge",
+    "ml.g6.16xlarge",
+    "ml.g6.24xlarge",
+    "ml.g6.2xlarge",
+    "ml.g6.48xlarge",
+    "ml.g6.4xlarge",
+    "ml.g6.8xlarge",
+    "ml.g6.xlarge",
+    "ml.g6e.12xlarge",
+    "ml.g6e.16xlarge",
+    "ml.g6e.24xlarge",
+    "ml.g6e.2xlarge",
+    "ml.g6e.48xlarge",
+    "ml.g6e.4xlarge",
+    "ml.g6e.8xlarge",
+    "ml.g6e.xlarge",
     "ml.m4.10xlarge",
     "ml.m4.16xlarge",
     "ml.m4.2xlarge",
@@ -247,6 +286,15 @@ InstanceTypeType = Literal[
     "ml.m6i.8xlarge",
     "ml.m6i.large",
     "ml.m6i.xlarge",
+    "ml.m7i.12xlarge",
+    "ml.m7i.16xlarge",
+    "ml.m7i.24xlarge",
+    "ml.m7i.2xlarge",
+    "ml.m7i.48xlarge",
+    "ml.m7i.4xlarge",
+    "ml.m7i.8xlarge",
+    "ml.m7i.large",
+    "ml.m7i.xlarge",
     "ml.p2.16xlarge",
     "ml.p2.8xlarge",
     "ml.p2.xlarge",
@@ -257,6 +305,7 @@ InstanceTypeType = Literal[
     "ml.p4d.24xlarge",
     "ml.p4de.24xlarge",
     "ml.p5.48xlarge",
+    "ml.p5en.48xlarge",
     "ml.r5.12xlarge",
     "ml.r5.16xlarge",
     "ml.r5.24xlarge",
@@ -273,6 +322,15 @@ InstanceTypeType = Literal[
     "ml.r5d.8xlarge",
     "ml.r5d.large",
     "ml.r5d.xlarge",
+    "ml.r7i.12xlarge",
+    "ml.r7i.16xlarge",
+    "ml.r7i.24xlarge",
+    "ml.r7i.2xlarge",
+    "ml.r7i.48xlarge",
+    "ml.r7i.4xlarge",
+    "ml.r7i.8xlarge",
+    "ml.r7i.large",
+    "ml.r7i.xlarge",
     "ml.t3.2xlarge",
     "ml.t3.large",
     "ml.t3.medium",
@@ -302,8 +360,10 @@ ListConfiguredModelAlgorithmAssociationsPaginatorName = Literal[
 ListConfiguredModelAlgorithmsPaginatorName = Literal["list_configured_model_algorithms"]
 ListMLInputChannelsPaginatorName = Literal["list_ml_input_channels"]
 ListTrainedModelInferenceJobsPaginatorName = Literal["list_trained_model_inference_jobs"]
+ListTrainedModelVersionsPaginatorName = Literal["list_trained_model_versions"]
 ListTrainedModelsPaginatorName = Literal["list_trained_models"]
 ListTrainingDatasetsPaginatorName = Literal["list_training_datasets"]
+LogTypeType = Literal["ALL", "ERROR_SUMMARY"]
 LogsStatusType = Literal["PUBLISH_FAILED", "PUBLISH_SUCCEEDED"]
 MLInputChannelStatusType = Literal[
     "ACTIVE",
@@ -315,11 +375,16 @@ MLInputChannelStatusType = Literal[
     "DELETE_PENDING",
     "INACTIVE",
 ]
+MembershipInferenceAttackVersionType = Literal["DISTANCE_TO_CLOSEST_RECORD_V1"]
 MetricsStatusType = Literal["PUBLISH_FAILED", "PUBLISH_SUCCEEDED"]
 NoiseLevelTypeType = Literal["HIGH", "LOW", "MEDIUM", "NONE"]
 PolicyExistenceConditionType = Literal["POLICY_MUST_EXIST", "POLICY_MUST_NOT_EXIST"]
+ResultFormatType = Literal["CSV", "PARQUET"]
+S3DataDistributionTypeType = Literal["FullyReplicated", "ShardedByS3Key"]
 SharedAudienceMetricsType = Literal["ALL", "NONE"]
+SyntheticDataColumnTypeType = Literal["CATEGORICAL", "NUMERICAL"]
 TagOnCreatePolicyType = Literal["FROM_PARENT_RESOURCE", "NONE"]
+TrainedModelArtifactMaxSizeUnitTypeType = Literal["GB"]
 TrainedModelExportFileTypeType = Literal["MODEL", "OUTPUT"]
 TrainedModelExportJobStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATE_IN_PROGRESS", "CREATE_PENDING"
@@ -350,6 +415,7 @@ TrainedModelStatusType = Literal[
     "INACTIVE",
 ]
 TrainingDatasetStatusType = Literal["ACTIVE"]
+TrainingInputModeType = Literal["FastFile", "File", "Pipe"]
 WorkerComputeTypeType = Literal["CR.1X", "CR.4X"]
 CleanRoomsMLServiceName = Literal["cleanroomsml"]
 ServiceName = Literal[
@@ -357,6 +423,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -377,7 +444,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -389,11 +456,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -442,6 +513,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -497,6 +569,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -539,7 +612,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -554,6 +626,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -577,8 +650,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -609,9 +680,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -621,17 +694,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -649,13 +725,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -670,20 +743,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -708,8 +783,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -749,26 +824,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_audience_export_jobs",
@@ -784,6 +852,7 @@ PaginatorName = Literal[
     "list_configured_model_algorithms",
     "list_ml_input_channels",
     "list_trained_model_inference_jobs",
+    "list_trained_model_versions",
     "list_trained_models",
     "list_training_datasets",
 ]

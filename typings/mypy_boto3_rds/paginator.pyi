@@ -25,6 +25,7 @@ Usage::
         DescribeDBInstanceAutomatedBackupsPaginator,
         DescribeDBInstancesPaginator,
         DescribeDBLogFilesPaginator,
+        DescribeDBMajorEngineVersionsPaginator,
         DescribeDBParameterGroupsPaginator,
         DescribeDBParametersPaginator,
         DescribeDBProxiesPaginator,
@@ -70,6 +71,7 @@ Usage::
     describe_db_instance_automated_backups_paginator: DescribeDBInstanceAutomatedBackupsPaginator = client.get_paginator("describe_db_instance_automated_backups")
     describe_db_instances_paginator: DescribeDBInstancesPaginator = client.get_paginator("describe_db_instances")
     describe_db_log_files_paginator: DescribeDBLogFilesPaginator = client.get_paginator("describe_db_log_files")
+    describe_db_major_engine_versions_paginator: DescribeDBMajorEngineVersionsPaginator = client.get_paginator("describe_db_major_engine_versions")
     describe_db_parameter_groups_paginator: DescribeDBParameterGroupsPaginator = client.get_paginator("describe_db_parameter_groups")
     describe_db_parameters_paginator: DescribeDBParametersPaginator = client.get_paginator("describe_db_parameters")
     describe_db_proxies_paginator: DescribeDBProxiesPaginator = client.get_paginator("describe_db_proxies")
@@ -141,6 +143,8 @@ from .type_defs import (
     DescribeDBInstancesMessagePaginateTypeDef,
     DescribeDBLogFilesMessagePaginateTypeDef,
     DescribeDBLogFilesResponseTypeDef,
+    DescribeDBMajorEngineVersionsRequestPaginateTypeDef,
+    DescribeDBMajorEngineVersionsResponseTypeDef,
     DescribeDBParameterGroupsMessagePaginateTypeDef,
     DescribeDBParametersMessagePaginateTypeDef,
     DescribeDBProxiesRequestPaginateTypeDef,
@@ -209,6 +213,7 @@ __all__ = (
     "DescribeDBInstanceAutomatedBackupsPaginator",
     "DescribeDBInstancesPaginator",
     "DescribeDBLogFilesPaginator",
+    "DescribeDBMajorEngineVersionsPaginator",
     "DescribeDBParameterGroupsPaginator",
     "DescribeDBParametersPaginator",
     "DescribeDBProxiesPaginator",
@@ -478,6 +483,26 @@ class DescribeDBLogFilesPaginator(_DescribeDBLogFilesPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds/paginator/DescribeDBLogFiles.html#RDS.Paginator.DescribeDBLogFiles.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators/#describedblogfilespaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeDBMajorEngineVersionsPaginatorBase = Paginator[
+        DescribeDBMajorEngineVersionsResponseTypeDef
+    ]
+else:
+    _DescribeDBMajorEngineVersionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeDBMajorEngineVersionsPaginator(_DescribeDBMajorEngineVersionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds/paginator/DescribeDBMajorEngineVersions.html#RDS.Paginator.DescribeDBMajorEngineVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators/#describedbmajorengineversionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeDBMajorEngineVersionsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeDBMajorEngineVersionsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds/paginator/DescribeDBMajorEngineVersions.html#RDS.Paginator.DescribeDBMajorEngineVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators/#describedbmajorengineversionspaginator)
         """
 
 if TYPE_CHECKING:

@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_service_quotas.type_defs import DeleteServiceQuotaIncreaseRequestFromTemplateRequestTypeDef
+    from mypy_boto3_service_quotas.type_defs import CreateSupportCaseRequestTypeDef
 
-    data: DeleteServiceQuotaIncreaseRequestFromTemplateRequestTypeDef = ...
+    data: CreateSupportCaseRequestTypeDef = ...
     ```
 """
 
@@ -22,8 +22,11 @@ from datetime import datetime
 from .literals import (
     AppliedLevelEnumType,
     ErrorCodeType,
+    OptInStatusType,
+    OptInTypeType,
     PeriodUnitType,
     QuotaContextScopeType,
+    ReportStatusType,
     RequestStatusType,
     ServiceQuotaTemplateAssociationStatusType,
 )
@@ -31,20 +34,24 @@ from .literals import (
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
     from builtins import list as List
-    from collections.abc import Sequence
+    from collections.abc import Mapping, Sequence
 else:
-    from typing import Dict, List, Sequence
+    from typing import Dict, List, Mapping, Sequence
 if sys.version_info >= (3, 12):
-    from typing import NotRequired, TypedDict
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import NotRequired, TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "CreateSupportCaseRequestTypeDef",
     "DeleteServiceQuotaIncreaseRequestFromTemplateRequestTypeDef",
     "ErrorReasonTypeDef",
     "GetAWSDefaultServiceQuotaRequestTypeDef",
     "GetAWSDefaultServiceQuotaResponseTypeDef",
     "GetAssociationForServiceQuotaTemplateResponseTypeDef",
+    "GetAutoManagementConfigurationResponseTypeDef",
+    "GetQuotaUtilizationReportRequestTypeDef",
+    "GetQuotaUtilizationReportResponseTypeDef",
     "GetRequestedServiceQuotaChangeRequestTypeDef",
     "GetRequestedServiceQuotaChangeResponseTypeDef",
     "GetServiceQuotaIncreaseRequestFromTemplateRequestTypeDef",
@@ -76,7 +83,9 @@ __all__ = (
     "PutServiceQuotaIncreaseRequestIntoTemplateRequestTypeDef",
     "PutServiceQuotaIncreaseRequestIntoTemplateResponseTypeDef",
     "QuotaContextInfoTypeDef",
+    "QuotaInfoTypeDef",
     "QuotaPeriodTypeDef",
+    "QuotaUtilizationInfoTypeDef",
     "RequestServiceQuotaIncreaseRequestTypeDef",
     "RequestServiceQuotaIncreaseResponseTypeDef",
     "RequestedServiceQuotaChangeTypeDef",
@@ -84,10 +93,16 @@ __all__ = (
     "ServiceInfoTypeDef",
     "ServiceQuotaIncreaseRequestInTemplateTypeDef",
     "ServiceQuotaTypeDef",
+    "StartAutoManagementRequestTypeDef",
+    "StartQuotaUtilizationReportResponseTypeDef",
     "TagResourceRequestTypeDef",
     "TagTypeDef",
     "UntagResourceRequestTypeDef",
+    "UpdateAutoManagementRequestTypeDef",
 )
+
+class CreateSupportCaseRequestTypeDef(TypedDict):
+    RequestId: str
 
 class DeleteServiceQuotaIncreaseRequestFromTemplateRequestTypeDef(TypedDict):
     ServiceCode: str
@@ -108,6 +123,30 @@ class ResponseMetadataTypeDef(TypedDict):
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: NotRequired[str]
+
+class QuotaInfoTypeDef(TypedDict):
+    QuotaCode: NotRequired[str]
+    QuotaName: NotRequired[str]
+
+class GetQuotaUtilizationReportRequestTypeDef(TypedDict):
+    ReportId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+QuotaUtilizationInfoTypeDef = TypedDict(
+    "QuotaUtilizationInfoTypeDef",
+    {
+        "QuotaCode": NotRequired[str],
+        "ServiceCode": NotRequired[str],
+        "QuotaName": NotRequired[str],
+        "Namespace": NotRequired[str],
+        "Utilization": NotRequired[float],
+        "DefaultValue": NotRequired[float],
+        "AppliedValue": NotRequired[float],
+        "ServiceName": NotRequired[str],
+        "Adjustable": NotRequired[bool],
+    },
+)
 
 class GetRequestedServiceQuotaChangeRequestTypeDef(TypedDict):
     RequestId: str
@@ -221,13 +260,49 @@ class RequestServiceQuotaIncreaseRequestTypeDef(TypedDict):
     ContextId: NotRequired[str]
     SupportCaseAllowed: NotRequired[bool]
 
+class StartAutoManagementRequestTypeDef(TypedDict):
+    OptInLevel: Literal["ACCOUNT"]
+    OptInType: OptInTypeType
+    NotificationArn: NotRequired[str]
+    ExclusionList: NotRequired[Mapping[str, Sequence[str]]]
+
 class UntagResourceRequestTypeDef(TypedDict):
     ResourceARN: str
     TagKeys: Sequence[str]
 
+class UpdateAutoManagementRequestTypeDef(TypedDict):
+    OptInType: NotRequired[OptInTypeType]
+    NotificationArn: NotRequired[str]
+    ExclusionList: NotRequired[Mapping[str, Sequence[str]]]
+
 class GetAssociationForServiceQuotaTemplateResponseTypeDef(TypedDict):
     ServiceQuotaTemplateAssociationStatus: ServiceQuotaTemplateAssociationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
+class StartQuotaUtilizationReportResponseTypeDef(TypedDict):
+    ReportId: str
+    Status: ReportStatusType
+    Message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAutoManagementConfigurationResponseTypeDef(TypedDict):
+    OptInLevel: Literal["ACCOUNT"]
+    OptInType: OptInTypeType
+    NotificationArn: str
+    OptInStatus: OptInStatusType
+    ExclusionList: Dict[str, List[QuotaInfoTypeDef]]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQuotaUtilizationReportResponseTypeDef(TypedDict):
+    ReportId: str
+    Status: ReportStatusType
+    GeneratedAt: datetime
+    TotalCount: int
+    Quotas: List[QuotaUtilizationInfoTypeDef]
+    ErrorCode: str
+    ErrorMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class GetServiceQuotaIncreaseRequestFromTemplateResponseTypeDef(TypedDict):
     ServiceQuotaIncreaseRequestInTemplate: ServiceQuotaIncreaseRequestInTemplateTypeDef
@@ -290,6 +365,7 @@ RequestedServiceQuotaChangeTypeDef = TypedDict(
     "RequestedServiceQuotaChangeTypeDef",
     {
         "Id": NotRequired[str],
+        "RequestType": NotRequired[Literal["AutomaticManagement"]],
         "CaseId": NotRequired[str],
         "ServiceCode": NotRequired[str],
         "ServiceName": NotRequired[str],

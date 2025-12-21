@@ -13,18 +13,25 @@ Usage::
         Client,
         FreeTierClient,
         GetFreeTierUsagePaginator,
+        ListAccountActivitiesPaginator,
     )
 
     session = Session()
     client: FreeTierClient = session.client("freetier")
 
     get_free_tier_usage_paginator: GetFreeTierUsagePaginator = client.get_paginator("get_free_tier_usage")
+    list_account_activities_paginator: ListAccountActivitiesPaginator = client.get_paginator("list_account_activities")
     ```
 """
 
 from .client import FreeTierClient
-from .paginator import GetFreeTierUsagePaginator
+from .paginator import GetFreeTierUsagePaginator, ListAccountActivitiesPaginator
 
 Client = FreeTierClient
 
-__all__ = ("Client", "FreeTierClient", "GetFreeTierUsagePaginator")
+__all__ = (
+    "Client",
+    "FreeTierClient",
+    "GetFreeTierUsagePaginator",
+    "ListAccountActivitiesPaginator",
+)

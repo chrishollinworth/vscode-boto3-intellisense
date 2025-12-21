@@ -22,6 +22,11 @@ Usage::
         GetRouteResponsesPaginator,
         GetRoutesPaginator,
         GetStagesPaginator,
+        ListPortalProductsPaginator,
+        ListPortalsPaginator,
+        ListProductPagesPaginator,
+        ListProductRestEndpointPagesPaginator,
+        ListRoutingRulesPaginator,
     )
 
     session = Session()
@@ -37,6 +42,11 @@ Usage::
     get_route_responses_paginator: GetRouteResponsesPaginator = client.get_paginator("get_route_responses")
     get_routes_paginator: GetRoutesPaginator = client.get_paginator("get_routes")
     get_stages_paginator: GetStagesPaginator = client.get_paginator("get_stages")
+    list_portal_products_paginator: ListPortalProductsPaginator = client.get_paginator("list_portal_products")
+    list_portals_paginator: ListPortalsPaginator = client.get_paginator("list_portals")
+    list_product_pages_paginator: ListProductPagesPaginator = client.get_paginator("list_product_pages")
+    list_product_rest_endpoint_pages_paginator: ListProductRestEndpointPagesPaginator = client.get_paginator("list_product_rest_endpoint_pages")
+    list_routing_rules_paginator: ListRoutingRulesPaginator = client.get_paginator("list_routing_rules")
     ```
 """
 
@@ -52,6 +62,11 @@ from .paginator import (
     GetRouteResponsesPaginator,
     GetRoutesPaginator,
     GetStagesPaginator,
+    ListPortalProductsPaginator,
+    ListPortalsPaginator,
+    ListProductPagesPaginator,
+    ListProductRestEndpointPagesPaginator,
+    ListRoutingRulesPaginator,
 )
 
 Client = ApiGatewayV2Client
@@ -69,4 +84,9 @@ __all__ = (
     "GetRouteResponsesPaginator",
     "GetRoutesPaginator",
     "GetStagesPaginator",
+    "ListPortalProductsPaginator",
+    "ListPortalsPaginator",
+    "ListProductPagesPaginator",
+    "ListProductRestEndpointPagesPaginator",
+    "ListRoutingRulesPaginator",
 )

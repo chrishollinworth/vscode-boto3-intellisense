@@ -17,28 +17,38 @@ Usage::
 from __future__ import annotations
 
 import sys
-from typing import Union
+from typing import Any, Union
 
 from botocore.eventstream import EventStream
 
 from .literals import (
+    ActionStatusType,
     AnomalyDetectorStatusType,
     DataProtectionStatusType,
     DeliveryDestinationTypeType,
     DistributionType,
     EntityRejectionErrorTypeType,
     EvaluationFrequencyType,
+    EventSourceType,
+    ExecutionStatusType,
     ExportTaskStatusCodeType,
     FlattenedElementType,
+    ImportStatusType,
     IndexSourceType,
+    IndexTypeType,
     IntegrationStatusType,
+    ListAggregateLogGroupSummariesGroupByType,
     LogGroupClassType,
+    OCSFVersionType,
     OpenSearchResourceStatusTypeType,
     OrderByType,
     OutputFormatType,
+    PolicyScopeType,
     PolicyTypeType,
     QueryLanguageType,
     QueryStatusType,
+    S3TableIntegrationSourceStatusType,
+    ScheduledQueryStateType,
     StandardUnitType,
     StateType,
     SuppressionStateType,
@@ -64,13 +74,18 @@ __all__ = (
     "AddKeysOutputTypeDef",
     "AddKeysTypeDef",
     "AddKeysUnionTypeDef",
+    "AggregateLogGroupSummaryTypeDef",
     "AnomalyDetectorTypeDef",
     "AnomalyTypeDef",
     "AssociateKmsKeyRequestTypeDef",
+    "AssociateSourceToS3TableIntegrationRequestTypeDef",
+    "AssociateSourceToS3TableIntegrationResponseTypeDef",
     "CSVOutputTypeDef",
     "CSVTypeDef",
     "CSVUnionTypeDef",
     "CancelExportTaskRequestTypeDef",
+    "CancelImportTaskRequestTypeDef",
+    "CancelImportTaskResponseTypeDef",
     "ConfigurationTemplateDeliveryConfigValuesTypeDef",
     "ConfigurationTemplateTypeDef",
     "CopyValueEntryTypeDef",
@@ -81,10 +96,16 @@ __all__ = (
     "CreateDeliveryResponseTypeDef",
     "CreateExportTaskRequestTypeDef",
     "CreateExportTaskResponseTypeDef",
+    "CreateImportTaskRequestTypeDef",
+    "CreateImportTaskResponseTypeDef",
     "CreateLogAnomalyDetectorRequestTypeDef",
     "CreateLogAnomalyDetectorResponseTypeDef",
     "CreateLogGroupRequestTypeDef",
     "CreateLogStreamRequestTypeDef",
+    "CreateScheduledQueryRequestTypeDef",
+    "CreateScheduledQueryResponseTypeDef",
+    "DataSourceFilterTypeDef",
+    "DataSourceTypeDef",
     "DateTimeConverterOutputTypeDef",
     "DateTimeConverterTypeDef",
     "DateTimeConverterUnionTypeDef",
@@ -108,6 +129,7 @@ __all__ = (
     "DeleteQueryDefinitionResponseTypeDef",
     "DeleteResourcePolicyRequestTypeDef",
     "DeleteRetentionPolicyRequestTypeDef",
+    "DeleteScheduledQueryRequestTypeDef",
     "DeleteSubscriptionFilterRequestTypeDef",
     "DeleteTransformerRequestTypeDef",
     "DeliveryDestinationConfigurationTypeDef",
@@ -136,6 +158,10 @@ __all__ = (
     "DescribeExportTasksResponseTypeDef",
     "DescribeFieldIndexesRequestTypeDef",
     "DescribeFieldIndexesResponseTypeDef",
+    "DescribeImportTaskBatchesRequestTypeDef",
+    "DescribeImportTaskBatchesResponseTypeDef",
+    "DescribeImportTasksRequestTypeDef",
+    "DescribeImportTasksResponseTypeDef",
     "DescribeIndexPoliciesRequestTypeDef",
     "DescribeIndexPoliciesResponseTypeDef",
     "DescribeLogGroupsRequestPaginateTypeDef",
@@ -158,14 +184,18 @@ __all__ = (
     "DescribeSubscriptionFiltersRequestPaginateTypeDef",
     "DescribeSubscriptionFiltersRequestTypeDef",
     "DescribeSubscriptionFiltersResponseTypeDef",
+    "DestinationConfigurationTypeDef",
     "DestinationTypeDef",
     "DisassociateKmsKeyRequestTypeDef",
+    "DisassociateSourceFromS3TableIntegrationRequestTypeDef",
+    "DisassociateSourceFromS3TableIntegrationResponseTypeDef",
     "EmptyResponseMetadataTypeDef",
     "EntityTypeDef",
     "ExportTaskExecutionInfoTypeDef",
     "ExportTaskStatusTypeDef",
     "ExportTaskTypeDef",
     "FieldIndexTypeDef",
+    "FieldsDataTypeDef",
     "FilterLogEventsRequestPaginateTypeDef",
     "FilterLogEventsRequestTypeDef",
     "FilterLogEventsResponseTypeDef",
@@ -186,19 +216,38 @@ __all__ = (
     "GetLogAnomalyDetectorResponseTypeDef",
     "GetLogEventsRequestTypeDef",
     "GetLogEventsResponseTypeDef",
+    "GetLogFieldsRequestTypeDef",
+    "GetLogFieldsResponseTypeDef",
     "GetLogGroupFieldsRequestTypeDef",
     "GetLogGroupFieldsResponseTypeDef",
+    "GetLogObjectRequestTypeDef",
+    "GetLogObjectResponseStreamTypeDef",
+    "GetLogObjectResponseTypeDef",
     "GetLogRecordRequestTypeDef",
     "GetLogRecordResponseTypeDef",
     "GetQueryResultsRequestTypeDef",
     "GetQueryResultsResponseTypeDef",
+    "GetScheduledQueryHistoryRequestPaginateTypeDef",
+    "GetScheduledQueryHistoryRequestTypeDef",
+    "GetScheduledQueryHistoryResponseTypeDef",
+    "GetScheduledQueryRequestTypeDef",
+    "GetScheduledQueryResponseTypeDef",
     "GetTransformerRequestTypeDef",
     "GetTransformerResponseTypeDef",
     "GrokTypeDef",
+    "GroupingIdentifierTypeDef",
+    "ImportBatchTypeDef",
+    "ImportFilterTypeDef",
+    "ImportStatisticsTypeDef",
+    "ImportTypeDef",
     "IndexPolicyTypeDef",
     "InputLogEventTypeDef",
     "IntegrationDetailsTypeDef",
     "IntegrationSummaryTypeDef",
+    "InternalStreamingExceptionTypeDef",
+    "ListAggregateLogGroupSummariesRequestPaginateTypeDef",
+    "ListAggregateLogGroupSummariesRequestTypeDef",
+    "ListAggregateLogGroupSummariesResponseTypeDef",
     "ListAnomaliesRequestPaginateTypeDef",
     "ListAnomaliesRequestTypeDef",
     "ListAnomaliesResponseTypeDef",
@@ -210,6 +259,14 @@ __all__ = (
     "ListLogGroupsForQueryRequestPaginateTypeDef",
     "ListLogGroupsForQueryRequestTypeDef",
     "ListLogGroupsForQueryResponseTypeDef",
+    "ListLogGroupsRequestTypeDef",
+    "ListLogGroupsResponseTypeDef",
+    "ListScheduledQueriesRequestPaginateTypeDef",
+    "ListScheduledQueriesRequestTypeDef",
+    "ListScheduledQueriesResponseTypeDef",
+    "ListSourcesForS3TableIntegrationRequestPaginateTypeDef",
+    "ListSourcesForS3TableIntegrationRequestTypeDef",
+    "ListSourcesForS3TableIntegrationResponseTypeDef",
     "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListTagsLogGroupRequestTypeDef",
@@ -220,7 +277,10 @@ __all__ = (
     "LiveTailSessionStartTypeDef",
     "LiveTailSessionUpdateTypeDef",
     "LogEventTypeDef",
+    "LogFieldTypeTypeDef",
+    "LogFieldsListItemTypeDef",
     "LogGroupFieldTypeDef",
+    "LogGroupSummaryTypeDef",
     "LogGroupTypeDef",
     "LogStreamTypeDef",
     "LowerCaseStringOutputTypeDef",
@@ -253,6 +313,7 @@ __all__ = (
     "ParseKeyValueTypeDef",
     "ParsePostgresTypeDef",
     "ParseRoute53TypeDef",
+    "ParseToOCSFTypeDef",
     "ParseVPCTypeDef",
     "ParseWAFTypeDef",
     "PatternTokenTypeDef",
@@ -279,6 +340,7 @@ __all__ = (
     "PutIntegrationResponseTypeDef",
     "PutLogEventsRequestTypeDef",
     "PutLogEventsResponseTypeDef",
+    "PutLogGroupDeletionProtectionRequestTypeDef",
     "PutMetricFilterRequestTypeDef",
     "PutQueryDefinitionRequestTypeDef",
     "PutQueryDefinitionResponseTypeDef",
@@ -301,7 +363,11 @@ __all__ = (
     "ResourcePolicyTypeDef",
     "ResponseMetadataTypeDef",
     "ResultFieldTypeDef",
+    "S3ConfigurationTypeDef",
     "S3DeliveryConfigurationTypeDef",
+    "S3TableIntegrationSourceTypeDef",
+    "ScheduledQueryDestinationTypeDef",
+    "ScheduledQuerySummaryTypeDef",
     "SearchedLogStreamTypeDef",
     "SessionStreamingExceptionTypeDef",
     "SessionTimeoutExceptionTypeDef",
@@ -329,6 +395,7 @@ __all__ = (
     "TestTransformerRequestTypeDef",
     "TestTransformerResponseTypeDef",
     "TransformedLogRecordTypeDef",
+    "TriggerHistoryRecordTypeDef",
     "TrimStringOutputTypeDef",
     "TrimStringTypeDef",
     "TrimStringUnionTypeDef",
@@ -341,6 +408,8 @@ __all__ = (
     "UpdateAnomalyRequestTypeDef",
     "UpdateDeliveryConfigurationRequestTypeDef",
     "UpdateLogAnomalyDetectorRequestTypeDef",
+    "UpdateScheduledQueryRequestTypeDef",
+    "UpdateScheduledQueryResponseTypeDef",
     "UpperCaseStringOutputTypeDef",
     "UpperCaseStringTypeDef",
     "UpperCaseStringUnionTypeDef",
@@ -359,6 +428,10 @@ class AddKeyEntryTypeDef(TypedDict):
     key: str
     value: str
     overwriteIfExists: NotRequired[bool]
+
+class GroupingIdentifierTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
 
 class AnomalyDetectorTypeDef(TypedDict):
     anomalyDetectorArn: NotRequired[str]
@@ -388,6 +461,21 @@ class AssociateKmsKeyRequestTypeDef(TypedDict):
     logGroupName: NotRequired[str]
     resourceIdentifier: NotRequired[str]
 
+DataSourceTypeDef = TypedDict(
+    "DataSourceTypeDef",
+    {
+        "name": str,
+        "type": NotRequired[str],
+    },
+)
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
 class CSVOutputTypeDef(TypedDict):
     quoteCharacter: NotRequired[str]
     delimiter: NotRequired[str]
@@ -403,6 +491,12 @@ class CSVTypeDef(TypedDict):
 class CancelExportTaskRequestTypeDef(TypedDict):
     taskId: str
 
+class CancelImportTaskRequestTypeDef(TypedDict):
+    importId: str
+
+class ImportStatisticsTypeDef(TypedDict):
+    bytesImported: NotRequired[int]
+
 class S3DeliveryConfigurationTypeDef(TypedDict):
     suffixPath: NotRequired[str]
     enableHiveCompatiblePath: NotRequired[bool]
@@ -416,13 +510,6 @@ class CopyValueEntryTypeDef(TypedDict):
     target: str
     overwriteIfExists: NotRequired[bool]
 
-class ResponseMetadataTypeDef(TypedDict):
-    RequestId: str
-    HTTPStatusCode: int
-    HTTPHeaders: Dict[str, str]
-    RetryAttempts: int
-    HostId: NotRequired[str]
-
 class CreateExportTaskRequestTypeDef(TypedDict):
     logGroupName: str
     fromTime: int
@@ -431,6 +518,10 @@ class CreateExportTaskRequestTypeDef(TypedDict):
     taskName: NotRequired[str]
     logStreamNamePrefix: NotRequired[str]
     destinationPrefix: NotRequired[str]
+
+class ImportFilterTypeDef(TypedDict):
+    startEventTime: NotRequired[int]
+    endEventTime: NotRequired[int]
 
 class CreateLogAnomalyDetectorRequestTypeDef(TypedDict):
     logGroupArnList: Sequence[str]
@@ -446,10 +537,19 @@ class CreateLogGroupRequestTypeDef(TypedDict):
     kmsKeyId: NotRequired[str]
     tags: NotRequired[Mapping[str, str]]
     logGroupClass: NotRequired[LogGroupClassType]
+    deletionProtectionEnabled: NotRequired[bool]
 
 class CreateLogStreamRequestTypeDef(TypedDict):
     logGroupName: str
     logStreamName: str
+
+DataSourceFilterTypeDef = TypedDict(
+    "DataSourceFilterTypeDef",
+    {
+        "name": str,
+        "type": NotRequired[str],
+    },
+)
 
 class DateTimeConverterOutputTypeDef(TypedDict):
     source: str
@@ -527,9 +627,14 @@ class DeleteQueryDefinitionRequestTypeDef(TypedDict):
 
 class DeleteResourcePolicyRequestTypeDef(TypedDict):
     policyName: NotRequired[str]
+    resourceArn: NotRequired[str]
+    expectedRevisionId: NotRequired[str]
 
 class DeleteRetentionPolicyRequestTypeDef(TypedDict):
     logGroupName: str
+
+class DeleteScheduledQueryRequestTypeDef(TypedDict):
+    identifier: str
 
 class DeleteSubscriptionFilterRequestTypeDef(TypedDict):
     logGroupName: str
@@ -603,12 +708,35 @@ class DescribeFieldIndexesRequestTypeDef(TypedDict):
     logGroupIdentifiers: Sequence[str]
     nextToken: NotRequired[str]
 
-class FieldIndexTypeDef(TypedDict):
-    logGroupIdentifier: NotRequired[str]
-    fieldIndexName: NotRequired[str]
-    lastScanTime: NotRequired[int]
-    firstEventTime: NotRequired[int]
-    lastEventTime: NotRequired[int]
+FieldIndexTypeDef = TypedDict(
+    "FieldIndexTypeDef",
+    {
+        "logGroupIdentifier": NotRequired[str],
+        "fieldIndexName": NotRequired[str],
+        "lastScanTime": NotRequired[int],
+        "firstEventTime": NotRequired[int],
+        "lastEventTime": NotRequired[int],
+        "type": NotRequired[IndexTypeType],
+    },
+)
+
+class DescribeImportTaskBatchesRequestTypeDef(TypedDict):
+    importId: str
+    batchImportStatus: NotRequired[Sequence[ImportStatusType]]
+    limit: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ImportBatchTypeDef(TypedDict):
+    batchId: str
+    status: ImportStatusType
+    errorMessage: NotRequired[str]
+
+class DescribeImportTasksRequestTypeDef(TypedDict):
+    importId: NotRequired[str]
+    importStatus: NotRequired[ImportStatusType]
+    importSourceArn: NotRequired[str]
+    limit: NotRequired[int]
+    nextToken: NotRequired[str]
 
 class DescribeIndexPoliciesRequestTypeDef(TypedDict):
     logGroupIdentifiers: Sequence[str]
@@ -629,6 +757,7 @@ class DescribeLogGroupsRequestTypeDef(TypedDict):
     limit: NotRequired[int]
     includeLinkedAccounts: NotRequired[bool]
     logGroupClass: NotRequired[LogGroupClassType]
+    logGroupIdentifiers: NotRequired[Sequence[str]]
 
 class LogGroupTypeDef(TypedDict):
     logGroupName: NotRequired[str]
@@ -642,6 +771,7 @@ class LogGroupTypeDef(TypedDict):
     inheritedProperties: NotRequired[List[Literal["ACCOUNT_DATA_PROTECTION"]]]
     logGroupClass: NotRequired[LogGroupClassType]
     logGroupArn: NotRequired[str]
+    deletionProtectionEnabled: NotRequired[bool]
 
 class DescribeLogStreamsRequestTypeDef(TypedDict):
     logGroupName: NotRequired[str]
@@ -702,11 +832,16 @@ class QueryDefinitionTypeDef(TypedDict):
 class DescribeResourcePoliciesRequestTypeDef(TypedDict):
     nextToken: NotRequired[str]
     limit: NotRequired[int]
+    resourceArn: NotRequired[str]
+    policyScope: NotRequired[PolicyScopeType]
 
 class ResourcePolicyTypeDef(TypedDict):
     policyName: NotRequired[str]
     policyDocument: NotRequired[str]
     lastUpdatedTime: NotRequired[int]
+    policyScope: NotRequired[PolicyScopeType]
+    resourceArn: NotRequired[str]
+    revisionId: NotRequired[str]
 
 class DescribeSubscriptionFiltersRequestTypeDef(TypedDict):
     logGroupName: str
@@ -723,10 +858,19 @@ class SubscriptionFilterTypeDef(TypedDict):
     distribution: NotRequired[DistributionType]
     applyOnTransformedLogs: NotRequired[bool]
     creationTime: NotRequired[int]
+    fieldSelectionCriteria: NotRequired[str]
+    emitSystemFields: NotRequired[List[str]]
+
+class S3ConfigurationTypeDef(TypedDict):
+    destinationIdentifier: str
+    roleArn: str
 
 class DisassociateKmsKeyRequestTypeDef(TypedDict):
     logGroupName: NotRequired[str]
     resourceIdentifier: NotRequired[str]
+
+class DisassociateSourceFromS3TableIntegrationRequestTypeDef(TypedDict):
+    identifier: str
 
 class EntityTypeDef(TypedDict):
     keyAttributes: NotRequired[Mapping[str, str]]
@@ -739,6 +883,9 @@ class ExportTaskExecutionInfoTypeDef(TypedDict):
 class ExportTaskStatusTypeDef(TypedDict):
     code: NotRequired[ExportTaskStatusCodeType]
     message: NotRequired[str]
+
+class FieldsDataTypeDef(TypedDict):
+    data: NotRequired[bytes]
 
 class FilterLogEventsRequestTypeDef(TypedDict):
     logGroupName: NotRequired[str]
@@ -808,6 +955,10 @@ class OutputLogEventTypeDef(TypedDict):
     message: NotRequired[str]
     ingestionTime: NotRequired[int]
 
+class GetLogFieldsRequestTypeDef(TypedDict):
+    dataSourceName: str
+    dataSourceType: str
+
 class GetLogGroupFieldsRequestTypeDef(TypedDict):
     logGroupName: NotRequired[str]
     time: NotRequired[int]
@@ -816,6 +967,13 @@ class GetLogGroupFieldsRequestTypeDef(TypedDict):
 class LogGroupFieldTypeDef(TypedDict):
     name: NotRequired[str]
     percent: NotRequired[int]
+
+class GetLogObjectRequestTypeDef(TypedDict):
+    logObjectPointer: str
+    unmask: NotRequired[bool]
+
+class InternalStreamingExceptionTypeDef(TypedDict):
+    message: NotRequired[str]
 
 class GetLogRecordRequestTypeDef(TypedDict):
     logRecordPointer: str
@@ -835,6 +993,17 @@ class QueryStatisticsTypeDef(TypedDict):
 class ResultFieldTypeDef(TypedDict):
     field: NotRequired[str]
     value: NotRequired[str]
+
+class GetScheduledQueryHistoryRequestTypeDef(TypedDict):
+    identifier: str
+    startTime: int
+    endTime: int
+    executionStatuses: NotRequired[Sequence[ExecutionStatusType]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class GetScheduledQueryRequestTypeDef(TypedDict):
+    identifier: str
 
 class GetTransformerRequestTypeDef(TypedDict):
     logGroupIdentifier: str
@@ -873,6 +1042,21 @@ class ListLogGroupsForQueryRequestTypeDef(TypedDict):
     nextToken: NotRequired[str]
     maxResults: NotRequired[int]
 
+class LogGroupSummaryTypeDef(TypedDict):
+    logGroupName: NotRequired[str]
+    logGroupArn: NotRequired[str]
+    logGroupClass: NotRequired[LogGroupClassType]
+
+class ListScheduledQueriesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    state: NotRequired[ScheduledQueryStateType]
+
+class ListSourcesForS3TableIntegrationRequestTypeDef(TypedDict):
+    integrationArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
 class ListTagsForResourceRequestTypeDef(TypedDict):
     resourceArn: str
 
@@ -904,6 +1088,15 @@ class LiveTailSessionStartTypeDef(TypedDict):
     logStreamNames: NotRequired[List[str]]
     logStreamNamePrefixes: NotRequired[List[str]]
     logEventFilterPattern: NotRequired[str]
+
+LogFieldTypeTypeDef = TypedDict(
+    "LogFieldTypeTypeDef",
+    {
+        "type": NotRequired[str],
+        "element": NotRequired[Dict[str, Any]],
+        "fields": NotRequired[List[Dict[str, Any]]],
+    },
+)
 
 class LowerCaseStringOutputTypeDef(TypedDict):
     withKeys: List[str]
@@ -970,6 +1163,12 @@ class ParsePostgresTypeDef(TypedDict):
 class ParseRoute53TypeDef(TypedDict):
     source: NotRequired[str]
 
+class ParseToOCSFTypeDef(TypedDict):
+    eventSource: EventSourceType
+    ocsfVersion: OCSFVersionType
+    source: NotRequired[str]
+    mappingVersion: NotRequired[str]
+
 class ParseVPCTypeDef(TypedDict):
     source: NotRequired[str]
 
@@ -1026,6 +1225,10 @@ class RejectedLogEventsInfoTypeDef(TypedDict):
     tooOldLogEventEndIndex: NotRequired[int]
     expiredLogEventEndIndex: NotRequired[int]
 
+class PutLogGroupDeletionProtectionRequestTypeDef(TypedDict):
+    logGroupIdentifier: str
+    deletionProtectionEnabled: bool
+
 class PutQueryDefinitionRequestTypeDef(TypedDict):
     name: str
     queryString: str
@@ -1037,6 +1240,8 @@ class PutQueryDefinitionRequestTypeDef(TypedDict):
 class PutResourcePolicyRequestTypeDef(TypedDict):
     policyName: NotRequired[str]
     policyDocument: NotRequired[str]
+    resourceArn: NotRequired[str]
+    expectedRevisionId: NotRequired[str]
 
 class PutRetentionPolicyRequestTypeDef(TypedDict):
     logGroupName: str
@@ -1050,11 +1255,20 @@ class PutSubscriptionFilterRequestTypeDef(TypedDict):
     roleArn: NotRequired[str]
     distribution: NotRequired[DistributionType]
     applyOnTransformedLogs: NotRequired[bool]
+    fieldSelectionCriteria: NotRequired[str]
+    emitSystemFields: NotRequired[Sequence[str]]
 
 class RenameKeyEntryTypeDef(TypedDict):
     key: str
     renameTo: str
     overwriteIfExists: NotRequired[bool]
+
+class ScheduledQueryDestinationTypeDef(TypedDict):
+    destinationType: NotRequired[Literal["S3"]]
+    destinationIdentifier: NotRequired[str]
+    status: NotRequired[ActionStatusType]
+    processedIdentifier: NotRequired[str]
+    errorMessage: NotRequired[str]
 
 class SessionStreamingExceptionTypeDef(TypedDict):
     message: NotRequired[str]
@@ -1150,6 +1364,10 @@ class AddKeysOutputTypeDef(TypedDict):
 class AddKeysTypeDef(TypedDict):
     entries: Sequence[AddKeyEntryTypeDef]
 
+class AggregateLogGroupSummaryTypeDef(TypedDict):
+    logGroupCount: NotRequired[int]
+    groupingIdentifiers: NotRequired[List[GroupingIdentifierTypeDef]]
+
 class AnomalyTypeDef(TypedDict):
     anomalyId: str
     patternId: str
@@ -1171,57 +1389,38 @@ class AnomalyTypeDef(TypedDict):
     suppressedUntil: NotRequired[int]
     isPatternLevelSuppression: NotRequired[bool]
 
-CSVUnionTypeDef = Union[CSVTypeDef, CSVOutputTypeDef]
+class AssociateSourceToS3TableIntegrationRequestTypeDef(TypedDict):
+    integrationArn: str
+    dataSource: DataSourceTypeDef
 
-class ConfigurationTemplateDeliveryConfigValuesTypeDef(TypedDict):
-    recordFields: NotRequired[List[str]]
-    fieldDelimiter: NotRequired[str]
-    s3DeliveryConfiguration: NotRequired[S3DeliveryConfigurationTypeDef]
+class S3TableIntegrationSourceTypeDef(TypedDict):
+    identifier: NotRequired[str]
+    dataSource: NotRequired[DataSourceTypeDef]
+    status: NotRequired[S3TableIntegrationSourceStatusType]
+    statusReason: NotRequired[str]
+    createdTimeStamp: NotRequired[int]
 
-class CreateDeliveryRequestTypeDef(TypedDict):
-    deliverySourceName: str
-    deliveryDestinationArn: str
-    recordFields: NotRequired[Sequence[str]]
-    fieldDelimiter: NotRequired[str]
-    s3DeliveryConfiguration: NotRequired[S3DeliveryConfigurationTypeDef]
-    tags: NotRequired[Mapping[str, str]]
-
-DeliveryTypeDef = TypedDict(
-    "DeliveryTypeDef",
-    {
-        "id": NotRequired[str],
-        "arn": NotRequired[str],
-        "deliverySourceName": NotRequired[str],
-        "deliveryDestinationArn": NotRequired[str],
-        "deliveryDestinationType": NotRequired[DeliveryDestinationTypeType],
-        "recordFields": NotRequired[List[str]],
-        "fieldDelimiter": NotRequired[str],
-        "s3DeliveryConfiguration": NotRequired[S3DeliveryConfigurationTypeDef],
-        "tags": NotRequired[Dict[str, str]],
-    },
-)
-UpdateDeliveryConfigurationRequestTypeDef = TypedDict(
-    "UpdateDeliveryConfigurationRequestTypeDef",
-    {
-        "id": str,
-        "recordFields": NotRequired[Sequence[str]],
-        "fieldDelimiter": NotRequired[str],
-        "s3DeliveryConfiguration": NotRequired[S3DeliveryConfigurationTypeDef],
-    },
-)
-
-class CopyValueOutputTypeDef(TypedDict):
-    entries: List[CopyValueEntryTypeDef]
-
-class CopyValueTypeDef(TypedDict):
-    entries: Sequence[CopyValueEntryTypeDef]
+class AssociateSourceToS3TableIntegrationResponseTypeDef(TypedDict):
+    identifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateExportTaskResponseTypeDef(TypedDict):
     taskId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class CreateImportTaskResponseTypeDef(TypedDict):
+    importId: str
+    importDestinationArn: str
+    creationTime: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class CreateLogAnomalyDetectorResponseTypeDef(TypedDict):
     anomalyDetectorArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateScheduledQueryResponseTypeDef(TypedDict):
+    scheduledQueryArn: str
+    state: ScheduledQueryStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DeleteQueryDefinitionResponseTypeDef(TypedDict):
@@ -1232,6 +1431,10 @@ class DescribeAccountPoliciesResponseTypeDef(TypedDict):
     accountPolicies: List[AccountPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
+
+class DisassociateSourceFromS3TableIntegrationResponseTypeDef(TypedDict):
+    identifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class EmptyResponseMetadataTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1303,6 +1506,95 @@ class StopQueryResponseTypeDef(TypedDict):
     success: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
+CSVUnionTypeDef = Union[CSVTypeDef, CSVOutputTypeDef]
+
+class CancelImportTaskResponseTypeDef(TypedDict):
+    importId: str
+    importStatistics: ImportStatisticsTypeDef
+    importStatus: ImportStatusType
+    creationTime: int
+    lastUpdatedTime: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConfigurationTemplateDeliveryConfigValuesTypeDef(TypedDict):
+    recordFields: NotRequired[List[str]]
+    fieldDelimiter: NotRequired[str]
+    s3DeliveryConfiguration: NotRequired[S3DeliveryConfigurationTypeDef]
+
+class CreateDeliveryRequestTypeDef(TypedDict):
+    deliverySourceName: str
+    deliveryDestinationArn: str
+    recordFields: NotRequired[Sequence[str]]
+    fieldDelimiter: NotRequired[str]
+    s3DeliveryConfiguration: NotRequired[S3DeliveryConfigurationTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+DeliveryTypeDef = TypedDict(
+    "DeliveryTypeDef",
+    {
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "deliverySourceName": NotRequired[str],
+        "deliveryDestinationArn": NotRequired[str],
+        "deliveryDestinationType": NotRequired[DeliveryDestinationTypeType],
+        "recordFields": NotRequired[List[str]],
+        "fieldDelimiter": NotRequired[str],
+        "s3DeliveryConfiguration": NotRequired[S3DeliveryConfigurationTypeDef],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+UpdateDeliveryConfigurationRequestTypeDef = TypedDict(
+    "UpdateDeliveryConfigurationRequestTypeDef",
+    {
+        "id": str,
+        "recordFields": NotRequired[Sequence[str]],
+        "fieldDelimiter": NotRequired[str],
+        "s3DeliveryConfiguration": NotRequired[S3DeliveryConfigurationTypeDef],
+    },
+)
+
+class CopyValueOutputTypeDef(TypedDict):
+    entries: List[CopyValueEntryTypeDef]
+
+class CopyValueTypeDef(TypedDict):
+    entries: Sequence[CopyValueEntryTypeDef]
+
+class CreateImportTaskRequestTypeDef(TypedDict):
+    importSourceArn: str
+    importRoleArn: str
+    importFilter: NotRequired[ImportFilterTypeDef]
+
+class ImportTypeDef(TypedDict):
+    importId: NotRequired[str]
+    importSourceArn: NotRequired[str]
+    importStatus: NotRequired[ImportStatusType]
+    importDestinationArn: NotRequired[str]
+    importStatistics: NotRequired[ImportStatisticsTypeDef]
+    importFilter: NotRequired[ImportFilterTypeDef]
+    creationTime: NotRequired[int]
+    lastUpdatedTime: NotRequired[int]
+    errorMessage: NotRequired[str]
+
+class ListAggregateLogGroupSummariesRequestTypeDef(TypedDict):
+    groupBy: ListAggregateLogGroupSummariesGroupByType
+    accountIdentifiers: NotRequired[Sequence[str]]
+    includeLinkedAccounts: NotRequired[bool]
+    logGroupClass: NotRequired[LogGroupClassType]
+    logGroupNamePattern: NotRequired[str]
+    dataSources: NotRequired[Sequence[DataSourceFilterTypeDef]]
+    nextToken: NotRequired[str]
+    limit: NotRequired[int]
+
+class ListLogGroupsRequestTypeDef(TypedDict):
+    logGroupNamePattern: NotRequired[str]
+    logGroupClass: NotRequired[LogGroupClassType]
+    includeLinkedAccounts: NotRequired[bool]
+    accountIdentifiers: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    limit: NotRequired[int]
+    dataSources: NotRequired[Sequence[DataSourceFilterTypeDef]]
+    fieldIndexNames: NotRequired[Sequence[str]]
+
 DateTimeConverterUnionTypeDef = Union[DateTimeConverterTypeDef, DateTimeConverterOutputTypeDef]
 DeleteKeysUnionTypeDef = Union[DeleteKeysTypeDef, DeleteKeysOutputTypeDef]
 
@@ -1316,8 +1608,9 @@ class DeliveryDestinationTypeDef(TypedDict):
 
 class PutDeliveryDestinationRequestTypeDef(TypedDict):
     name: str
-    deliveryDestinationConfiguration: DeliveryDestinationConfigurationTypeDef
     outputFormat: NotRequired[OutputFormatType]
+    deliveryDestinationConfiguration: NotRequired[DeliveryDestinationConfigurationTypeDef]
+    deliveryDestinationType: NotRequired[DeliveryDestinationTypeType]
     tags: NotRequired[Mapping[str, str]]
 
 class DescribeDeliverySourcesResponseTypeDef(TypedDict):
@@ -1364,6 +1657,7 @@ class DescribeLogGroupsRequestPaginateTypeDef(TypedDict):
     logGroupNamePattern: NotRequired[str]
     includeLinkedAccounts: NotRequired[bool]
     logGroupClass: NotRequired[LogGroupClassType]
+    logGroupIdentifiers: NotRequired[Sequence[str]]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class DescribeLogStreamsRequestPaginateTypeDef(TypedDict):
@@ -1388,6 +1682,8 @@ class DescribeQueriesRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class DescribeResourcePoliciesRequestPaginateTypeDef(TypedDict):
+    resourceArn: NotRequired[str]
+    policyScope: NotRequired[PolicyScopeType]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class DescribeSubscriptionFiltersRequestPaginateTypeDef(TypedDict):
@@ -1407,6 +1703,22 @@ class FilterLogEventsRequestPaginateTypeDef(TypedDict):
     unmask: NotRequired[bool]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class GetScheduledQueryHistoryRequestPaginateTypeDef(TypedDict):
+    identifier: str
+    startTime: int
+    endTime: int
+    executionStatuses: NotRequired[Sequence[ExecutionStatusType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAggregateLogGroupSummariesRequestPaginateTypeDef(TypedDict):
+    groupBy: ListAggregateLogGroupSummariesGroupByType
+    accountIdentifiers: NotRequired[Sequence[str]]
+    includeLinkedAccounts: NotRequired[bool]
+    logGroupClass: NotRequired[LogGroupClassType]
+    logGroupNamePattern: NotRequired[str]
+    dataSources: NotRequired[Sequence[DataSourceFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class ListAnomaliesRequestPaginateTypeDef(TypedDict):
     anomalyDetectorArn: NotRequired[str]
     suppressionState: NotRequired[SuppressionStateType]
@@ -1420,6 +1732,14 @@ class ListLogGroupsForQueryRequestPaginateTypeDef(TypedDict):
     queryId: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListScheduledQueriesRequestPaginateTypeDef(TypedDict):
+    state: NotRequired[ScheduledQueryStateType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSourcesForS3TableIntegrationRequestPaginateTypeDef(TypedDict):
+    integrationArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class DescribeDestinationsResponseTypeDef(TypedDict):
     destinations: List[DestinationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1431,6 +1751,13 @@ class PutDestinationResponseTypeDef(TypedDict):
 
 class DescribeFieldIndexesResponseTypeDef(TypedDict):
     fieldIndexes: List[FieldIndexTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeImportTaskBatchesResponseTypeDef(TypedDict):
+    importSourceArn: str
+    importId: str
+    importBatches: List[ImportBatchTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
@@ -1470,12 +1797,16 @@ class DescribeResourcePoliciesResponseTypeDef(TypedDict):
 
 class PutResourcePolicyResponseTypeDef(TypedDict):
     resourcePolicy: ResourcePolicyTypeDef
+    revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeSubscriptionFiltersResponseTypeDef(TypedDict):
     subscriptionFilters: List[SubscriptionFilterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
+
+class DestinationConfigurationTypeDef(TypedDict):
+    s3Configuration: S3ConfigurationTypeDef
 
 ExportTaskTypeDef = TypedDict(
     "ExportTaskTypeDef",
@@ -1516,6 +1847,10 @@ class GetLogGroupFieldsResponseTypeDef(TypedDict):
     logGroupFields: List[LogGroupFieldTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+class GetLogObjectResponseStreamTypeDef(TypedDict):
+    fields: NotRequired[FieldsDataTypeDef]
+    InternalStreamingException: NotRequired[InternalStreamingExceptionTypeDef]
+
 class GetQueryResultsResponseTypeDef(TypedDict):
     queryLanguage: QueryLanguageType
     results: List[List[ResultFieldTypeDef]]
@@ -1535,9 +1870,18 @@ class ListIntegrationsResponseTypeDef(TypedDict):
     integrationSummaries: List[IntegrationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+class ListLogGroupsResponseTypeDef(TypedDict):
+    logGroups: List[LogGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
 class LiveTailSessionUpdateTypeDef(TypedDict):
     sessionMetadata: NotRequired[LiveTailSessionMetadataTypeDef]
     sessionResults: NotRequired[List[LiveTailSessionLogEventTypeDef]]
+
+class LogFieldsListItemTypeDef(TypedDict):
+    logFieldName: NotRequired[str]
+    logFieldType: NotRequired[LogFieldTypeTypeDef]
 
 LowerCaseStringUnionTypeDef = Union[LowerCaseStringTypeDef, LowerCaseStringOutputTypeDef]
 
@@ -1552,6 +1896,8 @@ class MetricFilterTypeDef(TypedDict):
     creationTime: NotRequired[int]
     logGroupName: NotRequired[str]
     applyOnTransformedLogs: NotRequired[bool]
+    fieldSelectionCriteria: NotRequired[str]
+    emitSystemFieldDimensions: NotRequired[List[str]]
 
 MetricTransformationUnionTypeDef = Union[
     MetricTransformationTypeDef, MetricTransformationOutputTypeDef
@@ -1613,6 +1959,13 @@ class RenameKeysOutputTypeDef(TypedDict):
 class RenameKeysTypeDef(TypedDict):
     entries: Sequence[RenameKeyEntryTypeDef]
 
+class TriggerHistoryRecordTypeDef(TypedDict):
+    queryId: NotRequired[str]
+    executionStatus: NotRequired[ExecutionStatusType]
+    triggeredTimestamp: NotRequired[int]
+    errorMessage: NotRequired[str]
+    destinations: NotRequired[List[ScheduledQueryDestinationTypeDef]]
+
 class SplitStringOutputTypeDef(TypedDict):
     entries: List[SplitStringEntryTypeDef]
 
@@ -1648,8 +2001,18 @@ class TypeConverterTypeDef(TypedDict):
 UpperCaseStringUnionTypeDef = Union[UpperCaseStringTypeDef, UpperCaseStringOutputTypeDef]
 AddKeysUnionTypeDef = Union[AddKeysTypeDef, AddKeysOutputTypeDef]
 
+class ListAggregateLogGroupSummariesResponseTypeDef(TypedDict):
+    aggregateLogGroupSummaries: List[AggregateLogGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
 class ListAnomaliesResponseTypeDef(TypedDict):
     anomalies: List[AnomalyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSourcesForS3TableIntegrationResponseTypeDef(TypedDict):
+    sources: List[S3TableIntegrationSourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
@@ -1680,6 +2043,11 @@ class GetDeliveryResponseTypeDef(TypedDict):
 
 CopyValueUnionTypeDef = Union[CopyValueTypeDef, CopyValueOutputTypeDef]
 
+class DescribeImportTasksResponseTypeDef(TypedDict):
+    imports: List[ImportTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
 class DescribeDeliveryDestinationsResponseTypeDef(TypedDict):
     deliveryDestinations: List[DeliveryDestinationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1693,16 +2061,109 @@ class PutDeliveryDestinationResponseTypeDef(TypedDict):
     deliveryDestination: DeliveryDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+class CreateScheduledQueryRequestTypeDef(TypedDict):
+    name: str
+    queryLanguage: QueryLanguageType
+    queryString: str
+    scheduleExpression: str
+    executionRoleArn: str
+    description: NotRequired[str]
+    logGroupIdentifiers: NotRequired[Sequence[str]]
+    timezone: NotRequired[str]
+    startTimeOffset: NotRequired[int]
+    destinationConfiguration: NotRequired[DestinationConfigurationTypeDef]
+    scheduleStartTime: NotRequired[int]
+    scheduleEndTime: NotRequired[int]
+    state: NotRequired[ScheduledQueryStateType]
+    tags: NotRequired[Mapping[str, str]]
+
+class GetScheduledQueryResponseTypeDef(TypedDict):
+    scheduledQueryArn: str
+    name: str
+    description: str
+    queryLanguage: QueryLanguageType
+    queryString: str
+    logGroupIdentifiers: List[str]
+    scheduleExpression: str
+    timezone: str
+    startTimeOffset: int
+    destinationConfiguration: DestinationConfigurationTypeDef
+    state: ScheduledQueryStateType
+    lastTriggeredTime: int
+    lastExecutionStatus: ExecutionStatusType
+    scheduleStartTime: int
+    scheduleEndTime: int
+    executionRoleArn: str
+    creationTime: int
+    lastUpdatedTime: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ScheduledQuerySummaryTypeDef(TypedDict):
+    scheduledQueryArn: NotRequired[str]
+    name: NotRequired[str]
+    state: NotRequired[ScheduledQueryStateType]
+    lastTriggeredTime: NotRequired[int]
+    lastExecutionStatus: NotRequired[ExecutionStatusType]
+    scheduleExpression: NotRequired[str]
+    timezone: NotRequired[str]
+    destinationConfiguration: NotRequired[DestinationConfigurationTypeDef]
+    creationTime: NotRequired[int]
+    lastUpdatedTime: NotRequired[int]
+
+class UpdateScheduledQueryRequestTypeDef(TypedDict):
+    identifier: str
+    queryLanguage: QueryLanguageType
+    queryString: str
+    scheduleExpression: str
+    executionRoleArn: str
+    description: NotRequired[str]
+    logGroupIdentifiers: NotRequired[Sequence[str]]
+    timezone: NotRequired[str]
+    startTimeOffset: NotRequired[int]
+    destinationConfiguration: NotRequired[DestinationConfigurationTypeDef]
+    scheduleStartTime: NotRequired[int]
+    scheduleEndTime: NotRequired[int]
+    state: NotRequired[ScheduledQueryStateType]
+
+class UpdateScheduledQueryResponseTypeDef(TypedDict):
+    scheduledQueryArn: str
+    name: str
+    description: str
+    queryLanguage: QueryLanguageType
+    queryString: str
+    logGroupIdentifiers: List[str]
+    scheduleExpression: str
+    timezone: str
+    startTimeOffset: int
+    destinationConfiguration: DestinationConfigurationTypeDef
+    state: ScheduledQueryStateType
+    lastTriggeredTime: int
+    lastExecutionStatus: ExecutionStatusType
+    scheduleStartTime: int
+    scheduleEndTime: int
+    executionRoleArn: str
+    creationTime: int
+    lastUpdatedTime: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class DescribeExportTasksResponseTypeDef(TypedDict):
     exportTasks: List[ExportTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
+
+class GetLogObjectResponseTypeDef(TypedDict):
+    fieldStream: EventStream[GetLogObjectResponseStreamTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class StartLiveTailResponseStreamTypeDef(TypedDict):
     sessionStart: NotRequired[LiveTailSessionStartTypeDef]
     sessionUpdate: NotRequired[LiveTailSessionUpdateTypeDef]
     SessionTimeoutException: NotRequired[SessionTimeoutExceptionTypeDef]
     SessionStreamingException: NotRequired[SessionStreamingExceptionTypeDef]
+
+class GetLogFieldsResponseTypeDef(TypedDict):
+    logFields: List[LogFieldsListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeMetricFiltersResponseTypeDef(TypedDict):
     metricFilters: List[MetricFilterTypeDef]
@@ -1715,6 +2176,8 @@ class PutMetricFilterRequestTypeDef(TypedDict):
     filterPattern: str
     metricTransformations: Sequence[MetricTransformationUnionTypeDef]
     applyOnTransformedLogs: NotRequired[bool]
+    fieldSelectionCriteria: NotRequired[str]
+    emitSystemFieldDimensions: NotRequired[Sequence[str]]
 
 MoveKeysUnionTypeDef = Union[MoveKeysTypeDef, MoveKeysOutputTypeDef]
 
@@ -1734,6 +2197,14 @@ class PutIntegrationRequestTypeDef(TypedDict):
     integrationType: Literal["OPENSEARCH"]
 
 RenameKeysUnionTypeDef = Union[RenameKeysTypeDef, RenameKeysOutputTypeDef]
+
+class GetScheduledQueryHistoryResponseTypeDef(TypedDict):
+    name: str
+    scheduledQueryArn: str
+    triggerHistory: List[TriggerHistoryRecordTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
 SplitStringUnionTypeDef = Union[SplitStringTypeDef, SplitStringOutputTypeDef]
 SubstituteStringUnionTypeDef = Union[SubstituteStringTypeDef, SubstituteStringOutputTypeDef]
 
@@ -1751,6 +2222,7 @@ class ProcessorOutputTypeDef(TypedDict):
     parseJSON: NotRequired[ParseJSONTypeDef]
     parseKeyValue: NotRequired[ParseKeyValueTypeDef]
     parseRoute53: NotRequired[ParseRoute53TypeDef]
+    parseToOCSF: NotRequired[ParseToOCSFTypeDef]
     parsePostgres: NotRequired[ParsePostgresTypeDef]
     parseVPC: NotRequired[ParseVPCTypeDef]
     parseWAF: NotRequired[ParseWAFTypeDef]
@@ -1765,6 +2237,11 @@ TypeConverterUnionTypeDef = Union[TypeConverterTypeDef, TypeConverterOutputTypeD
 
 class DescribeConfigurationTemplatesResponseTypeDef(TypedDict):
     configurationTemplates: List[ConfigurationTemplateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListScheduledQueriesResponseTypeDef(TypedDict):
+    scheduledQueries: List[ScheduledQuerySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
@@ -1796,6 +2273,7 @@ class ProcessorTypeDef(TypedDict):
     parseJSON: NotRequired[ParseJSONTypeDef]
     parseKeyValue: NotRequired[ParseKeyValueTypeDef]
     parseRoute53: NotRequired[ParseRoute53TypeDef]
+    parseToOCSF: NotRequired[ParseToOCSFTypeDef]
     parsePostgres: NotRequired[ParsePostgresTypeDef]
     parseVPC: NotRequired[ParseVPCTypeDef]
     parseWAF: NotRequired[ParseWAFTypeDef]

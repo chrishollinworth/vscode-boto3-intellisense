@@ -1425,15 +1425,15 @@ class UpdateApiResponseTypeDef(TypedDict):
 
 class CreateApiRequestTypeDef(TypedDict):
     name: str
+    eventConfig: EventConfigUnionTypeDef
     ownerContact: NotRequired[str]
     tags: NotRequired[Mapping[str, str]]
-    eventConfig: NotRequired[EventConfigUnionTypeDef]
 
 class UpdateApiRequestTypeDef(TypedDict):
     apiId: str
     name: str
+    eventConfig: EventConfigUnionTypeDef
     ownerContact: NotRequired[str]
-    eventConfig: NotRequired[EventConfigUnionTypeDef]
 
 class CreateDataSourceResponseTypeDef(TypedDict):
     dataSource: DataSourceTypeDef

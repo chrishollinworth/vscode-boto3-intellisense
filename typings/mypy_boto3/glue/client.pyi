@@ -115,6 +115,8 @@ from .type_defs import (
     CreateDataQualityRulesetResponseTypeDef,
     CreateDevEndpointRequestTypeDef,
     CreateDevEndpointResponseTypeDef,
+    CreateGlueIdentityCenterConfigurationRequestTypeDef,
+    CreateGlueIdentityCenterConfigurationResponseTypeDef,
     CreateIntegrationRequestTypeDef,
     CreateIntegrationResourcePropertyRequestTypeDef,
     CreateIntegrationResourcePropertyResponseTypeDef,
@@ -160,6 +162,7 @@ from .type_defs import (
     DeleteDataQualityRulesetRequestTypeDef,
     DeleteDevEndpointRequestTypeDef,
     DeleteIntegrationRequestTypeDef,
+    DeleteIntegrationResourcePropertyRequestTypeDef,
     DeleteIntegrationResponseTypeDef,
     DeleteIntegrationTablePropertiesRequestTypeDef,
     DeleteJobRequestTypeDef,
@@ -259,6 +262,7 @@ from .type_defs import (
     GetDevEndpointsResponseTypeDef,
     GetEntityRecordsRequestTypeDef,
     GetEntityRecordsResponseTypeDef,
+    GetGlueIdentityCenterConfigurationResponseTypeDef,
     GetIntegrationResourcePropertyRequestTypeDef,
     GetIntegrationResourcePropertyResponseTypeDef,
     GetIntegrationTablePropertiesRequestTypeDef,
@@ -378,6 +382,8 @@ from .type_defs import (
     ListDevEndpointsResponseTypeDef,
     ListEntitiesRequestTypeDef,
     ListEntitiesResponseTypeDef,
+    ListIntegrationResourcePropertiesRequestTypeDef,
+    ListIntegrationResourcePropertiesResponseTypeDef,
     ListJobsRequestTypeDef,
     ListJobsResponseTypeDef,
     ListMLTransformsRequestTypeDef,
@@ -476,6 +482,7 @@ from .type_defs import (
     UpdateDataQualityRulesetRequestTypeDef,
     UpdateDataQualityRulesetResponseTypeDef,
     UpdateDevEndpointRequestTypeDef,
+    UpdateGlueIdentityCenterConfigurationRequestTypeDef,
     UpdateIntegrationResourcePropertyRequestTypeDef,
     UpdateIntegrationResourcePropertyResponseTypeDef,
     UpdateIntegrationTablePropertiesRequestTypeDef,
@@ -923,6 +930,18 @@ class GlueClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#create_dev_endpoint)
         """
 
+    def create_glue_identity_center_configuration(
+        self, **kwargs: Unpack[CreateGlueIdentityCenterConfigurationRequestTypeDef]
+    ) -> CreateGlueIdentityCenterConfigurationResponseTypeDef:
+        """
+        Creates a new Glue Identity Center configuration to enable integration between
+        Glue and Amazon Web Services IAM Identity Center for authentication and
+        authorization.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/create_glue_identity_center_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#create_glue_identity_center_configuration)
+        """
+
     def create_integration(
         self, **kwargs: Unpack[CreateIntegrationRequestTypeDef]
     ) -> CreateIntegrationResponseTypeDef:
@@ -1212,6 +1231,15 @@ class GlueClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#delete_dev_endpoint)
         """
 
+    def delete_glue_identity_center_configuration(self) -> Dict[str, Any]:
+        """
+        Deletes the existing Glue Identity Center configuration, removing the
+        integration between Glue and Amazon Web Services IAM Identity Center.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/delete_glue_identity_center_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#delete_glue_identity_center_configuration)
+        """
+
     def delete_integration(
         self, **kwargs: Unpack[DeleteIntegrationRequestTypeDef]
     ) -> DeleteIntegrationResponseTypeDef:
@@ -1220,6 +1248,17 @@ class GlueClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/delete_integration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#delete_integration)
+        """
+
+    def delete_integration_resource_property(
+        self, **kwargs: Unpack[DeleteIntegrationResourcePropertyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This API is used for deleting the <code>ResourceProperty</code> of the Glue
+        connection (for the source) or Glue database ARN (for the target).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/delete_integration_resource_property.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#delete_integration_resource_property)
         """
 
     def delete_integration_table_properties(
@@ -1755,6 +1794,17 @@ class GlueClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/get_entity_records.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#get_entity_records)
+        """
+
+    def get_glue_identity_center_configuration(
+        self,
+    ) -> GetGlueIdentityCenterConfigurationResponseTypeDef:
+        """
+        Retrieves the current Glue Identity Center configuration details, including the
+        associated Identity Center instance and application information.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/get_glue_identity_center_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#get_glue_identity_center_configuration)
         """
 
     def get_integration_resource_property(
@@ -2343,6 +2393,16 @@ class GlueClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/list_entities.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#list_entities)
+        """
+
+    def list_integration_resource_properties(
+        self, **kwargs: Unpack[ListIntegrationResourcePropertiesRequestTypeDef]
+    ) -> ListIntegrationResourcePropertiesResponseTypeDef:
+        """
+        List integration resource properties for a single customer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/list_integration_resource_properties.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#list_integration_resource_properties)
         """
 
     def list_jobs(self, **kwargs: Unpack[ListJobsRequestTypeDef]) -> ListJobsResponseTypeDef:
@@ -2937,6 +2997,17 @@ class GlueClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/update_dev_endpoint.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#update_dev_endpoint)
+        """
+
+    def update_glue_identity_center_configuration(
+        self, **kwargs: Unpack[UpdateGlueIdentityCenterConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Updates the existing Glue Identity Center configuration, allowing modification
+        of scopes and permissions for the integration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/update_glue_identity_center_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/client/#update_glue_identity_center_configuration)
         """
 
     def update_integration_resource_property(

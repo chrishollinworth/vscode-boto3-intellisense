@@ -21,6 +21,8 @@ Usage::
         DescribeTrustsPaginator,
         DescribeUpdateDirectoryPaginator,
         DirectoryServiceClient,
+        HybridADUpdatedWaiter,
+        ListADAssessmentsPaginator,
         ListCertificatesPaginator,
         ListIpRoutesPaginator,
         ListLogSubscriptionsPaginator,
@@ -31,6 +33,8 @@ Usage::
     session = Session()
     client: DirectoryServiceClient = session.client("ds")
 
+    hybrid_ad_updated_waiter: HybridADUpdatedWaiter = client.get_waiter("hybrid_ad_updated")
+
     describe_client_authentication_settings_paginator: DescribeClientAuthenticationSettingsPaginator = client.get_paginator("describe_client_authentication_settings")
     describe_directories_paginator: DescribeDirectoriesPaginator = client.get_paginator("describe_directories")
     describe_domain_controllers_paginator: DescribeDomainControllersPaginator = client.get_paginator("describe_domain_controllers")
@@ -40,6 +44,7 @@ Usage::
     describe_snapshots_paginator: DescribeSnapshotsPaginator = client.get_paginator("describe_snapshots")
     describe_trusts_paginator: DescribeTrustsPaginator = client.get_paginator("describe_trusts")
     describe_update_directory_paginator: DescribeUpdateDirectoryPaginator = client.get_paginator("describe_update_directory")
+    list_ad_assessments_paginator: ListADAssessmentsPaginator = client.get_paginator("list_ad_assessments")
     list_certificates_paginator: ListCertificatesPaginator = client.get_paginator("list_certificates")
     list_ip_routes_paginator: ListIpRoutesPaginator = client.get_paginator("list_ip_routes")
     list_log_subscriptions_paginator: ListLogSubscriptionsPaginator = client.get_paginator("list_log_subscriptions")
@@ -59,12 +64,14 @@ from .paginator import (
     DescribeSnapshotsPaginator,
     DescribeTrustsPaginator,
     DescribeUpdateDirectoryPaginator,
+    ListADAssessmentsPaginator,
     ListCertificatesPaginator,
     ListIpRoutesPaginator,
     ListLogSubscriptionsPaginator,
     ListSchemaExtensionsPaginator,
     ListTagsForResourcePaginator,
 )
+from .waiter import HybridADUpdatedWaiter
 
 Client = DirectoryServiceClient
 
@@ -80,6 +87,8 @@ __all__ = (
     "DescribeTrustsPaginator",
     "DescribeUpdateDirectoryPaginator",
     "DirectoryServiceClient",
+    "HybridADUpdatedWaiter",
+    "ListADAssessmentsPaginator",
     "ListCertificatesPaginator",
     "ListIpRoutesPaginator",
     "ListLogSubscriptionsPaginator",

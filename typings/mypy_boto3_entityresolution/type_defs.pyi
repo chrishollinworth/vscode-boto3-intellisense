@@ -28,7 +28,9 @@ from .literals import (
     IdMappingWorkflowRuleDefinitionTypeType,
     IdNamespaceTypeType,
     JobStatusType,
+    JobTypeType,
     MatchPurposeType,
+    ProcessingTypeType,
     RecordMatchingModelType,
     ResolutionTypeType,
     SchemaAttributeTypeType,
@@ -60,6 +62,7 @@ __all__ = (
     "CreateMatchingWorkflowOutputTypeDef",
     "CreateSchemaMappingInputTypeDef",
     "CreateSchemaMappingOutputTypeDef",
+    "CustomerProfilesIntegrationConfigTypeDef",
     "DeleteIdMappingWorkflowInputTypeDef",
     "DeleteIdMappingWorkflowOutputTypeDef",
     "DeleteIdNamespaceInputTypeDef",
@@ -73,6 +76,9 @@ __all__ = (
     "DeleteUniqueIdErrorTypeDef",
     "DeletedUniqueIdTypeDef",
     "ErrorDetailsTypeDef",
+    "FailedRecordTypeDef",
+    "GenerateMatchIdInputTypeDef",
+    "GenerateMatchIdOutputTypeDef",
     "GetIdMappingJobInputTypeDef",
     "GetIdMappingJobOutputTypeDef",
     "GetIdMappingWorkflowInputTypeDef",
@@ -91,6 +97,7 @@ __all__ = (
     "GetProviderServiceOutputTypeDef",
     "GetSchemaMappingInputTypeDef",
     "GetSchemaMappingOutputTypeDef",
+    "IdMappingIncrementalRunConfigTypeDef",
     "IdMappingJobMetricsTypeDef",
     "IdMappingJobOutputSourceTypeDef",
     "IdMappingRuleBasedPropertiesOutputTypeDef",
@@ -136,6 +143,8 @@ __all__ = (
     "ListSchemaMappingsOutputTypeDef",
     "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
+    "MatchGroupTypeDef",
+    "MatchedRecordTypeDef",
     "MatchingWorkflowSummaryTypeDef",
     "NamespaceProviderPropertiesOutputTypeDef",
     "NamespaceProviderPropertiesTypeDef",
@@ -159,12 +168,16 @@ __all__ = (
     "ProviderServiceSummaryTypeDef",
     "PutPolicyInputTypeDef",
     "PutPolicyOutputTypeDef",
+    "RecordTypeDef",
     "ResolutionTechniquesOutputTypeDef",
     "ResolutionTechniquesTypeDef",
     "ResolutionTechniquesUnionTypeDef",
     "ResponseMetadataTypeDef",
     "RuleBasedPropertiesOutputTypeDef",
     "RuleBasedPropertiesTypeDef",
+    "RuleConditionPropertiesOutputTypeDef",
+    "RuleConditionPropertiesTypeDef",
+    "RuleConditionTypeDef",
     "RuleOutputTypeDef",
     "RuleTypeDef",
     "RuleUnionTypeDef",
@@ -213,6 +226,9 @@ class DeleteUniqueIdErrorTypeDef(TypedDict):
 class DeletedUniqueIdTypeDef(TypedDict):
     uniqueId: str
 
+class IdMappingIncrementalRunConfigTypeDef(TypedDict):
+    incrementalRunType: NotRequired[Literal["ON_DEMAND"]]
+
 IdMappingWorkflowInputSourceTypeDef = TypedDict(
     "IdMappingWorkflowInputSourceTypeDef",
     {
@@ -250,6 +266,10 @@ SchemaInputAttributeTypeDef = TypedDict(
     },
 )
 
+class CustomerProfilesIntegrationConfigTypeDef(TypedDict):
+    domainArn: str
+    objectTypeArn: str
+
 class DeleteIdMappingWorkflowInputTypeDef(TypedDict):
     workflowName: str
 
@@ -269,6 +289,16 @@ class DeleteSchemaMappingInputTypeDef(TypedDict):
 class ErrorDetailsTypeDef(TypedDict):
     errorMessage: NotRequired[str]
 
+class FailedRecordTypeDef(TypedDict):
+    inputSourceARN: str
+    uniqueId: str
+    errorMessage: str
+
+class RecordTypeDef(TypedDict):
+    inputSourceARN: str
+    uniqueId: str
+    recordAttributeMap: Mapping[str, str]
+
 class GetIdMappingJobInputTypeDef(TypedDict):
     workflowName: str
     jobId: str
@@ -277,10 +307,18 @@ class IdMappingJobMetricsTypeDef(TypedDict):
     inputRecords: NotRequired[int]
     totalRecordsProcessed: NotRequired[int]
     recordsNotProcessed: NotRequired[int]
+    deleteRecordsProcessed: NotRequired[int]
     totalMappedRecords: NotRequired[int]
     totalMappedSourceRecords: NotRequired[int]
     totalMappedTargetRecords: NotRequired[int]
     uniqueRecordsLoaded: NotRequired[int]
+    newMappedRecords: NotRequired[int]
+    newMappedSourceRecords: NotRequired[int]
+    newMappedTargetRecords: NotRequired[int]
+    newUniqueRecordsLoaded: NotRequired[int]
+    mappedRecordsRemoved: NotRequired[int]
+    mappedSourceRecordsRemoved: NotRequired[int]
+    mappedTargetRecordsRemoved: NotRequired[int]
 
 class IdMappingJobOutputSourceTypeDef(TypedDict):
     roleArn: str
@@ -306,6 +344,7 @@ class JobMetricsTypeDef(TypedDict):
     inputRecords: NotRequired[int]
     totalRecordsProcessed: NotRequired[int]
     recordsNotProcessed: NotRequired[int]
+    deleteRecordsProcessed: NotRequired[int]
     matchIDs: NotRequired[int]
 
 class JobOutputSourceTypeDef(TypedDict):
@@ -425,6 +464,10 @@ class SchemaMappingSummaryTypeDef(TypedDict):
 class ListTagsForResourceInputTypeDef(TypedDict):
     resourceArn: str
 
+class MatchedRecordTypeDef(TypedDict):
+    inputSourceARN: str
+    recordId: str
+
 class NamespaceProviderPropertiesTypeDef(TypedDict):
     providerServiceArn: str
     providerConfiguration: NotRequired[Mapping[str, Any]]
@@ -453,6 +496,10 @@ class PutPolicyInputTypeDef(TypedDict):
     arn: str
     policy: str
     token: NotRequired[str]
+
+class RuleConditionTypeDef(TypedDict):
+    ruleName: str
+    condition: str
 
 class StartMatchingJobInputTypeDef(TypedDict):
     workflowName: str
@@ -561,6 +608,11 @@ class UpdateSchemaMappingOutputTypeDef(TypedDict):
     mappedInputFields: List[SchemaInputAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+class GenerateMatchIdInputTypeDef(TypedDict):
+    workflowName: str
+    records: Sequence[RecordTypeDef]
+    processingType: NotRequired[ProcessingTypeType]
+
 class GetIdMappingJobOutputTypeDef(TypedDict):
     jobId: str
     status: JobStatusType
@@ -569,15 +621,18 @@ class GetIdMappingJobOutputTypeDef(TypedDict):
     metrics: IdMappingJobMetricsTypeDef
     errorDetails: ErrorDetailsTypeDef
     outputSourceConfig: List[IdMappingJobOutputSourceTypeDef]
+    jobType: JobTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class StartIdMappingJobInputTypeDef(TypedDict):
     workflowName: str
     outputSourceConfig: NotRequired[Sequence[IdMappingJobOutputSourceTypeDef]]
+    jobType: NotRequired[JobTypeType]
 
 class StartIdMappingJobOutputTypeDef(TypedDict):
     jobId: str
     outputSourceConfig: List[IdMappingJobOutputSourceTypeDef]
+    jobType: JobTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetMatchingJobOutputTypeDef(TypedDict):
@@ -699,21 +754,28 @@ class ListSchemaMappingsOutputTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
+class MatchGroupTypeDef(TypedDict):
+    records: List[MatchedRecordTypeDef]
+    matchId: str
+    matchRule: str
+
 NamespaceProviderPropertiesUnionTypeDef = Union[
     NamespaceProviderPropertiesTypeDef, NamespaceProviderPropertiesOutputTypeDef
 ]
 
 class OutputSourceOutputTypeDef(TypedDict):
-    outputS3Path: str
     output: List[OutputAttributeTypeDef]
     KMSArn: NotRequired[str]
+    outputS3Path: NotRequired[str]
     applyNormalization: NotRequired[bool]
+    customerProfilesIntegrationConfig: NotRequired[CustomerProfilesIntegrationConfigTypeDef]
 
 class OutputSourceTypeDef(TypedDict):
-    outputS3Path: str
     output: Sequence[OutputAttributeTypeDef]
     KMSArn: NotRequired[str]
+    outputS3Path: NotRequired[str]
     applyNormalization: NotRequired[bool]
+    customerProfilesIntegrationConfig: NotRequired[CustomerProfilesIntegrationConfigTypeDef]
 
 class ProviderComponentSchemaTypeDef(TypedDict):
     schemas: NotRequired[List[List[str]]]
@@ -721,6 +783,12 @@ class ProviderComponentSchemaTypeDef(TypedDict):
 
 class ProviderEndpointConfigurationTypeDef(TypedDict):
     marketplaceConfiguration: NotRequired[ProviderMarketplaceConfigurationTypeDef]
+
+class RuleConditionPropertiesOutputTypeDef(TypedDict):
+    rules: List[RuleConditionTypeDef]
+
+class RuleConditionPropertiesTypeDef(TypedDict):
+    rules: Sequence[RuleConditionTypeDef]
 
 class IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef(TypedDict):
     idMappingType: IdMappingTypeType
@@ -743,20 +811,15 @@ class IdMappingTechniquesOutputTypeDef(TypedDict):
     ruleBasedProperties: NotRequired[IdMappingRuleBasedPropertiesOutputTypeDef]
     providerProperties: NotRequired[ProviderPropertiesOutputTypeDef]
 
-class ResolutionTechniquesOutputTypeDef(TypedDict):
-    resolutionType: ResolutionTypeType
-    ruleBasedProperties: NotRequired[RuleBasedPropertiesOutputTypeDef]
-    providerProperties: NotRequired[ProviderPropertiesOutputTypeDef]
-
 class IdMappingTechniquesTypeDef(TypedDict):
     idMappingType: IdMappingTypeType
     ruleBasedProperties: NotRequired[IdMappingRuleBasedPropertiesTypeDef]
     providerProperties: NotRequired[ProviderPropertiesTypeDef]
 
-class ResolutionTechniquesTypeDef(TypedDict):
-    resolutionType: ResolutionTypeType
-    ruleBasedProperties: NotRequired[RuleBasedPropertiesTypeDef]
-    providerProperties: NotRequired[ProviderPropertiesTypeDef]
+class GenerateMatchIdOutputTypeDef(TypedDict):
+    matchGroups: List[MatchGroupTypeDef]
+    failedRecords: List[FailedRecordTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 OutputSourceUnionTypeDef = Union[OutputSourceTypeDef, OutputSourceOutputTypeDef]
 
@@ -775,6 +838,18 @@ class GetProviderServiceOutputTypeDef(TypedDict):
     providerIntermediateDataAccessConfiguration: ProviderIntermediateDataAccessConfigurationTypeDef
     providerComponentSchema: ProviderComponentSchemaTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class ResolutionTechniquesOutputTypeDef(TypedDict):
+    resolutionType: ResolutionTypeType
+    ruleBasedProperties: NotRequired[RuleBasedPropertiesOutputTypeDef]
+    ruleConditionProperties: NotRequired[RuleConditionPropertiesOutputTypeDef]
+    providerProperties: NotRequired[ProviderPropertiesOutputTypeDef]
+
+class ResolutionTechniquesTypeDef(TypedDict):
+    resolutionType: ResolutionTypeType
+    ruleBasedProperties: NotRequired[RuleBasedPropertiesTypeDef]
+    ruleConditionProperties: NotRequired[RuleConditionPropertiesTypeDef]
+    providerProperties: NotRequired[ProviderPropertiesTypeDef]
 
 CreateIdNamespaceOutputTypeDef = TypedDict(
     "CreateIdNamespaceOutputTypeDef",
@@ -834,6 +909,7 @@ class CreateIdMappingWorkflowOutputTypeDef(TypedDict):
     inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
     outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
     idMappingTechniques: IdMappingTechniquesOutputTypeDef
+    incrementalRunConfig: IdMappingIncrementalRunConfigTypeDef
     roleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -846,6 +922,7 @@ class GetIdMappingWorkflowOutputTypeDef(TypedDict):
     idMappingTechniques: IdMappingTechniquesOutputTypeDef
     createdAt: datetime
     updatedAt: datetime
+    incrementalRunConfig: IdMappingIncrementalRunConfigTypeDef
     roleArn: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -857,8 +934,13 @@ class UpdateIdMappingWorkflowOutputTypeDef(TypedDict):
     inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
     outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
     idMappingTechniques: IdMappingTechniquesOutputTypeDef
+    incrementalRunConfig: IdMappingIncrementalRunConfigTypeDef
     roleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
+IdMappingTechniquesUnionTypeDef = Union[
+    IdMappingTechniquesTypeDef, IdMappingTechniquesOutputTypeDef
+]
 
 class CreateMatchingWorkflowOutputTypeDef(TypedDict):
     workflowName: str
@@ -895,9 +977,6 @@ class UpdateMatchingWorkflowOutputTypeDef(TypedDict):
     roleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-IdMappingTechniquesUnionTypeDef = Union[
-    IdMappingTechniquesTypeDef, IdMappingTechniquesOutputTypeDef
-]
 ResolutionTechniquesUnionTypeDef = Union[
     ResolutionTechniquesTypeDef, ResolutionTechniquesOutputTypeDef
 ]
@@ -913,6 +992,7 @@ class CreateIdMappingWorkflowInputTypeDef(TypedDict):
     idMappingTechniques: IdMappingTechniquesUnionTypeDef
     description: NotRequired[str]
     outputSourceConfig: NotRequired[Sequence[IdMappingWorkflowOutputSourceTypeDef]]
+    incrementalRunConfig: NotRequired[IdMappingIncrementalRunConfigTypeDef]
     roleArn: NotRequired[str]
     tags: NotRequired[Mapping[str, str]]
 
@@ -922,6 +1002,7 @@ class UpdateIdMappingWorkflowInputTypeDef(TypedDict):
     idMappingTechniques: IdMappingTechniquesUnionTypeDef
     description: NotRequired[str]
     outputSourceConfig: NotRequired[Sequence[IdMappingWorkflowOutputSourceTypeDef]]
+    incrementalRunConfig: NotRequired[IdMappingIncrementalRunConfigTypeDef]
     roleArn: NotRequired[str]
 
 class CreateMatchingWorkflowInputTypeDef(TypedDict):

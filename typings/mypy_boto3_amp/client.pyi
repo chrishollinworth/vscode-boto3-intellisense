@@ -26,6 +26,7 @@ from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
+    ListAnomalyDetectorsPaginator,
     ListRuleGroupsNamespacesPaginator,
     ListScrapersPaginator,
     ListWorkspacesPaginator,
@@ -33,8 +34,12 @@ from .paginator import (
 from .type_defs import (
     CreateAlertManagerDefinitionRequestTypeDef,
     CreateAlertManagerDefinitionResponseTypeDef,
+    CreateAnomalyDetectorRequestTypeDef,
+    CreateAnomalyDetectorResponseTypeDef,
     CreateLoggingConfigurationRequestTypeDef,
     CreateLoggingConfigurationResponseTypeDef,
+    CreateQueryLoggingConfigurationRequestTypeDef,
+    CreateQueryLoggingConfigurationResponseTypeDef,
     CreateRuleGroupsNamespaceRequestTypeDef,
     CreateRuleGroupsNamespaceResponseTypeDef,
     CreateScraperRequestTypeDef,
@@ -42,17 +47,29 @@ from .type_defs import (
     CreateWorkspaceRequestTypeDef,
     CreateWorkspaceResponseTypeDef,
     DeleteAlertManagerDefinitionRequestTypeDef,
+    DeleteAnomalyDetectorRequestTypeDef,
     DeleteLoggingConfigurationRequestTypeDef,
+    DeleteQueryLoggingConfigurationRequestTypeDef,
+    DeleteResourcePolicyRequestTypeDef,
     DeleteRuleGroupsNamespaceRequestTypeDef,
+    DeleteScraperLoggingConfigurationRequestTypeDef,
     DeleteScraperRequestTypeDef,
     DeleteScraperResponseTypeDef,
     DeleteWorkspaceRequestTypeDef,
     DescribeAlertManagerDefinitionRequestTypeDef,
     DescribeAlertManagerDefinitionResponseTypeDef,
+    DescribeAnomalyDetectorRequestTypeDef,
+    DescribeAnomalyDetectorResponseTypeDef,
     DescribeLoggingConfigurationRequestTypeDef,
     DescribeLoggingConfigurationResponseTypeDef,
+    DescribeQueryLoggingConfigurationRequestTypeDef,
+    DescribeQueryLoggingConfigurationResponseTypeDef,
+    DescribeResourcePolicyRequestTypeDef,
+    DescribeResourcePolicyResponseTypeDef,
     DescribeRuleGroupsNamespaceRequestTypeDef,
     DescribeRuleGroupsNamespaceResponseTypeDef,
+    DescribeScraperLoggingConfigurationRequestTypeDef,
+    DescribeScraperLoggingConfigurationResponseTypeDef,
     DescribeScraperRequestTypeDef,
     DescribeScraperResponseTypeDef,
     DescribeWorkspaceConfigurationRequestTypeDef,
@@ -61,6 +78,8 @@ from .type_defs import (
     DescribeWorkspaceResponseTypeDef,
     EmptyResponseMetadataTypeDef,
     GetDefaultScraperConfigurationResponseTypeDef,
+    ListAnomalyDetectorsRequestTypeDef,
+    ListAnomalyDetectorsResponseTypeDef,
     ListRuleGroupsNamespacesRequestTypeDef,
     ListRuleGroupsNamespacesResponseTypeDef,
     ListScrapersRequestTypeDef,
@@ -71,12 +90,20 @@ from .type_defs import (
     ListWorkspacesResponseTypeDef,
     PutAlertManagerDefinitionRequestTypeDef,
     PutAlertManagerDefinitionResponseTypeDef,
+    PutAnomalyDetectorRequestTypeDef,
+    PutAnomalyDetectorResponseTypeDef,
+    PutResourcePolicyRequestTypeDef,
+    PutResourcePolicyResponseTypeDef,
     PutRuleGroupsNamespaceRequestTypeDef,
     PutRuleGroupsNamespaceResponseTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
     UpdateLoggingConfigurationRequestTypeDef,
     UpdateLoggingConfigurationResponseTypeDef,
+    UpdateQueryLoggingConfigurationRequestTypeDef,
+    UpdateQueryLoggingConfigurationResponseTypeDef,
+    UpdateScraperLoggingConfigurationRequestTypeDef,
+    UpdateScraperLoggingConfigurationResponseTypeDef,
     UpdateScraperRequestTypeDef,
     UpdateScraperResponseTypeDef,
     UpdateWorkspaceAliasRequestTypeDef,
@@ -84,6 +111,8 @@ from .type_defs import (
     UpdateWorkspaceConfigurationResponseTypeDef,
 )
 from .waiter import (
+    AnomalyDetectorActiveWaiter,
+    AnomalyDetectorDeletedWaiter,
     ScraperActiveWaiter,
     ScraperDeletedWaiter,
     WorkspaceActiveWaiter,
@@ -159,15 +188,36 @@ class PrometheusServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#create_alert_manager_definition)
         """
 
+    def create_anomaly_detector(
+        self, **kwargs: Unpack[CreateAnomalyDetectorRequestTypeDef]
+    ) -> CreateAnomalyDetectorResponseTypeDef:
+        """
+        Creates an anomaly detector within a workspace using the Random Cut Forest
+        algorithm for time-series analysis.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/create_anomaly_detector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#create_anomaly_detector)
+        """
+
     def create_logging_configuration(
         self, **kwargs: Unpack[CreateLoggingConfigurationRequestTypeDef]
     ) -> CreateLoggingConfigurationResponseTypeDef:
         """
-        The <code>CreateLoggingConfiguration</code> operation creates a logging
-        configuration for the workspace.
+        The <code>CreateLoggingConfiguration</code> operation creates rules and
+        alerting logging configuration for the workspace.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/create_logging_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#create_logging_configuration)
+        """
+
+    def create_query_logging_configuration(
+        self, **kwargs: Unpack[CreateQueryLoggingConfigurationRequestTypeDef]
+    ) -> CreateQueryLoggingConfigurationResponseTypeDef:
+        """
+        Creates a query logging configuration for the specified workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/create_query_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#create_query_logging_configuration)
         """
 
     def create_rule_groups_namespace(
@@ -211,14 +261,45 @@ class PrometheusServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#delete_alert_manager_definition)
         """
 
+    def delete_anomaly_detector(
+        self, **kwargs: Unpack[DeleteAnomalyDetectorRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Removes an anomaly detector from a workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/delete_anomaly_detector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#delete_anomaly_detector)
+        """
+
     def delete_logging_configuration(
         self, **kwargs: Unpack[DeleteLoggingConfigurationRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Deletes the logging configuration for a workspace.
+        Deletes the rules and alerting logging configuration for a workspace.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/delete_logging_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#delete_logging_configuration)
+        """
+
+    def delete_query_logging_configuration(
+        self, **kwargs: Unpack[DeleteQueryLoggingConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the query logging configuration for the specified workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/delete_query_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#delete_query_logging_configuration)
+        """
+
+    def delete_resource_policy(
+        self, **kwargs: Unpack[DeleteResourcePolicyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the resource-based policy attached to an Amazon Managed Service for
+        Prometheus workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/delete_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#delete_resource_policy)
         """
 
     def delete_rule_groups_namespace(
@@ -242,6 +323,17 @@ class PrometheusServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#delete_scraper)
         """
 
+    def delete_scraper_logging_configuration(
+        self, **kwargs: Unpack[DeleteScraperLoggingConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the logging configuration for a Amazon Managed Service for Prometheus
+        scraper.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/delete_scraper_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#delete_scraper_logging_configuration)
+        """
+
     def delete_workspace(
         self, **kwargs: Unpack[DeleteWorkspaceRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
@@ -263,15 +355,48 @@ class PrometheusServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#describe_alert_manager_definition)
         """
 
+    def describe_anomaly_detector(
+        self, **kwargs: Unpack[DescribeAnomalyDetectorRequestTypeDef]
+    ) -> DescribeAnomalyDetectorResponseTypeDef:
+        """
+        Retrieves detailed information about a specific anomaly detector, including its
+        status and configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/describe_anomaly_detector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#describe_anomaly_detector)
+        """
+
     def describe_logging_configuration(
         self, **kwargs: Unpack[DescribeLoggingConfigurationRequestTypeDef]
     ) -> DescribeLoggingConfigurationResponseTypeDef:
         """
-        Returns complete information about the current logging configuration of the
-        workspace.
+        Returns complete information about the current rules and alerting logging
+        configuration of the workspace.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/describe_logging_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#describe_logging_configuration)
+        """
+
+    def describe_query_logging_configuration(
+        self, **kwargs: Unpack[DescribeQueryLoggingConfigurationRequestTypeDef]
+    ) -> DescribeQueryLoggingConfigurationResponseTypeDef:
+        """
+        Retrieves the details of the query logging configuration for the specified
+        workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/describe_query_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#describe_query_logging_configuration)
+        """
+
+    def describe_resource_policy(
+        self, **kwargs: Unpack[DescribeResourcePolicyRequestTypeDef]
+    ) -> DescribeResourcePolicyResponseTypeDef:
+        """
+        Returns information about the resource-based policy attached to an Amazon
+        Managed Service for Prometheus workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/describe_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#describe_resource_policy)
         """
 
     def describe_rule_groups_namespace(
@@ -293,6 +418,17 @@ class PrometheusServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/describe_scraper.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#describe_scraper)
+        """
+
+    def describe_scraper_logging_configuration(
+        self, **kwargs: Unpack[DescribeScraperLoggingConfigurationRequestTypeDef]
+    ) -> DescribeScraperLoggingConfigurationResponseTypeDef:
+        """
+        Describes the logging configuration for a Amazon Managed Service for Prometheus
+        scraper.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/describe_scraper_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#describe_scraper_logging_configuration)
         """
 
     def describe_workspace(
@@ -322,6 +458,17 @@ class PrometheusServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/get_default_scraper_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#get_default_scraper_configuration)
+        """
+
+    def list_anomaly_detectors(
+        self, **kwargs: Unpack[ListAnomalyDetectorsRequestTypeDef]
+    ) -> ListAnomalyDetectorsResponseTypeDef:
+        """
+        Returns a paginated list of anomaly detectors for a workspace with optional
+        filtering by alias.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/list_anomaly_detectors.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#list_anomaly_detectors)
         """
 
     def list_rule_groups_namespaces(
@@ -377,6 +524,28 @@ class PrometheusServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#put_alert_manager_definition)
         """
 
+    def put_anomaly_detector(
+        self, **kwargs: Unpack[PutAnomalyDetectorRequestTypeDef]
+    ) -> PutAnomalyDetectorResponseTypeDef:
+        """
+        When you call <code>PutAnomalyDetector</code>, the operation creates a new
+        anomaly detector if one doesn't exist, or updates an existing one.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/put_anomaly_detector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#put_anomaly_detector)
+        """
+
+    def put_resource_policy(
+        self, **kwargs: Unpack[PutResourcePolicyRequestTypeDef]
+    ) -> PutResourcePolicyResponseTypeDef:
+        """
+        Creates or updates a resource-based policy for an Amazon Managed Service for
+        Prometheus workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/put_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#put_resource_policy)
+        """
+
     def put_rule_groups_namespace(
         self, **kwargs: Unpack[PutRuleGroupsNamespaceRequestTypeDef]
     ) -> PutRuleGroupsNamespaceResponseTypeDef:
@@ -409,11 +578,21 @@ class PrometheusServiceClient(BaseClient):
         self, **kwargs: Unpack[UpdateLoggingConfigurationRequestTypeDef]
     ) -> UpdateLoggingConfigurationResponseTypeDef:
         """
-        Updates the log group ARN or the workspace ID of the current logging
-        configuration.
+        Updates the log group ARN or the workspace ID of the current rules and alerting
+        logging configuration.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/update_logging_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#update_logging_configuration)
+        """
+
+    def update_query_logging_configuration(
+        self, **kwargs: Unpack[UpdateQueryLoggingConfigurationRequestTypeDef]
+    ) -> UpdateQueryLoggingConfigurationResponseTypeDef:
+        """
+        Updates the query logging configuration for the specified workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/update_query_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#update_query_logging_configuration)
         """
 
     def update_scraper(
@@ -424,6 +603,17 @@ class PrometheusServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/update_scraper.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#update_scraper)
+        """
+
+    def update_scraper_logging_configuration(
+        self, **kwargs: Unpack[UpdateScraperLoggingConfigurationRequestTypeDef]
+    ) -> UpdateScraperLoggingConfigurationResponseTypeDef:
+        """
+        Updates the logging configuration for a Amazon Managed Service for Prometheus
+        scraper.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/update_scraper_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#update_scraper_logging_configuration)
         """
 
     def update_workspace_alias(
@@ -445,6 +635,17 @@ class PrometheusServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/update_workspace_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#update_workspace_configuration)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_anomaly_detectors"]
+    ) -> ListAnomalyDetectorsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#get_paginator)
         """
 
     @overload  # type: ignore[override]
@@ -478,6 +679,28 @@ class PrometheusServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/get_paginator.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["anomaly_detector_active"]
+    ) -> AnomalyDetectorActiveWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["anomaly_detector_deleted"]
+    ) -> AnomalyDetectorDeletedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/client/#get_waiter)
         """
 
     @overload  # type: ignore[override]

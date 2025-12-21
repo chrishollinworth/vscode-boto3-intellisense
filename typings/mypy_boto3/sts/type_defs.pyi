@@ -46,10 +46,14 @@ __all__ = (
     "GetAccessKeyInfoRequestTypeDef",
     "GetAccessKeyInfoResponseTypeDef",
     "GetCallerIdentityResponseTypeDef",
+    "GetDelegatedAccessTokenRequestTypeDef",
+    "GetDelegatedAccessTokenResponseTypeDef",
     "GetFederationTokenRequestTypeDef",
     "GetFederationTokenResponseTypeDef",
     "GetSessionTokenRequestTypeDef",
     "GetSessionTokenResponseTypeDef",
+    "GetWebIdentityTokenRequestTypeDef",
+    "GetWebIdentityTokenResponseTypeDef",
     "PolicyDescriptorTypeTypeDef",
     "ProvidedContextTypeDef",
     "ResponseMetadataTypeDef",
@@ -93,6 +97,9 @@ class FederatedUserTypeDef(TypedDict):
 
 class GetAccessKeyInfoRequestTypeDef(TypedDict):
     AccessKeyId: str
+
+class GetDelegatedAccessTokenRequestTypeDef(TypedDict):
+    TradeInToken: str
 
 class GetSessionTokenRequestTypeDef(TypedDict):
     DurationSeconds: NotRequired[int]
@@ -139,6 +146,12 @@ class GetFederationTokenRequestTypeDef(TypedDict):
     Name: str
     Policy: NotRequired[str]
     PolicyArns: NotRequired[Sequence[PolicyDescriptorTypeTypeDef]]
+    DurationSeconds: NotRequired[int]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class GetWebIdentityTokenRequestTypeDef(TypedDict):
+    Audience: Sequence[str]
+    SigningAlgorithm: str
     DurationSeconds: NotRequired[int]
     Tags: NotRequired[Sequence[TagTypeDef]]
 
@@ -190,8 +203,19 @@ class GetCallerIdentityResponseTypeDef(TypedDict):
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class GetDelegatedAccessTokenResponseTypeDef(TypedDict):
+    Credentials: CredentialsTypeDef
+    PackedPolicySize: int
+    AssumedPrincipal: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class GetSessionTokenResponseTypeDef(TypedDict):
     Credentials: CredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetWebIdentityTokenResponseTypeDef(TypedDict):
+    WebIdentityToken: str
+    Expiration: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetFederationTokenResponseTypeDef(TypedDict):

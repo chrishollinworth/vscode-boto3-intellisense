@@ -16,6 +16,7 @@ Usage::
         CloudFormationServiceResource,
         DescribeAccountLimitsPaginator,
         DescribeChangeSetPaginator,
+        DescribeEventsPaginator,
         DescribeStackEventsPaginator,
         DescribeStacksPaginator,
         ListChangeSetsPaginator,
@@ -64,6 +65,7 @@ Usage::
 
     describe_account_limits_paginator: DescribeAccountLimitsPaginator = client.get_paginator("describe_account_limits")
     describe_change_set_paginator: DescribeChangeSetPaginator = client.get_paginator("describe_change_set")
+    describe_events_paginator: DescribeEventsPaginator = client.get_paginator("describe_events")
     describe_stack_events_paginator: DescribeStackEventsPaginator = client.get_paginator("describe_stack_events")
     describe_stacks_paginator: DescribeStacksPaginator = client.get_paginator("describe_stacks")
     list_change_sets_paginator: ListChangeSetsPaginator = client.get_paginator("list_change_sets")
@@ -89,6 +91,7 @@ from .client import CloudFormationClient
 from .paginator import (
     DescribeAccountLimitsPaginator,
     DescribeChangeSetPaginator,
+    DescribeEventsPaginator,
     DescribeStackEventsPaginator,
     DescribeStacksPaginator,
     ListChangeSetsPaginator,
@@ -137,6 +140,7 @@ __all__ = (
     "CloudFormationServiceResource",
     "DescribeAccountLimitsPaginator",
     "DescribeChangeSetPaginator",
+    "DescribeEventsPaginator",
     "DescribeStackEventsPaginator",
     "DescribeStacksPaginator",
     "ListChangeSetsPaginator",

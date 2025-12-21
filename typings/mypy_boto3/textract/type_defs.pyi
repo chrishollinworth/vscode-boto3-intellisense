@@ -448,6 +448,7 @@ DocumentGroupTypeDef = TypedDict(
 class GeometryTypeDef(TypedDict):
     BoundingBox: NotRequired[BoundingBoxTypeDef]
     Polygon: NotRequired[List[PointTypeDef]]
+    RotationAngle: NotRequired[float]
 
 class HumanLoopConfigTypeDef(TypedDict):
     HumanLoopName: str

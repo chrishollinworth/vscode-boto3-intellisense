@@ -172,7 +172,7 @@ class ComputeOptimizerClient(BaseClient):
         self, **kwargs: Unpack[ExportAutoScalingGroupRecommendationsRequestTypeDef]
     ) -> ExportAutoScalingGroupRecommendationsResponseTypeDef:
         """
-        Exports optimization recommendations for Auto Scaling groups.
+        Exports optimization recommendations for Amazon EC2 Auto Scaling groups.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/client/export_auto_scaling_group_recommendations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client/#export_auto_scaling_group_recommendations)
@@ -242,8 +242,8 @@ class ComputeOptimizerClient(BaseClient):
         self, **kwargs: Unpack[ExportRDSDatabaseRecommendationsRequestTypeDef]
     ) -> ExportRDSDatabaseRecommendationsResponseTypeDef:
         """
-        Export optimization recommendations for your Amazon Relational Database Service
-        (Amazon RDS).
+        Export optimization recommendations for your Amazon Aurora and Amazon
+        Relational Database Service (Amazon RDS) databases.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/client/export_rds_database_recommendations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client/#export_rds_database_recommendations)
@@ -253,7 +253,7 @@ class ComputeOptimizerClient(BaseClient):
         self, **kwargs: Unpack[GetAutoScalingGroupRecommendationsRequestTypeDef]
     ) -> GetAutoScalingGroupRecommendationsResponseTypeDef:
         """
-        Returns Auto Scaling group recommendations.
+        Returns Amazon EC2 Auto Scaling group recommendations.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/client/get_auto_scaling_group_recommendations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client/#get_auto_scaling_group_recommendations)
@@ -376,7 +376,7 @@ class ComputeOptimizerClient(BaseClient):
         self, **kwargs: Unpack[GetRDSDatabaseRecommendationProjectedMetricsRequestTypeDef]
     ) -> GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef:
         """
-        Returns the projected metrics of Amazon RDS recommendations.
+        Returns the projected metrics of Aurora and RDS database recommendations.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/client/get_rds_database_recommendation_projected_metrics.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client/#get_rds_database_recommendation_projected_metrics)
@@ -386,7 +386,7 @@ class ComputeOptimizerClient(BaseClient):
         self, **kwargs: Unpack[GetRDSDatabaseRecommendationsRequestTypeDef]
     ) -> GetRDSDatabaseRecommendationsResponseTypeDef:
         """
-        Returns Amazon RDS recommendations.
+        Returns Amazon Aurora and RDS database recommendations.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/client/get_rds_database_recommendations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client/#get_rds_database_recommendations)

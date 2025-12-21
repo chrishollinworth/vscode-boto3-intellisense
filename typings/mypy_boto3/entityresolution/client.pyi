@@ -57,6 +57,8 @@ from .type_defs import (
     DeletePolicyStatementOutputTypeDef,
     DeleteSchemaMappingInputTypeDef,
     DeleteSchemaMappingOutputTypeDef,
+    GenerateMatchIdInputTypeDef,
+    GenerateMatchIdOutputTypeDef,
     GetIdMappingJobInputTypeDef,
     GetIdMappingJobOutputTypeDef,
     GetIdMappingWorkflowInputTypeDef,
@@ -213,8 +215,8 @@ class EntityResolutionClient(BaseClient):
         self, **kwargs: Unpack[CreateMatchingWorkflowInputTypeDef]
     ) -> CreateMatchingWorkflowOutputTypeDef:
         """
-        Creates a <code>MatchingWorkflow</code> object which stores the configuration
-        of the data processing job to be run.
+        Creates a matching workflow that defines the configuration for a data
+        processing job.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/entityresolution/client/create_matching_workflow.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client/#create_matching_workflow)
@@ -281,11 +283,22 @@ class EntityResolutionClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client/#delete_schema_mapping)
         """
 
+    def generate_match_id(
+        self, **kwargs: Unpack[GenerateMatchIdInputTypeDef]
+    ) -> GenerateMatchIdOutputTypeDef:
+        """
+        Generates or retrieves Match IDs for records using a rule-based matching
+        workflow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/entityresolution/client/generate_match_id.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client/#generate_match_id)
+        """
+
     def get_id_mapping_job(
         self, **kwargs: Unpack[GetIdMappingJobInputTypeDef]
     ) -> GetIdMappingJobOutputTypeDef:
         """
-        Gets the status, metrics, and errors (if there are any) that are associated
+        Returns the status, metrics, and errors (if there are any) that are associated
         with a job.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/entityresolution/client/get_id_mapping_job.html)
@@ -315,7 +328,7 @@ class EntityResolutionClient(BaseClient):
     def get_match_id(self, **kwargs: Unpack[GetMatchIdInputTypeDef]) -> GetMatchIdOutputTypeDef:
         """
         Returns the corresponding Match ID of a customer record if the record has been
-        processed in a rule-based matching workflow or ML matching workflow.
+        processed in a rule-based matching workflow.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/entityresolution/client/get_match_id.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client/#get_match_id)
@@ -325,7 +338,7 @@ class EntityResolutionClient(BaseClient):
         self, **kwargs: Unpack[GetMatchingJobInputTypeDef]
     ) -> GetMatchingJobOutputTypeDef:
         """
-        Gets the status, metrics, and errors (if there are any) that are associated
+        Returns the status, metrics, and errors (if there are any) that are associated
         with a job.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/entityresolution/client/get_matching_job.html)
@@ -523,7 +536,7 @@ class EntityResolutionClient(BaseClient):
         self, **kwargs: Unpack[UpdateMatchingWorkflowInputTypeDef]
     ) -> UpdateMatchingWorkflowOutputTypeDef:
         """
-        Updates an existing <code>MatchingWorkflow</code>.
+        Updates an existing matching workflow.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/entityresolution/client/update_matching_workflow.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client/#update_matching_workflow)

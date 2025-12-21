@@ -1047,7 +1047,8 @@ class IoTWirelessClient(BaseClient):
         self, **kwargs: Unpack[ListWirelessDeviceImportTasksRequestTypeDef]
     ) -> ListWirelessDeviceImportTasksResponseTypeDef:
         """
-        List wireless devices that have been added to an import task.
+        List of import tasks and summary information of onboarding status of devices in
+        each import task.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_wireless_device_import_tasks.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_wireless_device_import_tasks)

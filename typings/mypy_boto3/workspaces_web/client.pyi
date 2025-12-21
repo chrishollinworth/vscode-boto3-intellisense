@@ -25,7 +25,11 @@ from botocore.client import BaseClient, ClientMeta
 from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
-from .paginator import ListDataProtectionSettingsPaginator, ListSessionsPaginator
+from .paginator import (
+    ListDataProtectionSettingsPaginator,
+    ListSessionLoggersPaginator,
+    ListSessionsPaginator,
+)
 from .type_defs import (
     AssociateBrowserSettingsRequestTypeDef,
     AssociateBrowserSettingsResponseTypeDef,
@@ -35,6 +39,8 @@ from .type_defs import (
     AssociateIpAccessSettingsResponseTypeDef,
     AssociateNetworkSettingsRequestTypeDef,
     AssociateNetworkSettingsResponseTypeDef,
+    AssociateSessionLoggerRequestTypeDef,
+    AssociateSessionLoggerResponseTypeDef,
     AssociateTrustStoreRequestTypeDef,
     AssociateTrustStoreResponseTypeDef,
     AssociateUserAccessLoggingSettingsRequestTypeDef,
@@ -53,6 +59,8 @@ from .type_defs import (
     CreateNetworkSettingsResponseTypeDef,
     CreatePortalRequestTypeDef,
     CreatePortalResponseTypeDef,
+    CreateSessionLoggerRequestTypeDef,
+    CreateSessionLoggerResponseTypeDef,
     CreateTrustStoreRequestTypeDef,
     CreateTrustStoreResponseTypeDef,
     CreateUserAccessLoggingSettingsRequestTypeDef,
@@ -65,6 +73,7 @@ from .type_defs import (
     DeleteIpAccessSettingsRequestTypeDef,
     DeleteNetworkSettingsRequestTypeDef,
     DeletePortalRequestTypeDef,
+    DeleteSessionLoggerRequestTypeDef,
     DeleteTrustStoreRequestTypeDef,
     DeleteUserAccessLoggingSettingsRequestTypeDef,
     DeleteUserSettingsRequestTypeDef,
@@ -72,6 +81,7 @@ from .type_defs import (
     DisassociateDataProtectionSettingsRequestTypeDef,
     DisassociateIpAccessSettingsRequestTypeDef,
     DisassociateNetworkSettingsRequestTypeDef,
+    DisassociateSessionLoggerRequestTypeDef,
     DisassociateTrustStoreRequestTypeDef,
     DisassociateUserAccessLoggingSettingsRequestTypeDef,
     DisassociateUserSettingsRequestTypeDef,
@@ -90,6 +100,8 @@ from .type_defs import (
     GetPortalResponseTypeDef,
     GetPortalServiceProviderMetadataRequestTypeDef,
     GetPortalServiceProviderMetadataResponseTypeDef,
+    GetSessionLoggerRequestTypeDef,
+    GetSessionLoggerResponseTypeDef,
     GetSessionRequestTypeDef,
     GetSessionResponseTypeDef,
     GetTrustStoreCertificateRequestTypeDef,
@@ -112,6 +124,8 @@ from .type_defs import (
     ListNetworkSettingsResponseTypeDef,
     ListPortalsRequestTypeDef,
     ListPortalsResponseTypeDef,
+    ListSessionLoggersRequestTypeDef,
+    ListSessionLoggersResponseTypeDef,
     ListSessionsRequestTypeDef,
     ListSessionsResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
@@ -138,6 +152,8 @@ from .type_defs import (
     UpdateNetworkSettingsResponseTypeDef,
     UpdatePortalRequestTypeDef,
     UpdatePortalResponseTypeDef,
+    UpdateSessionLoggerRequestTypeDef,
+    UpdateSessionLoggerResponseTypeDef,
     UpdateTrustStoreRequestTypeDef,
     UpdateTrustStoreResponseTypeDef,
     UpdateUserAccessLoggingSettingsRequestTypeDef,
@@ -245,6 +261,16 @@ class WorkSpacesWebClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#associate_network_settings)
         """
 
+    def associate_session_logger(
+        self, **kwargs: Unpack[AssociateSessionLoggerRequestTypeDef]
+    ) -> AssociateSessionLoggerResponseTypeDef:
+        """
+        Associates a session logger with a portal.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/client/associate_session_logger.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#associate_session_logger)
+        """
+
     def associate_trust_store(
         self, **kwargs: Unpack[AssociateTrustStoreRequestTypeDef]
     ) -> AssociateTrustStoreResponseTypeDef:
@@ -336,6 +362,16 @@ class WorkSpacesWebClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#create_portal)
         """
 
+    def create_session_logger(
+        self, **kwargs: Unpack[CreateSessionLoggerRequestTypeDef]
+    ) -> CreateSessionLoggerResponseTypeDef:
+        """
+        Creates a session logger.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/client/create_session_logger.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#create_session_logger)
+        """
+
     def create_trust_store(
         self, **kwargs: Unpack[CreateTrustStoreRequestTypeDef]
     ) -> CreateTrustStoreResponseTypeDef:
@@ -425,6 +461,16 @@ class WorkSpacesWebClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#delete_portal)
         """
 
+    def delete_session_logger(
+        self, **kwargs: Unpack[DeleteSessionLoggerRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a session logger resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/client/delete_session_logger.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#delete_session_logger)
+        """
+
     def delete_trust_store(
         self, **kwargs: Unpack[DeleteTrustStoreRequestTypeDef]
     ) -> Dict[str, Any]:
@@ -493,6 +539,16 @@ class WorkSpacesWebClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/client/disassociate_network_settings.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#disassociate_network_settings)
+        """
+
+    def disassociate_session_logger(
+        self, **kwargs: Unpack[DisassociateSessionLoggerRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates a session logger from a portal.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/client/disassociate_session_logger.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#disassociate_session_logger)
         """
 
     def disassociate_trust_store(
@@ -609,6 +665,16 @@ class WorkSpacesWebClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#get_session)
         """
 
+    def get_session_logger(
+        self, **kwargs: Unpack[GetSessionLoggerRequestTypeDef]
+    ) -> GetSessionLoggerResponseTypeDef:
+        """
+        Gets details about a specific session logger resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/client/get_session_logger.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#get_session_logger)
+        """
+
     def get_trust_store(
         self, **kwargs: Unpack[GetTrustStoreRequestTypeDef]
     ) -> GetTrustStoreResponseTypeDef:
@@ -707,6 +773,16 @@ class WorkSpacesWebClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/client/list_portals.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#list_portals)
+        """
+
+    def list_session_loggers(
+        self, **kwargs: Unpack[ListSessionLoggersRequestTypeDef]
+    ) -> ListSessionLoggersResponseTypeDef:
+        """
+        Lists all available session logger resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/client/list_session_loggers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#list_session_loggers)
         """
 
     def list_sessions(
@@ -845,6 +921,16 @@ class WorkSpacesWebClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#update_portal)
         """
 
+    def update_session_logger(
+        self, **kwargs: Unpack[UpdateSessionLoggerRequestTypeDef]
+    ) -> UpdateSessionLoggerResponseTypeDef:
+        """
+        Updates the details of a session logger.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/client/update_session_logger.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#update_session_logger)
+        """
+
     def update_trust_store(
         self, **kwargs: Unpack[UpdateTrustStoreRequestTypeDef]
     ) -> UpdateTrustStoreResponseTypeDef:
@@ -879,6 +965,17 @@ class WorkSpacesWebClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_data_protection_settings"]
     ) -> ListDataProtectionSettingsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_session_loggers"]
+    ) -> ListSessionLoggersPaginator:
         """
         Create a paginator for an operation.
 

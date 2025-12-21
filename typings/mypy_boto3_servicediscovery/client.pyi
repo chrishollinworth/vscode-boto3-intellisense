@@ -332,7 +332,8 @@ class ServiceDiscoveryClient(BaseClient):
     ) -> ListNamespacesResponseTypeDef:
         """
         Lists summary information about the namespaces that were created by the current
-        Amazon Web Services account.
+        Amazon Web Services account and shared with the current Amazon Web Services
+        account.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicediscovery/client/list_namespaces.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/client/#list_namespaces)

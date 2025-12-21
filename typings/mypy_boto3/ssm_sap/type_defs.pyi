@@ -27,6 +27,8 @@ from .literals import (
     ClusterStatusType,
     ComponentStatusType,
     ComponentTypeType,
+    ConfigurationCheckOperationListingModeType,
+    ConfigurationCheckTypeType,
     DatabaseConnectionMethodType,
     DatabaseStatusType,
     DatabaseTypeType,
@@ -36,6 +38,7 @@ from .literals import (
     OperationModeType,
     OperationStatusType,
     ReplicationModeType,
+    RuleResultStatusType,
 )
 
 if sys.version_info >= (3, 9):
@@ -58,6 +61,8 @@ __all__ = (
     "ComponentInfoTypeDef",
     "ComponentSummaryTypeDef",
     "ComponentTypeDef",
+    "ConfigurationCheckDefinitionTypeDef",
+    "ConfigurationCheckOperationTypeDef",
     "DatabaseConnectionTypeDef",
     "DatabaseSummaryTypeDef",
     "DatabaseTypeDef",
@@ -69,6 +74,8 @@ __all__ = (
     "GetApplicationOutputTypeDef",
     "GetComponentInputTypeDef",
     "GetComponentOutputTypeDef",
+    "GetConfigurationCheckOperationInputTypeDef",
+    "GetConfigurationCheckOperationOutputTypeDef",
     "GetDatabaseInputTypeDef",
     "GetDatabaseOutputTypeDef",
     "GetOperationInputTypeDef",
@@ -83,6 +90,12 @@ __all__ = (
     "ListComponentsInputPaginateTypeDef",
     "ListComponentsInputTypeDef",
     "ListComponentsOutputTypeDef",
+    "ListConfigurationCheckDefinitionsInputPaginateTypeDef",
+    "ListConfigurationCheckDefinitionsInputTypeDef",
+    "ListConfigurationCheckDefinitionsOutputTypeDef",
+    "ListConfigurationCheckOperationsInputPaginateTypeDef",
+    "ListConfigurationCheckOperationsInputTypeDef",
+    "ListConfigurationCheckOperationsOutputTypeDef",
     "ListDatabasesInputPaginateTypeDef",
     "ListDatabasesInputTypeDef",
     "ListDatabasesOutputTypeDef",
@@ -92,6 +105,12 @@ __all__ = (
     "ListOperationsInputPaginateTypeDef",
     "ListOperationsInputTypeDef",
     "ListOperationsOutputTypeDef",
+    "ListSubCheckResultsInputPaginateTypeDef",
+    "ListSubCheckResultsInputTypeDef",
+    "ListSubCheckResultsOutputTypeDef",
+    "ListSubCheckRuleResultsInputPaginateTypeDef",
+    "ListSubCheckRuleResultsInputTypeDef",
+    "ListSubCheckRuleResultsOutputTypeDef",
     "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "OperationEventTypeDef",
@@ -104,12 +123,17 @@ __all__ = (
     "ResilienceTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleResultTypeDef",
+    "RuleStatusCountsTypeDef",
     "StartApplicationInputTypeDef",
     "StartApplicationOutputTypeDef",
     "StartApplicationRefreshInputTypeDef",
     "StartApplicationRefreshOutputTypeDef",
+    "StartConfigurationChecksInputTypeDef",
+    "StartConfigurationChecksOutputTypeDef",
     "StopApplicationInputTypeDef",
     "StopApplicationOutputTypeDef",
+    "SubCheckResultTypeDef",
     "TagResourceRequestTypeDef",
     "UntagResourceRequestTypeDef",
     "UpdateApplicationSettingsInputTypeDef",
@@ -188,6 +212,23 @@ class ResilienceTypeDef(TypedDict):
     ClusterStatus: NotRequired[ClusterStatusType]
     EnqueueReplication: NotRequired[bool]
 
+class ConfigurationCheckDefinitionTypeDef(TypedDict):
+    Id: NotRequired[ConfigurationCheckTypeType]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    ApplicableApplicationTypes: NotRequired[List[ApplicationTypeType]]
+
+RuleStatusCountsTypeDef = TypedDict(
+    "RuleStatusCountsTypeDef",
+    {
+        "Failed": NotRequired[int],
+        "Warning": NotRequired[int],
+        "Info": NotRequired[int],
+        "Passed": NotRequired[int],
+        "Unknown": NotRequired[int],
+    },
+)
+
 class DatabaseSummaryTypeDef(TypedDict):
     ApplicationId: NotRequired[str]
     ComponentId: NotRequired[str]
@@ -224,6 +265,9 @@ class GetApplicationInputTypeDef(TypedDict):
 class GetComponentInputTypeDef(TypedDict):
     ApplicationId: str
     ComponentId: str
+
+class GetConfigurationCheckOperationInputTypeDef(TypedDict):
+    OperationId: str
 
 class GetDatabaseInputTypeDef(TypedDict):
     ApplicationId: NotRequired[str]
@@ -265,11 +309,38 @@ class ListComponentsInputTypeDef(TypedDict):
     NextToken: NotRequired[str]
     MaxResults: NotRequired[int]
 
+class ListConfigurationCheckDefinitionsInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
 class ListDatabasesInputTypeDef(TypedDict):
     ApplicationId: NotRequired[str]
     ComponentId: NotRequired[str]
     NextToken: NotRequired[str]
     MaxResults: NotRequired[int]
+
+class ListSubCheckResultsInputTypeDef(TypedDict):
+    OperationId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class SubCheckResultTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    References: NotRequired[List[str]]
+
+class ListSubCheckRuleResultsInputTypeDef(TypedDict):
+    SubCheckResultId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class RuleResultTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[RuleResultStatusType]
+    Message: NotRequired[str]
+    Metadata: NotRequired[Dict[str, str]]
 
 class ListTagsForResourceRequestTypeDef(TypedDict):
     resourceArn: str
@@ -288,6 +359,10 @@ class StartApplicationInputTypeDef(TypedDict):
 
 class StartApplicationRefreshInputTypeDef(TypedDict):
     ApplicationId: str
+
+class StartConfigurationChecksInputTypeDef(TypedDict):
+    ApplicationId: str
+    ConfigurationCheckIds: NotRequired[Sequence[ConfigurationCheckTypeType]]
 
 class StopApplicationInputTypeDef(TypedDict):
     ApplicationId: str
@@ -340,6 +415,18 @@ class RegisterApplicationInputTypeDef(TypedDict):
     DatabaseArn: NotRequired[str]
     ComponentsInfo: NotRequired[Sequence[ComponentInfoTypeDef]]
 
+class ConfigurationCheckOperationTypeDef(TypedDict):
+    Id: NotRequired[str]
+    ApplicationId: NotRequired[str]
+    Status: NotRequired[OperationStatusType]
+    StatusMessage: NotRequired[str]
+    ConfigurationCheckId: NotRequired[ConfigurationCheckTypeType]
+    ConfigurationCheckName: NotRequired[str]
+    ConfigurationCheckDescription: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    RuleStatusCounts: NotRequired[RuleStatusCountsTypeDef]
+
 class DeleteResourcePermissionOutputTypeDef(TypedDict):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -360,6 +447,11 @@ class ListApplicationsOutputTypeDef(TypedDict):
 
 class ListComponentsOutputTypeDef(TypedDict):
     Components: List[ComponentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListConfigurationCheckDefinitionsOutputTypeDef(TypedDict):
+    ConfigurationChecks: List[ConfigurationCheckDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
@@ -403,6 +495,13 @@ class ListApplicationsInputTypeDef(TypedDict):
     MaxResults: NotRequired[int]
     Filters: NotRequired[Sequence[FilterTypeDef]]
 
+class ListConfigurationCheckOperationsInputTypeDef(TypedDict):
+    ApplicationId: str
+    ListMode: NotRequired[ConfigurationCheckOperationListingModeType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
 class ListOperationEventsInputTypeDef(TypedDict):
     OperationId: str
     MaxResults: NotRequired[int]
@@ -432,6 +531,15 @@ class ListComponentsInputPaginateTypeDef(TypedDict):
     ApplicationId: NotRequired[str]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListConfigurationCheckDefinitionsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConfigurationCheckOperationsInputPaginateTypeDef(TypedDict):
+    ApplicationId: str
+    ListMode: NotRequired[ConfigurationCheckOperationListingModeType]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class ListDatabasesInputPaginateTypeDef(TypedDict):
     ApplicationId: NotRequired[str]
     ComponentId: NotRequired[str]
@@ -446,6 +554,24 @@ class ListOperationsInputPaginateTypeDef(TypedDict):
     ApplicationId: str
     Filters: NotRequired[Sequence[FilterTypeDef]]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubCheckResultsInputPaginateTypeDef(TypedDict):
+    OperationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubCheckRuleResultsInputPaginateTypeDef(TypedDict):
+    SubCheckResultId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubCheckResultsOutputTypeDef(TypedDict):
+    SubCheckResults: List[SubCheckResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSubCheckRuleResultsOutputTypeDef(TypedDict):
+    RuleResults: List[RuleResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class OperationEventTypeDef(TypedDict):
     Description: NotRequired[str]
@@ -480,6 +606,19 @@ class ComponentTypeDef(TypedDict):
     DatabaseConnection: NotRequired[DatabaseConnectionTypeDef]
     LastUpdated: NotRequired[datetime]
     Arn: NotRequired[str]
+
+class GetConfigurationCheckOperationOutputTypeDef(TypedDict):
+    ConfigurationCheckOperation: ConfigurationCheckOperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListConfigurationCheckOperationsOutputTypeDef(TypedDict):
+    ConfigurationCheckOperations: List[ConfigurationCheckOperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartConfigurationChecksOutputTypeDef(TypedDict):
+    ConfigurationCheckOperations: List[ConfigurationCheckOperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListOperationEventsOutputTypeDef(TypedDict):
     OperationEvents: List[OperationEventTypeDef]

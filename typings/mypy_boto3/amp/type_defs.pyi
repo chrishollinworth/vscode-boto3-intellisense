@@ -24,10 +24,15 @@ from botocore.response import StreamingBody
 
 from .literals import (
     AlertManagerDefinitionStatusCodeType,
+    AnomalyDetectorStatusCodeType,
     LoggingConfigurationStatusCodeType,
+    QueryLoggingConfigurationStatusCodeType,
     RuleGroupsNamespaceStatusCodeType,
+    ScraperComponentTypeType,
+    ScraperLoggingConfigurationStatusCodeType,
     ScraperStatusCodeType,
     WorkspaceConfigurationStatusCodeType,
+    WorkspacePolicyStatusCodeType,
     WorkspaceStatusCodeType,
 )
 
@@ -46,11 +51,24 @@ __all__ = (
     "AlertManagerDefinitionDescriptionTypeDef",
     "AlertManagerDefinitionStatusTypeDef",
     "AmpConfigurationTypeDef",
+    "AnomalyDetectorConfigurationTypeDef",
+    "AnomalyDetectorDescriptionTypeDef",
+    "AnomalyDetectorMissingDataActionTypeDef",
+    "AnomalyDetectorStatusTypeDef",
+    "AnomalyDetectorSummaryTypeDef",
     "BlobTypeDef",
+    "CloudWatchLogDestinationTypeDef",
+    "ComponentConfigOutputTypeDef",
+    "ComponentConfigTypeDef",
+    "ComponentConfigUnionTypeDef",
     "CreateAlertManagerDefinitionRequestTypeDef",
     "CreateAlertManagerDefinitionResponseTypeDef",
+    "CreateAnomalyDetectorRequestTypeDef",
+    "CreateAnomalyDetectorResponseTypeDef",
     "CreateLoggingConfigurationRequestTypeDef",
     "CreateLoggingConfigurationResponseTypeDef",
+    "CreateQueryLoggingConfigurationRequestTypeDef",
+    "CreateQueryLoggingConfigurationResponseTypeDef",
     "CreateRuleGroupsNamespaceRequestTypeDef",
     "CreateRuleGroupsNamespaceResponseTypeDef",
     "CreateScraperRequestTypeDef",
@@ -58,17 +76,31 @@ __all__ = (
     "CreateWorkspaceRequestTypeDef",
     "CreateWorkspaceResponseTypeDef",
     "DeleteAlertManagerDefinitionRequestTypeDef",
+    "DeleteAnomalyDetectorRequestTypeDef",
     "DeleteLoggingConfigurationRequestTypeDef",
+    "DeleteQueryLoggingConfigurationRequestTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
     "DeleteRuleGroupsNamespaceRequestTypeDef",
+    "DeleteScraperLoggingConfigurationRequestTypeDef",
     "DeleteScraperRequestTypeDef",
     "DeleteScraperResponseTypeDef",
     "DeleteWorkspaceRequestTypeDef",
     "DescribeAlertManagerDefinitionRequestTypeDef",
     "DescribeAlertManagerDefinitionResponseTypeDef",
+    "DescribeAnomalyDetectorRequestTypeDef",
+    "DescribeAnomalyDetectorRequestWaitExtraTypeDef",
+    "DescribeAnomalyDetectorRequestWaitTypeDef",
+    "DescribeAnomalyDetectorResponseTypeDef",
     "DescribeLoggingConfigurationRequestTypeDef",
     "DescribeLoggingConfigurationResponseTypeDef",
+    "DescribeQueryLoggingConfigurationRequestTypeDef",
+    "DescribeQueryLoggingConfigurationResponseTypeDef",
+    "DescribeResourcePolicyRequestTypeDef",
+    "DescribeResourcePolicyResponseTypeDef",
     "DescribeRuleGroupsNamespaceRequestTypeDef",
     "DescribeRuleGroupsNamespaceResponseTypeDef",
+    "DescribeScraperLoggingConfigurationRequestTypeDef",
+    "DescribeScraperLoggingConfigurationResponseTypeDef",
     "DescribeScraperRequestTypeDef",
     "DescribeScraperRequestWaitExtraTypeDef",
     "DescribeScraperRequestWaitTypeDef",
@@ -84,10 +116,14 @@ __all__ = (
     "EksConfigurationTypeDef",
     "EmptyResponseMetadataTypeDef",
     "GetDefaultScraperConfigurationResponseTypeDef",
+    "IgnoreNearExpectedTypeDef",
     "LimitsPerLabelSetEntryTypeDef",
     "LimitsPerLabelSetOutputTypeDef",
     "LimitsPerLabelSetTypeDef",
     "LimitsPerLabelSetUnionTypeDef",
+    "ListAnomalyDetectorsRequestPaginateTypeDef",
+    "ListAnomalyDetectorsRequestTypeDef",
+    "ListAnomalyDetectorsResponseTypeDef",
     "ListRuleGroupsNamespacesRequestPaginateTypeDef",
     "ListRuleGroupsNamespacesRequestTypeDef",
     "ListRuleGroupsNamespacesResponseTypeDef",
@@ -101,11 +137,20 @@ __all__ = (
     "ListWorkspacesResponseTypeDef",
     "LoggingConfigurationMetadataTypeDef",
     "LoggingConfigurationStatusTypeDef",
+    "LoggingDestinationTypeDef",
+    "LoggingFilterTypeDef",
     "PaginatorConfigTypeDef",
     "PutAlertManagerDefinitionRequestTypeDef",
     "PutAlertManagerDefinitionResponseTypeDef",
+    "PutAnomalyDetectorRequestTypeDef",
+    "PutAnomalyDetectorResponseTypeDef",
+    "PutResourcePolicyRequestTypeDef",
+    "PutResourcePolicyResponseTypeDef",
     "PutRuleGroupsNamespaceRequestTypeDef",
     "PutRuleGroupsNamespaceResponseTypeDef",
+    "QueryLoggingConfigurationMetadataTypeDef",
+    "QueryLoggingConfigurationStatusTypeDef",
+    "RandomCutForestConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "RoleConfigurationTypeDef",
     "RuleGroupsNamespaceDescriptionTypeDef",
@@ -114,7 +159,12 @@ __all__ = (
     "ScrapeConfigurationOutputTypeDef",
     "ScrapeConfigurationTypeDef",
     "ScrapeConfigurationUnionTypeDef",
+    "ScraperComponentOutputTypeDef",
+    "ScraperComponentTypeDef",
+    "ScraperComponentUnionTypeDef",
     "ScraperDescriptionTypeDef",
+    "ScraperLoggingConfigurationStatusTypeDef",
+    "ScraperLoggingDestinationTypeDef",
     "ScraperStatusTypeDef",
     "ScraperSummaryTypeDef",
     "SourceOutputTypeDef",
@@ -124,11 +174,17 @@ __all__ = (
     "UntagResourceRequestTypeDef",
     "UpdateLoggingConfigurationRequestTypeDef",
     "UpdateLoggingConfigurationResponseTypeDef",
+    "UpdateQueryLoggingConfigurationRequestTypeDef",
+    "UpdateQueryLoggingConfigurationResponseTypeDef",
+    "UpdateScraperLoggingConfigurationRequestTypeDef",
+    "UpdateScraperLoggingConfigurationResponseTypeDef",
     "UpdateScraperRequestTypeDef",
     "UpdateScraperResponseTypeDef",
     "UpdateWorkspaceAliasRequestTypeDef",
     "UpdateWorkspaceConfigurationRequestTypeDef",
     "UpdateWorkspaceConfigurationResponseTypeDef",
+    "VpcConfigurationOutputTypeDef",
+    "VpcConfigurationTypeDef",
     "WaiterConfigTypeDef",
     "WorkspaceConfigurationDescriptionTypeDef",
     "WorkspaceConfigurationStatusTypeDef",
@@ -144,7 +200,24 @@ class AlertManagerDefinitionStatusTypeDef(TypedDict):
 class AmpConfigurationTypeDef(TypedDict):
     workspaceArn: str
 
+class AnomalyDetectorMissingDataActionTypeDef(TypedDict):
+    markAsAnomaly: NotRequired[bool]
+    skip: NotRequired[bool]
+
+class AnomalyDetectorStatusTypeDef(TypedDict):
+    statusCode: AnomalyDetectorStatusCodeType
+    statusReason: NotRequired[str]
+
 BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class CloudWatchLogDestinationTypeDef(TypedDict):
+    logGroupArn: str
+
+class ComponentConfigOutputTypeDef(TypedDict):
+    options: NotRequired[Dict[str, str]]
+
+class ComponentConfigTypeDef(TypedDict):
+    options: NotRequired[Mapping[str, str]]
 
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
@@ -154,12 +227,16 @@ class ResponseMetadataTypeDef(TypedDict):
     HostId: NotRequired[str]
 
 class CreateLoggingConfigurationRequestTypeDef(TypedDict):
-    logGroupArn: str
     workspaceId: str
+    logGroupArn: str
     clientToken: NotRequired[str]
 
 class LoggingConfigurationStatusTypeDef(TypedDict):
     statusCode: LoggingConfigurationStatusCodeType
+    statusReason: NotRequired[str]
+
+class QueryLoggingConfigurationStatusTypeDef(TypedDict):
+    statusCode: QueryLoggingConfigurationStatusCodeType
     statusReason: NotRequired[str]
 
 class RuleGroupsNamespaceStatusTypeDef(TypedDict):
@@ -176,8 +253,8 @@ class ScraperStatusTypeDef(TypedDict):
 class CreateWorkspaceRequestTypeDef(TypedDict):
     alias: NotRequired[str]
     clientToken: NotRequired[str]
-    kmsKeyArn: NotRequired[str]
     tags: NotRequired[Mapping[str, str]]
+    kmsKeyArn: NotRequired[str]
 
 class WorkspaceStatusTypeDef(TypedDict):
     statusCode: WorkspaceStatusCodeType
@@ -186,13 +263,31 @@ class DeleteAlertManagerDefinitionRequestTypeDef(TypedDict):
     workspaceId: str
     clientToken: NotRequired[str]
 
+class DeleteAnomalyDetectorRequestTypeDef(TypedDict):
+    workspaceId: str
+    anomalyDetectorId: str
+    clientToken: NotRequired[str]
+
 class DeleteLoggingConfigurationRequestTypeDef(TypedDict):
     workspaceId: str
     clientToken: NotRequired[str]
 
-class DeleteRuleGroupsNamespaceRequestTypeDef(TypedDict):
-    name: str
+class DeleteQueryLoggingConfigurationRequestTypeDef(TypedDict):
     workspaceId: str
+    clientToken: NotRequired[str]
+
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    workspaceId: str
+    clientToken: NotRequired[str]
+    revisionId: NotRequired[str]
+
+class DeleteRuleGroupsNamespaceRequestTypeDef(TypedDict):
+    workspaceId: str
+    name: str
+    clientToken: NotRequired[str]
+
+class DeleteScraperLoggingConfigurationRequestTypeDef(TypedDict):
+    scraperId: str
     clientToken: NotRequired[str]
 
 class DeleteScraperRequestTypeDef(TypedDict):
@@ -206,19 +301,36 @@ class DeleteWorkspaceRequestTypeDef(TypedDict):
 class DescribeAlertManagerDefinitionRequestTypeDef(TypedDict):
     workspaceId: str
 
-class DescribeLoggingConfigurationRequestTypeDef(TypedDict):
+class DescribeAnomalyDetectorRequestTypeDef(TypedDict):
     workspaceId: str
-
-class DescribeRuleGroupsNamespaceRequestTypeDef(TypedDict):
-    name: str
-    workspaceId: str
-
-class DescribeScraperRequestTypeDef(TypedDict):
-    scraperId: str
+    anomalyDetectorId: str
 
 class WaiterConfigTypeDef(TypedDict):
     Delay: NotRequired[int]
     MaxAttempts: NotRequired[int]
+
+class DescribeLoggingConfigurationRequestTypeDef(TypedDict):
+    workspaceId: str
+
+class DescribeQueryLoggingConfigurationRequestTypeDef(TypedDict):
+    workspaceId: str
+
+class DescribeResourcePolicyRequestTypeDef(TypedDict):
+    workspaceId: str
+
+class DescribeRuleGroupsNamespaceRequestTypeDef(TypedDict):
+    workspaceId: str
+    name: str
+
+class DescribeScraperLoggingConfigurationRequestTypeDef(TypedDict):
+    scraperId: str
+
+class ScraperLoggingConfigurationStatusTypeDef(TypedDict):
+    statusCode: ScraperLoggingConfigurationStatusCodeType
+    statusReason: NotRequired[str]
+
+class DescribeScraperRequestTypeDef(TypedDict):
+    scraperId: str
 
 class DescribeWorkspaceConfigurationRequestTypeDef(TypedDict):
     workspaceId: str
@@ -236,6 +348,10 @@ class EksConfigurationTypeDef(TypedDict):
     subnetIds: Sequence[str]
     securityGroupIds: NotRequired[Sequence[str]]
 
+class IgnoreNearExpectedTypeDef(TypedDict):
+    amount: NotRequired[float]
+    ratio: NotRequired[float]
+
 class LimitsPerLabelSetEntryTypeDef(TypedDict):
     maxSeries: NotRequired[int]
 
@@ -244,27 +360,50 @@ class PaginatorConfigTypeDef(TypedDict):
     PageSize: NotRequired[int]
     StartingToken: NotRequired[str]
 
+class ListAnomalyDetectorsRequestTypeDef(TypedDict):
+    workspaceId: str
+    alias: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
 class ListRuleGroupsNamespacesRequestTypeDef(TypedDict):
     workspaceId: str
-    maxResults: NotRequired[int]
     name: NotRequired[str]
     nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
 class ListScrapersRequestTypeDef(TypedDict):
     filters: NotRequired[Mapping[str, Sequence[str]]]
-    maxResults: NotRequired[int]
     nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
 class ListTagsForResourceRequestTypeDef(TypedDict):
     resourceArn: str
 
 class ListWorkspacesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
     alias: NotRequired[str]
     maxResults: NotRequired[int]
-    nextToken: NotRequired[str]
+
+class LoggingFilterTypeDef(TypedDict):
+    qspThreshold: int
+
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    workspaceId: str
+    policyDocument: str
+    clientToken: NotRequired[str]
+    revisionId: NotRequired[str]
 
 class ScrapeConfigurationOutputTypeDef(TypedDict):
     configurationBlob: NotRequired[bytes]
+
+class VpcConfigurationOutputTypeDef(TypedDict):
+    securityGroupIds: List[str]
+    subnetIds: List[str]
+
+class VpcConfigurationTypeDef(TypedDict):
+    securityGroupIds: Sequence[str]
+    subnetIds: Sequence[str]
 
 class TagResourceRequestTypeDef(TypedDict):
     resourceArn: str
@@ -275,8 +414,8 @@ class UntagResourceRequestTypeDef(TypedDict):
     tagKeys: Sequence[str]
 
 class UpdateLoggingConfigurationRequestTypeDef(TypedDict):
-    logGroupArn: str
     workspaceId: str
+    logGroupArn: str
     clientToken: NotRequired[str]
 
 class UpdateWorkspaceAliasRequestTypeDef(TypedDict):
@@ -289,42 +428,76 @@ class WorkspaceConfigurationStatusTypeDef(TypedDict):
     statusReason: NotRequired[str]
 
 class AlertManagerDefinitionDescriptionTypeDef(TypedDict):
-    createdAt: datetime
-    data: bytes
-    modifiedAt: datetime
     status: AlertManagerDefinitionStatusTypeDef
+    data: bytes
+    createdAt: datetime
+    modifiedAt: datetime
 
 class DestinationTypeDef(TypedDict):
     ampConfiguration: NotRequired[AmpConfigurationTypeDef]
 
+class AnomalyDetectorSummaryTypeDef(TypedDict):
+    arn: str
+    anomalyDetectorId: str
+    alias: str
+    status: AnomalyDetectorStatusTypeDef
+    createdAt: datetime
+    modifiedAt: datetime
+    tags: NotRequired[Dict[str, str]]
+
 class CreateAlertManagerDefinitionRequestTypeDef(TypedDict):
-    data: BlobTypeDef
     workspaceId: str
+    data: BlobTypeDef
     clientToken: NotRequired[str]
 
 class CreateRuleGroupsNamespaceRequestTypeDef(TypedDict):
-    data: BlobTypeDef
-    name: str
     workspaceId: str
+    name: str
+    data: BlobTypeDef
     clientToken: NotRequired[str]
     tags: NotRequired[Mapping[str, str]]
 
 class PutAlertManagerDefinitionRequestTypeDef(TypedDict):
-    data: BlobTypeDef
     workspaceId: str
+    data: BlobTypeDef
     clientToken: NotRequired[str]
 
 class PutRuleGroupsNamespaceRequestTypeDef(TypedDict):
-    data: BlobTypeDef
-    name: str
     workspaceId: str
+    name: str
+    data: BlobTypeDef
     clientToken: NotRequired[str]
 
 class ScrapeConfigurationTypeDef(TypedDict):
     configurationBlob: NotRequired[BlobTypeDef]
 
+class ScraperLoggingDestinationTypeDef(TypedDict):
+    cloudWatchLogs: NotRequired[CloudWatchLogDestinationTypeDef]
+
+ScraperComponentOutputTypeDef = TypedDict(
+    "ScraperComponentOutputTypeDef",
+    {
+        "type": ScraperComponentTypeType,
+        "config": NotRequired[ComponentConfigOutputTypeDef],
+    },
+)
+ComponentConfigUnionTypeDef = Union[ComponentConfigTypeDef, ComponentConfigOutputTypeDef]
+
 class CreateAlertManagerDefinitionResponseTypeDef(TypedDict):
     status: AlertManagerDefinitionStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAnomalyDetectorResponseTypeDef(TypedDict):
+    anomalyDetectorId: str
+    arn: str
+    status: AnomalyDetectorStatusTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeResourcePolicyResponseTypeDef(TypedDict):
+    policyDocument: str
+    policyStatus: WorkspacePolicyStatusCodeType
+    revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class EmptyResponseMetadataTypeDef(TypedDict):
@@ -342,55 +515,75 @@ class PutAlertManagerDefinitionResponseTypeDef(TypedDict):
     status: AlertManagerDefinitionStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+class PutAnomalyDetectorResponseTypeDef(TypedDict):
+    anomalyDetectorId: str
+    arn: str
+    status: AnomalyDetectorStatusTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResourcePolicyResponseTypeDef(TypedDict):
+    policyStatus: WorkspacePolicyStatusCodeType
+    revisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class CreateLoggingConfigurationResponseTypeDef(TypedDict):
     status: LoggingConfigurationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 class LoggingConfigurationMetadataTypeDef(TypedDict):
-    createdAt: datetime
-    logGroupArn: str
-    modifiedAt: datetime
     status: LoggingConfigurationStatusTypeDef
     workspace: str
+    logGroupArn: str
+    createdAt: datetime
+    modifiedAt: datetime
 
 class UpdateLoggingConfigurationResponseTypeDef(TypedDict):
     status: LoggingConfigurationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+class CreateQueryLoggingConfigurationResponseTypeDef(TypedDict):
+    status: QueryLoggingConfigurationStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateQueryLoggingConfigurationResponseTypeDef(TypedDict):
+    status: QueryLoggingConfigurationStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class CreateRuleGroupsNamespaceResponseTypeDef(TypedDict):
-    arn: str
     name: str
+    arn: str
     status: RuleGroupsNamespaceStatusTypeDef
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class PutRuleGroupsNamespaceResponseTypeDef(TypedDict):
-    arn: str
     name: str
+    arn: str
     status: RuleGroupsNamespaceStatusTypeDef
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class RuleGroupsNamespaceDescriptionTypeDef(TypedDict):
     arn: str
-    createdAt: datetime
-    data: bytes
-    modifiedAt: datetime
     name: str
     status: RuleGroupsNamespaceStatusTypeDef
+    data: bytes
+    createdAt: datetime
+    modifiedAt: datetime
     tags: NotRequired[Dict[str, str]]
 
 class RuleGroupsNamespaceSummaryTypeDef(TypedDict):
     arn: str
-    createdAt: datetime
-    modifiedAt: datetime
     name: str
     status: RuleGroupsNamespaceStatusTypeDef
+    createdAt: datetime
+    modifiedAt: datetime
     tags: NotRequired[Dict[str, str]]
 
 class CreateScraperResponseTypeDef(TypedDict):
-    arn: str
     scraperId: str
+    arn: str
     status: ScraperStatusTypeDef
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -401,38 +594,48 @@ class DeleteScraperResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateScraperResponseTypeDef(TypedDict):
-    arn: str
     scraperId: str
+    arn: str
     status: ScraperStatusTypeDef
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateWorkspaceResponseTypeDef(TypedDict):
+    workspaceId: str
     arn: str
-    kmsKeyArn: str
     status: WorkspaceStatusTypeDef
     tags: Dict[str, str]
-    workspaceId: str
+    kmsKeyArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class WorkspaceDescriptionTypeDef(TypedDict):
-    arn: str
-    createdAt: datetime
-    status: WorkspaceStatusTypeDef
     workspaceId: str
+    arn: str
+    status: WorkspaceStatusTypeDef
+    createdAt: datetime
     alias: NotRequired[str]
-    kmsKeyArn: NotRequired[str]
     prometheusEndpoint: NotRequired[str]
     tags: NotRequired[Dict[str, str]]
+    kmsKeyArn: NotRequired[str]
 
 class WorkspaceSummaryTypeDef(TypedDict):
-    arn: str
-    createdAt: datetime
-    status: WorkspaceStatusTypeDef
     workspaceId: str
+    arn: str
+    status: WorkspaceStatusTypeDef
+    createdAt: datetime
     alias: NotRequired[str]
-    kmsKeyArn: NotRequired[str]
     tags: NotRequired[Dict[str, str]]
+    kmsKeyArn: NotRequired[str]
+
+class DescribeAnomalyDetectorRequestWaitExtraTypeDef(TypedDict):
+    workspaceId: str
+    anomalyDetectorId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeAnomalyDetectorRequestWaitTypeDef(TypedDict):
+    workspaceId: str
+    anomalyDetectorId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
 class DescribeScraperRequestWaitExtraTypeDef(TypedDict):
     scraperId: str
@@ -450,19 +653,29 @@ class DescribeWorkspaceRequestWaitTypeDef(TypedDict):
     workspaceId: str
     WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-class SourceOutputTypeDef(TypedDict):
-    eksConfiguration: NotRequired[EksConfigurationOutputTypeDef]
+class UpdateScraperLoggingConfigurationResponseTypeDef(TypedDict):
+    status: ScraperLoggingConfigurationStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SourceTypeDef(TypedDict):
-    eksConfiguration: NotRequired[EksConfigurationTypeDef]
+class RandomCutForestConfigurationTypeDef(TypedDict):
+    query: str
+    shingleSize: NotRequired[int]
+    sampleSize: NotRequired[int]
+    ignoreNearExpectedFromAbove: NotRequired[IgnoreNearExpectedTypeDef]
+    ignoreNearExpectedFromBelow: NotRequired[IgnoreNearExpectedTypeDef]
 
 class LimitsPerLabelSetOutputTypeDef(TypedDict):
-    labelSet: Dict[str, str]
     limits: LimitsPerLabelSetEntryTypeDef
+    labelSet: Dict[str, str]
 
 class LimitsPerLabelSetTypeDef(TypedDict):
-    labelSet: Mapping[str, str]
     limits: LimitsPerLabelSetEntryTypeDef
+    labelSet: Mapping[str, str]
+
+class ListAnomalyDetectorsRequestPaginateTypeDef(TypedDict):
+    workspaceId: str
+    alias: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListRuleGroupsNamespacesRequestPaginateTypeDef(TypedDict):
     workspaceId: str
@@ -477,6 +690,18 @@ class ListWorkspacesRequestPaginateTypeDef(TypedDict):
     alias: NotRequired[str]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class LoggingDestinationTypeDef(TypedDict):
+    cloudWatchLogs: CloudWatchLogDestinationTypeDef
+    filters: LoggingFilterTypeDef
+
+class SourceOutputTypeDef(TypedDict):
+    eksConfiguration: NotRequired[EksConfigurationOutputTypeDef]
+    vpcConfiguration: NotRequired[VpcConfigurationOutputTypeDef]
+
+class SourceTypeDef(TypedDict):
+    eksConfiguration: NotRequired[EksConfigurationTypeDef]
+    vpcConfiguration: NotRequired[VpcConfigurationTypeDef]
+
 class UpdateWorkspaceConfigurationResponseTypeDef(TypedDict):
     status: WorkspaceConfigurationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -485,9 +710,30 @@ class DescribeAlertManagerDefinitionResponseTypeDef(TypedDict):
     alertManagerDefinition: AlertManagerDefinitionDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+class ListAnomalyDetectorsResponseTypeDef(TypedDict):
+    anomalyDetectors: List[AnomalyDetectorSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
 ScrapeConfigurationUnionTypeDef = Union[
     ScrapeConfigurationTypeDef, ScrapeConfigurationOutputTypeDef
 ]
+
+class DescribeScraperLoggingConfigurationResponseTypeDef(TypedDict):
+    status: ScraperLoggingConfigurationStatusTypeDef
+    scraperId: str
+    loggingDestination: ScraperLoggingDestinationTypeDef
+    scraperComponents: List[ScraperComponentOutputTypeDef]
+    modifiedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ScraperComponentTypeDef = TypedDict(
+    "ScraperComponentTypeDef",
+    {
+        "type": ScraperComponentTypeType,
+        "config": NotRequired[ComponentConfigUnionTypeDef],
+    },
+)
 
 class DescribeLoggingConfigurationResponseTypeDef(TypedDict):
     loggingConfiguration: LoggingConfigurationMetadataTypeDef
@@ -511,36 +757,8 @@ class ListWorkspacesResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
-class ScraperDescriptionTypeDef(TypedDict):
-    arn: str
-    createdAt: datetime
-    destination: DestinationTypeDef
-    lastModifiedAt: datetime
-    roleArn: str
-    scrapeConfiguration: ScrapeConfigurationOutputTypeDef
-    scraperId: str
-    source: SourceOutputTypeDef
-    status: ScraperStatusTypeDef
-    alias: NotRequired[str]
-    roleConfiguration: NotRequired[RoleConfigurationTypeDef]
-    statusReason: NotRequired[str]
-    tags: NotRequired[Dict[str, str]]
-
-class ScraperSummaryTypeDef(TypedDict):
-    arn: str
-    createdAt: datetime
-    destination: DestinationTypeDef
-    lastModifiedAt: datetime
-    roleArn: str
-    scraperId: str
-    source: SourceOutputTypeDef
-    status: ScraperStatusTypeDef
-    alias: NotRequired[str]
-    roleConfiguration: NotRequired[RoleConfigurationTypeDef]
-    statusReason: NotRequired[str]
-    tags: NotRequired[Dict[str, str]]
-
-SourceUnionTypeDef = Union[SourceTypeDef, SourceOutputTypeDef]
+class AnomalyDetectorConfigurationTypeDef(TypedDict):
+    randomCutForest: NotRequired[RandomCutForestConfigurationTypeDef]
 
 class WorkspaceConfigurationDescriptionTypeDef(TypedDict):
     status: WorkspaceConfigurationStatusTypeDef
@@ -549,13 +767,109 @@ class WorkspaceConfigurationDescriptionTypeDef(TypedDict):
 
 LimitsPerLabelSetUnionTypeDef = Union[LimitsPerLabelSetTypeDef, LimitsPerLabelSetOutputTypeDef]
 
+class CreateQueryLoggingConfigurationRequestTypeDef(TypedDict):
+    workspaceId: str
+    destinations: Sequence[LoggingDestinationTypeDef]
+    clientToken: NotRequired[str]
+
+class QueryLoggingConfigurationMetadataTypeDef(TypedDict):
+    status: QueryLoggingConfigurationStatusTypeDef
+    workspace: str
+    destinations: List[LoggingDestinationTypeDef]
+    createdAt: datetime
+    modifiedAt: datetime
+
+class UpdateQueryLoggingConfigurationRequestTypeDef(TypedDict):
+    workspaceId: str
+    destinations: Sequence[LoggingDestinationTypeDef]
+    clientToken: NotRequired[str]
+
+class ScraperDescriptionTypeDef(TypedDict):
+    scraperId: str
+    arn: str
+    roleArn: str
+    status: ScraperStatusTypeDef
+    createdAt: datetime
+    lastModifiedAt: datetime
+    scrapeConfiguration: ScrapeConfigurationOutputTypeDef
+    source: SourceOutputTypeDef
+    destination: DestinationTypeDef
+    alias: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    statusReason: NotRequired[str]
+    roleConfiguration: NotRequired[RoleConfigurationTypeDef]
+
+class ScraperSummaryTypeDef(TypedDict):
+    scraperId: str
+    arn: str
+    roleArn: str
+    status: ScraperStatusTypeDef
+    createdAt: datetime
+    lastModifiedAt: datetime
+    source: SourceOutputTypeDef
+    destination: DestinationTypeDef
+    alias: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    statusReason: NotRequired[str]
+    roleConfiguration: NotRequired[RoleConfigurationTypeDef]
+
+SourceUnionTypeDef = Union[SourceTypeDef, SourceOutputTypeDef]
+
 class UpdateScraperRequestTypeDef(TypedDict):
     scraperId: str
     alias: NotRequired[str]
-    clientToken: NotRequired[str]
+    scrapeConfiguration: NotRequired[ScrapeConfigurationUnionTypeDef]
     destination: NotRequired[DestinationTypeDef]
     roleConfiguration: NotRequired[RoleConfigurationTypeDef]
-    scrapeConfiguration: NotRequired[ScrapeConfigurationUnionTypeDef]
+    clientToken: NotRequired[str]
+
+ScraperComponentUnionTypeDef = Union[ScraperComponentTypeDef, ScraperComponentOutputTypeDef]
+
+class AnomalyDetectorDescriptionTypeDef(TypedDict):
+    arn: str
+    anomalyDetectorId: str
+    alias: str
+    status: AnomalyDetectorStatusTypeDef
+    createdAt: datetime
+    modifiedAt: datetime
+    evaluationIntervalInSeconds: NotRequired[int]
+    missingDataAction: NotRequired[AnomalyDetectorMissingDataActionTypeDef]
+    configuration: NotRequired[AnomalyDetectorConfigurationTypeDef]
+    labels: NotRequired[Dict[str, str]]
+    tags: NotRequired[Dict[str, str]]
+
+class CreateAnomalyDetectorRequestTypeDef(TypedDict):
+    workspaceId: str
+    alias: str
+    configuration: AnomalyDetectorConfigurationTypeDef
+    evaluationIntervalInSeconds: NotRequired[int]
+    missingDataAction: NotRequired[AnomalyDetectorMissingDataActionTypeDef]
+    labels: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class PutAnomalyDetectorRequestTypeDef(TypedDict):
+    workspaceId: str
+    anomalyDetectorId: str
+    configuration: AnomalyDetectorConfigurationTypeDef
+    evaluationIntervalInSeconds: NotRequired[int]
+    missingDataAction: NotRequired[AnomalyDetectorMissingDataActionTypeDef]
+    labels: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+
+class DescribeWorkspaceConfigurationResponseTypeDef(TypedDict):
+    workspaceConfiguration: WorkspaceConfigurationDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateWorkspaceConfigurationRequestTypeDef(TypedDict):
+    workspaceId: str
+    clientToken: NotRequired[str]
+    limitsPerLabelSet: NotRequired[Sequence[LimitsPerLabelSetUnionTypeDef]]
+    retentionPeriodInDays: NotRequired[int]
+
+class DescribeQueryLoggingConfigurationResponseTypeDef(TypedDict):
+    queryLoggingConfiguration: QueryLoggingConfigurationMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeScraperResponseTypeDef(TypedDict):
     scraper: ScraperDescriptionTypeDef
@@ -567,20 +881,19 @@ class ListScrapersResponseTypeDef(TypedDict):
     nextToken: NotRequired[str]
 
 class CreateScraperRequestTypeDef(TypedDict):
-    destination: DestinationTypeDef
     scrapeConfiguration: ScrapeConfigurationUnionTypeDef
     source: SourceUnionTypeDef
+    destination: DestinationTypeDef
     alias: NotRequired[str]
-    clientToken: NotRequired[str]
     roleConfiguration: NotRequired[RoleConfigurationTypeDef]
+    clientToken: NotRequired[str]
     tags: NotRequired[Mapping[str, str]]
 
-class DescribeWorkspaceConfigurationResponseTypeDef(TypedDict):
-    workspaceConfiguration: WorkspaceConfigurationDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateScraperLoggingConfigurationRequestTypeDef(TypedDict):
+    scraperId: str
+    loggingDestination: ScraperLoggingDestinationTypeDef
+    scraperComponents: NotRequired[Sequence[ScraperComponentUnionTypeDef]]
 
-class UpdateWorkspaceConfigurationRequestTypeDef(TypedDict):
-    workspaceId: str
-    clientToken: NotRequired[str]
-    limitsPerLabelSet: NotRequired[Sequence[LimitsPerLabelSetUnionTypeDef]]
-    retentionPeriodInDays: NotRequired[int]
+class DescribeAnomalyDetectorResponseTypeDef(TypedDict):
+    anomalyDetector: AnomalyDetectorDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

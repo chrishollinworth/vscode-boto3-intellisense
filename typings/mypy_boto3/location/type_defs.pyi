@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_location.type_defs import ApiKeyFilterTypeDef
+    from mypy_boto3_location.type_defs import AndroidAppTypeDef
 
-    data: ApiKeyFilterTypeDef = ...
+    data: AndroidAppTypeDef = ...
     ```
 """
 
@@ -50,10 +50,12 @@ else:
     from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
+    "AndroidAppTypeDef",
     "ApiKeyFilterTypeDef",
     "ApiKeyRestrictionsOutputTypeDef",
     "ApiKeyRestrictionsTypeDef",
     "ApiKeyRestrictionsUnionTypeDef",
+    "AppleAppTypeDef",
     "AssociateTrackerConsumerRequestTypeDef",
     "BatchDeleteDevicePositionHistoryErrorTypeDef",
     "BatchDeleteDevicePositionHistoryRequestTypeDef",
@@ -242,18 +244,15 @@ __all__ = (
     "WiFiAccessPointTypeDef",
 )
 
+class AndroidAppTypeDef(TypedDict):
+    Package: str
+    CertificateFingerprint: str
+
 class ApiKeyFilterTypeDef(TypedDict):
     KeyStatus: NotRequired[StatusType]
 
-class ApiKeyRestrictionsOutputTypeDef(TypedDict):
-    AllowActions: List[str]
-    AllowResources: List[str]
-    AllowReferers: NotRequired[List[str]]
-
-class ApiKeyRestrictionsTypeDef(TypedDict):
-    AllowActions: Sequence[str]
-    AllowResources: Sequence[str]
-    AllowReferers: NotRequired[Sequence[str]]
+class AppleAppTypeDef(TypedDict):
+    BundleId: str
 
 class AssociateTrackerConsumerRequestTypeDef(TypedDict):
     TrackerName: str
@@ -691,15 +690,19 @@ class ListKeysRequestTypeDef(TypedDict):
     NextToken: NotRequired[str]
     Filter: NotRequired[ApiKeyFilterTypeDef]
 
-class ListKeysResponseEntryTypeDef(TypedDict):
-    KeyName: str
-    ExpireTime: datetime
-    Restrictions: ApiKeyRestrictionsOutputTypeDef
-    CreateTime: datetime
-    UpdateTime: datetime
-    Description: NotRequired[str]
+class ApiKeyRestrictionsOutputTypeDef(TypedDict):
+    AllowActions: List[str]
+    AllowResources: List[str]
+    AllowReferers: NotRequired[List[str]]
+    AllowAndroidApps: NotRequired[List[AndroidAppTypeDef]]
+    AllowAppleApps: NotRequired[List[AppleAppTypeDef]]
 
-ApiKeyRestrictionsUnionTypeDef = Union[ApiKeyRestrictionsTypeDef, ApiKeyRestrictionsOutputTypeDef]
+class ApiKeyRestrictionsTypeDef(TypedDict):
+    AllowActions: Sequence[str]
+    AllowResources: Sequence[str]
+    AllowReferers: NotRequired[Sequence[str]]
+    AllowAndroidApps: NotRequired[Sequence[AndroidAppTypeDef]]
+    AllowAppleApps: NotRequired[Sequence[AppleAppTypeDef]]
 
 class BatchDeleteDevicePositionHistoryErrorTypeDef(TypedDict):
     DeviceId: str
@@ -775,18 +778,6 @@ class DescribeGeofenceCollectionResponseTypeDef(TypedDict):
     CreateTime: datetime
     UpdateTime: datetime
     GeofenceCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class DescribeKeyResponseTypeDef(TypedDict):
-    Key: str
-    KeyArn: str
-    KeyName: str
-    Restrictions: ApiKeyRestrictionsOutputTypeDef
-    CreateTime: datetime
-    ExpireTime: datetime
-    UpdateTime: datetime
-    Description: str
-    Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeRouteCalculatorResponseTypeDef(TypedDict):
@@ -908,6 +899,7 @@ class GeofenceGeometryOutputTypeDef(TypedDict):
     Polygon: NotRequired[List[List[List[float]]]]
     Circle: NotRequired[CircleOutputTypeDef]
     Geobuf: NotRequired[bytes]
+    MultiPolygon: NotRequired[List[List[List[List[float]]]]]
 
 CircleUnionTypeDef = Union[CircleTypeDef, CircleOutputTypeDef]
 
@@ -1137,26 +1129,27 @@ class SearchPlaceIndexForSuggestionsResponseTypeDef(TypedDict):
     Results: List[SearchForSuggestionsResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListKeysResponseTypeDef(TypedDict):
-    Entries: List[ListKeysResponseEntryTypeDef]
+class DescribeKeyResponseTypeDef(TypedDict):
+    Key: str
+    KeyArn: str
+    KeyName: str
+    Restrictions: ApiKeyRestrictionsOutputTypeDef
+    CreateTime: datetime
+    ExpireTime: datetime
+    UpdateTime: datetime
+    Description: str
+    Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: NotRequired[str]
 
-class CreateKeyRequestTypeDef(TypedDict):
+class ListKeysResponseEntryTypeDef(TypedDict):
     KeyName: str
-    Restrictions: ApiKeyRestrictionsUnionTypeDef
+    ExpireTime: datetime
+    Restrictions: ApiKeyRestrictionsOutputTypeDef
+    CreateTime: datetime
+    UpdateTime: datetime
     Description: NotRequired[str]
-    ExpireTime: NotRequired[TimestampTypeDef]
-    NoExpiry: NotRequired[bool]
-    Tags: NotRequired[Mapping[str, str]]
 
-class UpdateKeyRequestTypeDef(TypedDict):
-    KeyName: str
-    Description: NotRequired[str]
-    ExpireTime: NotRequired[TimestampTypeDef]
-    NoExpiry: NotRequired[bool]
-    ForceUpdate: NotRequired[bool]
-    Restrictions: NotRequired[ApiKeyRestrictionsUnionTypeDef]
+ApiKeyRestrictionsUnionTypeDef = Union[ApiKeyRestrictionsTypeDef, ApiKeyRestrictionsOutputTypeDef]
 
 class BatchDeleteDevicePositionHistoryResponseTypeDef(TypedDict):
     Errors: List[BatchDeleteDevicePositionHistoryErrorTypeDef]
@@ -1228,6 +1221,7 @@ class GeofenceGeometryTypeDef(TypedDict):
     Polygon: NotRequired[Sequence[Sequence[Sequence[float]]]]
     Circle: NotRequired[CircleUnionTypeDef]
     Geobuf: NotRequired[BlobTypeDef]
+    MultiPolygon: NotRequired[Sequence[Sequence[Sequence[Sequence[float]]]]]
 
 class BatchGetDevicePositionResponseTypeDef(TypedDict):
     Errors: List[BatchGetDevicePositionErrorTypeDef]
@@ -1296,6 +1290,27 @@ class CalculateRouteMatrixResponseTypeDef(TypedDict):
     SnappedDestinationPositions: List[List[float]]
     Summary: CalculateRouteMatrixSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class ListKeysResponseTypeDef(TypedDict):
+    Entries: List[ListKeysResponseEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateKeyRequestTypeDef(TypedDict):
+    KeyName: str
+    Restrictions: ApiKeyRestrictionsUnionTypeDef
+    Description: NotRequired[str]
+    ExpireTime: NotRequired[TimestampTypeDef]
+    NoExpiry: NotRequired[bool]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdateKeyRequestTypeDef(TypedDict):
+    KeyName: str
+    Description: NotRequired[str]
+    ExpireTime: NotRequired[TimestampTypeDef]
+    NoExpiry: NotRequired[bool]
+    ForceUpdate: NotRequired[bool]
+    Restrictions: NotRequired[ApiKeyRestrictionsUnionTypeDef]
 
 class ListGeofencesResponseTypeDef(TypedDict):
     Entries: List[ListGeofenceResponseEntryTypeDef]

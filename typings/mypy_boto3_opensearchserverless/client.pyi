@@ -38,6 +38,7 @@ from .type_defs import (
     CreateAccessPolicyResponseTypeDef,
     CreateCollectionRequestTypeDef,
     CreateCollectionResponseTypeDef,
+    CreateIndexRequestTypeDef,
     CreateLifecyclePolicyRequestTypeDef,
     CreateLifecyclePolicyResponseTypeDef,
     CreateSecurityConfigRequestTypeDef,
@@ -49,6 +50,7 @@ from .type_defs import (
     DeleteAccessPolicyRequestTypeDef,
     DeleteCollectionRequestTypeDef,
     DeleteCollectionResponseTypeDef,
+    DeleteIndexRequestTypeDef,
     DeleteLifecyclePolicyRequestTypeDef,
     DeleteSecurityConfigRequestTypeDef,
     DeleteSecurityPolicyRequestTypeDef,
@@ -57,6 +59,8 @@ from .type_defs import (
     GetAccessPolicyRequestTypeDef,
     GetAccessPolicyResponseTypeDef,
     GetAccountSettingsResponseTypeDef,
+    GetIndexRequestTypeDef,
+    GetIndexResponseTypeDef,
     GetPoliciesStatsResponseTypeDef,
     GetSecurityConfigRequestTypeDef,
     GetSecurityConfigResponseTypeDef,
@@ -84,6 +88,7 @@ from .type_defs import (
     UpdateAccountSettingsResponseTypeDef,
     UpdateCollectionRequestTypeDef,
     UpdateCollectionResponseTypeDef,
+    UpdateIndexRequestTypeDef,
     UpdateLifecyclePolicyRequestTypeDef,
     UpdateLifecyclePolicyResponseTypeDef,
     UpdateSecurityConfigRequestTypeDef,
@@ -156,7 +161,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
     ) -> BatchGetCollectionResponseTypeDef:
         """
         Returns attributes for one or more collections, including the collection
-        endpoint and the OpenSearch Dashboards endpoint.
+        endpoint, the OpenSearch Dashboards endpoint, and FIPS-compliant endpoints.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless/client/batch_get_collection.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client/#batch_get_collection)
@@ -212,6 +217,14 @@ class OpenSearchServiceServerlessClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless/client/create_collection.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client/#create_collection)
+        """
+
+    def create_index(self, **kwargs: Unpack[CreateIndexRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Creates an index within an OpenSearch Serverless collection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless/client/create_index.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client/#create_index)
         """
 
     def create_lifecycle_policy(
@@ -275,6 +288,14 @@ class OpenSearchServiceServerlessClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client/#delete_collection)
         """
 
+    def delete_index(self, **kwargs: Unpack[DeleteIndexRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes an index from an OpenSearch Serverless collection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless/client/delete_index.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client/#delete_index)
+        """
+
     def delete_lifecycle_policy(
         self, **kwargs: Unpack[DeleteLifecyclePolicyRequestTypeDef]
     ) -> Dict[str, Any]:
@@ -331,6 +352,15 @@ class OpenSearchServiceServerlessClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless/client/get_account_settings.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client/#get_account_settings)
+        """
+
+    def get_index(self, **kwargs: Unpack[GetIndexRequestTypeDef]) -> GetIndexResponseTypeDef:
+        """
+        Retrieves information about an index in an OpenSearch Serverless collection,
+        including its schema definition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless/client/get_index.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client/#get_index)
         """
 
     def get_policies_stats(self) -> GetPoliciesStatsResponseTypeDef:
@@ -479,6 +509,14 @@ class OpenSearchServiceServerlessClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless/client/update_collection.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client/#update_collection)
+        """
+
+    def update_index(self, **kwargs: Unpack[UpdateIndexRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Updates an existing index in an OpenSearch Serverless collection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless/client/update_index.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client/#update_index)
         """
 
     def update_lifecycle_policy(

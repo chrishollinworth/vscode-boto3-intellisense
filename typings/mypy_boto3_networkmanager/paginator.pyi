@@ -28,9 +28,12 @@ Usage::
         GetSitesPaginator,
         GetTransitGatewayConnectPeerAssociationsPaginator,
         GetTransitGatewayRegistrationsPaginator,
+        ListAttachmentRoutingPolicyAssociationsPaginator,
         ListAttachmentsPaginator,
         ListConnectPeersPaginator,
         ListCoreNetworkPolicyVersionsPaginator,
+        ListCoreNetworkPrefixListAssociationsPaginator,
+        ListCoreNetworkRoutingInformationPaginator,
         ListCoreNetworksPaginator,
         ListPeeringsPaginator,
     )
@@ -54,9 +57,12 @@ Usage::
     get_sites_paginator: GetSitesPaginator = client.get_paginator("get_sites")
     get_transit_gateway_connect_peer_associations_paginator: GetTransitGatewayConnectPeerAssociationsPaginator = client.get_paginator("get_transit_gateway_connect_peer_associations")
     get_transit_gateway_registrations_paginator: GetTransitGatewayRegistrationsPaginator = client.get_paginator("get_transit_gateway_registrations")
+    list_attachment_routing_policy_associations_paginator: ListAttachmentRoutingPolicyAssociationsPaginator = client.get_paginator("list_attachment_routing_policy_associations")
     list_attachments_paginator: ListAttachmentsPaginator = client.get_paginator("list_attachments")
     list_connect_peers_paginator: ListConnectPeersPaginator = client.get_paginator("list_connect_peers")
     list_core_network_policy_versions_paginator: ListCoreNetworkPolicyVersionsPaginator = client.get_paginator("list_core_network_policy_versions")
+    list_core_network_prefix_list_associations_paginator: ListCoreNetworkPrefixListAssociationsPaginator = client.get_paginator("list_core_network_prefix_list_associations")
+    list_core_network_routing_information_paginator: ListCoreNetworkRoutingInformationPaginator = client.get_paginator("list_core_network_routing_information")
     list_core_networks_paginator: ListCoreNetworksPaginator = client.get_paginator("list_core_networks")
     list_peerings_paginator: ListPeeringsPaginator = client.get_paginator("list_peerings")
     ```
@@ -102,12 +108,18 @@ from .type_defs import (
     GetTransitGatewayConnectPeerAssociationsResponseTypeDef,
     GetTransitGatewayRegistrationsRequestPaginateTypeDef,
     GetTransitGatewayRegistrationsResponseTypeDef,
+    ListAttachmentRoutingPolicyAssociationsRequestPaginateTypeDef,
+    ListAttachmentRoutingPolicyAssociationsResponseTypeDef,
     ListAttachmentsRequestPaginateTypeDef,
     ListAttachmentsResponseTypeDef,
     ListConnectPeersRequestPaginateTypeDef,
     ListConnectPeersResponseTypeDef,
     ListCoreNetworkPolicyVersionsRequestPaginateTypeDef,
     ListCoreNetworkPolicyVersionsResponseTypeDef,
+    ListCoreNetworkPrefixListAssociationsRequestPaginateTypeDef,
+    ListCoreNetworkPrefixListAssociationsResponseTypeDef,
+    ListCoreNetworkRoutingInformationRequestPaginateTypeDef,
+    ListCoreNetworkRoutingInformationResponseTypeDef,
     ListCoreNetworksRequestPaginateTypeDef,
     ListCoreNetworksResponseTypeDef,
     ListPeeringsRequestPaginateTypeDef,
@@ -136,9 +148,12 @@ __all__ = (
     "GetSitesPaginator",
     "GetTransitGatewayConnectPeerAssociationsPaginator",
     "GetTransitGatewayRegistrationsPaginator",
+    "ListAttachmentRoutingPolicyAssociationsPaginator",
     "ListAttachmentsPaginator",
     "ListConnectPeersPaginator",
     "ListCoreNetworkPolicyVersionsPaginator",
+    "ListCoreNetworkPrefixListAssociationsPaginator",
+    "ListCoreNetworkRoutingInformationPaginator",
     "ListCoreNetworksPaginator",
     "ListPeeringsPaginator",
 )
@@ -442,6 +457,28 @@ class GetTransitGatewayRegistrationsPaginator(_GetTransitGatewayRegistrationsPag
         """
 
 if TYPE_CHECKING:
+    _ListAttachmentRoutingPolicyAssociationsPaginatorBase = Paginator[
+        ListAttachmentRoutingPolicyAssociationsResponseTypeDef
+    ]
+else:
+    _ListAttachmentRoutingPolicyAssociationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAttachmentRoutingPolicyAssociationsPaginator(
+    _ListAttachmentRoutingPolicyAssociationsPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager/paginator/ListAttachmentRoutingPolicyAssociations.html#NetworkManager.Paginator.ListAttachmentRoutingPolicyAssociations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators/#listattachmentroutingpolicyassociationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAttachmentRoutingPolicyAssociationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAttachmentRoutingPolicyAssociationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager/paginator/ListAttachmentRoutingPolicyAssociations.html#NetworkManager.Paginator.ListAttachmentRoutingPolicyAssociations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators/#listattachmentroutingpolicyassociationspaginator)
+        """
+
+if TYPE_CHECKING:
     _ListAttachmentsPaginatorBase = Paginator[ListAttachmentsResponseTypeDef]
 else:
     _ListAttachmentsPaginatorBase = Paginator  # type: ignore[assignment]
@@ -495,6 +532,48 @@ class ListCoreNetworkPolicyVersionsPaginator(_ListCoreNetworkPolicyVersionsPagin
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager/paginator/ListCoreNetworkPolicyVersions.html#NetworkManager.Paginator.ListCoreNetworkPolicyVersions.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators/#listcorenetworkpolicyversionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListCoreNetworkPrefixListAssociationsPaginatorBase = Paginator[
+        ListCoreNetworkPrefixListAssociationsResponseTypeDef
+    ]
+else:
+    _ListCoreNetworkPrefixListAssociationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListCoreNetworkPrefixListAssociationsPaginator(
+    _ListCoreNetworkPrefixListAssociationsPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager/paginator/ListCoreNetworkPrefixListAssociations.html#NetworkManager.Paginator.ListCoreNetworkPrefixListAssociations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators/#listcorenetworkprefixlistassociationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCoreNetworkPrefixListAssociationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListCoreNetworkPrefixListAssociationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager/paginator/ListCoreNetworkPrefixListAssociations.html#NetworkManager.Paginator.ListCoreNetworkPrefixListAssociations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators/#listcorenetworkprefixlistassociationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListCoreNetworkRoutingInformationPaginatorBase = Paginator[
+        ListCoreNetworkRoutingInformationResponseTypeDef
+    ]
+else:
+    _ListCoreNetworkRoutingInformationPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListCoreNetworkRoutingInformationPaginator(_ListCoreNetworkRoutingInformationPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager/paginator/ListCoreNetworkRoutingInformation.html#NetworkManager.Paginator.ListCoreNetworkRoutingInformation)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators/#listcorenetworkroutinginformationpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCoreNetworkRoutingInformationRequestPaginateTypeDef]
+    ) -> PageIterator[ListCoreNetworkRoutingInformationResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager/paginator/ListCoreNetworkRoutingInformation.html#NetworkManager.Paginator.ListCoreNetworkRoutingInformation.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators/#listcorenetworkroutinginformationpaginator)
         """
 
 if TYPE_CHECKING:

@@ -24,6 +24,7 @@ else:
 __all__ = (
     "AnalyticsS3ExportFileFormatType",
     "ArchiveStatusType",
+    "BucketAbacStatusType",
     "BucketAccelerateStatusType",
     "BucketCannedACLType",
     "BucketExistsWaiterName",
@@ -39,14 +40,17 @@ __all__ = (
     "DataRedundancyType",
     "DeleteMarkerReplicationStatusType",
     "EncodingTypeType",
+    "EncryptionTypeType",
     "EventType",
     "ExistingObjectReplicationStatusType",
+    "ExpirationStateType",
     "ExpirationStatusType",
     "ExpressionTypeType",
     "FileHeaderInfoType",
     "FilterRuleNameType",
     "IntelligentTieringAccessTierType",
     "IntelligentTieringStatusType",
+    "InventoryConfigurationStateType",
     "InventoryFormatType",
     "InventoryFrequencyType",
     "InventoryIncludedObjectVersionsType",
@@ -93,12 +97,14 @@ __all__ = (
     "ResourceServiceName",
     "RestoreRequestTypeType",
     "S3ServiceName",
+    "S3TablesBucketTypeType",
     "ServerSideEncryptionType",
     "ServiceName",
     "SessionModeType",
     "SseKmsEncryptedObjectsStatusType",
     "StorageClassAnalysisSchemaVersionType",
     "StorageClassType",
+    "TableSseAlgorithmType",
     "TaggingDirectiveType",
     "TierType",
     "TransitionDefaultMinimumObjectSizeType",
@@ -109,6 +115,7 @@ __all__ = (
 
 AnalyticsS3ExportFileFormatType = Literal["CSV"]
 ArchiveStatusType = Literal["ARCHIVE_ACCESS", "DEEP_ARCHIVE_ACCESS"]
+BucketAbacStatusType = Literal["Disabled", "Enabled"]
 BucketAccelerateStatusType = Literal["Enabled", "Suspended"]
 BucketCannedACLType = Literal["authenticated-read", "private", "public-read", "public-read-write"]
 BucketExistsWaiterName = Literal["bucket_exists"]
@@ -158,6 +165,7 @@ CompressionTypeType = Literal["BZIP2", "GZIP", "NONE"]
 DataRedundancyType = Literal["SingleAvailabilityZone", "SingleLocalZone"]
 DeleteMarkerReplicationStatusType = Literal["Disabled", "Enabled"]
 EncodingTypeType = Literal["url"]
+EncryptionTypeType = Literal["NONE", "SSE-C"]
 EventType = Literal[
     "s3:IntelligentTiering",
     "s3:LifecycleExpiration:*",
@@ -188,12 +196,14 @@ EventType = Literal[
     "s3:Replication:OperationReplicatedAfterThreshold",
 ]
 ExistingObjectReplicationStatusType = Literal["Disabled", "Enabled"]
+ExpirationStateType = Literal["DISABLED", "ENABLED"]
 ExpirationStatusType = Literal["Disabled", "Enabled"]
 ExpressionTypeType = Literal["SQL"]
 FileHeaderInfoType = Literal["IGNORE", "NONE", "USE"]
 FilterRuleNameType = Literal["prefix", "suffix"]
 IntelligentTieringAccessTierType = Literal["ARCHIVE_ACCESS", "DEEP_ARCHIVE_ACCESS"]
 IntelligentTieringStatusType = Literal["Disabled", "Enabled"]
+InventoryConfigurationStateType = Literal["DISABLED", "ENABLED"]
 InventoryFormatType = Literal["CSV", "ORC", "Parquet"]
 InventoryFrequencyType = Literal["Daily", "Weekly"]
 InventoryIncludedObjectVersionsType = Literal["All", "Current"]
@@ -205,6 +215,7 @@ InventoryOptionalFieldType = Literal[
     "IntelligentTieringAccessTier",
     "IsMultipartUploaded",
     "LastModifiedDate",
+    "LifecycleExpirationDate",
     "ObjectAccessControlList",
     "ObjectLockLegalHoldStatus",
     "ObjectLockMode",
@@ -247,6 +258,8 @@ ObjectOwnershipType = Literal["BucketOwnerEnforced", "BucketOwnerPreferred", "Ob
 ObjectStorageClassType = Literal[
     "DEEP_ARCHIVE",
     "EXPRESS_ONEZONE",
+    "FSX_ONTAP",
+    "FSX_OPENZFS",
     "GLACIER",
     "GLACIER_IR",
     "INTELLIGENT_TIERING",
@@ -272,13 +285,16 @@ ReplicationTimeStatusType = Literal["Disabled", "Enabled"]
 RequestChargedType = Literal["requester"]
 RequestPayerType = Literal["requester"]
 RestoreRequestTypeType = Literal["SELECT"]
-ServerSideEncryptionType = Literal["AES256", "aws:kms", "aws:kms:dsse"]
+S3TablesBucketTypeType = Literal["aws", "customer"]
+ServerSideEncryptionType = Literal["AES256", "aws:fsx", "aws:kms", "aws:kms:dsse"]
 SessionModeType = Literal["ReadOnly", "ReadWrite"]
 SseKmsEncryptedObjectsStatusType = Literal["Disabled", "Enabled"]
 StorageClassAnalysisSchemaVersionType = Literal["V_1"]
 StorageClassType = Literal[
     "DEEP_ARCHIVE",
     "EXPRESS_ONEZONE",
+    "FSX_ONTAP",
+    "FSX_OPENZFS",
     "GLACIER",
     "GLACIER_IR",
     "INTELLIGENT_TIERING",
@@ -289,6 +305,7 @@ StorageClassType = Literal[
     "STANDARD",
     "STANDARD_IA",
 ]
+TableSseAlgorithmType = Literal["AES256", "aws:kms"]
 TaggingDirectiveType = Literal["COPY", "REPLACE"]
 TierType = Literal["Bulk", "Expedited", "Standard"]
 TransitionDefaultMinimumObjectSizeType = Literal[
@@ -304,6 +321,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -324,7 +342,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -336,11 +354,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -389,6 +411,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -444,6 +467,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -486,7 +510,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -501,6 +524,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -524,8 +548,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -556,9 +578,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -568,17 +592,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -596,13 +623,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -617,20 +641,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -655,8 +681,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -696,26 +722,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_buckets",
@@ -730,6 +749,7 @@ WaiterName = Literal["bucket_exists", "bucket_not_exists", "object_exists", "obj
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -740,6 +760,7 @@ RegionName = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ap-southeast-5",
+    "ap-southeast-6",
     "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",

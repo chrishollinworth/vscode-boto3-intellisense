@@ -46,6 +46,7 @@ from .type_defs import (
     GetItemInputTableGetItemTypeDef,
     GetItemOutputTableTypeDef,
     GlobalSecondaryIndexDescriptionTypeDef,
+    GlobalTableWitnessDescriptionTypeDef,
     KeySchemaElementTypeDef,
     LocalSecondaryIndexDescriptionTypeDef,
     OnDemandThroughputTypeDef,
@@ -162,6 +163,7 @@ class Table(ServiceResource):
     latest_stream_arn: str
     global_table_version: str
     replicas: List[ReplicaDescriptionTypeDef]
+    global_table_witnesses: List[GlobalTableWitnessDescriptionTypeDef]
     restore_summary: RestoreSummaryTypeDef
     sse_description: SSEDescriptionTypeDef
     archival_summary: ArchivalSummaryTypeDef

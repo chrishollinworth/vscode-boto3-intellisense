@@ -143,6 +143,7 @@ class Exceptions(BaseClientExceptions):
     WAFConfigurationWarningException: Type[BotocoreClientError]
     WAFDuplicateItemException: Type[BotocoreClientError]
     WAFExpiredManagedRuleGroupVersionException: Type[BotocoreClientError]
+    WAFFeatureNotIncludedInPricingPlanException: Type[BotocoreClientError]
     WAFInternalErrorException: Type[BotocoreClientError]
     WAFInvalidOperationException: Type[BotocoreClientError]
     WAFInvalidParameterException: Type[BotocoreClientError]

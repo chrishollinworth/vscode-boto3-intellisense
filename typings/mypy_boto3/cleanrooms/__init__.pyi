@@ -14,6 +14,7 @@ Usage::
         Client,
         ListAnalysisTemplatesPaginator,
         ListCollaborationAnalysisTemplatesPaginator,
+        ListCollaborationChangeRequestsPaginator,
         ListCollaborationConfiguredAudienceModelAssociationsPaginator,
         ListCollaborationIdNamespaceAssociationsPaginator,
         ListCollaborationPrivacyBudgetTemplatesPaginator,
@@ -38,6 +39,7 @@ Usage::
 
     list_analysis_templates_paginator: ListAnalysisTemplatesPaginator = client.get_paginator("list_analysis_templates")
     list_collaboration_analysis_templates_paginator: ListCollaborationAnalysisTemplatesPaginator = client.get_paginator("list_collaboration_analysis_templates")
+    list_collaboration_change_requests_paginator: ListCollaborationChangeRequestsPaginator = client.get_paginator("list_collaboration_change_requests")
     list_collaboration_configured_audience_model_associations_paginator: ListCollaborationConfiguredAudienceModelAssociationsPaginator = client.get_paginator("list_collaboration_configured_audience_model_associations")
     list_collaboration_id_namespace_associations_paginator: ListCollaborationIdNamespaceAssociationsPaginator = client.get_paginator("list_collaboration_id_namespace_associations")
     list_collaboration_privacy_budget_templates_paginator: ListCollaborationPrivacyBudgetTemplatesPaginator = client.get_paginator("list_collaboration_privacy_budget_templates")
@@ -62,6 +64,7 @@ from .client import CleanRoomsServiceClient
 from .paginator import (
     ListAnalysisTemplatesPaginator,
     ListCollaborationAnalysisTemplatesPaginator,
+    ListCollaborationChangeRequestsPaginator,
     ListCollaborationConfiguredAudienceModelAssociationsPaginator,
     ListCollaborationIdNamespaceAssociationsPaginator,
     ListCollaborationPrivacyBudgetsPaginator,
@@ -88,6 +91,7 @@ __all__ = (
     "Client",
     "ListAnalysisTemplatesPaginator",
     "ListCollaborationAnalysisTemplatesPaginator",
+    "ListCollaborationChangeRequestsPaginator",
     "ListCollaborationConfiguredAudienceModelAssociationsPaginator",
     "ListCollaborationIdNamespaceAssociationsPaginator",
     "ListCollaborationPrivacyBudgetTemplatesPaginator",

@@ -287,10 +287,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[CalculateRouteRequestTypeDef]
     ) -> CalculateRouteResponseTypeDef:
         """
-        <a
-        href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates
-        a route</a> given the following required parameters:
-        <code>DeparturePosition</code> and <code>DestinationPosition</code>.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/calculate_route.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#calculate_route)
@@ -300,10 +298,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[CalculateRouteMatrixRequestTypeDef]
     ) -> CalculateRouteMatrixResponseTypeDef:
         """
-        <a
-        href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html">
-        Calculates a route matrix</a> given the following required parameters:
-        <code>DeparturePositions</code> and <code>DestinationPositions</code>.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/calculate_route_matrix.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#calculate_route_matrix)
@@ -330,8 +326,8 @@ class LocationServiceClient(BaseClient):
 
     def create_map(self, **kwargs: Unpack[CreateMapRequestTypeDef]) -> CreateMapResponseTypeDef:
         """
-        Creates a map resource in your Amazon Web Services account, which provides map
-        tiles of different styles sourced from global location data providers.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/create_map.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#create_map)
@@ -341,7 +337,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[CreatePlaceIndexRequestTypeDef]
     ) -> CreatePlaceIndexResponseTypeDef:
         """
-        Creates a place index resource in your Amazon Web Services account.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/create_place_index.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#create_place_index)
@@ -351,7 +348,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[CreateRouteCalculatorRequestTypeDef]
     ) -> CreateRouteCalculatorResponseTypeDef:
         """
-        Creates a route calculator resource in your Amazon Web Services account.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/create_route_calculator.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#create_route_calculator)
@@ -388,7 +386,8 @@ class LocationServiceClient(BaseClient):
 
     def delete_map(self, **kwargs: Unpack[DeleteMapRequestTypeDef]) -> Dict[str, Any]:
         """
-        Deletes a map resource from your Amazon Web Services account.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/delete_map.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#delete_map)
@@ -398,7 +397,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[DeletePlaceIndexRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Deletes a place index resource from your Amazon Web Services account.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/delete_place_index.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#delete_place_index)
@@ -408,7 +408,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[DeleteRouteCalculatorRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Deletes a route calculator resource from your Amazon Web Services account.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/delete_route_calculator.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#delete_route_calculator)
@@ -446,7 +447,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[DescribeMapRequestTypeDef]
     ) -> DescribeMapResponseTypeDef:
         """
-        Retrieves the map resource details.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/describe_map.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#describe_map)
@@ -456,7 +458,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[DescribePlaceIndexRequestTypeDef]
     ) -> DescribePlaceIndexResponseTypeDef:
         """
-        Retrieves the place index resource details.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/describe_place_index.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#describe_place_index)
@@ -466,7 +469,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[DescribeRouteCalculatorRequestTypeDef]
     ) -> DescribeRouteCalculatorResponseTypeDef:
         """
-        Retrieves the route calculator resource details.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/describe_route_calculator.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#describe_route_calculator)
@@ -496,8 +500,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[ForecastGeofenceEventsRequestTypeDef]
     ) -> ForecastGeofenceEventsResponseTypeDef:
         """
-        Evaluates device positions against geofence geometries from a given geofence
-        collection.
+        This action forecasts future geofence events that are likely to occur within a
+        specified time horizon if a device continues moving at its current speed.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/forecast_geofence_events.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#forecast_geofence_events)
@@ -538,7 +542,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[GetMapGlyphsRequestTypeDef]
     ) -> GetMapGlyphsResponseTypeDef:
         """
-        Retrieves glyphs used to display labels on a map.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/get_map_glyphs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#get_map_glyphs)
@@ -548,7 +553,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[GetMapSpritesRequestTypeDef]
     ) -> GetMapSpritesResponseTypeDef:
         """
-        Retrieves the sprite sheet corresponding to a map resource.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/get_map_sprites.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#get_map_sprites)
@@ -558,7 +564,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[GetMapStyleDescriptorRequestTypeDef]
     ) -> GetMapStyleDescriptorResponseTypeDef:
         """
-        Retrieves the map style descriptor from a map resource.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/get_map_style_descriptor.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#get_map_style_descriptor)
@@ -566,7 +573,8 @@ class LocationServiceClient(BaseClient):
 
     def get_map_tile(self, **kwargs: Unpack[GetMapTileRequestTypeDef]) -> GetMapTileResponseTypeDef:
         """
-        Retrieves a vector data tile from the map resource.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/get_map_tile.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#get_map_tile)
@@ -574,7 +582,8 @@ class LocationServiceClient(BaseClient):
 
     def get_place(self, **kwargs: Unpack[GetPlaceRequestTypeDef]) -> GetPlaceResponseTypeDef:
         """
-        Finds a place by its unique ID.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/get_place.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#get_place)
@@ -620,7 +629,8 @@ class LocationServiceClient(BaseClient):
 
     def list_maps(self, **kwargs: Unpack[ListMapsRequestTypeDef]) -> ListMapsResponseTypeDef:
         """
-        Lists map resources in your Amazon Web Services account.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/list_maps.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#list_maps)
@@ -630,7 +640,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[ListPlaceIndexesRequestTypeDef]
     ) -> ListPlaceIndexesResponseTypeDef:
         """
-        Lists place index resources in your Amazon Web Services account.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/list_place_indexes.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#list_place_indexes)
@@ -640,7 +651,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[ListRouteCalculatorsRequestTypeDef]
     ) -> ListRouteCalculatorsResponseTypeDef:
         """
-        Lists route calculator resources in your Amazon Web Services account.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/list_route_calculators.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#list_route_calculators)
@@ -692,7 +704,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[SearchPlaceIndexForPositionRequestTypeDef]
     ) -> SearchPlaceIndexForPositionResponseTypeDef:
         """
-        Reverse geocodes a given coordinate and returns a legible address.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/search_place_index_for_position.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#search_place_index_for_position)
@@ -702,8 +715,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[SearchPlaceIndexForSuggestionsRequestTypeDef]
     ) -> SearchPlaceIndexForSuggestionsResponseTypeDef:
         """
-        Generates suggestions for addresses and points of interest based on partial or
-        misspelled free-form text.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/search_place_index_for_suggestions.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#search_place_index_for_suggestions)
@@ -713,8 +726,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[SearchPlaceIndexForTextRequestTypeDef]
     ) -> SearchPlaceIndexForTextResponseTypeDef:
         """
-        Geocodes free-form text, such as an address, name, city, or region to allow you
-        to search for Places or points of interest.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/search_place_index_for_text.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#search_place_index_for_text)
@@ -757,7 +770,8 @@ class LocationServiceClient(BaseClient):
 
     def update_map(self, **kwargs: Unpack[UpdateMapRequestTypeDef]) -> UpdateMapResponseTypeDef:
         """
-        Updates the specified properties of a given map resource.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/update_map.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#update_map)
@@ -767,7 +781,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[UpdatePlaceIndexRequestTypeDef]
     ) -> UpdatePlaceIndexResponseTypeDef:
         """
-        Updates the specified properties of a given place index resource.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/update_place_index.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#update_place_index)
@@ -777,7 +792,8 @@ class LocationServiceClient(BaseClient):
         self, **kwargs: Unpack[UpdateRouteCalculatorRequestTypeDef]
     ) -> UpdateRouteCalculatorResponseTypeDef:
         """
-        Updates the specified properties for a given route calculator resource.
+        <important> <p>This operation is no longer current and may be deprecated in the
+        future.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/client/update_route_calculator.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/client/#update_route_calculator)

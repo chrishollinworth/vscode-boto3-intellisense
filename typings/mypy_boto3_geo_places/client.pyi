@@ -100,9 +100,8 @@ class LocationServicePlacesV2Client(BaseClient):
         self, **kwargs: Unpack[AutocompleteRequestTypeDef]
     ) -> AutocompleteResponseTypeDef:
         """
-        The autocomplete operation speeds up and increases the accuracy of entering
-        addresses by providing a list of address candidates matching a partially
-        entered address.
+        <code>Autocomplete</code> completes potential places and addresses as the user
+        types, based on the partial input.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/geo-places/client/autocomplete.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_geo_places/client/#autocomplete)
@@ -110,8 +109,8 @@ class LocationServicePlacesV2Client(BaseClient):
 
     def geocode(self, **kwargs: Unpack[GeocodeRequestTypeDef]) -> GeocodeResponseTypeDef:
         """
-        The <code>Geocode</code> action allows you to obtain coordinates, addresses,
-        and other information about places.
+        <code>Geocode</code> converts a textual address or place into geographic
+        coordinates.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/geo-places/client/geocode.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_geo_places/client/#geocode)
@@ -119,7 +118,7 @@ class LocationServicePlacesV2Client(BaseClient):
 
     def get_place(self, **kwargs: Unpack[GetPlaceRequestTypeDef]) -> GetPlaceResponseTypeDef:
         """
-        Finds a place by its unique ID.
+        <code>GetPlace</code> finds a place by its unique ID.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/geo-places/client/get_place.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_geo_places/client/#get_place)
@@ -129,8 +128,8 @@ class LocationServicePlacesV2Client(BaseClient):
         self, **kwargs: Unpack[ReverseGeocodeRequestTypeDef]
     ) -> ReverseGeocodeResponseTypeDef:
         """
-        The <code>ReverseGeocode</code> operation allows you to retrieve addresses and
-        place information from coordinates.
+        <code>ReverseGeocode</code> converts geographic coordinates into a
+        human-readable address or place.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/geo-places/client/reverse_geocode.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_geo_places/client/#reverse_geocode)
@@ -140,7 +139,9 @@ class LocationServicePlacesV2Client(BaseClient):
         self, **kwargs: Unpack[SearchNearbyRequestTypeDef]
     ) -> SearchNearbyResponseTypeDef:
         """
-        Search nearby a specified location.
+        <code>SearchNearby</code> queries for points of interest within a radius from a
+        central coordinates, returning place results with optional filters such as
+        categories, business chains, food types and more.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/geo-places/client/search_nearby.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_geo_places/client/#search_nearby)
@@ -148,8 +149,7 @@ class LocationServicePlacesV2Client(BaseClient):
 
     def search_text(self, **kwargs: Unpack[SearchTextRequestTypeDef]) -> SearchTextResponseTypeDef:
         """
-        Use the <code>SearchText</code> operation to search for geocode and place
-        information.
+        <code>SearchText</code> searches for geocode and place information.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/geo-places/client/search_text.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_geo_places/client/#search_text)
@@ -157,8 +157,9 @@ class LocationServicePlacesV2Client(BaseClient):
 
     def suggest(self, **kwargs: Unpack[SuggestRequestTypeDef]) -> SuggestResponseTypeDef:
         """
-        The <code>Suggest</code> operation finds addresses or place candidates based on
-        incomplete or misspelled queries.
+        <code>Suggest</code> provides intelligent predictions or recommendations based
+        on the user's input or context, such as relevant places, points of interest,
+        query terms or search category.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/geo-places/client/suggest.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_geo_places/client/#suggest)

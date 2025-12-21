@@ -28,6 +28,7 @@ from .literals import (
     ContactCenterSystemTypeType,
     ErrorCodeType,
     GeoMatchLevelType,
+    NetworkTypeType,
     NotificationTargetType,
     NumberSelectionBehaviorType,
     OrderedPhoneNumberStatusType,
@@ -391,6 +392,7 @@ class VoiceConnectorTypeDef(TypedDict):
     UpdatedTimestamp: NotRequired[datetime]
     VoiceConnectorArn: NotRequired[str]
     IntegrationType: NotRequired[VoiceConnectorIntegrationTypeType]
+    NetworkType: NotRequired[NetworkTypeType]
 
 class ServerSideEncryptionConfigurationTypeDef(TypedDict):
     KmsKeyArn: str
@@ -905,6 +907,7 @@ class CreateVoiceConnectorRequestTypeDef(TypedDict):
     AwsRegion: NotRequired[VoiceConnectorAwsRegionType]
     Tags: NotRequired[Sequence[TagTypeDef]]
     IntegrationType: NotRequired[VoiceConnectorIntegrationTypeType]
+    NetworkType: NotRequired[NetworkTypeType]
 
 class ListTagsForResourceResponseTypeDef(TypedDict):
     Tags: List[TagTypeDef]

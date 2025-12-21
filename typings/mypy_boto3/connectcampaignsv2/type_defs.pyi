@@ -27,8 +27,10 @@ from .literals import (
     CommunicationTimeConfigTypeType,
     DayOfWeekType,
     EventTypeType,
+    ExternalCampaignTypeType,
     FailureCodeType,
     GetCampaignStateBatchFailureCodeType,
+    InstanceLimitsHandlingType,
     InstanceOnboardingJobFailureCodeType,
     InstanceOnboardingJobStatusCodeType,
     LocalTimeZoneDetectionTypeType,
@@ -96,14 +98,22 @@ __all__ = (
     "GetCampaignStateResponseTypeDef",
     "GetConnectInstanceConfigRequestTypeDef",
     "GetConnectInstanceConfigResponseTypeDef",
+    "GetInstanceCommunicationLimitsRequestTypeDef",
+    "GetInstanceCommunicationLimitsResponseTypeDef",
     "GetInstanceOnboardingJobStatusRequestTypeDef",
     "GetInstanceOnboardingJobStatusResponseTypeDef",
+    "InstanceCommunicationLimitsConfigOutputTypeDef",
+    "InstanceCommunicationLimitsConfigTypeDef",
+    "InstanceCommunicationLimitsConfigUnionTypeDef",
     "InstanceConfigTypeDef",
     "InstanceIdFilterTypeDef",
     "InstanceOnboardingJobStatusTypeDef",
     "IntegrationConfigTypeDef",
     "IntegrationIdentifierTypeDef",
     "IntegrationSummaryTypeDef",
+    "LambdaIntegrationConfigTypeDef",
+    "LambdaIntegrationIdentifierTypeDef",
+    "LambdaIntegrationSummaryTypeDef",
     "ListCampaignsRequestPaginateTypeDef",
     "ListCampaignsRequestTypeDef",
     "ListCampaignsResponseTypeDef",
@@ -120,9 +130,12 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PauseCampaignRequestTypeDef",
     "PredictiveConfigTypeDef",
+    "PreviewConfigOutputTypeDef",
+    "PreviewConfigTypeDef",
     "ProfileOutboundRequestTypeDef",
     "ProgressiveConfigTypeDef",
     "PutConnectInstanceIntegrationRequestTypeDef",
+    "PutInstanceCommunicationLimitsRequestTypeDef",
     "PutOutboundRequestBatchRequestTypeDef",
     "PutOutboundRequestBatchResponseTypeDef",
     "PutProfileOutboundRequestBatchRequestTypeDef",
@@ -162,6 +175,7 @@ __all__ = (
     "TimeRangeTypeDef",
     "TimeWindowOutputTypeDef",
     "TimeWindowTypeDef",
+    "TimeoutConfigTypeDef",
     "TimestampTypeDef",
     "UntagResourceRequestTypeDef",
     "UpdateCampaignChannelSubtypeConfigRequestTypeDef",
@@ -171,6 +185,12 @@ __all__ = (
     "UpdateCampaignNameRequestTypeDef",
     "UpdateCampaignScheduleRequestTypeDef",
     "UpdateCampaignSourceRequestTypeDef",
+    "WhatsAppChannelSubtypeConfigOutputTypeDef",
+    "WhatsAppChannelSubtypeConfigTypeDef",
+    "WhatsAppChannelSubtypeParametersTypeDef",
+    "WhatsAppOutboundConfigTypeDef",
+    "WhatsAppOutboundModeOutputTypeDef",
+    "WhatsAppOutboundModeTypeDef",
 )
 
 class AnswerMachineDetectionConfigTypeDef(TypedDict):
@@ -197,6 +217,12 @@ class EmailChannelSubtypeParametersTypeDef(TypedDict):
     templateArn: NotRequired[str]
 
 class SmsChannelSubtypeParametersTypeDef(TypedDict):
+    destinationPhoneNumber: str
+    templateParameters: Mapping[str, str]
+    connectSourcePhoneNumberArn: NotRequired[str]
+    templateArn: NotRequired[str]
+
+class WhatsAppChannelSubtypeParametersTypeDef(TypedDict):
     destinationPhoneNumber: str
     templateParameters: Mapping[str, str]
     connectSourcePhoneNumberArn: NotRequired[str]
@@ -332,6 +358,9 @@ GetCampaignStateRequestTypeDef = TypedDict(
 class GetConnectInstanceConfigRequestTypeDef(TypedDict):
     connectInstanceId: str
 
+class GetInstanceCommunicationLimitsRequestTypeDef(TypedDict):
+    connectInstanceId: str
+
 class GetInstanceOnboardingJobStatusRequestTypeDef(TypedDict):
     connectInstanceId: str
 
@@ -340,11 +369,20 @@ class InstanceOnboardingJobStatusTypeDef(TypedDict):
     status: InstanceOnboardingJobStatusCodeType
     failureCode: NotRequired[InstanceOnboardingJobFailureCodeType]
 
+class LambdaIntegrationConfigTypeDef(TypedDict):
+    functionArn: str
+
 class QConnectIntegrationConfigTypeDef(TypedDict):
     knowledgeBaseArn: str
 
+class LambdaIntegrationIdentifierTypeDef(TypedDict):
+    functionArn: str
+
 class QConnectIntegrationIdentifierTypeDef(TypedDict):
     knowledgeBaseArn: str
+
+class LambdaIntegrationSummaryTypeDef(TypedDict):
+    functionArn: str
 
 class QConnectIntegrationSummaryTypeDef(TypedDict):
     knowledgeBaseArn: str
@@ -376,6 +414,9 @@ PauseCampaignRequestTypeDef = TypedDict(
 
 class PredictiveConfigTypeDef(TypedDict):
     bandwidthAllocation: float
+
+class TimeoutConfigTypeDef(TypedDict):
+    durationInSeconds: int
 
 class ProgressiveConfigTypeDef(TypedDict):
     bandwidthAllocation: float
@@ -453,16 +494,28 @@ UpdateCampaignNameRequestTypeDef = TypedDict(
     },
 )
 
+class WhatsAppOutboundConfigTypeDef(TypedDict):
+    connectSourcePhoneNumberArn: str
+    wisdomTemplateArn: str
+
+class WhatsAppOutboundModeOutputTypeDef(TypedDict):
+    agentless: NotRequired[Dict[str, Any]]
+
+class WhatsAppOutboundModeTypeDef(TypedDict):
+    agentless: NotRequired[Mapping[str, Any]]
+
 class TelephonyChannelSubtypeParametersTypeDef(TypedDict):
     destinationPhoneNumber: str
     attributes: Mapping[str, str]
     connectSourcePhoneNumber: NotRequired[str]
     answerMachineDetectionConfig: NotRequired[AnswerMachineDetectionConfigTypeDef]
+    ringTimeout: NotRequired[int]
 
 class TelephonyOutboundConfigTypeDef(TypedDict):
     connectContactFlowId: str
     connectSourcePhoneNumber: NotRequired[str]
     answerMachineDetectionConfig: NotRequired[AnswerMachineDetectionConfigTypeDef]
+    ringTimeout: NotRequired[int]
 
 class CampaignFiltersTypeDef(TypedDict):
     instanceIdFilter: NotRequired[InstanceIdFilterTypeDef]
@@ -475,6 +528,7 @@ CampaignSummaryTypeDef = TypedDict(
         "name": str,
         "connectInstanceId": str,
         "channelSubtypes": List[ChannelSubtypeType],
+        "type": NotRequired[ExternalCampaignTypeType],
         "schedule": NotRequired[ScheduleOutputTypeDef],
         "connectCampaignFlowArn": NotRequired[str],
     },
@@ -543,17 +597,30 @@ class StartInstanceOnboardingJobResponseTypeDef(TypedDict):
     connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IntegrationConfigTypeDef(TypedDict):
-    customerProfiles: NotRequired[CustomerProfilesIntegrationConfigTypeDef]
-    qConnect: NotRequired[QConnectIntegrationConfigTypeDef]
-
-class IntegrationIdentifierTypeDef(TypedDict):
-    customerProfiles: NotRequired[CustomerProfilesIntegrationIdentifierTypeDef]
-    qConnect: NotRequired[QConnectIntegrationIdentifierTypeDef]
-
-class IntegrationSummaryTypeDef(TypedDict):
-    customerProfiles: NotRequired[CustomerProfilesIntegrationSummaryTypeDef]
-    qConnect: NotRequired[QConnectIntegrationSummaryTypeDef]
+IntegrationConfigTypeDef = TypedDict(
+    "IntegrationConfigTypeDef",
+    {
+        "customerProfiles": NotRequired[CustomerProfilesIntegrationConfigTypeDef],
+        "qConnect": NotRequired[QConnectIntegrationConfigTypeDef],
+        "lambda": NotRequired[LambdaIntegrationConfigTypeDef],
+    },
+)
+IntegrationIdentifierTypeDef = TypedDict(
+    "IntegrationIdentifierTypeDef",
+    {
+        "customerProfiles": NotRequired[CustomerProfilesIntegrationIdentifierTypeDef],
+        "qConnect": NotRequired[QConnectIntegrationIdentifierTypeDef],
+        "lambda": NotRequired[LambdaIntegrationIdentifierTypeDef],
+    },
+)
+IntegrationSummaryTypeDef = TypedDict(
+    "IntegrationSummaryTypeDef",
+    {
+        "customerProfiles": NotRequired[CustomerProfilesIntegrationSummaryTypeDef],
+        "qConnect": NotRequired[QConnectIntegrationSummaryTypeDef],
+        "lambda": NotRequired[LambdaIntegrationSummaryTypeDef],
+    },
+)
 
 class ListConnectInstanceIntegrationsRequestPaginateTypeDef(TypedDict):
     connectInstanceId: str
@@ -575,15 +642,15 @@ class ScheduleTypeDef(TypedDict):
     endTime: TimestampTypeDef
     refreshFrequency: NotRequired[str]
 
-class TelephonyOutboundModeOutputTypeDef(TypedDict):
-    progressive: NotRequired[ProgressiveConfigTypeDef]
-    predictive: NotRequired[PredictiveConfigTypeDef]
-    agentless: NotRequired[Dict[str, Any]]
+class PreviewConfigOutputTypeDef(TypedDict):
+    bandwidthAllocation: float
+    timeoutConfig: TimeoutConfigTypeDef
+    agentActions: NotRequired[List[Literal["DISCARD"]]]
 
-class TelephonyOutboundModeTypeDef(TypedDict):
-    progressive: NotRequired[ProgressiveConfigTypeDef]
-    predictive: NotRequired[PredictiveConfigTypeDef]
-    agentless: NotRequired[Mapping[str, Any]]
+class PreviewConfigTypeDef(TypedDict):
+    bandwidthAllocation: float
+    timeoutConfig: TimeoutConfigTypeDef
+    agentActions: NotRequired[Sequence[Literal["DISCARD"]]]
 
 class PutOutboundRequestBatchResponseTypeDef(TypedDict):
     successfulRequests: List[SuccessfulRequestTypeDef]
@@ -611,10 +678,21 @@ class SmsChannelSubtypeConfigTypeDef(TypedDict):
     defaultOutboundConfig: SmsOutboundConfigTypeDef
     capacity: NotRequired[float]
 
+class WhatsAppChannelSubtypeConfigOutputTypeDef(TypedDict):
+    outboundMode: WhatsAppOutboundModeOutputTypeDef
+    defaultOutboundConfig: WhatsAppOutboundConfigTypeDef
+    capacity: NotRequired[float]
+
+class WhatsAppChannelSubtypeConfigTypeDef(TypedDict):
+    outboundMode: WhatsAppOutboundModeTypeDef
+    defaultOutboundConfig: WhatsAppOutboundConfigTypeDef
+    capacity: NotRequired[float]
+
 class ChannelSubtypeParametersTypeDef(TypedDict):
     telephony: NotRequired[TelephonyChannelSubtypeParametersTypeDef]
     sms: NotRequired[SmsChannelSubtypeParametersTypeDef]
     email: NotRequired[EmailChannelSubtypeParametersTypeDef]
+    whatsApp: NotRequired[WhatsAppChannelSubtypeParametersTypeDef]
 
 class ListCampaignsRequestPaginateTypeDef(TypedDict):
     filters: NotRequired[CampaignFiltersTypeDef]
@@ -632,8 +710,16 @@ class ListCampaignsResponseTypeDef(TypedDict):
 
 class CommunicationLimitsConfigOutputTypeDef(TypedDict):
     allChannelSubtypes: NotRequired[CommunicationLimitsOutputTypeDef]
+    instanceLimitsHandling: NotRequired[InstanceLimitsHandlingType]
+
+class InstanceCommunicationLimitsConfigOutputTypeDef(TypedDict):
+    allChannelSubtypes: NotRequired[CommunicationLimitsOutputTypeDef]
 
 class CommunicationLimitsConfigTypeDef(TypedDict):
+    allChannelSubtypes: NotRequired[CommunicationLimitsTypeDef]
+    instanceLimitsHandling: NotRequired[InstanceLimitsHandlingType]
+
+class InstanceCommunicationLimitsConfigTypeDef(TypedDict):
     allChannelSubtypes: NotRequired[CommunicationLimitsTypeDef]
 
 class GetConnectInstanceConfigResponseTypeDef(TypedDict):
@@ -670,17 +756,17 @@ PutProfileOutboundRequestBatchRequestTypeDef = TypedDict(
 )
 ScheduleUnionTypeDef = Union[ScheduleTypeDef, ScheduleOutputTypeDef]
 
-class TelephonyChannelSubtypeConfigOutputTypeDef(TypedDict):
-    outboundMode: TelephonyOutboundModeOutputTypeDef
-    defaultOutboundConfig: TelephonyOutboundConfigTypeDef
-    capacity: NotRequired[float]
-    connectQueueId: NotRequired[str]
+class TelephonyOutboundModeOutputTypeDef(TypedDict):
+    progressive: NotRequired[ProgressiveConfigTypeDef]
+    predictive: NotRequired[PredictiveConfigTypeDef]
+    agentless: NotRequired[Dict[str, Any]]
+    preview: NotRequired[PreviewConfigOutputTypeDef]
 
-class TelephonyChannelSubtypeConfigTypeDef(TypedDict):
-    outboundMode: TelephonyOutboundModeTypeDef
-    defaultOutboundConfig: TelephonyOutboundConfigTypeDef
-    capacity: NotRequired[float]
-    connectQueueId: NotRequired[str]
+class TelephonyOutboundModeTypeDef(TypedDict):
+    progressive: NotRequired[ProgressiveConfigTypeDef]
+    predictive: NotRequired[PredictiveConfigTypeDef]
+    agentless: NotRequired[Mapping[str, Any]]
+    preview: NotRequired[PreviewConfigTypeDef]
 
 class TimeWindowOutputTypeDef(TypedDict):
     openHours: OpenHoursOutputTypeDef
@@ -695,8 +781,15 @@ class OutboundRequestTypeDef(TypedDict):
     expirationTime: TimestampTypeDef
     channelSubtypeParameters: ChannelSubtypeParametersTypeDef
 
+class GetInstanceCommunicationLimitsResponseTypeDef(TypedDict):
+    communicationLimitsConfig: InstanceCommunicationLimitsConfigOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 CommunicationLimitsConfigUnionTypeDef = Union[
     CommunicationLimitsConfigTypeDef, CommunicationLimitsConfigOutputTypeDef
+]
+InstanceCommunicationLimitsConfigUnionTypeDef = Union[
+    InstanceCommunicationLimitsConfigTypeDef, InstanceCommunicationLimitsConfigOutputTypeDef
 ]
 UpdateCampaignScheduleRequestTypeDef = TypedDict(
     "UpdateCampaignScheduleRequestTypeDef",
@@ -706,27 +799,31 @@ UpdateCampaignScheduleRequestTypeDef = TypedDict(
     },
 )
 
-class ChannelSubtypeConfigOutputTypeDef(TypedDict):
-    telephony: NotRequired[TelephonyChannelSubtypeConfigOutputTypeDef]
-    sms: NotRequired[SmsChannelSubtypeConfigOutputTypeDef]
-    email: NotRequired[EmailChannelSubtypeConfigOutputTypeDef]
+class TelephonyChannelSubtypeConfigOutputTypeDef(TypedDict):
+    outboundMode: TelephonyOutboundModeOutputTypeDef
+    defaultOutboundConfig: TelephonyOutboundConfigTypeDef
+    capacity: NotRequired[float]
+    connectQueueId: NotRequired[str]
 
-class ChannelSubtypeConfigTypeDef(TypedDict):
-    telephony: NotRequired[TelephonyChannelSubtypeConfigTypeDef]
-    sms: NotRequired[SmsChannelSubtypeConfigTypeDef]
-    email: NotRequired[EmailChannelSubtypeConfigTypeDef]
+class TelephonyChannelSubtypeConfigTypeDef(TypedDict):
+    outboundMode: TelephonyOutboundModeTypeDef
+    defaultOutboundConfig: TelephonyOutboundConfigTypeDef
+    capacity: NotRequired[float]
+    connectQueueId: NotRequired[str]
 
 class CommunicationTimeConfigOutputTypeDef(TypedDict):
     localTimeZoneConfig: LocalTimeZoneConfigOutputTypeDef
     telephony: NotRequired[TimeWindowOutputTypeDef]
     sms: NotRequired[TimeWindowOutputTypeDef]
     email: NotRequired[TimeWindowOutputTypeDef]
+    whatsApp: NotRequired[TimeWindowOutputTypeDef]
 
 class CommunicationTimeConfigTypeDef(TypedDict):
     localTimeZoneConfig: LocalTimeZoneConfigTypeDef
     telephony: NotRequired[TimeWindowTypeDef]
     sms: NotRequired[TimeWindowTypeDef]
     email: NotRequired[TimeWindowTypeDef]
+    whatsApp: NotRequired[TimeWindowTypeDef]
 
 PutOutboundRequestBatchRequestTypeDef = TypedDict(
     "PutOutboundRequestBatchRequestTypeDef",
@@ -742,8 +839,25 @@ UpdateCampaignCommunicationLimitsRequestTypeDef = TypedDict(
         "communicationLimitsOverride": CommunicationLimitsConfigUnionTypeDef,
     },
 )
-ChannelSubtypeConfigUnionTypeDef = Union[
-    ChannelSubtypeConfigTypeDef, ChannelSubtypeConfigOutputTypeDef
+
+class PutInstanceCommunicationLimitsRequestTypeDef(TypedDict):
+    connectInstanceId: str
+    communicationLimitsConfig: InstanceCommunicationLimitsConfigUnionTypeDef
+
+class ChannelSubtypeConfigOutputTypeDef(TypedDict):
+    telephony: NotRequired[TelephonyChannelSubtypeConfigOutputTypeDef]
+    sms: NotRequired[SmsChannelSubtypeConfigOutputTypeDef]
+    email: NotRequired[EmailChannelSubtypeConfigOutputTypeDef]
+    whatsApp: NotRequired[WhatsAppChannelSubtypeConfigOutputTypeDef]
+
+class ChannelSubtypeConfigTypeDef(TypedDict):
+    telephony: NotRequired[TelephonyChannelSubtypeConfigTypeDef]
+    sms: NotRequired[SmsChannelSubtypeConfigTypeDef]
+    email: NotRequired[EmailChannelSubtypeConfigTypeDef]
+    whatsApp: NotRequired[WhatsAppChannelSubtypeConfigTypeDef]
+
+CommunicationTimeConfigUnionTypeDef = Union[
+    CommunicationTimeConfigTypeDef, CommunicationTimeConfigOutputTypeDef
 ]
 CampaignTypeDef = TypedDict(
     "CampaignTypeDef",
@@ -752,7 +866,8 @@ CampaignTypeDef = TypedDict(
         "arn": str,
         "name": str,
         "connectInstanceId": str,
-        "channelSubtypeConfig": ChannelSubtypeConfigOutputTypeDef,
+        "channelSubtypeConfig": NotRequired[ChannelSubtypeConfigOutputTypeDef],
+        "type": NotRequired[ExternalCampaignTypeType],
         "source": NotRequired[SourceTypeDef],
         "connectCampaignFlowArn": NotRequired[str],
         "schedule": NotRequired[ScheduleOutputTypeDef],
@@ -761,14 +876,14 @@ CampaignTypeDef = TypedDict(
         "tags": NotRequired[Dict[str, str]],
     },
 )
-CommunicationTimeConfigUnionTypeDef = Union[
-    CommunicationTimeConfigTypeDef, CommunicationTimeConfigOutputTypeDef
+ChannelSubtypeConfigUnionTypeDef = Union[
+    ChannelSubtypeConfigTypeDef, ChannelSubtypeConfigOutputTypeDef
 ]
-UpdateCampaignChannelSubtypeConfigRequestTypeDef = TypedDict(
-    "UpdateCampaignChannelSubtypeConfigRequestTypeDef",
+UpdateCampaignCommunicationTimeRequestTypeDef = TypedDict(
+    "UpdateCampaignCommunicationTimeRequestTypeDef",
     {
         "id": str,
-        "channelSubtypeConfig": ChannelSubtypeConfigUnionTypeDef,
+        "communicationTimeConfig": CommunicationTimeConfigUnionTypeDef,
     },
 )
 
@@ -776,21 +891,25 @@ class DescribeCampaignResponseTypeDef(TypedDict):
     campaign: CampaignTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCampaignRequestTypeDef(TypedDict):
-    name: str
-    connectInstanceId: str
-    channelSubtypeConfig: ChannelSubtypeConfigUnionTypeDef
-    source: NotRequired[SourceTypeDef]
-    connectCampaignFlowArn: NotRequired[str]
-    schedule: NotRequired[ScheduleUnionTypeDef]
-    communicationTimeConfig: NotRequired[CommunicationTimeConfigUnionTypeDef]
-    communicationLimitsOverride: NotRequired[CommunicationLimitsConfigUnionTypeDef]
-    tags: NotRequired[Mapping[str, str]]
-
-UpdateCampaignCommunicationTimeRequestTypeDef = TypedDict(
-    "UpdateCampaignCommunicationTimeRequestTypeDef",
+CreateCampaignRequestTypeDef = TypedDict(
+    "CreateCampaignRequestTypeDef",
+    {
+        "name": str,
+        "connectInstanceId": str,
+        "channelSubtypeConfig": NotRequired[ChannelSubtypeConfigUnionTypeDef],
+        "type": NotRequired[ExternalCampaignTypeType],
+        "source": NotRequired[SourceTypeDef],
+        "connectCampaignFlowArn": NotRequired[str],
+        "schedule": NotRequired[ScheduleUnionTypeDef],
+        "communicationTimeConfig": NotRequired[CommunicationTimeConfigUnionTypeDef],
+        "communicationLimitsOverride": NotRequired[CommunicationLimitsConfigUnionTypeDef],
+        "tags": NotRequired[Mapping[str, str]],
+    },
+)
+UpdateCampaignChannelSubtypeConfigRequestTypeDef = TypedDict(
+    "UpdateCampaignChannelSubtypeConfigRequestTypeDef",
     {
         "id": str,
-        "communicationTimeConfig": CommunicationTimeConfigUnionTypeDef,
+        "channelSubtypeConfig": ChannelSubtypeConfigUnionTypeDef,
     },
 )

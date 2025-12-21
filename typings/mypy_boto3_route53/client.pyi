@@ -160,6 +160,7 @@ from .type_defs import (
     UpdateHealthCheckResponseTypeDef,
     UpdateHostedZoneCommentRequestTypeDef,
     UpdateHostedZoneCommentResponseTypeDef,
+    UpdateHostedZoneFeaturesRequestTypeDef,
     UpdateTrafficPolicyCommentRequestTypeDef,
     UpdateTrafficPolicyCommentResponseTypeDef,
     UpdateTrafficPolicyInstanceRequestTypeDef,
@@ -993,6 +994,16 @@ class Route53Client(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/client/update_hosted_zone_comment.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/client/#update_hosted_zone_comment)
+        """
+
+    def update_hosted_zone_features(
+        self, **kwargs: Unpack[UpdateHostedZoneFeaturesRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Updates the features configuration for a hosted zone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/client/update_hosted_zone_features.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/client/#update_hosted_zone_features)
         """
 
     def update_traffic_policy_comment(

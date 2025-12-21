@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_pcs.type_defs import SlurmCustomSettingTypeDef
+    from mypy_boto3_pcs.type_defs import AccountingRequestTypeDef
 
-    data: SlurmCustomSettingTypeDef = ...
+    data: AccountingRequestTypeDef = ...
     ```
 """
 
@@ -20,12 +20,15 @@ import sys
 from datetime import datetime
 
 from .literals import (
+    AccountingModeType,
     ClusterStatusType,
     ComputeNodeGroupStatusType,
     EndpointTypeType,
+    NetworkTypeType,
     PurchaseOptionType,
     QueueStatusType,
     SizeType,
+    SlurmRestModeType,
     SpotAllocationStrategyType,
 )
 
@@ -41,6 +44,8 @@ else:
     from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AccountingRequestTypeDef",
+    "AccountingTypeDef",
     "ClusterSlurmConfigurationRequestTypeDef",
     "ClusterSlurmConfigurationTypeDef",
     "ClusterSummaryTypeDef",
@@ -60,7 +65,6 @@ __all__ = (
     "DeleteClusterRequestTypeDef",
     "DeleteComputeNodeGroupRequestTypeDef",
     "DeleteQueueRequestTypeDef",
-    "EmptyResponseMetadataTypeDef",
     "EndpointTypeDef",
     "ErrorInfoTypeDef",
     "GetClusterRequestTypeDef",
@@ -70,6 +74,8 @@ __all__ = (
     "GetQueueRequestTypeDef",
     "GetQueueResponseTypeDef",
     "InstanceConfigTypeDef",
+    "JwtAuthTypeDef",
+    "JwtKeyTypeDef",
     "ListClustersRequestPaginateTypeDef",
     "ListClustersRequestTypeDef",
     "ListClustersResponseTypeDef",
@@ -84,6 +90,8 @@ __all__ = (
     "NetworkingRequestTypeDef",
     "NetworkingTypeDef",
     "PaginatorConfigTypeDef",
+    "QueueSlurmConfigurationRequestTypeDef",
+    "QueueSlurmConfigurationTypeDef",
     "QueueSummaryTypeDef",
     "QueueTypeDef",
     "RegisterComputeNodeGroupInstanceRequestTypeDef",
@@ -95,23 +103,45 @@ __all__ = (
     "SchedulerTypeDef",
     "SlurmAuthKeyTypeDef",
     "SlurmCustomSettingTypeDef",
+    "SlurmRestRequestTypeDef",
+    "SlurmRestTypeDef",
     "SpotOptionsTypeDef",
     "TagResourceRequestTypeDef",
     "UntagResourceRequestTypeDef",
+    "UpdateAccountingRequestTypeDef",
+    "UpdateClusterRequestTypeDef",
+    "UpdateClusterResponseTypeDef",
+    "UpdateClusterSlurmConfigurationRequestTypeDef",
     "UpdateComputeNodeGroupRequestTypeDef",
     "UpdateComputeNodeGroupResponseTypeDef",
     "UpdateComputeNodeGroupSlurmConfigurationRequestTypeDef",
     "UpdateQueueRequestTypeDef",
     "UpdateQueueResponseTypeDef",
+    "UpdateQueueSlurmConfigurationRequestTypeDef",
+    "UpdateSlurmRestRequestTypeDef",
 )
+
+class AccountingRequestTypeDef(TypedDict):
+    mode: AccountingModeType
+    defaultPurgeTimeInDays: NotRequired[int]
+
+class AccountingTypeDef(TypedDict):
+    mode: AccountingModeType
+    defaultPurgeTimeInDays: NotRequired[int]
 
 class SlurmCustomSettingTypeDef(TypedDict):
     parameterName: str
     parameterValue: str
 
+class SlurmRestRequestTypeDef(TypedDict):
+    mode: SlurmRestModeType
+
 class SlurmAuthKeyTypeDef(TypedDict):
     secretArn: str
     secretVersion: str
+
+class SlurmRestTypeDef(TypedDict):
+    mode: SlurmRestModeType
 
 ClusterSummaryTypeDef = TypedDict(
     "ClusterSummaryTypeDef",
@@ -131,6 +161,7 @@ EndpointTypeDef = TypedDict(
         "privateIpAddress": str,
         "port": str,
         "publicIpAddress": NotRequired[str],
+        "ipv6Address": NotRequired[str],
     },
 )
 
@@ -141,6 +172,7 @@ class ErrorInfoTypeDef(TypedDict):
 class NetworkingTypeDef(TypedDict):
     subnetIds: NotRequired[List[str]]
     securityGroupIds: NotRequired[List[str]]
+    networkType: NotRequired[NetworkTypeType]
 
 SchedulerTypeDef = TypedDict(
     "SchedulerTypeDef",
@@ -186,6 +218,7 @@ class SpotOptionsTypeDef(TypedDict):
 class NetworkingRequestTypeDef(TypedDict):
     subnetIds: NotRequired[Sequence[str]]
     securityGroupIds: NotRequired[Sequence[str]]
+    networkType: NotRequired[NetworkTypeType]
 
 SchedulerRequestTypeDef = TypedDict(
     "SchedulerRequestTypeDef",
@@ -230,6 +263,10 @@ class GetComputeNodeGroupRequestTypeDef(TypedDict):
 class GetQueueRequestTypeDef(TypedDict):
     clusterIdentifier: str
     queueIdentifier: str
+
+class JwtKeyTypeDef(TypedDict):
+    secretArn: str
+    secretVersion: str
 
 class PaginatorConfigTypeDef(TypedDict):
     MaxItems: NotRequired[int]
@@ -278,9 +315,12 @@ class UntagResourceRequestTypeDef(TypedDict):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class ClusterSlurmConfigurationRequestTypeDef(TypedDict):
-    scaleDownIdleTimeInSeconds: NotRequired[int]
-    slurmCustomSettings: NotRequired[Sequence[SlurmCustomSettingTypeDef]]
+class UpdateAccountingRequestTypeDef(TypedDict):
+    defaultPurgeTimeInDays: NotRequired[int]
+    mode: NotRequired[AccountingModeType]
+
+class UpdateSlurmRestRequestTypeDef(TypedDict):
+    mode: NotRequired[SlurmRestModeType]
 
 class ComputeNodeGroupSlurmConfigurationRequestTypeDef(TypedDict):
     slurmCustomSettings: NotRequired[Sequence[SlurmCustomSettingTypeDef]]
@@ -288,44 +328,23 @@ class ComputeNodeGroupSlurmConfigurationRequestTypeDef(TypedDict):
 class ComputeNodeGroupSlurmConfigurationTypeDef(TypedDict):
     slurmCustomSettings: NotRequired[List[SlurmCustomSettingTypeDef]]
 
+class QueueSlurmConfigurationRequestTypeDef(TypedDict):
+    slurmCustomSettings: NotRequired[Sequence[SlurmCustomSettingTypeDef]]
+
+class QueueSlurmConfigurationTypeDef(TypedDict):
+    slurmCustomSettings: NotRequired[List[SlurmCustomSettingTypeDef]]
+
 class UpdateComputeNodeGroupSlurmConfigurationRequestTypeDef(TypedDict):
     slurmCustomSettings: NotRequired[Sequence[SlurmCustomSettingTypeDef]]
 
-class ClusterSlurmConfigurationTypeDef(TypedDict):
+class UpdateQueueSlurmConfigurationRequestTypeDef(TypedDict):
+    slurmCustomSettings: NotRequired[Sequence[SlurmCustomSettingTypeDef]]
+
+class ClusterSlurmConfigurationRequestTypeDef(TypedDict):
     scaleDownIdleTimeInSeconds: NotRequired[int]
-    slurmCustomSettings: NotRequired[List[SlurmCustomSettingTypeDef]]
-    authKey: NotRequired[SlurmAuthKeyTypeDef]
-
-class CreateQueueRequestTypeDef(TypedDict):
-    clusterIdentifier: str
-    queueName: str
-    computeNodeGroupConfigurations: NotRequired[Sequence[ComputeNodeGroupConfigurationTypeDef]]
-    clientToken: NotRequired[str]
-    tags: NotRequired[Mapping[str, str]]
-
-QueueTypeDef = TypedDict(
-    "QueueTypeDef",
-    {
-        "name": str,
-        "id": str,
-        "arn": str,
-        "clusterId": str,
-        "createdAt": datetime,
-        "modifiedAt": datetime,
-        "status": QueueStatusType,
-        "computeNodeGroupConfigurations": List[ComputeNodeGroupConfigurationTypeDef],
-        "errorInfo": NotRequired[List[ErrorInfoTypeDef]],
-    },
-)
-
-class UpdateQueueRequestTypeDef(TypedDict):
-    clusterIdentifier: str
-    queueIdentifier: str
-    computeNodeGroupConfigurations: NotRequired[Sequence[ComputeNodeGroupConfigurationTypeDef]]
-    clientToken: NotRequired[str]
-
-class EmptyResponseMetadataTypeDef(TypedDict):
-    ResponseMetadata: ResponseMetadataTypeDef
+    slurmCustomSettings: NotRequired[Sequence[SlurmCustomSettingTypeDef]]
+    accounting: NotRequired[AccountingRequestTypeDef]
+    slurmRest: NotRequired[SlurmRestRequestTypeDef]
 
 class ListClustersResponseTypeDef(TypedDict):
     clusters: List[ClusterSummaryTypeDef]
@@ -347,6 +366,9 @@ class RegisterComputeNodeGroupInstanceResponseTypeDef(TypedDict):
     endpoints: List[EndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+class JwtAuthTypeDef(TypedDict):
+    jwtKey: NotRequired[JwtKeyTypeDef]
+
 class ListClustersRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
@@ -363,14 +385,11 @@ class ListQueuesResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
-class CreateClusterRequestTypeDef(TypedDict):
-    clusterName: str
-    scheduler: SchedulerRequestTypeDef
-    size: SizeType
-    networking: NetworkingRequestTypeDef
-    slurmConfiguration: NotRequired[ClusterSlurmConfigurationRequestTypeDef]
-    clientToken: NotRequired[str]
-    tags: NotRequired[Mapping[str, str]]
+class UpdateClusterSlurmConfigurationRequestTypeDef(TypedDict):
+    scaleDownIdleTimeInSeconds: NotRequired[int]
+    slurmCustomSettings: NotRequired[Sequence[SlurmCustomSettingTypeDef]]
+    accounting: NotRequired[UpdateAccountingRequestTypeDef]
+    slurmRest: NotRequired[UpdateSlurmRestRequestTypeDef]
 
 class CreateComputeNodeGroupRequestTypeDef(TypedDict):
     clusterIdentifier: str
@@ -410,6 +429,30 @@ ComputeNodeGroupTypeDef = TypedDict(
     },
 )
 
+class CreateQueueRequestTypeDef(TypedDict):
+    clusterIdentifier: str
+    queueName: str
+    computeNodeGroupConfigurations: NotRequired[Sequence[ComputeNodeGroupConfigurationTypeDef]]
+    slurmConfiguration: NotRequired[QueueSlurmConfigurationRequestTypeDef]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+QueueTypeDef = TypedDict(
+    "QueueTypeDef",
+    {
+        "name": str,
+        "id": str,
+        "arn": str,
+        "clusterId": str,
+        "createdAt": datetime,
+        "modifiedAt": datetime,
+        "status": QueueStatusType,
+        "computeNodeGroupConfigurations": List[ComputeNodeGroupConfigurationTypeDef],
+        "slurmConfiguration": NotRequired[QueueSlurmConfigurationTypeDef],
+        "errorInfo": NotRequired[List[ErrorInfoTypeDef]],
+    },
+)
+
 class UpdateComputeNodeGroupRequestTypeDef(TypedDict):
     clusterIdentifier: str
     computeNodeGroupIdentifier: str
@@ -422,6 +465,59 @@ class UpdateComputeNodeGroupRequestTypeDef(TypedDict):
     iamInstanceProfileArn: NotRequired[str]
     slurmConfiguration: NotRequired[UpdateComputeNodeGroupSlurmConfigurationRequestTypeDef]
     clientToken: NotRequired[str]
+
+class UpdateQueueRequestTypeDef(TypedDict):
+    clusterIdentifier: str
+    queueIdentifier: str
+    computeNodeGroupConfigurations: NotRequired[Sequence[ComputeNodeGroupConfigurationTypeDef]]
+    slurmConfiguration: NotRequired[UpdateQueueSlurmConfigurationRequestTypeDef]
+    clientToken: NotRequired[str]
+
+class CreateClusterRequestTypeDef(TypedDict):
+    clusterName: str
+    scheduler: SchedulerRequestTypeDef
+    size: SizeType
+    networking: NetworkingRequestTypeDef
+    slurmConfiguration: NotRequired[ClusterSlurmConfigurationRequestTypeDef]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class ClusterSlurmConfigurationTypeDef(TypedDict):
+    scaleDownIdleTimeInSeconds: NotRequired[int]
+    slurmCustomSettings: NotRequired[List[SlurmCustomSettingTypeDef]]
+    authKey: NotRequired[SlurmAuthKeyTypeDef]
+    jwtAuth: NotRequired[JwtAuthTypeDef]
+    accounting: NotRequired[AccountingTypeDef]
+    slurmRest: NotRequired[SlurmRestTypeDef]
+
+class UpdateClusterRequestTypeDef(TypedDict):
+    clusterIdentifier: str
+    clientToken: NotRequired[str]
+    slurmConfiguration: NotRequired[UpdateClusterSlurmConfigurationRequestTypeDef]
+
+class CreateComputeNodeGroupResponseTypeDef(TypedDict):
+    computeNodeGroup: ComputeNodeGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetComputeNodeGroupResponseTypeDef(TypedDict):
+    computeNodeGroup: ComputeNodeGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateComputeNodeGroupResponseTypeDef(TypedDict):
+    computeNodeGroup: ComputeNodeGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateQueueResponseTypeDef(TypedDict):
+    queue: QueueTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQueueResponseTypeDef(TypedDict):
+    queue: QueueTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateQueueResponseTypeDef(TypedDict):
+    queue: QueueTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 ClusterTypeDef = TypedDict(
     "ClusterTypeDef",
@@ -441,34 +537,14 @@ ClusterTypeDef = TypedDict(
     },
 )
 
-class CreateQueueResponseTypeDef(TypedDict):
-    queue: QueueTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class GetQueueResponseTypeDef(TypedDict):
-    queue: QueueTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class UpdateQueueResponseTypeDef(TypedDict):
-    queue: QueueTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class CreateComputeNodeGroupResponseTypeDef(TypedDict):
-    computeNodeGroup: ComputeNodeGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class GetComputeNodeGroupResponseTypeDef(TypedDict):
-    computeNodeGroup: ComputeNodeGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class UpdateComputeNodeGroupResponseTypeDef(TypedDict):
-    computeNodeGroup: ComputeNodeGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
 class CreateClusterResponseTypeDef(TypedDict):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetClusterResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateClusterResponseTypeDef(TypedDict):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef

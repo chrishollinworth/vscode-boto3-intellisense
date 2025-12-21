@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_cleanrooms.literals import AdditionalAnalysesType
+    from mypy_boto3_cleanrooms.literals import AccessBudgetTypeType
 
-    data: AdditionalAnalysesType = "ALLOWED"
+    data: AccessBudgetTypeType = "CALENDAR_DAY"
     ```
 """
 
@@ -22,6 +22,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AccessBudgetTypeType",
     "AdditionalAnalysesType",
     "AggregateFunctionNameType",
     "AggregationTypeType",
@@ -32,19 +33,30 @@ __all__ = (
     "AnalysisTemplateValidationTypeType",
     "AnalysisTypeType",
     "AnalyticsEngineType",
+    "ApprovalStatusType",
+    "AutoApprovedChangeTypeType",
+    "AutoRefreshModeType",
+    "ChangeRequestActionType",
+    "ChangeRequestStatusType",
+    "ChangeSpecificationTypeType",
+    "ChangeTypeType",
     "CleanRoomsServiceServiceName",
     "CollaborationJobLogStatusType",
     "CollaborationQueryLogStatusType",
+    "CommercialRegionType",
     "ConfiguredTableAnalysisRuleTypeType",
     "ConfiguredTableAssociationAnalysisRuleTypeType",
     "CustomMLMemberAbilityType",
     "DifferentialPrivacyAggregationTypeType",
+    "ErrorMessageTypeType",
     "FilterableMemberStatusType",
     "IdNamespaceTypeType",
+    "JobTypeType",
     "JoinOperatorType",
     "JoinRequiredOptionType",
     "ListAnalysisTemplatesPaginatorName",
     "ListCollaborationAnalysisTemplatesPaginatorName",
+    "ListCollaborationChangeRequestsPaginatorName",
     "ListCollaborationConfiguredAudienceModelAssociationsPaginatorName",
     "ListCollaborationIdNamespaceAssociationsPaginatorName",
     "ListCollaborationPrivacyBudgetTemplatesPaginatorName",
@@ -74,6 +86,7 @@ __all__ = (
     "ProtectedJobAnalysisTypeType",
     "ProtectedJobStatusType",
     "ProtectedJobTypeType",
+    "ProtectedJobWorkerComputeTypeType",
     "ProtectedQueryStatusType",
     "ProtectedQueryTypeType",
     "RegionName",
@@ -86,11 +99,14 @@ __all__ = (
     "SchemaTypeType",
     "SelectedAnalysisMethodType",
     "ServiceName",
+    "SupportedS3RegionType",
+    "SyntheticDataColumnTypeType",
     "TargetProtectedJobStatusType",
     "TargetProtectedQueryStatusType",
     "WorkerComputeTypeType",
 )
 
+AccessBudgetTypeType = Literal["CALENDAR_DAY", "CALENDAR_MONTH", "CALENDAR_WEEK", "LIFETIME"]
 AdditionalAnalysesType = Literal["ALLOWED", "NOT_ALLOWED", "REQUIRED"]
 AggregateFunctionNameType = Literal["AVG", "COUNT", "COUNT_DISTINCT", "SUM", "SUM_DISTINCT"]
 AggregationTypeType = Literal["COUNT_DISTINCT"]
@@ -101,18 +117,70 @@ AnalysisTemplateValidationStatusType = Literal["INVALID", "UNABLE_TO_VALIDATE", 
 AnalysisTemplateValidationTypeType = Literal["DIFFERENTIAL_PRIVACY"]
 AnalysisTypeType = Literal["ADDITIONAL_ANALYSIS", "DIRECT_ANALYSIS"]
 AnalyticsEngineType = Literal["CLEAN_ROOMS_SQL", "SPARK"]
+ApprovalStatusType = Literal["APPROVED", "DENIED", "PENDING"]
+AutoApprovedChangeTypeType = Literal[
+    "ADD_MEMBER", "GRANT_RECEIVE_RESULTS_ABILITY", "REVOKE_RECEIVE_RESULTS_ABILITY"
+]
+AutoRefreshModeType = Literal["DISABLED", "ENABLED"]
+ChangeRequestActionType = Literal["APPROVE", "CANCEL", "COMMIT", "DENY"]
+ChangeRequestStatusType = Literal["APPROVED", "CANCELLED", "COMMITTED", "DENIED", "PENDING"]
+ChangeSpecificationTypeType = Literal["COLLABORATION", "MEMBER"]
+ChangeTypeType = Literal[
+    "ADD_MEMBER",
+    "EDIT_AUTO_APPROVED_CHANGE_TYPES",
+    "GRANT_RECEIVE_RESULTS_ABILITY",
+    "REVOKE_RECEIVE_RESULTS_ABILITY",
+]
 CollaborationJobLogStatusType = Literal["DISABLED", "ENABLED"]
 CollaborationQueryLogStatusType = Literal["DISABLED", "ENABLED"]
+CommercialRegionType = Literal[
+    "af-south-1",
+    "ap-east-1",
+    "ap-east-2",
+    "ap-northeast-1",
+    "ap-northeast-2",
+    "ap-northeast-3",
+    "ap-south-1",
+    "ap-south-2",
+    "ap-southeast-1",
+    "ap-southeast-2",
+    "ap-southeast-3",
+    "ap-southeast-4",
+    "ap-southeast-5",
+    "ap-southeast-7",
+    "ca-central-1",
+    "ca-west-1",
+    "eu-central-1",
+    "eu-central-2",
+    "eu-north-1",
+    "eu-south-1",
+    "eu-south-2",
+    "eu-west-1",
+    "eu-west-2",
+    "eu-west-3",
+    "il-central-1",
+    "me-central-1",
+    "me-south-1",
+    "mx-central-1",
+    "sa-east-1",
+    "us-east-1",
+    "us-east-2",
+    "us-west-1",
+    "us-west-2",
+]
 ConfiguredTableAnalysisRuleTypeType = Literal["AGGREGATION", "CUSTOM", "LIST"]
 ConfiguredTableAssociationAnalysisRuleTypeType = Literal["AGGREGATION", "CUSTOM", "LIST"]
 CustomMLMemberAbilityType = Literal["CAN_RECEIVE_INFERENCE_OUTPUT", "CAN_RECEIVE_MODEL_OUTPUT"]
 DifferentialPrivacyAggregationTypeType = Literal["AVG", "COUNT", "COUNT_DISTINCT", "STDDEV", "SUM"]
+ErrorMessageTypeType = Literal["DETAILED"]
 FilterableMemberStatusType = Literal["ACTIVE", "INVITED"]
 IdNamespaceTypeType = Literal["SOURCE", "TARGET"]
+JobTypeType = Literal["BATCH", "DELETE_ONLY", "INCREMENTAL"]
 JoinOperatorType = Literal["AND", "OR"]
 JoinRequiredOptionType = Literal["QUERY_RUNNER"]
 ListAnalysisTemplatesPaginatorName = Literal["list_analysis_templates"]
 ListCollaborationAnalysisTemplatesPaginatorName = Literal["list_collaboration_analysis_templates"]
+ListCollaborationChangeRequestsPaginatorName = Literal["list_collaboration_change_requests"]
 ListCollaborationConfiguredAudienceModelAssociationsPaginatorName = Literal[
     "list_collaboration_configured_audience_model_associations"
 ]
@@ -174,12 +242,13 @@ ParameterTypeType = Literal[
     "VARCHAR",
 ]
 PrivacyBudgetTemplateAutoRefreshType = Literal["CALENDAR_MONTH", "NONE"]
-PrivacyBudgetTypeType = Literal["DIFFERENTIAL_PRIVACY"]
+PrivacyBudgetTypeType = Literal["ACCESS_BUDGET", "DIFFERENTIAL_PRIVACY"]
 ProtectedJobAnalysisTypeType = Literal["DIRECT_ANALYSIS"]
 ProtectedJobStatusType = Literal[
     "CANCELLED", "CANCELLING", "FAILED", "STARTED", "SUBMITTED", "SUCCESS"
 ]
 ProtectedJobTypeType = Literal["PYSPARK"]
+ProtectedJobWorkerComputeTypeType = Literal["CR.1X", "CR.4X"]
 ProtectedQueryStatusType = Literal[
     "CANCELLED", "CANCELLING", "FAILED", "STARTED", "SUBMITTED", "SUCCESS", "TIMED_OUT"
 ]
@@ -228,6 +297,42 @@ SchemaStatusReasonCodeType = Literal[
 SchemaStatusType = Literal["NOT_READY", "READY"]
 SchemaTypeType = Literal["ID_MAPPING_TABLE", "TABLE"]
 SelectedAnalysisMethodType = Literal["DIRECT_JOB", "DIRECT_QUERY"]
+SupportedS3RegionType = Literal[
+    "af-south-1",
+    "ap-east-1",
+    "ap-east-2",
+    "ap-northeast-1",
+    "ap-northeast-2",
+    "ap-northeast-3",
+    "ap-south-1",
+    "ap-south-2",
+    "ap-southeast-1",
+    "ap-southeast-2",
+    "ap-southeast-3",
+    "ap-southeast-4",
+    "ap-southeast-5",
+    "ap-southeast-7",
+    "ca-central-1",
+    "ca-west-1",
+    "eu-central-1",
+    "eu-central-2",
+    "eu-north-1",
+    "eu-south-1",
+    "eu-south-2",
+    "eu-west-1",
+    "eu-west-2",
+    "eu-west-3",
+    "il-central-1",
+    "me-central-1",
+    "me-south-1",
+    "mx-central-1",
+    "sa-east-1",
+    "us-east-1",
+    "us-east-2",
+    "us-west-1",
+    "us-west-2",
+]
+SyntheticDataColumnTypeType = Literal["CATEGORICAL", "NUMERICAL"]
 TargetProtectedJobStatusType = Literal["CANCELLED"]
 TargetProtectedQueryStatusType = Literal["CANCELLED"]
 WorkerComputeTypeType = Literal["CR.1X", "CR.4X"]
@@ -237,6 +342,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -257,7 +363,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -269,11 +375,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -322,6 +432,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -377,6 +488,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -419,7 +531,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -434,6 +545,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -457,8 +569,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -489,9 +599,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -501,17 +613,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -529,13 +644,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -550,20 +662,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -588,8 +702,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -629,30 +743,24 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_analysis_templates",
     "list_collaboration_analysis_templates",
+    "list_collaboration_change_requests",
     "list_collaboration_configured_audience_model_associations",
     "list_collaboration_id_namespace_associations",
     "list_collaboration_privacy_budget_templates",

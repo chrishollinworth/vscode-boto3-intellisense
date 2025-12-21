@@ -14,6 +14,7 @@ Usage::
         GetChatControlsConfigurationPaginator,
         ListApplicationsPaginator,
         ListAttachmentsPaginator,
+        ListChatResponseConfigurationsPaginator,
         ListConversationsPaginator,
         ListDataAccessorsPaginator,
         ListDataSourceSyncJobsPaginator,
@@ -39,6 +40,7 @@ Usage::
     get_chat_controls_configuration_paginator: GetChatControlsConfigurationPaginator = client.get_paginator("get_chat_controls_configuration")
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     list_attachments_paginator: ListAttachmentsPaginator = client.get_paginator("list_attachments")
+    list_chat_response_configurations_paginator: ListChatResponseConfigurationsPaginator = client.get_paginator("list_chat_response_configurations")
     list_conversations_paginator: ListConversationsPaginator = client.get_paginator("list_conversations")
     list_data_accessors_paginator: ListDataAccessorsPaginator = client.get_paginator("list_data_accessors")
     list_data_source_sync_jobs_paginator: ListDataSourceSyncJobsPaginator = client.get_paginator("list_data_source_sync_jobs")
@@ -63,6 +65,7 @@ from .paginator import (
     GetChatControlsConfigurationPaginator,
     ListApplicationsPaginator,
     ListAttachmentsPaginator,
+    ListChatResponseConfigurationsPaginator,
     ListConversationsPaginator,
     ListDataAccessorsPaginator,
     ListDataSourcesPaginator,
@@ -88,6 +91,7 @@ __all__ = (
     "GetChatControlsConfigurationPaginator",
     "ListApplicationsPaginator",
     "ListAttachmentsPaginator",
+    "ListChatResponseConfigurationsPaginator",
     "ListConversationsPaginator",
     "ListDataAccessorsPaginator",
     "ListDataSourceSyncJobsPaginator",

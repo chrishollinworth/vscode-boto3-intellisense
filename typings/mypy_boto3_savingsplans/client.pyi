@@ -124,7 +124,7 @@ class SavingsPlansClient(BaseClient):
         self, **kwargs: Unpack[DescribeSavingsPlanRatesRequestTypeDef]
     ) -> DescribeSavingsPlanRatesResponseTypeDef:
         """
-        Describes the rates for the specified Savings Plan.
+        Describes the rates for a specific, existing Savings Plan.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/savingsplans/client/describe_savings_plan_rates.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client/#describe_savings_plan_rates)
@@ -144,7 +144,7 @@ class SavingsPlansClient(BaseClient):
         self, **kwargs: Unpack[DescribeSavingsPlansOfferingRatesRequestTypeDef]
     ) -> DescribeSavingsPlansOfferingRatesResponseTypeDef:
         """
-        Describes the offering rates for the specified Savings Plans.
+        Describes the offering rates for Savings Plans you might want to purchase.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/savingsplans/client/describe_savings_plans_offering_rates.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client/#describe_savings_plans_offering_rates)

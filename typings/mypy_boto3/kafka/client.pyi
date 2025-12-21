@@ -26,6 +26,7 @@ from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
+    DescribeTopicPartitionsPaginator,
     ListClientVpcConnectionsPaginator,
     ListClusterOperationsPaginator,
     ListClusterOperationsV2Paginator,
@@ -37,6 +38,7 @@ from .paginator import (
     ListNodesPaginator,
     ListReplicatorsPaginator,
     ListScramSecretsPaginator,
+    ListTopicsPaginator,
     ListVpcConnectionsPaginator,
 )
 from .type_defs import (
@@ -77,6 +79,10 @@ from .type_defs import (
     DescribeConfigurationRevisionResponseTypeDef,
     DescribeReplicatorRequestTypeDef,
     DescribeReplicatorResponseTypeDef,
+    DescribeTopicPartitionsRequestTypeDef,
+    DescribeTopicPartitionsResponseTypeDef,
+    DescribeTopicRequestTypeDef,
+    DescribeTopicResponseTypeDef,
     DescribeVpcConnectionRequestTypeDef,
     DescribeVpcConnectionResponseTypeDef,
     EmptyResponseMetadataTypeDef,
@@ -110,6 +116,8 @@ from .type_defs import (
     ListScramSecretsResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTopicsRequestTypeDef,
+    ListTopicsResponseTypeDef,
     ListVpcConnectionsRequestTypeDef,
     ListVpcConnectionsResponseTypeDef,
     PutClusterPolicyRequestTypeDef,
@@ -135,6 +143,8 @@ from .type_defs import (
     UpdateConnectivityResponseTypeDef,
     UpdateMonitoringRequestTypeDef,
     UpdateMonitoringResponseTypeDef,
+    UpdateRebalancingRequestTypeDef,
+    UpdateRebalancingResponseTypeDef,
     UpdateReplicationInfoRequestTypeDef,
     UpdateReplicationInfoResponseTypeDef,
     UpdateSecurityRequestTypeDef,
@@ -386,6 +396,26 @@ class KafkaClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/client/#describe_replicator)
         """
 
+    def describe_topic(
+        self, **kwargs: Unpack[DescribeTopicRequestTypeDef]
+    ) -> DescribeTopicResponseTypeDef:
+        """
+        Returns topic details of this topic on a MSK cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka/client/describe_topic.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/client/#describe_topic)
+        """
+
+    def describe_topic_partitions(
+        self, **kwargs: Unpack[DescribeTopicPartitionsRequestTypeDef]
+    ) -> DescribeTopicPartitionsResponseTypeDef:
+        """
+        Returns partition details of this topic on a MSK cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka/client/describe_topic_partitions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/client/#describe_topic_partitions)
+        """
+
     def describe_vpc_connection(
         self, **kwargs: Unpack[DescribeVpcConnectionRequestTypeDef]
     ) -> DescribeVpcConnectionResponseTypeDef:
@@ -557,6 +587,14 @@ class KafkaClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/client/#list_client_vpc_connections)
         """
 
+    def list_topics(self, **kwargs: Unpack[ListTopicsRequestTypeDef]) -> ListTopicsResponseTypeDef:
+        """
+        List topics in a MSK cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka/client/list_topics.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/client/#list_topics)
+        """
+
     def list_vpc_connections(
         self, **kwargs: Unpack[ListVpcConnectionsRequestTypeDef]
     ) -> ListVpcConnectionsResponseTypeDef:
@@ -699,6 +737,17 @@ class KafkaClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/client/#update_monitoring)
         """
 
+    def update_rebalancing(
+        self, **kwargs: Unpack[UpdateRebalancingRequestTypeDef]
+    ) -> UpdateRebalancingResponseTypeDef:
+        """
+        Use this resource to update the intelligent rebalancing status of an Amazon MSK
+        Provisioned cluster with Express brokers.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka/client/update_rebalancing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/client/#update_rebalancing)
+        """
+
     def update_replication_info(
         self, **kwargs: Unpack[UpdateReplicationInfoRequestTypeDef]
     ) -> UpdateReplicationInfoResponseTypeDef:
@@ -727,6 +776,17 @@ class KafkaClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka/client/update_storage.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/client/#update_storage)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_topic_partitions"]
+    ) -> DescribeTopicPartitionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/client/#get_paginator)
         """
 
     @overload  # type: ignore[override]
@@ -843,6 +903,17 @@ class KafkaClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_scram_secrets"]
     ) -> ListScramSecretsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_topics"]
+    ) -> ListTopicsPaginator:
         """
         Create a paginator for an operation.
 

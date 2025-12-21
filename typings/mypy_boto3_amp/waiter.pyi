@@ -12,6 +12,8 @@ Usage::
 
     from mypy_boto3_amp.client import PrometheusServiceClient
     from mypy_boto3_amp.waiter import (
+        AnomalyDetectorActiveWaiter,
+        AnomalyDetectorDeletedWaiter,
         ScraperActiveWaiter,
         ScraperDeletedWaiter,
         WorkspaceActiveWaiter,
@@ -21,6 +23,8 @@ Usage::
     session = Session()
     client: PrometheusServiceClient = session.client("amp")
 
+    anomaly_detector_active_waiter: AnomalyDetectorActiveWaiter = client.get_waiter("anomaly_detector_active")
+    anomaly_detector_deleted_waiter: AnomalyDetectorDeletedWaiter = client.get_waiter("anomaly_detector_deleted")
     scraper_active_waiter: ScraperActiveWaiter = client.get_waiter("scraper_active")
     scraper_deleted_waiter: ScraperDeletedWaiter = client.get_waiter("scraper_deleted")
     workspace_active_waiter: WorkspaceActiveWaiter = client.get_waiter("workspace_active")
@@ -35,6 +39,8 @@ import sys
 from botocore.waiter import Waiter
 
 from .type_defs import (
+    DescribeAnomalyDetectorRequestWaitExtraTypeDef,
+    DescribeAnomalyDetectorRequestWaitTypeDef,
     DescribeScraperRequestWaitExtraTypeDef,
     DescribeScraperRequestWaitTypeDef,
     DescribeWorkspaceRequestWaitExtraTypeDef,
@@ -47,11 +53,39 @@ else:
     from typing_extensions import Unpack
 
 __all__ = (
+    "AnomalyDetectorActiveWaiter",
+    "AnomalyDetectorDeletedWaiter",
     "ScraperActiveWaiter",
     "ScraperDeletedWaiter",
     "WorkspaceActiveWaiter",
     "WorkspaceDeletedWaiter",
 )
+
+class AnomalyDetectorActiveWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/AnomalyDetectorActive.html#PrometheusService.Waiter.AnomalyDetectorActive)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#anomalydetectoractivewaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAnomalyDetectorRequestWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/AnomalyDetectorActive.html#PrometheusService.Waiter.AnomalyDetectorActive.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#anomalydetectoractivewaiter)
+        """
+
+class AnomalyDetectorDeletedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/AnomalyDetectorDeleted.html#PrometheusService.Waiter.AnomalyDetectorDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#anomalydetectordeletedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAnomalyDetectorRequestWaitExtraTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/AnomalyDetectorDeleted.html#PrometheusService.Waiter.AnomalyDetectorDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#anomalydetectordeletedwaiter)
+        """
 
 class ScraperActiveWaiter(Waiter):
     """

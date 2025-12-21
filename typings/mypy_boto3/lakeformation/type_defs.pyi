@@ -34,6 +34,7 @@ from .literals import (
     QueryStateStringType,
     ResourceShareTypeType,
     ResourceTypeType,
+    ServiceAuthorizationType,
     TransactionStatusFilterType,
     TransactionStatusType,
     TransactionTypeType,
@@ -186,6 +187,8 @@ __all__ = (
     "PutDataLakeSettingsRequestTypeDef",
     "QueryPlanningContextTypeDef",
     "QuerySessionContextTypeDef",
+    "RedshiftConnectTypeDef",
+    "RedshiftScopeUnionTypeDef",
     "RegisterResourceRequestTypeDef",
     "RemoveLFTagsFromResourceRequestTypeDef",
     "RemoveLFTagsFromResourceResponseTypeDef",
@@ -203,6 +206,9 @@ __all__ = (
     "SearchTablesByLFTagsRequestPaginateTypeDef",
     "SearchTablesByLFTagsRequestTypeDef",
     "SearchTablesByLFTagsResponseTypeDef",
+    "ServiceIntegrationUnionOutputTypeDef",
+    "ServiceIntegrationUnionTypeDef",
+    "ServiceIntegrationUnionUnionTypeDef",
     "StartQueryPlanningRequestTypeDef",
     "StartQueryPlanningResponseTypeDef",
     "StartTransactionRequestTypeDef",
@@ -511,6 +517,9 @@ class TableObjectTypeDef(TypedDict):
     ETag: NotRequired[str]
     Size: NotRequired[int]
 
+class RedshiftConnectTypeDef(TypedDict):
+    Authorization: ServiceAuthorizationType
+
 class RegisterResourceRequestTypeDef(TypedDict):
     ResourceArn: str
     UseServiceLinkedRole: NotRequired[bool]
@@ -678,15 +687,6 @@ class DeleteObjectsOnCancelRequestTypeDef(TypedDict):
     Objects: Sequence[VirtualObjectTypeDef]
     CatalogId: NotRequired[str]
 
-class DescribeLakeFormationIdentityCenterConfigurationResponseTypeDef(TypedDict):
-    CatalogId: str
-    InstanceArn: str
-    ApplicationArn: str
-    ExternalFiltering: ExternalFilteringConfigurationOutputTypeDef
-    ShareRecipients: List[DataLakePrincipalTypeDef]
-    ResourceShare: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
 class DescribeResourceResponseTypeDef(TypedDict):
     ResourceInfo: ResourceInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -803,6 +803,9 @@ class PartitionObjectsTypeDef(TypedDict):
     PartitionValues: NotRequired[List[str]]
     Objects: NotRequired[List[TableObjectTypeDef]]
 
+class RedshiftScopeUnionTypeDef(TypedDict):
+    RedshiftConnect: NotRequired[RedshiftConnectTypeDef]
+
 TableResourceUnionTypeDef = Union[TableResourceTypeDef, TableResourceOutputTypeDef]
 
 class DataLakeSettingsOutputTypeDef(TypedDict):
@@ -879,18 +882,6 @@ class UpdateTableObjectsRequestTypeDef(TypedDict):
     CatalogId: NotRequired[str]
     TransactionId: NotRequired[str]
 
-class CreateLakeFormationIdentityCenterConfigurationRequestTypeDef(TypedDict):
-    CatalogId: NotRequired[str]
-    InstanceArn: NotRequired[str]
-    ExternalFiltering: NotRequired[ExternalFilteringConfigurationUnionTypeDef]
-    ShareRecipients: NotRequired[Sequence[DataLakePrincipalTypeDef]]
-
-class UpdateLakeFormationIdentityCenterConfigurationRequestTypeDef(TypedDict):
-    CatalogId: NotRequired[str]
-    ShareRecipients: NotRequired[Sequence[DataLakePrincipalTypeDef]]
-    ApplicationStatus: NotRequired[ApplicationStatusType]
-    ExternalFiltering: NotRequired[ExternalFilteringConfigurationUnionTypeDef]
-
 class ListLFTagExpressionsResponseTypeDef(TypedDict):
     LFTagExpressions: List[LFTagExpressionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -965,6 +956,12 @@ class GetTableObjectsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class ServiceIntegrationUnionOutputTypeDef(TypedDict):
+    Redshift: NotRequired[List[RedshiftScopeUnionTypeDef]]
+
+class ServiceIntegrationUnionTypeDef(TypedDict):
+    Redshift: NotRequired[Sequence[RedshiftScopeUnionTypeDef]]
+
 class ListDataCellsFilterRequestPaginateTypeDef(TypedDict):
     Table: NotRequired[TableResourceUnionTypeDef]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
@@ -1024,6 +1021,20 @@ LFTagPolicyResourceUnionTypeDef = Union[
     LFTagPolicyResourceTypeDef, LFTagPolicyResourceOutputTypeDef
 ]
 
+class DescribeLakeFormationIdentityCenterConfigurationResponseTypeDef(TypedDict):
+    CatalogId: str
+    InstanceArn: str
+    ApplicationArn: str
+    ExternalFiltering: ExternalFilteringConfigurationOutputTypeDef
+    ShareRecipients: List[DataLakePrincipalTypeDef]
+    ServiceIntegrations: List[ServiceIntegrationUnionOutputTypeDef]
+    ResourceShare: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ServiceIntegrationUnionUnionTypeDef = Union[
+    ServiceIntegrationUnionTypeDef, ServiceIntegrationUnionOutputTypeDef
+]
+
 class PutDataLakeSettingsRequestTypeDef(TypedDict):
     DataLakeSettings: DataLakeSettingsUnionTypeDef
     CatalogId: NotRequired[str]
@@ -1057,6 +1068,20 @@ class ResourceTypeDef(TypedDict):
     LFTag: NotRequired[LFTagKeyResourceUnionTypeDef]
     LFTagPolicy: NotRequired[LFTagPolicyResourceUnionTypeDef]
     LFTagExpression: NotRequired[LFTagExpressionResourceTypeDef]
+
+class CreateLakeFormationIdentityCenterConfigurationRequestTypeDef(TypedDict):
+    CatalogId: NotRequired[str]
+    InstanceArn: NotRequired[str]
+    ExternalFiltering: NotRequired[ExternalFilteringConfigurationUnionTypeDef]
+    ShareRecipients: NotRequired[Sequence[DataLakePrincipalTypeDef]]
+    ServiceIntegrations: NotRequired[Sequence[ServiceIntegrationUnionUnionTypeDef]]
+
+class UpdateLakeFormationIdentityCenterConfigurationRequestTypeDef(TypedDict):
+    CatalogId: NotRequired[str]
+    ShareRecipients: NotRequired[Sequence[DataLakePrincipalTypeDef]]
+    ServiceIntegrations: NotRequired[Sequence[ServiceIntegrationUnionUnionTypeDef]]
+    ApplicationStatus: NotRequired[ApplicationStatusType]
+    ExternalFiltering: NotRequired[ExternalFilteringConfigurationUnionTypeDef]
 
 class BatchGrantPermissionsResponseTypeDef(TypedDict):
     Failures: List[BatchPermissionsFailureEntryTypeDef]

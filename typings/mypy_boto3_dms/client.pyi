@@ -33,6 +33,8 @@ from .paginator import (
     DescribeEndpointTypesPaginator,
     DescribeEventsPaginator,
     DescribeEventSubscriptionsPaginator,
+    DescribeMetadataModelChildrenPaginator,
+    DescribeMetadataModelCreationsPaginator,
     DescribeOrderableReplicationInstancesPaginator,
     DescribeReplicationInstancesPaginator,
     DescribeReplicationSubnetGroupsPaginator,
@@ -47,6 +49,10 @@ from .type_defs import (
     ApplyPendingMaintenanceActionResponseTypeDef,
     BatchStartRecommendationsRequestTypeDef,
     BatchStartRecommendationsResponseTypeDef,
+    CancelMetadataModelConversionMessageTypeDef,
+    CancelMetadataModelConversionResponseTypeDef,
+    CancelMetadataModelCreationMessageTypeDef,
+    CancelMetadataModelCreationResponseTypeDef,
     CancelReplicationTaskAssessmentRunMessageTypeDef,
     CancelReplicationTaskAssessmentRunResponseTypeDef,
     CreateDataMigrationMessageTypeDef,
@@ -142,14 +148,20 @@ from .type_defs import (
     DescribeInstanceProfilesResponseTypeDef,
     DescribeMetadataModelAssessmentsMessageTypeDef,
     DescribeMetadataModelAssessmentsResponseTypeDef,
+    DescribeMetadataModelChildrenMessageTypeDef,
+    DescribeMetadataModelChildrenResponseTypeDef,
     DescribeMetadataModelConversionsMessageTypeDef,
     DescribeMetadataModelConversionsResponseTypeDef,
+    DescribeMetadataModelCreationsMessageTypeDef,
+    DescribeMetadataModelCreationsResponseTypeDef,
     DescribeMetadataModelExportsAsScriptMessageTypeDef,
     DescribeMetadataModelExportsAsScriptResponseTypeDef,
     DescribeMetadataModelExportsToTargetMessageTypeDef,
     DescribeMetadataModelExportsToTargetResponseTypeDef,
     DescribeMetadataModelImportsMessageTypeDef,
     DescribeMetadataModelImportsResponseTypeDef,
+    DescribeMetadataModelMessageTypeDef,
+    DescribeMetadataModelResponseTypeDef,
     DescribeMigrationProjectsMessageTypeDef,
     DescribeMigrationProjectsResponseTypeDef,
     DescribeOrderableReplicationInstancesMessageTypeDef,
@@ -189,6 +201,8 @@ from .type_defs import (
     EmptyResponseMetadataTypeDef,
     ExportMetadataModelAssessmentMessageTypeDef,
     ExportMetadataModelAssessmentResponseTypeDef,
+    GetTargetSelectionRulesMessageTypeDef,
+    GetTargetSelectionRulesResponseTypeDef,
     ImportCertificateMessageTypeDef,
     ImportCertificateResponseTypeDef,
     ListTagsForResourceMessageTypeDef,
@@ -235,6 +249,8 @@ from .type_defs import (
     StartMetadataModelAssessmentResponseTypeDef,
     StartMetadataModelConversionMessageTypeDef,
     StartMetadataModelConversionResponseTypeDef,
+    StartMetadataModelCreationMessageTypeDef,
+    StartMetadataModelCreationResponseTypeDef,
     StartMetadataModelExportAsScriptMessageTypeDef,
     StartMetadataModelExportAsScriptResponseTypeDef,
     StartMetadataModelExportToTargetMessageTypeDef,
@@ -375,11 +391,33 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[BatchStartRecommendationsRequestTypeDef]
     ) -> BatchStartRecommendationsResponseTypeDef:
         """
-        Starts the analysis of up to 20 source databases to recommend target engines
-        for each source database.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/batch_start_recommendations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#batch_start_recommendations)
+        """
+
+    def cancel_metadata_model_conversion(
+        self, **kwargs: Unpack[CancelMetadataModelConversionMessageTypeDef]
+    ) -> CancelMetadataModelConversionResponseTypeDef:
+        """
+        Cancels a single metadata model conversion operation that was started with
+        <code>StartMetadataModelConversion</code>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/cancel_metadata_model_conversion.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#cancel_metadata_model_conversion)
+        """
+
+    def cancel_metadata_model_creation(
+        self, **kwargs: Unpack[CancelMetadataModelCreationMessageTypeDef]
+    ) -> CancelMetadataModelCreationResponseTypeDef:
+        """
+        Cancels a single metadata model creation operation that was started with
+        <code>StartMetadataModelCreation</code>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/cancel_metadata_model_creation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#cancel_metadata_model_creation)
         """
 
     def cancel_replication_task_assessment_run(
@@ -436,7 +474,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[CreateFleetAdvisorCollectorRequestTypeDef]
     ) -> CreateFleetAdvisorCollectorResponseTypeDef:
         """
-        Creates a Fleet Advisor collector using the specified parameters.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/create_fleet_advisor_collector.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#create_fleet_advisor_collector)
@@ -567,7 +606,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[DeleteCollectorRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Deletes the specified Fleet Advisor collector.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/delete_fleet_advisor_collector.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#delete_fleet_advisor_collector)
@@ -577,7 +617,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[DeleteFleetAdvisorDatabasesRequestTypeDef]
     ) -> DeleteFleetAdvisorDatabasesResponseTypeDef:
         """
-        Deletes the specified Fleet Advisor collector databases.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/delete_fleet_advisor_databases.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#delete_fleet_advisor_databases)
@@ -811,7 +852,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[DescribeFleetAdvisorCollectorsRequestTypeDef]
     ) -> DescribeFleetAdvisorCollectorsResponseTypeDef:
         """
-        Returns a list of the Fleet Advisor collectors in your account.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_fleet_advisor_collectors.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_fleet_advisor_collectors)
@@ -821,7 +863,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[DescribeFleetAdvisorDatabasesRequestTypeDef]
     ) -> DescribeFleetAdvisorDatabasesResponseTypeDef:
         """
-        Returns a list of Fleet Advisor databases in your account.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_fleet_advisor_databases.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_fleet_advisor_databases)
@@ -831,8 +874,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[DescribeFleetAdvisorLsaAnalysisRequestTypeDef]
     ) -> DescribeFleetAdvisorLsaAnalysisResponseTypeDef:
         """
-        Provides descriptions of large-scale assessment (LSA) analyses produced by your
-        Fleet Advisor collectors.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_fleet_advisor_lsa_analysis.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_fleet_advisor_lsa_analysis)
@@ -842,8 +885,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[DescribeFleetAdvisorSchemaObjectSummaryRequestTypeDef]
     ) -> DescribeFleetAdvisorSchemaObjectSummaryResponseTypeDef:
         """
-        Provides descriptions of the schemas discovered by your Fleet Advisor
-        collectors.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_fleet_advisor_schema_object_summary.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_fleet_advisor_schema_object_summary)
@@ -853,7 +896,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[DescribeFleetAdvisorSchemasRequestTypeDef]
     ) -> DescribeFleetAdvisorSchemasResponseTypeDef:
         """
-        Returns a list of schemas detected by Fleet Advisor Collectors in your account.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_fleet_advisor_schemas.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_fleet_advisor_schemas)
@@ -870,6 +914,18 @@ class DatabaseMigrationServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_instance_profiles)
         """
 
+    def describe_metadata_model(
+        self, **kwargs: Unpack[DescribeMetadataModelMessageTypeDef]
+    ) -> DescribeMetadataModelResponseTypeDef:
+        """
+        Gets detailed information about the specified metadata model, including its
+        definition and corresponding converted objects in the target database if
+        applicable.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_metadata_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_metadata_model)
+        """
+
     def describe_metadata_model_assessments(
         self, **kwargs: Unpack[DescribeMetadataModelAssessmentsMessageTypeDef]
     ) -> DescribeMetadataModelAssessmentsResponseTypeDef:
@@ -881,6 +937,17 @@ class DatabaseMigrationServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_metadata_model_assessments)
         """
 
+    def describe_metadata_model_children(
+        self, **kwargs: Unpack[DescribeMetadataModelChildrenMessageTypeDef]
+    ) -> DescribeMetadataModelChildrenResponseTypeDef:
+        """
+        Gets a list of child metadata models for the specified metadata model in the
+        database hierarchy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_metadata_model_children.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_metadata_model_children)
+        """
+
     def describe_metadata_model_conversions(
         self, **kwargs: Unpack[DescribeMetadataModelConversionsMessageTypeDef]
     ) -> DescribeMetadataModelConversionsResponseTypeDef:
@@ -889,6 +956,17 @@ class DatabaseMigrationServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_metadata_model_conversions.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_metadata_model_conversions)
+        """
+
+    def describe_metadata_model_creations(
+        self, **kwargs: Unpack[DescribeMetadataModelCreationsMessageTypeDef]
+    ) -> DescribeMetadataModelCreationsResponseTypeDef:
+        """
+        Returns a paginated list of metadata model creation requests for a migration
+        project.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_metadata_model_creations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_metadata_model_creations)
         """
 
     def describe_metadata_model_exports_as_script(
@@ -958,8 +1036,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[DescribeRecommendationLimitationsRequestTypeDef]
     ) -> DescribeRecommendationLimitationsResponseTypeDef:
         """
-        Returns a paginated list of limitations for recommendations of target Amazon
-        Web Services engines.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_recommendation_limitations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_recommendation_limitations)
@@ -969,8 +1047,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[DescribeRecommendationsRequestTypeDef]
     ) -> DescribeRecommendationsResponseTypeDef:
         """
-        Returns a paginated list of target engine recommendations for your source
-        databases.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/describe_recommendations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#describe_recommendations)
@@ -1122,6 +1200,17 @@ class DatabaseMigrationServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/export_metadata_model_assessment.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#export_metadata_model_assessment)
+        """
+
+    def get_target_selection_rules(
+        self, **kwargs: Unpack[GetTargetSelectionRulesMessageTypeDef]
+    ) -> GetTargetSelectionRulesResponseTypeDef:
+        """
+        Converts source selection rules into their target counterparts for schema
+        conversion operations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/get_target_selection_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#get_target_selection_rules)
         """
 
     def import_certificate(
@@ -1322,8 +1411,8 @@ class DatabaseMigrationServiceClient(BaseClient):
 
     def run_fleet_advisor_lsa_analysis(self) -> RunFleetAdvisorLsaAnalysisResponseTypeDef:
         """
-        Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in
-        your account.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/run_fleet_advisor_lsa_analysis.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#run_fleet_advisor_lsa_analysis)
@@ -1371,6 +1460,17 @@ class DatabaseMigrationServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#start_metadata_model_conversion)
         """
 
+    def start_metadata_model_creation(
+        self, **kwargs: Unpack[StartMetadataModelCreationMessageTypeDef]
+    ) -> StartMetadataModelCreationResponseTypeDef:
+        """
+        Creates source metadata model of the given type with the specified properties
+        for schema conversion operations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/start_metadata_model_creation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#start_metadata_model_creation)
+        """
+
     def start_metadata_model_export_as_script(
         self, **kwargs: Unpack[StartMetadataModelExportAsScriptMessageTypeDef]
     ) -> StartMetadataModelExportAsScriptResponseTypeDef:
@@ -1406,8 +1506,8 @@ class DatabaseMigrationServiceClient(BaseClient):
         self, **kwargs: Unpack[StartRecommendationsRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Starts the analysis of your source database to provide recommendations of
-        target engines.
+        End of support notice: On May 20, 2026, Amazon Web Services will end support
+        for Amazon Web Services DMS Fleet Advisor;.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/start_recommendations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#start_recommendations)
@@ -1578,6 +1678,28 @@ class DatabaseMigrationServiceClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_events"]
     ) -> DescribeEventsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_metadata_model_children"]
+    ) -> DescribeMetadataModelChildrenPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_metadata_model_creations"]
+    ) -> DescribeMetadataModelCreationsPaginator:
         """
         Create a paginator for an operation.
 

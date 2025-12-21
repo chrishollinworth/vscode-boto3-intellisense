@@ -24,10 +24,12 @@ Usage::
         InputAttachedWaiter,
         InputDeletedWaiter,
         InputDetachedWaiter,
+        ListAlertsPaginator,
         ListChannelPlacementGroupsPaginator,
         ListChannelsPaginator,
         ListCloudWatchAlarmTemplateGroupsPaginator,
         ListCloudWatchAlarmTemplatesPaginator,
+        ListClusterAlertsPaginator,
         ListClustersPaginator,
         ListEventBridgeRuleTemplateGroupsPaginator,
         ListEventBridgeRuleTemplatesPaginator,
@@ -35,6 +37,7 @@ Usage::
         ListInputDevicesPaginator,
         ListInputSecurityGroupsPaginator,
         ListInputsPaginator,
+        ListMultiplexAlertsPaginator,
         ListMultiplexProgramsPaginator,
         ListMultiplexesPaginator,
         ListNetworksPaginator,
@@ -83,10 +86,12 @@ Usage::
     signal_map_updated_waiter: SignalMapUpdatedWaiter = client.get_waiter("signal_map_updated")
 
     describe_schedule_paginator: DescribeSchedulePaginator = client.get_paginator("describe_schedule")
+    list_alerts_paginator: ListAlertsPaginator = client.get_paginator("list_alerts")
     list_channel_placement_groups_paginator: ListChannelPlacementGroupsPaginator = client.get_paginator("list_channel_placement_groups")
     list_channels_paginator: ListChannelsPaginator = client.get_paginator("list_channels")
     list_cloud_watch_alarm_template_groups_paginator: ListCloudWatchAlarmTemplateGroupsPaginator = client.get_paginator("list_cloud_watch_alarm_template_groups")
     list_cloud_watch_alarm_templates_paginator: ListCloudWatchAlarmTemplatesPaginator = client.get_paginator("list_cloud_watch_alarm_templates")
+    list_cluster_alerts_paginator: ListClusterAlertsPaginator = client.get_paginator("list_cluster_alerts")
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
     list_event_bridge_rule_template_groups_paginator: ListEventBridgeRuleTemplateGroupsPaginator = client.get_paginator("list_event_bridge_rule_template_groups")
     list_event_bridge_rule_templates_paginator: ListEventBridgeRuleTemplatesPaginator = client.get_paginator("list_event_bridge_rule_templates")
@@ -94,6 +99,7 @@ Usage::
     list_input_devices_paginator: ListInputDevicesPaginator = client.get_paginator("list_input_devices")
     list_input_security_groups_paginator: ListInputSecurityGroupsPaginator = client.get_paginator("list_input_security_groups")
     list_inputs_paginator: ListInputsPaginator = client.get_paginator("list_inputs")
+    list_multiplex_alerts_paginator: ListMultiplexAlertsPaginator = client.get_paginator("list_multiplex_alerts")
     list_multiplex_programs_paginator: ListMultiplexProgramsPaginator = client.get_paginator("list_multiplex_programs")
     list_multiplexes_paginator: ListMultiplexesPaginator = client.get_paginator("list_multiplexes")
     list_networks_paginator: ListNetworksPaginator = client.get_paginator("list_networks")
@@ -108,10 +114,12 @@ Usage::
 from .client import MediaLiveClient
 from .paginator import (
     DescribeSchedulePaginator,
+    ListAlertsPaginator,
     ListChannelPlacementGroupsPaginator,
     ListChannelsPaginator,
     ListCloudWatchAlarmTemplateGroupsPaginator,
     ListCloudWatchAlarmTemplatesPaginator,
+    ListClusterAlertsPaginator,
     ListClustersPaginator,
     ListEventBridgeRuleTemplateGroupsPaginator,
     ListEventBridgeRuleTemplatesPaginator,
@@ -119,6 +127,7 @@ from .paginator import (
     ListInputDeviceTransfersPaginator,
     ListInputSecurityGroupsPaginator,
     ListInputsPaginator,
+    ListMultiplexAlertsPaginator,
     ListMultiplexesPaginator,
     ListMultiplexProgramsPaginator,
     ListNetworksPaginator,
@@ -170,10 +179,12 @@ __all__ = (
     "InputAttachedWaiter",
     "InputDeletedWaiter",
     "InputDetachedWaiter",
+    "ListAlertsPaginator",
     "ListChannelPlacementGroupsPaginator",
     "ListChannelsPaginator",
     "ListCloudWatchAlarmTemplateGroupsPaginator",
     "ListCloudWatchAlarmTemplatesPaginator",
+    "ListClusterAlertsPaginator",
     "ListClustersPaginator",
     "ListEventBridgeRuleTemplateGroupsPaginator",
     "ListEventBridgeRuleTemplatesPaginator",
@@ -181,6 +192,7 @@ __all__ = (
     "ListInputDevicesPaginator",
     "ListInputSecurityGroupsPaginator",
     "ListInputsPaginator",
+    "ListMultiplexAlertsPaginator",
     "ListMultiplexProgramsPaginator",
     "ListMultiplexesPaginator",
     "ListNetworksPaginator",

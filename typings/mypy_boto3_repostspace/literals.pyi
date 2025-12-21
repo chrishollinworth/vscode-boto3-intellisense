@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_repostspace.literals import ConfigurationStatusType
+    from mypy_boto3_repostspace.literals import ChannelCreatedWaiterName
 
-    data: ConfigurationStatusType = "CONFIGURED"
+    data: ChannelCreatedWaiterName = "channel_created"
     ```
 """
 
@@ -22,20 +22,41 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ChannelCreatedWaiterName",
+    "ChannelDeletedWaiterName",
+    "ChannelRoleType",
+    "ChannelStatusType",
     "ConfigurationStatusType",
+    "FeatureEnableParameterType",
+    "FeatureEnableStatusType",
+    "ListChannelsPaginatorName",
     "ListSpacesPaginatorName",
     "PaginatorName",
     "RePostPrivateServiceName",
     "ResourceServiceName",
     "RoleType",
     "ServiceName",
+    "SpaceCreatedWaiterName",
+    "SpaceDeletedWaiterName",
     "TierLevelType",
     "VanityDomainStatusType",
+    "WaiterName",
 )
 
+ChannelCreatedWaiterName = Literal["channel_created"]
+ChannelDeletedWaiterName = Literal["channel_deleted"]
+ChannelRoleType = Literal["ASKER", "EXPERT", "MODERATOR", "SUPPORTREQUESTOR"]
+ChannelStatusType = Literal[
+    "CREATED", "CREATE_FAILED", "CREATING", "DELETED", "DELETE_FAILED", "DELETING"
+]
 ConfigurationStatusType = Literal["CONFIGURED", "UNCONFIGURED"]
+FeatureEnableParameterType = Literal["DISABLED", "ENABLED"]
+FeatureEnableStatusType = Literal["DISABLED", "ENABLED", "NOT_ALLOWED"]
+ListChannelsPaginatorName = Literal["list_channels"]
 ListSpacesPaginatorName = Literal["list_spaces"]
 RoleType = Literal["ADMINISTRATOR", "EXPERT", "MODERATOR", "SUPPORTREQUESTOR"]
+SpaceCreatedWaiterName = Literal["space_created"]
+SpaceDeletedWaiterName = Literal["space_deleted"]
 TierLevelType = Literal["BASIC", "STANDARD"]
 VanityDomainStatusType = Literal["APPROVED", "PENDING", "UNAPPROVED"]
 RePostPrivateServiceName = Literal["repostspace"]
@@ -44,6 +65,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -64,7 +86,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -76,11 +98,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -129,6 +155,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -184,6 +211,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -226,7 +254,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -241,6 +268,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -264,8 +292,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -296,9 +322,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -308,17 +336,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -336,13 +367,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -357,20 +385,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -395,8 +425,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -436,25 +466,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
-PaginatorName = Literal["list_spaces"]
+PaginatorName = Literal["list_channels", "list_spaces"]
+WaiterName = Literal["channel_created", "channel_deleted", "space_created", "space_deleted"]

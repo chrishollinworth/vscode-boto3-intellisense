@@ -311,7 +311,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[AbortMultipartReadSetUploadRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Stops a multipart upload.
+        Stops a multipart read set upload into a sequence store and returns a response
+        with no body if the operation is successful.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/abort_multipart_read_set_upload.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#abort_multipart_read_set_upload)
@@ -341,7 +342,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CancelAnnotationImportRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Cancels an annotation import job.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/cancel_annotation_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#cancel_annotation_import_job)
@@ -349,7 +351,8 @@ class OmicsClient(BaseClient):
 
     def cancel_run(self, **kwargs: Unpack[CancelRunRequestTypeDef]) -> EmptyResponseMetadataTypeDef:
         """
-        Cancels a run.
+        Cancels a run using its ID and returns a response with no body if the operation
+        is successful.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/cancel_run.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#cancel_run)
@@ -359,7 +362,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CancelVariantImportRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Cancels a variant import job.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/cancel_variant_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#cancel_variant_import_job)
@@ -369,7 +373,9 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CompleteMultipartReadSetUploadRequestTypeDef]
     ) -> CompleteMultipartReadSetUploadResponseTypeDef:
         """
-        Concludes a multipart upload once you have uploaded all the components.
+        Completes a multipart read set upload into a sequence store after you have
+        initiated the upload process with <code>CreateMultipartReadSetUpload</code> and
+        uploaded all read set parts using <code>UploadReadSetPart</code>.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/complete_multipart_read_set_upload.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#complete_multipart_read_set_upload)
@@ -379,7 +385,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CreateAnnotationStoreRequestTypeDef]
     ) -> CreateAnnotationStoreResponseTypeDef:
         """
-        Creates an annotation store.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/create_annotation_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#create_annotation_store)
@@ -399,7 +406,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CreateMultipartReadSetUploadRequestTypeDef]
     ) -> CreateMultipartReadSetUploadResponseTypeDef:
         """
-        Begins a multipart read set upload.
+        Initiates a multipart read set upload for uploading partitioned source files
+        into a sequence store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/create_multipart_read_set_upload.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#create_multipart_read_set_upload)
@@ -409,7 +417,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CreateReferenceStoreRequestTypeDef]
     ) -> CreateReferenceStoreResponseTypeDef:
         """
-        Creates a reference store.
+        Creates a reference store and returns metadata in JSON format.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/create_reference_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#create_reference_store)
@@ -419,8 +427,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CreateRunCacheRequestTypeDef]
     ) -> CreateRunCacheResponseTypeDef:
         """
-        You can create a run cache to save the task outputs from completed tasks in a
-        run for a private workflow.
+        Creates a run cache to store and reference task outputs from completed private
+        runs.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/create_run_cache.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#create_run_cache)
@@ -430,8 +438,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CreateRunGroupRequestTypeDef]
     ) -> CreateRunGroupResponseTypeDef:
         """
-        You can optionally create a run group to limit the compute resources for the
-        runs that you add to the group.
+        Creates a run group to limit the compute resources for the runs that are added
+        to the group.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/create_run_group.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#create_run_group)
@@ -441,7 +449,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CreateSequenceStoreRequestTypeDef]
     ) -> CreateSequenceStoreResponseTypeDef:
         """
-        Creates a sequence store.
+        Creates a sequence store and returns its metadata.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/create_sequence_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#create_sequence_store)
@@ -461,7 +469,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CreateVariantStoreRequestTypeDef]
     ) -> CreateVariantStoreResponseTypeDef:
         """
-        Creates a variant store.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/create_variant_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#create_variant_store)
@@ -471,8 +480,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[CreateWorkflowRequestTypeDef]
     ) -> CreateWorkflowResponseTypeDef:
         """
-        Creates a private workflow.Private workflows depend on a variety of resources
-        that you create and configure before creating the workflow:.
+        Creates a private workflow.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/create_workflow.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#create_workflow)
@@ -493,7 +501,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[DeleteAnnotationStoreRequestTypeDef]
     ) -> DeleteAnnotationStoreResponseTypeDef:
         """
-        Deletes an annotation store.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/delete_annotation_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#delete_annotation_store)
@@ -511,7 +520,8 @@ class OmicsClient(BaseClient):
 
     def delete_reference(self, **kwargs: Unpack[DeleteReferenceRequestTypeDef]) -> Dict[str, Any]:
         """
-        Deletes a genome reference.
+        Deletes a reference genome and returns a response with no body if the operation
+        is successful.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/delete_reference.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#delete_reference)
@@ -521,7 +531,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[DeleteReferenceStoreRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Deletes a genome reference store.
+        Deletes a reference store and returns a response with no body if the operation
+        is successful.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/delete_reference_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#delete_reference_store)
@@ -529,7 +540,8 @@ class OmicsClient(BaseClient):
 
     def delete_run(self, **kwargs: Unpack[DeleteRunRequestTypeDef]) -> EmptyResponseMetadataTypeDef:
         """
-        Deletes a workflow run.
+        Deletes a run and returns a response with no body if the operation is
+        successful.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/delete_run.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#delete_run)
@@ -539,7 +551,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[DeleteRunCacheRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Delete a run cache.
+        Deletes a run cache and returns a response with no body if the operation is
+        successful.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/delete_run_cache.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#delete_run_cache)
@@ -549,7 +562,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[DeleteRunGroupRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Deletes a workflow run group.
+        Deletes a run group and returns a response with no body if the operation is
+        successful.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/delete_run_group.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#delete_run_group)
@@ -569,7 +583,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[DeleteSequenceStoreRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Deletes a sequence store.
+        Deletes a sequence store and returns a response with no body if the operation
+        is successful.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/delete_sequence_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#delete_sequence_store)
@@ -589,7 +604,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[DeleteVariantStoreRequestTypeDef]
     ) -> DeleteVariantStoreResponseTypeDef:
         """
-        Deletes a variant store.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/delete_variant_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#delete_variant_store)
@@ -599,7 +615,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[DeleteWorkflowRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Deletes a workflow.
+        Deletes a workflow by specifying its ID.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/delete_workflow.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#delete_workflow)
@@ -619,7 +635,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetAnnotationImportRequestTypeDef]
     ) -> GetAnnotationImportResponseTypeDef:
         """
-        Gets information about an annotation import job.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_annotation_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_annotation_import_job)
@@ -629,7 +646,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetAnnotationStoreRequestTypeDef]
     ) -> GetAnnotationStoreResponseTypeDef:
         """
-        Gets information about an annotation store.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_annotation_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_annotation_store)
@@ -647,7 +665,8 @@ class OmicsClient(BaseClient):
 
     def get_read_set(self, **kwargs: Unpack[GetReadSetRequestTypeDef]) -> GetReadSetResponseTypeDef:
         """
-        Gets a file from a read set.
+        Retrieves detailed information from parts of a read set and returns the read
+        set in the same format that it was uploaded.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_read_set.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_read_set)
@@ -657,7 +676,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetReadSetActivationJobRequestTypeDef]
     ) -> GetReadSetActivationJobResponseTypeDef:
         """
-        Gets information about a read set activation job.
+        Returns detailed information about the status of a read set activation job in
+        JSON format.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_read_set_activation_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_read_set_activation_job)
@@ -667,7 +687,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetReadSetExportJobRequestTypeDef]
     ) -> GetReadSetExportJobResponseTypeDef:
         """
-        Gets information about a read set export job.
+        Retrieves status information about a read set export job and returns the data
+        in JSON format.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_read_set_export_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_read_set_export_job)
@@ -677,7 +698,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetReadSetImportJobRequestTypeDef]
     ) -> GetReadSetImportJobResponseTypeDef:
         """
-        Gets information about a read set import job.
+        Gets detailed and status information about a read set import job and returns
+        the data in JSON format.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_read_set_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_read_set_import_job)
@@ -687,7 +709,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetReadSetMetadataRequestTypeDef]
     ) -> GetReadSetMetadataResponseTypeDef:
         """
-        Gets details about a read set.
+        Retrieves the metadata for a read set from a sequence store in JSON format.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_read_set_metadata.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_read_set_metadata)
@@ -697,7 +719,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetReferenceRequestTypeDef]
     ) -> GetReferenceResponseTypeDef:
         """
-        Gets a reference file.
+        Downloads parts of data from a reference genome and returns the reference file
+        in the same format that it was uploaded.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_reference.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_reference)
@@ -707,7 +730,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetReferenceImportJobRequestTypeDef]
     ) -> GetReferenceImportJobResponseTypeDef:
         """
-        Gets information about a reference import job.
+        Monitors the status of a reference import job.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_reference_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_reference_import_job)
@@ -717,7 +740,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetReferenceMetadataRequestTypeDef]
     ) -> GetReferenceMetadataResponseTypeDef:
         """
-        Gets information about a genome reference's metadata.
+        Retrieves metadata for a reference genome.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_reference_metadata.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_reference_metadata)
@@ -735,7 +758,7 @@ class OmicsClient(BaseClient):
 
     def get_run(self, **kwargs: Unpack[GetRunRequestTypeDef]) -> GetRunResponseTypeDef:
         """
-        Gets information about a workflow run.
+        Gets detailed information about a specific run using its ID.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_run.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_run)
@@ -745,7 +768,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetRunCacheRequestTypeDef]
     ) -> GetRunCacheResponseTypeDef:
         """
-        Retrieve the details for the specified run cache.
+        Retrieves detailed information about the specified run cache using its ID.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_run_cache.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_run_cache)
@@ -755,7 +778,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetRunGroupRequestTypeDef]
     ) -> GetRunGroupResponseTypeDef:
         """
-        Gets information about a workflow run group.
+        Gets information about a run group and returns its metadata.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_run_group.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_run_group)
@@ -763,7 +786,7 @@ class OmicsClient(BaseClient):
 
     def get_run_task(self, **kwargs: Unpack[GetRunTaskRequestTypeDef]) -> GetRunTaskResponseTypeDef:
         """
-        Gets information about a workflow run task.
+        Gets detailed information about a run task using its ID.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_run_task.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_run_task)
@@ -783,7 +806,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetSequenceStoreRequestTypeDef]
     ) -> GetSequenceStoreResponseTypeDef:
         """
-        Gets information about a sequence store.
+        Retrieves metadata for a sequence store using its ID and returns it in JSON
+        format.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_sequence_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_sequence_store)
@@ -801,7 +825,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetVariantImportRequestTypeDef]
     ) -> GetVariantImportResponseTypeDef:
         """
-        Gets information about a variant import job.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_variant_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_variant_import_job)
@@ -811,7 +836,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetVariantStoreRequestTypeDef]
     ) -> GetVariantStoreResponseTypeDef:
         """
-        Gets information about a variant store.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_variant_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_variant_store)
@@ -821,7 +847,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[GetWorkflowRequestTypeDef]
     ) -> GetWorkflowResponseTypeDef:
         """
-        Gets information about a workflow.
+        Gets all information about a workflow using its ID.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/get_workflow.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#get_workflow)
@@ -841,7 +867,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListAnnotationImportJobsRequestTypeDef]
     ) -> ListAnnotationImportJobsResponseTypeDef:
         """
-        Retrieves a list of annotation import jobs.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_annotation_import_jobs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_annotation_import_jobs)
@@ -861,7 +888,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListAnnotationStoresRequestTypeDef]
     ) -> ListAnnotationStoresResponseTypeDef:
         """
-        Retrieves a list of annotation stores.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_annotation_stores.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_annotation_stores)
@@ -871,7 +899,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListMultipartReadSetUploadsRequestTypeDef]
     ) -> ListMultipartReadSetUploadsResponseTypeDef:
         """
-        Lists multipart read set uploads and for in progress uploads.
+        Lists in-progress multipart read set uploads for a sequence store and returns
+        it in a JSON formatted output.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_multipart_read_set_uploads.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_multipart_read_set_uploads)
@@ -881,7 +910,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListReadSetActivationJobsRequestTypeDef]
     ) -> ListReadSetActivationJobsResponseTypeDef:
         """
-        Retrieves a list of read set activation jobs.
+        Retrieves a list of read set activation jobs and returns the metadata in a JSON
+        formatted output.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_read_set_activation_jobs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_read_set_activation_jobs)
@@ -891,7 +921,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListReadSetExportJobsRequestTypeDef]
     ) -> ListReadSetExportJobsResponseTypeDef:
         """
-        Retrieves a list of read set export jobs.
+        Retrieves a list of read set export jobs in a JSON formatted response.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_read_set_export_jobs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_read_set_export_jobs)
@@ -901,7 +931,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListReadSetImportJobsRequestTypeDef]
     ) -> ListReadSetImportJobsResponseTypeDef:
         """
-        Retrieves a list of read set import jobs.
+        Retrieves a list of read set import jobs and returns the data in JSON format.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_read_set_import_jobs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_read_set_import_jobs)
@@ -911,8 +941,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListReadSetUploadPartsRequestTypeDef]
     ) -> ListReadSetUploadPartsResponseTypeDef:
         """
-        This operation will list all parts in a requested multipart upload for a
-        sequence store.
+        Lists all parts in a multipart read set upload for a sequence store and returns
+        the metadata in a JSON formatted output.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_read_set_upload_parts.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_read_set_upload_parts)
@@ -922,7 +952,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListReadSetsRequestTypeDef]
     ) -> ListReadSetsResponseTypeDef:
         """
-        Retrieves a list of read sets.
+        Retrieves a list of read sets from a sequence store ID and returns the metadata
+        in JSON format.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_read_sets.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_read_sets)
@@ -932,7 +963,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListReferenceImportJobsRequestTypeDef]
     ) -> ListReferenceImportJobsResponseTypeDef:
         """
-        Retrieves a list of reference import jobs.
+        Retrieves the metadata of one or more reference import jobs for a reference
+        store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_reference_import_jobs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_reference_import_jobs)
@@ -942,7 +974,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListReferenceStoresRequestTypeDef]
     ) -> ListReferenceStoresResponseTypeDef:
         """
-        Retrieves a list of reference stores.
+        Retrieves a list of reference stores linked to your account and returns their
+        metadata in JSON format.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_reference_stores.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_reference_stores)
@@ -952,7 +985,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListReferencesRequestTypeDef]
     ) -> ListReferencesResponseTypeDef:
         """
-        Retrieves a list of references.
+        Retrieves the metadata of one or more reference genomes in a reference store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_references.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_references)
@@ -962,7 +995,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListRunCachesRequestTypeDef]
     ) -> ListRunCachesResponseTypeDef:
         """
-        Retrieves a list of your run caches.
+        Retrieves a list of your run caches and the metadata for each cache.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_run_caches.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_run_caches)
@@ -972,7 +1005,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListRunGroupsRequestTypeDef]
     ) -> ListRunGroupsResponseTypeDef:
         """
-        Retrieves a list of run groups.
+        Retrieves a list of all run groups and returns the metadata for each run group.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_run_groups.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_run_groups)
@@ -982,7 +1015,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListRunTasksRequestTypeDef]
     ) -> ListRunTasksResponseTypeDef:
         """
-        Retrieves a list of tasks for a run.
+        Returns a list of tasks and status information within their specified run.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_run_tasks.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_run_tasks)
@@ -990,7 +1023,7 @@ class OmicsClient(BaseClient):
 
     def list_runs(self, **kwargs: Unpack[ListRunsRequestTypeDef]) -> ListRunsResponseTypeDef:
         """
-        Retrieves a list of runs.
+        Retrieves a list of runs and returns each run's metadata and status.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_runs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_runs)
@@ -1000,7 +1033,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListSequenceStoresRequestTypeDef]
     ) -> ListSequenceStoresResponseTypeDef:
         """
-        Retrieves a list of sequence stores.
+        Retrieves a list of sequence stores and returns each sequence store's metadata.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_sequence_stores.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_sequence_stores)
@@ -1028,7 +1061,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListVariantImportJobsRequestTypeDef]
     ) -> ListVariantImportJobsResponseTypeDef:
         """
-        Retrieves a list of variant import jobs.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_variant_import_jobs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_variant_import_jobs)
@@ -1038,7 +1072,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListVariantStoresRequestTypeDef]
     ) -> ListVariantStoresResponseTypeDef:
         """
-        Retrieves a list of variant stores.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_variant_stores.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_variant_stores)
@@ -1058,7 +1093,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[ListWorkflowsRequestTypeDef]
     ) -> ListWorkflowsResponseTypeDef:
         """
-        Retrieves a list of workflows.
+        Retrieves a list of existing workflows.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/list_workflows.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#list_workflows)
@@ -1078,7 +1113,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[StartAnnotationImportRequestTypeDef]
     ) -> StartAnnotationImportResponseTypeDef:
         """
-        Starts an annotation import job.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/start_annotation_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#start_annotation_import_job)
@@ -1088,7 +1124,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[StartReadSetActivationJobRequestTypeDef]
     ) -> StartReadSetActivationJobResponseTypeDef:
         """
-        Activates an archived read set.
+        Activates an archived read set and returns its metadata in a JSON formatted
+        output.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/start_read_set_activation_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#start_read_set_activation_job)
@@ -1098,7 +1135,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[StartReadSetExportJobRequestTypeDef]
     ) -> StartReadSetExportJobResponseTypeDef:
         """
-        Exports a read set to Amazon S3.
+        Starts a read set export job.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/start_read_set_export_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#start_read_set_export_job)
@@ -1108,7 +1145,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[StartReadSetImportJobRequestTypeDef]
     ) -> StartReadSetImportJobResponseTypeDef:
         """
-        Starts a read set import job.
+        Imports a read set from the sequence store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/start_read_set_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#start_read_set_import_job)
@@ -1118,7 +1155,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[StartReferenceImportJobRequestTypeDef]
     ) -> StartReferenceImportJobResponseTypeDef:
         """
-        Starts a reference import job.
+        Imports a reference genome from Amazon S3 into a specified reference store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/start_reference_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#start_reference_import_job)
@@ -1126,7 +1163,8 @@ class OmicsClient(BaseClient):
 
     def start_run(self, **kwargs: Unpack[StartRunRequestTypeDef]) -> StartRunResponseTypeDef:
         """
-        Starts a new run or duplicates an existing run.
+        Starts a new run and returns details about the run, or duplicates an existing
+        run.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/start_run.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#start_run)
@@ -1136,7 +1174,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[StartVariantImportRequestTypeDef]
     ) -> StartVariantImportResponseTypeDef:
         """
-        Starts a variant import job.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/start_variant_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#start_variant_import_job)
@@ -1162,7 +1201,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[UpdateAnnotationStoreRequestTypeDef]
     ) -> UpdateAnnotationStoreResponseTypeDef:
         """
-        Updates an annotation store.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/update_annotation_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#update_annotation_store)
@@ -1182,7 +1222,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[UpdateRunCacheRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Update a run cache.
+        Updates a run cache using its ID and returns a response with no body if the
+        operation is successful.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/update_run_cache.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#update_run_cache)
@@ -1192,7 +1233,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[UpdateRunGroupRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Updates a run group.
+        Updates the settings of a run group and returns a response with no body if the
+        operation is successful.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/update_run_group.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#update_run_group)
@@ -1212,7 +1254,8 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[UpdateVariantStoreRequestTypeDef]
     ) -> UpdateVariantStoreResponseTypeDef:
         """
-        Updates a variant store.
+        <important> <p>Amazon Web Services HealthOmics variant stores and annotation
+        stores will no longer be open to new customers starting November 7, 2025.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/update_variant_store.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#update_variant_store)
@@ -1242,7 +1285,7 @@ class OmicsClient(BaseClient):
         self, **kwargs: Unpack[UploadReadSetPartRequestTypeDef]
     ) -> UploadReadSetPartResponseTypeDef:
         """
-        This operation uploads a specific part of a read set.
+        Uploads a specific part of a read set into a sequence store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/omics/client/upload_read_set_part.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/client/#upload_read_set_part)

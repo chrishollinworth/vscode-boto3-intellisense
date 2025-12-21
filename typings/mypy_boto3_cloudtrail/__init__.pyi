@@ -14,6 +14,7 @@ Usage::
         CloudTrailClient,
         ListImportFailuresPaginator,
         ListImportsPaginator,
+        ListInsightsDataPaginator,
         ListPublicKeysPaginator,
         ListTagsPaginator,
         ListTrailsPaginator,
@@ -25,6 +26,7 @@ Usage::
 
     list_import_failures_paginator: ListImportFailuresPaginator = client.get_paginator("list_import_failures")
     list_imports_paginator: ListImportsPaginator = client.get_paginator("list_imports")
+    list_insights_data_paginator: ListInsightsDataPaginator = client.get_paginator("list_insights_data")
     list_public_keys_paginator: ListPublicKeysPaginator = client.get_paginator("list_public_keys")
     list_tags_paginator: ListTagsPaginator = client.get_paginator("list_tags")
     list_trails_paginator: ListTrailsPaginator = client.get_paginator("list_trails")
@@ -36,6 +38,7 @@ from .client import CloudTrailClient
 from .paginator import (
     ListImportFailuresPaginator,
     ListImportsPaginator,
+    ListInsightsDataPaginator,
     ListPublicKeysPaginator,
     ListTagsPaginator,
     ListTrailsPaginator,
@@ -49,6 +52,7 @@ __all__ = (
     "CloudTrailClient",
     "ListImportFailuresPaginator",
     "ListImportsPaginator",
+    "ListInsightsDataPaginator",
     "ListPublicKeysPaginator",
     "ListTagsPaginator",
     "ListTrailsPaginator",

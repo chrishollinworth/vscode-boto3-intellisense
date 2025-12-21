@@ -26,6 +26,7 @@ from .literals import (
     ChannelRoleType,
     ChannelTypeType,
     ConfigurationStatusType,
+    DefaultStorageTierType,
     FormatType,
     ImageSelectorTypeType,
     MediaStorageConfigurationStatusType,
@@ -75,6 +76,8 @@ __all__ = (
     "DescribeSignalingChannelOutputTypeDef",
     "DescribeStreamInputTypeDef",
     "DescribeStreamOutputTypeDef",
+    "DescribeStreamStorageConfigurationInputTypeDef",
+    "DescribeStreamStorageConfigurationOutputTypeDef",
     "EdgeAgentStatusTypeDef",
     "EdgeConfigTypeDef",
     "GetDataEndpointInputTypeDef",
@@ -118,6 +121,7 @@ __all__ = (
     "StartEdgeConfigurationUpdateOutputTypeDef",
     "StreamInfoTypeDef",
     "StreamNameConditionTypeDef",
+    "StreamStorageConfigurationTypeDef",
     "TagResourceInputTypeDef",
     "TagStreamInputTypeDef",
     "TagTypeDef",
@@ -129,6 +133,7 @@ __all__ = (
     "UpdateNotificationConfigurationInputTypeDef",
     "UpdateSignalingChannelInputTypeDef",
     "UpdateStreamInputTypeDef",
+    "UpdateStreamStorageConfigurationInputTypeDef",
     "UploaderConfigTypeDef",
 )
 
@@ -150,13 +155,8 @@ class ResponseMetadataTypeDef(TypedDict):
     RetryAttempts: int
     HostId: NotRequired[str]
 
-class CreateStreamInputTypeDef(TypedDict):
-    StreamName: str
-    DeviceName: NotRequired[str]
-    MediaType: NotRequired[str]
-    KmsKeyId: NotRequired[str]
-    DataRetentionInHours: NotRequired[int]
-    Tags: NotRequired[Mapping[str, str]]
+class StreamStorageConfigurationTypeDef(TypedDict):
+    DefaultStorageTier: DefaultStorageTierType
 
 class DeleteEdgeConfigurationInputTypeDef(TypedDict):
     StreamName: NotRequired[str]
@@ -231,6 +231,10 @@ class StreamInfoTypeDef(TypedDict):
     Status: NotRequired[StatusType]
     CreationTime: NotRequired[datetime]
     DataRetentionInHours: NotRequired[int]
+
+class DescribeStreamStorageConfigurationInputTypeDef(TypedDict):
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]
 
 class LastRecorderStatusTypeDef(TypedDict):
     JobStatusDetails: NotRequired[str]
@@ -372,6 +376,27 @@ class ListTagsForStreamOutputTypeDef(TypedDict):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
+
+class CreateStreamInputTypeDef(TypedDict):
+    StreamName: str
+    DeviceName: NotRequired[str]
+    MediaType: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    DataRetentionInHours: NotRequired[int]
+    Tags: NotRequired[Mapping[str, str]]
+    StreamStorageConfiguration: NotRequired[StreamStorageConfigurationTypeDef]
+
+class DescribeStreamStorageConfigurationOutputTypeDef(TypedDict):
+    StreamName: str
+    StreamARN: str
+    StreamStorageConfiguration: StreamStorageConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateStreamStorageConfigurationInputTypeDef(TypedDict):
+    CurrentVersion: str
+    StreamStorageConfiguration: StreamStorageConfigurationTypeDef
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]
 
 class DeletionConfigTypeDef(TypedDict):
     EdgeRetentionInHours: NotRequired[int]

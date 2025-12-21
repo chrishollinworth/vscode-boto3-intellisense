@@ -25,9 +25,13 @@ Usage::
         DescribeResourcePoliciesPaginator,
         DescribeSubscriptionFiltersPaginator,
         FilterLogEventsPaginator,
+        GetScheduledQueryHistoryPaginator,
+        ListAggregateLogGroupSummariesPaginator,
         ListAnomaliesPaginator,
         ListLogAnomalyDetectorsPaginator,
         ListLogGroupsForQueryPaginator,
+        ListScheduledQueriesPaginator,
+        ListSourcesForS3TableIntegrationPaginator,
     )
 
     session = Session()
@@ -46,9 +50,13 @@ Usage::
     describe_resource_policies_paginator: DescribeResourcePoliciesPaginator = client.get_paginator("describe_resource_policies")
     describe_subscription_filters_paginator: DescribeSubscriptionFiltersPaginator = client.get_paginator("describe_subscription_filters")
     filter_log_events_paginator: FilterLogEventsPaginator = client.get_paginator("filter_log_events")
+    get_scheduled_query_history_paginator: GetScheduledQueryHistoryPaginator = client.get_paginator("get_scheduled_query_history")
+    list_aggregate_log_group_summaries_paginator: ListAggregateLogGroupSummariesPaginator = client.get_paginator("list_aggregate_log_group_summaries")
     list_anomalies_paginator: ListAnomaliesPaginator = client.get_paginator("list_anomalies")
     list_log_anomaly_detectors_paginator: ListLogAnomalyDetectorsPaginator = client.get_paginator("list_log_anomaly_detectors")
     list_log_groups_for_query_paginator: ListLogGroupsForQueryPaginator = client.get_paginator("list_log_groups_for_query")
+    list_scheduled_queries_paginator: ListScheduledQueriesPaginator = client.get_paginator("list_scheduled_queries")
+    list_sources_for_s3_table_integration_paginator: ListSourcesForS3TableIntegrationPaginator = client.get_paginator("list_sources_for_s3_table_integration")
     ```
 """
 
@@ -86,12 +94,20 @@ from .type_defs import (
     DescribeSubscriptionFiltersResponseTypeDef,
     FilterLogEventsRequestPaginateTypeDef,
     FilterLogEventsResponseTypeDef,
+    GetScheduledQueryHistoryRequestPaginateTypeDef,
+    GetScheduledQueryHistoryResponseTypeDef,
+    ListAggregateLogGroupSummariesRequestPaginateTypeDef,
+    ListAggregateLogGroupSummariesResponseTypeDef,
     ListAnomaliesRequestPaginateTypeDef,
     ListAnomaliesResponseTypeDef,
     ListLogAnomalyDetectorsRequestPaginateTypeDef,
     ListLogAnomalyDetectorsResponseTypeDef,
     ListLogGroupsForQueryRequestPaginateTypeDef,
     ListLogGroupsForQueryResponseTypeDef,
+    ListScheduledQueriesRequestPaginateTypeDef,
+    ListScheduledQueriesResponseTypeDef,
+    ListSourcesForS3TableIntegrationRequestPaginateTypeDef,
+    ListSourcesForS3TableIntegrationResponseTypeDef,
 )
 
 if sys.version_info >= (3, 12):
@@ -113,9 +129,13 @@ __all__ = (
     "DescribeResourcePoliciesPaginator",
     "DescribeSubscriptionFiltersPaginator",
     "FilterLogEventsPaginator",
+    "GetScheduledQueryHistoryPaginator",
+    "ListAggregateLogGroupSummariesPaginator",
     "ListAnomaliesPaginator",
     "ListLogAnomalyDetectorsPaginator",
     "ListLogGroupsForQueryPaginator",
+    "ListScheduledQueriesPaginator",
+    "ListSourcesForS3TableIntegrationPaginator",
 )
 
 if TYPE_CHECKING:
@@ -359,6 +379,44 @@ class FilterLogEventsPaginator(_FilterLogEventsPaginatorBase):
         """
 
 if TYPE_CHECKING:
+    _GetScheduledQueryHistoryPaginatorBase = Paginator[GetScheduledQueryHistoryResponseTypeDef]
+else:
+    _GetScheduledQueryHistoryPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetScheduledQueryHistoryPaginator(_GetScheduledQueryHistoryPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs/paginator/GetScheduledQueryHistory.html#CloudWatchLogs.Paginator.GetScheduledQueryHistory)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators/#getscheduledqueryhistorypaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetScheduledQueryHistoryRequestPaginateTypeDef]
+    ) -> PageIterator[GetScheduledQueryHistoryResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs/paginator/GetScheduledQueryHistory.html#CloudWatchLogs.Paginator.GetScheduledQueryHistory.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators/#getscheduledqueryhistorypaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListAggregateLogGroupSummariesPaginatorBase = Paginator[
+        ListAggregateLogGroupSummariesResponseTypeDef
+    ]
+else:
+    _ListAggregateLogGroupSummariesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAggregateLogGroupSummariesPaginator(_ListAggregateLogGroupSummariesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs/paginator/ListAggregateLogGroupSummaries.html#CloudWatchLogs.Paginator.ListAggregateLogGroupSummaries)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators/#listaggregateloggroupsummariespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAggregateLogGroupSummariesRequestPaginateTypeDef]
+    ) -> PageIterator[ListAggregateLogGroupSummariesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs/paginator/ListAggregateLogGroupSummaries.html#CloudWatchLogs.Paginator.ListAggregateLogGroupSummaries.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators/#listaggregateloggroupsummariespaginator)
+        """
+
+if TYPE_CHECKING:
     _ListAnomaliesPaginatorBase = Paginator[ListAnomaliesResponseTypeDef]
 else:
     _ListAnomaliesPaginatorBase = Paginator  # type: ignore[assignment]
@@ -410,4 +468,42 @@ class ListLogGroupsForQueryPaginator(_ListLogGroupsForQueryPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs/paginator/ListLogGroupsForQuery.html#CloudWatchLogs.Paginator.ListLogGroupsForQuery.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators/#listloggroupsforquerypaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListScheduledQueriesPaginatorBase = Paginator[ListScheduledQueriesResponseTypeDef]
+else:
+    _ListScheduledQueriesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListScheduledQueriesPaginator(_ListScheduledQueriesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs/paginator/ListScheduledQueries.html#CloudWatchLogs.Paginator.ListScheduledQueries)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators/#listscheduledqueriespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListScheduledQueriesRequestPaginateTypeDef]
+    ) -> PageIterator[ListScheduledQueriesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs/paginator/ListScheduledQueries.html#CloudWatchLogs.Paginator.ListScheduledQueries.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators/#listscheduledqueriespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSourcesForS3TableIntegrationPaginatorBase = Paginator[
+        ListSourcesForS3TableIntegrationResponseTypeDef
+    ]
+else:
+    _ListSourcesForS3TableIntegrationPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSourcesForS3TableIntegrationPaginator(_ListSourcesForS3TableIntegrationPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs/paginator/ListSourcesForS3TableIntegration.html#CloudWatchLogs.Paginator.ListSourcesForS3TableIntegration)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators/#listsourcesfors3tableintegrationpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSourcesForS3TableIntegrationRequestPaginateTypeDef]
+    ) -> PageIterator[ListSourcesForS3TableIntegrationResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs/paginator/ListSourcesForS3TableIntegration.html#CloudWatchLogs.Paginator.ListSourcesForS3TableIntegration.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators/#listsourcesfors3tableintegrationpaginator)
         """

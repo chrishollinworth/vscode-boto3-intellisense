@@ -26,6 +26,7 @@ from .literals import (
     ImportModeType,
     IngestionModeType,
     ObjectiveSensitivityType,
+    RankingInfluenceTypeType,
     TrainingModeType,
     TrainingTypeType,
 )
@@ -304,9 +305,11 @@ class AutoTrainingConfigTypeDef(TypedDict):
 
 class BatchInferenceJobConfigOutputTypeDef(TypedDict):
     itemExplorationConfig: NotRequired[Dict[str, str]]
+    rankingInfluence: NotRequired[Dict[RankingInfluenceTypeType, float]]
 
 class BatchInferenceJobConfigTypeDef(TypedDict):
     itemExplorationConfig: NotRequired[Mapping[str, str]]
+    rankingInfluence: NotRequired[Mapping[RankingInfluenceTypeType, float]]
 
 class S3DataConfigTypeDef(TypedDict):
     path: str
@@ -335,11 +338,13 @@ class CampaignConfigOutputTypeDef(TypedDict):
     itemExplorationConfig: NotRequired[Dict[str, str]]
     enableMetadataWithRecommendations: NotRequired[bool]
     syncWithLatestSolutionVersion: NotRequired[bool]
+    rankingInfluence: NotRequired[Dict[RankingInfluenceTypeType, float]]
 
 class CampaignConfigTypeDef(TypedDict):
     itemExplorationConfig: NotRequired[Mapping[str, str]]
     enableMetadataWithRecommendations: NotRequired[bool]
     syncWithLatestSolutionVersion: NotRequired[bool]
+    rankingInfluence: NotRequired[Mapping[RankingInfluenceTypeType, float]]
 
 class CampaignSummaryTypeDef(TypedDict):
     name: NotRequired[str]
@@ -775,9 +780,11 @@ class OptimizationObjectiveTypeDef(TypedDict):
 
 class TrainingDataConfigOutputTypeDef(TypedDict):
     excludedDatasetColumns: NotRequired[Dict[str, List[str]]]
+    includedDatasetColumns: NotRequired[Dict[str, List[str]]]
 
 class TrainingDataConfigTypeDef(TypedDict):
     excludedDatasetColumns: NotRequired[Mapping[str, Sequence[str]]]
+    includedDatasetColumns: NotRequired[Mapping[str, Sequence[str]]]
 
 class TunedHPOParamsTypeDef(TypedDict):
     algorithmHyperParameters: NotRequired[Dict[str, str]]
@@ -996,7 +1003,7 @@ class CreateDatasetImportJobRequestTypeDef(TypedDict):
     jobName: str
     datasetArn: str
     dataSource: DataSourceTypeDef
-    roleArn: str
+    roleArn: NotRequired[str]
     tags: NotRequired[Sequence[TagTypeDef]]
     importMode: NotRequired[ImportModeType]
     publishAttributionMetricsToS3: NotRequired[bool]
@@ -1436,6 +1443,7 @@ class SolutionUpdateSummaryTypeDef(TypedDict):
     solutionUpdateConfig: NotRequired[SolutionUpdateConfigOutputTypeDef]
     status: NotRequired[str]
     performAutoTraining: NotRequired[bool]
+    performIncrementalUpdate: NotRequired[bool]
     creationDateTime: NotRequired[datetime]
     lastUpdatedDateTime: NotRequired[datetime]
     failureReason: NotRequired[str]
@@ -1502,6 +1510,7 @@ class UpdateRecommenderRequestTypeDef(TypedDict):
 class UpdateSolutionRequestTypeDef(TypedDict):
     solutionArn: str
     performAutoTraining: NotRequired[bool]
+    performIncrementalUpdate: NotRequired[bool]
     solutionUpdateConfig: NotRequired[SolutionUpdateConfigUnionTypeDef]
 
 class SolutionTypeDef(TypedDict):
@@ -1510,6 +1519,7 @@ class SolutionTypeDef(TypedDict):
     performHPO: NotRequired[bool]
     performAutoML: NotRequired[bool]
     performAutoTraining: NotRequired[bool]
+    performIncrementalUpdate: NotRequired[bool]
     recipeArn: NotRequired[str]
     datasetGroupArn: NotRequired[str]
     eventType: NotRequired[str]
@@ -1527,6 +1537,7 @@ class SolutionVersionTypeDef(TypedDict):
     solutionArn: NotRequired[str]
     performHPO: NotRequired[bool]
     performAutoML: NotRequired[bool]
+    performIncrementalUpdate: NotRequired[bool]
     recipeArn: NotRequired[str]
     eventType: NotRequired[str]
     datasetGroupArn: NotRequired[str]
@@ -1560,6 +1571,7 @@ class CreateSolutionRequestTypeDef(TypedDict):
     performHPO: NotRequired[bool]
     performAutoML: NotRequired[bool]
     performAutoTraining: NotRequired[bool]
+    performIncrementalUpdate: NotRequired[bool]
     recipeArn: NotRequired[str]
     eventType: NotRequired[str]
     solutionConfig: NotRequired[SolutionConfigUnionTypeDef]

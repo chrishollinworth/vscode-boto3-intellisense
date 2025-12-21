@@ -14,6 +14,7 @@ Usage::
     from mypy_boto3_cloudtrail.paginator import (
         ListImportFailuresPaginator,
         ListImportsPaginator,
+        ListInsightsDataPaginator,
         ListPublicKeysPaginator,
         ListTagsPaginator,
         ListTrailsPaginator,
@@ -25,6 +26,7 @@ Usage::
 
     list_import_failures_paginator: ListImportFailuresPaginator = client.get_paginator("list_import_failures")
     list_imports_paginator: ListImportsPaginator = client.get_paginator("list_imports")
+    list_insights_data_paginator: ListInsightsDataPaginator = client.get_paginator("list_insights_data")
     list_public_keys_paginator: ListPublicKeysPaginator = client.get_paginator("list_public_keys")
     list_tags_paginator: ListTagsPaginator = client.get_paginator("list_tags")
     list_trails_paginator: ListTrailsPaginator = client.get_paginator("list_trails")
@@ -44,6 +46,8 @@ from .type_defs import (
     ListImportFailuresResponseTypeDef,
     ListImportsRequestPaginateTypeDef,
     ListImportsResponseTypeDef,
+    ListInsightsDataRequestPaginateTypeDef,
+    ListInsightsDataResponseTypeDef,
     ListPublicKeysRequestPaginateTypeDef,
     ListPublicKeysResponseTypeDef,
     ListTagsRequestPaginateTypeDef,
@@ -62,6 +66,7 @@ else:
 __all__ = (
     "ListImportFailuresPaginator",
     "ListImportsPaginator",
+    "ListInsightsDataPaginator",
     "ListPublicKeysPaginator",
     "ListTagsPaginator",
     "ListTrailsPaginator",
@@ -102,6 +107,24 @@ class ListImportsPaginator(_ListImportsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListImports.html#CloudTrail.Paginator.ListImports.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listimportspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListInsightsDataPaginatorBase = Paginator[ListInsightsDataResponseTypeDef]
+else:
+    _ListInsightsDataPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListInsightsDataPaginator(_ListInsightsDataPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListInsightsData.html#CloudTrail.Paginator.ListInsightsData)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listinsightsdatapaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListInsightsDataRequestPaginateTypeDef]
+    ) -> PageIterator[ListInsightsDataResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListInsightsData.html#CloudTrail.Paginator.ListInsightsData.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listinsightsdatapaginator)
         """
 
 if TYPE_CHECKING:

@@ -30,6 +30,7 @@ from .literals import (
     BatchUpdateBillScenarioUsageModificationErrorCodeType,
     BillEstimateStatusType,
     BillScenarioStatusType,
+    GroupSharingPreferenceEnumType,
     ListBillEstimateLineItemsFilterNameType,
     ListBillEstimatesFilterNameType,
     ListBillScenariosFilterNameType,
@@ -351,6 +352,8 @@ class CreateBillScenarioRequestTypeDef(TypedDict):
     name: str
     clientToken: NotRequired[str]
     tags: NotRequired[Mapping[str, str]]
+    groupSharingPreference: NotRequired[GroupSharingPreferenceEnumType]
+    costCategoryGroupSharingPreferenceArn: NotRequired[str]
 
 class CreateWorkloadEstimateRequestTypeDef(TypedDict):
     name: str
@@ -610,6 +613,8 @@ BillScenarioSummaryTypeDef = TypedDict(
         "createdAt": NotRequired[datetime],
         "expiresAt": NotRequired[datetime],
         "failureMessage": NotRequired[str],
+        "groupSharingPreference": NotRequired[GroupSharingPreferenceEnumType],
+        "costCategoryGroupSharingPreferenceArn": NotRequired[str],
     },
 )
 CreateBillScenarioResponseTypeDef = TypedDict(
@@ -622,6 +627,8 @@ CreateBillScenarioResponseTypeDef = TypedDict(
         "createdAt": datetime,
         "expiresAt": datetime,
         "failureMessage": str,
+        "groupSharingPreference": GroupSharingPreferenceEnumType,
+        "costCategoryGroupSharingPreferenceArn": str,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -635,6 +642,8 @@ GetBillScenarioResponseTypeDef = TypedDict(
         "createdAt": datetime,
         "expiresAt": datetime,
         "failureMessage": str,
+        "groupSharingPreference": GroupSharingPreferenceEnumType,
+        "costCategoryGroupSharingPreferenceArn": str,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -648,6 +657,8 @@ UpdateBillScenarioResponseTypeDef = TypedDict(
         "createdAt": datetime,
         "expiresAt": datetime,
         "failureMessage": str,
+        "groupSharingPreference": GroupSharingPreferenceEnumType,
+        "costCategoryGroupSharingPreferenceArn": str,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -669,6 +680,8 @@ class UpdateBillScenarioRequestTypeDef(TypedDict):
     identifier: str
     name: NotRequired[str]
     expiresAt: NotRequired[TimestampTypeDef]
+    groupSharingPreference: NotRequired[GroupSharingPreferenceEnumType]
+    costCategoryGroupSharingPreferenceArn: NotRequired[str]
 
 class UpdateWorkloadEstimateRequestTypeDef(TypedDict):
     identifier: str
@@ -919,6 +932,9 @@ CreateBillEstimateResponseTypeDef = TypedDict(
         "costSummary": BillEstimateCostSummaryTypeDef,
         "createdAt": datetime,
         "expiresAt": datetime,
+        "groupSharingPreference": GroupSharingPreferenceEnumType,
+        "costCategoryGroupSharingPreferenceArn": str,
+        "costCategoryGroupSharingPreferenceEffectiveDate": datetime,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -933,6 +949,9 @@ GetBillEstimateResponseTypeDef = TypedDict(
         "costSummary": BillEstimateCostSummaryTypeDef,
         "createdAt": datetime,
         "expiresAt": datetime,
+        "groupSharingPreference": GroupSharingPreferenceEnumType,
+        "costCategoryGroupSharingPreferenceArn": str,
+        "costCategoryGroupSharingPreferenceEffectiveDate": datetime,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -947,6 +966,9 @@ UpdateBillEstimateResponseTypeDef = TypedDict(
         "costSummary": BillEstimateCostSummaryTypeDef,
         "createdAt": datetime,
         "expiresAt": datetime,
+        "groupSharingPreference": GroupSharingPreferenceEnumType,
+        "costCategoryGroupSharingPreferenceArn": str,
+        "costCategoryGroupSharingPreferenceEffectiveDate": datetime,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )

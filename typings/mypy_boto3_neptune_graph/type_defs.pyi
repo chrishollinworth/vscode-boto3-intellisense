@@ -86,6 +86,7 @@ __all__ = (
     "GetExportTaskInputWaitTypeDef",
     "GetExportTaskOutputTypeDef",
     "GetGraphInputTypeDef",
+    "GetGraphInputWaitExtraExtraTypeDef",
     "GetGraphInputWaitExtraTypeDef",
     "GetGraphInputWaitTypeDef",
     "GetGraphOutputTypeDef",
@@ -142,8 +143,12 @@ __all__ = (
     "RestoreGraphFromSnapshotOutputTypeDef",
     "StartExportTaskInputTypeDef",
     "StartExportTaskOutputTypeDef",
+    "StartGraphInputTypeDef",
+    "StartGraphOutputTypeDef",
     "StartImportTaskInputTypeDef",
     "StartImportTaskOutputTypeDef",
+    "StopGraphInputTypeDef",
+    "StopGraphOutputTypeDef",
     "TagResourceInputTypeDef",
     "UntagResourceInputTypeDef",
     "UpdateGraphInputTypeDef",
@@ -390,6 +395,12 @@ class RestoreGraphFromSnapshotInputTypeDef(TypedDict):
     replicaCount: NotRequired[int]
     publicConnectivity: NotRequired[bool]
 
+class StartGraphInputTypeDef(TypedDict):
+    graphIdentifier: str
+
+class StopGraphInputTypeDef(TypedDict):
+    graphIdentifier: str
+
 class TagResourceInputTypeDef(TypedDict):
     resourceArn: str
     tags: Mapping[str, str]
@@ -633,6 +644,48 @@ RestoreGraphFromSnapshotOutputTypeDef = TypedDict(
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
+StartGraphOutputTypeDef = TypedDict(
+    "StartGraphOutputTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "status": GraphStatusType,
+        "statusReason": str,
+        "createTime": datetime,
+        "provisionedMemory": int,
+        "endpoint": str,
+        "publicConnectivity": bool,
+        "vectorSearchConfiguration": VectorSearchConfigurationTypeDef,
+        "replicaCount": int,
+        "kmsKeyIdentifier": str,
+        "sourceSnapshotId": str,
+        "deletionProtection": bool,
+        "buildNumber": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+StopGraphOutputTypeDef = TypedDict(
+    "StopGraphOutputTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "status": GraphStatusType,
+        "statusReason": str,
+        "createTime": datetime,
+        "provisionedMemory": int,
+        "endpoint": str,
+        "publicConnectivity": bool,
+        "vectorSearchConfiguration": VectorSearchConfigurationTypeDef,
+        "replicaCount": int,
+        "kmsKeyIdentifier": str,
+        "sourceSnapshotId": str,
+        "deletionProtection": bool,
+        "buildNumber": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
 UpdateGraphOutputTypeDef = TypedDict(
     "UpdateGraphOutputTypeDef",
     {
@@ -672,6 +725,10 @@ class GetExportTaskInputWaitExtraTypeDef(TypedDict):
 
 class GetExportTaskInputWaitTypeDef(TypedDict):
     taskIdentifier: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetGraphInputWaitExtraExtraTypeDef(TypedDict):
+    graphIdentifier: str
     WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
 class GetGraphInputWaitExtraTypeDef(TypedDict):

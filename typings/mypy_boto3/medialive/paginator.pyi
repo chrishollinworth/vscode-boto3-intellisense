@@ -13,10 +13,12 @@ Usage::
     from mypy_boto3_medialive.client import MediaLiveClient
     from mypy_boto3_medialive.paginator import (
         DescribeSchedulePaginator,
+        ListAlertsPaginator,
         ListChannelPlacementGroupsPaginator,
         ListChannelsPaginator,
         ListCloudWatchAlarmTemplateGroupsPaginator,
         ListCloudWatchAlarmTemplatesPaginator,
+        ListClusterAlertsPaginator,
         ListClustersPaginator,
         ListEventBridgeRuleTemplateGroupsPaginator,
         ListEventBridgeRuleTemplatesPaginator,
@@ -24,6 +26,7 @@ Usage::
         ListInputDevicesPaginator,
         ListInputSecurityGroupsPaginator,
         ListInputsPaginator,
+        ListMultiplexAlertsPaginator,
         ListMultiplexProgramsPaginator,
         ListMultiplexesPaginator,
         ListNetworksPaginator,
@@ -38,10 +41,12 @@ Usage::
     client: MediaLiveClient = session.client("medialive")
 
     describe_schedule_paginator: DescribeSchedulePaginator = client.get_paginator("describe_schedule")
+    list_alerts_paginator: ListAlertsPaginator = client.get_paginator("list_alerts")
     list_channel_placement_groups_paginator: ListChannelPlacementGroupsPaginator = client.get_paginator("list_channel_placement_groups")
     list_channels_paginator: ListChannelsPaginator = client.get_paginator("list_channels")
     list_cloud_watch_alarm_template_groups_paginator: ListCloudWatchAlarmTemplateGroupsPaginator = client.get_paginator("list_cloud_watch_alarm_template_groups")
     list_cloud_watch_alarm_templates_paginator: ListCloudWatchAlarmTemplatesPaginator = client.get_paginator("list_cloud_watch_alarm_templates")
+    list_cluster_alerts_paginator: ListClusterAlertsPaginator = client.get_paginator("list_cluster_alerts")
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
     list_event_bridge_rule_template_groups_paginator: ListEventBridgeRuleTemplateGroupsPaginator = client.get_paginator("list_event_bridge_rule_template_groups")
     list_event_bridge_rule_templates_paginator: ListEventBridgeRuleTemplatesPaginator = client.get_paginator("list_event_bridge_rule_templates")
@@ -49,6 +54,7 @@ Usage::
     list_input_devices_paginator: ListInputDevicesPaginator = client.get_paginator("list_input_devices")
     list_input_security_groups_paginator: ListInputSecurityGroupsPaginator = client.get_paginator("list_input_security_groups")
     list_inputs_paginator: ListInputsPaginator = client.get_paginator("list_inputs")
+    list_multiplex_alerts_paginator: ListMultiplexAlertsPaginator = client.get_paginator("list_multiplex_alerts")
     list_multiplex_programs_paginator: ListMultiplexProgramsPaginator = client.get_paginator("list_multiplex_programs")
     list_multiplexes_paginator: ListMultiplexesPaginator = client.get_paginator("list_multiplexes")
     list_networks_paginator: ListNetworksPaginator = client.get_paginator("list_networks")
@@ -70,6 +76,8 @@ from botocore.paginate import PageIterator, Paginator
 from .type_defs import (
     DescribeScheduleRequestPaginateTypeDef,
     DescribeScheduleResponseTypeDef,
+    ListAlertsRequestPaginateTypeDef,
+    ListAlertsResponseTypeDef,
     ListChannelPlacementGroupsRequestPaginateTypeDef,
     ListChannelPlacementGroupsResponseTypeDef,
     ListChannelsRequestPaginateTypeDef,
@@ -78,6 +86,8 @@ from .type_defs import (
     ListCloudWatchAlarmTemplateGroupsResponseTypeDef,
     ListCloudWatchAlarmTemplatesRequestPaginateTypeDef,
     ListCloudWatchAlarmTemplatesResponseTypeDef,
+    ListClusterAlertsRequestPaginateTypeDef,
+    ListClusterAlertsResponseTypeDef,
     ListClustersRequestPaginateTypeDef,
     ListClustersResponseTypeDef,
     ListEventBridgeRuleTemplateGroupsRequestPaginateTypeDef,
@@ -92,6 +102,8 @@ from .type_defs import (
     ListInputSecurityGroupsResponseTypeDef,
     ListInputsRequestPaginateTypeDef,
     ListInputsResponseTypeDef,
+    ListMultiplexAlertsRequestPaginateTypeDef,
+    ListMultiplexAlertsResponseTypeDef,
     ListMultiplexesRequestPaginateTypeDef,
     ListMultiplexesResponseTypeDef,
     ListMultiplexProgramsRequestPaginateTypeDef,
@@ -117,10 +129,12 @@ else:
 
 __all__ = (
     "DescribeSchedulePaginator",
+    "ListAlertsPaginator",
     "ListChannelPlacementGroupsPaginator",
     "ListChannelsPaginator",
     "ListCloudWatchAlarmTemplateGroupsPaginator",
     "ListCloudWatchAlarmTemplatesPaginator",
+    "ListClusterAlertsPaginator",
     "ListClustersPaginator",
     "ListEventBridgeRuleTemplateGroupsPaginator",
     "ListEventBridgeRuleTemplatesPaginator",
@@ -128,6 +142,7 @@ __all__ = (
     "ListInputDevicesPaginator",
     "ListInputSecurityGroupsPaginator",
     "ListInputsPaginator",
+    "ListMultiplexAlertsPaginator",
     "ListMultiplexProgramsPaginator",
     "ListMultiplexesPaginator",
     "ListNetworksPaginator",
@@ -154,6 +169,24 @@ class DescribeSchedulePaginator(_DescribeSchedulePaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/paginator/DescribeSchedule.html#MediaLive.Paginator.DescribeSchedule.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators/#describeschedulepaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListAlertsPaginatorBase = Paginator[ListAlertsResponseTypeDef]
+else:
+    _ListAlertsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAlertsPaginator(_ListAlertsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/paginator/ListAlerts.html#MediaLive.Paginator.ListAlerts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators/#listalertspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAlertsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAlertsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/paginator/ListAlerts.html#MediaLive.Paginator.ListAlerts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators/#listalertspaginator)
         """
 
 if TYPE_CHECKING:
@@ -230,6 +263,24 @@ class ListCloudWatchAlarmTemplatesPaginator(_ListCloudWatchAlarmTemplatesPaginat
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/paginator/ListCloudWatchAlarmTemplates.html#MediaLive.Paginator.ListCloudWatchAlarmTemplates.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators/#listcloudwatchalarmtemplatespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListClusterAlertsPaginatorBase = Paginator[ListClusterAlertsResponseTypeDef]
+else:
+    _ListClusterAlertsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListClusterAlertsPaginator(_ListClusterAlertsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/paginator/ListClusterAlerts.html#MediaLive.Paginator.ListClusterAlerts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators/#listclusteralertspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListClusterAlertsRequestPaginateTypeDef]
+    ) -> PageIterator[ListClusterAlertsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/paginator/ListClusterAlerts.html#MediaLive.Paginator.ListClusterAlerts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators/#listclusteralertspaginator)
         """
 
 if TYPE_CHECKING:
@@ -360,6 +411,24 @@ class ListInputsPaginator(_ListInputsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/paginator/ListInputs.html#MediaLive.Paginator.ListInputs.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators/#listinputspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListMultiplexAlertsPaginatorBase = Paginator[ListMultiplexAlertsResponseTypeDef]
+else:
+    _ListMultiplexAlertsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListMultiplexAlertsPaginator(_ListMultiplexAlertsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/paginator/ListMultiplexAlerts.html#MediaLive.Paginator.ListMultiplexAlerts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators/#listmultiplexalertspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMultiplexAlertsRequestPaginateTypeDef]
+    ) -> PageIterator[ListMultiplexAlertsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/paginator/ListMultiplexAlerts.html#MediaLive.Paginator.ListMultiplexAlerts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators/#listmultiplexalertspaginator)
         """
 
 if TYPE_CHECKING:

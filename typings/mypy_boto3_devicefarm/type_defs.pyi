@@ -106,6 +106,7 @@ __all__ = (
     "DeviceSelectionConfigurationTypeDef",
     "DeviceSelectionResultTypeDef",
     "DeviceTypeDef",
+    "EnvironmentVariableTypeDef",
     "ExecutionConfigurationTypeDef",
     "GetAccountSettingsResultTypeDef",
     "GetDeviceInstanceRequestTypeDef",
@@ -230,6 +231,7 @@ __all__ = (
     "PurchaseOfferingResultTypeDef",
     "RadiosTypeDef",
     "RecurringChargeTypeDef",
+    "RemoteAccessEndpointsTypeDef",
     "RemoteAccessSessionTypeDef",
     "RenewOfferingRequestTypeDef",
     "RenewOfferingResultTypeDef",
@@ -380,6 +382,10 @@ NetworkProfileTypeDef = TypedDict(
         "downlinkLossPercent": NotRequired[int],
     },
 )
+
+class EnvironmentVariableTypeDef(TypedDict):
+    name: str
+    value: str
 
 class DeviceProxyTypeDef(TypedDict):
     host: str
@@ -759,6 +765,10 @@ class RadiosTypeDef(TypedDict):
     nfc: NotRequired[bool]
     gps: NotRequired[bool]
 
+class RemoteAccessEndpointsTypeDef(TypedDict):
+    remoteDriverEndpoint: NotRequired[str]
+    interactiveEndpoint: NotRequired[str]
+
 class RenewOfferingRequestTypeDef(TypedDict):
     offeringId: str
     quantity: int
@@ -925,6 +935,7 @@ class UpdateNetworkProfileResultTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateRemoteAccessSessionConfigurationTypeDef(TypedDict):
+    auxiliaryApps: NotRequired[Sequence[str]]
     billingMethod: NotRequired[BillingMethodType]
     vpceConfigurationArns: NotRequired[Sequence[str]]
     deviceProxy: NotRequired[DeviceProxyTypeDef]
@@ -1156,6 +1167,8 @@ class ProjectTypeDef(TypedDict):
     defaultJobTimeoutMinutes: NotRequired[int]
     created: NotRequired[datetime]
     vpcConfig: NotRequired[VpcConfigOutputTypeDef]
+    environmentVariables: NotRequired[List[EnvironmentVariableTypeDef]]
+    executionRoleArn: NotRequired[str]
 
 class TestGridProjectTypeDef(TypedDict):
     arn: NotRequired[str]
@@ -1227,13 +1240,9 @@ class UpdateDeviceInstanceResultTypeDef(TypedDict):
 class CreateRemoteAccessSessionRequestTypeDef(TypedDict):
     projectArn: str
     deviceArn: str
+    appArn: NotRequired[str]
     instanceArn: NotRequired[str]
-    sshPublicKey: NotRequired[str]
-    remoteDebugEnabled: NotRequired[bool]
-    remoteRecordEnabled: NotRequired[bool]
-    remoteRecordAppArn: NotRequired[str]
     name: NotRequired[str]
-    clientId: NotRequired[str]
     configuration: NotRequired[CreateRemoteAccessSessionConfigurationTypeDef]
     interactionMode: NotRequired[InteractionModeType]
     skipAppResign: NotRequired[bool]
@@ -1249,6 +1258,8 @@ class ScheduleRunConfigurationTypeDef(TypedDict):
     radios: NotRequired[RadiosTypeDef]
     auxiliaryApps: NotRequired[Sequence[str]]
     billingMethod: NotRequired[BillingMethodType]
+    environmentVariables: NotRequired[Sequence[EnvironmentVariableTypeDef]]
+    executionRoleArn: NotRequired[str]
 
 RunTypeDef = TypedDict(
     "RunTypeDef",
@@ -1286,6 +1297,8 @@ RunTypeDef = TypedDict(
         "testSpecArn": NotRequired[str],
         "deviceSelectionResult": NotRequired[DeviceSelectionResultTypeDef],
         "vpcConfig": NotRequired[VpcConfigOutputTypeDef],
+        "executionRoleArn": NotRequired[str],
+        "environmentVariables": NotRequired[List[EnvironmentVariableTypeDef]],
     },
 )
 
@@ -1381,12 +1394,16 @@ class CreateProjectRequestTypeDef(TypedDict):
     name: str
     defaultJobTimeoutMinutes: NotRequired[int]
     vpcConfig: NotRequired[VpcConfigUnionTypeDef]
+    environmentVariables: NotRequired[Sequence[EnvironmentVariableTypeDef]]
+    executionRoleArn: NotRequired[str]
 
 class UpdateProjectRequestTypeDef(TypedDict):
     arn: str
     name: NotRequired[str]
     defaultJobTimeoutMinutes: NotRequired[int]
     vpcConfig: NotRequired[VpcConfigUnionTypeDef]
+    environmentVariables: NotRequired[Sequence[EnvironmentVariableTypeDef]]
+    executionRoleArn: NotRequired[str]
 
 class DevicePoolCompatibilityResultTypeDef(TypedDict):
     device: NotRequired[DeviceTypeDef]
@@ -1443,11 +1460,6 @@ class RemoteAccessSessionTypeDef(TypedDict):
     stopped: NotRequired[datetime]
     device: NotRequired[DeviceTypeDef]
     instanceArn: NotRequired[str]
-    remoteDebugEnabled: NotRequired[bool]
-    remoteRecordEnabled: NotRequired[bool]
-    remoteRecordAppArn: NotRequired[str]
-    hostAddress: NotRequired[str]
-    clientId: NotRequired[str]
     billingMethod: NotRequired[BillingMethodType]
     deviceMinutes: NotRequired[DeviceMinutesTypeDef]
     endpoint: NotRequired[str]
@@ -1456,6 +1468,8 @@ class RemoteAccessSessionTypeDef(TypedDict):
     skipAppResign: NotRequired[bool]
     vpcConfig: NotRequired[VpcConfigOutputTypeDef]
     deviceProxy: NotRequired[DeviceProxyTypeDef]
+    appUpload: NotRequired[str]
+    endpoints: NotRequired[RemoteAccessEndpointsTypeDef]
 
 class GetDevicePoolCompatibilityRequestTypeDef(TypedDict):
     devicePoolArn: str

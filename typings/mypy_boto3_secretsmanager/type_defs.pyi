@@ -22,7 +22,7 @@ from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
-from .literals import FilterNameStringTypeType, SortOrderTypeType, StatusTypeType
+from .literals import FilterNameStringTypeType, SortByTypeType, SortOrderTypeType, StatusTypeType
 
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
@@ -51,6 +51,7 @@ __all__ = (
     "DescribeSecretRequestTypeDef",
     "DescribeSecretResponseTypeDef",
     "EmptyResponseMetadataTypeDef",
+    "ExternalSecretRotationMetadataItemTypeDef",
     "FilterTypeDef",
     "GetRandomPasswordRequestTypeDef",
     "GetRandomPasswordResponseTypeDef",
@@ -153,6 +154,10 @@ class DeleteSecretRequestTypeDef(TypedDict):
 class DescribeSecretRequestTypeDef(TypedDict):
     SecretId: str
 
+class ExternalSecretRotationMetadataItemTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
 class RotationRulesTypeTypeDef(TypedDict):
     AutomaticallyAfterDays: NotRequired[int]
     Duration: NotRequired[str]
@@ -239,6 +244,7 @@ class ListSecretsRequestTypeDef(TypedDict):
     NextToken: NotRequired[str]
     Filters: NotRequired[Sequence[FilterTypeDef]]
     SortOrder: NotRequired[SortOrderTypeType]
+    SortBy: NotRequired[SortByTypeType]
 
 class CancelRotateSecretResponseTypeDef(TypedDict):
     ARN: str
@@ -332,29 +338,39 @@ class PutSecretValueRequestTypeDef(TypedDict):
     VersionStages: NotRequired[Sequence[str]]
     RotationToken: NotRequired[str]
 
-class UpdateSecretRequestTypeDef(TypedDict):
-    SecretId: str
-    ClientRequestToken: NotRequired[str]
-    Description: NotRequired[str]
-    KmsKeyId: NotRequired[str]
-    SecretBinary: NotRequired[BlobTypeDef]
-    SecretString: NotRequired[str]
+UpdateSecretRequestTypeDef = TypedDict(
+    "UpdateSecretRequestTypeDef",
+    {
+        "SecretId": str,
+        "ClientRequestToken": NotRequired[str],
+        "Description": NotRequired[str],
+        "KmsKeyId": NotRequired[str],
+        "SecretBinary": NotRequired[BlobTypeDef],
+        "SecretString": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
 
 class ReplicateSecretToRegionsRequestTypeDef(TypedDict):
     SecretId: str
     AddReplicaRegions: Sequence[ReplicaRegionTypeTypeDef]
     ForceOverwriteReplicaSecret: NotRequired[bool]
 
-class CreateSecretRequestTypeDef(TypedDict):
-    Name: str
-    ClientRequestToken: NotRequired[str]
-    Description: NotRequired[str]
-    KmsKeyId: NotRequired[str]
-    SecretBinary: NotRequired[BlobTypeDef]
-    SecretString: NotRequired[str]
-    Tags: NotRequired[Sequence[TagTypeDef]]
-    AddReplicaRegions: NotRequired[Sequence[ReplicaRegionTypeTypeDef]]
-    ForceOverwriteReplicaSecret: NotRequired[bool]
+CreateSecretRequestTypeDef = TypedDict(
+    "CreateSecretRequestTypeDef",
+    {
+        "Name": str,
+        "ClientRequestToken": NotRequired[str],
+        "Description": NotRequired[str],
+        "KmsKeyId": NotRequired[str],
+        "SecretBinary": NotRequired[BlobTypeDef],
+        "SecretString": NotRequired[str],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "AddReplicaRegions": NotRequired[Sequence[ReplicaRegionTypeTypeDef]],
+        "ForceOverwriteReplicaSecret": NotRequired[bool],
+        "Type": NotRequired[str],
+    },
+)
 
 class TagResourceRequestTypeDef(TypedDict):
     SecretId: str
@@ -377,52 +393,70 @@ class ReplicateSecretToRegionsResponseTypeDef(TypedDict):
     ReplicationStatus: List[ReplicationStatusTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSecretResponseTypeDef(TypedDict):
-    ARN: str
-    Name: str
-    Description: str
-    KmsKeyId: str
-    RotationEnabled: bool
-    RotationLambdaARN: str
-    RotationRules: RotationRulesTypeTypeDef
-    LastRotatedDate: datetime
-    LastChangedDate: datetime
-    LastAccessedDate: datetime
-    DeletedDate: datetime
-    NextRotationDate: datetime
-    Tags: List[TagTypeDef]
-    VersionIdsToStages: Dict[str, List[str]]
-    OwningService: str
-    CreatedDate: datetime
-    PrimaryRegion: str
-    ReplicationStatus: List[ReplicationStatusTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+DescribeSecretResponseTypeDef = TypedDict(
+    "DescribeSecretResponseTypeDef",
+    {
+        "ARN": str,
+        "Name": str,
+        "Type": str,
+        "Description": str,
+        "KmsKeyId": str,
+        "RotationEnabled": bool,
+        "RotationLambdaARN": str,
+        "RotationRules": RotationRulesTypeTypeDef,
+        "ExternalSecretRotationMetadata": List[ExternalSecretRotationMetadataItemTypeDef],
+        "ExternalSecretRotationRoleArn": str,
+        "LastRotatedDate": datetime,
+        "LastChangedDate": datetime,
+        "LastAccessedDate": datetime,
+        "DeletedDate": datetime,
+        "NextRotationDate": datetime,
+        "Tags": List[TagTypeDef],
+        "VersionIdsToStages": Dict[str, List[str]],
+        "OwningService": str,
+        "CreatedDate": datetime,
+        "PrimaryRegion": str,
+        "ReplicationStatus": List[ReplicationStatusTypeTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
 
 class RotateSecretRequestTypeDef(TypedDict):
     SecretId: str
     ClientRequestToken: NotRequired[str]
     RotationLambdaARN: NotRequired[str]
     RotationRules: NotRequired[RotationRulesTypeTypeDef]
+    ExternalSecretRotationMetadata: NotRequired[Sequence[ExternalSecretRotationMetadataItemTypeDef]]
+    ExternalSecretRotationRoleArn: NotRequired[str]
     RotateImmediately: NotRequired[bool]
 
-class SecretListEntryTypeDef(TypedDict):
-    ARN: NotRequired[str]
-    Name: NotRequired[str]
-    Description: NotRequired[str]
-    KmsKeyId: NotRequired[str]
-    RotationEnabled: NotRequired[bool]
-    RotationLambdaARN: NotRequired[str]
-    RotationRules: NotRequired[RotationRulesTypeTypeDef]
-    LastRotatedDate: NotRequired[datetime]
-    LastChangedDate: NotRequired[datetime]
-    LastAccessedDate: NotRequired[datetime]
-    DeletedDate: NotRequired[datetime]
-    NextRotationDate: NotRequired[datetime]
-    Tags: NotRequired[List[TagTypeDef]]
-    SecretVersionsToStages: NotRequired[Dict[str, List[str]]]
-    OwningService: NotRequired[str]
-    CreatedDate: NotRequired[datetime]
-    PrimaryRegion: NotRequired[str]
+SecretListEntryTypeDef = TypedDict(
+    "SecretListEntryTypeDef",
+    {
+        "ARN": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
+        "Description": NotRequired[str],
+        "KmsKeyId": NotRequired[str],
+        "RotationEnabled": NotRequired[bool],
+        "RotationLambdaARN": NotRequired[str],
+        "RotationRules": NotRequired[RotationRulesTypeTypeDef],
+        "ExternalSecretRotationMetadata": NotRequired[
+            List[ExternalSecretRotationMetadataItemTypeDef]
+        ],
+        "ExternalSecretRotationRoleArn": NotRequired[str],
+        "LastRotatedDate": NotRequired[datetime],
+        "LastChangedDate": NotRequired[datetime],
+        "LastAccessedDate": NotRequired[datetime],
+        "DeletedDate": NotRequired[datetime],
+        "NextRotationDate": NotRequired[datetime],
+        "Tags": NotRequired[List[TagTypeDef]],
+        "SecretVersionsToStages": NotRequired[Dict[str, List[str]]],
+        "OwningService": NotRequired[str],
+        "CreatedDate": NotRequired[datetime],
+        "PrimaryRegion": NotRequired[str],
+    },
+)
 
 class ListSecretVersionIdsResponseTypeDef(TypedDict):
     Versions: List[SecretVersionsListEntryTypeDef]
@@ -435,6 +469,7 @@ class ListSecretsRequestPaginateTypeDef(TypedDict):
     IncludePlannedDeletion: NotRequired[bool]
     Filters: NotRequired[Sequence[FilterTypeDef]]
     SortOrder: NotRequired[SortOrderTypeType]
+    SortBy: NotRequired[SortByTypeType]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ValidateResourcePolicyResponseTypeDef(TypedDict):

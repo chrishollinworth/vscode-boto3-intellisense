@@ -23,11 +23,14 @@ else:
 
 __all__ = (
     "AcceptRuleBehaviorType",
+    "AttributeEntityTypeType",
     "AuthTypeType",
     "AuthenticationTypeType",
     "ChangeActionType",
     "ComputeEnvironmentsType",
     "ConfigurableActionTypeAuthorizationType",
+    "ConfigurationStatusType",
+    "ConnectionScopeType",
     "ConnectionStatusType",
     "ConnectionTypeType",
     "DataAssetActivityStatusType",
@@ -54,8 +57,10 @@ __all__ = (
     "FormTypeStatusType",
     "GlossaryStatusType",
     "GlossaryTermStatusType",
+    "GlossaryUsageRestrictionType",
     "GlueConnectionTypeType",
     "GovernanceTypeType",
+    "GovernedEntityTypeType",
     "GroupProfileStatusType",
     "GroupSearchTypeType",
     "HyperPodOrchestratorType",
@@ -65,6 +70,8 @@ __all__ = (
     "JobTypeType",
     "LineageEventProcessingStatusType",
     "LineageImportStatusType",
+    "ListAccountPoolsPaginatorName",
+    "ListAccountsInAccountPoolPaginatorName",
     "ListAssetFiltersPaginatorName",
     "ListAssetRevisionsPaginatorName",
     "ListConnectionsPaginatorName",
@@ -112,11 +119,14 @@ __all__ = (
     "ProtocolType",
     "RegionName",
     "RejectRuleBehaviorType",
+    "ResolutionStrategyType",
     "ResourceServiceName",
+    "ResourceTagSourceType",
     "RuleActionType",
     "RuleScopeSelectionModeType",
     "RuleTargetTypeType",
     "RuleTypeType",
+    "S3PermissionType",
     "SearchGroupProfilesPaginatorName",
     "SearchListingsPaginatorName",
     "SearchOutputAdditionalAttributeType",
@@ -125,6 +135,7 @@ __all__ = (
     "SearchUserProfilesPaginatorName",
     "SelfGrantStatusType",
     "ServiceName",
+    "SortFieldAccountPoolType",
     "SortFieldConnectionType",
     "SortFieldProjectType",
     "SortKeyType",
@@ -148,11 +159,14 @@ __all__ = (
 )
 
 AcceptRuleBehaviorType = Literal["ALL", "NONE"]
+AttributeEntityTypeType = Literal["ASSET", "LISTING"]
 AuthTypeType = Literal["DISABLED", "IAM_IDC"]
 AuthenticationTypeType = Literal["BASIC", "CUSTOM", "OAUTH2"]
 ChangeActionType = Literal["PUBLISH", "UNPUBLISH"]
 ComputeEnvironmentsType = Literal["ATHENA", "PYTHON", "SPARK"]
 ConfigurableActionTypeAuthorizationType = Literal["HTTPS", "IAM"]
+ConfigurationStatusType = Literal["COMPLETED", "FAILED"]
+ConnectionScopeType = Literal["DOMAIN", "PROJECT"]
 ConnectionStatusType = Literal[
     "CREATE_FAILED",
     "CREATING",
@@ -164,6 +178,7 @@ ConnectionStatusType = Literal[
     "UPDATING",
 ]
 ConnectionTypeType = Literal[
+    "AMAZON_Q",
     "ATHENA",
     "BIGQUERY",
     "DATABRICKS",
@@ -171,11 +186,13 @@ ConnectionTypeType = Literal[
     "DYNAMODB",
     "HYPERPOD",
     "IAM",
+    "MLFLOW",
     "MYSQL",
     "OPENSEARCH",
     "ORACLE",
     "POSTGRESQL",
     "REDSHIFT",
+    "S3",
     "SAPHANA",
     "SNOWFLAKE",
     "SPARK",
@@ -251,6 +268,7 @@ FilterStatusType = Literal["INVALID", "VALID"]
 FormTypeStatusType = Literal["DISABLED", "ENABLED"]
 GlossaryStatusType = Literal["DISABLED", "ENABLED"]
 GlossaryTermStatusType = Literal["DISABLED", "ENABLED"]
+GlossaryUsageRestrictionType = Literal["ASSET_GOVERNED_TERMS"]
 GlueConnectionTypeType = Literal[
     "BIGQUERY",
     "DOCUMENTDB",
@@ -267,6 +285,7 @@ GlueConnectionTypeType = Literal[
     "VERTICA",
 ]
 GovernanceTypeType = Literal["AWS_MANAGED", "USER_MANAGED"]
+GovernedEntityTypeType = Literal["ASSET"]
 GroupProfileStatusType = Literal["ASSIGNED", "NOT_ASSIGNED"]
 GroupSearchTypeType = Literal["DATAZONE_SSO_GROUP", "SSO_GROUP"]
 HyperPodOrchestratorType = Literal["EKS", "SLURM"]
@@ -285,6 +304,8 @@ JobRunStatusType = Literal[
 JobTypeType = Literal["LINEAGE"]
 LineageEventProcessingStatusType = Literal["FAILED", "PROCESSING", "REQUESTED", "SUCCESS"]
 LineageImportStatusType = Literal["FAILED", "IN_PROGRESS", "PARTIALLY_SUCCEEDED", "SUCCESS"]
+ListAccountPoolsPaginatorName = Literal["list_account_pools"]
+ListAccountsInAccountPoolPaginatorName = Literal["list_accounts_in_account_pool"]
 ListAssetFiltersPaginatorName = Literal["list_asset_filters"]
 ListAssetRevisionsPaginatorName = Literal["list_asset_revisions"]
 ListConnectionsPaginatorName = Literal["list_connections"]
@@ -335,9 +356,11 @@ ManagedPolicyTypeType = Literal[
     "USE_ASSET_TYPE",
 ]
 MetadataGenerationRunStatusType = Literal[
-    "CANCELED", "FAILED", "IN_PROGRESS", "SUBMITTED", "SUCCEEDED"
+    "CANCELED", "FAILED", "IN_PROGRESS", "PARTIALLY_SUCCEEDED", "SUBMITTED", "SUCCEEDED"
 ]
-MetadataGenerationRunTypeType = Literal["BUSINESS_DESCRIPTIONS"]
+MetadataGenerationRunTypeType = Literal[
+    "BUSINESS_DESCRIPTIONS", "BUSINESS_GLOSSARY_ASSOCIATIONS", "BUSINESS_NAMES"
+]
 MetadataGenerationTargetTypeType = Literal["ASSET"]
 NotificationResourceTypeType = Literal["PROJECT"]
 NotificationRoleType = Literal[
@@ -350,18 +373,25 @@ OverallDeploymentStatusType = Literal[
     "FAILED_DEPLOYMENT", "FAILED_VALIDATION", "IN_PROGRESS", "PENDING_DEPLOYMENT", "SUCCESSFUL"
 ]
 ProjectDesignationType = Literal["CONTRIBUTOR", "OWNER", "PROJECT_CATALOG_STEWARD"]
-ProjectStatusType = Literal["ACTIVE", "DELETE_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"]
+ProjectStatusType = Literal[
+    "ACTIVE", "DELETE_FAILED", "DELETING", "MOVING", "UPDATE_FAILED", "UPDATING"
+]
 ProtocolType = Literal[
     "ATHENA", "GLUE_INTERACTIVE_SESSION", "HTTPS", "JDBC", "LIVY", "ODBC", "PRISM"
 ]
 RejectRuleBehaviorType = Literal["ALL", "NONE"]
+ResolutionStrategyType = Literal["MANUAL"]
+ResourceTagSourceType = Literal["PROJECT", "PROJECT_PROFILE"]
 RuleActionType = Literal["CREATE_LISTING_CHANGE_SET", "CREATE_SUBSCRIPTION_REQUEST"]
 RuleScopeSelectionModeType = Literal["ALL", "SPECIFIC"]
 RuleTargetTypeType = Literal["DOMAIN_UNIT"]
-RuleTypeType = Literal["METADATA_FORM_ENFORCEMENT"]
+RuleTypeType = Literal["GLOSSARY_TERM_ENFORCEMENT", "METADATA_FORM_ENFORCEMENT"]
+S3PermissionType = Literal["READ", "WRITE"]
 SearchGroupProfilesPaginatorName = Literal["search_group_profiles"]
 SearchListingsPaginatorName = Literal["search_listings"]
-SearchOutputAdditionalAttributeType = Literal["FORMS", "TIME_SERIES_DATA_POINT_FORMS"]
+SearchOutputAdditionalAttributeType = Literal[
+    "FORMS", "TEXT_MATCH_RATIONALE", "TIME_SERIES_DATA_POINT_FORMS"
+]
 SearchPaginatorName = Literal["search"]
 SearchTypesPaginatorName = Literal["search_types"]
 SearchUserProfilesPaginatorName = Literal["search_user_profiles"]
@@ -374,6 +404,7 @@ SelfGrantStatusType = Literal[
     "REVOKE_IN_PROGRESS",
     "REVOKE_PENDING",
 ]
+SortFieldAccountPoolType = Literal["NAME"]
 SortFieldConnectionType = Literal["NAME"]
 SortFieldProjectType = Literal["NAME"]
 SortKeyType = Literal["CREATED_AT", "UPDATED_AT"]
@@ -490,6 +521,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -510,7 +542,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -522,11 +554,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -575,6 +611,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -630,6 +667,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -672,7 +710,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -687,6 +724,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -710,8 +748,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -742,9 +778,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -754,17 +792,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -782,13 +823,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -803,20 +841,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -841,8 +881,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -882,28 +922,23 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
+    "list_account_pools",
+    "list_accounts_in_account_pool",
     "list_asset_filters",
     "list_asset_revisions",
     "list_connections",
@@ -941,6 +976,8 @@ PaginatorName = Literal[
     "search_user_profiles",
 ]
 RegionName = Literal[
+    "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -951,10 +988,12 @@ RegionName = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ap-southeast-5",
+    "ap-southeast-6",
     "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",
     "eu-central-1",
+    "eu-central-2",
     "eu-north-1",
     "eu-south-1",
     "eu-west-1",

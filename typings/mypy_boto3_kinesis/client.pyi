@@ -38,6 +38,7 @@ from .type_defs import (
     DeleteResourcePolicyInputTypeDef,
     DeleteStreamInputTypeDef,
     DeregisterStreamConsumerInputTypeDef,
+    DescribeAccountSettingsOutputTypeDef,
     DescribeLimitsOutputTypeDef,
     DescribeStreamConsumerInputTypeDef,
     DescribeStreamConsumerOutputTypeDef,
@@ -82,9 +83,14 @@ from .type_defs import (
     SubscribeToShardOutputTypeDef,
     TagResourceInputTypeDef,
     UntagResourceInputTypeDef,
+    UpdateAccountSettingsInputTypeDef,
+    UpdateAccountSettingsOutputTypeDef,
+    UpdateMaxRecordSizeInputTypeDef,
     UpdateShardCountInputTypeDef,
     UpdateShardCountOutputTypeDef,
     UpdateStreamModeInputTypeDef,
+    UpdateStreamWarmThroughputInputTypeDef,
+    UpdateStreamWarmThroughputOutputTypeDef,
 )
 from .waiter import StreamExistsWaiter, StreamNotExistsWaiter
 
@@ -213,6 +219,14 @@ class KinesisClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/deregister_stream_consumer.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client/#deregister_stream_consumer)
+        """
+
+    def describe_account_settings(self) -> DescribeAccountSettingsOutputTypeDef:
+        """
+        Describes the account-level settings for Amazon Kinesis Data Streams.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/describe_account_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client/#describe_account_settings)
         """
 
     def describe_limits(self) -> DescribeLimitsOutputTypeDef:
@@ -481,6 +495,27 @@ class KinesisClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client/#untag_resource)
         """
 
+    def update_account_settings(
+        self, **kwargs: Unpack[UpdateAccountSettingsInputTypeDef]
+    ) -> UpdateAccountSettingsOutputTypeDef:
+        """
+        Updates the account-level settings for Amazon Kinesis Data Streams.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/update_account_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client/#update_account_settings)
+        """
+
+    def update_max_record_size(
+        self, **kwargs: Unpack[UpdateMaxRecordSizeInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        This allows you to update the <code>MaxRecordSize</code> of a single record
+        that you can write to, and read from a stream.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/update_max_record_size.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client/#update_max_record_size)
+        """
+
     def update_shard_count(
         self, **kwargs: Unpack[UpdateShardCountInputTypeDef]
     ) -> UpdateShardCountOutputTypeDef:
@@ -500,6 +535,17 @@ class KinesisClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/update_stream_mode.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client/#update_stream_mode)
+        """
+
+    def update_stream_warm_throughput(
+        self, **kwargs: Unpack[UpdateStreamWarmThroughputInputTypeDef]
+    ) -> UpdateStreamWarmThroughputOutputTypeDef:
+        """
+        Updates the warm throughput configuration for the specified Amazon Kinesis Data
+        Streams on-demand data stream.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/update_stream_warm_throughput.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client/#update_stream_warm_throughput)
         """
 
     @overload  # type: ignore[override]

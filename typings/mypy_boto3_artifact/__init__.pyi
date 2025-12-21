@@ -13,6 +13,7 @@ Usage::
         ArtifactClient,
         Client,
         ListCustomerAgreementsPaginator,
+        ListReportVersionsPaginator,
         ListReportsPaginator,
     )
 
@@ -20,13 +21,24 @@ Usage::
     client: ArtifactClient = session.client("artifact")
 
     list_customer_agreements_paginator: ListCustomerAgreementsPaginator = client.get_paginator("list_customer_agreements")
+    list_report_versions_paginator: ListReportVersionsPaginator = client.get_paginator("list_report_versions")
     list_reports_paginator: ListReportsPaginator = client.get_paginator("list_reports")
     ```
 """
 
 from .client import ArtifactClient
-from .paginator import ListCustomerAgreementsPaginator, ListReportsPaginator
+from .paginator import (
+    ListCustomerAgreementsPaginator,
+    ListReportsPaginator,
+    ListReportVersionsPaginator,
+)
 
 Client = ArtifactClient
 
-__all__ = ("ArtifactClient", "Client", "ListCustomerAgreementsPaginator", "ListReportsPaginator")
+__all__ = (
+    "ArtifactClient",
+    "Client",
+    "ListCustomerAgreementsPaginator",
+    "ListReportVersionsPaginator",
+    "ListReportsPaginator",
+)

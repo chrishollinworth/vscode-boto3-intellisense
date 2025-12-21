@@ -326,7 +326,7 @@ class LakeFormationClient(BaseClient):
 
     def delete_lf_tag(self, **kwargs: Unpack[DeleteLFTagRequestTypeDef]) -> Dict[str, Any]:
         """
-        Deletes the specified LF-tag given a key name.
+        Deletes an LF-tag by its key name.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lakeformation/client/delete_lf_tag.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client/#delete_lf_tag)

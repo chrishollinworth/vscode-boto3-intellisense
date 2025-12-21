@@ -18,6 +18,7 @@ Usage::
         GraphDeletedWaiter,
         GraphSnapshotAvailableWaiter,
         GraphSnapshotDeletedWaiter,
+        GraphStoppedWaiter,
         ImportTaskCancelledWaiter,
         ImportTaskSuccessfulWaiter,
         PrivateGraphEndpointAvailableWaiter,
@@ -33,6 +34,7 @@ Usage::
     graph_deleted_waiter: GraphDeletedWaiter = client.get_waiter("graph_deleted")
     graph_snapshot_available_waiter: GraphSnapshotAvailableWaiter = client.get_waiter("graph_snapshot_available")
     graph_snapshot_deleted_waiter: GraphSnapshotDeletedWaiter = client.get_waiter("graph_snapshot_deleted")
+    graph_stopped_waiter: GraphStoppedWaiter = client.get_waiter("graph_stopped")
     import_task_cancelled_waiter: ImportTaskCancelledWaiter = client.get_waiter("import_task_cancelled")
     import_task_successful_waiter: ImportTaskSuccessfulWaiter = client.get_waiter("import_task_successful")
     private_graph_endpoint_available_waiter: PrivateGraphEndpointAvailableWaiter = client.get_waiter("private_graph_endpoint_available")
@@ -49,6 +51,7 @@ from botocore.waiter import Waiter
 from .type_defs import (
     GetExportTaskInputWaitExtraTypeDef,
     GetExportTaskInputWaitTypeDef,
+    GetGraphInputWaitExtraExtraTypeDef,
     GetGraphInputWaitExtraTypeDef,
     GetGraphInputWaitTypeDef,
     GetGraphSnapshotInputWaitExtraTypeDef,
@@ -71,6 +74,7 @@ __all__ = (
     "GraphDeletedWaiter",
     "GraphSnapshotAvailableWaiter",
     "GraphSnapshotDeletedWaiter",
+    "GraphStoppedWaiter",
     "ImportTaskCancelledWaiter",
     "ImportTaskSuccessfulWaiter",
     "PrivateGraphEndpointAvailableWaiter",
@@ -153,6 +157,19 @@ class GraphSnapshotDeletedWaiter(Waiter):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune-graph/waiter/GraphSnapshotDeleted.html#NeptuneGraph.Waiter.GraphSnapshotDeleted.wait)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters/#graphsnapshotdeletedwaiter)
+        """
+
+class GraphStoppedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune-graph/waiter/GraphStopped.html#NeptuneGraph.Waiter.GraphStopped)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters/#graphstoppedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetGraphInputWaitExtraExtraTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune-graph/waiter/GraphStopped.html#NeptuneGraph.Waiter.GraphStopped.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters/#graphstoppedwaiter)
         """
 
 class ImportTaskCancelledWaiter(Waiter):

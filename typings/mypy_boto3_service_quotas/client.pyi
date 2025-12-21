@@ -34,10 +34,14 @@ from .paginator import (
     ListServicesPaginator,
 )
 from .type_defs import (
+    CreateSupportCaseRequestTypeDef,
     DeleteServiceQuotaIncreaseRequestFromTemplateRequestTypeDef,
     GetAssociationForServiceQuotaTemplateResponseTypeDef,
+    GetAutoManagementConfigurationResponseTypeDef,
     GetAWSDefaultServiceQuotaRequestTypeDef,
     GetAWSDefaultServiceQuotaResponseTypeDef,
+    GetQuotaUtilizationReportRequestTypeDef,
+    GetQuotaUtilizationReportResponseTypeDef,
     GetRequestedServiceQuotaChangeRequestTypeDef,
     GetRequestedServiceQuotaChangeResponseTypeDef,
     GetServiceQuotaIncreaseRequestFromTemplateRequestTypeDef,
@@ -62,8 +66,11 @@ from .type_defs import (
     PutServiceQuotaIncreaseRequestIntoTemplateResponseTypeDef,
     RequestServiceQuotaIncreaseRequestTypeDef,
     RequestServiceQuotaIncreaseResponseTypeDef,
+    StartAutoManagementRequestTypeDef,
+    StartQuotaUtilizationReportResponseTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
+    UpdateAutoManagementRequestTypeDef,
 )
 
 if sys.version_info >= (3, 9):
@@ -142,6 +149,16 @@ class ServiceQuotasClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#associate_service_quota_template)
         """
 
+    def create_support_case(
+        self, **kwargs: Unpack[CreateSupportCaseRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Creates a Support case for an existing quota increase request.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas/client/create_support_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#create_support_case)
+        """
+
     def delete_service_quota_increase_request_from_template(
         self, **kwargs: Unpack[DeleteServiceQuotaIncreaseRequestFromTemplateRequestTypeDef]
     ) -> Dict[str, Any]:
@@ -179,6 +196,26 @@ class ServiceQuotasClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas/client/get_association_for_service_quota_template.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#get_association_for_service_quota_template)
+        """
+
+    def get_auto_management_configuration(self) -> GetAutoManagementConfigurationResponseTypeDef:
+        """
+        Retrieves information about your <a
+        href="https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html">Service
+        Quotas Automatic Management</a> configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas/client/get_auto_management_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#get_auto_management_configuration)
+        """
+
+    def get_quota_utilization_report(
+        self, **kwargs: Unpack[GetQuotaUtilizationReportRequestTypeDef]
+    ) -> GetQuotaUtilizationReportResponseTypeDef:
+        """
+        Retrieves the quota utilization report for your Amazon Web Services account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas/client/get_quota_utilization_report.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#get_quota_utilization_report)
         """
 
     def get_requested_service_quota_change(
@@ -307,6 +344,39 @@ class ServiceQuotasClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#request_service_quota_increase)
         """
 
+    def start_auto_management(
+        self, **kwargs: Unpack[StartAutoManagementRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Starts <a
+        href="https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html">Service
+        Quotas Automatic Management</a> for an Amazon Web Services account, including
+        notification preferences and excluded quotas configurations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas/client/start_auto_management.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#start_auto_management)
+        """
+
+    def start_quota_utilization_report(self) -> StartQuotaUtilizationReportResponseTypeDef:
+        """
+        Initiates the generation of a quota utilization report for your Amazon Web
+        Services account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas/client/start_quota_utilization_report.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#start_quota_utilization_report)
+        """
+
+    def stop_auto_management(self) -> Dict[str, Any]:
+        """
+        Stops <a
+        href="https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html">Service
+        Quotas Automatic Management</a> for an Amazon Web Services account and removes
+        all associated configurations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas/client/stop_auto_management.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#stop_auto_management)
+        """
+
     def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds tags to the specified applied quota.
@@ -321,6 +391,19 @@ class ServiceQuotasClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas/client/untag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#untag_resource)
+        """
+
+    def update_auto_management(
+        self, **kwargs: Unpack[UpdateAutoManagementRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Updates your <a
+        href="https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html">Service
+        Quotas Automatic Management</a> configuration, including notification
+        preferences and excluded quotas.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas/client/update_auto_management.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client/#update_auto_management)
         """
 
     @overload  # type: ignore[override]

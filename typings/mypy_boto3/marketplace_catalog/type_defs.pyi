@@ -29,6 +29,10 @@ from .literals import (
     DataProductVisibilityStringType,
     FailureCodeType,
     IntentType,
+    MachineLearningProductSortByType,
+    MachineLearningProductVisibilityStringType,
+    OfferSetSortByType,
+    OfferSetStateStringType,
     OfferSortByType,
     OfferStateStringType,
     OfferTargetingStringType,
@@ -107,6 +111,14 @@ __all__ = (
     "ListEntitiesResponseTypeDef",
     "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MachineLearningProductEntityIdFilterTypeDef",
+    "MachineLearningProductFiltersTypeDef",
+    "MachineLearningProductLastModifiedDateFilterDateRangeTypeDef",
+    "MachineLearningProductLastModifiedDateFilterTypeDef",
+    "MachineLearningProductSortTypeDef",
+    "MachineLearningProductSummaryTypeDef",
+    "MachineLearningProductTitleFilterTypeDef",
+    "MachineLearningProductVisibilityFilterTypeDef",
     "OfferAvailabilityEndDateFilterDateRangeTypeDef",
     "OfferAvailabilityEndDateFilterTypeDef",
     "OfferBuyerAccountsFilterTypeDef",
@@ -119,6 +131,19 @@ __all__ = (
     "OfferReleaseDateFilterDateRangeTypeDef",
     "OfferReleaseDateFilterTypeDef",
     "OfferResaleAuthorizationIdFilterTypeDef",
+    "OfferSetAssociatedOfferIdsFilterTypeDef",
+    "OfferSetEntityIdFilterTypeDef",
+    "OfferSetFiltersTypeDef",
+    "OfferSetIdFilterTypeDef",
+    "OfferSetLastModifiedDateFilterDateRangeTypeDef",
+    "OfferSetLastModifiedDateFilterTypeDef",
+    "OfferSetNameFilterTypeDef",
+    "OfferSetReleaseDateFilterDateRangeTypeDef",
+    "OfferSetReleaseDateFilterTypeDef",
+    "OfferSetSolutionIdFilterTypeDef",
+    "OfferSetSortTypeDef",
+    "OfferSetStateFilterTypeDef",
+    "OfferSetSummaryTypeDef",
     "OfferSortTypeDef",
     "OfferStateFilterTypeDef",
     "OfferSummaryTypeDef",
@@ -290,6 +315,17 @@ class DescribeEntityRequestTypeDef(TypedDict):
     Catalog: str
     EntityId: str
 
+class MachineLearningProductSummaryTypeDef(TypedDict):
+    ProductTitle: NotRequired[str]
+    Visibility: NotRequired[MachineLearningProductVisibilityStringType]
+
+class OfferSetSummaryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    State: NotRequired[OfferSetStateStringType]
+    ReleaseDate: NotRequired[str]
+    AssociatedOfferIds: NotRequired[List[str]]
+    SolutionId: NotRequired[str]
+
 class OfferSummaryTypeDef(TypedDict):
     Name: NotRequired[str]
     ProductId: NotRequired[str]
@@ -299,6 +335,7 @@ class OfferSummaryTypeDef(TypedDict):
     BuyerAccounts: NotRequired[List[str]]
     State: NotRequired[OfferStateStringType]
     Targeting: NotRequired[List[OfferTargetingStringType]]
+    OfferSetId: NotRequired[str]
 
 class ResaleAuthorizationSummaryTypeDef(TypedDict):
     Name: NotRequired[str]
@@ -316,6 +353,14 @@ class ResaleAuthorizationSummaryTypeDef(TypedDict):
 class SaaSProductSummaryTypeDef(TypedDict):
     ProductTitle: NotRequired[str]
     Visibility: NotRequired[SaaSProductVisibilityStringType]
+
+class MachineLearningProductSortTypeDef(TypedDict):
+    SortBy: NotRequired[MachineLearningProductSortByType]
+    SortOrder: NotRequired[SortOrderType]
+
+class OfferSetSortTypeDef(TypedDict):
+    SortBy: NotRequired[OfferSetSortByType]
+    SortOrder: NotRequired[SortOrderType]
 
 class OfferSortTypeDef(TypedDict):
     SortBy: NotRequired[OfferSortByType]
@@ -348,6 +393,20 @@ class SortTypeDef(TypedDict):
 class ListTagsForResourceRequestTypeDef(TypedDict):
     ResourceArn: str
 
+class MachineLearningProductEntityIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+
+class MachineLearningProductTitleFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
+
+class MachineLearningProductVisibilityFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[MachineLearningProductVisibilityStringType]]
+
+class MachineLearningProductLastModifiedDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
+
 class OfferAvailabilityEndDateFilterDateRangeTypeDef(TypedDict):
     AfterValue: NotRequired[str]
     BeforeValue: NotRequired[str]
@@ -368,6 +427,9 @@ class OfferProductIdFilterTypeDef(TypedDict):
 class OfferResaleAuthorizationIdFilterTypeDef(TypedDict):
     ValueList: NotRequired[Sequence[str]]
 
+class OfferSetIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+
 class OfferStateFilterTypeDef(TypedDict):
     ValueList: NotRequired[Sequence[OfferStateStringType]]
 
@@ -379,6 +441,29 @@ class OfferLastModifiedDateFilterDateRangeTypeDef(TypedDict):
     BeforeValue: NotRequired[str]
 
 class OfferReleaseDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
+
+class OfferSetAssociatedOfferIdsFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+
+class OfferSetEntityIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+
+class OfferSetNameFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+
+class OfferSetSolutionIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+
+class OfferSetStateFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[OfferSetStateStringType]]
+
+class OfferSetLastModifiedDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
+
+class OfferSetReleaseDateFilterDateRangeTypeDef(TypedDict):
     AfterValue: NotRequired[str]
     BeforeValue: NotRequired[str]
 
@@ -536,6 +621,8 @@ class EntitySummaryTypeDef(TypedDict):
     SaaSProductSummary: NotRequired[SaaSProductSummaryTypeDef]
     OfferSummary: NotRequired[OfferSummaryTypeDef]
     ResaleAuthorizationSummary: NotRequired[ResaleAuthorizationSummaryTypeDef]
+    MachineLearningProductSummary: NotRequired[MachineLearningProductSummaryTypeDef]
+    OfferSetSummary: NotRequired[OfferSetSummaryTypeDef]
 
 class EntityTypeSortTypeDef(TypedDict):
     DataProductSort: NotRequired[DataProductSortTypeDef]
@@ -544,6 +631,8 @@ class EntityTypeSortTypeDef(TypedDict):
     OfferSort: NotRequired[OfferSortTypeDef]
     ContainerProductSort: NotRequired[ContainerProductSortTypeDef]
     ResaleAuthorizationSort: NotRequired[ResaleAuthorizationSortTypeDef]
+    MachineLearningProductSort: NotRequired[MachineLearningProductSortTypeDef]
+    OfferSetSort: NotRequired[OfferSetSortTypeDef]
 
 class ListChangeSetsRequestPaginateTypeDef(TypedDict):
     Catalog: str
@@ -558,6 +647,9 @@ class ListChangeSetsRequestTypeDef(TypedDict):
     MaxResults: NotRequired[int]
     NextToken: NotRequired[str]
 
+class MachineLearningProductLastModifiedDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[MachineLearningProductLastModifiedDateFilterDateRangeTypeDef]
+
 class OfferAvailabilityEndDateFilterTypeDef(TypedDict):
     DateRange: NotRequired[OfferAvailabilityEndDateFilterDateRangeTypeDef]
 
@@ -566,6 +658,12 @@ class OfferLastModifiedDateFilterTypeDef(TypedDict):
 
 class OfferReleaseDateFilterTypeDef(TypedDict):
     DateRange: NotRequired[OfferReleaseDateFilterDateRangeTypeDef]
+
+class OfferSetLastModifiedDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[OfferSetLastModifiedDateFilterDateRangeTypeDef]
+
+class OfferSetReleaseDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[OfferSetReleaseDateFilterDateRangeTypeDef]
 
 class ResaleAuthorizationAvailabilityEndDateFilterTypeDef(TypedDict):
     DateRange: NotRequired[ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef]
@@ -625,6 +723,12 @@ class ListEntitiesResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class MachineLearningProductFiltersTypeDef(TypedDict):
+    EntityId: NotRequired[MachineLearningProductEntityIdFilterTypeDef]
+    LastModifiedDate: NotRequired[MachineLearningProductLastModifiedDateFilterTypeDef]
+    ProductTitle: NotRequired[MachineLearningProductTitleFilterTypeDef]
+    Visibility: NotRequired[MachineLearningProductVisibilityFilterTypeDef]
+
 class OfferFiltersTypeDef(TypedDict):
     EntityId: NotRequired[OfferEntityIdFilterTypeDef]
     Name: NotRequired[OfferNameFilterTypeDef]
@@ -636,6 +740,16 @@ class OfferFiltersTypeDef(TypedDict):
     State: NotRequired[OfferStateFilterTypeDef]
     Targeting: NotRequired[OfferTargetingFilterTypeDef]
     LastModifiedDate: NotRequired[OfferLastModifiedDateFilterTypeDef]
+    OfferSetId: NotRequired[OfferSetIdFilterTypeDef]
+
+class OfferSetFiltersTypeDef(TypedDict):
+    EntityId: NotRequired[OfferSetEntityIdFilterTypeDef]
+    Name: NotRequired[OfferSetNameFilterTypeDef]
+    State: NotRequired[OfferSetStateFilterTypeDef]
+    ReleaseDate: NotRequired[OfferSetReleaseDateFilterTypeDef]
+    AssociatedOfferIds: NotRequired[OfferSetAssociatedOfferIdsFilterTypeDef]
+    SolutionId: NotRequired[OfferSetSolutionIdFilterTypeDef]
+    LastModifiedDate: NotRequired[OfferSetLastModifiedDateFilterTypeDef]
 
 class ResaleAuthorizationFiltersTypeDef(TypedDict):
     EntityId: NotRequired[ResaleAuthorizationEntityIdFilterTypeDef]
@@ -665,6 +779,8 @@ class EntityTypeFiltersTypeDef(TypedDict):
     OfferFilters: NotRequired[OfferFiltersTypeDef]
     ContainerProductFilters: NotRequired[ContainerProductFiltersTypeDef]
     ResaleAuthorizationFilters: NotRequired[ResaleAuthorizationFiltersTypeDef]
+    MachineLearningProductFilters: NotRequired[MachineLearningProductFiltersTypeDef]
+    OfferSetFilters: NotRequired[OfferSetFiltersTypeDef]
 
 class ListEntitiesRequestPaginateTypeDef(TypedDict):
     Catalog: str

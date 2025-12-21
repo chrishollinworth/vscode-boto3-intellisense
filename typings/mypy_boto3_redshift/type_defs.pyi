@@ -22,6 +22,7 @@ from typing import Union
 
 from .literals import (
     ActionTypeType,
+    ApplicationTypeType,
     AquaConfigurationStatusType,
     AquaStatusType,
     AuthorizationStatusType,
@@ -30,6 +31,8 @@ from .literals import (
     DataShareStatusType,
     DescribeIntegrationsFilterNameType,
     ImpactRankingTypeType,
+    LakehouseIdcRegistrationType,
+    LakehouseRegistrationType,
     LogDestinationTypeType,
     ModeType,
     NamespaceRegistrationStatusType,
@@ -118,6 +121,7 @@ __all__ = (
     "ClusterVersionTypeDef",
     "ClusterVersionsMessageTypeDef",
     "ClustersMessageTypeDef",
+    "ConnectTypeDef",
     "CopyClusterSnapshotMessageTypeDef",
     "CopyClusterSnapshotResultTypeDef",
     "CreateAuthenticationProfileMessageTypeDef",
@@ -300,6 +304,8 @@ __all__ = (
     "FailoverPrimaryComputeResultTypeDef",
     "GetClusterCredentialsMessageTypeDef",
     "GetClusterCredentialsWithIAMMessageTypeDef",
+    "GetIdentityCenterAuthTokenRequestTypeDef",
+    "GetIdentityCenterAuthTokenResponseTypeDef",
     "GetReservedNodeExchangeConfigurationOptionsInputMessagePaginateTypeDef",
     "GetReservedNodeExchangeConfigurationOptionsInputMessageTypeDef",
     "GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef",
@@ -322,6 +328,7 @@ __all__ = (
     "IntegrationsMessageTypeDef",
     "LakeFormationQueryTypeDef",
     "LakeFormationScopeUnionTypeDef",
+    "LakehouseConfigurationTypeDef",
     "ListRecommendationsMessagePaginateTypeDef",
     "ListRecommendationsMessageTypeDef",
     "ListRecommendationsResultTypeDef",
@@ -351,6 +358,7 @@ __all__ = (
     "ModifyEventSubscriptionMessageTypeDef",
     "ModifyEventSubscriptionResultTypeDef",
     "ModifyIntegrationMessageTypeDef",
+    "ModifyLakehouseConfigurationMessageTypeDef",
     "ModifyRedshiftIdcApplicationMessageTypeDef",
     "ModifyRedshiftIdcApplicationResultTypeDef",
     "ModifyScheduledActionMessageTypeDef",
@@ -387,6 +395,7 @@ __all__ = (
     "RecommendedActionTypeDef",
     "RecurringChargeTypeDef",
     "RedshiftIdcApplicationTypeDef",
+    "RedshiftScopeUnionTypeDef",
     "ReferenceLinkTypeDef",
     "RegisterNamespaceInputMessageTypeDef",
     "RegisterNamespaceOutputMessageTypeDef",
@@ -662,6 +671,9 @@ class ClusterVersionTypeDef(TypedDict):
     ClusterVersion: NotRequired[str]
     ClusterParameterGroupFamily: NotRequired[str]
     Description: NotRequired[str]
+
+class ConnectTypeDef(TypedDict):
+    Authorization: ServiceAuthorizationType
 
 class CopyClusterSnapshotMessageTypeDef(TypedDict):
     SourceSnapshotIdentifier: str
@@ -1073,6 +1085,9 @@ class GetClusterCredentialsWithIAMMessageTypeDef(TypedDict):
     DurationSeconds: NotRequired[int]
     CustomDomainName: NotRequired[str]
 
+class GetIdentityCenterAuthTokenRequestTypeDef(TypedDict):
+    ClusterIds: Sequence[str]
+
 class GetReservedNodeExchangeConfigurationOptionsInputMessageTypeDef(TypedDict):
     ActionType: ReservedNodeExchangeActionTypeType
     ClusterIdentifier: NotRequired[str]
@@ -1191,6 +1206,14 @@ class ModifyIntegrationMessageTypeDef(TypedDict):
     IntegrationArn: str
     Description: NotRequired[str]
     IntegrationName: NotRequired[str]
+
+class ModifyLakehouseConfigurationMessageTypeDef(TypedDict):
+    ClusterIdentifier: str
+    LakehouseRegistration: NotRequired[LakehouseRegistrationType]
+    CatalogName: NotRequired[str]
+    LakehouseIdcRegistration: NotRequired[LakehouseIdcRegistrationType]
+    LakehouseIdcApplicationArn: NotRequired[str]
+    DryRun: NotRequired[bool]
 
 class ModifySnapshotCopyRetentionPeriodMessageTypeDef(TypedDict):
     ClusterIdentifier: str
@@ -1338,6 +1361,8 @@ class RestoreFromClusterSnapshotMessageTypeDef(TypedDict):
     MasterPasswordSecretKmsKeyId: NotRequired[str]
     IpAddressType: NotRequired[str]
     MultiAZ: NotRequired[bool]
+    CatalogName: NotRequired[str]
+    RedshiftIdcApplicationArn: NotRequired[str]
 
 class RestoreTableFromClusterSnapshotMessageTypeDef(TypedDict):
     ClusterIdentifier: str
@@ -1460,6 +1485,18 @@ class EndpointAuthorizationResponseTypeDef(TypedDict):
     AllowedAllVPCs: bool
     AllowedVPCs: List[str]
     EndpointCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIdentityCenterAuthTokenResponseTypeDef(TypedDict):
+    Token: str
+    ExpirationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LakehouseConfigurationTypeDef(TypedDict):
+    ClusterIdentifier: str
+    LakehouseIdcApplicationArn: str
+    LakehouseRegistrationStatus: str
+    CatalogArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class LoggingStatusTypeDef(TypedDict):
@@ -1631,6 +1668,7 @@ class CreateClusterMessageTypeDef(TypedDict):
     IpAddressType: NotRequired[str]
     MultiAZ: NotRequired[bool]
     RedshiftIdcApplicationArn: NotRequired[str]
+    CatalogName: NotRequired[str]
 
 class CreateClusterParameterGroupMessageTypeDef(TypedDict):
     ParameterGroupName: str
@@ -1847,6 +1885,9 @@ class ClusterVersionsMessageTypeDef(TypedDict):
     Marker: str
     ClusterVersions: List[ClusterVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+class RedshiftScopeUnionTypeDef(TypedDict):
+    Connect: NotRequired[ConnectTypeDef]
 
 class DescribeEventsMessageTypeDef(TypedDict):
     SourceIdentifier: NotRequired[str]
@@ -2518,10 +2559,12 @@ class EndpointTypeDef(TypedDict):
 class ServiceIntegrationsUnionOutputTypeDef(TypedDict):
     LakeFormation: NotRequired[List[LakeFormationScopeUnionTypeDef]]
     S3AccessGrants: NotRequired[List[S3AccessGrantsScopeUnionTypeDef]]
+    Redshift: NotRequired[List[RedshiftScopeUnionTypeDef]]
 
 class ServiceIntegrationsUnionTypeDef(TypedDict):
     LakeFormation: NotRequired[Sequence[LakeFormationScopeUnionTypeDef]]
     S3AccessGrants: NotRequired[Sequence[S3AccessGrantsScopeUnionTypeDef]]
+    Redshift: NotRequired[Sequence[RedshiftScopeUnionTypeDef]]
 
 class ListRecommendationsResultTypeDef(TypedDict):
     Recommendations: List[RecommendationTypeDef]
@@ -2701,6 +2744,8 @@ class ClusterTypeDef(TypedDict):
     IpAddressType: NotRequired[str]
     MultiAZ: NotRequired[str]
     MultiAZSecondary: NotRequired[SecondaryClusterInfoTypeDef]
+    LakehouseRegistrationStatus: NotRequired[str]
+    CatalogArn: NotRequired[str]
 
 class RedshiftIdcApplicationTypeDef(TypedDict):
     IdcInstanceArn: NotRequired[str]
@@ -2713,6 +2758,9 @@ class RedshiftIdcApplicationTypeDef(TypedDict):
     IdcOnboardStatus: NotRequired[str]
     AuthorizedTokenIssuerList: NotRequired[List[AuthorizedTokenIssuerOutputTypeDef]]
     ServiceIntegrations: NotRequired[List[ServiceIntegrationsUnionOutputTypeDef]]
+    ApplicationType: NotRequired[ApplicationTypeType]
+    Tags: NotRequired[List[TagTypeDef]]
+    SsoTagKeys: NotRequired[List[str]]
 
 ServiceIntegrationsUnionUnionTypeDef = Union[
     ServiceIntegrationsUnionTypeDef, ServiceIntegrationsUnionOutputTypeDef
@@ -2836,6 +2884,9 @@ class CreateRedshiftIdcApplicationMessageTypeDef(TypedDict):
     IdentityNamespace: NotRequired[str]
     AuthorizedTokenIssuerList: NotRequired[Sequence[AuthorizedTokenIssuerUnionTypeDef]]
     ServiceIntegrations: NotRequired[Sequence[ServiceIntegrationsUnionUnionTypeDef]]
+    ApplicationType: NotRequired[ApplicationTypeType]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    SsoTagKeys: NotRequired[Sequence[str]]
 
 class ModifyRedshiftIdcApplicationMessageTypeDef(TypedDict):
     RedshiftIdcApplicationArn: str

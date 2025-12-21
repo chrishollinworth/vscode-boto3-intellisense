@@ -108,6 +108,8 @@ from .type_defs import (
     LaunchConfigurationNamesTypeTypeDef,
     LaunchConfigurationNameTypeTypeDef,
     LaunchConfigurationsTypeTypeDef,
+    LaunchInstancesRequestTypeDef,
+    LaunchInstancesResultTypeDef,
     PoliciesTypeTypeDef,
     PolicyARNTypeTypeDef,
     ProcessesTypeTypeDef,
@@ -149,6 +151,7 @@ class Exceptions(BaseClientExceptions):
     ActiveInstanceRefreshNotFoundFault: Type[BotocoreClientError]
     AlreadyExistsFault: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
+    IdempotentParameterMismatchError: Type[BotocoreClientError]
     InstanceRefreshInProgressFault: Type[BotocoreClientError]
     InvalidNextToken: Type[BotocoreClientError]
     IrreversibleInstanceRefreshFault: Type[BotocoreClientError]
@@ -694,6 +697,16 @@ class AutoScalingClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/autoscaling/client/get_predictive_scaling_forecast.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/client/#get_predictive_scaling_forecast)
+        """
+
+    def launch_instances(
+        self, **kwargs: Unpack[LaunchInstancesRequestTypeDef]
+    ) -> LaunchInstancesResultTypeDef:
+        """
+        Launches a specified number of instances in an Auto Scaling group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/autoscaling/client/launch_instances.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/client/#launch_instances)
         """
 
     def put_lifecycle_hook(self, **kwargs: Unpack[PutLifecycleHookTypeTypeDef]) -> Dict[str, Any]:

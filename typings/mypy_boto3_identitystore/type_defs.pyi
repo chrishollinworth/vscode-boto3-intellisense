@@ -17,7 +17,10 @@ Usage::
 from __future__ import annotations
 
 import sys
+from datetime import datetime
 from typing import Any
+
+from .literals import UserStatusType
 
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
@@ -79,6 +82,7 @@ __all__ = (
     "NameTypeDef",
     "PaginatorConfigTypeDef",
     "PhoneNumberTypeDef",
+    "PhotoTypeDef",
     "ResponseMetadataTypeDef",
     "UniqueAttributeTypeDef",
     "UpdateGroupRequestTypeDef",
@@ -152,6 +156,15 @@ PhoneNumberTypeDef = TypedDict(
         "Primary": NotRequired[bool],
     },
 )
+PhotoTypeDef = TypedDict(
+    "PhotoTypeDef",
+    {
+        "Value": str,
+        "Type": NotRequired[str],
+        "Display": NotRequired[str],
+        "Primary": NotRequired[bool],
+    },
+)
 
 class DeleteGroupMembershipRequestTypeDef(TypedDict):
     IdentityStoreId: str
@@ -176,6 +189,7 @@ class DescribeGroupRequestTypeDef(TypedDict):
 class DescribeUserRequestTypeDef(TypedDict):
     IdentityStoreId: str
     UserId: str
+    Extensions: NotRequired[Sequence[str]]
 
 class FilterTypeDef(TypedDict):
     AttributePath: str
@@ -198,6 +212,10 @@ class GroupTypeDef(TypedDict):
     DisplayName: NotRequired[str]
     ExternalIds: NotRequired[List[ExternalIdTypeDef]]
     Description: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    CreatedBy: NotRequired[str]
+    UpdatedBy: NotRequired[str]
 
 class AlternateIdentifierTypeDef(TypedDict):
     ExternalId: NotRequired[ExternalIdTypeDef]
@@ -233,6 +251,10 @@ class GroupMembershipTypeDef(TypedDict):
     MembershipId: NotRequired[str]
     GroupId: NotRequired[str]
     MemberId: NotRequired[MemberIdTypeDef]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    CreatedBy: NotRequired[str]
+    UpdatedBy: NotRequired[str]
 
 class IsMemberInGroupsRequestTypeDef(TypedDict):
     IdentityStoreId: str
@@ -256,8 +278,8 @@ class CreateGroupResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateUserResponseTypeDef(TypedDict):
-    UserId: str
     IdentityStoreId: str
+    UserId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeGroupMembershipResponseTypeDef(TypedDict):
@@ -265,6 +287,10 @@ class DescribeGroupMembershipResponseTypeDef(TypedDict):
     MembershipId: str
     GroupId: str
     MemberId: MemberIdTypeDef
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    CreatedBy: str
+    UpdatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeGroupResponseTypeDef(TypedDict):
@@ -272,6 +298,10 @@ class DescribeGroupResponseTypeDef(TypedDict):
     DisplayName: str
     ExternalIds: List[ExternalIdTypeDef]
     Description: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    CreatedBy: str
+    UpdatedBy: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -286,8 +316,8 @@ class GetGroupMembershipIdResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetUserIdResponseTypeDef(TypedDict):
-    UserId: str
     IdentityStoreId: str
+    UserId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateUserRequestTypeDef(TypedDict):
@@ -305,10 +335,15 @@ class CreateUserRequestTypeDef(TypedDict):
     PreferredLanguage: NotRequired[str]
     Locale: NotRequired[str]
     Timezone: NotRequired[str]
+    Photos: NotRequired[Sequence[PhotoTypeDef]]
+    Website: NotRequired[str]
+    Birthdate: NotRequired[str]
+    Extensions: NotRequired[Mapping[str, Mapping[str, Any]]]
 
 class DescribeUserResponseTypeDef(TypedDict):
-    UserName: str
+    IdentityStoreId: str
     UserId: str
+    UserName: str
     ExternalIds: List[ExternalIdTypeDef]
     Name: NameTypeDef
     DisplayName: str
@@ -322,12 +357,20 @@ class DescribeUserResponseTypeDef(TypedDict):
     PreferredLanguage: str
     Locale: str
     Timezone: str
-    IdentityStoreId: str
+    UserStatus: UserStatusType
+    Photos: List[PhotoTypeDef]
+    Website: str
+    Birthdate: str
+    CreatedAt: datetime
+    CreatedBy: str
+    UpdatedAt: datetime
+    UpdatedBy: str
+    Extensions: Dict[str, Dict[str, Any]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UserTypeDef(TypedDict):
-    UserId: str
     IdentityStoreId: str
+    UserId: str
     UserName: NotRequired[str]
     ExternalIds: NotRequired[List[ExternalIdTypeDef]]
     Name: NotRequired[NameTypeDef]
@@ -342,6 +385,15 @@ class UserTypeDef(TypedDict):
     PreferredLanguage: NotRequired[str]
     Locale: NotRequired[str]
     Timezone: NotRequired[str]
+    UserStatus: NotRequired[UserStatusType]
+    Photos: NotRequired[List[PhotoTypeDef]]
+    Website: NotRequired[str]
+    Birthdate: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    CreatedBy: NotRequired[str]
+    UpdatedAt: NotRequired[datetime]
+    UpdatedBy: NotRequired[str]
+    Extensions: NotRequired[Dict[str, Dict[str, Any]]]
 
 class ListGroupsRequestTypeDef(TypedDict):
     IdentityStoreId: str
@@ -351,6 +403,7 @@ class ListGroupsRequestTypeDef(TypedDict):
 
 class ListUsersRequestTypeDef(TypedDict):
     IdentityStoreId: str
+    Extensions: NotRequired[Sequence[str]]
     MaxResults: NotRequired[int]
     NextToken: NotRequired[str]
     Filters: NotRequired[Sequence[FilterTypeDef]]
@@ -372,6 +425,7 @@ class ListGroupsRequestPaginateTypeDef(TypedDict):
 
 class ListUsersRequestPaginateTypeDef(TypedDict):
     IdentityStoreId: str
+    Extensions: NotRequired[Sequence[str]]
     Filters: NotRequired[Sequence[FilterTypeDef]]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 

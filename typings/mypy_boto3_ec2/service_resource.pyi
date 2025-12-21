@@ -45,7 +45,6 @@ from __future__ import annotations
 
 import sys
 from datetime import datetime
-from typing import Any
 
 from boto3.resources.base import ResourceMeta, ServiceResource
 from boto3.resources.collection import ResourceCollection
@@ -159,6 +158,7 @@ from .type_defs import (
     DeleteVpcPeeringConnectionResultTypeDef,
     DeleteVpcRequestVpcDeleteTypeDef,
     DeregisterImageRequestImageDeregisterTypeDef,
+    DeregisterImageResultTypeDef,
     DescribeImageAttributeRequestImageDescribeAttributeTypeDef,
     DescribeInstanceAttributeRequestInstanceDescribeAttributeTypeDef,
     DescribeNetworkInterfaceAttributeRequestNetworkInterfaceDescribeAttributeTypeDef,
@@ -242,6 +242,7 @@ from .type_defs import (
     PrivateDnsNameOptionsResponseTypeDef,
     ProductCodeTypeDef,
     PropagatingVgwTypeDef,
+    PublicIpDnsNameOptionsTypeDef,
     RebootInstancesRequestInstanceRebootTypeDef,
     RegisterImageRequestServiceResourceRegisterImageTypeDef,
     RejectVpcPeeringConnectionRequestVpcPeeringConnectionRejectTypeDef,
@@ -298,11 +299,10 @@ from .type_defs import (
 )
 
 if sys.version_info >= (3, 9):
-    from builtins import dict as Dict
     from builtins import list as List
     from collections.abc import Iterator, Sequence
 else:
-    from typing import Dict, Iterator, List, Sequence
+    from typing import Iterator, List, Sequence
 if sys.version_info >= (3, 12):
     from typing import Literal, Unpack
 else:
@@ -628,7 +628,12 @@ class ServiceResourceInstancesCollection(ResourceCollection):
         """
 
     def stop(
-        self, *, Hibernate: bool = ..., DryRun: bool = ..., Force: bool = ...
+        self,
+        *,
+        Hibernate: bool = ...,
+        SkipOsShutdown: bool = ...,
+        DryRun: bool = ...,
+        Force: bool = ...,
     ) -> List[StopInstancesResultTypeDef]:
         """
         Batch method.
@@ -637,7 +642,9 @@ class ServiceResourceInstancesCollection(ResourceCollection):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource/#serviceresourceinstancescollection)
         """
 
-    def terminate(self, *, DryRun: bool = ...) -> List[TerminateInstancesResultTypeDef]:
+    def terminate(
+        self, *, Force: bool = ..., SkipOsShutdown: bool = ..., DryRun: bool = ...
+    ) -> List[TerminateInstancesResultTypeDef]:
         """
         Batch method.
 
@@ -1712,7 +1719,12 @@ class PlacementGroupInstancesCollection(ResourceCollection):
         """
 
     def stop(
-        self, *, Hibernate: bool = ..., DryRun: bool = ..., Force: bool = ...
+        self,
+        *,
+        Hibernate: bool = ...,
+        SkipOsShutdown: bool = ...,
+        DryRun: bool = ...,
+        Force: bool = ...,
     ) -> List[StopInstancesResultTypeDef]:
         """
         Batch method.
@@ -1721,7 +1733,9 @@ class PlacementGroupInstancesCollection(ResourceCollection):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource/#placementgroupinstances)
         """
 
-    def terminate(self, *, DryRun: bool = ...) -> List[TerminateInstancesResultTypeDef]:
+    def terminate(
+        self, *, Force: bool = ..., SkipOsShutdown: bool = ..., DryRun: bool = ...
+    ) -> List[TerminateInstancesResultTypeDef]:
         """
         Batch method.
 
@@ -1836,7 +1850,12 @@ class SubnetInstancesCollection(ResourceCollection):
         """
 
     def stop(
-        self, *, Hibernate: bool = ..., DryRun: bool = ..., Force: bool = ...
+        self,
+        *,
+        Hibernate: bool = ...,
+        SkipOsShutdown: bool = ...,
+        DryRun: bool = ...,
+        Force: bool = ...,
     ) -> List[StopInstancesResultTypeDef]:
         """
         Batch method.
@@ -1845,7 +1864,9 @@ class SubnetInstancesCollection(ResourceCollection):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource/#subnetinstances)
         """
 
-    def terminate(self, *, DryRun: bool = ...) -> List[TerminateInstancesResultTypeDef]:
+    def terminate(
+        self, *, Force: bool = ..., SkipOsShutdown: bool = ..., DryRun: bool = ...
+    ) -> List[TerminateInstancesResultTypeDef]:
         """
         Batch method.
 
@@ -2154,7 +2175,12 @@ class VpcInstancesCollection(ResourceCollection):
         """
 
     def stop(
-        self, *, Hibernate: bool = ..., DryRun: bool = ..., Force: bool = ...
+        self,
+        *,
+        Hibernate: bool = ...,
+        SkipOsShutdown: bool = ...,
+        DryRun: bool = ...,
+        Force: bool = ...,
     ) -> List[StopInstancesResultTypeDef]:
         """
         Batch method.
@@ -2163,7 +2189,9 @@ class VpcInstancesCollection(ResourceCollection):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource/#vpcinstances)
         """
 
-    def terminate(self, *, DryRun: bool = ...) -> List[TerminateInstancesResultTypeDef]:
+    def terminate(
+        self, *, Force: bool = ..., SkipOsShutdown: bool = ..., DryRun: bool = ...
+    ) -> List[TerminateInstancesResultTypeDef]:
         """
         Batch method.
 
@@ -2679,6 +2707,7 @@ class ClassicAddress(ServiceResource):
     customer_owned_ip: str
     customer_owned_ipv4_pool: str
     carrier_ip: str
+    subnet_id: str
     service_managed: ServiceManagedType
     instance_id: str
     meta: EC2ResourceMeta  # type: ignore[override]
@@ -2829,6 +2858,7 @@ class Image(ServiceResource):
     image_allowed: bool
     source_image_id: str
     source_image_region: str
+    free_tier_eligible: bool
     image_id: str
     image_location: str
     state: ImageStateType
@@ -2862,7 +2892,7 @@ class Image(ServiceResource):
 
     def deregister(
         self, **kwargs: Unpack[DeregisterImageRequestImageDeregisterTypeDef]
-    ) -> Dict[str, Any]:
+    ) -> DeregisterImageResultTypeDef:
         """
         Deregisters the specified AMI.
 
@@ -2960,6 +2990,7 @@ class Instance(ServiceResource):
     tags: List[TagTypeDef]
     virtualization_type: VirtualizationTypeType
     cpu_options: CpuOptionsTypeDef
+    capacity_block_id: str
     capacity_reservation_id: str
     capacity_reservation_specification: CapacityReservationSpecificationResponseTypeDef
     hibernation_options: HibernationOptionsTypeDef
@@ -3021,8 +3052,8 @@ class Instance(ServiceResource):
         self, **kwargs: Unpack[AttachVolumeRequestInstanceAttachVolumeTypeDef]
     ) -> VolumeAttachmentResponseTypeDef:
         """
-        Attaches an EBS volume to a running or stopped instance and exposes it to the
-        instance with the specified device name.
+        Attaches an Amazon EBS volume to a <code>running</code> or <code>stopped</code>
+        instance, and exposes it to the instance with the specified device name.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/instance/attach_volume.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource/#instanceattach_volume-method)
@@ -3200,7 +3231,7 @@ class Instance(ServiceResource):
         self, **kwargs: Unpack[TerminateInstancesRequestInstanceTerminateTypeDef]
     ) -> TerminateInstancesResultTypeDef:
         """
-        Shuts down the specified instances.
+        Terminates (deletes) the specified instances.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/instance/terminate.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource/#instanceterminate-method)
@@ -3549,6 +3580,8 @@ class NetworkInterface(ServiceResource):
     outpost_arn: str
     owner_id: str
     private_dns_name: str
+    public_dns_name: str
+    public_ip_dns_name_options: PublicIpDnsNameOptionsTypeDef
     private_ip_address: str
     private_ip_addresses: List[NetworkInterfacePrivateIpAddressTypeDef]
     ipv4_prefixes: List[Ipv4PrefixSpecificationTypeDef]
@@ -3564,6 +3597,8 @@ class NetworkInterface(ServiceResource):
     ipv6_native: bool
     ipv6_address: str
     operator: OperatorResponseTypeDef
+    associated_subnets: List[str]
+    availability_zone_id: str
     meta: EC2ResourceMeta  # type: ignore[override]
 
     def get_available_subresources(self) -> Sequence[str]:
@@ -3816,6 +3851,8 @@ class Route(ServiceResource):
     state: RouteStateType
     vpc_peering_connection_id: str
     core_network_arn: str
+    odb_network_arn: str
+    ip_address: str
     meta: EC2ResourceMeta  # type: ignore[override]
 
     def get_available_subresources(self) -> Sequence[str]:
@@ -3945,6 +3982,7 @@ class RouteTableAssociation(ServiceResource):
     route_table_id: str
     subnet_id: str
     gateway_id: str
+    public_ipv4_pool: str
     association_state: RouteTableAssociationStateTypeDef
     meta: EC2ResourceMeta  # type: ignore[override]
 
@@ -4129,7 +4167,7 @@ class Snapshot(ServiceResource):
         self, **kwargs: Unpack[CopySnapshotRequestSnapshotCopyTypeDef]
     ) -> CopySnapshotResultTypeDef:
         """
-        Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3.
+        Creates an exact copy of an Amazon EBS snapshot.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/snapshot/copy.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource/#snapshotcopy-method)
@@ -4228,6 +4266,7 @@ class Subnet(ServiceResource):
     ipv6_native: bool
     private_dns_name_options_on_launch: PrivateDnsNameOptionsOnLaunchTypeDef
     block_public_access_states: BlockPublicAccessStatesTypeDef
+    type: str
     subnet_id: str
     state: SubnetStateType
     vpc_id: str
@@ -4348,7 +4387,9 @@ class Volume(ServiceResource):
 
     id: str
     snapshots: VolumeSnapshotsCollection
+    availability_zone_id: str
     outpost_arn: str
+    source_volume_id: str
     iops: int
     tags: List[TagTypeDef]
     volume_type: VolumeTypeType
@@ -4381,8 +4422,8 @@ class Volume(ServiceResource):
         self, **kwargs: Unpack[AttachVolumeRequestVolumeAttachToInstanceTypeDef]
     ) -> VolumeAttachmentResponseTypeDef:
         """
-        Attaches an EBS volume to a running or stopped instance and exposes it to the
-        instance with the specified device name.
+        Attaches an Amazon EBS volume to a <code>running</code> or <code>stopped</code>
+        instance, and exposes it to the instance with the specified device name.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/volume/attach_to_instance.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource/#volumeattach_to_instance-method)
@@ -4803,6 +4844,7 @@ class VpcAddress(ServiceResource):
     customer_owned_ip: str
     customer_owned_ipv4_pool: str
     carrier_ip: str
+    subnet_id: str
     service_managed: ServiceManagedType
     instance_id: str
     public_ip: str

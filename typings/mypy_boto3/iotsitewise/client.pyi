@@ -41,9 +41,14 @@ from .paginator import (
     ListAssociatedAssetsPaginator,
     ListBulkImportJobsPaginator,
     ListCompositionRelationshipsPaginator,
+    ListComputationModelDataBindingUsagesPaginator,
+    ListComputationModelResolveToResourcesPaginator,
+    ListComputationModelsPaginator,
     ListDashboardsPaginator,
     ListDatasetsPaginator,
+    ListExecutionsPaginator,
     ListGatewaysPaginator,
+    ListInterfaceRelationshipsPaginator,
     ListPortalsPaginator,
     ListProjectAssetsPaginator,
     ListProjectsPaginator,
@@ -74,6 +79,8 @@ from .type_defs import (
     CreateAssetResponseTypeDef,
     CreateBulkImportJobRequestTypeDef,
     CreateBulkImportJobResponseTypeDef,
+    CreateComputationModelRequestTypeDef,
+    CreateComputationModelResponseTypeDef,
     CreateDashboardRequestTypeDef,
     CreateDashboardResponseTypeDef,
     CreateDatasetRequestTypeDef,
@@ -87,10 +94,14 @@ from .type_defs import (
     DeleteAccessPolicyRequestTypeDef,
     DeleteAssetModelCompositeModelRequestTypeDef,
     DeleteAssetModelCompositeModelResponseTypeDef,
+    DeleteAssetModelInterfaceRelationshipRequestTypeDef,
+    DeleteAssetModelInterfaceRelationshipResponseTypeDef,
     DeleteAssetModelRequestTypeDef,
     DeleteAssetModelResponseTypeDef,
     DeleteAssetRequestTypeDef,
     DeleteAssetResponseTypeDef,
+    DeleteComputationModelRequestTypeDef,
+    DeleteComputationModelResponseTypeDef,
     DeleteDashboardRequestTypeDef,
     DeleteDatasetRequestTypeDef,
     DeleteDatasetResponseTypeDef,
@@ -107,6 +118,8 @@ from .type_defs import (
     DescribeAssetCompositeModelResponseTypeDef,
     DescribeAssetModelCompositeModelRequestTypeDef,
     DescribeAssetModelCompositeModelResponseTypeDef,
+    DescribeAssetModelInterfaceRelationshipRequestTypeDef,
+    DescribeAssetModelInterfaceRelationshipResponseTypeDef,
     DescribeAssetModelRequestTypeDef,
     DescribeAssetModelResponseTypeDef,
     DescribeAssetPropertyRequestTypeDef,
@@ -115,11 +128,17 @@ from .type_defs import (
     DescribeAssetResponseTypeDef,
     DescribeBulkImportJobRequestTypeDef,
     DescribeBulkImportJobResponseTypeDef,
+    DescribeComputationModelExecutionSummaryRequestTypeDef,
+    DescribeComputationModelExecutionSummaryResponseTypeDef,
+    DescribeComputationModelRequestTypeDef,
+    DescribeComputationModelResponseTypeDef,
     DescribeDashboardRequestTypeDef,
     DescribeDashboardResponseTypeDef,
     DescribeDatasetRequestTypeDef,
     DescribeDatasetResponseTypeDef,
     DescribeDefaultEncryptionConfigurationResponseTypeDef,
+    DescribeExecutionRequestTypeDef,
+    DescribeExecutionResponseTypeDef,
     DescribeGatewayCapabilityConfigurationRequestTypeDef,
     DescribeGatewayCapabilityConfigurationResponseTypeDef,
     DescribeGatewayRequestTypeDef,
@@ -171,12 +190,22 @@ from .type_defs import (
     ListBulkImportJobsResponseTypeDef,
     ListCompositionRelationshipsRequestTypeDef,
     ListCompositionRelationshipsResponseTypeDef,
+    ListComputationModelDataBindingUsagesRequestTypeDef,
+    ListComputationModelDataBindingUsagesResponseTypeDef,
+    ListComputationModelResolveToResourcesRequestTypeDef,
+    ListComputationModelResolveToResourcesResponseTypeDef,
+    ListComputationModelsRequestTypeDef,
+    ListComputationModelsResponseTypeDef,
     ListDashboardsRequestTypeDef,
     ListDashboardsResponseTypeDef,
     ListDatasetsRequestTypeDef,
     ListDatasetsResponseTypeDef,
+    ListExecutionsRequestTypeDef,
+    ListExecutionsResponseTypeDef,
     ListGatewaysRequestTypeDef,
     ListGatewaysResponseTypeDef,
+    ListInterfaceRelationshipsRequestTypeDef,
+    ListInterfaceRelationshipsResponseTypeDef,
     ListPortalsRequestTypeDef,
     ListPortalsResponseTypeDef,
     ListProjectAssetsRequestTypeDef,
@@ -187,6 +216,8 @@ from .type_defs import (
     ListTagsForResourceResponseTypeDef,
     ListTimeSeriesRequestTypeDef,
     ListTimeSeriesResponseTypeDef,
+    PutAssetModelInterfaceRelationshipRequestTypeDef,
+    PutAssetModelInterfaceRelationshipResponseTypeDef,
     PutDefaultEncryptionConfigurationRequestTypeDef,
     PutDefaultEncryptionConfigurationResponseTypeDef,
     PutLoggingOptionsRequestTypeDef,
@@ -202,6 +233,8 @@ from .type_defs import (
     UpdateAssetPropertyRequestTypeDef,
     UpdateAssetRequestTypeDef,
     UpdateAssetResponseTypeDef,
+    UpdateComputationModelRequestTypeDef,
+    UpdateComputationModelResponseTypeDef,
     UpdateDashboardRequestTypeDef,
     UpdateDatasetRequestTypeDef,
     UpdateDatasetResponseTypeDef,
@@ -421,6 +454,16 @@ class IoTSiteWiseClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_bulk_import_job)
         """
 
+    def create_computation_model(
+        self, **kwargs: Unpack[CreateComputationModelRequestTypeDef]
+    ) -> CreateComputationModelResponseTypeDef:
+        """
+        Create a computation model with a configuration and data binding.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_computation_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_computation_model)
+        """
+
     def create_dashboard(
         self, **kwargs: Unpack[CreateDashboardRequestTypeDef]
     ) -> CreateDashboardResponseTypeDef:
@@ -511,6 +554,27 @@ class IoTSiteWiseClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_asset_model_composite_model.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_asset_model_composite_model)
+        """
+
+    def delete_asset_model_interface_relationship(
+        self, **kwargs: Unpack[DeleteAssetModelInterfaceRelationshipRequestTypeDef]
+    ) -> DeleteAssetModelInterfaceRelationshipResponseTypeDef:
+        """
+        Deletes an interface relationship between an asset model and an interface asset
+        model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_asset_model_interface_relationship.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_asset_model_interface_relationship)
+        """
+
+    def delete_computation_model(
+        self, **kwargs: Unpack[DeleteComputationModelRequestTypeDef]
+    ) -> DeleteComputationModelResponseTypeDef:
+        """
+        Deletes a computation model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_computation_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_computation_model)
         """
 
     def delete_dashboard(self, **kwargs: Unpack[DeleteDashboardRequestTypeDef]) -> Dict[str, Any]:
@@ -632,6 +696,17 @@ class IoTSiteWiseClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_asset_model_composite_model)
         """
 
+    def describe_asset_model_interface_relationship(
+        self, **kwargs: Unpack[DescribeAssetModelInterfaceRelationshipRequestTypeDef]
+    ) -> DescribeAssetModelInterfaceRelationshipResponseTypeDef:
+        """
+        Retrieves information about an interface relationship between an asset model
+        and an interface asset model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_asset_model_interface_relationship.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_asset_model_interface_relationship)
+        """
+
     def describe_asset_property(
         self, **kwargs: Unpack[DescribeAssetPropertyRequestTypeDef]
     ) -> DescribeAssetPropertyResponseTypeDef:
@@ -650,6 +725,26 @@ class IoTSiteWiseClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_bulk_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_bulk_import_job)
+        """
+
+    def describe_computation_model(
+        self, **kwargs: Unpack[DescribeComputationModelRequestTypeDef]
+    ) -> DescribeComputationModelResponseTypeDef:
+        """
+        Retrieves information about a computation model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_computation_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_computation_model)
+        """
+
+    def describe_computation_model_execution_summary(
+        self, **kwargs: Unpack[DescribeComputationModelExecutionSummaryRequestTypeDef]
+    ) -> DescribeComputationModelExecutionSummaryResponseTypeDef:
+        """
+        Retrieves information about the execution summary of a computation model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_computation_model_execution_summary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_computation_model_execution_summary)
         """
 
     def describe_dashboard(
@@ -683,6 +778,16 @@ class IoTSiteWiseClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_default_encryption_configuration)
         """
 
+    def describe_execution(
+        self, **kwargs: Unpack[DescribeExecutionRequestTypeDef]
+    ) -> DescribeExecutionResponseTypeDef:
+        """
+        Retrieves information about the execution.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_execution.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_execution)
+        """
+
     def describe_gateway(
         self, **kwargs: Unpack[DescribeGatewayRequestTypeDef]
     ) -> DescribeGatewayResponseTypeDef:
@@ -697,7 +802,7 @@ class IoTSiteWiseClient(BaseClient):
         self, **kwargs: Unpack[DescribeGatewayCapabilityConfigurationRequestTypeDef]
     ) -> DescribeGatewayCapabilityConfigurationResponseTypeDef:
         """
-        Retrieves information about a gateway capability configuration.
+        Each gateway capability defines data sources for a gateway.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_gateway_capability_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_gateway_capability_configuration)
@@ -953,6 +1058,37 @@ class IoTSiteWiseClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_composition_relationships)
         """
 
+    def list_computation_model_data_binding_usages(
+        self, **kwargs: Unpack[ListComputationModelDataBindingUsagesRequestTypeDef]
+    ) -> ListComputationModelDataBindingUsagesResponseTypeDef:
+        """
+        Lists all data binding usages for computation models.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_computation_model_data_binding_usages.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_computation_model_data_binding_usages)
+        """
+
+    def list_computation_model_resolve_to_resources(
+        self, **kwargs: Unpack[ListComputationModelResolveToResourcesRequestTypeDef]
+    ) -> ListComputationModelResolveToResourcesResponseTypeDef:
+        """
+        Lists all distinct resources that are resolved from the executed actions of the
+        computation model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_computation_model_resolve_to_resources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_computation_model_resolve_to_resources)
+        """
+
+    def list_computation_models(
+        self, **kwargs: Unpack[ListComputationModelsRequestTypeDef]
+    ) -> ListComputationModelsResponseTypeDef:
+        """
+        Retrieves a paginated list of summaries of all computation models.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_computation_models.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_computation_models)
+        """
+
     def list_dashboards(
         self, **kwargs: Unpack[ListDashboardsRequestTypeDef]
     ) -> ListDashboardsResponseTypeDef:
@@ -973,6 +1109,16 @@ class IoTSiteWiseClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_datasets)
         """
 
+    def list_executions(
+        self, **kwargs: Unpack[ListExecutionsRequestTypeDef]
+    ) -> ListExecutionsResponseTypeDef:
+        """
+        Retrieves a paginated list of summaries of all executions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_executions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_executions)
+        """
+
     def list_gateways(
         self, **kwargs: Unpack[ListGatewaysRequestTypeDef]
     ) -> ListGatewaysResponseTypeDef:
@@ -981,6 +1127,17 @@ class IoTSiteWiseClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_gateways.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_gateways)
+        """
+
+    def list_interface_relationships(
+        self, **kwargs: Unpack[ListInterfaceRelationshipsRequestTypeDef]
+    ) -> ListInterfaceRelationshipsResponseTypeDef:
+        """
+        Retrieves a paginated list of asset models that have a specific interface asset
+        model applied to them.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_interface_relationships.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_interface_relationships)
         """
 
     def list_portals(
@@ -1032,6 +1189,17 @@ class IoTSiteWiseClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_time_series.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_time_series)
+        """
+
+    def put_asset_model_interface_relationship(
+        self, **kwargs: Unpack[PutAssetModelInterfaceRelationshipRequestTypeDef]
+    ) -> PutAssetModelInterfaceRelationshipResponseTypeDef:
+        """
+        Creates or updates an interface relationship between an asset model and an
+        interface asset model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/put_asset_model_interface_relationship.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#put_asset_model_interface_relationship)
         """
 
     def put_default_encryption_configuration(
@@ -1130,6 +1298,16 @@ class IoTSiteWiseClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_asset_property.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_asset_property)
+        """
+
+    def update_computation_model(
+        self, **kwargs: Unpack[UpdateComputationModelRequestTypeDef]
+    ) -> UpdateComputationModelResponseTypeDef:
+        """
+        Updates the computation model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_computation_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_computation_model)
         """
 
     def update_dashboard(self, **kwargs: Unpack[UpdateDashboardRequestTypeDef]) -> Dict[str, Any]:
@@ -1356,6 +1534,39 @@ class IoTSiteWiseClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_computation_model_data_binding_usages"]
+    ) -> ListComputationModelDataBindingUsagesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_computation_model_resolve_to_resources"]
+    ) -> ListComputationModelResolveToResourcesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_computation_models"]
+    ) -> ListComputationModelsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_dashboards"]
     ) -> ListDashboardsPaginator:
         """
@@ -1378,8 +1589,30 @@ class IoTSiteWiseClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_executions"]
+    ) -> ListExecutionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_gateways"]
     ) -> ListGatewaysPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_interface_relationships"]
+    ) -> ListInterfaceRelationshipsPaginator:
         """
         Create a paginator for an operation.
 

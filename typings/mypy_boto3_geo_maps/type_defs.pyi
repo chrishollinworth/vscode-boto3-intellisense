@@ -27,12 +27,15 @@ from .literals import (
     MapStyleType,
     ScaleBarUnitType,
     StaticMapStyleType,
+    TileAdditionalFeatureType,
+    TravelModeType,
 )
 
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
+    from collections.abc import Sequence
 else:
-    from typing import Dict
+    from typing import Dict, Sequence
 if sys.version_info >= (3, 12):
     from typing import Literal, NotRequired, TypedDict
 else:
@@ -95,6 +98,10 @@ class GetStyleDescriptorRequestTypeDef(TypedDict):
     Style: MapStyleType
     ColorScheme: NotRequired[ColorSchemeType]
     PoliticalView: NotRequired[str]
+    Terrain: NotRequired[Literal["Hillshade"]]
+    ContourDensity: NotRequired[Literal["Medium"]]
+    Traffic: NotRequired[Literal["All"]]
+    TravelModes: NotRequired[Sequence[TravelModeType]]
     Key: NotRequired[str]
 
 class GetTileRequestTypeDef(TypedDict):
@@ -102,6 +109,7 @@ class GetTileRequestTypeDef(TypedDict):
     Z: str
     X: str
     Y: str
+    AdditionalFeatures: NotRequired[Sequence[TileAdditionalFeatureType]]
     Key: NotRequired[str]
 
 class GetGlyphsResponseTypeDef(TypedDict):

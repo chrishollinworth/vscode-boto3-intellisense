@@ -30,6 +30,8 @@ from .type_defs import (
     DecryptDataOutputTypeDef,
     EncryptDataInputTypeDef,
     EncryptDataOutputTypeDef,
+    GenerateAs2805KekValidationInputTypeDef,
+    GenerateAs2805KekValidationOutputTypeDef,
     GenerateCardValidationDataInputTypeDef,
     GenerateCardValidationDataOutputTypeDef,
     GenerateMacEmvPinChangeInputTypeDef,
@@ -40,6 +42,8 @@ from .type_defs import (
     GeneratePinDataOutputTypeDef,
     ReEncryptDataInputTypeDef,
     ReEncryptDataOutputTypeDef,
+    TranslateKeyMaterialInputTypeDef,
+    TranslateKeyMaterialOutputTypeDef,
     TranslatePinDataInputTypeDef,
     TranslatePinDataOutputTypeDef,
     VerifyAuthRequestCryptogramInputTypeDef,
@@ -126,6 +130,18 @@ class PaymentCryptographyDataPlaneClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#encrypt_data)
         """
 
+    def generate_as2805_kek_validation(
+        self, **kwargs: Unpack[GenerateAs2805KekValidationInputTypeDef]
+    ) -> GenerateAs2805KekValidationOutputTypeDef:
+        """
+        Establishes node-to-node initialization between payment processing nodes such
+        as an acquirer, issuer or payment network using Australian Standard 2805
+        (AS2805).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/generate_as2805_kek_validation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#generate_as2805_kek_validation)
+        """
+
     def generate_card_validation_data(
         self, **kwargs: Unpack[GenerateCardValidationDataInputTypeDef]
     ) -> GenerateCardValidationDataOutputTypeDef:
@@ -177,6 +193,17 @@ class PaymentCryptographyDataPlaneClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/re_encrypt_data.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#re_encrypt_data)
+        """
+
+    def translate_key_material(
+        self, **kwargs: Unpack[TranslateKeyMaterialInputTypeDef]
+    ) -> TranslateKeyMaterialOutputTypeDef:
+        """
+        Translates an cryptographic key between different wrapping keys without
+        importing the key into Amazon Web Services Payment Cryptography.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/translate_key_material.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#translate_key_material)
         """
 
     def translate_pin_data(

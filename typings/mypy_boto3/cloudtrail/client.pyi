@@ -28,6 +28,7 @@ from botocore.exceptions import ClientError as BotocoreClientError
 from .paginator import (
     ListImportFailuresPaginator,
     ListImportsPaginator,
+    ListInsightsDataPaginator,
     ListPublicKeysPaginator,
     ListTagsPaginator,
     ListTrailsPaginator,
@@ -65,6 +66,8 @@ from .type_defs import (
     GetChannelResponseTypeDef,
     GetDashboardRequestTypeDef,
     GetDashboardResponseTypeDef,
+    GetEventConfigurationRequestTypeDef,
+    GetEventConfigurationResponseTypeDef,
     GetEventDataStoreRequestTypeDef,
     GetEventDataStoreResponseTypeDef,
     GetEventSelectorsRequestTypeDef,
@@ -91,6 +94,8 @@ from .type_defs import (
     ListImportFailuresResponseTypeDef,
     ListImportsRequestTypeDef,
     ListImportsResponseTypeDef,
+    ListInsightsDataRequestTypeDef,
+    ListInsightsDataResponseTypeDef,
     ListInsightsMetricDataRequestTypeDef,
     ListInsightsMetricDataResponseTypeDef,
     ListPublicKeysRequestTypeDef,
@@ -103,6 +108,8 @@ from .type_defs import (
     ListTrailsResponseTypeDef,
     LookupEventsRequestTypeDef,
     LookupEventsResponseTypeDef,
+    PutEventConfigurationRequestTypeDef,
+    PutEventConfigurationResponseTypeDef,
     PutEventSelectorsRequestTypeDef,
     PutEventSelectorsResponseTypeDef,
     PutInsightSelectorsRequestTypeDef,
@@ -184,6 +191,7 @@ class Exceptions(BaseClientExceptions):
     InsightNotEnabledException: Type[BotocoreClientError]
     InsufficientDependencyServiceAccessPermissionException: Type[BotocoreClientError]
     InsufficientEncryptionPolicyException: Type[BotocoreClientError]
+    InsufficientIAMAccessPermissionException: Type[BotocoreClientError]
     InsufficientS3BucketPolicyException: Type[BotocoreClientError]
     InsufficientSnsTopicPolicyException: Type[BotocoreClientError]
     InvalidCloudWatchLogsLogGroupArnException: Type[BotocoreClientError]
@@ -463,6 +471,17 @@ class CloudTrailClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client/#get_dashboard)
         """
 
+    def get_event_configuration(
+        self, **kwargs: Unpack[GetEventConfigurationRequestTypeDef]
+    ) -> GetEventConfigurationResponseTypeDef:
+        """
+        Retrieves the current event configuration settings for the specified event data
+        store or trail.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/client/get_event_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client/#get_event_configuration)
+        """
+
     def get_event_data_store(
         self, **kwargs: Unpack[GetEventDataStoreRequestTypeDef]
     ) -> GetEventDataStoreResponseTypeDef:
@@ -595,6 +614,16 @@ class CloudTrailClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client/#list_imports)
         """
 
+    def list_insights_data(
+        self, **kwargs: Unpack[ListInsightsDataRequestTypeDef]
+    ) -> ListInsightsDataResponseTypeDef:
+        """
+        Returns Insights events generated on a trail that logs data events.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/client/list_insights_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client/#list_insights_data)
+        """
+
     def list_insights_metric_data(
         self, **kwargs: Unpack[ListInsightsMetricDataRequestTypeDef]
     ) -> ListInsightsMetricDataResponseTypeDef:
@@ -656,6 +685,17 @@ class CloudTrailClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client/#lookup_events)
         """
 
+    def put_event_configuration(
+        self, **kwargs: Unpack[PutEventConfigurationRequestTypeDef]
+    ) -> PutEventConfigurationResponseTypeDef:
+        """
+        Updates the event configuration settings for the specified event data store or
+        trail.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/client/put_event_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client/#put_event_configuration)
+        """
+
     def put_event_selectors(
         self, **kwargs: Unpack[PutEventSelectorsRequestTypeDef]
     ) -> PutEventSelectorsResponseTypeDef:
@@ -671,8 +711,9 @@ class CloudTrailClient(BaseClient):
         self, **kwargs: Unpack[PutInsightSelectorsRequestTypeDef]
     ) -> PutInsightSelectorsResponseTypeDef:
         """
-        Lets you enable Insights event logging by specifying the Insights selectors
-        that you want to enable on an existing trail or event data store.
+        Lets you enable Insights event logging on specific event categories by
+        specifying the Insights selectors that you want to enable on an existing trail
+        or event data store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/client/put_insight_selectors.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client/#put_insight_selectors)
@@ -865,6 +906,17 @@ class CloudTrailClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_imports"]
     ) -> ListImportsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_insights_data"]
+    ) -> ListInsightsDataPaginator:
         """
         Create a paginator for an operation.
 

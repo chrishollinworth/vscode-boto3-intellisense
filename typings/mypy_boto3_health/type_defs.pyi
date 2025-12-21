@@ -22,9 +22,13 @@ from typing import Union
 
 from .literals import (
     EntityStatusCodeType,
+    EventActionabilityType,
+    EventPersonaType,
     EventScopeCodeType,
     EventStatusCodeType,
+    EventTypeActionabilityType,
     EventTypeCategoryType,
+    EventTypePersonaType,
 )
 
 if sys.version_info >= (3, 9):
@@ -181,11 +185,15 @@ class EventTypeFilterTypeDef(TypedDict):
     eventTypeCodes: NotRequired[Sequence[str]]
     services: NotRequired[Sequence[str]]
     eventTypeCategories: NotRequired[Sequence[EventTypeCategoryType]]
+    actionabilities: NotRequired[Sequence[EventTypeActionabilityType]]
+    personas: NotRequired[Sequence[EventTypePersonaType]]
 
 class EventTypeTypeDef(TypedDict):
     service: NotRequired[str]
     code: NotRequired[str]
     category: NotRequired[EventTypeCategoryType]
+    actionability: NotRequired[EventTypeActionabilityType]
+    personas: NotRequired[List[EventTypePersonaType]]
 
 class OrganizationEventTypeDef(TypedDict):
     arn: NotRequired[str]
@@ -198,6 +206,8 @@ class OrganizationEventTypeDef(TypedDict):
     endTime: NotRequired[datetime]
     lastUpdatedTime: NotRequired[datetime]
     statusCode: NotRequired[EventStatusCodeType]
+    actionability: NotRequired[EventActionabilityType]
+    personas: NotRequired[List[EventPersonaType]]
 
 class EventTypeDef(TypedDict):
     arn: NotRequired[str]
@@ -211,6 +221,8 @@ class EventTypeDef(TypedDict):
     lastUpdatedTime: NotRequired[datetime]
     statusCode: NotRequired[EventStatusCodeType]
     eventScopeCode: NotRequired[EventScopeCodeType]
+    actionability: NotRequired[EventActionabilityType]
+    personas: NotRequired[List[EventPersonaType]]
 
 class EventDescriptionTypeDef(TypedDict):
     latestDescription: NotRequired[str]
@@ -340,6 +352,7 @@ class EntityFilterTypeDef(TypedDict):
     statusCodes: NotRequired[Sequence[EntityStatusCodeType]]
 
 class EventFilterTypeDef(TypedDict):
+    actionabilities: NotRequired[Sequence[EventActionabilityType]]
     eventArns: NotRequired[Sequence[str]]
     eventTypeCodes: NotRequired[Sequence[str]]
     services: NotRequired[Sequence[str]]
@@ -353,8 +366,10 @@ class EventFilterTypeDef(TypedDict):
     eventTypeCategories: NotRequired[Sequence[EventTypeCategoryType]]
     tags: NotRequired[Sequence[Mapping[str, str]]]
     eventStatusCodes: NotRequired[Sequence[EventStatusCodeType]]
+    personas: NotRequired[Sequence[EventPersonaType]]
 
 class OrganizationEventFilterTypeDef(TypedDict):
+    actionabilities: NotRequired[Sequence[EventActionabilityType]]
     eventTypeCodes: NotRequired[Sequence[str]]
     awsAccountIds: NotRequired[Sequence[str]]
     services: NotRequired[Sequence[str]]
@@ -366,6 +381,7 @@ class OrganizationEventFilterTypeDef(TypedDict):
     entityValues: NotRequired[Sequence[str]]
     eventTypeCategories: NotRequired[Sequence[EventTypeCategoryType]]
     eventStatusCodes: NotRequired[Sequence[EventStatusCodeType]]
+    personas: NotRequired[Sequence[EventPersonaType]]
 
 class DescribeEventDetailsResponseTypeDef(TypedDict):
     successfulSet: List[EventDetailsTypeDef]

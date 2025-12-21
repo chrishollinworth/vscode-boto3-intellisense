@@ -162,6 +162,8 @@ __all__ = (
     "CreateManagedLoginBrandingResponseTypeDef",
     "CreateResourceServerRequestTypeDef",
     "CreateResourceServerResponseTypeDef",
+    "CreateTermsRequestTypeDef",
+    "CreateTermsResponseTypeDef",
     "CreateUserImportJobRequestTypeDef",
     "CreateUserImportJobResponseTypeDef",
     "CreateUserPoolClientRequestTypeDef",
@@ -177,6 +179,7 @@ __all__ = (
     "DeleteIdentityProviderRequestTypeDef",
     "DeleteManagedLoginBrandingRequestTypeDef",
     "DeleteResourceServerRequestTypeDef",
+    "DeleteTermsRequestTypeDef",
     "DeleteUserAttributesRequestTypeDef",
     "DeleteUserPoolClientRequestTypeDef",
     "DeleteUserPoolDomainRequestTypeDef",
@@ -193,6 +196,8 @@ __all__ = (
     "DescribeResourceServerResponseTypeDef",
     "DescribeRiskConfigurationRequestTypeDef",
     "DescribeRiskConfigurationResponseTypeDef",
+    "DescribeTermsRequestTypeDef",
+    "DescribeTermsResponseTypeDef",
     "DescribeUserImportJobRequestTypeDef",
     "DescribeUserImportJobResponseTypeDef",
     "DescribeUserPoolClientRequestTypeDef",
@@ -260,6 +265,8 @@ __all__ = (
     "ListResourceServersResponseTypeDef",
     "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTermsRequestTypeDef",
+    "ListTermsResponseTypeDef",
     "ListUserImportJobsRequestTypeDef",
     "ListUserImportJobsResponseTypeDef",
     "ListUserPoolClientsRequestPaginateTypeDef",
@@ -333,6 +340,8 @@ __all__ = (
     "StopUserImportJobResponseTypeDef",
     "StringAttributeConstraintsTypeTypeDef",
     "TagResourceRequestTypeDef",
+    "TermsDescriptionTypeTypeDef",
+    "TermsTypeTypeDef",
     "TokenValidityUnitsTypeTypeDef",
     "UICustomizationTypeTypeDef",
     "UntagResourceRequestTypeDef",
@@ -346,6 +355,8 @@ __all__ = (
     "UpdateManagedLoginBrandingResponseTypeDef",
     "UpdateResourceServerRequestTypeDef",
     "UpdateResourceServerResponseTypeDef",
+    "UpdateTermsRequestTypeDef",
+    "UpdateTermsResponseTypeDef",
     "UpdateUserAttributesRequestTypeDef",
     "UpdateUserAttributesResponseTypeDef",
     "UpdateUserPoolClientRequestTypeDef",
@@ -638,6 +649,25 @@ class ResourceServerScopeTypeTypeDef(TypedDict):
     ScopeName: str
     ScopeDescription: str
 
+class CreateTermsRequestTypeDef(TypedDict):
+    UserPoolId: str
+    ClientId: str
+    TermsName: str
+    TermsSource: Literal["LINK"]
+    Enforcement: Literal["NONE"]
+    Links: NotRequired[Mapping[str, str]]
+
+class TermsTypeTypeDef(TypedDict):
+    TermsId: str
+    UserPoolId: str
+    ClientId: str
+    TermsName: str
+    TermsSource: Literal["LINK"]
+    Enforcement: Literal["NONE"]
+    Links: Dict[str, str]
+    CreationDate: datetime
+    LastModifiedDate: datetime
+
 class CreateUserImportJobRequestTypeDef(TypedDict):
     JobName: str
     UserPoolId: str
@@ -721,6 +751,10 @@ class DeleteResourceServerRequestTypeDef(TypedDict):
     UserPoolId: str
     Identifier: str
 
+class DeleteTermsRequestTypeDef(TypedDict):
+    TermsId: str
+    UserPoolId: str
+
 class DeleteUserAttributesRequestTypeDef(TypedDict):
     UserAttributeNames: Sequence[str]
     AccessToken: str
@@ -764,6 +798,10 @@ class DescribeResourceServerRequestTypeDef(TypedDict):
 class DescribeRiskConfigurationRequestTypeDef(TypedDict):
     UserPoolId: str
     ClientId: NotRequired[str]
+
+class DescribeTermsRequestTypeDef(TypedDict):
+    TermsId: str
+    UserPoolId: str
 
 class DescribeUserImportJobRequestTypeDef(TypedDict):
     UserPoolId: str
@@ -887,6 +925,18 @@ class ListResourceServersRequestTypeDef(TypedDict):
 
 class ListTagsForResourceRequestTypeDef(TypedDict):
     ResourceArn: str
+
+class ListTermsRequestTypeDef(TypedDict):
+    UserPoolId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class TermsDescriptionTypeTypeDef(TypedDict):
+    TermsId: str
+    TermsName: str
+    Enforcement: Literal["NONE"]
+    CreationDate: datetime
+    LastModifiedDate: datetime
 
 class ListUserImportJobsRequestTypeDef(TypedDict):
     UserPoolId: str
@@ -1021,6 +1071,14 @@ class UpdateIdentityProviderRequestTypeDef(TypedDict):
     ProviderDetails: NotRequired[Mapping[str, str]]
     AttributeMapping: NotRequired[Mapping[str, str]]
     IdpIdentifiers: NotRequired[Sequence[str]]
+
+class UpdateTermsRequestTypeDef(TypedDict):
+    TermsId: str
+    UserPoolId: str
+    TermsName: NotRequired[str]
+    TermsSource: NotRequired[Literal["LINK"]]
+    Enforcement: NotRequired[Literal["NONE"]]
+    Links: NotRequired[Mapping[str, str]]
 
 class UserAttributeUpdateSettingsTypeOutputTypeDef(TypedDict):
     AttributesRequireVerificationBeforeUpdate: NotRequired[List[VerifiedAttributeTypeType]]
@@ -1449,6 +1507,18 @@ class UpdateResourceServerRequestTypeDef(TypedDict):
     Name: str
     Scopes: NotRequired[Sequence[ResourceServerScopeTypeTypeDef]]
 
+class CreateTermsResponseTypeDef(TypedDict):
+    Terms: TermsTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTermsResponseTypeDef(TypedDict):
+    Terms: TermsTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTermsResponseTypeDef(TypedDict):
+    Terms: TermsTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class CreateUserImportJobResponseTypeDef(TypedDict):
     UserImportJob: UserImportJobTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1601,6 +1671,11 @@ class LambdaConfigTypeTypeDef(TypedDict):
 
 class ListIdentityProvidersResponseTypeDef(TypedDict):
     Providers: List[ProviderDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTermsResponseTypeDef(TypedDict):
+    Terms: List[TermsDescriptionTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 

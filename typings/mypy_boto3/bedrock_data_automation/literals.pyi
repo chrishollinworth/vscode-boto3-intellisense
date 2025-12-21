@@ -23,23 +23,31 @@ else:
 
 __all__ = (
     "AudioExtractionCategoryTypeType",
+    "AudioGenerativeOutputLanguageType",
     "AudioStandardGenerativeFieldTypeType",
+    "BlueprintOptimizationJobStatusType",
     "BlueprintStageFilterType",
     "BlueprintStageType",
     "DataAutomationProjectStageFilterType",
     "DataAutomationProjectStageType",
     "DataAutomationProjectStatusType",
+    "DataAutomationProjectTypeType",
     "DataAutomationforBedrockServiceName",
     "DesiredModalityType",
     "DocumentExtractionGranularityTypeType",
     "DocumentOutputTextFormatTypeType",
     "ImageExtractionCategoryTypeType",
     "ImageStandardGenerativeFieldTypeType",
+    "LanguageType",
     "ListBlueprintsPaginatorName",
     "ListDataAutomationProjectsPaginatorName",
+    "PIIEntityTypeType",
+    "PIIRedactionMaskModeType",
     "PaginatorName",
     "ResourceOwnerType",
     "ResourceServiceName",
+    "SensitiveDataDetectionModeType",
+    "SensitiveDataDetectionScopeTypeType",
     "ServiceName",
     "StateType",
     "TypeType",
@@ -50,22 +58,65 @@ __all__ = (
 AudioExtractionCategoryTypeType = Literal[
     "AUDIO_CONTENT_MODERATION", "TOPIC_CONTENT_MODERATION", "TRANSCRIPT"
 ]
+AudioGenerativeOutputLanguageType = Literal["DEFAULT", "EN"]
 AudioStandardGenerativeFieldTypeType = Literal["AUDIO_SUMMARY", "IAB", "TOPIC_SUMMARY"]
+BlueprintOptimizationJobStatusType = Literal[
+    "ClientError", "Created", "InProgress", "ServiceError", "Success"
+]
 BlueprintStageFilterType = Literal["ALL", "DEVELOPMENT", "LIVE"]
 BlueprintStageType = Literal["DEVELOPMENT", "LIVE"]
 DataAutomationProjectStageFilterType = Literal["ALL", "DEVELOPMENT", "LIVE"]
 DataAutomationProjectStageType = Literal["DEVELOPMENT", "LIVE"]
 DataAutomationProjectStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
+DataAutomationProjectTypeType = Literal["ASYNC", "SYNC"]
 DesiredModalityType = Literal["AUDIO", "DOCUMENT", "IMAGE", "VIDEO"]
 DocumentExtractionGranularityTypeType = Literal["DOCUMENT", "ELEMENT", "LINE", "PAGE", "WORD"]
 DocumentOutputTextFormatTypeType = Literal["CSV", "HTML", "MARKDOWN", "PLAIN_TEXT"]
 ImageExtractionCategoryTypeType = Literal["CONTENT_MODERATION", "LOGOS", "TEXT_DETECTION"]
 ImageStandardGenerativeFieldTypeType = Literal["IAB", "IMAGE_SUMMARY"]
+LanguageType = Literal["CN", "DE", "EN", "ES", "FR", "HK", "IT", "JA", "KO", "PT", "TW"]
 ListBlueprintsPaginatorName = Literal["list_blueprints"]
 ListDataAutomationProjectsPaginatorName = Literal["list_data_automation_projects"]
+PIIEntityTypeType = Literal[
+    "ADDRESS",
+    "AGE",
+    "ALL",
+    "AWS_ACCESS_KEY",
+    "AWS_SECRET_KEY",
+    "CA_HEALTH_NUMBER",
+    "CA_SOCIAL_INSURANCE_NUMBER",
+    "CREDIT_DEBIT_CARD_CVV",
+    "CREDIT_DEBIT_CARD_EXPIRY",
+    "CREDIT_DEBIT_CARD_NUMBER",
+    "DRIVER_ID",
+    "EMAIL",
+    "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+    "IP_ADDRESS",
+    "LICENSE_PLATE",
+    "MAC_ADDRESS",
+    "NAME",
+    "PASSWORD",
+    "PHONE",
+    "PIN",
+    "SWIFT_CODE",
+    "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+    "UK_NATIONAL_INSURANCE_NUMBER",
+    "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+    "URL",
+    "USERNAME",
+    "US_BANK_ACCOUNT_NUMBER",
+    "US_BANK_ROUTING_NUMBER",
+    "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+    "US_PASSPORT_NUMBER",
+    "US_SOCIAL_SECURITY_NUMBER",
+    "VEHICLE_IDENTIFICATION_NUMBER",
+]
+PIIRedactionMaskModeType = Literal["ENTITY_TYPE", "PII"]
 ResourceOwnerType = Literal["ACCOUNT", "SERVICE"]
+SensitiveDataDetectionModeType = Literal["DETECTION", "DETECTION_AND_REDACTION"]
+SensitiveDataDetectionScopeTypeType = Literal["CUSTOM", "STANDARD"]
 StateType = Literal["DISABLED", "ENABLED"]
-TypeType = Literal["AUDIO", "DOCUMENT", "IMAGE"]
+TypeType = Literal["AUDIO", "DOCUMENT", "IMAGE", "VIDEO"]
 VideoExtractionCategoryTypeType = Literal[
     "CONTENT_MODERATION", "LOGOS", "TEXT_DETECTION", "TRANSCRIPT"
 ]
@@ -76,6 +127,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -96,7 +148,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -108,11 +160,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -161,6 +217,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -216,6 +273,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -258,7 +316,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -273,6 +330,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -296,8 +354,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -328,9 +384,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -340,17 +398,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -368,13 +429,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -389,20 +447,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -427,8 +487,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -468,25 +528,18 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal["list_blueprints", "list_data_automation_projects"]

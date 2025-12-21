@@ -23,6 +23,7 @@ else:
 
 __all__ = (
     "AccountJoinedMethodType",
+    "AccountStateType",
     "AccountStatusType",
     "ActionTypeType",
     "ChildTypeType",
@@ -36,10 +37,12 @@ __all__ = (
     "ListAWSServiceAccessForOrganizationPaginatorName",
     "ListAccountsForParentPaginatorName",
     "ListAccountsPaginatorName",
+    "ListAccountsWithInvalidEffectivePolicyPaginatorName",
     "ListChildrenPaginatorName",
     "ListCreateAccountStatusPaginatorName",
     "ListDelegatedAdministratorsPaginatorName",
     "ListDelegatedServicesForAccountPaginatorName",
+    "ListEffectivePolicyValidationErrorsPaginatorName",
     "ListHandshakesForAccountPaginatorName",
     "ListHandshakesForOrganizationPaginatorName",
     "ListOrganizationalUnitsForParentPaginatorName",
@@ -56,14 +59,21 @@ __all__ = (
     "PolicyTypeStatusType",
     "PolicyTypeType",
     "ResourceServiceName",
+    "ResponsibilityTransferStatusType",
+    "ResponsibilityTransferTypeType",
     "ServiceName",
     "TargetTypeType",
 )
 
 AccountJoinedMethodType = Literal["CREATED", "INVITED"]
+AccountStateType = Literal["ACTIVE", "CLOSED", "PENDING_ACTIVATION", "PENDING_CLOSURE", "SUSPENDED"]
 AccountStatusType = Literal["ACTIVE", "PENDING_CLOSURE", "SUSPENDED"]
 ActionTypeType = Literal[
-    "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE", "APPROVE_ALL_FEATURES", "ENABLE_ALL_FEATURES", "INVITE"
+    "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
+    "APPROVE_ALL_FEATURES",
+    "ENABLE_ALL_FEATURES",
+    "INVITE",
+    "TRANSFER_RESPONSIBILITY",
 ]
 ChildTypeType = Literal["ACCOUNT", "ORGANIZATIONAL_UNIT"]
 CreateAccountFailureReasonType = Literal[
@@ -87,20 +97,32 @@ CreateAccountStateType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
 EffectivePolicyTypeType = Literal[
     "AISERVICES_OPT_OUT_POLICY",
     "BACKUP_POLICY",
+    "BEDROCK_POLICY",
     "CHATBOT_POLICY",
     "DECLARATIVE_POLICY_EC2",
+    "INSPECTOR_POLICY",
+    "NETWORK_SECURITY_DIRECTOR_POLICY",
+    "S3_POLICY",
+    "SECURITYHUB_POLICY",
     "TAG_POLICY",
+    "UPGRADE_ROLLOUT_POLICY",
 ]
 HandshakePartyTypeType = Literal["ACCOUNT", "EMAIL", "ORGANIZATION"]
 HandshakeResourceTypeType = Literal[
     "ACCOUNT",
     "EMAIL",
+    "MANAGEMENT_ACCOUNT",
+    "MANAGEMENT_EMAIL",
+    "MANAGEMENT_NAME",
     "MASTER_EMAIL",
     "MASTER_NAME",
     "NOTES",
     "ORGANIZATION",
     "ORGANIZATION_FEATURE_SET",
     "PARENT_HANDSHAKE",
+    "RESPONSIBILITY_TRANSFER",
+    "TRANSFER_START_TIMESTAMP",
+    "TRANSFER_TYPE",
 ]
 HandshakeStateType = Literal["ACCEPTED", "CANCELED", "DECLINED", "EXPIRED", "OPEN", "REQUESTED"]
 IAMUserAccessToBillingType = Literal["ALLOW", "DENY"]
@@ -109,10 +131,16 @@ ListAWSServiceAccessForOrganizationPaginatorName = Literal[
 ]
 ListAccountsForParentPaginatorName = Literal["list_accounts_for_parent"]
 ListAccountsPaginatorName = Literal["list_accounts"]
+ListAccountsWithInvalidEffectivePolicyPaginatorName = Literal[
+    "list_accounts_with_invalid_effective_policy"
+]
 ListChildrenPaginatorName = Literal["list_children"]
 ListCreateAccountStatusPaginatorName = Literal["list_create_account_status"]
 ListDelegatedAdministratorsPaginatorName = Literal["list_delegated_administrators"]
 ListDelegatedServicesForAccountPaginatorName = Literal["list_delegated_services_for_account"]
+ListEffectivePolicyValidationErrorsPaginatorName = Literal[
+    "list_effective_policy_validation_errors"
+]
 ListHandshakesForAccountPaginatorName = Literal["list_handshakes_for_account"]
 ListHandshakesForOrganizationPaginatorName = Literal["list_handshakes_for_organization"]
 ListOrganizationalUnitsForParentPaginatorName = Literal["list_organizational_units_for_parent"]
@@ -128,12 +156,22 @@ PolicyTypeStatusType = Literal["ENABLED", "PENDING_DISABLE", "PENDING_ENABLE"]
 PolicyTypeType = Literal[
     "AISERVICES_OPT_OUT_POLICY",
     "BACKUP_POLICY",
+    "BEDROCK_POLICY",
     "CHATBOT_POLICY",
     "DECLARATIVE_POLICY_EC2",
+    "INSPECTOR_POLICY",
+    "NETWORK_SECURITY_DIRECTOR_POLICY",
     "RESOURCE_CONTROL_POLICY",
+    "S3_POLICY",
+    "SECURITYHUB_POLICY",
     "SERVICE_CONTROL_POLICY",
     "TAG_POLICY",
+    "UPGRADE_ROLLOUT_POLICY",
 ]
+ResponsibilityTransferStatusType = Literal[
+    "ACCEPTED", "CANCELED", "DECLINED", "EXPIRED", "REQUESTED", "WITHDRAWN"
+]
+ResponsibilityTransferTypeType = Literal["BILLING"]
 TargetTypeType = Literal["ACCOUNT", "ORGANIZATIONAL_UNIT", "ROOT"]
 OrganizationsServiceName = Literal["organizations"]
 ServiceName = Literal[
@@ -141,6 +179,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -161,7 +200,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -173,11 +212,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -226,6 +269,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -281,6 +325,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -323,7 +368,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -338,6 +382,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -361,8 +406,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -393,9 +436,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -405,17 +450,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -433,13 +481,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -454,20 +499,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -492,8 +539,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -533,35 +580,30 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_accounts",
     "list_accounts_for_parent",
+    "list_accounts_with_invalid_effective_policy",
     "list_aws_service_access_for_organization",
     "list_children",
     "list_create_account_status",
     "list_delegated_administrators",
     "list_delegated_services_for_account",
+    "list_effective_policy_validation_errors",
     "list_handshakes_for_account",
     "list_handshakes_for_organization",
     "list_organizational_units_for_parent",

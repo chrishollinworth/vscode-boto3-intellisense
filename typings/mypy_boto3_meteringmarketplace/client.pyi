@@ -54,6 +54,7 @@ class Exceptions(BaseClientExceptions):
     DisabledApiException: Type[BotocoreClientError]
     DuplicateRequestException: Type[BotocoreClientError]
     ExpiredTokenException: Type[BotocoreClientError]
+    IdempotencyConflictException: Type[BotocoreClientError]
     InternalServiceErrorException: Type[BotocoreClientError]
     InvalidCustomerIdentifierException: Type[BotocoreClientError]
     InvalidEndpointRegionException: Type[BotocoreClientError]
@@ -107,7 +108,8 @@ class MarketplaceMeteringClient(BaseClient):
         self, **kwargs: Unpack[BatchMeterUsageRequestTypeDef]
     ) -> BatchMeterUsageResultTypeDef:
         """
-        The <code>CustomerIdentifier</code> parameter is scheduled for deprecation.
+        The <code>CustomerIdentifier</code> parameter is scheduled for deprecation on
+        March 31, 2026.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/meteringmarketplace/client/batch_meter_usage.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client/#batch_meter_usage)

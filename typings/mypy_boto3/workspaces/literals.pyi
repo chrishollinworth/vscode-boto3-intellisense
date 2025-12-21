@@ -26,6 +26,7 @@ __all__ = (
     "AGAModeForWorkSpaceEnumType",
     "AGAPreferredProtocolForDirectoryType",
     "AGAPreferredProtocolForWorkSpaceType",
+    "AccessEndpointTypeType",
     "AccessPropertyValueType",
     "AccountLinkStatusEnumType",
     "ApplicationAssociatedResourceTypeType",
@@ -42,6 +43,8 @@ __all__ = (
     "ComputeType",
     "ConnectionAliasStateType",
     "ConnectionStateType",
+    "CustomImageProtocolType",
+    "CustomWorkspaceImageImportStateType",
     "DataReplicationType",
     "DedicatedTenancyAccountTypeType",
     "DedicatedTenancyModificationStateEnumType",
@@ -61,15 +64,20 @@ __all__ = (
     "DescribeWorkspacesPoolsFilterOperatorType",
     "EndpointEncryptionModeType",
     "ImageAssociatedResourceTypeType",
+    "ImageComputeTypeType",
     "ImageTypeType",
+    "InternetFallbackProtocolType",
     "ListAccountLinksPaginatorName",
     "ListAvailableManagementCidrRangesPaginatorName",
     "LogUploadEnumType",
     "ModificationResourceEnumType",
     "ModificationStateEnumType",
+    "OSVersionType",
     "OperatingSystemNameType",
     "OperatingSystemTypeType",
     "PaginatorName",
+    "PlatformType",
+    "PoolsRunningModeType",
     "ProtocolType",
     "ReconnectEnumType",
     "RegionName",
@@ -108,6 +116,7 @@ AGAModeForDirectoryEnumType = Literal["DISABLED", "ENABLED_AUTO"]
 AGAModeForWorkSpaceEnumType = Literal["DISABLED", "ENABLED_AUTO", "INHERITED"]
 AGAPreferredProtocolForDirectoryType = Literal["NONE", "TCP"]
 AGAPreferredProtocolForWorkSpaceType = Literal["INHERITED", "NONE", "TCP"]
+AccessEndpointTypeType = Literal["STREAMING_WSP"]
 AccessPropertyValueType = Literal["ALLOW", "DENY"]
 AccountLinkStatusEnumType = Literal[
     "LINKED", "LINKING_FAILED", "LINK_NOT_FOUND", "PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT", "REJECTED"
@@ -167,6 +176,8 @@ ComputeType = Literal[
 ]
 ConnectionAliasStateType = Literal["CREATED", "CREATING", "DELETING"]
 ConnectionStateType = Literal["CONNECTED", "DISCONNECTED", "UNKNOWN"]
+CustomImageProtocolType = Literal["BYOP", "DCV", "PCOIP"]
+CustomWorkspaceImageImportStateType = Literal["COMPLETED", "ERROR", "IN_PROGRESS", "PENDING"]
 DataReplicationType = Literal["NO_REPLICATION", "PRIMARY_AS_SOURCE"]
 DedicatedTenancyAccountTypeType = Literal["SOURCE_ACCOUNT", "TARGET_ACCOUNT"]
 DedicatedTenancyModificationStateEnumType = Literal["COMPLETED", "FAILED", "PENDING"]
@@ -192,12 +203,15 @@ DescribeWorkspacesPoolsFilterOperatorType = Literal[
 ]
 EndpointEncryptionModeType = Literal["FIPS_VALIDATED", "STANDARD_TLS"]
 ImageAssociatedResourceTypeType = Literal["APPLICATION"]
+ImageComputeTypeType = Literal["BASE", "GRAPHICS_G4DN"]
 ImageTypeType = Literal["OWNED", "SHARED"]
+InternetFallbackProtocolType = Literal["PCOIP"]
 ListAccountLinksPaginatorName = Literal["list_account_links"]
 ListAvailableManagementCidrRangesPaginatorName = Literal["list_available_management_cidr_ranges"]
 LogUploadEnumType = Literal["DISABLED", "ENABLED"]
 ModificationResourceEnumType = Literal["COMPUTE_TYPE", "ROOT_VOLUME", "USER_VOLUME"]
 ModificationStateEnumType = Literal["UPDATE_INITIATED", "UPDATE_IN_PROGRESS"]
+OSVersionType = Literal["Windows_10", "Windows_11"]
 OperatingSystemNameType = Literal[
     "AMAZON_LINUX_2",
     "RHEL_8",
@@ -214,6 +228,8 @@ OperatingSystemNameType = Literal[
     "WINDOWS_SERVER_2022",
 ]
 OperatingSystemTypeType = Literal["LINUX", "WINDOWS"]
+PlatformType = Literal["WINDOWS"]
+PoolsRunningModeType = Literal["ALWAYS_ON", "AUTO_STOP"]
 ProtocolType = Literal["PCOIP", "WSP"]
 ReconnectEnumType = Literal["DISABLED", "ENABLED"]
 RunningModeType = Literal["ALWAYS_ON", "AUTO_STOP", "MANUAL"]
@@ -266,6 +282,7 @@ WorkspaceImageErrorDetailCodeType = Literal[
     "InsufficientDiskSpace",
     "InsufficientRearmCount",
     "InvalidIp",
+    "MemoryIntegrityIncompatibility",
     "MultipleBootPartition",
     "MultipleUserProfiles",
     "OSNotSupported",
@@ -273,10 +290,12 @@ WorkspaceImageErrorDetailCodeType = Literal[
     "OutdatedPowershellVersion",
     "PCoIPAgentInstalled",
     "PendingReboot",
+    "ProtocolOSIncompatibility",
     "RealTimeUniversalDisabled",
     "RemoteDesktopServicesDisabled",
     "Requires64BitOS",
     "ReservedStorageInUse",
+    "RestrictedDriveLetterInUse",
     "StagedAppxPackage",
     "SysPrepFileMissing",
     "UEFINotSupported",
@@ -375,6 +394,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -395,7 +415,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -407,11 +427,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -460,6 +484,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -515,6 +540,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -557,7 +583,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -572,6 +597,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -595,8 +621,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -627,9 +651,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -639,17 +665,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -667,13 +696,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -688,20 +714,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -726,8 +754,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -767,26 +795,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "describe_account_modifications",

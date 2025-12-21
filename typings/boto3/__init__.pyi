@@ -16,6 +16,7 @@ from mypy_boto3_accessanalyzer.client import AccessAnalyzerClient
 from mypy_boto3_account.client import AccountClient
 from mypy_boto3_acm.client import ACMClient
 from mypy_boto3_acm_pca.client import ACMPCAClient
+from mypy_boto3_aiops.client import AIOpsClient
 from mypy_boto3_amp.client import PrometheusServiceClient
 from mypy_boto3_amplify.client import AmplifyClient
 from mypy_boto3_amplifybackend.client import AmplifyBackendClient
@@ -36,7 +37,7 @@ from mypy_boto3_appmesh.client import AppMeshClient
 from mypy_boto3_apprunner.client import AppRunnerClient
 from mypy_boto3_appstream.client import AppStreamClient
 from mypy_boto3_appsync.client import AppSyncClient
-from mypy_boto3_apptest.client import MainframeModernizationApplicationTestingClient
+from mypy_boto3_arc_region_switch.client import ARCRegionswitchClient
 from mypy_boto3_arc_zonal_shift.client import ARCZonalShiftClient
 from mypy_boto3_artifact.client import ArtifactClient
 from mypy_boto3_athena.client import AthenaClient
@@ -48,11 +49,17 @@ from mypy_boto3_backup.client import BackupClient
 from mypy_boto3_backup_gateway.client import BackupGatewayClient
 from mypy_boto3_backupsearch.client import BackupSearchClient
 from mypy_boto3_batch.client import BatchClient
+from mypy_boto3_bcm_dashboards.client import BillingandCostManagementDashboardsClient
 from mypy_boto3_bcm_data_exports.client import BillingandCostManagementDataExportsClient
 from mypy_boto3_bcm_pricing_calculator.client import BillingandCostManagementPricingCalculatorClient
+from mypy_boto3_bcm_recommended_actions.client import (
+    BillingandCostManagementRecommendedActionsClient,
+)
 from mypy_boto3_bedrock.client import BedrockClient
 from mypy_boto3_bedrock_agent.client import AgentsforBedrockClient
 from mypy_boto3_bedrock_agent_runtime.client import AgentsforBedrockRuntimeClient
+from mypy_boto3_bedrock_agentcore.client import BedrockAgentCoreClient
+from mypy_boto3_bedrock_agentcore_control.client import BedrockAgentCoreControlClient
 from mypy_boto3_bedrock_data_automation.client import DataAutomationforBedrockClient
 from mypy_boto3_bedrock_data_automation_runtime.client import RuntimeforBedrockDataAutomationClient
 from mypy_boto3_bedrock_runtime.client import BedrockRuntimeClient
@@ -103,6 +110,7 @@ from mypy_boto3_cognito_sync.client import CognitoSyncClient
 from mypy_boto3_comprehend.client import ComprehendClient
 from mypy_boto3_comprehendmedical.client import ComprehendMedicalClient
 from mypy_boto3_compute_optimizer.client import ComputeOptimizerClient
+from mypy_boto3_compute_optimizer_automation.client import ComputeOptimizerAutomationClient
 from mypy_boto3_config.client import ConfigServiceClient
 from mypy_boto3_connect.client import ConnectClient
 from mypy_boto3_connect_contact_lens.client import ConnectContactLensClient
@@ -160,6 +168,7 @@ from mypy_boto3_entityresolution.client import EntityResolutionClient
 from mypy_boto3_es.client import ElasticsearchServiceClient
 from mypy_boto3_events.client import EventBridgeClient
 from mypy_boto3_evidently.client import CloudWatchEvidentlyClient
+from mypy_boto3_evs.client import EVSClient
 from mypy_boto3_finspace.client import FinspaceClient
 from mypy_boto3_finspace_data.client import FinSpaceDataClient
 from mypy_boto3_firehose.client import FirehoseClient
@@ -206,7 +215,6 @@ from mypy_boto3_iotanalytics.client import IoTAnalyticsClient
 from mypy_boto3_iotdeviceadvisor.client import IoTDeviceAdvisorClient
 from mypy_boto3_iotevents.client import IoTEventsClient
 from mypy_boto3_iotevents_data.client import IoTEventsDataClient
-from mypy_boto3_iotfleethub.client import IoTFleetHubClient
 from mypy_boto3_iotfleetwise.client import IoTFleetWiseClient
 from mypy_boto3_iotsecuretunneling.client import IoTSecureTunnelingClient
 from mypy_boto3_iotsitewise.client import IoTSiteWiseClient
@@ -221,6 +229,7 @@ from mypy_boto3_kafkaconnect.client import KafkaConnectClient
 from mypy_boto3_kendra.client import KendraClient
 from mypy_boto3_kendra_ranking.client import KendraRankingClient
 from mypy_boto3_keyspaces.client import KeyspacesClient
+from mypy_boto3_keyspacesstreams.client import KeyspacesStreamsClient
 from mypy_boto3_kinesis.client import KinesisClient
 from mypy_boto3_kinesis_video_archived_media.client import KinesisVideoArchivedMediaClient
 from mypy_boto3_kinesis_video_media.client import KinesisVideoMediaClient
@@ -248,8 +257,6 @@ from mypy_boto3_lightsail.client import LightsailClient
 from mypy_boto3_location.client import LocationServiceClient
 from mypy_boto3_logs.client import CloudWatchLogsClient
 from mypy_boto3_lookoutequipment.client import LookoutEquipmentClient
-from mypy_boto3_lookoutmetrics.client import LookoutMetricsClient
-from mypy_boto3_lookoutvision.client import LookoutforVisionClient
 from mypy_boto3_m2.client import MainframeModernizationClient
 from mypy_boto3_machinelearning.client import MachineLearningClient
 from mypy_boto3_macie2.client import Macie2Client
@@ -280,9 +287,11 @@ from mypy_boto3_migration_hub_refactor_spaces.client import MigrationHubRefactor
 from mypy_boto3_migrationhub_config.client import MigrationHubConfigClient
 from mypy_boto3_migrationhuborchestrator.client import MigrationHubOrchestratorClient
 from mypy_boto3_migrationhubstrategy.client import MigrationHubStrategyRecommendationsClient
+from mypy_boto3_mpa.client import MultipartyApprovalClient
 from mypy_boto3_mq.client import MQClient
 from mypy_boto3_mturk.client import MTurkClient
 from mypy_boto3_mwaa.client import MWAAClient
+from mypy_boto3_mwaa_serverless.client import MWAAServerlessClient
 from mypy_boto3_neptune.client import NeptuneClient
 from mypy_boto3_neptune_graph.client import NeptuneGraphClient
 from mypy_boto3_neptunedata.client import NeptuneDataClient
@@ -292,18 +301,20 @@ from mypy_boto3_networkmanager.client import NetworkManagerClient
 from mypy_boto3_networkmonitor.client import CloudWatchNetworkMonitorClient
 from mypy_boto3_notifications.client import UserNotificationsClient
 from mypy_boto3_notificationscontacts.client import UserNotificationsContactsClient
+from mypy_boto3_nova_act.client import NovaActServiceClient
 from mypy_boto3_oam.client import CloudWatchObservabilityAccessManagerClient
 from mypy_boto3_observabilityadmin.client import CloudWatchObservabilityAdminServiceClient
+from mypy_boto3_odb.client import OdbClient
 from mypy_boto3_omics.client import OmicsClient
 from mypy_boto3_opensearch.client import OpenSearchServiceClient
 from mypy_boto3_opensearchserverless.client import OpenSearchServiceServerlessClient
-from mypy_boto3_opsworks.client import OpsWorksClient
-from mypy_boto3_opsworks.service_resource import OpsWorksServiceResource
-from mypy_boto3_opsworkscm.client import OpsWorksCMClient
 from mypy_boto3_organizations.client import OrganizationsClient
 from mypy_boto3_osis.client import OpenSearchIngestionClient
 from mypy_boto3_outposts.client import OutpostsClient
 from mypy_boto3_panorama.client import PanoramaClient
+from mypy_boto3_partnercentral_account.client import PartnerCentralAccountAPIClient
+from mypy_boto3_partnercentral_benefits.client import PartnerCentralBenefitsClient
+from mypy_boto3_partnercentral_channel.client import PartnerCentralChannelAPIClient
 from mypy_boto3_partnercentral_selling.client import PartnerCentralSellingAPIClient
 from mypy_boto3_payment_cryptography.client import PaymentCryptographyControlPlaneClient
 from mypy_boto3_payment_cryptography_data.client import PaymentCryptographyDataPlaneClient
@@ -321,13 +332,10 @@ from mypy_boto3_pinpoint_sms_voice_v2.client import PinpointSMSVoiceV2Client
 from mypy_boto3_pipes.client import EventBridgePipesClient
 from mypy_boto3_polly.client import PollyClient
 from mypy_boto3_pricing.client import PricingClient
-from mypy_boto3_privatenetworks.client import Private5GClient
 from mypy_boto3_proton.client import ProtonClient
 from mypy_boto3_qapps.client import QAppsClient
 from mypy_boto3_qbusiness.client import QBusinessClient
 from mypy_boto3_qconnect.client import QConnectClient
-from mypy_boto3_qldb.client import QLDBClient
-from mypy_boto3_qldb_session.client import QLDBSessionClient
 from mypy_boto3_quicksight.client import QuickSightClient
 from mypy_boto3_ram.client import RAMClient
 from mypy_boto3_rbin.client import RecycleBinClient
@@ -342,21 +350,23 @@ from mypy_boto3_resiliencehub.client import ResilienceHubClient
 from mypy_boto3_resource_explorer_2.client import ResourceExplorerClient
 from mypy_boto3_resource_groups.client import ResourceGroupsClient
 from mypy_boto3_resourcegroupstaggingapi.client import ResourceGroupsTaggingAPIClient
-from mypy_boto3_robomaker.client import RoboMakerClient
 from mypy_boto3_rolesanywhere.client import IAMRolesAnywhereClient
 from mypy_boto3_route53.client import Route53Client
 from mypy_boto3_route53_recovery_cluster.client import Route53RecoveryClusterClient
 from mypy_boto3_route53_recovery_control_config.client import Route53RecoveryControlConfigClient
 from mypy_boto3_route53_recovery_readiness.client import Route53RecoveryReadinessClient
 from mypy_boto3_route53domains.client import Route53DomainsClient
+from mypy_boto3_route53globalresolver.client import Route53GlobalResolverClient
 from mypy_boto3_route53profiles.client import Route53ProfilesClient
 from mypy_boto3_route53resolver.client import Route53ResolverClient
+from mypy_boto3_rtbfabric.client import RTBFabricClient
 from mypy_boto3_rum.client import CloudWatchRUMClient
 from mypy_boto3_s3.client import S3Client
 from mypy_boto3_s3.service_resource import S3ServiceResource
 from mypy_boto3_s3control.client import S3ControlClient
 from mypy_boto3_s3outposts.client import S3OutpostsClient
 from mypy_boto3_s3tables.client import S3TablesClient
+from mypy_boto3_s3vectors.client import S3VectorsClient
 from mypy_boto3_sagemaker.client import SageMakerClient
 from mypy_boto3_sagemaker_a2i_runtime.client import AugmentedAIRuntimeClient
 from mypy_boto3_sagemaker_edge.client import SagemakerEdgeManagerClient
@@ -381,8 +391,8 @@ from mypy_boto3_ses.client import SESClient
 from mypy_boto3_sesv2.client import SESV2Client
 from mypy_boto3_shield.client import ShieldClient
 from mypy_boto3_signer.client import SignerClient
+from mypy_boto3_signin.client import SignInServiceClient
 from mypy_boto3_simspaceweaver.client import SimSpaceWeaverClient
-from mypy_boto3_sms.client import SMSClient
 from mypy_boto3_snow_device_management.client import SnowDeviceManagementClient
 from mypy_boto3_snowball.client import SnowballClient
 from mypy_boto3_sns.client import SNSClient
@@ -424,11 +434,13 @@ from mypy_boto3_waf.client import WAFClient
 from mypy_boto3_waf_regional.client import WAFRegionalClient
 from mypy_boto3_wafv2.client import WAFV2Client
 from mypy_boto3_wellarchitected.client import WellArchitectedClient
+from mypy_boto3_wickr.client import WickrAdminAPIClient
 from mypy_boto3_wisdom.client import ConnectWisdomServiceClient
 from mypy_boto3_workdocs.client import WorkDocsClient
 from mypy_boto3_workmail.client import WorkMailClient
 from mypy_boto3_workmailmessageflow.client import WorkMailMessageFlowClient
 from mypy_boto3_workspaces.client import WorkSpacesClient
+from mypy_boto3_workspaces_instances.client import WorkspacesInstancesClient
 from mypy_boto3_workspaces_thin_client.client import WorkSpacesThinClientClient
 from mypy_boto3_workspaces_web.client import WorkSpacesWebClient
 from mypy_boto3_xray.client import XRayClient
@@ -530,6 +542,24 @@ def client(
 ) -> ACMPCAClient:
     """
     Create client for ACMPCA service.
+    """
+
+@overload
+def client(
+    service_name: Literal["aiops"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> AIOpsClient:
+    """
+    Create client for AIOps service.
     """
 
 @overload
@@ -894,7 +924,7 @@ def client(
 
 @overload
 def client(
-    service_name: Literal["apptest"],
+    service_name: Literal["arc-region-switch"],
     region_name: str | None = ...,
     api_version: str | None = ...,
     use_ssl: bool | None = ...,
@@ -905,9 +935,9 @@ def client(
     aws_session_token: str | None = ...,
     config: Config | None = ...,
     aws_account_id: str | None = ...,
-) -> MainframeModernizationApplicationTestingClient:
+) -> ARCRegionswitchClient:
     """
-    Create client for MainframeModernizationApplicationTesting service.
+    Create client for ARCRegionswitch service.
     """
 
 @overload
@@ -1110,6 +1140,24 @@ def client(
 
 @overload
 def client(
+    service_name: Literal["bcm-dashboards"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> BillingandCostManagementDashboardsClient:
+    """
+    Create client for BillingandCostManagementDashboards service.
+    """
+
+@overload
+def client(
     service_name: Literal["bcm-data-exports"],
     region_name: str | None = ...,
     api_version: str | None = ...,
@@ -1142,6 +1190,24 @@ def client(
 ) -> BillingandCostManagementPricingCalculatorClient:
     """
     Create client for BillingandCostManagementPricingCalculator service.
+    """
+
+@overload
+def client(
+    service_name: Literal["bcm-recommended-actions"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> BillingandCostManagementRecommendedActionsClient:
+    """
+    Create client for BillingandCostManagementRecommendedActions service.
     """
 
 @overload
@@ -1196,6 +1262,42 @@ def client(
 ) -> AgentsforBedrockRuntimeClient:
     """
     Create client for AgentsforBedrockRuntime service.
+    """
+
+@overload
+def client(
+    service_name: Literal["bedrock-agentcore"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> BedrockAgentCoreClient:
+    """
+    Create client for BedrockAgentCore service.
+    """
+
+@overload
+def client(
+    service_name: Literal["bedrock-agentcore-control"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> BedrockAgentCoreControlClient:
+    """
+    Create client for BedrockAgentCoreControl service.
     """
 
 @overload
@@ -2060,6 +2162,24 @@ def client(
 ) -> ComputeOptimizerClient:
     """
     Create client for ComputeOptimizer service.
+    """
+
+@overload
+def client(
+    service_name: Literal["compute-optimizer-automation"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> ComputeOptimizerAutomationClient:
+    """
+    Create client for ComputeOptimizerAutomation service.
     """
 
 @overload
@@ -3054,6 +3174,24 @@ def client(
 
 @overload
 def client(
+    service_name: Literal["evs"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> EVSClient:
+    """
+    Create client for EVS service.
+    """
+
+@overload
+def client(
     service_name: Literal["finspace"],
     region_name: str | None = ...,
     api_version: str | None = ...,
@@ -3810,24 +3948,6 @@ def client(
 
 @overload
 def client(
-    service_name: Literal["iotfleethub"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> IoTFleetHubClient:
-    """
-    Create client for IoTFleetHub service.
-    """
-
-@overload
-def client(
     service_name: Literal["iotfleetwise"],
     region_name: str | None = ...,
     api_version: str | None = ...,
@@ -4076,6 +4196,24 @@ def client(
 ) -> KeyspacesClient:
     """
     Create client for Keyspaces service.
+    """
+
+@overload
+def client(
+    service_name: Literal["keyspacesstreams"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> KeyspacesStreamsClient:
+    """
+    Create client for KeyspacesStreams service.
     """
 
 @overload
@@ -4490,42 +4628,6 @@ def client(
 ) -> LookoutEquipmentClient:
     """
     Create client for LookoutEquipment service.
-    """
-
-@overload
-def client(
-    service_name: Literal["lookoutmetrics"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> LookoutMetricsClient:
-    """
-    Create client for LookoutMetrics service.
-    """
-
-@overload
-def client(
-    service_name: Literal["lookoutvision"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> LookoutforVisionClient:
-    """
-    Create client for LookoutforVision service.
     """
 
 @overload
@@ -5070,6 +5172,24 @@ def client(
 
 @overload
 def client(
+    service_name: Literal["mpa"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> MultipartyApprovalClient:
+    """
+    Create client for MultipartyApproval service.
+    """
+
+@overload
+def client(
     service_name: Literal["mq"],
     region_name: str | None = ...,
     api_version: str | None = ...,
@@ -5120,6 +5240,24 @@ def client(
 ) -> MWAAClient:
     """
     Create client for MWAA service.
+    """
+
+@overload
+def client(
+    service_name: Literal["mwaa-serverless"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> MWAAServerlessClient:
+    """
+    Create client for MWAAServerless service.
     """
 
 @overload
@@ -5286,6 +5424,24 @@ def client(
 
 @overload
 def client(
+    service_name: Literal["nova-act"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> NovaActServiceClient:
+    """
+    Create client for NovaActService service.
+    """
+
+@overload
+def client(
     service_name: Literal["oam"],
     region_name: str | None = ...,
     api_version: str | None = ...,
@@ -5318,6 +5474,24 @@ def client(
 ) -> CloudWatchObservabilityAdminServiceClient:
     """
     Create client for CloudWatchObservabilityAdminService service.
+    """
+
+@overload
+def client(
+    service_name: Literal["odb"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> OdbClient:
+    """
+    Create client for Odb service.
     """
 
 @overload
@@ -5372,42 +5546,6 @@ def client(
 ) -> OpenSearchServiceServerlessClient:
     """
     Create client for OpenSearchServiceServerless service.
-    """
-
-@overload
-def client(
-    service_name: Literal["opsworks"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> OpsWorksClient:
-    """
-    Create client for OpsWorks service.
-    """
-
-@overload
-def client(
-    service_name: Literal["opsworkscm"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> OpsWorksCMClient:
-    """
-    Create client for OpsWorksCM service.
     """
 
 @overload
@@ -5480,6 +5618,60 @@ def client(
 ) -> PanoramaClient:
     """
     Create client for Panorama service.
+    """
+
+@overload
+def client(
+    service_name: Literal["partnercentral-account"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> PartnerCentralAccountAPIClient:
+    """
+    Create client for PartnerCentralAccountAPI service.
+    """
+
+@overload
+def client(
+    service_name: Literal["partnercentral-benefits"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> PartnerCentralBenefitsClient:
+    """
+    Create client for PartnerCentralBenefits service.
+    """
+
+@overload
+def client(
+    service_name: Literal["partnercentral-channel"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> PartnerCentralChannelAPIClient:
+    """
+    Create client for PartnerCentralChannelAPI service.
     """
 
 @overload
@@ -5790,24 +5982,6 @@ def client(
 
 @overload
 def client(
-    service_name: Literal["privatenetworks"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> Private5GClient:
-    """
-    Create client for Private5G service.
-    """
-
-@overload
-def client(
     service_name: Literal["proton"],
     region_name: str | None = ...,
     api_version: str | None = ...,
@@ -5876,42 +6050,6 @@ def client(
 ) -> QConnectClient:
     """
     Create client for QConnect service.
-    """
-
-@overload
-def client(
-    service_name: Literal["qldb"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> QLDBClient:
-    """
-    Create client for QLDB service.
-    """
-
-@overload
-def client(
-    service_name: Literal["qldb-session"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> QLDBSessionClient:
-    """
-    Create client for QLDBSession service.
     """
 
 @overload
@@ -6168,24 +6306,6 @@ def client(
 
 @overload
 def client(
-    service_name: Literal["robomaker"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> RoboMakerClient:
-    """
-    Create client for RoboMaker service.
-    """
-
-@overload
-def client(
     service_name: Literal["rolesanywhere"],
     region_name: str | None = ...,
     api_version: str | None = ...,
@@ -6294,6 +6414,24 @@ def client(
 
 @overload
 def client(
+    service_name: Literal["route53globalresolver"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> Route53GlobalResolverClient:
+    """
+    Create client for Route53GlobalResolver service.
+    """
+
+@overload
+def client(
     service_name: Literal["route53profiles"],
     region_name: str | None = ...,
     api_version: str | None = ...,
@@ -6326,6 +6464,24 @@ def client(
 ) -> Route53ResolverClient:
     """
     Create client for Route53Resolver service.
+    """
+
+@overload
+def client(
+    service_name: Literal["rtbfabric"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> RTBFabricClient:
+    """
+    Create client for RTBFabric service.
     """
 
 @overload
@@ -6416,6 +6572,24 @@ def client(
 ) -> S3TablesClient:
     """
     Create client for S3Tables service.
+    """
+
+@overload
+def client(
+    service_name: Literal["s3vectors"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> S3VectorsClient:
+    """
+    Create client for S3Vectors service.
     """
 
 @overload
@@ -6852,6 +7026,24 @@ def client(
 
 @overload
 def client(
+    service_name: Literal["signin"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> SignInServiceClient:
+    """
+    Create client for SignInService service.
+    """
+
+@overload
+def client(
     service_name: Literal["simspaceweaver"],
     region_name: str | None = ...,
     api_version: str | None = ...,
@@ -6866,24 +7058,6 @@ def client(
 ) -> SimSpaceWeaverClient:
     """
     Create client for SimSpaceWeaver service.
-    """
-
-@overload
-def client(
-    service_name: Literal["sms"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> SMSClient:
-    """
-    Create client for SMS service.
     """
 
 @overload
@@ -7590,6 +7764,24 @@ def client(
 
 @overload
 def client(
+    service_name: Literal["wickr"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> WickrAdminAPIClient:
+    """
+    Create client for WickrAdminAPI service.
+    """
+
+@overload
+def client(
     service_name: Literal["wisdom"],
     region_name: str | None = ...,
     api_version: str | None = ...,
@@ -7676,6 +7868,24 @@ def client(
 ) -> WorkSpacesClient:
     """
     Create client for WorkSpaces service.
+    """
+
+@overload
+def client(
+    service_name: Literal["workspaces-instances"],
+    region_name: str | None = ...,
+    api_version: str | None = ...,
+    use_ssl: bool | None = ...,
+    verify: bool | str | None = ...,
+    endpoint_url: str | None = ...,
+    aws_access_key_id: str | None = ...,
+    aws_secret_access_key: str | None = ...,
+    aws_session_token: str | None = ...,
+    config: Config | None = ...,
+    aws_account_id: str | None = ...,
+) -> WorkspacesInstancesClient:
+    """
+    Create client for WorkspacesInstances service.
     """
 
 @overload
@@ -7838,24 +8048,6 @@ def resource(
 ) -> IAMServiceResource:
     """
     Create ServiceResource for IAM service.
-    """
-
-@overload
-def resource(
-    service_name: Literal["opsworks"],
-    region_name: str | None = ...,
-    api_version: str | None = ...,
-    use_ssl: bool | None = ...,
-    verify: bool | str | None = ...,
-    endpoint_url: str | None = ...,
-    aws_access_key_id: str | None = ...,
-    aws_secret_access_key: str | None = ...,
-    aws_session_token: str | None = ...,
-    config: Config | None = ...,
-    aws_account_id: str | None = ...,
-) -> OpsWorksServiceResource:
-    """
-    Create ServiceResource for OpsWorks service.
     """
 
 @overload

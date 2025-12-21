@@ -39,10 +39,12 @@ __all__ = (
     "PinBlockFormatForPinDataType",
     "PinBlockLengthPositionType",
     "PinBlockPaddingTypeType",
+    "RandomKeySendVariantMaskType",
     "ResourceServiceName",
     "ServiceName",
     "SessionKeyDerivationModeType",
     "SymmetricKeyAlgorithmType",
+    "WrappedKeyMaterialFormatType",
 )
 
 DukptDerivationTypeType = Literal["AES_128", "AES_192", "AES_256", "TDES_2KEY", "TDES_3KEY"]
@@ -51,11 +53,13 @@ DukptKeyVariantType = Literal["BIDIRECTIONAL", "REQUEST", "RESPONSE"]
 EmvEncryptionModeType = Literal["CBC", "ECB"]
 EmvMajorKeyDerivationModeType = Literal["EMV_OPTION_A", "EMV_OPTION_B"]
 EncryptionModeType = Literal["CBC", "CFB", "CFB1", "CFB128", "CFB64", "CFB8", "ECB", "OFB"]
-KeyCheckValueAlgorithmType = Literal["ANSI_X9_24", "CMAC"]
+KeyCheckValueAlgorithmType = Literal["ANSI_X9_24", "CMAC", "HMAC", "SHA_1"]
 KeyDerivationFunctionType = Literal["ANSI_X963", "NIST_SP800"]
 KeyDerivationHashAlgorithmType = Literal["SHA_256", "SHA_384", "SHA_512"]
 MacAlgorithmType = Literal[
+    "AS2805_4_1",
     "CMAC",
+    "HMAC",
     "HMAC_SHA224",
     "HMAC_SHA256",
     "HMAC_SHA384",
@@ -66,19 +70,34 @@ MacAlgorithmType = Literal[
 MajorKeyDerivationModeType = Literal["EMV_OPTION_A", "EMV_OPTION_B"]
 PaddingTypeType = Literal["OAEP_SHA1", "OAEP_SHA256", "OAEP_SHA512", "PKCS1"]
 PinBlockFormatForEmvPinChangeType = Literal["ISO_FORMAT_0", "ISO_FORMAT_1", "ISO_FORMAT_3"]
-PinBlockFormatForPinDataType = Literal["ISO_FORMAT_0", "ISO_FORMAT_3", "ISO_FORMAT_4"]
+PinBlockFormatForPinDataType = Literal[
+    "ISO_FORMAT_0", "ISO_FORMAT_1", "ISO_FORMAT_3", "ISO_FORMAT_4"
+]
 PinBlockLengthPositionType = Literal["FRONT_OF_PIN_BLOCK", "NONE"]
 PinBlockPaddingTypeType = Literal["ISO_IEC_7816_4", "NO_PADDING"]
+RandomKeySendVariantMaskType = Literal["VARIANT_MASK_82", "VARIANT_MASK_82C0"]
 SessionKeyDerivationModeType = Literal[
     "AMEX", "EMV2000", "EMV_COMMON_SESSION_KEY", "MASTERCARD_SESSION_KEY", "VISA"
 ]
-SymmetricKeyAlgorithmType = Literal["AES_128", "AES_192", "AES_256", "TDES_2KEY", "TDES_3KEY"]
+SymmetricKeyAlgorithmType = Literal[
+    "AES_128",
+    "AES_192",
+    "AES_256",
+    "HMAC_SHA224",
+    "HMAC_SHA256",
+    "HMAC_SHA384",
+    "HMAC_SHA512",
+    "TDES_2KEY",
+    "TDES_3KEY",
+]
+WrappedKeyMaterialFormatType = Literal["KEY_CRYPTOGRAM", "TR31_KEY_BLOCK", "TR34_KEY_BLOCK"]
 PaymentCryptographyDataPlaneServiceName = Literal["payment-cryptography-data"]
 ServiceName = Literal[
     "accessanalyzer",
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -99,7 +118,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -111,11 +130,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -164,6 +187,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -219,6 +243,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -261,7 +286,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -276,6 +300,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -299,8 +324,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -331,9 +354,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -343,17 +368,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -371,13 +399,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -392,20 +417,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -430,8 +457,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -471,24 +498,17 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]

@@ -35,16 +35,19 @@ from .literals import (
     FindingStatusType,
     FindingStatusUpdateType,
     FindingTypeType,
+    InternalAccessTypeType,
     JobErrorCodeType,
     JobStatusType,
     KmsGrantOperationType,
     LocaleType,
     OrderByType,
     PolicyTypeType,
+    PrincipalTypeType,
     ReasonCodeType,
     RecommendedRemediationActionType,
     ResourceControlPolicyRestrictionType,
     ResourceTypeType,
+    ServiceControlPolicyRestrictionType,
     StatusType,
     TypeType,
     ValidatePolicyFindingTypeType,
@@ -147,6 +150,15 @@ __all__ = (
     "GetGeneratedPolicyResponseTypeDef",
     "IamRoleConfigurationTypeDef",
     "InlineArchiveRuleTypeDef",
+    "InternalAccessAnalysisRuleCriteriaOutputTypeDef",
+    "InternalAccessAnalysisRuleCriteriaTypeDef",
+    "InternalAccessAnalysisRuleOutputTypeDef",
+    "InternalAccessAnalysisRuleTypeDef",
+    "InternalAccessConfigurationOutputTypeDef",
+    "InternalAccessConfigurationTypeDef",
+    "InternalAccessDetailsTypeDef",
+    "InternalAccessFindingsStatisticsTypeDef",
+    "InternalAccessResourceTypeDetailsTypeDef",
     "JobDetailsTypeDef",
     "JobErrorTypeDef",
     "KmsGrantConfigurationOutputTypeDef",
@@ -404,6 +416,7 @@ class EbsSnapshotConfigurationTypeDef(TypedDict):
 class ResourceTypeDetailsTypeDef(TypedDict):
     totalActivePublic: NotRequired[int]
     totalActiveCrossAccount: NotRequired[int]
+    totalActiveErrors: NotRequired[int]
 
 class FindingAggregationAccountDetailsTypeDef(TypedDict):
     account: NotRequired[str]
@@ -508,6 +521,21 @@ class GetGeneratedPolicyRequestTypeDef(TypedDict):
     jobId: str
     includeResourcePlaceholders: NotRequired[bool]
     includeServiceLevelTemplate: NotRequired[bool]
+
+class InternalAccessAnalysisRuleCriteriaOutputTypeDef(TypedDict):
+    accountIds: NotRequired[List[str]]
+    resourceTypes: NotRequired[List[ResourceTypeType]]
+    resourceArns: NotRequired[List[str]]
+
+class InternalAccessAnalysisRuleCriteriaTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    resourceTypes: NotRequired[Sequence[ResourceTypeType]]
+    resourceArns: NotRequired[Sequence[str]]
+
+class InternalAccessResourceTypeDetailsTypeDef(TypedDict):
+    totalActiveFindings: NotRequired[int]
+    totalResolvedFindings: NotRequired[int]
+    totalArchivedFindings: NotRequired[int]
 
 class JobErrorTypeDef(TypedDict):
     code: JobErrorCodeType
@@ -808,6 +836,20 @@ class ValidatePolicyRequestPaginateTypeDef(TypedDict):
     validatePolicyResourceType: NotRequired[ValidatePolicyResourceTypeType]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class InternalAccessAnalysisRuleOutputTypeDef(TypedDict):
+    inclusions: NotRequired[List[InternalAccessAnalysisRuleCriteriaOutputTypeDef]]
+
+class InternalAccessAnalysisRuleTypeDef(TypedDict):
+    inclusions: NotRequired[Sequence[InternalAccessAnalysisRuleCriteriaTypeDef]]
+
+class InternalAccessFindingsStatisticsTypeDef(TypedDict):
+    resourceTypeStatistics: NotRequired[
+        Dict[ResourceTypeType, InternalAccessResourceTypeDetailsTypeDef]
+    ]
+    totalActiveFindings: NotRequired[int]
+    totalArchivedFindings: NotRequired[int]
+    totalResolvedFindings: NotRequired[int]
+
 class JobDetailsTypeDef(TypedDict):
     jobId: str
     status: JobStatusType
@@ -1065,6 +1107,23 @@ FindingTypeDef = TypedDict(
     },
 )
 
+class InternalAccessDetailsTypeDef(TypedDict):
+    action: NotRequired[List[str]]
+    condition: NotRequired[Dict[str, str]]
+    principal: NotRequired[Dict[str, str]]
+    principalOwnerAccount: NotRequired[str]
+    accessType: NotRequired[InternalAccessTypeType]
+    principalType: NotRequired[PrincipalTypeType]
+    sources: NotRequired[List[FindingSourceTypeDef]]
+    resourceControlPolicyRestriction: NotRequired[ResourceControlPolicyRestrictionType]
+    serviceControlPolicyRestriction: NotRequired[ServiceControlPolicyRestrictionType]
+
+class InternalAccessConfigurationOutputTypeDef(TypedDict):
+    analysisRule: NotRequired[InternalAccessAnalysisRuleOutputTypeDef]
+
+class InternalAccessConfigurationTypeDef(TypedDict):
+    analysisRule: NotRequired[InternalAccessAnalysisRuleTypeDef]
+
 class KmsKeyConfigurationOutputTypeDef(TypedDict):
     keyPolicies: NotRequired[Dict[str, str]]
     grants: NotRequired[List[KmsGrantConfigurationOutputTypeDef]]
@@ -1114,13 +1173,8 @@ class GetFindingRecommendationResponseTypeDef(TypedDict):
 
 class FindingsStatisticsTypeDef(TypedDict):
     externalAccessFindingsStatistics: NotRequired[ExternalAccessFindingsStatisticsTypeDef]
+    internalAccessFindingsStatistics: NotRequired[InternalAccessFindingsStatisticsTypeDef]
     unusedAccessFindingsStatistics: NotRequired[UnusedAccessFindingsStatisticsTypeDef]
-
-class AnalyzerConfigurationOutputTypeDef(TypedDict):
-    unusedAccess: NotRequired[UnusedAccessConfigurationOutputTypeDef]
-
-class AnalyzerConfigurationTypeDef(TypedDict):
-    unusedAccess: NotRequired[UnusedAccessConfigurationTypeDef]
 
 class GeneratedPolicyResultTypeDef(TypedDict):
     properties: GeneratedPolicyPropertiesTypeDef
@@ -1131,13 +1185,6 @@ class ListAccessPreviewFindingsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
-class FindingDetailsTypeDef(TypedDict):
-    externalAccessDetails: NotRequired[ExternalAccessDetailsTypeDef]
-    unusedPermissionDetails: NotRequired[UnusedPermissionDetailsTypeDef]
-    unusedIamUserAccessKeyDetails: NotRequired[UnusedIamUserAccessKeyDetailsTypeDef]
-    unusedIamRoleDetails: NotRequired[UnusedIamRoleDetailsTypeDef]
-    unusedIamUserPasswordDetails: NotRequired[UnusedIamUserPasswordDetailsTypeDef]
-
 class ListFindingsResponseTypeDef(TypedDict):
     findings: List[FindingSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1146,6 +1193,22 @@ class ListFindingsResponseTypeDef(TypedDict):
 class GetFindingResponseTypeDef(TypedDict):
     finding: FindingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class FindingDetailsTypeDef(TypedDict):
+    internalAccessDetails: NotRequired[InternalAccessDetailsTypeDef]
+    externalAccessDetails: NotRequired[ExternalAccessDetailsTypeDef]
+    unusedPermissionDetails: NotRequired[UnusedPermissionDetailsTypeDef]
+    unusedIamUserAccessKeyDetails: NotRequired[UnusedIamUserAccessKeyDetailsTypeDef]
+    unusedIamRoleDetails: NotRequired[UnusedIamRoleDetailsTypeDef]
+    unusedIamUserPasswordDetails: NotRequired[UnusedIamUserPasswordDetailsTypeDef]
+
+class AnalyzerConfigurationOutputTypeDef(TypedDict):
+    unusedAccess: NotRequired[UnusedAccessConfigurationOutputTypeDef]
+    internalAccess: NotRequired[InternalAccessConfigurationOutputTypeDef]
+
+class AnalyzerConfigurationTypeDef(TypedDict):
+    unusedAccess: NotRequired[UnusedAccessConfigurationTypeDef]
+    internalAccess: NotRequired[InternalAccessConfigurationTypeDef]
 
 KmsGrantConfigurationUnionTypeDef = Union[
     KmsGrantConfigurationTypeDef, KmsGrantConfigurationOutputTypeDef
@@ -1189,30 +1252,6 @@ class GetFindingsStatisticsResponseTypeDef(TypedDict):
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-AnalyzerSummaryTypeDef = TypedDict(
-    "AnalyzerSummaryTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "type": TypeType,
-        "createdAt": datetime,
-        "status": AnalyzerStatusType,
-        "lastResourceAnalyzed": NotRequired[str],
-        "lastResourceAnalyzedAt": NotRequired[datetime],
-        "tags": NotRequired[Dict[str, str]],
-        "statusReason": NotRequired[StatusReasonTypeDef],
-        "configuration": NotRequired[AnalyzerConfigurationOutputTypeDef],
-    },
-)
-
-class UpdateAnalyzerResponseTypeDef(TypedDict):
-    configuration: AnalyzerConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-AnalyzerConfigurationUnionTypeDef = Union[
-    AnalyzerConfigurationTypeDef, AnalyzerConfigurationOutputTypeDef
-]
-
 class GetGeneratedPolicyResponseTypeDef(TypedDict):
     jobDetails: JobDetailsTypeDef
     generatedPolicyResult: GeneratedPolicyResultTypeDef
@@ -1236,6 +1275,29 @@ GetFindingV2ResponseTypeDef = TypedDict(
         "nextToken": NotRequired[str],
     },
 )
+AnalyzerSummaryTypeDef = TypedDict(
+    "AnalyzerSummaryTypeDef",
+    {
+        "arn": str,
+        "name": str,
+        "type": TypeType,
+        "createdAt": datetime,
+        "status": AnalyzerStatusType,
+        "lastResourceAnalyzed": NotRequired[str],
+        "lastResourceAnalyzedAt": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
+        "statusReason": NotRequired[StatusReasonTypeDef],
+        "configuration": NotRequired[AnalyzerConfigurationOutputTypeDef],
+    },
+)
+
+class UpdateAnalyzerResponseTypeDef(TypedDict):
+    configuration: AnalyzerConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+AnalyzerConfigurationUnionTypeDef = Union[
+    AnalyzerConfigurationTypeDef, AnalyzerConfigurationOutputTypeDef
+]
 
 class KmsKeyConfigurationTypeDef(TypedDict):
     keyPolicies: NotRequired[Mapping[str, str]]

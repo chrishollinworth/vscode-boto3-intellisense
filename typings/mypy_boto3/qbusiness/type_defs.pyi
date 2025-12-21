@@ -34,8 +34,10 @@ from .literals import (
     AutoSubscriptionStatusType,
     BrowserExtensionType,
     ChatModeType,
+    ChatResponseConfigurationStatusType,
     ContentTypeType,
     CreatorModeControlType,
+    DataAccessorAuthenticationTypeType,
     DataSourceStatusType,
     DataSourceSyncJobStatusType,
     DocumentAttributeBoostingLevelType,
@@ -55,6 +57,7 @@ from .literals import (
     MessageUsefulnessType,
     NumberAttributeBoostingTypeType,
     OrchestrationControlType,
+    OutputFormatType,
     PersonalizationControlModeType,
     PluginBuildStatusType,
     PluginStateType,
@@ -152,6 +155,8 @@ __all__ = (
     "ChatModeConfigurationTypeDef",
     "ChatOutputStreamTypeDef",
     "ChatOutputTypeDef",
+    "ChatResponseConfigurationDetailTypeDef",
+    "ChatResponseConfigurationTypeDef",
     "ChatSyncInputTypeDef",
     "ChatSyncOutputTypeDef",
     "CheckDocumentAccessRequestTypeDef",
@@ -169,6 +174,8 @@ __all__ = (
     "CreateAnonymousWebExperienceUrlResponseTypeDef",
     "CreateApplicationRequestTypeDef",
     "CreateApplicationResponseTypeDef",
+    "CreateChatResponseConfigurationRequestTypeDef",
+    "CreateChatResponseConfigurationResponseTypeDef",
     "CreateDataAccessorRequestTypeDef",
     "CreateDataAccessorResponseTypeDef",
     "CreateDataSourceRequestTypeDef",
@@ -187,6 +194,11 @@ __all__ = (
     "CreatorModeConfigurationTypeDef",
     "CustomPluginConfigurationTypeDef",
     "CustomizationConfigurationTypeDef",
+    "DataAccessorAuthenticationConfigurationTypeDef",
+    "DataAccessorAuthenticationDetailOutputTypeDef",
+    "DataAccessorAuthenticationDetailTypeDef",
+    "DataAccessorAuthenticationDetailUnionTypeDef",
+    "DataAccessorIdcTrustedTokenIssuerConfigurationTypeDef",
     "DataAccessorTypeDef",
     "DataSourceSyncJobMetricsTypeDef",
     "DataSourceSyncJobTypeDef",
@@ -198,6 +210,7 @@ __all__ = (
     "DeleteApplicationRequestTypeDef",
     "DeleteAttachmentRequestTypeDef",
     "DeleteChatControlsConfigurationRequestTypeDef",
+    "DeleteChatResponseConfigurationRequestTypeDef",
     "DeleteConversationRequestTypeDef",
     "DeleteDataAccessorRequestTypeDef",
     "DeleteDataSourceRequestTypeDef",
@@ -246,10 +259,14 @@ __all__ = (
     "GetChatControlsConfigurationRequestPaginateTypeDef",
     "GetChatControlsConfigurationRequestTypeDef",
     "GetChatControlsConfigurationResponseTypeDef",
+    "GetChatResponseConfigurationRequestTypeDef",
+    "GetChatResponseConfigurationResponseTypeDef",
     "GetDataAccessorRequestTypeDef",
     "GetDataAccessorResponseTypeDef",
     "GetDataSourceRequestTypeDef",
     "GetDataSourceResponseTypeDef",
+    "GetDocumentContentRequestTypeDef",
+    "GetDocumentContentResponseTypeDef",
     "GetGroupRequestTypeDef",
     "GetGroupResponseTypeDef",
     "GetIndexRequestTypeDef",
@@ -283,6 +300,7 @@ __all__ = (
     "InlineDocumentEnrichmentConfigurationOutputTypeDef",
     "InlineDocumentEnrichmentConfigurationTypeDef",
     "InlineDocumentEnrichmentConfigurationUnionTypeDef",
+    "InstructionCollectionTypeDef",
     "KendraIndexConfigurationTypeDef",
     "ListApplicationsRequestPaginateTypeDef",
     "ListApplicationsRequestTypeDef",
@@ -290,6 +308,9 @@ __all__ = (
     "ListAttachmentsRequestPaginateTypeDef",
     "ListAttachmentsRequestTypeDef",
     "ListAttachmentsResponseTypeDef",
+    "ListChatResponseConfigurationsRequestPaginateTypeDef",
+    "ListChatResponseConfigurationsRequestTypeDef",
+    "ListChatResponseConfigurationsResponseTypeDef",
     "ListConversationsRequestPaginateTypeDef",
     "ListConversationsRequestTypeDef",
     "ListConversationsResponseTypeDef",
@@ -350,6 +371,7 @@ __all__ = (
     "OpenIDConnectProviderConfigurationTypeDef",
     "OrchestrationConfigurationTypeDef",
     "PaginatorConfigTypeDef",
+    "PermissionConditionTypeDef",
     "PersonalizationConfigurationTypeDef",
     "PluginAuthConfigurationOutputTypeDef",
     "PluginAuthConfigurationTypeDef",
@@ -365,6 +387,7 @@ __all__ = (
     "QAppsConfigurationTypeDef",
     "QuickSightConfigurationTypeDef",
     "RelevantContentTypeDef",
+    "ResponseConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "RetrieverConfigurationOutputTypeDef",
     "RetrieverConfigurationTypeDef",
@@ -409,6 +432,7 @@ __all__ = (
     "UntagResourceRequestTypeDef",
     "UpdateApplicationRequestTypeDef",
     "UpdateChatControlsConfigurationRequestTypeDef",
+    "UpdateChatResponseConfigurationRequestTypeDef",
     "UpdateDataAccessorRequestTypeDef",
     "UpdateDataSourceRequestTypeDef",
     "UpdateIndexRequestTypeDef",
@@ -461,11 +485,10 @@ class AppliedCreatorModeConfigurationTypeDef(TypedDict):
 class AppliedOrchestrationConfigurationTypeDef(TypedDict):
     control: OrchestrationControlType
 
-class AssociatePermissionRequestTypeDef(TypedDict):
-    applicationId: str
-    statementId: str
-    actions: Sequence[str]
-    principal: str
+class PermissionConditionTypeDef(TypedDict):
+    conditionOperator: Literal["StringEquals"]
+    conditionKey: str
+    conditionValues: Sequence[str]
 
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
@@ -569,6 +592,15 @@ class TextOutputEventTypeDef(TypedDict):
     systemMessageId: NotRequired[str]
     systemMessage: NotRequired[str]
 
+class ChatResponseConfigurationTypeDef(TypedDict):
+    chatResponseConfigurationId: str
+    chatResponseConfigurationArn: str
+    displayName: str
+    status: ChatResponseConfigurationStatusType
+    responseConfigurationSummary: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+
 class CheckDocumentAccessRequestTypeDef(TypedDict):
     applicationId: str
     indexId: str
@@ -634,14 +666,8 @@ class CustomizationConfigurationTypeDef(TypedDict):
 class CreatorModeConfigurationTypeDef(TypedDict):
     creatorModeControl: CreatorModeControlType
 
-class DataAccessorTypeDef(TypedDict):
-    displayName: NotRequired[str]
-    dataAccessorId: NotRequired[str]
-    dataAccessorArn: NotRequired[str]
-    idcApplicationArn: NotRequired[str]
-    principal: NotRequired[str]
-    createdAt: NotRequired[datetime]
-    updatedAt: NotRequired[datetime]
+class DataAccessorIdcTrustedTokenIssuerConfigurationTypeDef(TypedDict):
+    idcTrustedTokenIssuerArn: str
 
 class DataSourceSyncJobMetricsTypeDef(TypedDict):
     documentsAdded: NotRequired[str]
@@ -685,6 +711,10 @@ class DeleteAttachmentRequestTypeDef(TypedDict):
 
 class DeleteChatControlsConfigurationRequestTypeDef(TypedDict):
     applicationId: str
+
+class DeleteChatResponseConfigurationRequestTypeDef(TypedDict):
+    applicationId: str
+    chatResponseConfigurationId: str
 
 class DeleteConversationRequestTypeDef(TypedDict):
     conversationId: str
@@ -792,6 +822,10 @@ class GetChatControlsConfigurationRequestTypeDef(TypedDict):
 class HallucinationReductionConfigurationTypeDef(TypedDict):
     hallucinationReductionControl: NotRequired[HallucinationReductionControlType]
 
+class GetChatResponseConfigurationRequestTypeDef(TypedDict):
+    applicationId: str
+    chatResponseConfigurationId: str
+
 class GetDataAccessorRequestTypeDef(TypedDict):
     applicationId: str
     dataAccessorId: str
@@ -800,6 +834,13 @@ class GetDataSourceRequestTypeDef(TypedDict):
     applicationId: str
     indexId: str
     dataSourceId: str
+
+class GetDocumentContentRequestTypeDef(TypedDict):
+    applicationId: str
+    indexId: str
+    documentId: str
+    dataSourceId: NotRequired[str]
+    outputFormat: NotRequired[OutputFormatType]
 
 class GetGroupRequestTypeDef(TypedDict):
     applicationId: str
@@ -883,6 +924,16 @@ class IndexTypeDef(TypedDict):
     updatedAt: NotRequired[datetime]
     status: NotRequired[IndexStatusType]
 
+class InstructionCollectionTypeDef(TypedDict):
+    responseLength: NotRequired[str]
+    targetAudience: NotRequired[str]
+    perspective: NotRequired[str]
+    outputStyle: NotRequired[str]
+    identity: NotRequired[str]
+    tone: NotRequired[str]
+    customInstructions: NotRequired[str]
+    examples: NotRequired[str]
+
 class KendraIndexConfigurationTypeDef(TypedDict):
     indexId: str
 
@@ -896,6 +947,11 @@ class ListAttachmentsRequestTypeDef(TypedDict):
     userId: NotRequired[str]
     nextToken: NotRequired[str]
     maxResults: NotRequired[int]
+
+class ListChatResponseConfigurationsRequestTypeDef(TypedDict):
+    applicationId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
 class ListConversationsRequestTypeDef(TypedDict):
     applicationId: str
@@ -1130,6 +1186,13 @@ class ApplicationTypeDef(TypedDict):
     identityType: NotRequired[IdentityTypeType]
     quickSightConfiguration: NotRequired[QuickSightConfigurationTypeDef]
 
+class AssociatePermissionRequestTypeDef(TypedDict):
+    applicationId: str
+    statementId: str
+    actions: Sequence[str]
+    principal: str
+    conditions: NotRequired[Sequence[PermissionConditionTypeDef]]
+
 class AssociatePermissionResponseTypeDef(TypedDict):
     statement: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1141,6 +1204,11 @@ class CreateAnonymousWebExperienceUrlResponseTypeDef(TypedDict):
 class CreateApplicationResponseTypeDef(TypedDict):
     applicationId: str
     applicationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateChatResponseConfigurationResponseTypeDef(TypedDict):
+    chatResponseConfigurationId: str
+    chatResponseConfigurationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateDataAccessorResponseTypeDef(TypedDict):
@@ -1176,6 +1244,11 @@ class CreateWebExperienceResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDocumentContentResponseTypeDef(TypedDict):
+    presignedUrl: str
+    mimeType: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetMediaResponseTypeDef(TypedDict):
@@ -1264,6 +1337,11 @@ class UpdateSubscriptionResponseTypeDef(TypedDict):
 
 class ChatModeConfigurationTypeDef(TypedDict):
     pluginConfiguration: NotRequired[PluginConfigurationTypeDef]
+
+class ListChatResponseConfigurationsResponseTypeDef(TypedDict):
+    chatResponseConfigurations: List[ChatResponseConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 class ContentRetrievalRuleOutputTypeDef(TypedDict):
     eligibleDataSources: NotRequired[List[EligibleDataSourceTypeDef]]
@@ -1390,10 +1468,10 @@ class UpdateUserResponseTypeDef(TypedDict):
     userAliasesDeleted: List[UserAliasTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDataAccessorsResponseTypeDef(TypedDict):
-    dataAccessors: List[DataAccessorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: NotRequired[str]
+class DataAccessorAuthenticationConfigurationTypeDef(TypedDict):
+    idcTrustedTokenIssuerConfiguration: NotRequired[
+        DataAccessorIdcTrustedTokenIssuerConfigurationTypeDef
+    ]
 
 class DataSourceSyncJobTypeDef(TypedDict):
     executionId: NotRequired[str]
@@ -1499,6 +1577,10 @@ class ListAttachmentsRequestPaginateTypeDef(TypedDict):
     userId: NotRequired[str]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListChatResponseConfigurationsRequestPaginateTypeDef(TypedDict):
+    applicationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class ListConversationsRequestPaginateTypeDef(TypedDict):
     applicationId: str
     userId: NotRequired[str]
@@ -1595,6 +1677,9 @@ class ListIndicesResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
+class ResponseConfigurationTypeDef(TypedDict):
+    instructionCollection: NotRequired[InstructionCollectionTypeDef]
+
 class ListPluginTypeMetadataResponseTypeDef(TypedDict):
     items: List[PluginTypeMetadataSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1649,7 +1734,7 @@ UsersAndGroupsUnionTypeDef = Union[UsersAndGroupsTypeDef, UsersAndGroupsOutputTy
 class CustomPluginConfigurationTypeDef(TypedDict):
     description: str
     apiSchemaType: Literal["OPEN_API_V3"]
-    apiSchema: APISchemaTypeDef
+    apiSchema: NotRequired[APISchemaTypeDef]
 
 class ActionExecutionEventTypeDef(TypedDict):
     pluginId: str
@@ -1732,6 +1817,16 @@ class ListSubscriptionsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
+class DataAccessorAuthenticationDetailOutputTypeDef(TypedDict):
+    authenticationType: DataAccessorAuthenticationTypeType
+    authenticationConfiguration: NotRequired[DataAccessorAuthenticationConfigurationTypeDef]
+    externalIds: NotRequired[List[str]]
+
+class DataAccessorAuthenticationDetailTypeDef(TypedDict):
+    authenticationType: DataAccessorAuthenticationTypeType
+    authenticationConfiguration: NotRequired[DataAccessorAuthenticationConfigurationTypeDef]
+    externalIds: NotRequired[Sequence[str]]
+
 class ListDataSourceSyncJobsResponseTypeDef(TypedDict):
     history: List[DataSourceSyncJobTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1743,10 +1838,12 @@ class DocumentAclMembershipTypeDef(TypedDict):
 
 class NativeIndexConfigurationOutputTypeDef(TypedDict):
     indexId: str
+    version: NotRequired[int]
     boostingOverride: NotRequired[Dict[str, DocumentAttributeBoostingConfigurationOutputTypeDef]]
 
 class NativeIndexConfigurationTypeDef(TypedDict):
     indexId: str
+    version: NotRequired[int]
     boostingOverride: NotRequired[Mapping[str, DocumentAttributeBoostingConfigurationTypeDef]]
 
 class HookConfigurationOutputTypeDef(TypedDict):
@@ -1838,6 +1935,28 @@ GetIndexResponseTypeDef = TypedDict(
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
+
+class ChatResponseConfigurationDetailTypeDef(TypedDict):
+    responseConfigurations: NotRequired[Dict[Literal["ALL"], ResponseConfigurationTypeDef]]
+    responseConfigurationSummary: NotRequired[str]
+    status: NotRequired[ChatResponseConfigurationStatusType]
+    error: NotRequired[ErrorDetailTypeDef]
+    updatedAt: NotRequired[datetime]
+
+class CreateChatResponseConfigurationRequestTypeDef(TypedDict):
+    applicationId: str
+    displayName: str
+    responseConfigurations: Mapping[Literal["ALL"], ResponseConfigurationTypeDef]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateChatResponseConfigurationRequestTypeDef(TypedDict):
+    applicationId: str
+    chatResponseConfigurationId: str
+    responseConfigurations: Mapping[Literal["ALL"], ResponseConfigurationTypeDef]
+    displayName: NotRequired[str]
+    clientToken: NotRequired[str]
+
 PluginAuthConfigurationUnionTypeDef = Union[
     PluginAuthConfigurationTypeDef, PluginAuthConfigurationOutputTypeDef
 ]
@@ -1926,6 +2045,20 @@ class ListAttachmentsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
+class DataAccessorTypeDef(TypedDict):
+    displayName: NotRequired[str]
+    dataAccessorId: NotRequired[str]
+    dataAccessorArn: NotRequired[str]
+    idcApplicationArn: NotRequired[str]
+    principal: NotRequired[str]
+    authenticationDetail: NotRequired[DataAccessorAuthenticationDetailOutputTypeDef]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+
+DataAccessorAuthenticationDetailUnionTypeDef = Union[
+    DataAccessorAuthenticationDetailTypeDef, DataAccessorAuthenticationDetailOutputTypeDef
+]
+
 class DocumentAclTypeDef(TypedDict):
     allowlist: NotRequired[DocumentAclMembershipTypeDef]
     denyList: NotRequired[DocumentAclMembershipTypeDef]
@@ -1969,6 +2102,15 @@ class DocumentAttributeTypeDef(TypedDict):
     name: str
     value: DocumentAttributeValueUnionTypeDef
 
+class GetChatResponseConfigurationResponseTypeDef(TypedDict):
+    chatResponseConfigurationId: str
+    chatResponseConfigurationArn: str
+    displayName: str
+    createdAt: datetime
+    inUseConfiguration: ChatResponseConfigurationDetailTypeDef
+    lastUpdateConfiguration: ChatResponseConfigurationDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 CreatePluginRequestTypeDef = TypedDict(
     "CreatePluginRequestTypeDef",
     {
@@ -2003,6 +2145,9 @@ class SourceAttributionTypeDef(TypedDict):
     citationNumber: NotRequired[int]
     updatedAt: NotRequired[datetime]
     textMessageSegments: NotRequired[List[TextSegmentTypeDef]]
+    documentId: NotRequired[str]
+    indexId: NotRequired[str]
+    datasourceId: NotRequired[str]
 
 class TopicConfigurationOutputTypeDef(TypedDict):
     name: str
@@ -2011,6 +2156,11 @@ class TopicConfigurationOutputTypeDef(TypedDict):
     exampleChatMessages: NotRequired[List[str]]
 
 RuleConfigurationUnionTypeDef = Union[RuleConfigurationTypeDef, RuleConfigurationOutputTypeDef]
+
+class ListDataAccessorsResponseTypeDef(TypedDict):
+    dataAccessors: List[DataAccessorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 class CheckDocumentAccessResponseTypeDef(TypedDict):
     userGroups: List[AssociatedGroupTypeDef]
@@ -2150,6 +2300,7 @@ class GetDataAccessorResponseTypeDef(TypedDict):
     idcApplicationArn: str
     principal: str
     actionConfigurations: List[ActionConfigurationOutputTypeDef]
+    authenticationDetail: DataAccessorAuthenticationDetailOutputTypeDef
     createdAt: datetime
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2360,10 +2511,12 @@ class CreateDataAccessorRequestTypeDef(TypedDict):
     actionConfigurations: Sequence[ActionConfigurationUnionTypeDef]
     displayName: str
     clientToken: NotRequired[str]
+    authenticationDetail: NotRequired[DataAccessorAuthenticationDetailUnionTypeDef]
     tags: NotRequired[Sequence[TagTypeDef]]
 
 class UpdateDataAccessorRequestTypeDef(TypedDict):
     applicationId: str
     dataAccessorId: str
     actionConfigurations: Sequence[ActionConfigurationUnionTypeDef]
+    authenticationDetail: NotRequired[DataAccessorAuthenticationDetailUnionTypeDef]
     displayName: NotRequired[str]

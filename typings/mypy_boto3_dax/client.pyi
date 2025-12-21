@@ -117,6 +117,7 @@ class Exceptions(BaseClientExceptions):
     SubnetGroupNotFoundFault: Type[BotocoreClientError]
     SubnetGroupQuotaExceededFault: Type[BotocoreClientError]
     SubnetInUse: Type[BotocoreClientError]
+    SubnetNotAllowedFault: Type[BotocoreClientError]
     SubnetQuotaExceededFault: Type[BotocoreClientError]
     TagNotFoundFault: Type[BotocoreClientError]
     TagQuotaPerResourceExceeded: Type[BotocoreClientError]

@@ -54,6 +54,8 @@ from .type_defs import (
     AssociateOriginationIdentityResultTypeDef,
     AssociateProtectConfigurationRequestTypeDef,
     AssociateProtectConfigurationResultTypeDef,
+    CarrierLookupRequestTypeDef,
+    CarrierLookupResultTypeDef,
     CreateConfigurationSetRequestTypeDef,
     CreateConfigurationSetResultTypeDef,
     CreateEventDestinationRequestTypeDef,
@@ -302,6 +304,17 @@ class PinpointSMSVoiceV2Client(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice-v2/client/associate_protect_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client/#associate_protect_configuration)
+        """
+
+    def carrier_lookup(
+        self, **kwargs: Unpack[CarrierLookupRequestTypeDef]
+    ) -> CarrierLookupResultTypeDef:
+        """
+        Returns information about a destination phone number, including whether the
+        number type and whether it is valid, the carrier, and more.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice-v2/client/carrier_lookup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client/#carrier_lookup)
         """
 
     def create_configuration_set(
@@ -560,8 +573,8 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, **kwargs: Unpack[DeleteResourcePolicyRequestTypeDef]
     ) -> DeleteResourcePolicyResultTypeDef:
         """
-        Deletes the resource-based policy document attached to the AWS End User
-        Messaging SMS and Voice resource.
+        Deletes the resource-based policy document attached to the End User
+        MessagingSMS resource.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice-v2/client/delete_resource_policy.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client/#delete_resource_policy)
@@ -613,8 +626,8 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, **kwargs: Unpack[DescribeAccountLimitsRequestTypeDef]
     ) -> DescribeAccountLimitsResultTypeDef:
         """
-        Describes the current AWS End User Messaging SMS and Voice SMS Voice V2
-        resource quotas for your account.
+        Describes the current End User MessagingSMS SMS Voice V2 resource quotas for
+        your account.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice-v2/client/describe_account_limits.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client/#describe_account_limits)
@@ -842,7 +855,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
     ) -> GetResourcePolicyResultTypeDef:
         """
         Retrieves the JSON text of the resource-based policy document attached to the
-        AWS End User Messaging SMS and Voice resource.
+        End User MessagingSMS resource.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice-v2/client/get_resource_policy.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client/#get_resource_policy)
@@ -945,9 +958,9 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, **kwargs: Unpack[PutResourcePolicyRequestTypeDef]
     ) -> PutResourcePolicyResultTypeDef:
         """
-        Attaches a resource-based policy to a AWS End User Messaging SMS and Voice
-        resource(phone number, sender Id, phone poll, or opt-out list) that is used for
-        sharing the resource.
+        Attaches a resource-based policy to a End User MessagingSMS resource(phone
+        number, sender Id, phone poll, or opt-out list) that is used for sharing the
+        resource.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice-v2/client/put_resource_policy.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client/#put_resource_policy)

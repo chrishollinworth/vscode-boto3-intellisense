@@ -28,7 +28,12 @@ __all__ = (
     "AddonDeletedWaiterName",
     "AddonIssueCodeType",
     "AddonStatusType",
+    "ArgoCdRoleType",
     "AuthenticationModeType",
+    "CapabilityDeletePropagationPolicyType",
+    "CapabilityIssueCodeType",
+    "CapabilityStatusType",
+    "CapabilityTypeType",
     "CapacityTypesType",
     "CategoryType",
     "ClusterActiveWaiterName",
@@ -50,11 +55,13 @@ __all__ = (
     "FargateProfileIssueCodeType",
     "FargateProfileStatusType",
     "InsightStatusValueType",
+    "InsightsRefreshStatusType",
     "IpFamilyType",
     "ListAccessEntriesPaginatorName",
     "ListAccessPoliciesPaginatorName",
     "ListAddonsPaginatorName",
     "ListAssociatedAccessPoliciesPaginatorName",
+    "ListCapabilitiesPaginatorName",
     "ListClustersPaginatorName",
     "ListEksAnywhereSubscriptionsPaginatorName",
     "ListFargateProfilesPaginatorName",
@@ -70,10 +77,13 @@ __all__ = (
     "NodegroupStatusType",
     "NodegroupUpdateStrategiesType",
     "PaginatorName",
+    "ProvisionedControlPlaneTierType",
     "RegionName",
+    "RepairActionType",
     "ResolveConflictsType",
     "ResourceServiceName",
     "ServiceName",
+    "SsoIdentityTypeType",
     "SupportTypeType",
     "TaintEffectType",
     "UpdateParamTypeType",
@@ -129,9 +139,16 @@ AddonStatusType = Literal[
     "UPDATE_FAILED",
     "UPDATING",
 ]
+ArgoCdRoleType = Literal["ADMIN", "EDITOR", "VIEWER"]
 AuthenticationModeType = Literal["API", "API_AND_CONFIG_MAP", "CONFIG_MAP"]
+CapabilityDeletePropagationPolicyType = Literal["RETAIN"]
+CapabilityIssueCodeType = Literal["AccessDenied", "ClusterUnreachable"]
+CapabilityStatusType = Literal[
+    "ACTIVE", "CREATE_FAILED", "CREATING", "DEGRADED", "DELETE_FAILED", "DELETING", "UPDATING"
+]
+CapabilityTypeType = Literal["ACK", "ARGOCD", "KRO"]
 CapacityTypesType = Literal["CAPACITY_BLOCK", "ON_DEMAND", "SPOT"]
-CategoryType = Literal["UPGRADE_READINESS"]
+CategoryType = Literal["MISCONFIGURATION", "UPGRADE_READINESS"]
 ClusterActiveWaiterName = Literal["cluster_active"]
 ClusterDeletedWaiterName = Literal["cluster_deleted"]
 ClusterIssueCodeType = Literal[
@@ -196,11 +213,13 @@ FargateProfileStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING"
 ]
 InsightStatusValueType = Literal["ERROR", "PASSING", "UNKNOWN", "WARNING"]
+InsightsRefreshStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 IpFamilyType = Literal["ipv4", "ipv6"]
 ListAccessEntriesPaginatorName = Literal["list_access_entries"]
 ListAccessPoliciesPaginatorName = Literal["list_access_policies"]
 ListAddonsPaginatorName = Literal["list_addons"]
 ListAssociatedAccessPoliciesPaginatorName = Literal["list_associated_access_policies"]
+ListCapabilitiesPaginatorName = Literal["list_capabilities"]
 ListClustersPaginatorName = Literal["list_clusters"]
 ListEksAnywhereSubscriptionsPaginatorName = Literal["list_eks_anywhere_subscriptions"]
 ListFargateProfilesPaginatorName = Literal["list_fargate_profiles"]
@@ -254,7 +273,10 @@ NodegroupStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATING", "DEGRADED", "DELETE_FAILED", "DELETING", "UPDATING"
 ]
 NodegroupUpdateStrategiesType = Literal["DEFAULT", "MINIMAL"]
+ProvisionedControlPlaneTierType = Literal["standard", "tier-2xl", "tier-4xl", "tier-xl"]
+RepairActionType = Literal["NoAction", "Reboot", "Replace"]
 ResolveConflictsType = Literal["NONE", "OVERWRITE", "PRESERVE"]
+SsoIdentityTypeType = Literal["SSO_GROUP", "SSO_USER"]
 SupportTypeType = Literal["EXTENDED", "STANDARD"]
 TaintEffectType = Literal["NO_EXECUTE", "NO_SCHEDULE", "PREFER_NO_SCHEDULE"]
 UpdateParamTypeType = Literal[
@@ -263,6 +285,7 @@ UpdateParamTypeType = Literal[
     "ClusterLogging",
     "ComputeConfig",
     "ConfigurationValues",
+    "DeletionProtection",
     "DesiredSize",
     "EncryptionConfig",
     "EndpointPrivateAccess",
@@ -277,9 +300,11 @@ UpdateParamTypeType = Literal[
     "MaxUnavailable",
     "MaxUnavailablePercentage",
     "MinSize",
+    "NodeRepairConfig",
     "NodeRepairEnabled",
     "PlatformVersion",
     "PodIdentityAssociations",
+    "PreviousTier",
     "PublicAccessCidrs",
     "ReleaseVersion",
     "RemoteNetworkConfig",
@@ -291,6 +316,7 @@ UpdateParamTypeType = Literal[
     "TaintsToAdd",
     "TaintsToRemove",
     "UpdateStrategy",
+    "UpdatedTier",
     "UpgradePolicy",
     "Version",
     "ZonalShiftConfig",
@@ -303,6 +329,8 @@ UpdateTypeType = Literal[
     "AssociateIdentityProviderConfig",
     "AutoModeUpdate",
     "ConfigUpdate",
+    "ControlPlaneScalingConfigUpdate",
+    "DeletionProtectionUpdate",
     "DisassociateIdentityProviderConfig",
     "EndpointAccessUpdate",
     "LoggingUpdate",
@@ -319,6 +347,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -339,7 +368,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -351,11 +380,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -404,6 +437,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -459,6 +493,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -501,7 +536,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -516,6 +550,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -539,8 +574,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -571,9 +604,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -583,17 +618,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -611,13 +649,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -632,20 +667,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -670,8 +707,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -711,26 +748,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "describe_addon_versions",
@@ -739,6 +769,7 @@ PaginatorName = Literal[
     "list_access_policies",
     "list_addons",
     "list_associated_access_policies",
+    "list_capabilities",
     "list_clusters",
     "list_eks_anywhere_subscriptions",
     "list_fargate_profiles",
@@ -761,6 +792,7 @@ WaiterName = Literal[
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -771,6 +803,7 @@ RegionName = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ap-southeast-5",
+    "ap-southeast-6",
     "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",

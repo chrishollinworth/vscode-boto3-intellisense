@@ -266,7 +266,7 @@ class SignerClient(BaseClient):
         self, **kwargs: Unpack[RevokeSignatureRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Changes the state of a signing job to REVOKED.
+        Changes the state of a signing job to <code>REVOKED</code>.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/revoke_signature.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#revoke_signature)
@@ -276,7 +276,7 @@ class SignerClient(BaseClient):
         self, **kwargs: Unpack[RevokeSigningProfileRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Changes the state of a signing profile to REVOKED.
+        Changes the state of a signing profile to <code>REVOKED</code>.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/revoke_signing_profile.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#revoke_signing_profile)

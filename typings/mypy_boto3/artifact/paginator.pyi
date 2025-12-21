@@ -13,6 +13,7 @@ Usage::
     from mypy_boto3_artifact.client import ArtifactClient
     from mypy_boto3_artifact.paginator import (
         ListCustomerAgreementsPaginator,
+        ListReportVersionsPaginator,
         ListReportsPaginator,
     )
 
@@ -20,6 +21,7 @@ Usage::
     client: ArtifactClient = session.client("artifact")
 
     list_customer_agreements_paginator: ListCustomerAgreementsPaginator = client.get_paginator("list_customer_agreements")
+    list_report_versions_paginator: ListReportVersionsPaginator = client.get_paginator("list_report_versions")
     list_reports_paginator: ListReportsPaginator = client.get_paginator("list_reports")
     ```
 """
@@ -36,6 +38,8 @@ from .type_defs import (
     ListCustomerAgreementsResponseTypeDef,
     ListReportsRequestPaginateTypeDef,
     ListReportsResponseTypeDef,
+    ListReportVersionsRequestPaginateTypeDef,
+    ListReportVersionsResponseTypeDef,
 )
 
 if sys.version_info >= (3, 12):
@@ -43,7 +47,7 @@ if sys.version_info >= (3, 12):
 else:
     from typing_extensions import Unpack
 
-__all__ = ("ListCustomerAgreementsPaginator", "ListReportsPaginator")
+__all__ = ("ListCustomerAgreementsPaginator", "ListReportVersionsPaginator", "ListReportsPaginator")
 
 if TYPE_CHECKING:
     _ListCustomerAgreementsPaginatorBase = Paginator[ListCustomerAgreementsResponseTypeDef]
@@ -61,6 +65,24 @@ class ListCustomerAgreementsPaginator(_ListCustomerAgreementsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/artifact/paginator/ListCustomerAgreements.html#Artifact.Paginator.ListCustomerAgreements.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_artifact/paginators/#listcustomeragreementspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListReportVersionsPaginatorBase = Paginator[ListReportVersionsResponseTypeDef]
+else:
+    _ListReportVersionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListReportVersionsPaginator(_ListReportVersionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/artifact/paginator/ListReportVersions.html#Artifact.Paginator.ListReportVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_artifact/paginators/#listreportversionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListReportVersionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListReportVersionsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/artifact/paginator/ListReportVersions.html#Artifact.Paginator.ListReportVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_artifact/paginators/#listreportversionspaginator)
         """
 
 if TYPE_CHECKING:

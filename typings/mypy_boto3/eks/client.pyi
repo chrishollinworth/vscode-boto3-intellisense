@@ -32,6 +32,7 @@ from .paginator import (
     ListAccessPoliciesPaginator,
     ListAddonsPaginator,
     ListAssociatedAccessPoliciesPaginator,
+    ListCapabilitiesPaginator,
     ListClustersPaginator,
     ListEksAnywhereSubscriptionsPaginator,
     ListFargateProfilesPaginator,
@@ -52,6 +53,8 @@ from .type_defs import (
     CreateAccessEntryResponseTypeDef,
     CreateAddonRequestTypeDef,
     CreateAddonResponseTypeDef,
+    CreateCapabilityRequestTypeDef,
+    CreateCapabilityResponseTypeDef,
     CreateClusterRequestTypeDef,
     CreateClusterResponseTypeDef,
     CreateEksAnywhereSubscriptionRequestTypeDef,
@@ -65,6 +68,8 @@ from .type_defs import (
     DeleteAccessEntryRequestTypeDef,
     DeleteAddonRequestTypeDef,
     DeleteAddonResponseTypeDef,
+    DeleteCapabilityRequestTypeDef,
+    DeleteCapabilityResponseTypeDef,
     DeleteClusterRequestTypeDef,
     DeleteClusterResponseTypeDef,
     DeleteEksAnywhereSubscriptionRequestTypeDef,
@@ -85,6 +90,8 @@ from .type_defs import (
     DescribeAddonResponseTypeDef,
     DescribeAddonVersionsRequestTypeDef,
     DescribeAddonVersionsResponseTypeDef,
+    DescribeCapabilityRequestTypeDef,
+    DescribeCapabilityResponseTypeDef,
     DescribeClusterRequestTypeDef,
     DescribeClusterResponseTypeDef,
     DescribeClusterVersionsRequestTypeDef,
@@ -97,6 +104,8 @@ from .type_defs import (
     DescribeIdentityProviderConfigResponseTypeDef,
     DescribeInsightRequestTypeDef,
     DescribeInsightResponseTypeDef,
+    DescribeInsightsRefreshRequestTypeDef,
+    DescribeInsightsRefreshResponseTypeDef,
     DescribeNodegroupRequestTypeDef,
     DescribeNodegroupResponseTypeDef,
     DescribePodIdentityAssociationRequestTypeDef,
@@ -114,6 +123,8 @@ from .type_defs import (
     ListAddonsResponseTypeDef,
     ListAssociatedAccessPoliciesRequestTypeDef,
     ListAssociatedAccessPoliciesResponseTypeDef,
+    ListCapabilitiesRequestTypeDef,
+    ListCapabilitiesResponseTypeDef,
     ListClustersRequestTypeDef,
     ListClustersResponseTypeDef,
     ListEksAnywhereSubscriptionsRequestTypeDef,
@@ -134,12 +145,16 @@ from .type_defs import (
     ListUpdatesResponseTypeDef,
     RegisterClusterRequestTypeDef,
     RegisterClusterResponseTypeDef,
+    StartInsightsRefreshRequestTypeDef,
+    StartInsightsRefreshResponseTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
     UpdateAccessEntryRequestTypeDef,
     UpdateAccessEntryResponseTypeDef,
     UpdateAddonRequestTypeDef,
     UpdateAddonResponseTypeDef,
+    UpdateCapabilityRequestTypeDef,
+    UpdateCapabilityResponseTypeDef,
     UpdateClusterConfigRequestTypeDef,
     UpdateClusterConfigResponseTypeDef,
     UpdateClusterVersionRequestTypeDef,
@@ -280,6 +295,16 @@ class EKSClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#create_addon)
         """
 
+    def create_capability(
+        self, **kwargs: Unpack[CreateCapabilityRequestTypeDef]
+    ) -> CreateCapabilityResponseTypeDef:
+        """
+        Creates a managed capability resource for an Amazon EKS cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/create_capability.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#create_capability)
+        """
+
     def create_cluster(
         self, **kwargs: Unpack[CreateClusterRequestTypeDef]
     ) -> CreateClusterResponseTypeDef:
@@ -349,6 +374,16 @@ class EKSClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/delete_addon.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#delete_addon)
+        """
+
+    def delete_capability(
+        self, **kwargs: Unpack[DeleteCapabilityRequestTypeDef]
+    ) -> DeleteCapabilityResponseTypeDef:
+        """
+        Deletes a managed capability from your Amazon EKS cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/delete_capability.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#delete_capability)
         """
 
     def delete_cluster(
@@ -451,6 +486,18 @@ class EKSClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_addon_versions)
         """
 
+    def describe_capability(
+        self, **kwargs: Unpack[DescribeCapabilityRequestTypeDef]
+    ) -> DescribeCapabilityResponseTypeDef:
+        """
+        Returns detailed information about a specific managed capability in your Amazon
+        EKS cluster, including its current status, configuration, health information,
+        and any issues that may be affecting its operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_capability.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_capability)
+        """
+
     def describe_cluster(
         self, **kwargs: Unpack[DescribeClusterRequestTypeDef]
     ) -> DescribeClusterResponseTypeDef:
@@ -509,6 +556,16 @@ class EKSClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_insight.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_insight)
+        """
+
+    def describe_insights_refresh(
+        self, **kwargs: Unpack[DescribeInsightsRefreshRequestTypeDef]
+    ) -> DescribeInsightsRefreshResponseTypeDef:
+        """
+        Returns the status of the latest on-demand cluster insights refresh operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_insights_refresh.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_insights_refresh)
         """
 
     def describe_nodegroup(
@@ -597,6 +654,16 @@ class EKSClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_associated_access_policies.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_associated_access_policies)
+        """
+
+    def list_capabilities(
+        self, **kwargs: Unpack[ListCapabilitiesRequestTypeDef]
+    ) -> ListCapabilitiesResponseTypeDef:
+        """
+        Lists all managed capabilities in your Amazon EKS cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_capabilities.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_capabilities)
         """
 
     def list_clusters(
@@ -703,6 +770,17 @@ class EKSClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#register_cluster)
         """
 
+    def start_insights_refresh(
+        self, **kwargs: Unpack[StartInsightsRefreshRequestTypeDef]
+    ) -> StartInsightsRefreshResponseTypeDef:
+        """
+        Initiates an on-demand refresh operation for cluster insights, getting the
+        latest analysis outside of the standard refresh schedule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/start_insights_refresh.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#start_insights_refresh)
+        """
+
     def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Associates the specified tags to an Amazon EKS resource with the specified
@@ -738,6 +816,16 @@ class EKSClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/update_addon.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#update_addon)
+        """
+
+    def update_capability(
+        self, **kwargs: Unpack[UpdateCapabilityRequestTypeDef]
+    ) -> UpdateCapabilityResponseTypeDef:
+        """
+        Updates the configuration of a managed capability in your Amazon EKS cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/update_capability.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#update_capability)
         """
 
     def update_cluster_config(
@@ -860,6 +948,17 @@ class EKSClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_associated_access_policies"]
     ) -> ListAssociatedAccessPoliciesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_capabilities"]
+    ) -> ListCapabilitiesPaginator:
         """
         Create a paginator for an operation.
 

@@ -40,12 +40,17 @@ from .paginator import (
     ListRecoveryPointsByBackupVaultPaginator,
     ListRecoveryPointsByLegalHoldPaginator,
     ListRecoveryPointsByResourcePaginator,
+    ListRestoreAccessBackupVaultsPaginator,
     ListRestoreJobsByProtectedResourcePaginator,
     ListRestoreJobsPaginator,
     ListRestoreTestingPlansPaginator,
     ListRestoreTestingSelectionsPaginator,
+    ListScanJobsPaginator,
+    ListScanJobSummariesPaginator,
+    ListTieringConfigurationsPaginator,
 )
 from .type_defs import (
+    AssociateBackupVaultMpaApprovalTeamInputTypeDef,
     CancelLegalHoldInputTypeDef,
     CreateBackupPlanInputTypeDef,
     CreateBackupPlanOutputTypeDef,
@@ -61,10 +66,14 @@ from .type_defs import (
     CreateLogicallyAirGappedBackupVaultOutputTypeDef,
     CreateReportPlanInputTypeDef,
     CreateReportPlanOutputTypeDef,
+    CreateRestoreAccessBackupVaultInputTypeDef,
+    CreateRestoreAccessBackupVaultOutputTypeDef,
     CreateRestoreTestingPlanInputTypeDef,
     CreateRestoreTestingPlanOutputTypeDef,
     CreateRestoreTestingSelectionInputTypeDef,
     CreateRestoreTestingSelectionOutputTypeDef,
+    CreateTieringConfigurationInputTypeDef,
+    CreateTieringConfigurationOutputTypeDef,
     DeleteBackupPlanInputTypeDef,
     DeleteBackupPlanOutputTypeDef,
     DeleteBackupSelectionInputTypeDef,
@@ -77,6 +86,7 @@ from .type_defs import (
     DeleteReportPlanInputTypeDef,
     DeleteRestoreTestingPlanInputTypeDef,
     DeleteRestoreTestingSelectionInputTypeDef,
+    DeleteTieringConfigurationInputTypeDef,
     DescribeBackupJobInputTypeDef,
     DescribeBackupJobOutputTypeDef,
     DescribeBackupVaultInputTypeDef,
@@ -97,6 +107,9 @@ from .type_defs import (
     DescribeReportPlanOutputTypeDef,
     DescribeRestoreJobInputTypeDef,
     DescribeRestoreJobOutputTypeDef,
+    DescribeScanJobInputTypeDef,
+    DescribeScanJobOutputTypeDef,
+    DisassociateBackupVaultMpaApprovalTeamInputTypeDef,
     DisassociateRecoveryPointFromParentInputTypeDef,
     DisassociateRecoveryPointInputTypeDef,
     EmptyResponseMetadataTypeDef,
@@ -129,6 +142,8 @@ from .type_defs import (
     GetRestoreTestingSelectionInputTypeDef,
     GetRestoreTestingSelectionOutputTypeDef,
     GetSupportedResourceTypesOutputTypeDef,
+    GetTieringConfigurationInputTypeDef,
+    GetTieringConfigurationOutputTypeDef,
     ListBackupJobsInputTypeDef,
     ListBackupJobsOutputTypeDef,
     ListBackupJobSummariesInputTypeDef,
@@ -167,6 +182,8 @@ from .type_defs import (
     ListReportJobsOutputTypeDef,
     ListReportPlansInputTypeDef,
     ListReportPlansOutputTypeDef,
+    ListRestoreAccessBackupVaultsInputTypeDef,
+    ListRestoreAccessBackupVaultsOutputTypeDef,
     ListRestoreJobsByProtectedResourceInputTypeDef,
     ListRestoreJobsByProtectedResourceOutputTypeDef,
     ListRestoreJobsInputTypeDef,
@@ -177,12 +194,19 @@ from .type_defs import (
     ListRestoreTestingPlansOutputTypeDef,
     ListRestoreTestingSelectionsInputTypeDef,
     ListRestoreTestingSelectionsOutputTypeDef,
+    ListScanJobsInputTypeDef,
+    ListScanJobsOutputTypeDef,
+    ListScanJobSummariesInputTypeDef,
+    ListScanJobSummariesOutputTypeDef,
     ListTagsInputTypeDef,
     ListTagsOutputTypeDef,
+    ListTieringConfigurationsInputTypeDef,
+    ListTieringConfigurationsOutputTypeDef,
     PutBackupVaultAccessPolicyInputTypeDef,
     PutBackupVaultLockConfigurationInputTypeDef,
     PutBackupVaultNotificationsInputTypeDef,
     PutRestoreValidationResultInputTypeDef,
+    RevokeRestoreAccessBackupVaultInputTypeDef,
     StartBackupJobInputTypeDef,
     StartBackupJobOutputTypeDef,
     StartCopyJobInputTypeDef,
@@ -191,6 +215,8 @@ from .type_defs import (
     StartReportJobOutputTypeDef,
     StartRestoreJobInputTypeDef,
     StartRestoreJobOutputTypeDef,
+    StartScanJobInputTypeDef,
+    StartScanJobOutputTypeDef,
     StopBackupJobInputTypeDef,
     TagResourceInputTypeDef,
     UntagResourceInputTypeDef,
@@ -210,6 +236,8 @@ from .type_defs import (
     UpdateRestoreTestingPlanOutputTypeDef,
     UpdateRestoreTestingSelectionInputTypeDef,
     UpdateRestoreTestingSelectionOutputTypeDef,
+    UpdateTieringConfigurationInputTypeDef,
+    UpdateTieringConfigurationOutputTypeDef,
 )
 
 if sys.version_info >= (3, 9):
@@ -271,6 +299,16 @@ class BackupClient(BaseClient):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/generate_presigned_url.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#generate_presigned_url)
+        """
+
+    def associate_backup_vault_mpa_approval_team(
+        self, **kwargs: Unpack[AssociateBackupVaultMpaApprovalTeamInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Associates an MPA approval team with a backup vault.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/associate_backup_vault_mpa_approval_team.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#associate_backup_vault_mpa_approval_team)
         """
 
     def cancel_legal_hold(self, **kwargs: Unpack[CancelLegalHoldInputTypeDef]) -> Dict[str, Any]:
@@ -352,6 +390,18 @@ class BackupClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#create_report_plan)
         """
 
+    def create_restore_access_backup_vault(
+        self, **kwargs: Unpack[CreateRestoreAccessBackupVaultInputTypeDef]
+    ) -> CreateRestoreAccessBackupVaultOutputTypeDef:
+        """
+        Creates a restore access backup vault that provides temporary access to
+        recovery points in a logically air-gapped backup vault, subject to MPA
+        approval.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/create_restore_access_backup_vault.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#create_restore_access_backup_vault)
+        """
+
     def create_restore_testing_plan(
         self, **kwargs: Unpack[CreateRestoreTestingPlanInputTypeDef]
     ) -> CreateRestoreTestingPlanOutputTypeDef:
@@ -371,6 +421,16 @@ class BackupClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/create_restore_testing_selection.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#create_restore_testing_selection)
+        """
+
+    def create_tiering_configuration(
+        self, **kwargs: Unpack[CreateTieringConfigurationInputTypeDef]
+    ) -> CreateTieringConfigurationOutputTypeDef:
+        """
+        Creates a tiering configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/create_tiering_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#create_tiering_configuration)
         """
 
     def delete_backup_plan(
@@ -484,6 +544,16 @@ class BackupClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#delete_restore_testing_selection)
         """
 
+    def delete_tiering_configuration(
+        self, **kwargs: Unpack[DeleteTieringConfigurationInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the tiering configuration specified by a tiering configuration name.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/delete_tiering_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#delete_tiering_configuration)
+        """
+
     def describe_backup_job(
         self, **kwargs: Unpack[DescribeBackupJobInputTypeDef]
     ) -> DescribeBackupJobOutputTypeDef:
@@ -594,6 +664,27 @@ class BackupClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/describe_restore_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#describe_restore_job)
+        """
+
+    def describe_scan_job(
+        self, **kwargs: Unpack[DescribeScanJobInputTypeDef]
+    ) -> DescribeScanJobOutputTypeDef:
+        """
+        Returns scan job details for the specified ScanJobID.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/describe_scan_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#describe_scan_job)
+        """
+
+    def disassociate_backup_vault_mpa_approval_team(
+        self, **kwargs: Unpack[DisassociateBackupVaultMpaApprovalTeamInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Removes the association between an MPA approval team and a backup vault,
+        disabling the MPA approval workflow for restore operations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/disassociate_backup_vault_mpa_approval_team.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#disassociate_backup_vault_mpa_approval_team)
         """
 
     def disassociate_recovery_point(
@@ -772,6 +863,17 @@ class BackupClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/get_supported_resource_types.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#get_supported_resource_types)
+        """
+
+    def get_tiering_configuration(
+        self, **kwargs: Unpack[GetTieringConfigurationInputTypeDef]
+    ) -> GetTieringConfigurationOutputTypeDef:
+        """
+        Returns <code>TieringConfiguration</code> details for the specified
+        <code>TieringConfigurationName</code>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/get_tiering_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#get_tiering_configuration)
         """
 
     def list_backup_job_summaries(
@@ -977,6 +1079,17 @@ class BackupClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#list_report_plans)
         """
 
+    def list_restore_access_backup_vaults(
+        self, **kwargs: Unpack[ListRestoreAccessBackupVaultsInputTypeDef]
+    ) -> ListRestoreAccessBackupVaultsOutputTypeDef:
+        """
+        Returns a list of restore access backup vaults associated with a specified
+        backup vault.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/list_restore_access_backup_vaults.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#list_restore_access_backup_vaults)
+        """
+
     def list_restore_job_summaries(
         self, **kwargs: Unpack[ListRestoreJobSummariesInputTypeDef]
     ) -> ListRestoreJobSummariesOutputTypeDef:
@@ -1029,6 +1142,28 @@ class BackupClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#list_restore_testing_selections)
         """
 
+    def list_scan_job_summaries(
+        self, **kwargs: Unpack[ListScanJobSummariesInputTypeDef]
+    ) -> ListScanJobSummariesOutputTypeDef:
+        """
+        This is a request for a summary of scan jobs created or running within the most
+        recent 30 days.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/list_scan_job_summaries.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#list_scan_job_summaries)
+        """
+
+    def list_scan_jobs(
+        self, **kwargs: Unpack[ListScanJobsInputTypeDef]
+    ) -> ListScanJobsOutputTypeDef:
+        """
+        Returns a list of existing scan jobs for an authenticated account for the last
+        30 days.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/list_scan_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#list_scan_jobs)
+        """
+
     def list_tags(self, **kwargs: Unpack[ListTagsInputTypeDef]) -> ListTagsOutputTypeDef:
         """
         Returns the tags assigned to the resource, such as a target recovery point,
@@ -1036,6 +1171,16 @@ class BackupClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/list_tags.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#list_tags)
+        """
+
+    def list_tiering_configurations(
+        self, **kwargs: Unpack[ListTieringConfigurationsInputTypeDef]
+    ) -> ListTieringConfigurationsOutputTypeDef:
+        """
+        Returns a list of tiering configurations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/list_tiering_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#list_tiering_configurations)
         """
 
     def put_backup_vault_access_policy(
@@ -1081,6 +1226,17 @@ class BackupClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#put_restore_validation_result)
         """
 
+    def revoke_restore_access_backup_vault(
+        self, **kwargs: Unpack[RevokeRestoreAccessBackupVaultInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Revokes access to a restore access backup vault, removing the ability to
+        restore from its recovery points and permanently deleting the vault.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/revoke_restore_access_backup_vault.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#revoke_restore_access_backup_vault)
+        """
+
     def start_backup_job(
         self, **kwargs: Unpack[StartBackupJobInputTypeDef]
     ) -> StartBackupJobOutputTypeDef:
@@ -1121,6 +1277,16 @@ class BackupClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#start_restore_job)
         """
 
+    def start_scan_job(
+        self, **kwargs: Unpack[StartScanJobInputTypeDef]
+    ) -> StartScanJobOutputTypeDef:
+        """
+        Starts scanning jobs for specific resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/start_scan_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#start_scan_job)
+        """
+
     def stop_backup_job(
         self, **kwargs: Unpack[StopBackupJobInputTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
@@ -1135,8 +1301,7 @@ class BackupClient(BaseClient):
         self, **kwargs: Unpack[TagResourceInputTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Assigns a set of key-value pairs to a recovery point, backup plan, or backup
-        vault identified by an Amazon Resource Name (ARN).
+        Assigns a set of key-value pairs to a resource.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/tag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#tag_resource)
@@ -1242,6 +1407,16 @@ class BackupClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/update_restore_testing_selection.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#update_restore_testing_selection)
+        """
+
+    def update_tiering_configuration(
+        self, **kwargs: Unpack[UpdateTieringConfigurationInputTypeDef]
+    ) -> UpdateTieringConfigurationOutputTypeDef:
+        """
+        This request will send changes to your specified tiering configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/update_tiering_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#update_tiering_configuration)
         """
 
     @overload  # type: ignore[override]
@@ -1400,6 +1575,17 @@ class BackupClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_restore_access_backup_vaults"]
+    ) -> ListRestoreAccessBackupVaultsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_restore_jobs_by_protected_resource"]
     ) -> ListRestoreJobsByProtectedResourcePaginator:
         """
@@ -1435,6 +1621,39 @@ class BackupClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_restore_testing_selections"]
     ) -> ListRestoreTestingSelectionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_scan_job_summaries"]
+    ) -> ListScanJobSummariesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_scan_jobs"]
+    ) -> ListScanJobsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_tiering_configurations"]
+    ) -> ListTieringConfigurationsPaginator:
         """
         Create a paginator for an operation.
 

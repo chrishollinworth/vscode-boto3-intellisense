@@ -51,6 +51,9 @@ __all__ = (
     "ListCustomerAgreementsRequestPaginateTypeDef",
     "ListCustomerAgreementsRequestTypeDef",
     "ListCustomerAgreementsResponseTypeDef",
+    "ListReportVersionsRequestPaginateTypeDef",
+    "ListReportVersionsRequestTypeDef",
+    "ListReportVersionsResponseTypeDef",
     "ListReportsRequestPaginateTypeDef",
     "ListReportsRequestTypeDef",
     "ListReportsResponseTypeDef",
@@ -139,7 +142,8 @@ class ListCustomerAgreementsRequestTypeDef(TypedDict):
     maxResults: NotRequired[int]
     nextToken: NotRequired[str]
 
-class ListReportsRequestTypeDef(TypedDict):
+class ListReportVersionsRequestTypeDef(TypedDict):
+    reportId: str
     maxResults: NotRequired[int]
     nextToken: NotRequired[str]
 
@@ -163,6 +167,10 @@ ReportSummaryTypeDef = TypedDict(
         "acceptanceType": NotRequired[AcceptanceTypeType],
     },
 )
+
+class ListReportsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
 class PutAccountSettingsRequestTypeDef(TypedDict):
     notificationSubscriptionStatus: NotRequired[NotificationSubscriptionStatusType]
@@ -196,8 +204,17 @@ class GetReportMetadataResponseTypeDef(TypedDict):
 class ListCustomerAgreementsRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListReportVersionsRequestPaginateTypeDef(TypedDict):
+    reportId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class ListReportsRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListReportVersionsResponseTypeDef(TypedDict):
+    reports: List[ReportSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 class ListReportsResponseTypeDef(TypedDict):
     reports: List[ReportSummaryTypeDef]

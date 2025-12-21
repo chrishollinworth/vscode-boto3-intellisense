@@ -28,12 +28,18 @@ from botocore.exceptions import ClientError as BotocoreClientError
 from .paginator import (
     DescribeActionTargetsPaginator,
     DescribeProductsPaginator,
+    DescribeProductsV2Paginator,
     DescribeStandardsControlsPaginator,
     DescribeStandardsPaginator,
     GetEnabledStandardsPaginator,
     GetFindingHistoryPaginator,
     GetFindingsPaginator,
+    GetFindingsTrendsV2Paginator,
+    GetFindingsV2Paginator,
     GetInsightsPaginator,
+    GetResourcesTrendsV2Paginator,
+    GetResourcesV2Paginator,
+    ListAggregatorsV2Paginator,
     ListConfigurationPoliciesPaginator,
     ListConfigurationPolicyAssociationsPaginator,
     ListEnabledProductsForImportPaginator,
@@ -67,25 +73,38 @@ from .type_defs import (
     BatchUpdateAutomationRulesResponseTypeDef,
     BatchUpdateFindingsRequestTypeDef,
     BatchUpdateFindingsResponseTypeDef,
+    BatchUpdateFindingsV2RequestTypeDef,
+    BatchUpdateFindingsV2ResponseTypeDef,
     BatchUpdateStandardsControlAssociationsRequestTypeDef,
     BatchUpdateStandardsControlAssociationsResponseTypeDef,
     CreateActionTargetRequestTypeDef,
     CreateActionTargetResponseTypeDef,
+    CreateAggregatorV2RequestTypeDef,
+    CreateAggregatorV2ResponseTypeDef,
     CreateAutomationRuleRequestTypeDef,
     CreateAutomationRuleResponseTypeDef,
+    CreateAutomationRuleV2RequestTypeDef,
+    CreateAutomationRuleV2ResponseTypeDef,
     CreateConfigurationPolicyRequestTypeDef,
     CreateConfigurationPolicyResponseTypeDef,
+    CreateConnectorV2RequestTypeDef,
+    CreateConnectorV2ResponseTypeDef,
     CreateFindingAggregatorRequestTypeDef,
     CreateFindingAggregatorResponseTypeDef,
     CreateInsightRequestTypeDef,
     CreateInsightResponseTypeDef,
     CreateMembersRequestTypeDef,
     CreateMembersResponseTypeDef,
+    CreateTicketV2RequestTypeDef,
+    CreateTicketV2ResponseTypeDef,
     DeclineInvitationsRequestTypeDef,
     DeclineInvitationsResponseTypeDef,
     DeleteActionTargetRequestTypeDef,
     DeleteActionTargetResponseTypeDef,
+    DeleteAggregatorV2RequestTypeDef,
+    DeleteAutomationRuleV2RequestTypeDef,
     DeleteConfigurationPolicyRequestTypeDef,
+    DeleteConnectorV2RequestTypeDef,
     DeleteFindingAggregatorRequestTypeDef,
     DeleteInsightRequestTypeDef,
     DeleteInsightResponseTypeDef,
@@ -100,6 +119,9 @@ from .type_defs import (
     DescribeOrganizationConfigurationResponseTypeDef,
     DescribeProductsRequestTypeDef,
     DescribeProductsResponseTypeDef,
+    DescribeProductsV2RequestTypeDef,
+    DescribeProductsV2ResponseTypeDef,
+    DescribeSecurityHubV2ResponseTypeDef,
     DescribeStandardsControlsRequestTypeDef,
     DescribeStandardsControlsResponseTypeDef,
     DescribeStandardsRequestTypeDef,
@@ -110,12 +132,21 @@ from .type_defs import (
     EnableImportFindingsForProductRequestTypeDef,
     EnableImportFindingsForProductResponseTypeDef,
     EnableOrganizationAdminAccountRequestTypeDef,
+    EnableOrganizationAdminAccountResponseTypeDef,
     EnableSecurityHubRequestTypeDef,
+    EnableSecurityHubV2RequestTypeDef,
+    EnableSecurityHubV2ResponseTypeDef,
     GetAdministratorAccountResponseTypeDef,
+    GetAggregatorV2RequestTypeDef,
+    GetAggregatorV2ResponseTypeDef,
+    GetAutomationRuleV2RequestTypeDef,
+    GetAutomationRuleV2ResponseTypeDef,
     GetConfigurationPolicyAssociationRequestTypeDef,
     GetConfigurationPolicyAssociationResponseTypeDef,
     GetConfigurationPolicyRequestTypeDef,
     GetConfigurationPolicyResponseTypeDef,
+    GetConnectorV2RequestTypeDef,
+    GetConnectorV2ResponseTypeDef,
     GetEnabledStandardsRequestTypeDef,
     GetEnabledStandardsResponseTypeDef,
     GetFindingAggregatorRequestTypeDef,
@@ -124,6 +155,12 @@ from .type_defs import (
     GetFindingHistoryResponseTypeDef,
     GetFindingsRequestTypeDef,
     GetFindingsResponseTypeDef,
+    GetFindingStatisticsV2RequestTypeDef,
+    GetFindingStatisticsV2ResponseTypeDef,
+    GetFindingsTrendsV2RequestTypeDef,
+    GetFindingsTrendsV2ResponseTypeDef,
+    GetFindingsV2RequestTypeDef,
+    GetFindingsV2ResponseTypeDef,
     GetInsightResultsRequestTypeDef,
     GetInsightResultsResponseTypeDef,
     GetInsightsRequestTypeDef,
@@ -132,16 +169,28 @@ from .type_defs import (
     GetMasterAccountResponseTypeDef,
     GetMembersRequestTypeDef,
     GetMembersResponseTypeDef,
+    GetResourcesStatisticsV2RequestTypeDef,
+    GetResourcesStatisticsV2ResponseTypeDef,
+    GetResourcesTrendsV2RequestTypeDef,
+    GetResourcesTrendsV2ResponseTypeDef,
+    GetResourcesV2RequestTypeDef,
+    GetResourcesV2ResponseTypeDef,
     GetSecurityControlDefinitionRequestTypeDef,
     GetSecurityControlDefinitionResponseTypeDef,
     InviteMembersRequestTypeDef,
     InviteMembersResponseTypeDef,
+    ListAggregatorsV2RequestTypeDef,
+    ListAggregatorsV2ResponseTypeDef,
     ListAutomationRulesRequestTypeDef,
     ListAutomationRulesResponseTypeDef,
+    ListAutomationRulesV2RequestTypeDef,
+    ListAutomationRulesV2ResponseTypeDef,
     ListConfigurationPoliciesRequestTypeDef,
     ListConfigurationPoliciesResponseTypeDef,
     ListConfigurationPolicyAssociationsRequestTypeDef,
     ListConfigurationPolicyAssociationsResponseTypeDef,
+    ListConnectorsV2RequestTypeDef,
+    ListConnectorsV2ResponseTypeDef,
     ListEnabledProductsForImportRequestTypeDef,
     ListEnabledProductsForImportResponseTypeDef,
     ListFindingAggregatorsRequestTypeDef,
@@ -158,14 +207,20 @@ from .type_defs import (
     ListStandardsControlAssociationsResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    RegisterConnectorV2RequestTypeDef,
+    RegisterConnectorV2ResponseTypeDef,
     StartConfigurationPolicyAssociationRequestTypeDef,
     StartConfigurationPolicyAssociationResponseTypeDef,
     StartConfigurationPolicyDisassociationRequestTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
     UpdateActionTargetRequestTypeDef,
+    UpdateAggregatorV2RequestTypeDef,
+    UpdateAggregatorV2ResponseTypeDef,
+    UpdateAutomationRuleV2RequestTypeDef,
     UpdateConfigurationPolicyRequestTypeDef,
     UpdateConfigurationPolicyResponseTypeDef,
+    UpdateConnectorV2RequestTypeDef,
     UpdateFindingAggregatorRequestTypeDef,
     UpdateFindingAggregatorResponseTypeDef,
     UpdateFindingsRequestTypeDef,
@@ -192,13 +247,18 @@ __all__ = ("SecurityHubClient",)
 class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
     InternalException: Type[BotocoreClientError]
+    InternalServerException: Type[BotocoreClientError]
     InvalidAccessException: Type[BotocoreClientError]
     InvalidInputException: Type[BotocoreClientError]
     LimitExceededException: Type[BotocoreClientError]
     ResourceConflictException: Type[BotocoreClientError]
     ResourceInUseException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
+    ServiceQuotaExceededException: Type[BotocoreClientError]
+    ThrottlingException: Type[BotocoreClientError]
+    ValidationException: Type[BotocoreClientError]
 
 class SecurityHubClient(BaseClient):
     """
@@ -355,10 +415,21 @@ class SecurityHubClient(BaseClient):
     ) -> BatchUpdateFindingsResponseTypeDef:
         """
         Used by Security Hub customers to update information about their investigation
-        into a finding.
+        into one or more findings.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/batch_update_findings.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#batch_update_findings)
+        """
+
+    def batch_update_findings_v2(
+        self, **kwargs: Unpack[BatchUpdateFindingsV2RequestTypeDef]
+    ) -> BatchUpdateFindingsV2ResponseTypeDef:
+        """
+        Used by customers to update information about their investigation into a
+        finding.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/batch_update_findings_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#batch_update_findings_v2)
         """
 
     def batch_update_standards_control_associations(
@@ -382,6 +453,16 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#create_action_target)
         """
 
+    def create_aggregator_v2(
+        self, **kwargs: Unpack[CreateAggregatorV2RequestTypeDef]
+    ) -> CreateAggregatorV2ResponseTypeDef:
+        """
+        Enables aggregation across Amazon Web Services Regions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/create_aggregator_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#create_aggregator_v2)
+        """
+
     def create_automation_rule(
         self, **kwargs: Unpack[CreateAutomationRuleRequestTypeDef]
     ) -> CreateAutomationRuleResponseTypeDef:
@@ -392,6 +473,16 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#create_automation_rule)
         """
 
+    def create_automation_rule_v2(
+        self, **kwargs: Unpack[CreateAutomationRuleV2RequestTypeDef]
+    ) -> CreateAutomationRuleV2ResponseTypeDef:
+        """
+        Creates a V2 automation rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/create_automation_rule_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#create_automation_rule_v2)
+        """
+
     def create_configuration_policy(
         self, **kwargs: Unpack[CreateConfigurationPolicyRequestTypeDef]
     ) -> CreateConfigurationPolicyResponseTypeDef:
@@ -400,6 +491,16 @@ class SecurityHubClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/create_configuration_policy.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#create_configuration_policy)
+        """
+
+    def create_connector_v2(
+        self, **kwargs: Unpack[CreateConnectorV2RequestTypeDef]
+    ) -> CreateConnectorV2ResponseTypeDef:
+        """
+        Grants permission to create a connectorV2 based on input parameters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/create_connector_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#create_connector_v2)
         """
 
     def create_finding_aggregator(
@@ -433,6 +534,17 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#create_members)
         """
 
+    def create_ticket_v2(
+        self, **kwargs: Unpack[CreateTicketV2RequestTypeDef]
+    ) -> CreateTicketV2ResponseTypeDef:
+        """
+        Grants permission to create a ticket in the chosen ITSM based on finding
+        information for the provided finding metadata UID.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/create_ticket_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#create_ticket_v2)
+        """
+
     def decline_invitations(
         self, **kwargs: Unpack[DeclineInvitationsRequestTypeDef]
     ) -> DeclineInvitationsResponseTypeDef:
@@ -454,6 +566,26 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#delete_action_target)
         """
 
+    def delete_aggregator_v2(
+        self, **kwargs: Unpack[DeleteAggregatorV2RequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the Aggregator V2.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/delete_aggregator_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#delete_aggregator_v2)
+        """
+
+    def delete_automation_rule_v2(
+        self, **kwargs: Unpack[DeleteAutomationRuleV2RequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a V2 automation rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/delete_automation_rule_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#delete_automation_rule_v2)
+        """
+
     def delete_configuration_policy(
         self, **kwargs: Unpack[DeleteConfigurationPolicyRequestTypeDef]
     ) -> Dict[str, Any]:
@@ -462,6 +594,16 @@ class SecurityHubClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/delete_configuration_policy.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#delete_configuration_policy)
+        """
+
+    def delete_connector_v2(
+        self, **kwargs: Unpack[DeleteConnectorV2RequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Grants permission to delete a connectorV2.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/delete_connector_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#delete_connector_v2)
         """
 
     def delete_finding_aggregator(
@@ -547,6 +689,24 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#describe_products)
         """
 
+    def describe_products_v2(
+        self, **kwargs: Unpack[DescribeProductsV2RequestTypeDef]
+    ) -> DescribeProductsV2ResponseTypeDef:
+        """
+        Gets information about the product integration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/describe_products_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#describe_products_v2)
+        """
+
+    def describe_security_hub_v2(self) -> DescribeSecurityHubV2ResponseTypeDef:
+        """
+        Returns details about the service resource in your account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/describe_security_hub_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#describe_security_hub_v2)
+        """
+
     def describe_standards(
         self, **kwargs: Unpack[DescribeStandardsRequestTypeDef]
     ) -> DescribeStandardsResponseTypeDef:
@@ -596,6 +756,15 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#disable_security_hub)
         """
 
+    def disable_security_hub_v2(self) -> Dict[str, Any]:
+        """
+        Disable the service for the current Amazon Web Services Region or specified
+        Amazon Web Services Region.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/disable_security_hub_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#disable_security_hub_v2)
+        """
+
     def disassociate_from_administrator_account(self) -> Dict[str, Any]:
         """
         Disassociates the current Security Hub member account from the associated
@@ -636,7 +805,7 @@ class SecurityHubClient(BaseClient):
 
     def enable_organization_admin_account(
         self, **kwargs: Unpack[EnableOrganizationAdminAccountRequestTypeDef]
-    ) -> Dict[str, Any]:
+    ) -> EnableOrganizationAdminAccountResponseTypeDef:
         """
         Designates the Security Hub administrator account for an organization.
 
@@ -655,6 +824,17 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#enable_security_hub)
         """
 
+    def enable_security_hub_v2(
+        self, **kwargs: Unpack[EnableSecurityHubV2RequestTypeDef]
+    ) -> EnableSecurityHubV2ResponseTypeDef:
+        """
+        Enables the service in account for the current Amazon Web Services Region or
+        specified Amazon Web Services Region.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/enable_security_hub_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#enable_security_hub_v2)
+        """
+
     def get_administrator_account(self) -> GetAdministratorAccountResponseTypeDef:
         """
         Provides the details for the Security Hub administrator account for the current
@@ -662,6 +842,26 @@ class SecurityHubClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_administrator_account.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_administrator_account)
+        """
+
+    def get_aggregator_v2(
+        self, **kwargs: Unpack[GetAggregatorV2RequestTypeDef]
+    ) -> GetAggregatorV2ResponseTypeDef:
+        """
+        Returns the configuration of the specified Aggregator V2.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_aggregator_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_aggregator_v2)
+        """
+
+    def get_automation_rule_v2(
+        self, **kwargs: Unpack[GetAutomationRuleV2RequestTypeDef]
+    ) -> GetAutomationRuleV2ResponseTypeDef:
+        """
+        Returns an automation rule for the V2 service.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_automation_rule_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_automation_rule_v2)
         """
 
     def get_configuration_policy(
@@ -683,6 +883,16 @@ class SecurityHubClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_configuration_policy_association.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_configuration_policy_association)
+        """
+
+    def get_connector_v2(
+        self, **kwargs: Unpack[GetConnectorV2RequestTypeDef]
+    ) -> GetConnectorV2ResponseTypeDef:
+        """
+        Grants permission to retrieve details for a connectorV2 based on connector id.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_connector_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_connector_v2)
         """
 
     def get_enabled_standards(
@@ -709,10 +919,20 @@ class SecurityHubClient(BaseClient):
         self, **kwargs: Unpack[GetFindingHistoryRequestTypeDef]
     ) -> GetFindingHistoryResponseTypeDef:
         """
-        Returns history for a Security Hub finding in the last 90 days.
+        Returns the history of a Security Hub finding.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_finding_history.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_finding_history)
+        """
+
+    def get_finding_statistics_v2(
+        self, **kwargs: Unpack[GetFindingStatisticsV2RequestTypeDef]
+    ) -> GetFindingStatisticsV2ResponseTypeDef:
+        """
+        Returns aggregated statistical data about findings.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_finding_statistics_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_finding_statistics_v2)
         """
 
     def get_findings(
@@ -723,6 +943,26 @@ class SecurityHubClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_findings.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_findings)
+        """
+
+    def get_findings_trends_v2(
+        self, **kwargs: Unpack[GetFindingsTrendsV2RequestTypeDef]
+    ) -> GetFindingsTrendsV2ResponseTypeDef:
+        """
+        Returns findings trend data based on the specified criteria.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_findings_trends_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_findings_trends_v2)
+        """
+
+    def get_findings_v2(
+        self, **kwargs: Unpack[GetFindingsV2RequestTypeDef]
+    ) -> GetFindingsV2ResponseTypeDef:
+        """
+        Return a list of findings that match the specified criteria.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_findings_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_findings_v2)
         """
 
     def get_insight_results(
@@ -771,6 +1011,37 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_members)
         """
 
+    def get_resources_statistics_v2(
+        self, **kwargs: Unpack[GetResourcesStatisticsV2RequestTypeDef]
+    ) -> GetResourcesStatisticsV2ResponseTypeDef:
+        """
+        Retrieves statistical information about Amazon Web Services resources and their
+        associated security findings.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_resources_statistics_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_resources_statistics_v2)
+        """
+
+    def get_resources_trends_v2(
+        self, **kwargs: Unpack[GetResourcesTrendsV2RequestTypeDef]
+    ) -> GetResourcesTrendsV2ResponseTypeDef:
+        """
+        Returns resource trend data based on the specified criteria.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_resources_trends_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_resources_trends_v2)
+        """
+
+    def get_resources_v2(
+        self, **kwargs: Unpack[GetResourcesV2RequestTypeDef]
+    ) -> GetResourcesV2ResponseTypeDef:
+        """
+        Returns a list of resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_resources_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_resources_v2)
+        """
+
     def get_security_control_definition(
         self, **kwargs: Unpack[GetSecurityControlDefinitionRequestTypeDef]
     ) -> GetSecurityControlDefinitionResponseTypeDef:
@@ -792,6 +1063,16 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#invite_members)
         """
 
+    def list_aggregators_v2(
+        self, **kwargs: Unpack[ListAggregatorsV2RequestTypeDef]
+    ) -> ListAggregatorsV2ResponseTypeDef:
+        """
+        Retrieves a list of V2 aggregators.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/list_aggregators_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#list_aggregators_v2)
+        """
+
     def list_automation_rules(
         self, **kwargs: Unpack[ListAutomationRulesRequestTypeDef]
     ) -> ListAutomationRulesResponseTypeDef:
@@ -800,6 +1081,16 @@ class SecurityHubClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/list_automation_rules.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#list_automation_rules)
+        """
+
+    def list_automation_rules_v2(
+        self, **kwargs: Unpack[ListAutomationRulesV2RequestTypeDef]
+    ) -> ListAutomationRulesV2ResponseTypeDef:
+        """
+        Returns a list of automation rules and metadata for the calling account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/list_automation_rules_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#list_automation_rules_v2)
         """
 
     def list_configuration_policies(
@@ -822,6 +1113,17 @@ class SecurityHubClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/list_configuration_policy_associations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#list_configuration_policy_associations)
+        """
+
+    def list_connectors_v2(
+        self, **kwargs: Unpack[ListConnectorsV2RequestTypeDef]
+    ) -> ListConnectorsV2ResponseTypeDef:
+        """
+        Grants permission to retrieve a list of connectorsV2 and their metadata for the
+        calling account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/list_connectors_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#list_connectors_v2)
         """
 
     def list_enabled_products_for_import(
@@ -910,6 +1212,16 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#list_tags_for_resource)
         """
 
+    def register_connector_v2(
+        self, **kwargs: Unpack[RegisterConnectorV2RequestTypeDef]
+    ) -> RegisterConnectorV2ResponseTypeDef:
+        """
+        Grants permission to complete the authorization based on input parameters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/register_connector_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#register_connector_v2)
+        """
+
     def start_configuration_policy_association(
         self, **kwargs: Unpack[StartConfigurationPolicyAssociationRequestTypeDef]
     ) -> StartConfigurationPolicyAssociationResponseTypeDef:
@@ -958,6 +1270,26 @@ class SecurityHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#update_action_target)
         """
 
+    def update_aggregator_v2(
+        self, **kwargs: Unpack[UpdateAggregatorV2RequestTypeDef]
+    ) -> UpdateAggregatorV2ResponseTypeDef:
+        """
+        Udpates the configuration for the Aggregator V2.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/update_aggregator_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#update_aggregator_v2)
+        """
+
+    def update_automation_rule_v2(
+        self, **kwargs: Unpack[UpdateAutomationRuleV2RequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Updates a V2 automation rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/update_automation_rule_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#update_automation_rule_v2)
+        """
+
     def update_configuration_policy(
         self, **kwargs: Unpack[UpdateConfigurationPolicyRequestTypeDef]
     ) -> UpdateConfigurationPolicyResponseTypeDef:
@@ -966,6 +1298,16 @@ class SecurityHubClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/update_configuration_policy.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#update_configuration_policy)
+        """
+
+    def update_connector_v2(
+        self, **kwargs: Unpack[UpdateConnectorV2RequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Grants permission to update a connectorV2 based on its id and input parameters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/update_connector_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#update_connector_v2)
         """
 
     def update_finding_aggregator(
@@ -1059,6 +1401,17 @@ class SecurityHubClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_products_v2"]
+    ) -> DescribeProductsV2Paginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_standards_controls"]
     ) -> DescribeStandardsControlsPaginator:
         """
@@ -1114,8 +1467,63 @@ class SecurityHubClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_findings_trends_v2"]
+    ) -> GetFindingsTrendsV2Paginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_findings_v2"]
+    ) -> GetFindingsV2Paginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_insights"]
     ) -> GetInsightsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_resources_trends_v2"]
+    ) -> GetResourcesTrendsV2Paginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_resources_v2"]
+    ) -> GetResourcesV2Paginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_aggregators_v2"]
+    ) -> ListAggregatorsV2Paginator:
         """
         Create a paginator for an operation.
 

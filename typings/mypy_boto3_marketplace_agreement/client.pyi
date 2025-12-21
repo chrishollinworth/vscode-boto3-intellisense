@@ -115,8 +115,7 @@ class AgreementServiceClient(BaseClient):
         self, **kwargs: Unpack[SearchAgreementsInputTypeDef]
     ) -> SearchAgreementsOutputTypeDef:
         """
-        Searches across all agreements that a proposer or an acceptor has in AWS
-        Marketplace.
+        Searches across all agreements that a proposer has in AWS Marketplace.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-agreement/client/search_agreements.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client/#search_agreements)

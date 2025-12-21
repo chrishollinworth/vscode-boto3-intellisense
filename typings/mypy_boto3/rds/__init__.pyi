@@ -33,6 +33,7 @@ Usage::
         DescribeDBInstanceAutomatedBackupsPaginator,
         DescribeDBInstancesPaginator,
         DescribeDBLogFilesPaginator,
+        DescribeDBMajorEngineVersionsPaginator,
         DescribeDBParameterGroupsPaginator,
         DescribeDBParametersPaginator,
         DescribeDBProxiesPaginator,
@@ -93,6 +94,7 @@ Usage::
     describe_db_instance_automated_backups_paginator: DescribeDBInstanceAutomatedBackupsPaginator = client.get_paginator("describe_db_instance_automated_backups")
     describe_db_instances_paginator: DescribeDBInstancesPaginator = client.get_paginator("describe_db_instances")
     describe_db_log_files_paginator: DescribeDBLogFilesPaginator = client.get_paginator("describe_db_log_files")
+    describe_db_major_engine_versions_paginator: DescribeDBMajorEngineVersionsPaginator = client.get_paginator("describe_db_major_engine_versions")
     describe_db_parameter_groups_paginator: DescribeDBParameterGroupsPaginator = client.get_paginator("describe_db_parameter_groups")
     describe_db_parameters_paginator: DescribeDBParametersPaginator = client.get_paginator("describe_db_parameters")
     describe_db_proxies_paginator: DescribeDBProxiesPaginator = client.get_paginator("describe_db_proxies")
@@ -138,6 +140,7 @@ from .paginator import (
     DescribeDBInstanceAutomatedBackupsPaginator,
     DescribeDBInstancesPaginator,
     DescribeDBLogFilesPaginator,
+    DescribeDBMajorEngineVersionsPaginator,
     DescribeDBParameterGroupsPaginator,
     DescribeDBParametersPaginator,
     DescribeDBProxiesPaginator,
@@ -206,6 +209,7 @@ __all__ = (
     "DescribeDBInstanceAutomatedBackupsPaginator",
     "DescribeDBInstancesPaginator",
     "DescribeDBLogFilesPaginator",
+    "DescribeDBMajorEngineVersionsPaginator",
     "DescribeDBParameterGroupsPaginator",
     "DescribeDBParametersPaginator",
     "DescribeDBProxiesPaginator",

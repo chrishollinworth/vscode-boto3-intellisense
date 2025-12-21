@@ -18,8 +18,9 @@ from __future__ import annotations
 
 import sys
 from datetime import datetime
+from typing import Union
 
-from .literals import ClusterStatusType
+from .literals import ClusterStatusType, EncryptionStatusType, EncryptionTypeType
 
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
@@ -36,25 +37,31 @@ __all__ = (
     "ClusterSummaryTypeDef",
     "CreateClusterInputTypeDef",
     "CreateClusterOutputTypeDef",
-    "CreateMultiRegionClustersInputTypeDef",
-    "CreateMultiRegionClustersOutputTypeDef",
     "DeleteClusterInputTypeDef",
     "DeleteClusterOutputTypeDef",
-    "DeleteMultiRegionClustersInputTypeDef",
+    "DeleteClusterPolicyInputTypeDef",
+    "DeleteClusterPolicyOutputTypeDef",
     "EmptyResponseMetadataTypeDef",
+    "EncryptionDetailsTypeDef",
     "GetClusterInputTypeDef",
     "GetClusterInputWaitExtraTypeDef",
     "GetClusterInputWaitTypeDef",
     "GetClusterOutputTypeDef",
+    "GetClusterPolicyInputTypeDef",
+    "GetClusterPolicyOutputTypeDef",
     "GetVpcEndpointServiceNameInputTypeDef",
     "GetVpcEndpointServiceNameOutputTypeDef",
-    "LinkedClusterPropertiesTypeDef",
     "ListClustersInputPaginateTypeDef",
     "ListClustersInputTypeDef",
     "ListClustersOutputTypeDef",
     "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
+    "MultiRegionPropertiesOutputTypeDef",
+    "MultiRegionPropertiesTypeDef",
+    "MultiRegionPropertiesUnionTypeDef",
     "PaginatorConfigTypeDef",
+    "PutClusterPolicyInputTypeDef",
+    "PutClusterPolicyOutputTypeDef",
     "ResponseMetadataTypeDef",
     "TagResourceInputTypeDef",
     "UntagResourceInputTypeDef",
@@ -67,10 +74,14 @@ class ClusterSummaryTypeDef(TypedDict):
     identifier: str
     arn: str
 
-class CreateClusterInputTypeDef(TypedDict):
-    deletionProtectionEnabled: NotRequired[bool]
-    tags: NotRequired[Mapping[str, str]]
-    clientToken: NotRequired[str]
+class EncryptionDetailsTypeDef(TypedDict):
+    encryptionType: EncryptionTypeType
+    encryptionStatus: EncryptionStatusType
+    kmsKeyArn: NotRequired[str]
+
+class MultiRegionPropertiesOutputTypeDef(TypedDict):
+    witnessRegion: NotRequired[str]
+    clusters: NotRequired[List[str]]
 
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
@@ -79,16 +90,13 @@ class ResponseMetadataTypeDef(TypedDict):
     RetryAttempts: int
     HostId: NotRequired[str]
 
-class LinkedClusterPropertiesTypeDef(TypedDict):
-    deletionProtectionEnabled: NotRequired[bool]
-    tags: NotRequired[Mapping[str, str]]
-
 class DeleteClusterInputTypeDef(TypedDict):
     identifier: str
     clientToken: NotRequired[str]
 
-class DeleteMultiRegionClustersInputTypeDef(TypedDict):
-    linkedClusterArns: Sequence[str]
+class DeleteClusterPolicyInputTypeDef(TypedDict):
+    identifier: str
+    expectedPolicyVersion: NotRequired[str]
     clientToken: NotRequired[str]
 
 class GetClusterInputTypeDef(TypedDict):
@@ -97,6 +105,9 @@ class GetClusterInputTypeDef(TypedDict):
 class WaiterConfigTypeDef(TypedDict):
     Delay: NotRequired[int]
     MaxAttempts: NotRequired[int]
+
+class GetClusterPolicyInputTypeDef(TypedDict):
+    identifier: str
 
 class GetVpcEndpointServiceNameInputTypeDef(TypedDict):
     identifier: str
@@ -113,6 +124,17 @@ class ListClustersInputTypeDef(TypedDict):
 class ListTagsForResourceInputTypeDef(TypedDict):
     resourceArn: str
 
+class MultiRegionPropertiesTypeDef(TypedDict):
+    witnessRegion: NotRequired[str]
+    clusters: NotRequired[Sequence[str]]
+
+class PutClusterPolicyInputTypeDef(TypedDict):
+    identifier: str
+    policy: str
+    bypassPolicyLockoutSafetyCheck: NotRequired[bool]
+    expectedPolicyVersion: NotRequired[str]
+    clientToken: NotRequired[str]
+
 class TagResourceInputTypeDef(TypedDict):
     resourceArn: str
     tags: Mapping[str, str]
@@ -121,21 +143,15 @@ class UntagResourceInputTypeDef(TypedDict):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateClusterInputTypeDef(TypedDict):
-    identifier: str
-    deletionProtectionEnabled: NotRequired[bool]
-    clientToken: NotRequired[str]
-
 class CreateClusterOutputTypeDef(TypedDict):
     identifier: str
     arn: str
     status: ClusterStatusType
     creationTime: datetime
+    multiRegionProperties: MultiRegionPropertiesOutputTypeDef
+    encryptionDetails: EncryptionDetailsTypeDef
     deletionProtectionEnabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class CreateMultiRegionClustersOutputTypeDef(TypedDict):
-    linkedClusterArns: List[str]
+    endpoint: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DeleteClusterOutputTypeDef(TypedDict):
@@ -143,7 +159,10 @@ class DeleteClusterOutputTypeDef(TypedDict):
     arn: str
     status: ClusterStatusType
     creationTime: datetime
-    deletionProtectionEnabled: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteClusterPolicyOutputTypeDef(TypedDict):
+    policyVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class EmptyResponseMetadataTypeDef(TypedDict):
@@ -155,12 +174,20 @@ class GetClusterOutputTypeDef(TypedDict):
     status: ClusterStatusType
     creationTime: datetime
     deletionProtectionEnabled: bool
-    witnessRegion: str
-    linkedClusterArns: List[str]
+    multiRegionProperties: MultiRegionPropertiesOutputTypeDef
+    tags: Dict[str, str]
+    encryptionDetails: EncryptionDetailsTypeDef
+    endpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetClusterPolicyOutputTypeDef(TypedDict):
+    policy: str
+    policyVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetVpcEndpointServiceNameOutputTypeDef(TypedDict):
     serviceName: str
+    clusterVpcEndpoint: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class ListClustersOutputTypeDef(TypedDict):
@@ -172,21 +199,16 @@ class ListTagsForResourceOutputTypeDef(TypedDict):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+class PutClusterPolicyOutputTypeDef(TypedDict):
+    policyVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class UpdateClusterOutputTypeDef(TypedDict):
     identifier: str
     arn: str
     status: ClusterStatusType
     creationTime: datetime
-    deletionProtectionEnabled: bool
-    witnessRegion: str
-    linkedClusterArns: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
-
-class CreateMultiRegionClustersInputTypeDef(TypedDict):
-    linkedRegionList: Sequence[str]
-    witnessRegion: str
-    clusterProperties: NotRequired[Mapping[str, LinkedClusterPropertiesTypeDef]]
-    clientToken: NotRequired[str]
 
 class GetClusterInputWaitExtraTypeDef(TypedDict):
     identifier: str
@@ -198,3 +220,23 @@ class GetClusterInputWaitTypeDef(TypedDict):
 
 class ListClustersInputPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+MultiRegionPropertiesUnionTypeDef = Union[
+    MultiRegionPropertiesTypeDef, MultiRegionPropertiesOutputTypeDef
+]
+
+class CreateClusterInputTypeDef(TypedDict):
+    deletionProtectionEnabled: NotRequired[bool]
+    kmsEncryptionKey: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+    multiRegionProperties: NotRequired[MultiRegionPropertiesUnionTypeDef]
+    policy: NotRequired[str]
+    bypassPolicyLockoutSafetyCheck: NotRequired[bool]
+
+class UpdateClusterInputTypeDef(TypedDict):
+    identifier: str
+    deletionProtectionEnabled: NotRequired[bool]
+    kmsEncryptionKey: NotRequired[str]
+    clientToken: NotRequired[str]
+    multiRegionProperties: NotRequired[MultiRegionPropertiesUnionTypeDef]

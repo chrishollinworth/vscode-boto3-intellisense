@@ -36,6 +36,11 @@ from .paginator import (
     GetRouteResponsesPaginator,
     GetRoutesPaginator,
     GetStagesPaginator,
+    ListPortalProductsPaginator,
+    ListPortalsPaginator,
+    ListProductPagesPaginator,
+    ListProductRestEndpointPagesPaginator,
+    ListRoutingRulesPaginator,
 )
 from .type_defs import (
     CreateApiMappingRequestTypeDef,
@@ -54,10 +59,20 @@ from .type_defs import (
     CreateIntegrationResultTypeDef,
     CreateModelRequestTypeDef,
     CreateModelResponseTypeDef,
+    CreatePortalProductRequestTypeDef,
+    CreatePortalProductResponseTypeDef,
+    CreatePortalRequestTypeDef,
+    CreatePortalResponseTypeDef,
+    CreateProductPageRequestTypeDef,
+    CreateProductPageResponseTypeDef,
+    CreateProductRestEndpointPageRequestTypeDef,
+    CreateProductRestEndpointPageResponseTypeDef,
     CreateRouteRequestTypeDef,
     CreateRouteResponseRequestTypeDef,
     CreateRouteResponseResponseTypeDef,
     CreateRouteResultTypeDef,
+    CreateRoutingRuleRequestTypeDef,
+    CreateRoutingRuleResponseTypeDef,
     CreateStageRequestTypeDef,
     CreateStageResponseTypeDef,
     CreateVpcLinkRequestTypeDef,
@@ -72,12 +87,19 @@ from .type_defs import (
     DeleteIntegrationRequestTypeDef,
     DeleteIntegrationResponseRequestTypeDef,
     DeleteModelRequestTypeDef,
+    DeletePortalProductRequestTypeDef,
+    DeletePortalProductSharingPolicyRequestTypeDef,
+    DeletePortalRequestTypeDef,
+    DeleteProductPageRequestTypeDef,
+    DeleteProductRestEndpointPageRequestTypeDef,
     DeleteRouteRequestParameterRequestTypeDef,
     DeleteRouteRequestTypeDef,
     DeleteRouteResponseRequestTypeDef,
     DeleteRouteSettingsRequestTypeDef,
+    DeleteRoutingRuleRequestTypeDef,
     DeleteStageRequestTypeDef,
     DeleteVpcLinkRequestTypeDef,
+    DisablePortalRequestTypeDef,
     EmptyResponseMetadataTypeDef,
     ExportApiRequestTypeDef,
     ExportApiResponseTypeDef,
@@ -115,6 +137,16 @@ from .type_defs import (
     GetModelsResponseTypeDef,
     GetModelTemplateRequestTypeDef,
     GetModelTemplateResponseTypeDef,
+    GetPortalProductRequestTypeDef,
+    GetPortalProductResponseTypeDef,
+    GetPortalProductSharingPolicyRequestTypeDef,
+    GetPortalProductSharingPolicyResponseTypeDef,
+    GetPortalRequestTypeDef,
+    GetPortalResponseTypeDef,
+    GetProductPageRequestTypeDef,
+    GetProductPageResponseTypeDef,
+    GetProductRestEndpointPageRequestTypeDef,
+    GetProductRestEndpointPageResponseTypeDef,
     GetRouteRequestTypeDef,
     GetRouteResponseRequestTypeDef,
     GetRouteResponseResponseTypeDef,
@@ -123,6 +155,8 @@ from .type_defs import (
     GetRouteResultTypeDef,
     GetRoutesRequestTypeDef,
     GetRoutesResponseTypeDef,
+    GetRoutingRuleRequestTypeDef,
+    GetRoutingRuleResponseTypeDef,
     GetStageRequestTypeDef,
     GetStageResponseTypeDef,
     GetStagesRequestTypeDef,
@@ -135,6 +169,21 @@ from .type_defs import (
     GetVpcLinksResponseTypeDef,
     ImportApiRequestTypeDef,
     ImportApiResponseTypeDef,
+    ListPortalProductsRequestTypeDef,
+    ListPortalProductsResponseTypeDef,
+    ListPortalsRequestTypeDef,
+    ListPortalsResponseTypeDef,
+    ListProductPagesRequestTypeDef,
+    ListProductPagesResponseTypeDef,
+    ListProductRestEndpointPagesRequestTypeDef,
+    ListProductRestEndpointPagesResponseTypeDef,
+    ListRoutingRulesRequestTypeDef,
+    ListRoutingRulesResponseTypeDef,
+    PreviewPortalRequestTypeDef,
+    PublishPortalRequestTypeDef,
+    PutPortalProductSharingPolicyRequestTypeDef,
+    PutRoutingRuleRequestTypeDef,
+    PutRoutingRuleResponseTypeDef,
     ReimportApiRequestTypeDef,
     ReimportApiResponseTypeDef,
     ResetAuthorizersCacheRequestTypeDef,
@@ -156,6 +205,14 @@ from .type_defs import (
     UpdateIntegrationResultTypeDef,
     UpdateModelRequestTypeDef,
     UpdateModelResponseTypeDef,
+    UpdatePortalProductRequestTypeDef,
+    UpdatePortalProductResponseTypeDef,
+    UpdatePortalRequestTypeDef,
+    UpdatePortalResponseTypeDef,
+    UpdateProductPageRequestTypeDef,
+    UpdateProductPageResponseTypeDef,
+    UpdateProductRestEndpointPageRequestTypeDef,
+    UpdateProductRestEndpointPageResponseTypeDef,
     UpdateRouteRequestTypeDef,
     UpdateRouteResponseRequestTypeDef,
     UpdateRouteResponseResponseTypeDef,
@@ -300,6 +357,46 @@ class ApiGatewayV2Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#create_model)
         """
 
+    def create_portal(
+        self, **kwargs: Unpack[CreatePortalRequestTypeDef]
+    ) -> CreatePortalResponseTypeDef:
+        """
+        Creates a portal.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/create_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#create_portal)
+        """
+
+    def create_portal_product(
+        self, **kwargs: Unpack[CreatePortalProductRequestTypeDef]
+    ) -> CreatePortalProductResponseTypeDef:
+        """
+        Creates a new portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/create_portal_product.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#create_portal_product)
+        """
+
+    def create_product_page(
+        self, **kwargs: Unpack[CreateProductPageRequestTypeDef]
+    ) -> CreateProductPageResponseTypeDef:
+        """
+        Creates a new product page for a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/create_product_page.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#create_product_page)
+        """
+
+    def create_product_rest_endpoint_page(
+        self, **kwargs: Unpack[CreateProductRestEndpointPageRequestTypeDef]
+    ) -> CreateProductRestEndpointPageResponseTypeDef:
+        """
+        Creates a product REST endpoint page for a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/create_product_rest_endpoint_page.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#create_product_rest_endpoint_page)
+        """
+
     def create_route(self, **kwargs: Unpack[CreateRouteRequestTypeDef]) -> CreateRouteResultTypeDef:
         """
         Creates a Route for an API.
@@ -316,6 +413,16 @@ class ApiGatewayV2Client(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/create_route_response.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#create_route_response)
+        """
+
+    def create_routing_rule(
+        self, **kwargs: Unpack[CreateRoutingRuleRequestTypeDef]
+    ) -> CreateRoutingRuleResponseTypeDef:
+        """
+        Creates a RoutingRule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/create_routing_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#create_routing_rule)
         """
 
     def create_stage(
@@ -436,6 +543,56 @@ class ApiGatewayV2Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#delete_model)
         """
 
+    def delete_portal(
+        self, **kwargs: Unpack[DeletePortalRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a portal.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/delete_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#delete_portal)
+        """
+
+    def delete_portal_product(
+        self, **kwargs: Unpack[DeletePortalProductRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/delete_portal_product.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#delete_portal_product)
+        """
+
+    def delete_portal_product_sharing_policy(
+        self, **kwargs: Unpack[DeletePortalProductSharingPolicyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the sharing policy for a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/delete_portal_product_sharing_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#delete_portal_product_sharing_policy)
+        """
+
+    def delete_product_page(
+        self, **kwargs: Unpack[DeleteProductPageRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a product page of a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/delete_product_page.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#delete_product_page)
+        """
+
+    def delete_product_rest_endpoint_page(
+        self, **kwargs: Unpack[DeleteProductRestEndpointPageRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a product REST endpoint page.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/delete_product_rest_endpoint_page.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#delete_product_rest_endpoint_page)
+        """
+
     def delete_route(
         self, **kwargs: Unpack[DeleteRouteRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
@@ -476,6 +633,16 @@ class ApiGatewayV2Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#delete_route_settings)
         """
 
+    def delete_routing_rule(
+        self, **kwargs: Unpack[DeleteRoutingRuleRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a routing rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/delete_routing_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#delete_routing_rule)
+        """
+
     def delete_stage(
         self, **kwargs: Unpack[DeleteStageRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
@@ -498,6 +665,16 @@ class ApiGatewayV2Client(BaseClient):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/export_api.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#export_api)
+        """
+
+    def disable_portal(
+        self, **kwargs: Unpack[DisablePortalRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the publication of a portal portal.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/disable_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#disable_portal)
         """
 
     def reset_authorizers_cache(
@@ -672,6 +849,54 @@ class ApiGatewayV2Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_models)
         """
 
+    def get_portal(self, **kwargs: Unpack[GetPortalRequestTypeDef]) -> GetPortalResponseTypeDef:
+        """
+        Gets a portal.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_portal)
+        """
+
+    def get_portal_product(
+        self, **kwargs: Unpack[GetPortalProductRequestTypeDef]
+    ) -> GetPortalProductResponseTypeDef:
+        """
+        Gets a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_portal_product.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_portal_product)
+        """
+
+    def get_portal_product_sharing_policy(
+        self, **kwargs: Unpack[GetPortalProductSharingPolicyRequestTypeDef]
+    ) -> GetPortalProductSharingPolicyResponseTypeDef:
+        """
+        Gets the sharing policy for a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_portal_product_sharing_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_portal_product_sharing_policy)
+        """
+
+    def get_product_page(
+        self, **kwargs: Unpack[GetProductPageRequestTypeDef]
+    ) -> GetProductPageResponseTypeDef:
+        """
+        Gets a product page of a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_product_page.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_product_page)
+        """
+
+    def get_product_rest_endpoint_page(
+        self, **kwargs: Unpack[GetProductRestEndpointPageRequestTypeDef]
+    ) -> GetProductRestEndpointPageResponseTypeDef:
+        """
+        Gets a product REST endpoint page.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_product_rest_endpoint_page.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_product_rest_endpoint_page)
+        """
+
     def get_route(self, **kwargs: Unpack[GetRouteRequestTypeDef]) -> GetRouteResultTypeDef:
         """
         Gets a Route.
@@ -706,6 +931,26 @@ class ApiGatewayV2Client(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_routes.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_routes)
+        """
+
+    def get_routing_rule(
+        self, **kwargs: Unpack[GetRoutingRuleRequestTypeDef]
+    ) -> GetRoutingRuleResponseTypeDef:
+        """
+        Gets a routing rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_routing_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_routing_rule)
+        """
+
+    def list_routing_rules(
+        self, **kwargs: Unpack[ListRoutingRulesRequestTypeDef]
+    ) -> ListRoutingRulesResponseTypeDef:
+        """
+        Lists routing rules.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/list_routing_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#list_routing_rules)
         """
 
     def get_stage(self, **kwargs: Unpack[GetStageRequestTypeDef]) -> GetStageResponseTypeDef:
@@ -756,6 +1001,82 @@ class ApiGatewayV2Client(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/import_api.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#import_api)
+        """
+
+    def list_portal_products(
+        self, **kwargs: Unpack[ListPortalProductsRequestTypeDef]
+    ) -> ListPortalProductsResponseTypeDef:
+        """
+        Lists portal products.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/list_portal_products.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#list_portal_products)
+        """
+
+    def list_portals(
+        self, **kwargs: Unpack[ListPortalsRequestTypeDef]
+    ) -> ListPortalsResponseTypeDef:
+        """
+        Lists portals.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/list_portals.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#list_portals)
+        """
+
+    def list_product_pages(
+        self, **kwargs: Unpack[ListProductPagesRequestTypeDef]
+    ) -> ListProductPagesResponseTypeDef:
+        """
+        Lists the product pages for a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/list_product_pages.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#list_product_pages)
+        """
+
+    def list_product_rest_endpoint_pages(
+        self, **kwargs: Unpack[ListProductRestEndpointPagesRequestTypeDef]
+    ) -> ListProductRestEndpointPagesResponseTypeDef:
+        """
+        Lists the product REST endpoint pages of a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/list_product_rest_endpoint_pages.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#list_product_rest_endpoint_pages)
+        """
+
+    def preview_portal(self, **kwargs: Unpack[PreviewPortalRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Creates a portal preview.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/preview_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#preview_portal)
+        """
+
+    def publish_portal(self, **kwargs: Unpack[PublishPortalRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Publishes a portal.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/publish_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#publish_portal)
+        """
+
+    def put_portal_product_sharing_policy(
+        self, **kwargs: Unpack[PutPortalProductSharingPolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Updates the sharing policy for a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/put_portal_product_sharing_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#put_portal_product_sharing_policy)
+        """
+
+    def put_routing_rule(
+        self, **kwargs: Unpack[PutRoutingRuleRequestTypeDef]
+    ) -> PutRoutingRuleResponseTypeDef:
+        """
+        Updates a routing rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/put_routing_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#put_routing_rule)
         """
 
     def reimport_api(
@@ -862,6 +1183,46 @@ class ApiGatewayV2Client(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/update_model.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#update_model)
+        """
+
+    def update_portal(
+        self, **kwargs: Unpack[UpdatePortalRequestTypeDef]
+    ) -> UpdatePortalResponseTypeDef:
+        """
+        Updates a portal.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/update_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#update_portal)
+        """
+
+    def update_portal_product(
+        self, **kwargs: Unpack[UpdatePortalProductRequestTypeDef]
+    ) -> UpdatePortalProductResponseTypeDef:
+        """
+        Updates the portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/update_portal_product.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#update_portal_product)
+        """
+
+    def update_product_page(
+        self, **kwargs: Unpack[UpdateProductPageRequestTypeDef]
+    ) -> UpdateProductPageResponseTypeDef:
+        """
+        Updates a product page of a portal product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/update_product_page.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#update_product_page)
+        """
+
+    def update_product_rest_endpoint_page(
+        self, **kwargs: Unpack[UpdateProductRestEndpointPageRequestTypeDef]
+    ) -> UpdateProductRestEndpointPageResponseTypeDef:
+        """
+        Updates a product REST endpoint page.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/update_product_rest_endpoint_page.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#update_product_rest_endpoint_page)
         """
 
     def update_route(self, **kwargs: Unpack[UpdateRouteRequestTypeDef]) -> UpdateRouteResultTypeDef:
@@ -1005,6 +1366,61 @@ class ApiGatewayV2Client(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_stages"]
     ) -> GetStagesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_portal_products"]
+    ) -> ListPortalProductsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_portals"]
+    ) -> ListPortalsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_product_pages"]
+    ) -> ListProductPagesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_product_rest_endpoint_pages"]
+    ) -> ListProductRestEndpointPagesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewayv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_routing_rules"]
+    ) -> ListRoutingRulesPaginator:
         """
         Create a paginator for an operation.
 

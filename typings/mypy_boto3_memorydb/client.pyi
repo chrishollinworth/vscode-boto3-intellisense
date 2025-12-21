@@ -83,6 +83,10 @@ from .type_defs import (
     DescribeEventsResponseTypeDef,
     DescribeMultiRegionClustersRequestTypeDef,
     DescribeMultiRegionClustersResponseTypeDef,
+    DescribeMultiRegionParameterGroupsRequestTypeDef,
+    DescribeMultiRegionParameterGroupsResponseTypeDef,
+    DescribeMultiRegionParametersRequestTypeDef,
+    DescribeMultiRegionParametersResponseTypeDef,
     DescribeParameterGroupsRequestTypeDef,
     DescribeParameterGroupsResponseTypeDef,
     DescribeParametersRequestTypeDef,
@@ -437,6 +441,27 @@ class MemoryDBClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_multi_region_clusters.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_multi_region_clusters)
+        """
+
+    def describe_multi_region_parameter_groups(
+        self, **kwargs: Unpack[DescribeMultiRegionParameterGroupsRequestTypeDef]
+    ) -> DescribeMultiRegionParameterGroupsResponseTypeDef:
+        """
+        Returns a list of multi-region parameter groups.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_multi_region_parameter_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_multi_region_parameter_groups)
+        """
+
+    def describe_multi_region_parameters(
+        self, **kwargs: Unpack[DescribeMultiRegionParametersRequestTypeDef]
+    ) -> DescribeMultiRegionParametersResponseTypeDef:
+        """
+        Returns the detailed parameter list for a particular multi-region parameter
+        group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_multi_region_parameters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_multi_region_parameters)
         """
 
     def describe_parameter_groups(

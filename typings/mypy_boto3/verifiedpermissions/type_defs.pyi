@@ -63,6 +63,7 @@ __all__ = (
     "BatchIsAuthorizedWithTokenInputTypeDef",
     "BatchIsAuthorizedWithTokenOutputItemTypeDef",
     "BatchIsAuthorizedWithTokenOutputTypeDef",
+    "CedarTagValueTypeDef",
     "CognitoGroupConfigurationDetailTypeDef",
     "CognitoGroupConfigurationItemTypeDef",
     "CognitoGroupConfigurationTypeDef",
@@ -404,6 +405,8 @@ AttributeValueOutputTypeDef = TypedDict(
         "record": NotRequired[Dict[str, Dict[str, Any]]],
         "ipaddr": NotRequired[str],
         "decimal": NotRequired[str],
+        "datetime": NotRequired[str],
+        "duration": NotRequired[str],
     },
 )
 AttributeValueTypeDef = TypedDict(
@@ -417,6 +420,23 @@ AttributeValueTypeDef = TypedDict(
         "record": NotRequired[Mapping[str, Mapping[str, Any]]],
         "ipaddr": NotRequired[str],
         "decimal": NotRequired[str],
+        "datetime": NotRequired[str],
+        "duration": NotRequired[str],
+    },
+)
+CedarTagValueTypeDef = TypedDict(
+    "CedarTagValueTypeDef",
+    {
+        "boolean": NotRequired[bool],
+        "entityIdentifier": NotRequired[EntityIdentifierTypeDef],
+        "long": NotRequired[int],
+        "string": NotRequired[str],
+        "set": NotRequired[Sequence[Mapping[str, Any]]],
+        "record": NotRequired[Mapping[str, Mapping[str, Any]]],
+        "ipaddr": NotRequired[str],
+        "decimal": NotRequired[str],
+        "datetime": NotRequired[str],
+        "duration": NotRequired[str],
     },
 )
 
@@ -719,6 +739,7 @@ class EntityItemTypeDef(TypedDict):
     identifier: EntityIdentifierTypeDef
     attributes: NotRequired[Mapping[str, AttributeValueUnionTypeDef]]
     parents: NotRequired[Sequence[EntityIdentifierTypeDef]]
+    tags: NotRequired[Mapping[str, CedarTagValueTypeDef]]
 
 ListPoliciesInputPaginateTypeDef = TypedDict(
     "ListPoliciesInputPaginateTypeDef",

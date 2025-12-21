@@ -53,6 +53,8 @@ from .type_defs import (
     DescribeSignalingChannelOutputTypeDef,
     DescribeStreamInputTypeDef,
     DescribeStreamOutputTypeDef,
+    DescribeStreamStorageConfigurationInputTypeDef,
+    DescribeStreamStorageConfigurationOutputTypeDef,
     GetDataEndpointInputTypeDef,
     GetDataEndpointOutputTypeDef,
     GetSignalingChannelEndpointInputTypeDef,
@@ -79,6 +81,7 @@ from .type_defs import (
     UpdateNotificationConfigurationInputTypeDef,
     UpdateSignalingChannelInputTypeDef,
     UpdateStreamInputTypeDef,
+    UpdateStreamStorageConfigurationInputTypeDef,
 )
 
 if sys.version_info >= (3, 9):
@@ -270,6 +273,17 @@ class KinesisVideoClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client/#describe_stream)
         """
 
+    def describe_stream_storage_configuration(
+        self, **kwargs: Unpack[DescribeStreamStorageConfigurationInputTypeDef]
+    ) -> DescribeStreamStorageConfigurationOutputTypeDef:
+        """
+        Retrieves the current storage configuration for the specified Kinesis video
+        stream.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/client/describe_stream_storage_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client/#describe_stream_storage_configuration)
+        """
+
     def get_data_endpoint(
         self, **kwargs: Unpack[GetDataEndpointInputTypeDef]
     ) -> GetDataEndpointOutputTypeDef:
@@ -440,6 +454,16 @@ class KinesisVideoClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/client/update_stream.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client/#update_stream)
+        """
+
+    def update_stream_storage_configuration(
+        self, **kwargs: Unpack[UpdateStreamStorageConfigurationInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Updates the storage configuration for an existing Kinesis video stream.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/client/update_stream_storage_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client/#update_stream_storage_configuration)
         """
 
     @overload  # type: ignore[override]

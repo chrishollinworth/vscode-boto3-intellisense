@@ -31,9 +31,14 @@ Usage::
         ListAssociatedAssetsPaginator,
         ListBulkImportJobsPaginator,
         ListCompositionRelationshipsPaginator,
+        ListComputationModelDataBindingUsagesPaginator,
+        ListComputationModelResolveToResourcesPaginator,
+        ListComputationModelsPaginator,
         ListDashboardsPaginator,
         ListDatasetsPaginator,
+        ListExecutionsPaginator,
         ListGatewaysPaginator,
+        ListInterfaceRelationshipsPaginator,
         ListPortalsPaginator,
         ListProjectAssetsPaginator,
         ListProjectsPaginator,
@@ -67,9 +72,14 @@ Usage::
     list_associated_assets_paginator: ListAssociatedAssetsPaginator = client.get_paginator("list_associated_assets")
     list_bulk_import_jobs_paginator: ListBulkImportJobsPaginator = client.get_paginator("list_bulk_import_jobs")
     list_composition_relationships_paginator: ListCompositionRelationshipsPaginator = client.get_paginator("list_composition_relationships")
+    list_computation_model_data_binding_usages_paginator: ListComputationModelDataBindingUsagesPaginator = client.get_paginator("list_computation_model_data_binding_usages")
+    list_computation_model_resolve_to_resources_paginator: ListComputationModelResolveToResourcesPaginator = client.get_paginator("list_computation_model_resolve_to_resources")
+    list_computation_models_paginator: ListComputationModelsPaginator = client.get_paginator("list_computation_models")
     list_dashboards_paginator: ListDashboardsPaginator = client.get_paginator("list_dashboards")
     list_datasets_paginator: ListDatasetsPaginator = client.get_paginator("list_datasets")
+    list_executions_paginator: ListExecutionsPaginator = client.get_paginator("list_executions")
     list_gateways_paginator: ListGatewaysPaginator = client.get_paginator("list_gateways")
+    list_interface_relationships_paginator: ListInterfaceRelationshipsPaginator = client.get_paginator("list_interface_relationships")
     list_portals_paginator: ListPortalsPaginator = client.get_paginator("list_portals")
     list_project_assets_paginator: ListProjectAssetsPaginator = client.get_paginator("list_project_assets")
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
@@ -94,9 +104,14 @@ from .paginator import (
     ListAssociatedAssetsPaginator,
     ListBulkImportJobsPaginator,
     ListCompositionRelationshipsPaginator,
+    ListComputationModelDataBindingUsagesPaginator,
+    ListComputationModelResolveToResourcesPaginator,
+    ListComputationModelsPaginator,
     ListDashboardsPaginator,
     ListDatasetsPaginator,
+    ListExecutionsPaginator,
     ListGatewaysPaginator,
+    ListInterfaceRelationshipsPaginator,
     ListPortalsPaginator,
     ListProjectAssetsPaginator,
     ListProjectsPaginator,
@@ -135,9 +150,14 @@ __all__ = (
     "ListAssociatedAssetsPaginator",
     "ListBulkImportJobsPaginator",
     "ListCompositionRelationshipsPaginator",
+    "ListComputationModelDataBindingUsagesPaginator",
+    "ListComputationModelResolveToResourcesPaginator",
+    "ListComputationModelsPaginator",
     "ListDashboardsPaginator",
     "ListDatasetsPaginator",
+    "ListExecutionsPaginator",
     "ListGatewaysPaginator",
+    "ListInterfaceRelationshipsPaginator",
     "ListPortalsPaginator",
     "ListProjectAssetsPaginator",
     "ListProjectsPaginator",

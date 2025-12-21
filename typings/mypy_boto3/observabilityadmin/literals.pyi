@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_observabilityadmin.literals import ListResourceTelemetryForOrganizationPaginatorName
+    from mypy_boto3_observabilityadmin.literals import ActionType
 
-    data: ListResourceTelemetryForOrganizationPaginatorName = "list_resource_telemetry_for_organization"
+    data: ActionType = "ALLOW"
     ```
 """
 
@@ -22,34 +22,107 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ActionType",
+    "CentralizationFailureReasonType",
     "CloudWatchObservabilityAdminServiceServiceName",
+    "DestinationTypeType",
+    "EncryptedLogGroupStrategyType",
+    "EncryptionConflictResolutionStrategyType",
+    "EncryptionStrategyType",
+    "FilterBehaviorType",
+    "FilterRequirementType",
+    "IntegrationStatusType",
+    "ListCentralizationRulesForOrganizationPaginatorName",
     "ListResourceTelemetryForOrganizationPaginatorName",
     "ListResourceTelemetryPaginatorName",
+    "ListS3TableIntegrationsPaginatorName",
+    "ListTelemetryPipelinesPaginatorName",
+    "ListTelemetryRulesForOrganizationPaginatorName",
+    "ListTelemetryRulesPaginatorName",
+    "LogTypeType",
+    "OutputFormatType",
     "PaginatorName",
+    "RecordFormatType",
     "ResourceServiceName",
     "ResourceTypeType",
+    "RuleHealthType",
+    "SSEAlgorithmType",
     "ServiceName",
     "StatusType",
+    "TelemetryEnrichmentStatusType",
+    "TelemetryPipelineStatusType",
+    "TelemetrySourceTypeType",
     "TelemetryStateType",
     "TelemetryTypeType",
+    "WAFLogTypeType",
 )
 
+ActionType = Literal["ALLOW", "BLOCK", "CAPTCHA", "CHALLENGE", "COUNT", "EXCLUDED_AS_COUNT"]
+CentralizationFailureReasonType = Literal[
+    "DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION", "INTERNAL_SERVER_ERROR", "TRUSTED_ACCESS_NOT_ENABLED"
+]
+DestinationTypeType = Literal["cloud-watch-logs"]
+EncryptedLogGroupStrategyType = Literal["ALLOW", "SKIP"]
+EncryptionConflictResolutionStrategyType = Literal["ALLOW", "SKIP"]
+EncryptionStrategyType = Literal["AWS_OWNED", "CUSTOMER_MANAGED"]
+FilterBehaviorType = Literal["DROP", "KEEP"]
+FilterRequirementType = Literal["MEETS_ALL", "MEETS_ANY"]
+IntegrationStatusType = Literal["ACTIVE", "DELETING"]
+ListCentralizationRulesForOrganizationPaginatorName = Literal[
+    "list_centralization_rules_for_organization"
+]
 ListResourceTelemetryForOrganizationPaginatorName = Literal[
     "list_resource_telemetry_for_organization"
 ]
 ListResourceTelemetryPaginatorName = Literal["list_resource_telemetry"]
-ResourceTypeType = Literal["AWS::EC2::Instance", "AWS::EC2::VPC", "AWS::Lambda::Function"]
+ListS3TableIntegrationsPaginatorName = Literal["list_s3_table_integrations"]
+ListTelemetryPipelinesPaginatorName = Literal["list_telemetry_pipelines"]
+ListTelemetryRulesForOrganizationPaginatorName = Literal["list_telemetry_rules_for_organization"]
+ListTelemetryRulesPaginatorName = Literal["list_telemetry_rules"]
+LogTypeType = Literal["APPLICATION_LOGS", "USAGE_LOGS"]
+OutputFormatType = Literal["json", "plain"]
+RecordFormatType = Literal["JSON", "STRING"]
+ResourceTypeType = Literal[
+    "AWS::BedrockAgentCore::Browser",
+    "AWS::BedrockAgentCore::CodeInterpreter",
+    "AWS::BedrockAgentCore::Runtime",
+    "AWS::CloudTrail",
+    "AWS::EC2::Instance",
+    "AWS::EC2::VPC",
+    "AWS::EKS::Cluster",
+    "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "AWS::Lambda::Function",
+    "AWS::Route53Resolver::ResolverEndpoint",
+    "AWS::WAFv2::WebACL",
+]
+RuleHealthType = Literal["Healthy", "Provisioning", "Unhealthy"]
+SSEAlgorithmType = Literal["AES256", "aws:kms"]
 StatusType = Literal[
     "FAILED_START", "FAILED_STOP", "NOT_STARTED", "RUNNING", "STARTING", "STOPPED", "STOPPING"
 ]
+TelemetryEnrichmentStatusType = Literal["Impaired", "Running", "Stopped"]
+TelemetryPipelineStatusType = Literal[
+    "ACTIVE", "CREATE_FAILED", "CREATING", "DELETING", "UPDATE_FAILED", "UPDATING"
+]
+TelemetrySourceTypeType = Literal[
+    "EKS_API_LOGS",
+    "EKS_AUDIT_LOGS",
+    "EKS_AUTHENTICATOR_LOGS",
+    "EKS_CONTROLLER_MANAGER_LOGS",
+    "EKS_SCHEDULER_LOGS",
+    "ROUTE53_RESOLVER_QUERY_LOGS",
+    "VPC_FLOW_LOGS",
+]
 TelemetryStateType = Literal["Disabled", "Enabled", "NotApplicable"]
 TelemetryTypeType = Literal["Logs", "Metrics", "Traces"]
+WAFLogTypeType = Literal["WAF_LOGS"]
 CloudWatchObservabilityAdminServiceServiceName = Literal["observabilityadmin"]
 ServiceName = Literal[
     "accessanalyzer",
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -70,7 +143,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -82,11 +155,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -135,6 +212,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -190,6 +268,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -232,7 +311,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -247,6 +325,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -270,8 +349,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -302,9 +379,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -314,17 +393,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -342,13 +424,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -363,20 +442,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -401,8 +482,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -442,25 +523,26 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
-PaginatorName = Literal["list_resource_telemetry", "list_resource_telemetry_for_organization"]
+PaginatorName = Literal[
+    "list_centralization_rules_for_organization",
+    "list_resource_telemetry",
+    "list_resource_telemetry_for_organization",
+    "list_s3_table_integrations",
+    "list_telemetry_pipelines",
+    "list_telemetry_rules",
+    "list_telemetry_rules_for_organization",
+]

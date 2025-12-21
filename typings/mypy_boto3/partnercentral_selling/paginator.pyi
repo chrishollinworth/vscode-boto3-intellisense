@@ -19,6 +19,7 @@ Usage::
         ListEngagementResourceAssociationsPaginator,
         ListEngagementsPaginator,
         ListOpportunitiesPaginator,
+        ListOpportunityFromEngagementTasksPaginator,
         ListResourceSnapshotJobsPaginator,
         ListResourceSnapshotsPaginator,
         ListSolutionsPaginator,
@@ -34,6 +35,7 @@ Usage::
     list_engagement_resource_associations_paginator: ListEngagementResourceAssociationsPaginator = client.get_paginator("list_engagement_resource_associations")
     list_engagements_paginator: ListEngagementsPaginator = client.get_paginator("list_engagements")
     list_opportunities_paginator: ListOpportunitiesPaginator = client.get_paginator("list_opportunities")
+    list_opportunity_from_engagement_tasks_paginator: ListOpportunityFromEngagementTasksPaginator = client.get_paginator("list_opportunity_from_engagement_tasks")
     list_resource_snapshot_jobs_paginator: ListResourceSnapshotJobsPaginator = client.get_paginator("list_resource_snapshot_jobs")
     list_resource_snapshots_paginator: ListResourceSnapshotsPaginator = client.get_paginator("list_resource_snapshots")
     list_solutions_paginator: ListSolutionsPaginator = client.get_paginator("list_solutions")
@@ -62,6 +64,8 @@ from .type_defs import (
     ListEngagementsResponseTypeDef,
     ListOpportunitiesRequestPaginateTypeDef,
     ListOpportunitiesResponseTypeDef,
+    ListOpportunityFromEngagementTasksRequestPaginateTypeDef,
+    ListOpportunityFromEngagementTasksResponseTypeDef,
     ListResourceSnapshotJobsRequestPaginateTypeDef,
     ListResourceSnapshotJobsResponseTypeDef,
     ListResourceSnapshotsRequestPaginateTypeDef,
@@ -83,6 +87,7 @@ __all__ = (
     "ListEngagementResourceAssociationsPaginator",
     "ListEngagementsPaginator",
     "ListOpportunitiesPaginator",
+    "ListOpportunityFromEngagementTasksPaginator",
     "ListResourceSnapshotJobsPaginator",
     "ListResourceSnapshotsPaginator",
     "ListSolutionsPaginator",
@@ -220,6 +225,26 @@ class ListOpportunitiesPaginator(_ListOpportunitiesPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/partnercentral-selling/paginator/ListOpportunities.html#PartnerCentralSellingAPI.Paginator.ListOpportunities.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_partnercentral_selling/paginators/#listopportunitiespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOpportunityFromEngagementTasksPaginatorBase = Paginator[
+        ListOpportunityFromEngagementTasksResponseTypeDef
+    ]
+else:
+    _ListOpportunityFromEngagementTasksPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOpportunityFromEngagementTasksPaginator(_ListOpportunityFromEngagementTasksPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/partnercentral-selling/paginator/ListOpportunityFromEngagementTasks.html#PartnerCentralSellingAPI.Paginator.ListOpportunityFromEngagementTasks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_partnercentral_selling/paginators/#listopportunityfromengagementtaskspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOpportunityFromEngagementTasksRequestPaginateTypeDef]
+    ) -> PageIterator[ListOpportunityFromEngagementTasksResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/partnercentral-selling/paginator/ListOpportunityFromEngagementTasks.html#PartnerCentralSellingAPI.Paginator.ListOpportunityFromEngagementTasks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_partnercentral_selling/paginators/#listopportunityfromengagementtaskspaginator)
         """
 
 if TYPE_CHECKING:

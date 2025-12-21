@@ -12,6 +12,8 @@ Usage::
 
     from mypy_boto3_datazone.client import DataZoneClient
     from mypy_boto3_datazone.paginator import (
+        ListAccountPoolsPaginator,
+        ListAccountsInAccountPoolPaginator,
         ListAssetFiltersPaginator,
         ListAssetRevisionsPaginator,
         ListConnectionsPaginator,
@@ -52,6 +54,8 @@ Usage::
     session = Session()
     client: DataZoneClient = session.client("datazone")
 
+    list_account_pools_paginator: ListAccountPoolsPaginator = client.get_paginator("list_account_pools")
+    list_accounts_in_account_pool_paginator: ListAccountsInAccountPoolPaginator = client.get_paginator("list_accounts_in_account_pool")
     list_asset_filters_paginator: ListAssetFiltersPaginator = client.get_paginator("list_asset_filters")
     list_asset_revisions_paginator: ListAssetRevisionsPaginator = client.get_paginator("list_asset_revisions")
     list_connections_paginator: ListConnectionsPaginator = client.get_paginator("list_connections")
@@ -98,6 +102,10 @@ from typing import TYPE_CHECKING
 from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListAccountPoolsInputPaginateTypeDef,
+    ListAccountPoolsOutputTypeDef,
+    ListAccountsInAccountPoolInputPaginateTypeDef,
+    ListAccountsInAccountPoolOutputTypeDef,
     ListAssetFiltersInputPaginateTypeDef,
     ListAssetFiltersOutputTypeDef,
     ListAssetRevisionsInputPaginateTypeDef,
@@ -176,6 +184,8 @@ else:
     from typing_extensions import Unpack
 
 __all__ = (
+    "ListAccountPoolsPaginator",
+    "ListAccountsInAccountPoolPaginator",
     "ListAssetFiltersPaginator",
     "ListAssetRevisionsPaginator",
     "ListConnectionsPaginator",
@@ -212,6 +222,42 @@ __all__ = (
     "SearchTypesPaginator",
     "SearchUserProfilesPaginator",
 )
+
+if TYPE_CHECKING:
+    _ListAccountPoolsPaginatorBase = Paginator[ListAccountPoolsOutputTypeDef]
+else:
+    _ListAccountPoolsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAccountPoolsPaginator(_ListAccountPoolsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/paginator/ListAccountPools.html#DataZone.Paginator.ListAccountPools)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators/#listaccountpoolspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAccountPoolsInputPaginateTypeDef]
+    ) -> PageIterator[ListAccountPoolsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/paginator/ListAccountPools.html#DataZone.Paginator.ListAccountPools.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators/#listaccountpoolspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListAccountsInAccountPoolPaginatorBase = Paginator[ListAccountsInAccountPoolOutputTypeDef]
+else:
+    _ListAccountsInAccountPoolPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAccountsInAccountPoolPaginator(_ListAccountsInAccountPoolPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/paginator/ListAccountsInAccountPool.html#DataZone.Paginator.ListAccountsInAccountPool)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators/#listaccountsinaccountpoolpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAccountsInAccountPoolInputPaginateTypeDef]
+    ) -> PageIterator[ListAccountsInAccountPoolOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/paginator/ListAccountsInAccountPool.html#DataZone.Paginator.ListAccountsInAccountPool.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators/#listaccountsinaccountpoolpaginator)
+        """
 
 if TYPE_CHECKING:
     _ListAssetFiltersPaginatorBase = Paginator[ListAssetFiltersOutputTypeDef]

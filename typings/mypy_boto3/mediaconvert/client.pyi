@@ -45,6 +45,7 @@ from .type_defs import (
     CreatePresetResponseTypeDef,
     CreateQueueRequestTypeDef,
     CreateQueueResponseTypeDef,
+    CreateResourceShareRequestTypeDef,
     DeleteJobTemplateRequestTypeDef,
     DeletePresetRequestTypeDef,
     DeleteQueueRequestTypeDef,
@@ -53,6 +54,8 @@ from .type_defs import (
     DisassociateCertificateRequestTypeDef,
     GetJobRequestTypeDef,
     GetJobResponseTypeDef,
+    GetJobsQueryResultsRequestTypeDef,
+    GetJobsQueryResultsResponseTypeDef,
     GetJobTemplateRequestTypeDef,
     GetJobTemplateResponseTypeDef,
     GetPolicyResponseTypeDef,
@@ -78,6 +81,8 @@ from .type_defs import (
     PutPolicyResponseTypeDef,
     SearchJobsRequestTypeDef,
     SearchJobsResponseTypeDef,
+    StartJobsQueryRequestTypeDef,
+    StartJobsQueryResponseTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
     UpdateJobTemplateRequestTypeDef,
@@ -108,6 +113,7 @@ class Exceptions(BaseClientExceptions):
     ForbiddenException: Type[BotocoreClientError]
     InternalServerErrorException: Type[BotocoreClientError]
     NotFoundException: Type[BotocoreClientError]
+    ServiceQuotaExceededException: Type[BotocoreClientError]
     TooManyRequestsException: Type[BotocoreClientError]
 
 class MediaConvertClient(BaseClient):
@@ -202,6 +208,16 @@ class MediaConvertClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/client/#create_queue)
         """
 
+    def create_resource_share(
+        self, **kwargs: Unpack[CreateResourceShareRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Create a new resource share request for MediaConvert resources with AWS Support.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconvert/client/create_resource_share.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/client/#create_resource_share)
+        """
+
     def delete_job_template(
         self, **kwargs: Unpack[DeleteJobTemplateRequestTypeDef]
     ) -> Dict[str, Any]:
@@ -275,6 +291,17 @@ class MediaConvertClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconvert/client/get_job_template.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/client/#get_job_template)
+        """
+
+    def get_jobs_query_results(
+        self, **kwargs: Unpack[GetJobsQueryResultsRequestTypeDef]
+    ) -> GetJobsQueryResultsResponseTypeDef:
+        """
+        Retrieve a JSON array of up to twenty of your most recent jobs matched by a
+        jobs query.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconvert/client/get_jobs_query_results.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/client/#get_jobs_query_results)
         """
 
     def get_policy(self) -> GetPolicyResponseTypeDef:
@@ -381,6 +408,16 @@ class MediaConvertClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconvert/client/search_jobs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/client/#search_jobs)
+        """
+
+    def start_jobs_query(
+        self, **kwargs: Unpack[StartJobsQueryRequestTypeDef]
+    ) -> StartJobsQueryResponseTypeDef:
+        """
+        Start an asynchronous jobs query using the provided filters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconvert/client/start_jobs_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/client/#start_jobs_query)
         """
 
     def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:

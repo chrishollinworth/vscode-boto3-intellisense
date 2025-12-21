@@ -2344,7 +2344,8 @@ class LoginProfile(ServiceResource):
 
     def delete(self) -> None:
         """
-        Deletes the password for the specified IAM user, For more information, see <a
+        Deletes the password for the specified IAM user or root user, For more
+        information, see <a
         href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
         passwords for IAM users</a>.
 

@@ -335,12 +335,15 @@ __all__ = (
     "SidewalkGetDeviceProfileTypeDef",
     "SidewalkGetStartImportInfoTypeDef",
     "SidewalkListDeviceTypeDef",
+    "SidewalkListDevicesForImportInfoTypeDef",
+    "SidewalkPositioningTypeDef",
     "SidewalkResourceTypeEventConfigurationTypeDef",
     "SidewalkSendDataToDeviceTypeDef",
     "SidewalkSingleStartImportInfoTypeDef",
     "SidewalkStartImportInfoTypeDef",
     "SidewalkUpdateAccountTypeDef",
     "SidewalkUpdateImportInfoTypeDef",
+    "SidewalkUpdateWirelessDeviceTypeDef",
     "StartBulkAssociateWirelessDeviceWithMulticastGroupRequestTypeDef",
     "StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestTypeDef",
     "StartFuotaTaskRequestTypeDef",
@@ -508,9 +511,10 @@ class LoRaWANServiceProfileTypeDef(TypedDict):
     DrMax: NotRequired[int]
     PrAllowed: NotRequired[bool]
     RaAllowed: NotRequired[bool]
-
-class SidewalkCreateWirelessDeviceTypeDef(TypedDict):
-    DeviceProfileId: NotRequired[str]
+    TxPowerIndexMin: NotRequired[int]
+    TxPowerIndexMax: NotRequired[int]
+    NbTransMin: NotRequired[int]
+    NbTransMax: NotRequired[int]
 
 class CreateWirelessGatewayTaskRequestTypeDef(TypedDict):
     Id: str
@@ -757,13 +761,13 @@ class LoRaWANGetServiceProfileInfoTypeDef(TypedDict):
     NwkGeoLoc: NotRequired[bool]
     TargetPer: NotRequired[int]
     MinGwDiversity: NotRequired[int]
+    TxPowerIndexMin: NotRequired[int]
+    TxPowerIndexMax: NotRequired[int]
+    NbTransMin: NotRequired[int]
+    NbTransMax: NotRequired[int]
 
 class GetWirelessDeviceImportTaskRequestTypeDef(TypedDict):
     Id: str
-
-class SidewalkGetStartImportInfoTypeDef(TypedDict):
-    DeviceCreationFileList: NotRequired[List[str]]
-    Role: NotRequired[str]
 
 class GetWirelessDeviceRequestTypeDef(TypedDict):
     Identifier: str
@@ -1028,17 +1032,13 @@ class ResetResourceLogLevelRequestTypeDef(TypedDict):
     ResourceIdentifier: str
     ResourceType: str
 
+class SidewalkPositioningTypeDef(TypedDict):
+    DestinationName: NotRequired[str]
+
 class SidewalkSendDataToDeviceTypeDef(TypedDict):
     Seq: NotRequired[int]
     MessageType: NotRequired[MessageTypeType]
     AckModeRetryDurationSecs: NotRequired[int]
-
-class SidewalkSingleStartImportInfoTypeDef(TypedDict):
-    SidewalkManufacturingSn: NotRequired[str]
-
-class SidewalkStartImportInfoTypeDef(TypedDict):
-    DeviceCreationFile: NotRequired[str]
-    Role: NotRequired[str]
 
 class SidewalkUpdateAccountTypeDef(TypedDict):
     AppServerPrivateKey: NotRequired[str]
@@ -1315,24 +1315,6 @@ class CdmaObjTypeDef(TypedDict):
     BaseLng: NotRequired[float]
     CdmaNmr: NotRequired[Sequence[CdmaNmrObjTypeDef]]
 
-class SidewalkDeviceTypeDef(TypedDict):
-    AmazonId: NotRequired[str]
-    SidewalkId: NotRequired[str]
-    SidewalkManufacturingSn: NotRequired[str]
-    DeviceCertificates: NotRequired[List[CertificateListTypeDef]]
-    PrivateKeys: NotRequired[List[CertificateListTypeDef]]
-    DeviceProfileId: NotRequired[str]
-    CertificateId: NotRequired[str]
-    Status: NotRequired[WirelessDeviceSidewalkStatusType]
-
-class SidewalkListDeviceTypeDef(TypedDict):
-    AmazonId: NotRequired[str]
-    SidewalkId: NotRequired[str]
-    SidewalkManufacturingSn: NotRequired[str]
-    DeviceCertificates: NotRequired[List[CertificateListTypeDef]]
-    DeviceProfileId: NotRequired[str]
-    Status: NotRequired[WirelessDeviceSidewalkStatusType]
-
 class ConnectionStatusEventConfigurationTypeDef(TypedDict):
     LoRaWAN: NotRequired[LoRaWANConnectionStatusEventNotificationConfigurationsTypeDef]
     WirelessGatewayIdEventTopic: NotRequired[EventNotificationTopicStatusType]
@@ -1550,33 +1532,6 @@ class GetServiceProfileResponseTypeDef(TypedDict):
     LoRaWAN: LoRaWANGetServiceProfileInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWirelessDeviceImportTaskResponseTypeDef(TypedDict):
-    Id: str
-    Arn: str
-    DestinationName: str
-    Sidewalk: SidewalkGetStartImportInfoTypeDef
-    CreationTime: datetime
-    Status: ImportTaskStatusType
-    StatusReason: str
-    InitializedImportedDeviceCount: int
-    PendingImportedDeviceCount: int
-    OnboardedImportedDeviceCount: int
-    FailedImportedDeviceCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class WirelessDeviceImportTaskTypeDef(TypedDict):
-    Id: NotRequired[str]
-    Arn: NotRequired[str]
-    DestinationName: NotRequired[str]
-    Sidewalk: NotRequired[SidewalkGetStartImportInfoTypeDef]
-    CreationTime: NotRequired[datetime]
-    Status: NotRequired[ImportTaskStatusType]
-    StatusReason: NotRequired[str]
-    InitializedImportedDeviceCount: NotRequired[int]
-    PendingImportedDeviceCount: NotRequired[int]
-    OnboardedImportedDeviceCount: NotRequired[int]
-    FailedImportedDeviceCount: NotRequired[int]
-
 class GsmNmrObjTypeDef(TypedDict):
     Bsic: int
     Bcch: int
@@ -1684,18 +1639,50 @@ class PositionSolverConfigurationsTypeDef(TypedDict):
 class PositionSolverDetailsTypeDef(TypedDict):
     SemtechGnss: NotRequired[SemtechGnssDetailTypeDef]
 
-class StartSingleWirelessDeviceImportTaskRequestTypeDef(TypedDict):
-    DestinationName: str
-    Sidewalk: SidewalkSingleStartImportInfoTypeDef
-    ClientRequestToken: NotRequired[str]
-    DeviceName: NotRequired[str]
-    Tags: NotRequired[Sequence[TagTypeDef]]
+class SidewalkCreateWirelessDeviceTypeDef(TypedDict):
+    DeviceProfileId: NotRequired[str]
+    Positioning: NotRequired[SidewalkPositioningTypeDef]
+    SidewalkManufacturingSn: NotRequired[str]
 
-class StartWirelessDeviceImportTaskRequestTypeDef(TypedDict):
-    DestinationName: str
-    Sidewalk: SidewalkStartImportInfoTypeDef
-    ClientRequestToken: NotRequired[str]
-    Tags: NotRequired[Sequence[TagTypeDef]]
+class SidewalkDeviceTypeDef(TypedDict):
+    AmazonId: NotRequired[str]
+    SidewalkId: NotRequired[str]
+    SidewalkManufacturingSn: NotRequired[str]
+    DeviceCertificates: NotRequired[List[CertificateListTypeDef]]
+    PrivateKeys: NotRequired[List[CertificateListTypeDef]]
+    DeviceProfileId: NotRequired[str]
+    CertificateId: NotRequired[str]
+    Status: NotRequired[WirelessDeviceSidewalkStatusType]
+    Positioning: NotRequired[SidewalkPositioningTypeDef]
+
+class SidewalkGetStartImportInfoTypeDef(TypedDict):
+    DeviceCreationFileList: NotRequired[List[str]]
+    Role: NotRequired[str]
+    Positioning: NotRequired[SidewalkPositioningTypeDef]
+
+class SidewalkListDeviceTypeDef(TypedDict):
+    AmazonId: NotRequired[str]
+    SidewalkId: NotRequired[str]
+    SidewalkManufacturingSn: NotRequired[str]
+    DeviceCertificates: NotRequired[List[CertificateListTypeDef]]
+    DeviceProfileId: NotRequired[str]
+    Status: NotRequired[WirelessDeviceSidewalkStatusType]
+    Positioning: NotRequired[SidewalkPositioningTypeDef]
+
+class SidewalkListDevicesForImportInfoTypeDef(TypedDict):
+    Positioning: NotRequired[SidewalkPositioningTypeDef]
+
+class SidewalkSingleStartImportInfoTypeDef(TypedDict):
+    SidewalkManufacturingSn: NotRequired[str]
+    Positioning: NotRequired[SidewalkPositioningTypeDef]
+
+class SidewalkStartImportInfoTypeDef(TypedDict):
+    DeviceCreationFile: NotRequired[str]
+    Role: NotRequired[str]
+    Positioning: NotRequired[SidewalkPositioningTypeDef]
+
+class SidewalkUpdateWirelessDeviceTypeDef(TypedDict):
+    Positioning: NotRequired[SidewalkPositioningTypeDef]
 
 class UpdatePartnerAccountRequestTypeDef(TypedDict):
     Sidewalk: SidewalkUpdateAccountTypeDef
@@ -1779,22 +1766,6 @@ class WirelessGatewayStatisticsTypeDef(TypedDict):
     LastUplinkReceivedAt: NotRequired[str]
 
 LoRaWANGatewayUnionTypeDef = Union[LoRaWANGatewayTypeDef, LoRaWANGatewayOutputTypeDef]
-WirelessDeviceStatisticsTypeDef = TypedDict(
-    "WirelessDeviceStatisticsTypeDef",
-    {
-        "Arn": NotRequired[str],
-        "Id": NotRequired[str],
-        "Type": NotRequired[WirelessDeviceTypeType],
-        "Name": NotRequired[str],
-        "DestinationName": NotRequired[str],
-        "LastUplinkReceivedAt": NotRequired[str],
-        "LoRaWAN": NotRequired[LoRaWANListDeviceTypeDef],
-        "Sidewalk": NotRequired[SidewalkListDeviceTypeDef],
-        "FuotaDeviceStatus": NotRequired[FuotaDeviceStatusType],
-        "MulticastDeviceStatus": NotRequired[str],
-        "McGroupId": NotRequired[int],
-    },
-)
 
 class GetDeviceProfileResponseTypeDef(TypedDict):
     Arn: str
@@ -1851,11 +1822,6 @@ class StartFuotaTaskRequestTypeDef(TypedDict):
 class GetMetricsRequestTypeDef(TypedDict):
     SummaryMetricQueries: NotRequired[Sequence[SummaryMetricQueryTypeDef]]
 
-class ListWirelessDeviceImportTasksResponseTypeDef(TypedDict):
-    WirelessDeviceImportTaskList: List[WirelessDeviceImportTaskTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: NotRequired[str]
-
 class GsmObjTypeDef(TypedDict):
     Mcc: int
     Mnc: int
@@ -1865,12 +1831,6 @@ class GsmObjTypeDef(TypedDict):
     GsmTimingAdvance: NotRequired[int]
     RxLevel: NotRequired[int]
     GsmNmr: NotRequired[Sequence[GsmNmrObjTypeDef]]
-
-class ListDevicesForWirelessDeviceImportTaskResponseTypeDef(TypedDict):
-    DestinationName: str
-    ImportedWirelessDeviceList: List[ImportedWirelessDeviceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: NotRequired[str]
 
 class EventNotificationItemConfigurationsTypeDef(TypedDict):
     DeviceRegistrationState: NotRequired[DeviceRegistrationStateEventConfigurationTypeDef]
@@ -1983,6 +1943,76 @@ class PositionConfigurationItemTypeDef(TypedDict):
     Solvers: NotRequired[PositionSolverDetailsTypeDef]
     Destination: NotRequired[str]
 
+class GetWirelessDeviceImportTaskResponseTypeDef(TypedDict):
+    Id: str
+    Arn: str
+    DestinationName: str
+    Positioning: PositioningConfigStatusType
+    Sidewalk: SidewalkGetStartImportInfoTypeDef
+    CreationTime: datetime
+    Status: ImportTaskStatusType
+    StatusReason: str
+    InitializedImportedDeviceCount: int
+    PendingImportedDeviceCount: int
+    OnboardedImportedDeviceCount: int
+    FailedImportedDeviceCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WirelessDeviceImportTaskTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    DestinationName: NotRequired[str]
+    Positioning: NotRequired[PositioningConfigStatusType]
+    Sidewalk: NotRequired[SidewalkGetStartImportInfoTypeDef]
+    CreationTime: NotRequired[datetime]
+    Status: NotRequired[ImportTaskStatusType]
+    StatusReason: NotRequired[str]
+    InitializedImportedDeviceCount: NotRequired[int]
+    PendingImportedDeviceCount: NotRequired[int]
+    OnboardedImportedDeviceCount: NotRequired[int]
+    FailedImportedDeviceCount: NotRequired[int]
+
+WirelessDeviceStatisticsTypeDef = TypedDict(
+    "WirelessDeviceStatisticsTypeDef",
+    {
+        "Arn": NotRequired[str],
+        "Id": NotRequired[str],
+        "Type": NotRequired[WirelessDeviceTypeType],
+        "Name": NotRequired[str],
+        "DestinationName": NotRequired[str],
+        "LastUplinkReceivedAt": NotRequired[str],
+        "LoRaWAN": NotRequired[LoRaWANListDeviceTypeDef],
+        "Sidewalk": NotRequired[SidewalkListDeviceTypeDef],
+        "FuotaDeviceStatus": NotRequired[FuotaDeviceStatusType],
+        "MulticastDeviceStatus": NotRequired[str],
+        "McGroupId": NotRequired[int],
+        "Positioning": NotRequired[PositioningConfigStatusType],
+    },
+)
+
+class ListDevicesForWirelessDeviceImportTaskResponseTypeDef(TypedDict):
+    DestinationName: str
+    Positioning: PositioningConfigStatusType
+    Sidewalk: SidewalkListDevicesForImportInfoTypeDef
+    ImportedWirelessDeviceList: List[ImportedWirelessDeviceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartSingleWirelessDeviceImportTaskRequestTypeDef(TypedDict):
+    DestinationName: str
+    Sidewalk: SidewalkSingleStartImportInfoTypeDef
+    ClientRequestToken: NotRequired[str]
+    DeviceName: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    Positioning: NotRequired[PositioningConfigStatusType]
+
+class StartWirelessDeviceImportTaskRequestTypeDef(TypedDict):
+    DestinationName: str
+    Sidewalk: SidewalkStartImportInfoTypeDef
+    ClientRequestToken: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    Positioning: NotRequired[PositioningConfigStatusType]
+
 WirelessDeviceLogOptionUnionTypeDef = Union[
     WirelessDeviceLogOptionTypeDef, WirelessDeviceLogOptionOutputTypeDef
 ]
@@ -2010,11 +2040,6 @@ class CreateWirelessGatewayRequestTypeDef(TypedDict):
     Tags: NotRequired[Sequence[TagTypeDef]]
     ClientRequestToken: NotRequired[str]
 
-class ListWirelessDevicesResponseTypeDef(TypedDict):
-    WirelessDeviceList: List[WirelessDeviceStatisticsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: NotRequired[str]
-
 GetWirelessDeviceResponseTypeDef = TypedDict(
     "GetWirelessDeviceResponseTypeDef",
     {
@@ -2041,6 +2066,7 @@ class UpdateWirelessDeviceRequestTypeDef(TypedDict):
     Description: NotRequired[str]
     LoRaWAN: NotRequired[LoRaWANUpdateDeviceTypeDef]
     Positioning: NotRequired[PositioningConfigStatusType]
+    Sidewalk: NotRequired[SidewalkUpdateWirelessDeviceTypeDef]
 
 class DownlinkQueueMessageTypeDef(TypedDict):
     MessageId: NotRequired[str]
@@ -2103,6 +2129,16 @@ class UpdateMulticastGroupRequestTypeDef(TypedDict):
 
 class ListPositionConfigurationsResponseTypeDef(TypedDict):
     PositionConfigurationList: List[PositionConfigurationItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListWirelessDeviceImportTasksResponseTypeDef(TypedDict):
+    WirelessDeviceImportTaskList: List[WirelessDeviceImportTaskTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListWirelessDevicesResponseTypeDef(TypedDict):
+    WirelessDeviceList: List[WirelessDeviceStatisticsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 

@@ -14,12 +14,18 @@ Usage::
     from mypy_boto3_securityhub.paginator import (
         DescribeActionTargetsPaginator,
         DescribeProductsPaginator,
+        DescribeProductsV2Paginator,
         DescribeStandardsControlsPaginator,
         DescribeStandardsPaginator,
         GetEnabledStandardsPaginator,
         GetFindingHistoryPaginator,
         GetFindingsPaginator,
+        GetFindingsTrendsV2Paginator,
+        GetFindingsV2Paginator,
         GetInsightsPaginator,
+        GetResourcesTrendsV2Paginator,
+        GetResourcesV2Paginator,
+        ListAggregatorsV2Paginator,
         ListConfigurationPoliciesPaginator,
         ListConfigurationPolicyAssociationsPaginator,
         ListEnabledProductsForImportPaginator,
@@ -36,12 +42,18 @@ Usage::
 
     describe_action_targets_paginator: DescribeActionTargetsPaginator = client.get_paginator("describe_action_targets")
     describe_products_paginator: DescribeProductsPaginator = client.get_paginator("describe_products")
+    describe_products_v2_paginator: DescribeProductsV2Paginator = client.get_paginator("describe_products_v2")
     describe_standards_controls_paginator: DescribeStandardsControlsPaginator = client.get_paginator("describe_standards_controls")
     describe_standards_paginator: DescribeStandardsPaginator = client.get_paginator("describe_standards")
     get_enabled_standards_paginator: GetEnabledStandardsPaginator = client.get_paginator("get_enabled_standards")
     get_finding_history_paginator: GetFindingHistoryPaginator = client.get_paginator("get_finding_history")
     get_findings_paginator: GetFindingsPaginator = client.get_paginator("get_findings")
+    get_findings_trends_v2_paginator: GetFindingsTrendsV2Paginator = client.get_paginator("get_findings_trends_v2")
+    get_findings_v2_paginator: GetFindingsV2Paginator = client.get_paginator("get_findings_v2")
     get_insights_paginator: GetInsightsPaginator = client.get_paginator("get_insights")
+    get_resources_trends_v2_paginator: GetResourcesTrendsV2Paginator = client.get_paginator("get_resources_trends_v2")
+    get_resources_v2_paginator: GetResourcesV2Paginator = client.get_paginator("get_resources_v2")
+    list_aggregators_v2_paginator: ListAggregatorsV2Paginator = client.get_paginator("list_aggregators_v2")
     list_configuration_policies_paginator: ListConfigurationPoliciesPaginator = client.get_paginator("list_configuration_policies")
     list_configuration_policy_associations_paginator: ListConfigurationPolicyAssociationsPaginator = client.get_paginator("list_configuration_policy_associations")
     list_enabled_products_for_import_paginator: ListEnabledProductsForImportPaginator = client.get_paginator("list_enabled_products_for_import")
@@ -66,6 +78,8 @@ from .type_defs import (
     DescribeActionTargetsResponseTypeDef,
     DescribeProductsRequestPaginateTypeDef,
     DescribeProductsResponseTypeDef,
+    DescribeProductsV2RequestPaginateTypeDef,
+    DescribeProductsV2ResponseTypeDef,
     DescribeStandardsControlsRequestPaginateTypeDef,
     DescribeStandardsControlsResponseTypeDef,
     DescribeStandardsRequestPaginateTypeDef,
@@ -76,8 +90,18 @@ from .type_defs import (
     GetFindingHistoryResponseTypeDef,
     GetFindingsRequestPaginateTypeDef,
     GetFindingsResponseTypeDef,
+    GetFindingsTrendsV2RequestPaginateTypeDef,
+    GetFindingsTrendsV2ResponseTypeDef,
+    GetFindingsV2RequestPaginateTypeDef,
+    GetFindingsV2ResponseTypeDef,
     GetInsightsRequestPaginateTypeDef,
     GetInsightsResponseTypeDef,
+    GetResourcesTrendsV2RequestPaginateTypeDef,
+    GetResourcesTrendsV2ResponseTypeDef,
+    GetResourcesV2RequestPaginateTypeDef,
+    GetResourcesV2ResponseTypeDef,
+    ListAggregatorsV2RequestPaginateTypeDef,
+    ListAggregatorsV2ResponseTypeDef,
     ListConfigurationPoliciesRequestPaginateTypeDef,
     ListConfigurationPoliciesResponseTypeDef,
     ListConfigurationPolicyAssociationsRequestPaginateTypeDef,
@@ -106,12 +130,18 @@ else:
 __all__ = (
     "DescribeActionTargetsPaginator",
     "DescribeProductsPaginator",
+    "DescribeProductsV2Paginator",
     "DescribeStandardsControlsPaginator",
     "DescribeStandardsPaginator",
     "GetEnabledStandardsPaginator",
     "GetFindingHistoryPaginator",
     "GetFindingsPaginator",
+    "GetFindingsTrendsV2Paginator",
+    "GetFindingsV2Paginator",
     "GetInsightsPaginator",
+    "GetResourcesTrendsV2Paginator",
+    "GetResourcesV2Paginator",
+    "ListAggregatorsV2Paginator",
     "ListConfigurationPoliciesPaginator",
     "ListConfigurationPolicyAssociationsPaginator",
     "ListEnabledProductsForImportPaginator",
@@ -157,6 +187,24 @@ class DescribeProductsPaginator(_DescribeProductsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/DescribeProducts.html#SecurityHub.Paginator.DescribeProducts.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#describeproductspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeProductsV2PaginatorBase = Paginator[DescribeProductsV2ResponseTypeDef]
+else:
+    _DescribeProductsV2PaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeProductsV2Paginator(_DescribeProductsV2PaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/DescribeProductsV2.html#SecurityHub.Paginator.DescribeProductsV2)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#describeproductsv2paginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeProductsV2RequestPaginateTypeDef]
+    ) -> PageIterator[DescribeProductsV2ResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/DescribeProductsV2.html#SecurityHub.Paginator.DescribeProductsV2.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#describeproductsv2paginator)
         """
 
 if TYPE_CHECKING:
@@ -250,6 +298,42 @@ class GetFindingsPaginator(_GetFindingsPaginatorBase):
         """
 
 if TYPE_CHECKING:
+    _GetFindingsTrendsV2PaginatorBase = Paginator[GetFindingsTrendsV2ResponseTypeDef]
+else:
+    _GetFindingsTrendsV2PaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetFindingsTrendsV2Paginator(_GetFindingsTrendsV2PaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/GetFindingsTrendsV2.html#SecurityHub.Paginator.GetFindingsTrendsV2)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#getfindingstrendsv2paginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetFindingsTrendsV2RequestPaginateTypeDef]
+    ) -> PageIterator[GetFindingsTrendsV2ResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/GetFindingsTrendsV2.html#SecurityHub.Paginator.GetFindingsTrendsV2.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#getfindingstrendsv2paginator)
+        """
+
+if TYPE_CHECKING:
+    _GetFindingsV2PaginatorBase = Paginator[GetFindingsV2ResponseTypeDef]
+else:
+    _GetFindingsV2PaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetFindingsV2Paginator(_GetFindingsV2PaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/GetFindingsV2.html#SecurityHub.Paginator.GetFindingsV2)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#getfindingsv2paginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetFindingsV2RequestPaginateTypeDef]
+    ) -> PageIterator[GetFindingsV2ResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/GetFindingsV2.html#SecurityHub.Paginator.GetFindingsV2.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#getfindingsv2paginator)
+        """
+
+if TYPE_CHECKING:
     _GetInsightsPaginatorBase = Paginator[GetInsightsResponseTypeDef]
 else:
     _GetInsightsPaginatorBase = Paginator  # type: ignore[assignment]
@@ -265,6 +349,60 @@ class GetInsightsPaginator(_GetInsightsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/GetInsights.html#SecurityHub.Paginator.GetInsights.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#getinsightspaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetResourcesTrendsV2PaginatorBase = Paginator[GetResourcesTrendsV2ResponseTypeDef]
+else:
+    _GetResourcesTrendsV2PaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetResourcesTrendsV2Paginator(_GetResourcesTrendsV2PaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/GetResourcesTrendsV2.html#SecurityHub.Paginator.GetResourcesTrendsV2)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#getresourcestrendsv2paginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourcesTrendsV2RequestPaginateTypeDef]
+    ) -> PageIterator[GetResourcesTrendsV2ResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/GetResourcesTrendsV2.html#SecurityHub.Paginator.GetResourcesTrendsV2.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#getresourcestrendsv2paginator)
+        """
+
+if TYPE_CHECKING:
+    _GetResourcesV2PaginatorBase = Paginator[GetResourcesV2ResponseTypeDef]
+else:
+    _GetResourcesV2PaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetResourcesV2Paginator(_GetResourcesV2PaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/GetResourcesV2.html#SecurityHub.Paginator.GetResourcesV2)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#getresourcesv2paginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourcesV2RequestPaginateTypeDef]
+    ) -> PageIterator[GetResourcesV2ResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/GetResourcesV2.html#SecurityHub.Paginator.GetResourcesV2.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#getresourcesv2paginator)
+        """
+
+if TYPE_CHECKING:
+    _ListAggregatorsV2PaginatorBase = Paginator[ListAggregatorsV2ResponseTypeDef]
+else:
+    _ListAggregatorsV2PaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAggregatorsV2Paginator(_ListAggregatorsV2PaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/ListAggregatorsV2.html#SecurityHub.Paginator.ListAggregatorsV2)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#listaggregatorsv2paginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAggregatorsV2RequestPaginateTypeDef]
+    ) -> PageIterator[ListAggregatorsV2ResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub/paginator/ListAggregatorsV2.html#SecurityHub.Paginator.ListAggregatorsV2.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators/#listaggregatorsv2paginator)
         """
 
 if TYPE_CHECKING:

@@ -34,6 +34,7 @@ from .literals import (
     OperationTypeType,
     RecordTypeType,
     RoutingPolicyType,
+    ServiceFilterNameType,
     ServiceTypeType,
 )
 
@@ -196,6 +197,7 @@ DiscoverInstancesRequestTypeDef = TypedDict(
         "QueryParameters": NotRequired[Mapping[str, str]],
         "OptionalParameters": NotRequired[Mapping[str, str]],
         "HealthStatus": NotRequired[HealthStatusFilterType],
+        "OwnerAccount": NotRequired[str],
     },
 )
 HttpInstanceSummaryTypeDef = TypedDict(
@@ -213,6 +215,7 @@ DiscoverInstancesRevisionRequestTypeDef = TypedDict(
     {
         "NamespaceName": str,
         "ServiceName": str,
+        "OwnerAccount": NotRequired[str],
     },
 )
 DnsRecordTypeDef = TypedDict(
@@ -234,6 +237,7 @@ class InstanceTypeDef(TypedDict):
     Id: str
     CreatorRequestId: NotRequired[str]
     Attributes: NotRequired[Dict[str, str]]
+    CreatedByAccount: NotRequired[str]
 
 class GetInstancesHealthStatusRequestTypeDef(TypedDict):
     ServiceId: str
@@ -246,11 +250,13 @@ class GetNamespaceRequestTypeDef(TypedDict):
 
 class GetOperationRequestTypeDef(TypedDict):
     OperationId: str
+    OwnerAccount: NotRequired[str]
 
 OperationTypeDef = TypedDict(
     "OperationTypeDef",
     {
         "Id": NotRequired[str],
+        "OwnerAccount": NotRequired[str],
         "Type": NotRequired[OperationTypeType],
         "Status": NotRequired[OperationStatusType],
         "ErrorMessage": NotRequired[str],
@@ -266,6 +272,7 @@ class GetServiceAttributesRequestTypeDef(TypedDict):
 
 class ServiceAttributesTypeDef(TypedDict):
     ServiceArn: NotRequired[str]
+    ResourceOwner: NotRequired[str]
     Attributes: NotRequired[Dict[str, str]]
 
 class GetServiceRequestTypeDef(TypedDict):
@@ -280,6 +287,7 @@ class HttpPropertiesTypeDef(TypedDict):
 class InstanceSummaryTypeDef(TypedDict):
     Id: NotRequired[str]
     Attributes: NotRequired[Dict[str, str]]
+    CreatedByAccount: NotRequired[str]
 
 class PaginatorConfigTypeDef(TypedDict):
     MaxItems: NotRequired[int]
@@ -306,7 +314,7 @@ class OperationSummaryTypeDef(TypedDict):
     Status: NotRequired[OperationStatusType]
 
 class ServiceFilterTypeDef(TypedDict):
-    Name: Literal["NAMESPACE_ID"]
+    Name: ServiceFilterNameType
     Values: Sequence[str]
     Condition: NotRequired[FilterConditionType]
 
@@ -430,6 +438,7 @@ class PublicDnsPropertiesMutableTypeDef(TypedDict):
     SOA: SOATypeDef
 
 class GetInstanceResponseTypeDef(TypedDict):
+    ResourceOwner: str
     Instance: InstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -447,6 +456,7 @@ class UpdateHttpNamespaceRequestTypeDef(TypedDict):
     UpdaterRequestId: NotRequired[str]
 
 class ListInstancesResponseTypeDef(TypedDict):
+    ResourceOwner: str
     Instances: List[InstanceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
@@ -503,6 +513,7 @@ ServiceSummaryTypeDef = TypedDict(
     {
         "Id": NotRequired[str],
         "Arn": NotRequired[str],
+        "ResourceOwner": NotRequired[str],
         "Name": NotRequired[str],
         "Type": NotRequired[ServiceTypeType],
         "Description": NotRequired[str],
@@ -511,6 +522,7 @@ ServiceSummaryTypeDef = TypedDict(
         "HealthCheckConfig": NotRequired[HealthCheckConfigTypeDef],
         "HealthCheckCustomConfig": NotRequired[HealthCheckCustomConfigTypeDef],
         "CreateDate": NotRequired[datetime],
+        "CreatedByAccount": NotRequired[str],
     },
 )
 ServiceTypeDef = TypedDict(
@@ -518,6 +530,7 @@ ServiceTypeDef = TypedDict(
     {
         "Id": NotRequired[str],
         "Arn": NotRequired[str],
+        "ResourceOwner": NotRequired[str],
         "Name": NotRequired[str],
         "NamespaceId": NotRequired[str],
         "Description": NotRequired[str],
@@ -528,6 +541,7 @@ ServiceTypeDef = TypedDict(
         "HealthCheckCustomConfig": NotRequired[HealthCheckCustomConfigTypeDef],
         "CreateDate": NotRequired[datetime],
         "CreatorRequestId": NotRequired[str],
+        "CreatedByAccount": NotRequired[str],
     },
 )
 DnsConfigUnionTypeDef = Union[DnsConfigTypeDef, DnsConfigOutputTypeDef]
@@ -584,6 +598,7 @@ NamespaceSummaryTypeDef = TypedDict(
     {
         "Id": NotRequired[str],
         "Arn": NotRequired[str],
+        "ResourceOwner": NotRequired[str],
         "Name": NotRequired[str],
         "Type": NotRequired[NamespaceTypeType],
         "Description": NotRequired[str],
@@ -597,6 +612,7 @@ NamespaceTypeDef = TypedDict(
     {
         "Id": NotRequired[str],
         "Arn": NotRequired[str],
+        "ResourceOwner": NotRequired[str],
         "Name": NotRequired[str],
         "Type": NotRequired[NamespaceTypeType],
         "Description": NotRequired[str],

@@ -21,6 +21,7 @@ import sys
 from .literals import (
     ContentResolutionType,
     MediaCapabilitiesType,
+    MediaPlacementNetworkTypeType,
     MeetingFeatureStatusType,
     TranscribeLanguageCodeType,
     TranscribeMedicalRegionType,
@@ -286,6 +287,7 @@ class CreateMeetingRequestTypeDef(TypedDict):
     PrimaryMeetingId: NotRequired[str]
     TenantIds: NotRequired[Sequence[str]]
     Tags: NotRequired[Sequence[TagTypeDef]]
+    MediaPlacementNetworkType: NotRequired[MediaPlacementNetworkTypeType]
 
 class CreateMeetingWithAttendeesRequestTypeDef(TypedDict):
     ClientRequestToken: str
@@ -298,6 +300,7 @@ class CreateMeetingWithAttendeesRequestTypeDef(TypedDict):
     PrimaryMeetingId: NotRequired[str]
     TenantIds: NotRequired[Sequence[str]]
     Tags: NotRequired[Sequence[TagTypeDef]]
+    MediaPlacementNetworkType: NotRequired[MediaPlacementNetworkTypeType]
 
 class MeetingTypeDef(TypedDict):
     MeetingId: NotRequired[str]

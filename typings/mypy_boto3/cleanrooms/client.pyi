@@ -28,6 +28,7 @@ from botocore.exceptions import ClientError as BotocoreClientError
 from .paginator import (
     ListAnalysisTemplatesPaginator,
     ListCollaborationAnalysisTemplatesPaginator,
+    ListCollaborationChangeRequestsPaginator,
     ListCollaborationConfiguredAudienceModelAssociationsPaginator,
     ListCollaborationIdNamespaceAssociationsPaginator,
     ListCollaborationPrivacyBudgetsPaginator,
@@ -55,6 +56,8 @@ from .type_defs import (
     BatchGetSchemaOutputTypeDef,
     CreateAnalysisTemplateInputTypeDef,
     CreateAnalysisTemplateOutputTypeDef,
+    CreateCollaborationChangeRequestInputTypeDef,
+    CreateCollaborationChangeRequestOutputTypeDef,
     CreateCollaborationInputTypeDef,
     CreateCollaborationOutputTypeDef,
     CreateConfiguredAudienceModelAssociationInputTypeDef,
@@ -91,6 +94,8 @@ from .type_defs import (
     GetAnalysisTemplateOutputTypeDef,
     GetCollaborationAnalysisTemplateInputTypeDef,
     GetCollaborationAnalysisTemplateOutputTypeDef,
+    GetCollaborationChangeRequestInputTypeDef,
+    GetCollaborationChangeRequestOutputTypeDef,
     GetCollaborationConfiguredAudienceModelAssociationInputTypeDef,
     GetCollaborationConfiguredAudienceModelAssociationOutputTypeDef,
     GetCollaborationIdNamespaceAssociationInputTypeDef,
@@ -129,6 +134,8 @@ from .type_defs import (
     ListAnalysisTemplatesOutputTypeDef,
     ListCollaborationAnalysisTemplatesInputTypeDef,
     ListCollaborationAnalysisTemplatesOutputTypeDef,
+    ListCollaborationChangeRequestsInputTypeDef,
+    ListCollaborationChangeRequestsOutputTypeDef,
     ListCollaborationConfiguredAudienceModelAssociationsInputTypeDef,
     ListCollaborationConfiguredAudienceModelAssociationsOutputTypeDef,
     ListCollaborationIdNamespaceAssociationsInputTypeDef,
@@ -177,6 +184,8 @@ from .type_defs import (
     UntagResourceInputTypeDef,
     UpdateAnalysisTemplateInputTypeDef,
     UpdateAnalysisTemplateOutputTypeDef,
+    UpdateCollaborationChangeRequestInputTypeDef,
+    UpdateCollaborationChangeRequestOutputTypeDef,
     UpdateCollaborationInputTypeDef,
     UpdateCollaborationOutputTypeDef,
     UpdateConfiguredAudienceModelAssociationInputTypeDef,
@@ -312,6 +321,16 @@ class CleanRoomsServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#create_collaboration)
         """
 
+    def create_collaboration_change_request(
+        self, **kwargs: Unpack[CreateCollaborationChangeRequestInputTypeDef]
+    ) -> CreateCollaborationChangeRequestOutputTypeDef:
+        """
+        Creates a new change request to modify an existing collaboration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cleanrooms/client/create_collaboration_change_request.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#create_collaboration_change_request)
+        """
+
     def create_configured_audience_model_association(
         self, **kwargs: Unpack[CreateConfiguredAudienceModelAssociationInputTypeDef]
     ) -> CreateConfiguredAudienceModelAssociationOutputTypeDef:
@@ -398,7 +417,7 @@ class CleanRoomsServiceClient(BaseClient):
         self, **kwargs: Unpack[CreatePrivacyBudgetTemplateInputTypeDef]
     ) -> CreatePrivacyBudgetTemplateOutputTypeDef:
         """
-        Creates a privacy budget template for a specified membership.
+        Creates a privacy budget template for a specified collaboration.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cleanrooms/client/create_privacy_budget_template.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#create_privacy_budget_template)
@@ -515,7 +534,7 @@ class CleanRoomsServiceClient(BaseClient):
         self, **kwargs: Unpack[DeletePrivacyBudgetTemplateInputTypeDef]
     ) -> Dict[str, Any]:
         """
-        Deletes a privacy budget template for a specified membership.
+        Deletes a privacy budget template for a specified collaboration.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cleanrooms/client/delete_privacy_budget_template.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#delete_privacy_budget_template)
@@ -549,6 +568,16 @@ class CleanRoomsServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cleanrooms/client/get_collaboration_analysis_template.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#get_collaboration_analysis_template)
+        """
+
+    def get_collaboration_change_request(
+        self, **kwargs: Unpack[GetCollaborationChangeRequestInputTypeDef]
+    ) -> GetCollaborationChangeRequestOutputTypeDef:
+        """
+        Retrieves detailed information about a specific collaboration change request.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cleanrooms/client/get_collaboration_change_request.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#get_collaboration_change_request)
         """
 
     def get_collaboration_configured_audience_model_association(
@@ -727,6 +756,16 @@ class CleanRoomsServiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cleanrooms/client/list_collaboration_analysis_templates.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#list_collaboration_analysis_templates)
+        """
+
+    def list_collaboration_change_requests(
+        self, **kwargs: Unpack[ListCollaborationChangeRequestsInputTypeDef]
+    ) -> ListCollaborationChangeRequestsOutputTypeDef:
+        """
+        Lists all change requests for a collaboration with pagination support.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cleanrooms/client/list_collaboration_change_requests.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#list_collaboration_change_requests)
         """
 
     def list_collaboration_configured_audience_model_associations(
@@ -987,6 +1026,16 @@ class CleanRoomsServiceClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#update_collaboration)
         """
 
+    def update_collaboration_change_request(
+        self, **kwargs: Unpack[UpdateCollaborationChangeRequestInputTypeDef]
+    ) -> UpdateCollaborationChangeRequestOutputTypeDef:
+        """
+        Updates an existing collaboration change request.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cleanrooms/client/update_collaboration_change_request.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#update_collaboration_change_request)
+        """
+
     def update_configured_audience_model_association(
         self, **kwargs: Unpack[UpdateConfiguredAudienceModelAssociationInputTypeDef]
     ) -> UpdateConfiguredAudienceModelAssociationOutputTypeDef:
@@ -1072,7 +1121,7 @@ class CleanRoomsServiceClient(BaseClient):
         self, **kwargs: Unpack[UpdatePrivacyBudgetTemplateInputTypeDef]
     ) -> UpdatePrivacyBudgetTemplateOutputTypeDef:
         """
-        Updates the privacy budget template for the specified membership.
+        Updates the privacy budget template for the specified collaboration.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cleanrooms/client/update_privacy_budget_template.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#update_privacy_budget_template)
@@ -1113,6 +1162,17 @@ class CleanRoomsServiceClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_collaboration_analysis_templates"]
     ) -> ListCollaborationAnalysisTemplatesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cleanrooms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_collaboration_change_requests"]
+    ) -> ListCollaborationChangeRequestsPaginator:
         """
         Create a paginator for an operation.
 

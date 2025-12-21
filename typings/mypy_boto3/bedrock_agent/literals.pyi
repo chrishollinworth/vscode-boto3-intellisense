@@ -28,8 +28,10 @@ __all__ = (
     "AgentCollaborationType",
     "AgentStatusType",
     "AgentsforBedrockServiceName",
+    "AliasInvocationStateType",
     "CachePointTypeType",
     "ChunkingStrategyType",
+    "ConcurrencyTypeType",
     "ConfluenceAuthTypeType",
     "ConfluenceHostTypeType",
     "ContentDataSourceTypeType",
@@ -47,11 +49,13 @@ __all__ = (
     "EnrichmentStrategyMethodType",
     "FlowConnectionTypeType",
     "FlowNodeIODataTypeType",
+    "FlowNodeInputCategoryType",
     "FlowNodeTypeType",
     "FlowStatusType",
     "FlowValidationSeverityType",
     "FlowValidationTypeType",
     "IncludeExcludeType",
+    "IncompatibleLoopNodeTypeType",
     "IngestionJobFilterAttributeType",
     "IngestionJobFilterOperatorType",
     "IngestionJobSortByAttributeType",
@@ -82,6 +86,7 @@ __all__ = (
     "PaginatorName",
     "ParsingModalityType",
     "ParsingStrategyType",
+    "PerformanceConfigLatencyType",
     "PromptStateType",
     "PromptTemplateTypeType",
     "PromptTypeType",
@@ -92,6 +97,7 @@ __all__ = (
     "RedshiftServerlessAuthTypeType",
     "RelayConversationHistoryType",
     "RequireConfirmationType",
+    "RerankingMetadataSelectionModeType",
     "ResourceServiceName",
     "SalesforceAuthTypeType",
     "ServiceName",
@@ -102,6 +108,7 @@ __all__ = (
     "SupplementalDataStorageLocationTypeType",
     "SupportedLanguagesType",
     "TypeType",
+    "VectorSearchRerankingConfigurationTypeType",
     "WebScopeTypeType",
 )
 
@@ -127,8 +134,10 @@ AgentStatusType = Literal[
     "UPDATING",
     "VERSIONING",
 ]
+AliasInvocationStateType = Literal["ACCEPT_INVOCATIONS", "REJECT_INVOCATIONS"]
 CachePointTypeType = Literal["default"]
 ChunkingStrategyType = Literal["FIXED_SIZE", "HIERARCHICAL", "NONE", "SEMANTIC"]
+ConcurrencyTypeType = Literal["Automatic", "Manual"]
 ConfluenceAuthTypeType = Literal["BASIC", "OAUTH2_CLIENT_CREDENTIALS"]
 ConfluenceHostTypeType = Literal["SAAS"]
 ContentDataSourceTypeType = Literal["CUSTOM", "S3"]
@@ -161,6 +170,7 @@ EmbeddingDataTypeType = Literal["BINARY", "FLOAT32"]
 EnrichmentStrategyMethodType = Literal["CHUNK_ENTITY_EXTRACTION"]
 FlowConnectionTypeType = Literal["Conditional", "Data"]
 FlowNodeIODataTypeType = Literal["Array", "Boolean", "Number", "Object", "String"]
+FlowNodeInputCategoryType = Literal["ExitLoop", "LoopCondition", "ReturnValueToLoopStart"]
 FlowNodeTypeType = Literal[
     "Agent",
     "Collector",
@@ -171,6 +181,9 @@ FlowNodeTypeType = Literal[
     "KnowledgeBase",
     "LambdaFunction",
     "Lex",
+    "Loop",
+    "LoopController",
+    "LoopInput",
     "Output",
     "Prompt",
     "Retrieval",
@@ -183,6 +196,8 @@ FlowValidationTypeType = Literal[
     "DuplicateConditionExpression",
     "DuplicateConnections",
     "IncompatibleConnectionDataType",
+    "InvalidLoopBoundary",
+    "LoopIncompatibleNodeType",
     "MalformedConditionExpression",
     "MalformedNodeInputExpression",
     "MismatchedNodeInputType",
@@ -190,10 +205,14 @@ FlowValidationTypeType = Literal[
     "MissingConnectionConfiguration",
     "MissingDefaultCondition",
     "MissingEndingNodes",
+    "MissingLoopControllerNode",
+    "MissingLoopInputNode",
     "MissingNodeConfiguration",
     "MissingNodeInput",
     "MissingNodeOutput",
     "MissingStartingNodes",
+    "MultipleLoopControllerNodes",
+    "MultipleLoopInputNodes",
     "MultipleNodeInputConnections",
     "UnfulfilledNodeInput",
     "UnknownConnectionCondition",
@@ -208,6 +227,7 @@ FlowValidationTypeType = Literal[
     "Unspecified",
 ]
 IncludeExcludeType = Literal["EXCLUDE", "INCLUDE"]
+IncompatibleLoopNodeTypeType = Literal["Collector", "Condition", "Input", "Iterator"]
 IngestionJobFilterAttributeType = Literal["STATUS"]
 IngestionJobFilterOperatorType = Literal["EQ"]
 IngestionJobSortByAttributeType = Literal["STARTED_AT", "STATUS"]
@@ -227,6 +247,7 @@ KnowledgeBaseStorageTypeType = Literal[
     "PINECONE",
     "RDS",
     "REDIS_ENTERPRISE_CLOUD",
+    "S3_VECTORS",
 ]
 KnowledgeBaseTypeType = Literal["KENDRA", "SQL", "VECTOR"]
 ListAgentActionGroupsPaginatorName = Literal["list_agent_action_groups"]
@@ -249,6 +270,7 @@ MetadataValueTypeType = Literal["BOOLEAN", "NUMBER", "STRING", "STRING_LIST"]
 OrchestrationTypeType = Literal["CUSTOM_ORCHESTRATION", "DEFAULT"]
 ParsingModalityType = Literal["MULTIMODAL"]
 ParsingStrategyType = Literal["BEDROCK_DATA_AUTOMATION", "BEDROCK_FOUNDATION_MODEL"]
+PerformanceConfigLatencyType = Literal["optimized", "standard"]
 PromptStateType = Literal["DISABLED", "ENABLED"]
 PromptTemplateTypeType = Literal["CHAT", "TEXT"]
 PromptTypeType = Literal[
@@ -265,6 +287,7 @@ RedshiftQueryEngineTypeType = Literal["PROVISIONED", "SERVERLESS"]
 RedshiftServerlessAuthTypeType = Literal["IAM", "USERNAME_PASSWORD"]
 RelayConversationHistoryType = Literal["DISABLED", "TO_COLLABORATOR"]
 RequireConfirmationType = Literal["DISABLED", "ENABLED"]
+RerankingMetadataSelectionModeType = Literal["ALL", "SELECTIVE"]
 SalesforceAuthTypeType = Literal["OAUTH2_CLIENT_CREDENTIALS"]
 SharePointAuthTypeType = Literal[
     "OAUTH2_CLIENT_CREDENTIALS", "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS"
@@ -275,6 +298,7 @@ StepTypeType = Literal["POST_CHUNKING"]
 SupplementalDataStorageLocationTypeType = Literal["S3"]
 SupportedLanguagesType = Literal["Python_3"]
 TypeType = Literal["array", "boolean", "integer", "number", "string"]
+VectorSearchRerankingConfigurationTypeType = Literal["BEDROCK_RERANKING_MODEL"]
 WebScopeTypeType = Literal["HOST_ONLY", "SUBDOMAINS"]
 AgentsforBedrockServiceName = Literal["bedrock-agent"]
 ServiceName = Literal[
@@ -282,6 +306,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -302,7 +327,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -314,11 +339,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -367,6 +396,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -422,6 +452,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -464,7 +495,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -479,6 +509,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -502,8 +533,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -534,9 +563,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -546,17 +577,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -574,13 +608,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -595,20 +626,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -633,8 +666,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -674,26 +707,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_agent_action_groups",

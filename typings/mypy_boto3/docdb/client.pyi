@@ -208,6 +208,7 @@ class Exceptions(BaseClientExceptions):
     InvalidSubnet: Type[BotocoreClientError]
     InvalidVPCNetworkStateFault: Type[BotocoreClientError]
     KMSKeyNotAccessibleFault: Type[BotocoreClientError]
+    NetworkTypeNotSupported: Type[BotocoreClientError]
     ResourceNotFoundFault: Type[BotocoreClientError]
     SNSInvalidTopicFault: Type[BotocoreClientError]
     SNSNoAuthorizationFault: Type[BotocoreClientError]

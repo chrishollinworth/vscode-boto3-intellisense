@@ -84,6 +84,8 @@ from .type_defs import (
     GetCustomDomainAssociationResponseTypeDef,
     GetEndpointAccessRequestTypeDef,
     GetEndpointAccessResponseTypeDef,
+    GetIdentityCenterAuthTokenRequestTypeDef,
+    GetIdentityCenterAuthTokenResponseTypeDef,
     GetNamespaceRequestTypeDef,
     GetNamespaceResponseTypeDef,
     GetRecoveryPointRequestTypeDef,
@@ -152,6 +154,8 @@ from .type_defs import (
     UpdateCustomDomainAssociationResponseTypeDef,
     UpdateEndpointAccessRequestTypeDef,
     UpdateEndpointAccessResponseTypeDef,
+    UpdateLakehouseConfigurationRequestTypeDef,
+    UpdateLakehouseConfigurationResponseTypeDef,
     UpdateNamespaceRequestTypeDef,
     UpdateNamespaceResponseTypeDef,
     UpdateScheduledActionRequestTypeDef,
@@ -183,6 +187,7 @@ class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
+    DryRunException: Type[BotocoreClientError]
     InsufficientCapacityException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
     InvalidPaginationException: Type[BotocoreClientError]
@@ -450,6 +455,17 @@ class RedshiftServerlessClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_endpoint_access.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_endpoint_access)
+        """
+
+    def get_identity_center_auth_token(
+        self, **kwargs: Unpack[GetIdentityCenterAuthTokenRequestTypeDef]
+    ) -> GetIdentityCenterAuthTokenResponseTypeDef:
+        """
+        Returns an Identity Center authentication token for accessing Amazon Redshift
+        Serverless workgroups.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_identity_center_auth_token.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_identity_center_auth_token)
         """
 
     def get_namespace(
@@ -796,6 +812,16 @@ class RedshiftServerlessClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/update_endpoint_access.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#update_endpoint_access)
+        """
+
+    def update_lakehouse_configuration(
+        self, **kwargs: Unpack[UpdateLakehouseConfigurationRequestTypeDef]
+    ) -> UpdateLakehouseConfigurationResponseTypeDef:
+        """
+        Modifies the lakehouse configuration for a namespace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/update_lakehouse_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#update_lakehouse_configuration)
         """
 
     def update_namespace(

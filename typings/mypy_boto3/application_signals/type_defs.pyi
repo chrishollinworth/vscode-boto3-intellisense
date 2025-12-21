@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_application_signals.type_defs import TimestampTypeDef
+    from mypy_boto3_application_signals.type_defs import AttributeFilterOutputTypeDef
 
-    data: TimestampTypeDef = ...
+    data: AttributeFilterOutputTypeDef = ...
     ```
 """
 
@@ -21,12 +21,16 @@ from datetime import datetime
 from typing import Union
 
 from .literals import (
+    ChangeEventTypeType,
+    ConnectionTypeType,
+    DetailLevelType,
     DurationUnitType,
     EvaluationTypeType,
     MetricSourceTypeType,
     ServiceLevelIndicatorComparisonOperatorType,
     ServiceLevelIndicatorMetricTypeType,
     ServiceLevelObjectiveBudgetStatusType,
+    SeverityType,
     StandardUnitType,
 )
 
@@ -42,6 +46,13 @@ else:
     from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
+    "AttributeFilterOutputTypeDef",
+    "AttributeFilterTypeDef",
+    "AttributeFilterUnionTypeDef",
+    "AuditFindingTypeDef",
+    "AuditTargetEntityTypeDef",
+    "AuditTargetTypeDef",
+    "AuditorResultTypeDef",
     "BatchGetServiceLevelObjectiveBudgetReportInputTypeDef",
     "BatchGetServiceLevelObjectiveBudgetReportOutputTypeDef",
     "BatchUpdateExclusionWindowsErrorTypeDef",
@@ -50,13 +61,17 @@ __all__ = (
     "BurnRateConfigurationTypeDef",
     "CalendarIntervalOutputTypeDef",
     "CalendarIntervalTypeDef",
+    "CanaryEntityTypeDef",
+    "ChangeEventTypeDef",
     "CreateServiceLevelObjectiveInputTypeDef",
     "CreateServiceLevelObjectiveOutputTypeDef",
     "DeleteServiceLevelObjectiveInputTypeDef",
     "DependencyConfigOutputTypeDef",
     "DependencyConfigTypeDef",
     "DependencyConfigUnionTypeDef",
+    "DependencyGraphTypeDef",
     "DimensionTypeDef",
+    "EdgeTypeDef",
     "ExclusionWindowOutputTypeDef",
     "ExclusionWindowTypeDef",
     "ExclusionWindowUnionTypeDef",
@@ -67,8 +82,19 @@ __all__ = (
     "GoalOutputTypeDef",
     "GoalTypeDef",
     "GoalUnionTypeDef",
+    "GroupingAttributeDefinitionOutputTypeDef",
+    "GroupingAttributeDefinitionTypeDef",
+    "GroupingAttributeDefinitionUnionTypeDef",
+    "GroupingConfigurationTypeDef",
     "IntervalOutputTypeDef",
     "IntervalTypeDef",
+    "ListAuditFindingsInputTypeDef",
+    "ListAuditFindingsOutputTypeDef",
+    "ListEntityEventsInputPaginateTypeDef",
+    "ListEntityEventsInputTypeDef",
+    "ListEntityEventsOutputTypeDef",
+    "ListGroupingAttributeDefinitionsInputTypeDef",
+    "ListGroupingAttributeDefinitionsOutputTypeDef",
     "ListServiceDependenciesInputPaginateTypeDef",
     "ListServiceDependenciesInputTypeDef",
     "ListServiceDependenciesOutputTypeDef",
@@ -84,6 +110,9 @@ __all__ = (
     "ListServiceOperationsInputPaginateTypeDef",
     "ListServiceOperationsInputTypeDef",
     "ListServiceOperationsOutputTypeDef",
+    "ListServiceStatesInputPaginateTypeDef",
+    "ListServiceStatesInputTypeDef",
+    "ListServiceStatesOutputTypeDef",
     "ListServicesInputPaginateTypeDef",
     "ListServicesInputTypeDef",
     "ListServicesOutputTypeDef",
@@ -92,6 +121,7 @@ __all__ = (
     "MetricDataQueryOutputTypeDef",
     "MetricDataQueryTypeDef",
     "MetricDataQueryUnionTypeDef",
+    "MetricGraphTypeDef",
     "MetricOutputTypeDef",
     "MetricReferenceTypeDef",
     "MetricStatOutputTypeDef",
@@ -102,7 +132,10 @@ __all__ = (
     "MonitoredRequestCountMetricDataQueriesOutputTypeDef",
     "MonitoredRequestCountMetricDataQueriesTypeDef",
     "MonitoredRequestCountMetricDataQueriesUnionTypeDef",
+    "NodeTypeDef",
     "PaginatorConfigTypeDef",
+    "PutGroupingConfigurationInputTypeDef",
+    "PutGroupingConfigurationOutputTypeDef",
     "RecurrenceRuleTypeDef",
     "RequestBasedServiceLevelIndicatorConfigTypeDef",
     "RequestBasedServiceLevelIndicatorMetricConfigTypeDef",
@@ -112,15 +145,20 @@ __all__ = (
     "RollingIntervalTypeDef",
     "ServiceDependencyTypeDef",
     "ServiceDependentTypeDef",
+    "ServiceEntityTypeDef",
+    "ServiceGroupTypeDef",
     "ServiceLevelIndicatorConfigTypeDef",
     "ServiceLevelIndicatorMetricConfigTypeDef",
     "ServiceLevelIndicatorMetricTypeDef",
     "ServiceLevelIndicatorTypeDef",
     "ServiceLevelObjectiveBudgetReportErrorTypeDef",
     "ServiceLevelObjectiveBudgetReportTypeDef",
+    "ServiceLevelObjectiveEntityTypeDef",
     "ServiceLevelObjectiveSummaryTypeDef",
     "ServiceLevelObjectiveTypeDef",
+    "ServiceOperationEntityTypeDef",
     "ServiceOperationTypeDef",
+    "ServiceStateTypeDef",
     "ServiceSummaryTypeDef",
     "ServiceTypeDef",
     "TagResourceRequestTypeDef",
@@ -131,6 +169,37 @@ __all__ = (
     "UpdateServiceLevelObjectiveOutputTypeDef",
     "WindowTypeDef",
 )
+
+class AttributeFilterOutputTypeDef(TypedDict):
+    AttributeFilterName: str
+    AttributeFilterValues: List[str]
+
+class AttributeFilterTypeDef(TypedDict):
+    AttributeFilterName: str
+    AttributeFilterValues: Sequence[str]
+
+class AuditorResultTypeDef(TypedDict):
+    Auditor: NotRequired[str]
+    Description: NotRequired[str]
+    Data: NotRequired[Dict[str, str]]
+    Severity: NotRequired[SeverityType]
+
+class CanaryEntityTypeDef(TypedDict):
+    CanaryName: str
+
+ServiceEntityTypeDef = TypedDict(
+    "ServiceEntityTypeDef",
+    {
+        "Type": NotRequired[str],
+        "Name": NotRequired[str],
+        "Environment": NotRequired[str],
+        "AwsAccountId": NotRequired[str],
+    },
+)
+
+class ServiceLevelObjectiveEntityTypeDef(TypedDict):
+    SloName: NotRequired[str]
+    SloArn: NotRequired[str]
 
 TimestampTypeDef = Union[datetime, str]
 
@@ -160,6 +229,16 @@ class CalendarIntervalOutputTypeDef(TypedDict):
     DurationUnit: DurationUnitType
     Duration: int
 
+class ChangeEventTypeDef(TypedDict):
+    Timestamp: datetime
+    AccountId: str
+    Region: str
+    Entity: Dict[str, str]
+    ChangeEventType: ChangeEventTypeType
+    EventId: str
+    UserName: NotRequired[str]
+    EventName: NotRequired[str]
+
 class TagTypeDef(TypedDict):
     Key: str
     Value: str
@@ -175,6 +254,25 @@ class DependencyConfigTypeDef(TypedDict):
     DependencyKeyAttributes: Mapping[str, str]
     DependencyOperationName: str
 
+class EdgeTypeDef(TypedDict):
+    SourceNodeId: NotRequired[str]
+    DestinationNodeId: NotRequired[str]
+    Duration: NotRequired[float]
+    ConnectionType: NotRequired[ConnectionTypeType]
+
+NodeTypeDef = TypedDict(
+    "NodeTypeDef",
+    {
+        "KeyAttributes": Dict[str, str],
+        "Name": str,
+        "NodeId": str,
+        "Operation": NotRequired[str],
+        "Type": NotRequired[str],
+        "Duration": NotRequired[float],
+        "Status": NotRequired[str],
+    },
+)
+
 class DimensionTypeDef(TypedDict):
     Name: str
     Value: str
@@ -189,6 +287,16 @@ class WindowTypeDef(TypedDict):
 class GetServiceLevelObjectiveInputTypeDef(TypedDict):
     Id: str
 
+class GroupingAttributeDefinitionOutputTypeDef(TypedDict):
+    GroupingName: str
+    GroupingSourceKeys: NotRequired[List[str]]
+    DefaultGroupingValue: NotRequired[str]
+
+class GroupingAttributeDefinitionTypeDef(TypedDict):
+    GroupingName: str
+    GroupingSourceKeys: NotRequired[Sequence[str]]
+    DefaultGroupingValue: NotRequired[str]
+
 class RollingIntervalTypeDef(TypedDict):
     DurationUnit: DurationUnitType
     Duration: int
@@ -198,6 +306,11 @@ class PaginatorConfigTypeDef(TypedDict):
     PageSize: NotRequired[int]
     StartingToken: NotRequired[str]
 
+class ListGroupingAttributeDefinitionsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    AwsAccountId: NotRequired[str]
+    IncludeLinkedAccounts: NotRequired[bool]
+
 class ListServiceLevelObjectiveExclusionWindowsInputTypeDef(TypedDict):
     Id: str
     MaxResults: NotRequired[int]
@@ -206,9 +319,22 @@ class ListServiceLevelObjectiveExclusionWindowsInputTypeDef(TypedDict):
 class ListTagsForResourceRequestTypeDef(TypedDict):
     ResourceArn: str
 
+class ServiceGroupTypeDef(TypedDict):
+    GroupName: str
+    GroupValue: str
+    GroupSource: str
+    GroupIdentifier: str
+
 class UntagResourceRequestTypeDef(TypedDict):
     ResourceArn: str
     TagKeys: Sequence[str]
+
+AttributeFilterUnionTypeDef = Union[AttributeFilterTypeDef, AttributeFilterOutputTypeDef]
+
+class ServiceOperationEntityTypeDef(TypedDict):
+    Service: NotRequired[ServiceEntityTypeDef]
+    Operation: NotRequired[str]
+    MetricType: NotRequired[str]
 
 class BatchGetServiceLevelObjectiveBudgetReportInputTypeDef(TypedDict):
     Timestamp: TimestampTypeDef
@@ -223,6 +349,13 @@ class GetServiceInputTypeDef(TypedDict):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     KeyAttributes: Mapping[str, str]
+
+class ListEntityEventsInputTypeDef(TypedDict):
+    Entity: Mapping[str, str]
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
 class ListServiceDependenciesInputTypeDef(TypedDict):
     StartTime: TimestampTypeDef
@@ -258,6 +391,18 @@ class BatchUpdateExclusionWindowsOutputTypeDef(TypedDict):
     Errors: List[BatchUpdateExclusionWindowsErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+class ListEntityEventsOutputTypeDef(TypedDict):
+    StartTime: datetime
+    EndTime: datetime
+    ChangeEvents: List[ChangeEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ServiceStateTypeDef(TypedDict):
+    Service: Dict[str, str]
+    LatestChangeEvents: List[ChangeEventTypeDef]
+    AttributeFilters: NotRequired[List[AttributeFilterOutputTypeDef]]
+
 class ListTagsForResourceResponseTypeDef(TypedDict):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -277,6 +422,10 @@ class ServiceLevelObjectiveSummaryTypeDef(TypedDict):
     MetricSourceType: NotRequired[MetricSourceTypeType]
 
 DependencyConfigUnionTypeDef = Union[DependencyConfigTypeDef, DependencyConfigOutputTypeDef]
+
+class DependencyGraphTypeDef(TypedDict):
+    Nodes: NotRequired[List[NodeTypeDef]]
+    Edges: NotRequired[List[EdgeTypeDef]]
 
 class MetricOutputTypeDef(TypedDict):
     Namespace: NotRequired[str]
@@ -307,9 +456,29 @@ class ExclusionWindowTypeDef(TypedDict):
     RecurrenceRule: NotRequired[RecurrenceRuleTypeDef]
     Reason: NotRequired[str]
 
+class GroupingConfigurationTypeDef(TypedDict):
+    GroupingAttributeDefinitions: List[GroupingAttributeDefinitionOutputTypeDef]
+    UpdatedAt: datetime
+
+class ListGroupingAttributeDefinitionsOutputTypeDef(TypedDict):
+    GroupingAttributeDefinitions: List[GroupingAttributeDefinitionOutputTypeDef]
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+GroupingAttributeDefinitionUnionTypeDef = Union[
+    GroupingAttributeDefinitionTypeDef, GroupingAttributeDefinitionOutputTypeDef
+]
+
 class IntervalOutputTypeDef(TypedDict):
     RollingInterval: NotRequired[RollingIntervalTypeDef]
     CalendarInterval: NotRequired[CalendarIntervalOutputTypeDef]
+
+class ListEntityEventsInputPaginateTypeDef(TypedDict):
+    Entity: Mapping[str, str]
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListServiceDependenciesInputPaginateTypeDef(TypedDict):
     StartTime: TimestampTypeDef
@@ -340,9 +509,39 @@ class ListServicesInputPaginateTypeDef(TypedDict):
     AwsAccountId: NotRequired[str]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListServiceStatesInputPaginateTypeDef(TypedDict):
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    IncludeLinkedAccounts: NotRequired[bool]
+    AwsAccountId: NotRequired[str]
+    AttributeFilters: NotRequired[Sequence[AttributeFilterUnionTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceStatesInputTypeDef(TypedDict):
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    IncludeLinkedAccounts: NotRequired[bool]
+    AwsAccountId: NotRequired[str]
+    AttributeFilters: NotRequired[Sequence[AttributeFilterUnionTypeDef]]
+
+class AuditTargetEntityTypeDef(TypedDict):
+    Service: NotRequired[ServiceEntityTypeDef]
+    Slo: NotRequired[ServiceLevelObjectiveEntityTypeDef]
+    ServiceOperation: NotRequired[ServiceOperationEntityTypeDef]
+    Canary: NotRequired[CanaryEntityTypeDef]
+
 class IntervalTypeDef(TypedDict):
     RollingInterval: NotRequired[RollingIntervalTypeDef]
     CalendarInterval: NotRequired[CalendarIntervalTypeDef]
+
+class ListServiceStatesOutputTypeDef(TypedDict):
+    StartTime: datetime
+    EndTime: datetime
+    ServiceStates: List[ServiceStateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class ListServiceLevelObjectivesOutputTypeDef(TypedDict):
     SloSummaries: List[ServiceLevelObjectiveSummaryTypeDef]
@@ -353,9 +552,9 @@ class ListServiceLevelObjectivesInputPaginateTypeDef(TypedDict):
     KeyAttributes: NotRequired[Mapping[str, str]]
     OperationName: NotRequired[str]
     DependencyConfig: NotRequired[DependencyConfigUnionTypeDef]
-    MetricSourceTypes: NotRequired[Sequence[MetricSourceTypeType]]
     IncludeLinkedAccounts: NotRequired[bool]
     SloOwnerAwsAccountId: NotRequired[str]
+    MetricSourceTypes: NotRequired[Sequence[MetricSourceTypeType]]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListServiceLevelObjectivesInputTypeDef(TypedDict):
@@ -364,9 +563,9 @@ class ListServiceLevelObjectivesInputTypeDef(TypedDict):
     DependencyConfig: NotRequired[DependencyConfigUnionTypeDef]
     MaxResults: NotRequired[int]
     NextToken: NotRequired[str]
-    MetricSourceTypes: NotRequired[Sequence[MetricSourceTypeType]]
     IncludeLinkedAccounts: NotRequired[bool]
     SloOwnerAwsAccountId: NotRequired[str]
+    MetricSourceTypes: NotRequired[Sequence[MetricSourceTypeType]]
 
 class MetricStatOutputTypeDef(TypedDict):
     Metric: MetricOutputTypeDef
@@ -394,11 +593,13 @@ class ServiceSummaryTypeDef(TypedDict):
     KeyAttributes: Dict[str, str]
     MetricReferences: List[MetricReferenceTypeDef]
     AttributeMaps: NotRequired[List[Dict[str, str]]]
+    ServiceGroups: NotRequired[List[ServiceGroupTypeDef]]
 
 class ServiceTypeDef(TypedDict):
     KeyAttributes: Dict[str, str]
     MetricReferences: List[MetricReferenceTypeDef]
     AttributeMaps: NotRequired[List[Dict[str, str]]]
+    ServiceGroups: NotRequired[List[ServiceGroupTypeDef]]
     LogGroupReferences: NotRequired[List[Dict[str, str]]]
 
 MetricUnionTypeDef = Union[MetricTypeDef, MetricOutputTypeDef]
@@ -410,10 +611,25 @@ class ListServiceLevelObjectiveExclusionWindowsOutputTypeDef(TypedDict):
 
 ExclusionWindowUnionTypeDef = Union[ExclusionWindowTypeDef, ExclusionWindowOutputTypeDef]
 
+class PutGroupingConfigurationOutputTypeDef(TypedDict):
+    GroupingConfiguration: GroupingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutGroupingConfigurationInputTypeDef(TypedDict):
+    GroupingAttributeDefinitions: Sequence[GroupingAttributeDefinitionUnionTypeDef]
+
 class GoalOutputTypeDef(TypedDict):
     Interval: NotRequired[IntervalOutputTypeDef]
     AttainmentGoal: NotRequired[float]
     WarningThreshold: NotRequired[float]
+
+AuditTargetTypeDef = TypedDict(
+    "AuditTargetTypeDef",
+    {
+        "Type": str,
+        "Data": AuditTargetEntityTypeDef,
+    },
+)
 
 class GoalTypeDef(TypedDict):
     Interval: NotRequired[IntervalTypeDef]
@@ -475,7 +691,21 @@ class BatchUpdateExclusionWindowsInputTypeDef(TypedDict):
     AddExclusionWindows: NotRequired[Sequence[ExclusionWindowUnionTypeDef]]
     RemoveExclusionWindows: NotRequired[Sequence[ExclusionWindowUnionTypeDef]]
 
+class ListAuditFindingsInputTypeDef(TypedDict):
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    AuditTargets: Sequence[AuditTargetTypeDef]
+    Auditors: NotRequired[Sequence[str]]
+    DetailLevel: NotRequired[DetailLevelType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
 GoalUnionTypeDef = Union[GoalTypeDef, GoalOutputTypeDef]
+
+class MetricGraphTypeDef(TypedDict):
+    MetricDataQueries: NotRequired[List[MetricDataQueryOutputTypeDef]]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
 
 class MonitoredRequestCountMetricDataQueriesOutputTypeDef(TypedDict):
     GoodCountMetric: NotRequired[List[MetricDataQueryOutputTypeDef]]
@@ -489,6 +719,17 @@ class ServiceLevelIndicatorMetricTypeDef(TypedDict):
     DependencyConfig: NotRequired[DependencyConfigOutputTypeDef]
 
 MetricStatUnionTypeDef = Union[MetricStatTypeDef, MetricStatOutputTypeDef]
+AuditFindingTypeDef = TypedDict(
+    "AuditFindingTypeDef",
+    {
+        "KeyAttributes": Dict[str, str],
+        "AuditorResults": NotRequired[List[AuditorResultTypeDef]],
+        "Operation": NotRequired[str],
+        "MetricGraph": NotRequired[MetricGraphTypeDef],
+        "DependencyGraph": NotRequired[DependencyGraphTypeDef],
+        "Type": NotRequired[str],
+    },
+)
 
 class RequestBasedServiceLevelIndicatorMetricTypeDef(TypedDict):
     TotalRequestCountMetric: List[MetricDataQueryOutputTypeDef]
@@ -511,6 +752,13 @@ class MetricDataQueryTypeDef(TypedDict):
     ReturnData: NotRequired[bool]
     Period: NotRequired[int]
     AccountId: NotRequired[str]
+
+class ListAuditFindingsOutputTypeDef(TypedDict):
+    StartTime: datetime
+    EndTime: datetime
+    AuditFindings: List[AuditFindingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class RequestBasedServiceLevelIndicatorTypeDef(TypedDict):
     RequestBasedSliMetric: RequestBasedServiceLevelIndicatorMetricTypeDef
@@ -554,6 +802,7 @@ class ServiceLevelIndicatorMetricConfigTypeDef(TypedDict):
     KeyAttributes: NotRequired[Mapping[str, str]]
     OperationName: NotRequired[str]
     MetricType: NotRequired[ServiceLevelIndicatorMetricTypeType]
+    MetricName: NotRequired[str]
     Statistic: NotRequired[str]
     PeriodSeconds: NotRequired[int]
     MetricDataQueries: NotRequired[Sequence[MetricDataQueryUnionTypeDef]]

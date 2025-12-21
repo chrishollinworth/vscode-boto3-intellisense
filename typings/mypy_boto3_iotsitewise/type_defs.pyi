@@ -37,6 +37,7 @@ from .literals import (
     BatchPutAssetPropertyValueErrorCodeType,
     CapabilitySyncStatusType,
     ColumnNameType,
+    ComputationModelStateType,
     ComputeLocationType,
     ConfigurationStateType,
     CoreDeviceOperatingSystemType,
@@ -45,6 +46,7 @@ from .literals import (
     DisassociatedDataStorageStateType,
     EncryptionTypeType,
     ErrorCodeType,
+    ExecutionStateType,
     ForwardingConfigStateType,
     IdentityTypeType,
     JobStatusType,
@@ -65,6 +67,7 @@ from .literals import (
     ResourceTypeType,
     ScalarTypeType,
     StorageTypeType,
+    TargetResourceTypeType,
     TimeOrderingType,
     TraversalDirectionType,
     WarmTierStateType,
@@ -90,12 +93,14 @@ __all__ = (
     "AggregatedValueTypeDef",
     "AggregatesTypeDef",
     "AlarmsTypeDef",
+    "AssetBindingValueFilterTypeDef",
     "AssetCompositeModelPathSegmentTypeDef",
     "AssetCompositeModelSummaryTypeDef",
     "AssetCompositeModelTypeDef",
     "AssetErrorDetailsTypeDef",
     "AssetHierarchyInfoTypeDef",
     "AssetHierarchyTypeDef",
+    "AssetModelBindingValueFilterTypeDef",
     "AssetModelCompositeModelDefinitionTypeDef",
     "AssetModelCompositeModelOutputTypeDef",
     "AssetModelCompositeModelPathSegmentTypeDef",
@@ -104,6 +109,8 @@ __all__ = (
     "AssetModelCompositeModelUnionTypeDef",
     "AssetModelHierarchyDefinitionTypeDef",
     "AssetModelHierarchyTypeDef",
+    "AssetModelPropertyBindingValueFilterTypeDef",
+    "AssetModelPropertyBindingValueTypeDef",
     "AssetModelPropertyDefinitionTypeDef",
     "AssetModelPropertyOutputTypeDef",
     "AssetModelPropertyPathSegmentTypeDef",
@@ -112,6 +119,8 @@ __all__ = (
     "AssetModelPropertyUnionTypeDef",
     "AssetModelStatusTypeDef",
     "AssetModelSummaryTypeDef",
+    "AssetPropertyBindingValueFilterTypeDef",
+    "AssetPropertyBindingValueTypeDef",
     "AssetPropertyPathSegmentTypeDef",
     "AssetPropertySummaryTypeDef",
     "AssetPropertyTypeDef",
@@ -160,6 +169,15 @@ __all__ = (
     "CompositionDetailsTypeDef",
     "CompositionRelationshipItemTypeDef",
     "CompositionRelationshipSummaryTypeDef",
+    "ComputationModelAnomalyDetectionConfigurationTypeDef",
+    "ComputationModelConfigurationTypeDef",
+    "ComputationModelDataBindingUsageSummaryTypeDef",
+    "ComputationModelDataBindingValueOutputTypeDef",
+    "ComputationModelDataBindingValueTypeDef",
+    "ComputationModelDataBindingValueUnionTypeDef",
+    "ComputationModelResolveToResourceSummaryTypeDef",
+    "ComputationModelStatusTypeDef",
+    "ComputationModelSummaryTypeDef",
     "ConfigurationErrorDetailsTypeDef",
     "ConfigurationStatusTypeDef",
     "ConflictingOperationExceptionTypeDef",
@@ -174,6 +192,8 @@ __all__ = (
     "CreateAssetResponseTypeDef",
     "CreateBulkImportJobRequestTypeDef",
     "CreateBulkImportJobResponseTypeDef",
+    "CreateComputationModelRequestTypeDef",
+    "CreateComputationModelResponseTypeDef",
     "CreateDashboardRequestTypeDef",
     "CreateDashboardResponseTypeDef",
     "CreateDatasetRequestTypeDef",
@@ -188,6 +208,8 @@ __all__ = (
     "CsvTypeDef",
     "CustomerManagedS3StorageTypeDef",
     "DashboardSummaryTypeDef",
+    "DataBindingValueFilterTypeDef",
+    "DataBindingValueTypeDef",
     "DataSetReferenceTypeDef",
     "DatasetSourceTypeDef",
     "DatasetStatusTypeDef",
@@ -198,10 +220,14 @@ __all__ = (
     "DeleteAccessPolicyRequestTypeDef",
     "DeleteAssetModelCompositeModelRequestTypeDef",
     "DeleteAssetModelCompositeModelResponseTypeDef",
+    "DeleteAssetModelInterfaceRelationshipRequestTypeDef",
+    "DeleteAssetModelInterfaceRelationshipResponseTypeDef",
     "DeleteAssetModelRequestTypeDef",
     "DeleteAssetModelResponseTypeDef",
     "DeleteAssetRequestTypeDef",
     "DeleteAssetResponseTypeDef",
+    "DeleteComputationModelRequestTypeDef",
+    "DeleteComputationModelResponseTypeDef",
     "DeleteDashboardRequestTypeDef",
     "DeleteDatasetRequestTypeDef",
     "DeleteDatasetResponseTypeDef",
@@ -218,6 +244,8 @@ __all__ = (
     "DescribeAssetCompositeModelResponseTypeDef",
     "DescribeAssetModelCompositeModelRequestTypeDef",
     "DescribeAssetModelCompositeModelResponseTypeDef",
+    "DescribeAssetModelInterfaceRelationshipRequestTypeDef",
+    "DescribeAssetModelInterfaceRelationshipResponseTypeDef",
     "DescribeAssetModelRequestTypeDef",
     "DescribeAssetModelRequestWaitExtraTypeDef",
     "DescribeAssetModelRequestWaitTypeDef",
@@ -230,11 +258,17 @@ __all__ = (
     "DescribeAssetResponseTypeDef",
     "DescribeBulkImportJobRequestTypeDef",
     "DescribeBulkImportJobResponseTypeDef",
+    "DescribeComputationModelExecutionSummaryRequestTypeDef",
+    "DescribeComputationModelExecutionSummaryResponseTypeDef",
+    "DescribeComputationModelRequestTypeDef",
+    "DescribeComputationModelResponseTypeDef",
     "DescribeDashboardRequestTypeDef",
     "DescribeDashboardResponseTypeDef",
     "DescribeDatasetRequestTypeDef",
     "DescribeDatasetResponseTypeDef",
     "DescribeDefaultEncryptionConfigurationResponseTypeDef",
+    "DescribeExecutionRequestTypeDef",
+    "DescribeExecutionResponseTypeDef",
     "DescribeGatewayCapabilityConfigurationRequestTypeDef",
     "DescribeGatewayCapabilityConfigurationResponseTypeDef",
     "DescribeGatewayRequestTypeDef",
@@ -262,6 +296,8 @@ __all__ = (
     "ExecuteQueryResponsePaginatorTypeDef",
     "ExecuteQueryResponseTypeDef",
     "ExecuteQueryResponseWaiterTypeDef",
+    "ExecutionStatusTypeDef",
+    "ExecutionSummaryTypeDef",
     "ExpressionVariableOutputTypeDef",
     "ExpressionVariableTypeDef",
     "ExpressionVariableUnionTypeDef",
@@ -286,12 +322,16 @@ __all__ = (
     "GreengrassTypeDef",
     "GreengrassV2TypeDef",
     "GroupIdentityTypeDef",
+    "HierarchyMappingTypeDef",
     "IAMRoleIdentityTypeDef",
     "IAMUserIdentityTypeDef",
     "IdentityTypeDef",
     "ImageFileTypeDef",
     "ImageLocationTypeDef",
     "ImageTypeDef",
+    "InterfaceRelationshipSummaryTypeDef",
+    "InterfaceRelationshipTypeDef",
+    "InterfaceSummaryTypeDef",
     "InternalFailureExceptionTypeDef",
     "InterpolatedAssetPropertyValueTypeDef",
     "InvalidRequestExceptionTypeDef",
@@ -337,15 +377,30 @@ __all__ = (
     "ListCompositionRelationshipsRequestPaginateTypeDef",
     "ListCompositionRelationshipsRequestTypeDef",
     "ListCompositionRelationshipsResponseTypeDef",
+    "ListComputationModelDataBindingUsagesRequestPaginateTypeDef",
+    "ListComputationModelDataBindingUsagesRequestTypeDef",
+    "ListComputationModelDataBindingUsagesResponseTypeDef",
+    "ListComputationModelResolveToResourcesRequestPaginateTypeDef",
+    "ListComputationModelResolveToResourcesRequestTypeDef",
+    "ListComputationModelResolveToResourcesResponseTypeDef",
+    "ListComputationModelsRequestPaginateTypeDef",
+    "ListComputationModelsRequestTypeDef",
+    "ListComputationModelsResponseTypeDef",
     "ListDashboardsRequestPaginateTypeDef",
     "ListDashboardsRequestTypeDef",
     "ListDashboardsResponseTypeDef",
     "ListDatasetsRequestPaginateTypeDef",
     "ListDatasetsRequestTypeDef",
     "ListDatasetsResponseTypeDef",
+    "ListExecutionsRequestPaginateTypeDef",
+    "ListExecutionsRequestTypeDef",
+    "ListExecutionsResponseTypeDef",
     "ListGatewaysRequestPaginateTypeDef",
     "ListGatewaysRequestTypeDef",
     "ListGatewaysResponseTypeDef",
+    "ListInterfaceRelationshipsRequestPaginateTypeDef",
+    "ListInterfaceRelationshipsRequestTypeDef",
+    "ListInterfaceRelationshipsResponseTypeDef",
     "ListPortalsRequestPaginateTypeDef",
     "ListPortalsRequestTypeDef",
     "ListPortalsResponseTypeDef",
@@ -362,6 +417,7 @@ __all__ = (
     "ListTimeSeriesResponseTypeDef",
     "LocationTypeDef",
     "LoggingOptionsTypeDef",
+    "MatchedDataBindingTypeDef",
     "MeasurementProcessingConfigTypeDef",
     "MeasurementTypeDef",
     "MetricOutputTypeDef",
@@ -380,12 +436,16 @@ __all__ = (
     "PortalTypeEntryUnionTypeDef",
     "ProjectResourceTypeDef",
     "ProjectSummaryTypeDef",
+    "PropertyMappingConfigurationTypeDef",
+    "PropertyMappingTypeDef",
     "PropertyNotificationTypeDef",
     "PropertyTypeDef",
     "PropertyTypeOutputTypeDef",
     "PropertyTypeTypeDef",
     "PropertyTypeUnionTypeDef",
     "PropertyValueNullValueTypeDef",
+    "PutAssetModelInterfaceRelationshipRequestTypeDef",
+    "PutAssetModelInterfaceRelationshipResponseTypeDef",
     "PutAssetPropertyValueEntryTypeDef",
     "PutDefaultEncryptionConfigurationRequestTypeDef",
     "PutDefaultEncryptionConfigurationResponseTypeDef",
@@ -393,6 +453,7 @@ __all__ = (
     "PutStorageConfigurationRequestTypeDef",
     "PutStorageConfigurationResponseTypeDef",
     "ReferenceTypeDef",
+    "ResolveToTypeDef",
     "ResourceNotFoundExceptionTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
@@ -425,6 +486,8 @@ __all__ = (
     "UpdateAssetPropertyRequestTypeDef",
     "UpdateAssetRequestTypeDef",
     "UpdateAssetResponseTypeDef",
+    "UpdateComputationModelRequestTypeDef",
+    "UpdateComputationModelResponseTypeDef",
     "UpdateDashboardRequestTypeDef",
     "UpdateDatasetRequestTypeDef",
     "UpdateDatasetResponseTypeDef",
@@ -454,8 +517,12 @@ class ActionDefinitionTypeDef(TypedDict):
 class ActionPayloadTypeDef(TypedDict):
     stringValue: str
 
-class TargetResourceTypeDef(TypedDict):
+class ResolveToTypeDef(TypedDict):
     assetId: str
+
+class TargetResourceTypeDef(TypedDict):
+    assetId: NotRequired[str]
+    computationModelId: NotRequired[str]
 
 AggregatesTypeDef = TypedDict(
     "AggregatesTypeDef",
@@ -472,6 +539,9 @@ AggregatesTypeDef = TypedDict(
 class AlarmsTypeDef(TypedDict):
     alarmRoleArn: str
     notificationLambdaArn: NotRequired[str]
+
+class AssetBindingValueFilterTypeDef(TypedDict):
+    assetId: str
 
 AssetCompositeModelPathSegmentTypeDef = TypedDict(
     "AssetCompositeModelPathSegmentTypeDef",
@@ -498,6 +568,10 @@ AssetHierarchyTypeDef = TypedDict(
         "externalId": NotRequired[str],
     },
 )
+
+class AssetModelBindingValueFilterTypeDef(TypedDict):
+    assetModelId: str
+
 AssetModelCompositeModelPathSegmentTypeDef = TypedDict(
     "AssetModelCompositeModelPathSegmentTypeDef",
     {
@@ -523,6 +597,15 @@ AssetModelHierarchyTypeDef = TypedDict(
         "externalId": NotRequired[str],
     },
 )
+
+class AssetModelPropertyBindingValueFilterTypeDef(TypedDict):
+    assetModelId: str
+    propertyId: str
+
+class AssetModelPropertyBindingValueTypeDef(TypedDict):
+    assetModelId: str
+    propertyId: str
+
 AssetModelPropertyPathSegmentTypeDef = TypedDict(
     "AssetModelPropertyPathSegmentTypeDef",
     {
@@ -530,6 +613,19 @@ AssetModelPropertyPathSegmentTypeDef = TypedDict(
         "name": NotRequired[str],
     },
 )
+
+class InterfaceSummaryTypeDef(TypedDict):
+    interfaceAssetModelId: str
+    interfaceAssetModelPropertyId: str
+
+class AssetPropertyBindingValueFilterTypeDef(TypedDict):
+    assetId: str
+    propertyId: str
+
+class AssetPropertyBindingValueTypeDef(TypedDict):
+    assetId: str
+    propertyId: str
+
 AssetPropertyPathSegmentTypeDef = TypedDict(
     "AssetPropertyPathSegmentTypeDef",
     {
@@ -633,6 +729,10 @@ class CompositionRelationshipSummaryTypeDef(TypedDict):
     assetModelCompositeModelId: str
     assetModelCompositeModelType: str
 
+class ComputationModelAnomalyDetectionConfigurationTypeDef(TypedDict):
+    inputProperties: str
+    resultProperty: str
+
 class ConfigurationErrorDetailsTypeDef(TypedDict):
     code: ErrorCodeType
     message: str
@@ -645,11 +745,11 @@ class ConflictingOperationExceptionTypeDef(TypedDict):
 class CreateAssetRequestTypeDef(TypedDict):
     assetName: str
     assetModelId: str
+    assetId: NotRequired[str]
+    assetExternalId: NotRequired[str]
     clientToken: NotRequired[str]
     tags: NotRequired[Mapping[str, str]]
     assetDescription: NotRequired[str]
-    assetId: NotRequired[str]
-    assetExternalId: NotRequired[str]
 
 class ErrorReportLocationTypeDef(TypedDict):
     bucket: str
@@ -726,6 +826,11 @@ class DeleteAssetModelCompositeModelRequestTypeDef(TypedDict):
     ifNoneMatch: NotRequired[str]
     matchForVersionType: NotRequired[AssetModelVersionTypeType]
 
+class DeleteAssetModelInterfaceRelationshipRequestTypeDef(TypedDict):
+    assetModelId: str
+    interfaceAssetModelId: str
+    clientToken: NotRequired[str]
+
 class DeleteAssetModelRequestTypeDef(TypedDict):
     assetModelId: str
     clientToken: NotRequired[str]
@@ -735,6 +840,10 @@ class DeleteAssetModelRequestTypeDef(TypedDict):
 
 class DeleteAssetRequestTypeDef(TypedDict):
     assetId: str
+    clientToken: NotRequired[str]
+
+class DeleteComputationModelRequestTypeDef(TypedDict):
+    computationModelId: str
     clientToken: NotRequired[str]
 
 class DeleteDashboardRequestTypeDef(TypedDict):
@@ -777,6 +886,18 @@ class DescribeAssetModelCompositeModelRequestTypeDef(TypedDict):
     assetModelCompositeModelId: str
     assetModelVersion: NotRequired[str]
 
+class DescribeAssetModelInterfaceRelationshipRequestTypeDef(TypedDict):
+    assetModelId: str
+    interfaceAssetModelId: str
+
+class HierarchyMappingTypeDef(TypedDict):
+    assetModelHierarchyId: str
+    interfaceAssetModelHierarchyId: str
+
+class PropertyMappingTypeDef(TypedDict):
+    assetModelPropertyId: str
+    interfaceAssetModelPropertyId: str
+
 class DescribeAssetModelRequestTypeDef(TypedDict):
     assetModelId: str
     excludeProperties: NotRequired[bool]
@@ -785,6 +906,13 @@ class DescribeAssetModelRequestTypeDef(TypedDict):
 class WaiterConfigTypeDef(TypedDict):
     Delay: NotRequired[int]
     MaxAttempts: NotRequired[int]
+
+InterfaceRelationshipTypeDef = TypedDict(
+    "InterfaceRelationshipTypeDef",
+    {
+        "id": str,
+    },
+)
 
 class DescribeAssetPropertyRequestTypeDef(TypedDict):
     assetId: str
@@ -797,11 +925,26 @@ class DescribeAssetRequestTypeDef(TypedDict):
 class DescribeBulkImportJobRequestTypeDef(TypedDict):
     jobId: str
 
+class DescribeComputationModelExecutionSummaryRequestTypeDef(TypedDict):
+    computationModelId: str
+    resolveToResourceType: NotRequired[Literal["ASSET"]]
+    resolveToResourceId: NotRequired[str]
+
+class DescribeComputationModelRequestTypeDef(TypedDict):
+    computationModelId: str
+    computationModelVersion: NotRequired[str]
+
 class DescribeDashboardRequestTypeDef(TypedDict):
     dashboardId: str
 
 class DescribeDatasetRequestTypeDef(TypedDict):
     datasetId: str
+
+class DescribeExecutionRequestTypeDef(TypedDict):
+    executionId: str
+
+class ExecutionStatusTypeDef(TypedDict):
+    state: ExecutionStateType
 
 class DescribeGatewayCapabilityConfigurationRequestTypeDef(TypedDict):
     gatewayId: str
@@ -929,6 +1072,12 @@ UserIdentityTypeDef = TypedDict(
         "id": str,
     },
 )
+InterfaceRelationshipSummaryTypeDef = TypedDict(
+    "InterfaceRelationshipSummaryTypeDef",
+    {
+        "id": str,
+    },
+)
 
 class InternalFailureExceptionTypeDef(TypedDict):
     message: str
@@ -967,10 +1116,12 @@ class ListAccessPoliciesRequestTypeDef(TypedDict):
     maxResults: NotRequired[int]
 
 class ListActionsRequestTypeDef(TypedDict):
-    targetResourceType: Literal["ASSET"]
+    targetResourceType: TargetResourceTypeType
     targetResourceId: str
     nextToken: NotRequired[str]
     maxResults: NotRequired[int]
+    resolveToResourceType: NotRequired[Literal["ASSET"]]
+    resolveToResourceId: NotRequired[str]
 
 class ListAssetModelCompositeModelsRequestTypeDef(TypedDict):
     assetModelId: str
@@ -1042,6 +1193,16 @@ class ListCompositionRelationshipsRequestTypeDef(TypedDict):
     nextToken: NotRequired[str]
     maxResults: NotRequired[int]
 
+class ListComputationModelResolveToResourcesRequestTypeDef(TypedDict):
+    computationModelId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListComputationModelsRequestTypeDef(TypedDict):
+    computationModelType: NotRequired[Literal["ANOMALY_DETECTION"]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
 class ListDashboardsRequestTypeDef(TypedDict):
     projectId: str
     nextToken: NotRequired[str]
@@ -1052,7 +1213,21 @@ class ListDatasetsRequestTypeDef(TypedDict):
     nextToken: NotRequired[str]
     maxResults: NotRequired[int]
 
+class ListExecutionsRequestTypeDef(TypedDict):
+    targetResourceType: TargetResourceTypeType
+    targetResourceId: str
+    resolveToResourceType: NotRequired[Literal["ASSET"]]
+    resolveToResourceId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    actionType: NotRequired[str]
+
 class ListGatewaysRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListInterfaceRelationshipsRequestTypeDef(TypedDict):
+    interfaceAssetModelId: str
     nextToken: NotRequired[str]
     maxResults: NotRequired[int]
 
@@ -1168,9 +1343,9 @@ class UpdateAssetPropertyRequestTypeDef(TypedDict):
 class UpdateAssetRequestTypeDef(TypedDict):
     assetId: str
     assetName: str
+    assetExternalId: NotRequired[str]
     clientToken: NotRequired[str]
     assetDescription: NotRequired[str]
-    assetExternalId: NotRequired[str]
 
 class UpdateDashboardRequestTypeDef(TypedDict):
     dashboardId: str
@@ -1194,16 +1369,21 @@ class UpdateProjectRequestTypeDef(TypedDict):
     projectDescription: NotRequired[str]
     clientToken: NotRequired[str]
 
+class ComputationModelResolveToResourceSummaryTypeDef(TypedDict):
+    resolveTo: NotRequired[ResolveToTypeDef]
+
 class ActionSummaryTypeDef(TypedDict):
     actionId: NotRequired[str]
     actionDefinitionId: NotRequired[str]
     targetResource: NotRequired[TargetResourceTypeDef]
+    resolveTo: NotRequired[ResolveToTypeDef]
 
 class ExecuteActionRequestTypeDef(TypedDict):
     targetResource: TargetResourceTypeDef
     actionDefinitionId: str
     actionPayload: ActionPayloadTypeDef
     clientToken: NotRequired[str]
+    resolveTo: NotRequired[ResolveToTypeDef]
 
 class AggregatedValueTypeDef(TypedDict):
     timestamp: datetime
@@ -1248,16 +1428,43 @@ class VariableValueTypeDef(TypedDict):
     hierarchyId: NotRequired[str]
     propertyPath: NotRequired[Sequence[AssetModelPropertyPathSegmentTypeDef]]
 
+class DataBindingValueFilterTypeDef(TypedDict):
+    asset: NotRequired[AssetBindingValueFilterTypeDef]
+    assetModel: NotRequired[AssetModelBindingValueFilterTypeDef]
+    assetProperty: NotRequired[AssetPropertyBindingValueFilterTypeDef]
+    assetModelProperty: NotRequired[AssetModelPropertyBindingValueFilterTypeDef]
+
+ComputationModelDataBindingValueOutputTypeDef = TypedDict(
+    "ComputationModelDataBindingValueOutputTypeDef",
+    {
+        "assetModelProperty": NotRequired[AssetModelPropertyBindingValueTypeDef],
+        "assetProperty": NotRequired[AssetPropertyBindingValueTypeDef],
+        "list": NotRequired[List[Dict[str, Any]]],
+    },
+)
+ComputationModelDataBindingValueTypeDef = TypedDict(
+    "ComputationModelDataBindingValueTypeDef",
+    {
+        "assetModelProperty": NotRequired[AssetModelPropertyBindingValueTypeDef],
+        "assetProperty": NotRequired[AssetPropertyBindingValueTypeDef],
+        "list": NotRequired[Sequence[Mapping[str, Any]]],
+    },
+)
+
+class DataBindingValueTypeDef(TypedDict):
+    assetModelProperty: NotRequired[AssetModelPropertyBindingValueTypeDef]
+    assetProperty: NotRequired[AssetPropertyBindingValueTypeDef]
+
 AssetPropertySummaryTypeDef = TypedDict(
     "AssetPropertySummaryTypeDef",
     {
         "id": str,
+        "externalId": NotRequired[str],
         "alias": NotRequired[str],
         "unit": NotRequired[str],
         "notification": NotRequired[PropertyNotificationTypeDef],
         "assetCompositeModelId": NotRequired[str],
         "path": NotRequired[List[AssetPropertyPathSegmentTypeDef]],
-        "externalId": NotRequired[str],
     },
 )
 AssetPropertyTypeDef = TypedDict(
@@ -1266,12 +1473,12 @@ AssetPropertyTypeDef = TypedDict(
         "id": str,
         "name": str,
         "dataType": PropertyDataTypeType,
+        "externalId": NotRequired[str],
         "alias": NotRequired[str],
         "notification": NotRequired[PropertyNotificationTypeDef],
         "dataTypeSpec": NotRequired[str],
         "unit": NotRequired[str],
         "path": NotRequired[List[AssetPropertyPathSegmentTypeDef]],
-        "externalId": NotRequired[str],
     },
 )
 
@@ -1320,6 +1527,13 @@ class DescribeActionResponseTypeDef(TypedDict):
     actionDefinitionId: str
     actionPayload: ActionPayloadTypeDef
     executionTime: datetime
+    resolveTo: ResolveToTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeComputationModelExecutionSummaryResponseTypeDef(TypedDict):
+    computationModelId: str
+    resolveTo: ResolveToTypeDef
+    computationModelExecutionSummary: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeDashboardResponseTypeDef(TypedDict):
@@ -1471,6 +1685,9 @@ class ListCompositionRelationshipsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
+class ComputationModelConfigurationTypeDef(TypedDict):
+    anomalyDetection: NotRequired[ComputationModelAnomalyDetectionConfigurationTypeDef]
+
 class ConfigurationStatusTypeDef(TypedDict):
     state: ConfigurationStateType
     error: NotRequired[ConfigurationErrorDetailsTypeDef]
@@ -1499,6 +1716,18 @@ class RowTypeDef(TypedDict):
 
 class RowWaiterTypeDef(TypedDict):
     data: List[DatumWaiterTypeDef]
+
+class DescribeAssetModelInterfaceRelationshipResponseTypeDef(TypedDict):
+    assetModelId: str
+    interfaceAssetModelId: str
+    propertyMappings: List[PropertyMappingTypeDef]
+    hierarchyMappings: List[HierarchyMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PropertyMappingConfigurationTypeDef(TypedDict):
+    matchByPropertyName: NotRequired[bool]
+    createMissingProperty: NotRequired[bool]
+    overrides: NotRequired[Sequence[PropertyMappingTypeDef]]
 
 class DescribeAssetModelRequestWaitExtraTypeDef(TypedDict):
     assetModelId: str
@@ -1529,6 +1758,31 @@ class DescribePortalRequestWaitExtraTypeDef(TypedDict):
 class DescribePortalRequestWaitTypeDef(TypedDict):
     portalId: str
     WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeExecutionResponseTypeDef(TypedDict):
+    executionId: str
+    actionType: str
+    targetResource: TargetResourceTypeDef
+    targetResourceVersion: str
+    resolveTo: ResolveToTypeDef
+    executionStartTime: datetime
+    executionEndTime: datetime
+    executionStatus: ExecutionStatusTypeDef
+    executionResult: Dict[str, str]
+    executionDetails: Dict[str, str]
+    executionEntityVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExecutionSummaryTypeDef(TypedDict):
+    executionId: str
+    targetResource: TargetResourceTypeDef
+    targetResourceVersion: str
+    executionStartTime: datetime
+    executionStatus: ExecutionStatusTypeDef
+    actionType: NotRequired[str]
+    resolveTo: NotRequired[ResolveToTypeDef]
+    executionEndTime: NotRequired[datetime]
+    executionEntityVersion: NotRequired[str]
 
 class DescribeLoggingOptionsResponseTypeDef(TypedDict):
     loggingOptions: LoggingOptionsTypeDef
@@ -1596,8 +1850,10 @@ class ListAccessPoliciesRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListActionsRequestPaginateTypeDef(TypedDict):
-    targetResourceType: Literal["ASSET"]
+    targetResourceType: TargetResourceTypeType
     targetResourceId: str
+    resolveToResourceType: NotRequired[Literal["ASSET"]]
+    resolveToResourceId: NotRequired[str]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListAssetModelCompositeModelsRequestPaginateTypeDef(TypedDict):
@@ -1661,6 +1917,14 @@ class ListCompositionRelationshipsRequestPaginateTypeDef(TypedDict):
     assetModelId: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListComputationModelResolveToResourcesRequestPaginateTypeDef(TypedDict):
+    computationModelId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListComputationModelsRequestPaginateTypeDef(TypedDict):
+    computationModelType: NotRequired[Literal["ANOMALY_DETECTION"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class ListDashboardsRequestPaginateTypeDef(TypedDict):
     projectId: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
@@ -1669,7 +1933,19 @@ class ListDatasetsRequestPaginateTypeDef(TypedDict):
     sourceType: Literal["KENDRA"]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListExecutionsRequestPaginateTypeDef(TypedDict):
+    targetResourceType: TargetResourceTypeType
+    targetResourceId: str
+    resolveToResourceType: NotRequired[Literal["ASSET"]]
+    resolveToResourceId: NotRequired[str]
+    actionType: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class ListGatewaysRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInterfaceRelationshipsRequestPaginateTypeDef(TypedDict):
+    interfaceAssetModelId: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListPortalsRequestPaginateTypeDef(TypedDict):
@@ -1706,6 +1982,11 @@ class IdentityTypeDef(TypedDict):
     group: NotRequired[GroupIdentityTypeDef]
     iamUser: NotRequired[IAMUserIdentityTypeDef]
     iamRole: NotRequired[IAMRoleIdentityTypeDef]
+
+class ListInterfaceRelationshipsResponseTypeDef(TypedDict):
+    interfaceRelationshipSummaries: List[InterfaceRelationshipSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 class ListBulkImportJobsResponseTypeDef(TypedDict):
     jobSummaries: List[JobSummaryTypeDef]
@@ -1749,6 +2030,13 @@ class VariantTypeDef(TypedDict):
     booleanValue: NotRequired[bool]
     nullValue: NotRequired[PropertyValueNullValueTypeDef]
 
+class ListComputationModelResolveToResourcesResponseTypeDef(TypedDict):
+    computationModelResolveToResourceSummaries: List[
+        ComputationModelResolveToResourceSummaryTypeDef
+    ]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
 class ListActionsResponseTypeDef(TypedDict):
     actionSummaries: List[ActionSummaryTypeDef]
     nextToken: str
@@ -1778,6 +2066,22 @@ class ExpressionVariableOutputTypeDef(TypedDict):
     value: VariableValueOutputTypeDef
 
 VariableValueUnionTypeDef = Union[VariableValueTypeDef, VariableValueOutputTypeDef]
+
+class ListComputationModelDataBindingUsagesRequestPaginateTypeDef(TypedDict):
+    dataBindingValueFilter: DataBindingValueFilterTypeDef
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListComputationModelDataBindingUsagesRequestTypeDef(TypedDict):
+    dataBindingValueFilter: DataBindingValueFilterTypeDef
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+ComputationModelDataBindingValueUnionTypeDef = Union[
+    ComputationModelDataBindingValueTypeDef, ComputationModelDataBindingValueOutputTypeDef
+]
+
+class MatchedDataBindingTypeDef(TypedDict):
+    value: DataBindingValueTypeDef
 
 class ListAssetPropertiesResponseTypeDef(TypedDict):
     assetPropertySummaries: List[AssetPropertySummaryTypeDef]
@@ -1899,12 +2203,27 @@ class ExecuteQueryResponseWaiterTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
+class PutAssetModelInterfaceRelationshipRequestTypeDef(TypedDict):
+    assetModelId: str
+    interfaceAssetModelId: str
+    propertyMappingConfiguration: PropertyMappingConfigurationTypeDef
+    clientToken: NotRequired[str]
+
+class ListExecutionsResponseTypeDef(TypedDict):
+    executionSummaries: List[ExecutionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
 class AssetModelStatusTypeDef(TypedDict):
     state: AssetModelStateType
     error: NotRequired[ErrorDetailsTypeDef]
 
 class AssetStatusTypeDef(TypedDict):
     state: AssetStateType
+    error: NotRequired[ErrorDetailsTypeDef]
+
+class ComputationModelStatusTypeDef(TypedDict):
+    state: ComputationModelStateType
     error: NotRequired[ErrorDetailsTypeDef]
 
 class DatasetStatusTypeDef(TypedDict):
@@ -2067,9 +2386,9 @@ class BatchGetAssetPropertyAggregatesResponseTypeDef(TypedDict):
     nextToken: NotRequired[str]
 
 class MetricOutputTypeDef(TypedDict):
-    expression: str
-    variables: List[ExpressionVariableOutputTypeDef]
     window: MetricWindowTypeDef
+    expression: NotRequired[str]
+    variables: NotRequired[List[ExpressionVariableOutputTypeDef]]
     processingConfig: NotRequired[MetricProcessingConfigTypeDef]
 
 class TransformOutputTypeDef(TypedDict):
@@ -2080,6 +2399,26 @@ class TransformOutputTypeDef(TypedDict):
 class ExpressionVariableTypeDef(TypedDict):
     name: str
     value: VariableValueUnionTypeDef
+
+class CreateComputationModelRequestTypeDef(TypedDict):
+    computationModelName: str
+    computationModelConfiguration: ComputationModelConfigurationTypeDef
+    computationModelDataBinding: Mapping[str, ComputationModelDataBindingValueUnionTypeDef]
+    computationModelDescription: NotRequired[str]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateComputationModelRequestTypeDef(TypedDict):
+    computationModelId: str
+    computationModelName: str
+    computationModelConfiguration: ComputationModelConfigurationTypeDef
+    computationModelDataBinding: Mapping[str, ComputationModelDataBindingValueUnionTypeDef]
+    computationModelDescription: NotRequired[str]
+    clientToken: NotRequired[str]
+
+class ComputationModelDataBindingUsageSummaryTypeDef(TypedDict):
+    computationModelIds: List[str]
+    matchedDataBinding: MatchedDataBindingTypeDef
 
 class BatchPutAssetPropertyValueResponseTypeDef(TypedDict):
     errorEntries: List[BatchPutAssetPropertyErrorEntryTypeDef]
@@ -2145,7 +2484,21 @@ class DeleteAssetModelCompositeModelResponseTypeDef(TypedDict):
     assetModelStatus: AssetModelStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+class DeleteAssetModelInterfaceRelationshipResponseTypeDef(TypedDict):
+    assetModelId: str
+    interfaceAssetModelId: str
+    assetModelArn: str
+    assetModelStatus: AssetModelStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class DeleteAssetModelResponseTypeDef(TypedDict):
+    assetModelStatus: AssetModelStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutAssetModelInterfaceRelationshipResponseTypeDef(TypedDict):
+    assetModelId: str
+    interfaceAssetModelId: str
+    assetModelArn: str
     assetModelStatus: AssetModelStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2169,8 +2522,8 @@ AssetSummaryTypeDef = TypedDict(
         "lastUpdateDate": datetime,
         "status": AssetStatusTypeDef,
         "hierarchies": List[AssetHierarchyTypeDef],
-        "description": NotRequired[str],
         "externalId": NotRequired[str],
+        "description": NotRequired[str],
     },
 )
 AssociatedAssetsSummaryTypeDef = TypedDict(
@@ -2184,8 +2537,8 @@ AssociatedAssetsSummaryTypeDef = TypedDict(
         "lastUpdateDate": datetime,
         "status": AssetStatusTypeDef,
         "hierarchies": List[AssetHierarchyTypeDef],
-        "description": NotRequired[str],
         "externalId": NotRequired[str],
+        "description": NotRequired[str],
     },
 )
 
@@ -2201,6 +2554,7 @@ class DeleteAssetResponseTypeDef(TypedDict):
 
 class DescribeAssetResponseTypeDef(TypedDict):
     assetId: str
+    assetExternalId: str
     assetArn: str
     assetName: str
     assetModelId: str
@@ -2212,11 +2566,53 @@ class DescribeAssetResponseTypeDef(TypedDict):
     assetStatus: AssetStatusTypeDef
     assetDescription: str
     assetCompositeModelSummaries: List[AssetCompositeModelSummaryTypeDef]
-    assetExternalId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateAssetResponseTypeDef(TypedDict):
     assetStatus: AssetStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ComputationModelSummaryTypeDef = TypedDict(
+    "ComputationModelSummaryTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "name": str,
+        "type": Literal["ANOMALY_DETECTION"],
+        "creationDate": datetime,
+        "lastUpdateDate": datetime,
+        "status": ComputationModelStatusTypeDef,
+        "version": str,
+        "description": NotRequired[str],
+    },
+)
+
+class CreateComputationModelResponseTypeDef(TypedDict):
+    computationModelId: str
+    computationModelArn: str
+    computationModelStatus: ComputationModelStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteComputationModelResponseTypeDef(TypedDict):
+    computationModelStatus: ComputationModelStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeComputationModelResponseTypeDef(TypedDict):
+    computationModelId: str
+    computationModelArn: str
+    computationModelName: str
+    computationModelDescription: str
+    computationModelConfiguration: ComputationModelConfigurationTypeDef
+    computationModelDataBinding: Dict[str, ComputationModelDataBindingValueOutputTypeDef]
+    computationModelCreationDate: datetime
+    computationModelLastUpdateDate: datetime
+    computationModelStatus: ComputationModelStatusTypeDef
+    computationModelVersion: str
+    actionDefinitions: List[ActionDefinitionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateComputationModelResponseTypeDef(TypedDict):
+    computationModelStatus: ComputationModelStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateDatasetResponseTypeDef(TypedDict):
@@ -2330,6 +2726,11 @@ class PropertyTypeOutputTypeDef(TypedDict):
 
 ExpressionVariableUnionTypeDef = Union[ExpressionVariableTypeDef, ExpressionVariableOutputTypeDef]
 
+class ListComputationModelDataBindingUsagesResponseTypeDef(TypedDict):
+    dataBindingUsageSummaries: List[ComputationModelDataBindingUsageSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
 class CreateBulkImportJobRequestTypeDef(TypedDict):
     jobName: str
     jobRoleArn: str
@@ -2351,6 +2752,11 @@ class ListAssetsResponseTypeDef(TypedDict):
 
 class ListAssociatedAssetsResponseTypeDef(TypedDict):
     assetSummaries: List[AssociatedAssetsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListComputationModelsResponseTypeDef(TypedDict):
+    computationModelSummaries: List[ComputationModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
@@ -2406,6 +2812,7 @@ AssetModelPropertySummaryTypeDef = TypedDict(
         "unit": NotRequired[str],
         "assetModelCompositeModelId": NotRequired[str],
         "path": NotRequired[List[AssetModelPropertyPathSegmentTypeDef]],
+        "interfaceSummaries": NotRequired[List[InterfaceSummaryTypeDef]],
     },
 )
 PropertyTypeDef = TypedDict(
@@ -2414,19 +2821,19 @@ PropertyTypeDef = TypedDict(
         "id": str,
         "name": str,
         "dataType": PropertyDataTypeType,
+        "externalId": NotRequired[str],
         "alias": NotRequired[str],
         "notification": NotRequired[PropertyNotificationTypeDef],
         "unit": NotRequired[str],
         "type": NotRequired[PropertyTypeOutputTypeDef],
         "path": NotRequired[List[AssetPropertyPathSegmentTypeDef]],
-        "externalId": NotRequired[str],
     },
 )
 
 class MetricTypeDef(TypedDict):
-    expression: str
-    variables: Sequence[ExpressionVariableUnionTypeDef]
     window: MetricWindowTypeDef
+    expression: NotRequired[str]
+    variables: NotRequired[Sequence[ExpressionVariableUnionTypeDef]]
     processingConfig: NotRequired[MetricProcessingConfigTypeDef]
 
 class TransformTypeDef(TypedDict):
@@ -2508,16 +2915,17 @@ class DescribeAssetModelResponseTypeDef(TypedDict):
     assetModelLastUpdateDate: datetime
     assetModelStatus: AssetModelStatusTypeDef
     assetModelVersion: str
+    interfaceDetails: List[InterfaceRelationshipTypeDef]
     eTag: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeAssetPropertyResponseTypeDef(TypedDict):
     assetId: str
+    assetExternalId: str
     assetName: str
     assetModelId: str
     assetProperty: PropertyTypeDef
     compositeModel: CompositeModelPropertyTypeDef
-    assetExternalId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class PropertyTypeTypeDef(TypedDict):

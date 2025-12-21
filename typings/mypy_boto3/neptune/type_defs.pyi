@@ -20,7 +20,7 @@ import sys
 from datetime import datetime
 from typing import Union
 
-from .literals import ApplyMethodType, SourceTypeType
+from .literals import ApplyMethodType, FailoverStatusType, SourceTypeType
 
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
@@ -168,6 +168,7 @@ __all__ = (
     "FailoverDBClusterResultTypeDef",
     "FailoverGlobalClusterMessageTypeDef",
     "FailoverGlobalClusterResultTypeDef",
+    "FailoverStateTypeDef",
     "FilterTypeDef",
     "GlobalClusterMemberTypeDef",
     "GlobalClusterTypeDef",
@@ -224,6 +225,8 @@ __all__ = (
     "StopDBClusterMessageTypeDef",
     "StopDBClusterResultTypeDef",
     "SubnetTypeDef",
+    "SwitchoverGlobalClusterMessageTypeDef",
+    "SwitchoverGlobalClusterResultTypeDef",
     "TagListMessageTypeDef",
     "TagTypeDef",
     "TimestampTypeDef",
@@ -505,6 +508,14 @@ class FailoverDBClusterMessageTypeDef(TypedDict):
 class FailoverGlobalClusterMessageTypeDef(TypedDict):
     GlobalClusterIdentifier: str
     TargetDbClusterIdentifier: str
+    AllowDataLoss: NotRequired[bool]
+    Switchover: NotRequired[bool]
+
+class FailoverStateTypeDef(TypedDict):
+    Status: NotRequired[FailoverStatusType]
+    FromDbClusterArn: NotRequired[str]
+    ToDbClusterArn: NotRequired[str]
+    IsDataLossAllowed: NotRequired[bool]
 
 class GlobalClusterMemberTypeDef(TypedDict):
     DBClusterArn: NotRequired[str]
@@ -584,6 +595,10 @@ class StartDBClusterMessageTypeDef(TypedDict):
 
 class StopDBClusterMessageTypeDef(TypedDict):
     DBClusterIdentifier: str
+
+class SwitchoverGlobalClusterMessageTypeDef(TypedDict):
+    GlobalClusterIdentifier: str
+    TargetDbClusterIdentifier: str
 
 class AddSourceIdentifierToSubscriptionResultTypeDef(TypedDict):
     EventSubscription: EventSubscriptionTypeDef
@@ -1318,6 +1333,7 @@ class GlobalClusterTypeDef(TypedDict):
     StorageEncrypted: NotRequired[bool]
     DeletionProtection: NotRequired[bool]
     GlobalClusterMembers: NotRequired[List[GlobalClusterMemberTypeDef]]
+    FailoverState: NotRequired[FailoverStateTypeDef]
 
 class ResourcePendingMaintenanceActionsTypeDef(TypedDict):
     ResourceIdentifier: NotRequired[str]
@@ -1432,6 +1448,10 @@ class ModifyGlobalClusterResultTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class RemoveFromGlobalClusterResultTypeDef(TypedDict):
+    GlobalCluster: GlobalClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SwitchoverGlobalClusterResultTypeDef(TypedDict):
     GlobalCluster: GlobalClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

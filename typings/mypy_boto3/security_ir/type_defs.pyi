@@ -21,17 +21,22 @@ from datetime import datetime
 from typing import Union
 
 from .literals import (
+    ActionTypeType,
     AwsRegionType,
     CaseAttachmentStatusType,
     CaseStatusType,
     ClosureCodeType,
+    CommunicationTypeType,
     CustomerTypeType,
     EngagementTypeType,
+    ExecutionStatusType,
     MembershipAccountRelationshipStatusType,
+    MembershipAccountRelationshipTypeType,
     MembershipStatusType,
     PendingActionType,
     ResolverTypeType,
     SelfManagedCaseStatusType,
+    UsefulnessRatingType,
 )
 
 if sys.version_info >= (3, 9):
@@ -52,6 +57,7 @@ __all__ = (
     "CancelMembershipResponseTypeDef",
     "CaseAttachmentAttributesTypeDef",
     "CaseEditItemTypeDef",
+    "CaseMetadataEntryTypeDef",
     "CloseCaseRequestTypeDef",
     "CloseCaseResponseTypeDef",
     "CreateCaseCommentRequestTypeDef",
@@ -71,7 +77,11 @@ __all__ = (
     "GetMembershipRequestTypeDef",
     "GetMembershipResponseTypeDef",
     "ImpactedAwsRegionTypeDef",
+    "IncidentResponderOutputTypeDef",
     "IncidentResponderTypeDef",
+    "IncidentResponderUnionTypeDef",
+    "InvestigationActionTypeDef",
+    "InvestigationFeedbackTypeDef",
     "ListCaseEditsRequestPaginateTypeDef",
     "ListCaseEditsRequestTypeDef",
     "ListCaseEditsResponseTypeDef",
@@ -83,15 +93,21 @@ __all__ = (
     "ListCommentsRequestPaginateTypeDef",
     "ListCommentsRequestTypeDef",
     "ListCommentsResponseTypeDef",
+    "ListInvestigationsRequestPaginateTypeDef",
+    "ListInvestigationsRequestTypeDef",
+    "ListInvestigationsResponseTypeDef",
     "ListMembershipItemTypeDef",
     "ListMembershipsRequestPaginateTypeDef",
     "ListMembershipsRequestTypeDef",
     "ListMembershipsResponseTypeDef",
     "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
+    "MembershipAccountsConfigurationsTypeDef",
+    "MembershipAccountsConfigurationsUpdateTypeDef",
     "OptInFeatureTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
+    "SendFeedbackRequestTypeDef",
     "TagResourceInputTypeDef",
     "ThreatActorIpTypeDef",
     "TimestampTypeDef",
@@ -119,7 +135,7 @@ class GetMembershipAccountDetailErrorTypeDef(TypedDict):
 class GetMembershipAccountDetailItemTypeDef(TypedDict):
     accountId: NotRequired[str]
     relationshipStatus: NotRequired[MembershipAccountRelationshipStatusType]
-    relationshipType: NotRequired[Literal["Organization"]]
+    relationshipType: NotRequired[MembershipAccountRelationshipTypeType]
 
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
@@ -144,6 +160,10 @@ class CaseEditItemTypeDef(TypedDict):
     action: NotRequired[str]
     message: NotRequired[str]
 
+class CaseMetadataEntryTypeDef(TypedDict):
+    key: str
+    value: str
+
 class CloseCaseRequestTypeDef(TypedDict):
     caseId: str
 
@@ -166,11 +186,6 @@ class WatcherTypeDef(TypedDict):
     name: NotRequired[str]
     jobTitle: NotRequired[str]
 
-class IncidentResponderTypeDef(TypedDict):
-    name: str
-    jobTitle: str
-    email: str
-
 class OptInFeatureTypeDef(TypedDict):
     featureName: Literal["Triage"]
     isEnabled: bool
@@ -190,6 +205,27 @@ class GetCaseRequestTypeDef(TypedDict):
 
 class GetMembershipRequestTypeDef(TypedDict):
     membershipId: str
+
+class IncidentResponderOutputTypeDef(TypedDict):
+    name: str
+    jobTitle: str
+    email: str
+    communicationPreferences: NotRequired[List[CommunicationTypeType]]
+
+class MembershipAccountsConfigurationsTypeDef(TypedDict):
+    coverEntireOrganization: NotRequired[bool]
+    organizationalUnits: NotRequired[List[str]]
+
+class IncidentResponderTypeDef(TypedDict):
+    name: str
+    jobTitle: str
+    email: str
+    communicationPreferences: NotRequired[Sequence[CommunicationTypeType]]
+
+class InvestigationFeedbackTypeDef(TypedDict):
+    usefulness: NotRequired[UsefulnessRatingType]
+    comment: NotRequired[str]
+    submittedAt: NotRequired[datetime]
 
 class PaginatorConfigTypeDef(TypedDict):
     MaxItems: NotRequired[int]
@@ -230,6 +266,11 @@ class ListCommentsRequestTypeDef(TypedDict):
     nextToken: NotRequired[str]
     maxResults: NotRequired[int]
 
+class ListInvestigationsRequestTypeDef(TypedDict):
+    caseId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
 class ListMembershipItemTypeDef(TypedDict):
     membershipId: str
     accountId: NotRequired[str]
@@ -243,6 +284,17 @@ class ListMembershipsRequestTypeDef(TypedDict):
 
 class ListTagsForResourceInputTypeDef(TypedDict):
     resourceArn: str
+
+class MembershipAccountsConfigurationsUpdateTypeDef(TypedDict):
+    coverEntireOrganization: NotRequired[bool]
+    organizationalUnitsToAdd: NotRequired[Sequence[str]]
+    organizationalUnitsToRemove: NotRequired[Sequence[str]]
+
+class SendFeedbackRequestTypeDef(TypedDict):
+    caseId: str
+    resultId: str
+    usefulness: UsefulnessRatingType
+    comment: NotRequired[str]
 
 class TagResourceInputTypeDef(TypedDict):
     resourceArn: str
@@ -358,6 +410,7 @@ class GetCaseResponseTypeDef(TypedDict):
     impactedServices: List[str]
     caseAttachments: List[CaseAttachmentAttributesTypeDef]
     closedDate: datetime
+    caseMetadata: List[CaseMetadataEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateCaseRequestTypeDef(TypedDict):
@@ -377,13 +430,7 @@ class UpdateCaseRequestTypeDef(TypedDict):
     impactedAwsRegionsToDelete: NotRequired[Sequence[ImpactedAwsRegionTypeDef]]
     impactedAccountsToAdd: NotRequired[Sequence[str]]
     impactedAccountsToDelete: NotRequired[Sequence[str]]
-
-class CreateMembershipRequestTypeDef(TypedDict):
-    membershipName: str
-    incidentResponseTeam: Sequence[IncidentResponderTypeDef]
-    clientToken: NotRequired[str]
-    optInFeatures: NotRequired[Sequence[OptInFeatureTypeDef]]
-    tags: NotRequired[Mapping[str, str]]
+    caseMetadata: NotRequired[Sequence[CaseMetadataEntryTypeDef]]
 
 class GetMembershipResponseTypeDef(TypedDict):
     membershipId: str
@@ -396,15 +443,21 @@ class GetMembershipResponseTypeDef(TypedDict):
     membershipDeactivationTimestamp: datetime
     customerType: CustomerTypeType
     numberOfAccountsCovered: int
-    incidentResponseTeam: List[IncidentResponderTypeDef]
+    incidentResponseTeam: List[IncidentResponderOutputTypeDef]
     optInFeatures: List[OptInFeatureTypeDef]
+    membershipAccountsConfigurations: MembershipAccountsConfigurationsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMembershipRequestTypeDef(TypedDict):
-    membershipId: str
-    membershipName: NotRequired[str]
-    incidentResponseTeam: NotRequired[Sequence[IncidentResponderTypeDef]]
-    optInFeatures: NotRequired[Sequence[OptInFeatureTypeDef]]
+IncidentResponderUnionTypeDef = Union[IncidentResponderTypeDef, IncidentResponderOutputTypeDef]
+
+class InvestigationActionTypeDef(TypedDict):
+    investigationId: str
+    actionType: ActionTypeType
+    title: str
+    content: str
+    status: ExecutionStatusType
+    lastUpdated: datetime
+    feedback: NotRequired[InvestigationFeedbackTypeDef]
 
 class ListCaseEditsRequestPaginateTypeDef(TypedDict):
     caseId: str
@@ -414,6 +467,10 @@ class ListCasesRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListCommentsRequestPaginateTypeDef(TypedDict):
+    caseId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInvestigationsRequestPaginateTypeDef(TypedDict):
     caseId: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
@@ -434,5 +491,28 @@ class ListCommentsResponseTypeDef(TypedDict):
 
 class ListMembershipsResponseTypeDef(TypedDict):
     items: List[ListMembershipItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateMembershipRequestTypeDef(TypedDict):
+    membershipName: str
+    incidentResponseTeam: Sequence[IncidentResponderUnionTypeDef]
+    clientToken: NotRequired[str]
+    optInFeatures: NotRequired[Sequence[OptInFeatureTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
+    coverEntireOrganization: NotRequired[bool]
+
+class UpdateMembershipRequestTypeDef(TypedDict):
+    membershipId: str
+    membershipName: NotRequired[str]
+    incidentResponseTeam: NotRequired[Sequence[IncidentResponderUnionTypeDef]]
+    optInFeatures: NotRequired[Sequence[OptInFeatureTypeDef]]
+    membershipAccountsConfigurationsUpdate: NotRequired[
+        MembershipAccountsConfigurationsUpdateTypeDef
+    ]
+    undoMembershipCancellation: NotRequired[bool]
+
+class ListInvestigationsResponseTypeDef(TypedDict):
+    investigationActions: List[InvestigationActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]

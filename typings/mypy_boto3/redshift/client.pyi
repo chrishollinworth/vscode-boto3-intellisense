@@ -218,6 +218,8 @@ from .type_defs import (
     FailoverPrimaryComputeResultTypeDef,
     GetClusterCredentialsMessageTypeDef,
     GetClusterCredentialsWithIAMMessageTypeDef,
+    GetIdentityCenterAuthTokenRequestTypeDef,
+    GetIdentityCenterAuthTokenResponseTypeDef,
     GetReservedNodeExchangeConfigurationOptionsInputMessageTypeDef,
     GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef,
     GetReservedNodeExchangeOfferingsInputMessageTypeDef,
@@ -229,6 +231,7 @@ from .type_defs import (
     InboundIntegrationsMessageTypeDef,
     IntegrationResponseTypeDef,
     IntegrationsMessageTypeDef,
+    LakehouseConfigurationTypeDef,
     ListRecommendationsMessageTypeDef,
     ListRecommendationsResultTypeDef,
     LoggingStatusTypeDef,
@@ -256,6 +259,7 @@ from .type_defs import (
     ModifyEventSubscriptionMessageTypeDef,
     ModifyEventSubscriptionResultTypeDef,
     ModifyIntegrationMessageTypeDef,
+    ModifyLakehouseConfigurationMessageTypeDef,
     ModifyRedshiftIdcApplicationMessageTypeDef,
     ModifyRedshiftIdcApplicationResultTypeDef,
     ModifyScheduledActionMessageTypeDef,
@@ -430,6 +434,7 @@ class Exceptions(BaseClientExceptions):
     RedshiftIdcApplicationAlreadyExistsFault: Type[BotocoreClientError]
     RedshiftIdcApplicationNotExistsFault: Type[BotocoreClientError]
     RedshiftIdcApplicationQuotaExceededFault: Type[BotocoreClientError]
+    RedshiftInvalidParameterFault: Type[BotocoreClientError]
     ReservedNodeAlreadyExistsFault: Type[BotocoreClientError]
     ReservedNodeAlreadyMigratedFault: Type[BotocoreClientError]
     ReservedNodeExchangeNotFoundFault: Type[BotocoreClientError]
@@ -1547,6 +1552,17 @@ class RedshiftClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_cluster_credentials_with_iam)
         """
 
+    def get_identity_center_auth_token(
+        self, **kwargs: Unpack[GetIdentityCenterAuthTokenRequestTypeDef]
+    ) -> GetIdentityCenterAuthTokenResponseTypeDef:
+        """
+        Generates an encrypted authentication token that propagates the caller's Amazon
+        Web Services IAM Identity Center identity to Amazon Redshift clusters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_identity_center_auth_token.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_identity_center_auth_token)
+        """
+
     def get_reserved_node_exchange_configuration_options(
         self, **kwargs: Unpack[GetReservedNodeExchangeConfigurationOptionsInputMessageTypeDef]
     ) -> GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef:
@@ -1728,6 +1744,16 @@ class RedshiftClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_integration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_integration)
+        """
+
+    def modify_lakehouse_configuration(
+        self, **kwargs: Unpack[ModifyLakehouseConfigurationMessageTypeDef]
+    ) -> LakehouseConfigurationTypeDef:
+        """
+        Modifies the lakehouse configuration for a cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_lakehouse_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_lakehouse_configuration)
         """
 
     def modify_redshift_idc_application(

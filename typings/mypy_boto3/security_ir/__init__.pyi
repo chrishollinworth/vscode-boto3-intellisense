@@ -14,6 +14,7 @@ Usage::
         ListCaseEditsPaginator,
         ListCasesPaginator,
         ListCommentsPaginator,
+        ListInvestigationsPaginator,
         ListMembershipsPaginator,
         SecurityIncidentResponseClient,
     )
@@ -24,6 +25,7 @@ Usage::
     list_case_edits_paginator: ListCaseEditsPaginator = client.get_paginator("list_case_edits")
     list_cases_paginator: ListCasesPaginator = client.get_paginator("list_cases")
     list_comments_paginator: ListCommentsPaginator = client.get_paginator("list_comments")
+    list_investigations_paginator: ListInvestigationsPaginator = client.get_paginator("list_investigations")
     list_memberships_paginator: ListMembershipsPaginator = client.get_paginator("list_memberships")
     ```
 """
@@ -33,6 +35,7 @@ from .paginator import (
     ListCaseEditsPaginator,
     ListCasesPaginator,
     ListCommentsPaginator,
+    ListInvestigationsPaginator,
     ListMembershipsPaginator,
 )
 
@@ -43,6 +46,7 @@ __all__ = (
     "ListCaseEditsPaginator",
     "ListCasesPaginator",
     "ListCommentsPaginator",
+    "ListInvestigationsPaginator",
     "ListMembershipsPaginator",
     "SecurityIncidentResponseClient",
 )

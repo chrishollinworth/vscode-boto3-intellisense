@@ -382,6 +382,7 @@ class Exceptions(BaseClientExceptions):
     InvalidInputException: Type[BotocoreClientError]
     NotFoundException: Type[BotocoreClientError]
     OperationFailureException: Type[BotocoreClientError]
+    RegionSetupInProgressException: Type[BotocoreClientError]
     ServiceException: Type[BotocoreClientError]
     UnauthenticatedException: Type[BotocoreClientError]
 

@@ -28,11 +28,6 @@ __all__ = (
     "AzureBlobAuthenticationTypeType",
     "AzureBlobTypeType",
     "DataSyncServiceName",
-    "DescribeStorageSystemResourceMetricsPaginatorName",
-    "DiscoveryJobStatusType",
-    "DiscoveryResourceFilterType",
-    "DiscoveryResourceTypeType",
-    "DiscoverySystemTypeType",
     "EfsInTransitEncryptionType",
     "EndpointTypeType",
     "FilterTypeType",
@@ -41,9 +36,7 @@ __all__ = (
     "HdfsDataTransferProtectionType",
     "HdfsRpcProtectionType",
     "ListAgentsPaginatorName",
-    "ListDiscoveryJobsPaginatorName",
     "ListLocationsPaginatorName",
-    "ListStorageSystemsPaginatorName",
     "ListTagsForResourcePaginatorName",
     "ListTaskExecutionsPaginatorName",
     "ListTasksPaginatorName",
@@ -63,7 +56,6 @@ __all__ = (
     "PosixPermissionsType",
     "PreserveDeletedFilesType",
     "PreserveDevicesType",
-    "RecommendationStatusType",
     "RegionName",
     "ReportLevelType",
     "ReportOutputTypeType",
@@ -75,7 +67,6 @@ __all__ = (
     "SmbAuthenticationTypeType",
     "SmbSecurityDescriptorCopyFlagsType",
     "SmbVersionType",
-    "StorageSystemConnectivityStatusType",
     "TaskExecutionStatusType",
     "TaskFilterNameType",
     "TaskModeType",
@@ -89,28 +80,17 @@ __all__ = (
 AgentStatusType = Literal["OFFLINE", "ONLINE"]
 AtimeType = Literal["BEST_EFFORT", "NONE"]
 AzureAccessTierType = Literal["ARCHIVE", "COOL", "HOT"]
-AzureBlobAuthenticationTypeType = Literal["SAS"]
+AzureBlobAuthenticationTypeType = Literal["NONE", "SAS"]
 AzureBlobTypeType = Literal["BLOCK"]
-DescribeStorageSystemResourceMetricsPaginatorName = Literal[
-    "describe_storage_system_resource_metrics"
-]
-DiscoveryJobStatusType = Literal[
-    "COMPLETED", "COMPLETED_WITH_ISSUES", "FAILED", "RUNNING", "STOPPED", "TERMINATED", "WARNING"
-]
-DiscoveryResourceFilterType = Literal["SVM"]
-DiscoveryResourceTypeType = Literal["CLUSTER", "SVM", "VOLUME"]
-DiscoverySystemTypeType = Literal["NetAppONTAP"]
 EfsInTransitEncryptionType = Literal["NONE", "TLS1_2"]
-EndpointTypeType = Literal["FIPS", "PRIVATE_LINK", "PUBLIC"]
+EndpointTypeType = Literal["FIPS", "FIPS_PRIVATE_LINK", "PRIVATE_LINK", "PUBLIC"]
 FilterTypeType = Literal["SIMPLE_PATTERN"]
 GidType = Literal["BOTH", "INT_VALUE", "NAME", "NONE"]
 HdfsAuthenticationTypeType = Literal["KERBEROS", "SIMPLE"]
 HdfsDataTransferProtectionType = Literal["AUTHENTICATION", "DISABLED", "INTEGRITY", "PRIVACY"]
 HdfsRpcProtectionType = Literal["AUTHENTICATION", "DISABLED", "INTEGRITY", "PRIVACY"]
 ListAgentsPaginatorName = Literal["list_agents"]
-ListDiscoveryJobsPaginatorName = Literal["list_discovery_jobs"]
 ListLocationsPaginatorName = Literal["list_locations"]
-ListStorageSystemsPaginatorName = Literal["list_storage_systems"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 ListTaskExecutionsPaginatorName = Literal["list_task_executions"]
 ListTasksPaginatorName = Literal["list_tasks"]
@@ -140,7 +120,6 @@ PhaseStatusType = Literal["ERROR", "PENDING", "SUCCESS"]
 PosixPermissionsType = Literal["NONE", "PRESERVE"]
 PreserveDeletedFilesType = Literal["PRESERVE", "REMOVE"]
 PreserveDevicesType = Literal["NONE", "PRESERVE"]
-RecommendationStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "NONE"]
 ReportLevelType = Literal["ERRORS_ONLY", "SUCCESSES_AND_ERRORS"]
 ReportOutputTypeType = Literal["STANDARD", "SUMMARY_ONLY"]
 S3StorageClassType = Literal[
@@ -158,7 +137,6 @@ ScheduleStatusType = Literal["DISABLED", "ENABLED"]
 SmbAuthenticationTypeType = Literal["KERBEROS", "NTLM"]
 SmbSecurityDescriptorCopyFlagsType = Literal["NONE", "OWNER_DACL", "OWNER_DACL_SACL"]
 SmbVersionType = Literal["AUTOMATIC", "SMB1", "SMB2", "SMB2_0", "SMB3"]
-StorageSystemConnectivityStatusType = Literal["FAIL", "PASS", "UNKNOWN"]
 TaskExecutionStatusType = Literal[
     "CANCELLING",
     "ERROR",
@@ -182,6 +160,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -202,7 +181,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -214,11 +193,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -267,6 +250,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -322,6 +306,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -364,7 +349,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -379,6 +363,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -402,8 +387,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -434,9 +417,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -446,17 +431,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -474,13 +462,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -495,20 +480,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -533,8 +520,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -574,40 +561,27 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
-    "describe_storage_system_resource_metrics",
-    "list_agents",
-    "list_discovery_jobs",
-    "list_locations",
-    "list_storage_systems",
-    "list_tags_for_resource",
-    "list_task_executions",
-    "list_tasks",
+    "list_agents", "list_locations", "list_tags_for_resource", "list_task_executions", "list_tasks"
 ]
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -618,6 +592,7 @@ RegionName = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ap-southeast-5",
+    "ap-southeast-6",
     "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",

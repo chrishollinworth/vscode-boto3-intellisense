@@ -49,6 +49,8 @@ from .type_defs import (
     RequestCertificateRequestTypeDef,
     RequestCertificateResponseTypeDef,
     ResendValidationEmailRequestTypeDef,
+    RevokeCertificateRequestTypeDef,
+    RevokeCertificateResponseTypeDef,
     UpdateCertificateOptionsRequestTypeDef,
 )
 from .waiter import CertificateValidatedWaiter
@@ -153,8 +155,8 @@ class ACMClient(BaseClient):
         self, **kwargs: Unpack[ExportCertificateRequestTypeDef]
     ) -> ExportCertificateResponseTypeDef:
         """
-        Exports a private certificate issued by a private certificate authority (CA)
-        for use anywhere.
+        Exports a private certificate issued by a private certificate authority (CA) or
+        public certificate for use anywhere.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm/client/export_certificate.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_acm/client/#export_certificate)
@@ -234,7 +236,9 @@ class ACMClient(BaseClient):
         self, **kwargs: Unpack[RenewCertificateRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Renews an eligible ACM certificate.
+        Renews an <a
+        href="https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html">eligible
+        ACM certificate</a>.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm/client/renew_certificate.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_acm/client/#renew_certificate)
@@ -258,6 +262,16 @@ class ACMClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm/client/resend_validation_email.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_acm/client/#resend_validation_email)
+        """
+
+    def revoke_certificate(
+        self, **kwargs: Unpack[RevokeCertificateRequestTypeDef]
+    ) -> RevokeCertificateResponseTypeDef:
+        """
+        Revokes a public ACM certificate.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm/client/revoke_certificate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_acm/client/#revoke_certificate)
         """
 
     def update_certificate_options(

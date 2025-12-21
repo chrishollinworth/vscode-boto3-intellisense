@@ -120,6 +120,7 @@ class MeterUsageRequestTypeDef(TypedDict):
     UsageQuantity: NotRequired[int]
     DryRun: NotRequired[bool]
     UsageAllocations: NotRequired[Sequence[UsageAllocationUnionTypeDef]]
+    ClientToken: NotRequired[str]
 
 class UsageRecordTypeDef(TypedDict):
     Timestamp: TimestampTypeDef

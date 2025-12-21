@@ -19,9 +19,12 @@ Usage::
         ListFindingsPaginator,
         ListIPSetsPaginator,
         ListInvitationsPaginator,
+        ListMalwareScansPaginator,
         ListMembersPaginator,
         ListOrganizationAdminAccountsPaginator,
+        ListThreatEntitySetsPaginator,
         ListThreatIntelSetsPaginator,
+        ListTrustedEntitySetsPaginator,
     )
 
     session = Session()
@@ -34,9 +37,12 @@ Usage::
     list_findings_paginator: ListFindingsPaginator = client.get_paginator("list_findings")
     list_ip_sets_paginator: ListIPSetsPaginator = client.get_paginator("list_ip_sets")
     list_invitations_paginator: ListInvitationsPaginator = client.get_paginator("list_invitations")
+    list_malware_scans_paginator: ListMalwareScansPaginator = client.get_paginator("list_malware_scans")
     list_members_paginator: ListMembersPaginator = client.get_paginator("list_members")
     list_organization_admin_accounts_paginator: ListOrganizationAdminAccountsPaginator = client.get_paginator("list_organization_admin_accounts")
+    list_threat_entity_sets_paginator: ListThreatEntitySetsPaginator = client.get_paginator("list_threat_entity_sets")
     list_threat_intel_sets_paginator: ListThreatIntelSetsPaginator = client.get_paginator("list_threat_intel_sets")
+    list_trusted_entity_sets_paginator: ListTrustedEntitySetsPaginator = client.get_paginator("list_trusted_entity_sets")
     ```
 """
 
@@ -49,9 +55,12 @@ from .paginator import (
     ListFindingsPaginator,
     ListInvitationsPaginator,
     ListIPSetsPaginator,
+    ListMalwareScansPaginator,
     ListMembersPaginator,
     ListOrganizationAdminAccountsPaginator,
+    ListThreatEntitySetsPaginator,
     ListThreatIntelSetsPaginator,
+    ListTrustedEntitySetsPaginator,
 )
 
 Client = GuardDutyClient
@@ -66,7 +75,10 @@ __all__ = (
     "ListFindingsPaginator",
     "ListIPSetsPaginator",
     "ListInvitationsPaginator",
+    "ListMalwareScansPaginator",
     "ListMembersPaginator",
     "ListOrganizationAdminAccountsPaginator",
+    "ListThreatEntitySetsPaginator",
     "ListThreatIntelSetsPaginator",
+    "ListTrustedEntitySetsPaginator",
 )

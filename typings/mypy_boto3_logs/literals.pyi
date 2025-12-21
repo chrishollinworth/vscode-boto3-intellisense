@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_logs.literals import AnomalyDetectorStatusType
+    from mypy_boto3_logs.literals import ActionStatusType
 
-    data: AnomalyDetectorStatusType = "ANALYZING"
+    data: ActionStatusType = "CLIENT_ERROR"
     ```
 """
 
@@ -22,6 +22,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ActionStatusType",
     "AnomalyDetectorStatusType",
     "CloudWatchLogsServiceName",
     "DataProtectionStatusType",
@@ -41,26 +42,40 @@ __all__ = (
     "DistributionType",
     "EntityRejectionErrorTypeType",
     "EvaluationFrequencyType",
+    "EventSourceType",
+    "ExecutionStatusType",
     "ExportTaskStatusCodeType",
     "FilterLogEventsPaginatorName",
     "FlattenedElementType",
+    "GetScheduledQueryHistoryPaginatorName",
+    "ImportStatusType",
     "IndexSourceType",
+    "IndexTypeType",
     "InheritedPropertyType",
     "IntegrationStatusType",
     "IntegrationTypeType",
+    "ListAggregateLogGroupSummariesGroupByType",
+    "ListAggregateLogGroupSummariesPaginatorName",
     "ListAnomaliesPaginatorName",
     "ListLogAnomalyDetectorsPaginatorName",
     "ListLogGroupsForQueryPaginatorName",
+    "ListScheduledQueriesPaginatorName",
+    "ListSourcesForS3TableIntegrationPaginatorName",
     "LogGroupClassType",
+    "OCSFVersionType",
     "OpenSearchResourceStatusTypeType",
     "OrderByType",
     "OutputFormatType",
     "PaginatorName",
+    "PolicyScopeType",
     "PolicyTypeType",
     "QueryLanguageType",
     "QueryStatusType",
     "RegionName",
     "ResourceServiceName",
+    "S3TableIntegrationSourceStatusType",
+    "ScheduledQueryDestinationTypeType",
+    "ScheduledQueryStateType",
     "ScopeType",
     "ServiceName",
     "StandardUnitType",
@@ -71,11 +86,12 @@ __all__ = (
     "TypeType",
 )
 
+ActionStatusType = Literal["CLIENT_ERROR", "COMPLETE", "FAILED", "IN_PROGRESS"]
 AnomalyDetectorStatusType = Literal[
     "ANALYZING", "DELETED", "FAILED", "INITIALIZING", "PAUSED", "TRAINING"
 ]
 DataProtectionStatusType = Literal["ACTIVATED", "ARCHIVED", "DELETED", "DISABLED"]
-DeliveryDestinationTypeType = Literal["CWL", "FH", "S3"]
+DeliveryDestinationTypeType = Literal["CWL", "FH", "S3", "XRAY"]
 DescribeConfigurationTemplatesPaginatorName = Literal["describe_configuration_templates"]
 DescribeDeliveriesPaginatorName = Literal["describe_deliveries"]
 DescribeDeliveryDestinationsPaginatorName = Literal["describe_delivery_destinations"]
@@ -101,25 +117,39 @@ EntityRejectionErrorTypeType = Literal[
 EvaluationFrequencyType = Literal[
     "FIFTEEN_MIN", "FIVE_MIN", "ONE_HOUR", "ONE_MIN", "TEN_MIN", "THIRTY_MIN"
 ]
+EventSourceType = Literal["AWSWAF", "CloudTrail", "EKSAudit", "Route53Resolver", "VPCFlow"]
+ExecutionStatusType = Literal["Complete", "Failed", "InvalidQuery", "Running", "Timeout"]
 ExportTaskStatusCodeType = Literal[
     "CANCELLED", "COMPLETED", "FAILED", "PENDING", "PENDING_CANCEL", "RUNNING"
 ]
 FilterLogEventsPaginatorName = Literal["filter_log_events"]
 FlattenedElementType = Literal["first", "last"]
+GetScheduledQueryHistoryPaginatorName = Literal["get_scheduled_query_history"]
+ImportStatusType = Literal["CANCELLED", "COMPLETED", "FAILED", "IN_PROGRESS"]
 IndexSourceType = Literal["ACCOUNT", "LOG_GROUP"]
+IndexTypeType = Literal["FACET", "FIELD_INDEX"]
 InheritedPropertyType = Literal["ACCOUNT_DATA_PROTECTION"]
 IntegrationStatusType = Literal["ACTIVE", "FAILED", "PROVISIONING"]
 IntegrationTypeType = Literal["OPENSEARCH"]
+ListAggregateLogGroupSummariesGroupByType = Literal[
+    "DATA_SOURCE_NAME_AND_TYPE", "DATA_SOURCE_NAME_TYPE_AND_FORMAT"
+]
+ListAggregateLogGroupSummariesPaginatorName = Literal["list_aggregate_log_group_summaries"]
 ListAnomaliesPaginatorName = Literal["list_anomalies"]
 ListLogAnomalyDetectorsPaginatorName = Literal["list_log_anomaly_detectors"]
 ListLogGroupsForQueryPaginatorName = Literal["list_log_groups_for_query"]
+ListScheduledQueriesPaginatorName = Literal["list_scheduled_queries"]
+ListSourcesForS3TableIntegrationPaginatorName = Literal["list_sources_for_s3_table_integration"]
 LogGroupClassType = Literal["DELIVERY", "INFREQUENT_ACCESS", "STANDARD"]
+OCSFVersionType = Literal["V1.1", "V1.5"]
 OpenSearchResourceStatusTypeType = Literal["ACTIVE", "ERROR", "NOT_FOUND"]
 OrderByType = Literal["LastEventTime", "LogStreamName"]
 OutputFormatType = Literal["json", "parquet", "plain", "raw", "w3c"]
+PolicyScopeType = Literal["ACCOUNT", "RESOURCE"]
 PolicyTypeType = Literal[
     "DATA_PROTECTION_POLICY",
     "FIELD_INDEX_POLICY",
+    "METRIC_EXTRACTION_POLICY",
     "SUBSCRIPTION_FILTER_POLICY",
     "TRANSFORMER_POLICY",
 ]
@@ -127,6 +157,11 @@ QueryLanguageType = Literal["CWLI", "PPL", "SQL"]
 QueryStatusType = Literal[
     "Cancelled", "Complete", "Failed", "Running", "Scheduled", "Timeout", "Unknown"
 ]
+S3TableIntegrationSourceStatusType = Literal[
+    "ACTIVE", "DATA_SOURCE_DELETE_IN_PROGRESS", "FAILED", "UNHEALTHY"
+]
+ScheduledQueryDestinationTypeType = Literal["S3"]
+ScheduledQueryStateType = Literal["DISABLED", "ENABLED"]
 ScopeType = Literal["ALL"]
 StandardUnitType = Literal[
     "Bits",
@@ -168,6 +203,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -188,7 +224,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -200,11 +236,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -253,6 +293,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -308,6 +349,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -350,7 +392,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -365,6 +406,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -388,8 +430,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -420,9 +460,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -432,17 +474,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -460,13 +505,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -481,20 +523,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -519,8 +563,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -560,26 +604,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "describe_configuration_templates",
@@ -595,13 +632,18 @@ PaginatorName = Literal[
     "describe_resource_policies",
     "describe_subscription_filters",
     "filter_log_events",
+    "get_scheduled_query_history",
+    "list_aggregate_log_group_summaries",
     "list_anomalies",
     "list_log_anomaly_detectors",
     "list_log_groups_for_query",
+    "list_scheduled_queries",
+    "list_sources_for_s3_table_integration",
 ]
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -612,6 +654,7 @@ RegionName = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ap-southeast-5",
+    "ap-southeast-6",
     "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",

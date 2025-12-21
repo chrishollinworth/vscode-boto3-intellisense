@@ -21,6 +21,8 @@ from datetime import datetime
 from typing import Union
 
 from .literals import (
+    CdcPropagateTagsType,
+    CdcStatusType,
     EncryptionTypeType,
     KeyspaceStatusType,
     PointInTimeRecoveryStatusType,
@@ -29,6 +31,7 @@ from .literals import (
     TableStatusType,
     ThroughputModeType,
     TypeStatusType,
+    ViewTypeType,
 )
 
 if sys.version_info >= (3, 9):
@@ -48,6 +51,8 @@ __all__ = (
     "AutoScalingSpecificationTypeDef",
     "CapacitySpecificationSummaryTypeDef",
     "CapacitySpecificationTypeDef",
+    "CdcSpecificationSummaryTypeDef",
+    "CdcSpecificationTypeDef",
     "ClientSideTimestampsTypeDef",
     "ClusteringKeyTypeDef",
     "ColumnDefinitionTypeDef",
@@ -131,6 +136,14 @@ class CapacitySpecificationTypeDef(TypedDict):
     readCapacityUnits: NotRequired[int]
     writeCapacityUnits: NotRequired[int]
 
+class CdcSpecificationSummaryTypeDef(TypedDict):
+    status: CdcStatusType
+    viewType: NotRequired[ViewTypeType]
+
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
+
 class ClientSideTimestampsTypeDef(TypedDict):
     status: Literal["ENABLED"]
 
@@ -152,10 +165,6 @@ class CommentTypeDef(TypedDict):
 class ReplicationSpecificationTypeDef(TypedDict):
     replicationStrategy: RsType
     regionList: NotRequired[Sequence[str]]
-
-class TagTypeDef(TypedDict):
-    key: str
-    value: str
 
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
@@ -274,15 +283,11 @@ class ReplicaSpecificationSummaryTypeDef(TypedDict):
     status: NotRequired[TableStatusType]
     capacitySpecification: NotRequired[CapacitySpecificationSummaryTypeDef]
 
-class UpdateKeyspaceRequestTypeDef(TypedDict):
-    keyspaceName: str
-    replicationSpecification: ReplicationSpecificationTypeDef
-    clientSideTimestamps: NotRequired[ClientSideTimestampsTypeDef]
-
-class CreateKeyspaceRequestTypeDef(TypedDict):
-    keyspaceName: str
+class CdcSpecificationTypeDef(TypedDict):
+    status: CdcStatusType
+    viewType: NotRequired[ViewTypeType]
     tags: NotRequired[Sequence[TagTypeDef]]
-    replicationSpecification: NotRequired[ReplicationSpecificationTypeDef]
+    propagateTags: NotRequired[CdcPropagateTagsType]
 
 class TagResourceRequestTypeDef(TypedDict):
     resourceArn: str
@@ -291,6 +296,16 @@ class TagResourceRequestTypeDef(TypedDict):
 class UntagResourceRequestTypeDef(TypedDict):
     resourceArn: str
     tags: Sequence[TagTypeDef]
+
+class CreateKeyspaceRequestTypeDef(TypedDict):
+    keyspaceName: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+    replicationSpecification: NotRequired[ReplicationSpecificationTypeDef]
+
+class UpdateKeyspaceRequestTypeDef(TypedDict):
+    keyspaceName: str
+    replicationSpecification: ReplicationSpecificationTypeDef
+    clientSideTimestamps: NotRequired[ClientSideTimestampsTypeDef]
 
 class CreateKeyspaceResponseTypeDef(TypedDict):
     resourceArn: str
@@ -419,6 +434,8 @@ class GetTableResponseTypeDef(TypedDict):
     comment: CommentTypeDef
     clientSideTimestamps: ClientSideTimestampsTypeDef
     replicaSpecifications: List[ReplicaSpecificationSummaryTypeDef]
+    latestStreamArn: str
+    cdcSpecification: CdcSpecificationSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 SchemaDefinitionUnionTypeDef = Union[SchemaDefinitionTypeDef, SchemaDefinitionOutputTypeDef]
@@ -450,6 +467,7 @@ class CreateTableRequestTypeDef(TypedDict):
     clientSideTimestamps: NotRequired[ClientSideTimestampsTypeDef]
     autoScalingSpecification: NotRequired[AutoScalingSpecificationTypeDef]
     replicaSpecifications: NotRequired[Sequence[ReplicaSpecificationTypeDef]]
+    cdcSpecification: NotRequired[CdcSpecificationTypeDef]
 
 class RestoreTableRequestTypeDef(TypedDict):
     sourceKeyspaceName: str
@@ -476,6 +494,7 @@ class UpdateTableRequestTypeDef(TypedDict):
     clientSideTimestamps: NotRequired[ClientSideTimestampsTypeDef]
     autoScalingSpecification: NotRequired[AutoScalingSpecificationTypeDef]
     replicaSpecifications: NotRequired[Sequence[ReplicaSpecificationTypeDef]]
+    cdcSpecification: NotRequired[CdcSpecificationTypeDef]
 
 class GetTableAutoScalingSettingsResponseTypeDef(TypedDict):
     keyspaceName: str

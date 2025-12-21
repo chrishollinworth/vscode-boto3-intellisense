@@ -41,6 +41,8 @@ from .type_defs import (
     CreateCapacityProviderResponseTypeDef,
     CreateClusterRequestTypeDef,
     CreateClusterResponseTypeDef,
+    CreateExpressGatewayServiceRequestTypeDef,
+    CreateExpressGatewayServiceResponseTypeDef,
     CreateServiceRequestTypeDef,
     CreateServiceResponseTypeDef,
     CreateTaskSetRequestTypeDef,
@@ -53,6 +55,8 @@ from .type_defs import (
     DeleteCapacityProviderResponseTypeDef,
     DeleteClusterRequestTypeDef,
     DeleteClusterResponseTypeDef,
+    DeleteExpressGatewayServiceRequestTypeDef,
+    DeleteExpressGatewayServiceResponseTypeDef,
     DeleteServiceRequestTypeDef,
     DeleteServiceResponseTypeDef,
     DeleteTaskDefinitionsRequestTypeDef,
@@ -69,6 +73,8 @@ from .type_defs import (
     DescribeClustersResponseTypeDef,
     DescribeContainerInstancesRequestTypeDef,
     DescribeContainerInstancesResponseTypeDef,
+    DescribeExpressGatewayServiceRequestTypeDef,
+    DescribeExpressGatewayServiceResponseTypeDef,
     DescribeServiceDeploymentsRequestTypeDef,
     DescribeServiceDeploymentsResponseTypeDef,
     DescribeServiceRevisionsRequestTypeDef,
@@ -147,6 +153,8 @@ from .type_defs import (
     UpdateContainerAgentResponseTypeDef,
     UpdateContainerInstancesStateRequestTypeDef,
     UpdateContainerInstancesStateResponseTypeDef,
+    UpdateExpressGatewayServiceRequestTypeDef,
+    UpdateExpressGatewayServiceResponseTypeDef,
     UpdateServicePrimaryTaskSetRequestTypeDef,
     UpdateServicePrimaryTaskSetResponseTypeDef,
     UpdateServiceRequestTypeDef,
@@ -182,6 +190,7 @@ class Exceptions(BaseClientExceptions):
     BlockedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ClientException: Type[BotocoreClientError]
+    ClusterContainsCapacityProviderException: Type[BotocoreClientError]
     ClusterContainsContainerInstancesException: Type[BotocoreClientError]
     ClusterContainsServicesException: Type[BotocoreClientError]
     ClusterContainsTasksException: Type[BotocoreClientError]
@@ -245,7 +254,7 @@ class ECSClient(BaseClient):
         self, **kwargs: Unpack[CreateCapacityProviderRequestTypeDef]
     ) -> CreateCapacityProviderResponseTypeDef:
         """
-        Creates a new capacity provider.
+        Creates a capacity provider.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/client/create_capacity_provider.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/client/#create_capacity_provider)
@@ -259,6 +268,17 @@ class ECSClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/client/create_cluster.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/client/#create_cluster)
+        """
+
+    def create_express_gateway_service(
+        self, **kwargs: Unpack[CreateExpressGatewayServiceRequestTypeDef]
+    ) -> CreateExpressGatewayServiceResponseTypeDef:
+        """
+        Creates an Express service that simplifies deploying containerized web
+        applications on Amazon ECS with managed Amazon Web Services infrastructure.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/client/create_express_gateway_service.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/client/#create_express_gateway_service)
         """
 
     def create_service(
@@ -321,6 +341,17 @@ class ECSClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/client/delete_cluster.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/client/#delete_cluster)
+        """
+
+    def delete_express_gateway_service(
+        self, **kwargs: Unpack[DeleteExpressGatewayServiceRequestTypeDef]
+    ) -> DeleteExpressGatewayServiceResponseTypeDef:
+        """
+        Deletes an Express service and removes all associated Amazon Web Services
+        resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/client/delete_express_gateway_service.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/client/#delete_express_gateway_service)
         """
 
     def delete_service(
@@ -401,6 +432,17 @@ class ECSClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/client/describe_container_instances.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/client/#describe_container_instances)
+        """
+
+    def describe_express_gateway_service(
+        self, **kwargs: Unpack[DescribeExpressGatewayServiceRequestTypeDef]
+    ) -> DescribeExpressGatewayServiceResponseTypeDef:
+        """
+        Retrieves detailed information about an Express service, including current
+        status, configuration, managed infrastructure, and service revisions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/client/describe_express_gateway_service.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/client/#describe_express_gateway_service)
         """
 
     def describe_service_deployments(
@@ -802,6 +844,16 @@ class ECSClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/client/update_container_instances_state.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/client/#update_container_instances_state)
+        """
+
+    def update_express_gateway_service(
+        self, **kwargs: Unpack[UpdateExpressGatewayServiceRequestTypeDef]
+    ) -> UpdateExpressGatewayServiceResponseTypeDef:
+        """
+        Updates an existing Express service configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/client/update_express_gateway_service.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/client/#update_express_gateway_service)
         """
 
     def update_service(

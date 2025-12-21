@@ -16,10 +16,13 @@ Usage::
         ListPartnershipsPaginator,
         ListProfilesPaginator,
         ListTransformersPaginator,
+        TransformerJobSucceededWaiter,
     )
 
     session = Session()
     client: B2BIClient = session.client("b2bi")
+
+    transformer_job_succeeded_waiter: TransformerJobSucceededWaiter = client.get_waiter("transformer_job_succeeded")
 
     list_capabilities_paginator: ListCapabilitiesPaginator = client.get_paginator("list_capabilities")
     list_partnerships_paginator: ListPartnershipsPaginator = client.get_paginator("list_partnerships")
@@ -35,6 +38,7 @@ from .paginator import (
     ListProfilesPaginator,
     ListTransformersPaginator,
 )
+from .waiter import TransformerJobSucceededWaiter
 
 Client = B2BIClient
 
@@ -45,4 +49,5 @@ __all__ = (
     "ListPartnershipsPaginator",
     "ListProfilesPaginator",
     "ListTransformersPaginator",
+    "TransformerJobSucceededWaiter",
 )

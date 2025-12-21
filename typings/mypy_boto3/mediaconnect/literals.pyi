@@ -28,17 +28,24 @@ __all__ = (
     "ColorimetryType",
     "ConnectionStatusType",
     "ContentQualityAnalysisStateType",
+    "DayType",
     "DesiredStateType",
     "DurationUnitsType",
     "EncoderProfileType",
     "EncodingNameType",
     "EntitlementStatusType",
+    "FailoverInputSourcePriorityModeType",
     "FailoverModeType",
     "FlowActiveWaiterName",
     "FlowDeletedWaiterName",
     "FlowSizeType",
     "FlowStandbyWaiterName",
+    "FlowTransitEncryptionKeyTypeType",
+    "ForwardErrorCorrectionStateType",
     "GatewayStateType",
+    "InputActiveWaiterName",
+    "InputDeletedWaiterName",
+    "InputStandbyWaiterName",
     "InstanceStateType",
     "KeyTypeType",
     "ListBridgesPaginatorName",
@@ -48,11 +55,22 @@ __all__ = (
     "ListGatewaysPaginatorName",
     "ListOfferingsPaginatorName",
     "ListReservationsPaginatorName",
+    "ListRouterInputsPaginatorName",
+    "ListRouterNetworkInterfacesPaginatorName",
+    "ListRouterOutputsPaginatorName",
     "MaintenanceDayType",
+    "MaintenanceScheduleTypeType",
+    "MaintenanceTypeType",
     "MediaConnectServiceName",
+    "MediaLiveInputPipelineIdType",
+    "MediaLiveTransitEncryptionKeyTypeType",
     "MediaStreamTypeType",
     "NdiStateType",
     "NetworkInterfaceTypeType",
+    "OutputActiveWaiterName",
+    "OutputDeletedWaiterName",
+    "OutputRoutedWaiterName",
+    "OutputStandbyWaiterName",
     "OutputStatusType",
     "PaginatorName",
     "PriceUnitsType",
@@ -62,6 +80,19 @@ __all__ = (
     "ReservationStateType",
     "ResourceServiceName",
     "ResourceTypeType",
+    "RouterInputProtocolType",
+    "RouterInputStateType",
+    "RouterInputTierType",
+    "RouterInputTransitEncryptionKeyTypeType",
+    "RouterInputTypeType",
+    "RouterNetworkInterfaceStateType",
+    "RouterNetworkInterfaceTypeType",
+    "RouterOutputProtocolType",
+    "RouterOutputRoutedStateType",
+    "RouterOutputStateType",
+    "RouterOutputTierType",
+    "RouterOutputTypeType",
+    "RoutingScopeType",
     "ScanModeType",
     "ServiceName",
     "SourceTypeType",
@@ -91,17 +122,24 @@ BridgeStateType = Literal[
 ColorimetryType = Literal["BT2020", "BT2100", "BT601", "BT709", "ST2065-1", "ST2065-3", "XYZ"]
 ConnectionStatusType = Literal["CONNECTED", "DISCONNECTED"]
 ContentQualityAnalysisStateType = Literal["DISABLED", "ENABLED"]
+DayType = Literal["FRIDAY", "MONDAY", "SATURDAY", "SUNDAY", "THURSDAY", "TUESDAY", "WEDNESDAY"]
 DesiredStateType = Literal["ACTIVE", "DELETED", "STANDBY"]
 DurationUnitsType = Literal["MONTHS"]
 EncoderProfileType = Literal["high", "main"]
 EncodingNameType = Literal["jxsv", "pcm", "raw", "smpte291"]
 EntitlementStatusType = Literal["DISABLED", "ENABLED"]
+FailoverInputSourcePriorityModeType = Literal["NO_PRIORITY", "PRIMARY_SECONDARY"]
 FailoverModeType = Literal["FAILOVER", "MERGE"]
 FlowActiveWaiterName = Literal["flow_active"]
 FlowDeletedWaiterName = Literal["flow_deleted"]
 FlowSizeType = Literal["LARGE", "MEDIUM"]
 FlowStandbyWaiterName = Literal["flow_standby"]
+FlowTransitEncryptionKeyTypeType = Literal["AUTOMATIC", "SECRETS_MANAGER"]
+ForwardErrorCorrectionStateType = Literal["DISABLED", "ENABLED"]
 GatewayStateType = Literal["ACTIVE", "CREATING", "DELETED", "DELETING", "ERROR", "UPDATING"]
+InputActiveWaiterName = Literal["input_active"]
+InputDeletedWaiterName = Literal["input_deleted"]
+InputStandbyWaiterName = Literal["input_standby"]
 InstanceStateType = Literal[
     "ACTIVE",
     "DEREGISTERED",
@@ -118,12 +156,23 @@ ListGatewayInstancesPaginatorName = Literal["list_gateway_instances"]
 ListGatewaysPaginatorName = Literal["list_gateways"]
 ListOfferingsPaginatorName = Literal["list_offerings"]
 ListReservationsPaginatorName = Literal["list_reservations"]
+ListRouterInputsPaginatorName = Literal["list_router_inputs"]
+ListRouterNetworkInterfacesPaginatorName = Literal["list_router_network_interfaces"]
+ListRouterOutputsPaginatorName = Literal["list_router_outputs"]
 MaintenanceDayType = Literal[
     "Friday", "Monday", "Saturday", "Sunday", "Thursday", "Tuesday", "Wednesday"
 ]
+MaintenanceScheduleTypeType = Literal["WINDOW"]
+MaintenanceTypeType = Literal["DEFAULT", "PREFERRED_DAY_TIME"]
+MediaLiveInputPipelineIdType = Literal["PIPELINE_0", "PIPELINE_1"]
+MediaLiveTransitEncryptionKeyTypeType = Literal["AUTOMATIC", "SECRETS_MANAGER"]
 MediaStreamTypeType = Literal["ancillary-data", "audio", "video"]
 NdiStateType = Literal["DISABLED", "ENABLED"]
 NetworkInterfaceTypeType = Literal["efa", "ena"]
+OutputActiveWaiterName = Literal["output_active"]
+OutputDeletedWaiterName = Literal["output_deleted"]
+OutputRoutedWaiterName = Literal["output_routed"]
+OutputStandbyWaiterName = Literal["output_standby"]
 OutputStatusType = Literal["DISABLED", "ENABLED"]
 PriceUnitsType = Literal["HOURLY"]
 ProtocolType = Literal[
@@ -143,6 +192,43 @@ ProtocolType = Literal[
 RangeType = Literal["FULL", "FULLPROTECT", "NARROW"]
 ReservationStateType = Literal["ACTIVE", "CANCELED", "EXPIRED", "PROCESSING"]
 ResourceTypeType = Literal["Mbps_Outbound_Bandwidth"]
+RouterInputProtocolType = Literal["RIST", "RTP", "SRT_CALLER", "SRT_LISTENER"]
+RouterInputStateType = Literal[
+    "ACTIVE",
+    "CREATING",
+    "DELETING",
+    "ERROR",
+    "MIGRATING",
+    "RECOVERING",
+    "STANDBY",
+    "STARTING",
+    "STOPPING",
+    "UPDATING",
+]
+RouterInputTierType = Literal["INPUT_100", "INPUT_20", "INPUT_50"]
+RouterInputTransitEncryptionKeyTypeType = Literal["AUTOMATIC", "SECRETS_MANAGER"]
+RouterInputTypeType = Literal["FAILOVER", "MEDIACONNECT_FLOW", "MERGE", "STANDARD"]
+RouterNetworkInterfaceStateType = Literal[
+    "ACTIVE", "CREATING", "DELETING", "ERROR", "RECOVERING", "UPDATING"
+]
+RouterNetworkInterfaceTypeType = Literal["PUBLIC", "VPC"]
+RouterOutputProtocolType = Literal["RIST", "RTP", "SRT_CALLER", "SRT_LISTENER"]
+RouterOutputRoutedStateType = Literal["ROUTED", "ROUTING", "UNROUTED"]
+RouterOutputStateType = Literal[
+    "ACTIVE",
+    "CREATING",
+    "DELETING",
+    "ERROR",
+    "MIGRATING",
+    "RECOVERING",
+    "STANDBY",
+    "STARTING",
+    "STOPPING",
+    "UPDATING",
+]
+RouterOutputTierType = Literal["OUTPUT_100", "OUTPUT_20", "OUTPUT_50"]
+RouterOutputTypeType = Literal["MEDIACONNECT_FLOW", "MEDIALIVE_INPUT", "STANDARD"]
+RoutingScopeType = Literal["GLOBAL", "REGIONAL"]
 ScanModeType = Literal["interlace", "progressive", "progressive-segmented-frame"]
 SourceTypeType = Literal["ENTITLED", "OWNED"]
 StateType = Literal["DISABLED", "ENABLED"]
@@ -157,6 +243,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -177,7 +264,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -189,11 +276,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -242,6 +333,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -297,6 +389,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -339,7 +432,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -354,6 +446,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -377,8 +470,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -409,9 +500,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -421,17 +514,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -449,13 +545,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -470,20 +563,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -508,8 +603,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -549,26 +644,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_bridges",
@@ -578,8 +666,22 @@ PaginatorName = Literal[
     "list_gateways",
     "list_offerings",
     "list_reservations",
+    "list_router_inputs",
+    "list_router_network_interfaces",
+    "list_router_outputs",
 ]
-WaiterName = Literal["flow_active", "flow_deleted", "flow_standby"]
+WaiterName = Literal[
+    "flow_active",
+    "flow_deleted",
+    "flow_standby",
+    "input_active",
+    "input_deleted",
+    "input_standby",
+    "output_active",
+    "output_deleted",
+    "output_routed",
+    "output_standby",
+]
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",

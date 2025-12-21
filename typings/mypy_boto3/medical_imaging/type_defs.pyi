@@ -27,9 +27,11 @@ from .literals import (
     ImageSetStateType,
     ImageSetWorkflowStatusType,
     JobStatusType,
+    LosslessStorageFormatType,
     OperatorType,
     SortFieldType,
     SortOrderType,
+    StorageTierType,
 )
 
 if sys.version_info >= (3, 9):
@@ -149,6 +151,8 @@ class CreateDatastoreRequestTypeDef(TypedDict):
     datastoreName: NotRequired[str]
     tags: NotRequired[Mapping[str, str]]
     kmsKeyArn: NotRequired[str]
+    lambdaAuthorizerArn: NotRequired[str]
+    losslessStorageFormat: NotRequired[LosslessStorageFormatType]
 
 class DICOMImportJobPropertiesTypeDef(TypedDict):
     jobId: str
@@ -199,6 +203,8 @@ class DatastorePropertiesTypeDef(TypedDict):
     datastoreName: str
     datastoreStatus: DatastoreStatusType
     kmsKeyArn: NotRequired[str]
+    lambdaAuthorizerArn: NotRequired[str]
+    losslessStorageFormat: NotRequired[LosslessStorageFormatType]
     datastoreArn: NotRequired[str]
     createdAt: NotRequired[datetime]
     updatedAt: NotRequired[datetime]
@@ -367,7 +373,10 @@ class ImageSetsMetadataSummaryTypeDef(TypedDict):
     version: NotRequired[int]
     createdAt: NotRequired[datetime]
     updatedAt: NotRequired[datetime]
+    lastAccessedAt: NotRequired[datetime]
+    storageTier: NotRequired[StorageTierType]
     DICOMTags: NotRequired[DICOMTagsTypeDef]
+    isPrimary: NotRequired[bool]
 
 class GetDatastoreResponseTypeDef(TypedDict):
     datastoreProperties: DatastorePropertiesTypeDef
@@ -395,6 +404,9 @@ class GetImageSetResponseTypeDef(TypedDict):
     message: str
     imageSetArn: str
     overrides: OverridesTypeDef
+    isPrimary: bool
+    lastAccessedAt: datetime
+    storageTier: StorageTierType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class ImageSetPropertiesTypeDef(TypedDict):
@@ -407,6 +419,7 @@ class ImageSetPropertiesTypeDef(TypedDict):
     deletedAt: NotRequired[datetime]
     message: NotRequired[str]
     overrides: NotRequired[OverridesTypeDef]
+    isPrimary: NotRequired[bool]
 
 class ListDICOMImportJobsRequestPaginateTypeDef(TypedDict):
     datastoreId: str
@@ -431,6 +444,7 @@ class SearchByAttributeValueTypeDef(TypedDict):
     createdAt: NotRequired[TimestampTypeDef]
     updatedAt: NotRequired[TimestampTypeDef]
     DICOMStudyDateAndTime: NotRequired[DICOMStudyDateAndTimeTypeDef]
+    isPrimary: NotRequired[bool]
 
 class MetadataUpdatesTypeDef(TypedDict):
     DICOMUpdates: NotRequired[DICOMUpdatesTypeDef]
@@ -471,6 +485,7 @@ class CopyImageSetRequestTypeDef(TypedDict):
     sourceImageSetId: str
     copyImageSetInformation: CopyImageSetInformationTypeDef
     force: NotRequired[bool]
+    promoteToPrimary: NotRequired[bool]
 
 class SearchCriteriaTypeDef(TypedDict):
     filters: NotRequired[Sequence[SearchFilterTypeDef]]

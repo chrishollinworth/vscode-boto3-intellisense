@@ -20,10 +20,12 @@ import sys
 
 from .literals import (
     ClusterStatusType,
+    DataFusionRuntimeTypeType,
     DbInstanceTypeType,
     DbStorageTypeType,
     DeploymentTypeType,
     DurationTypeType,
+    EngineTypeType,
     FailoverModeType,
     InstanceModeType,
     LogLevelType,
@@ -67,6 +69,8 @@ __all__ = (
     "GetDbParameterGroupInputTypeDef",
     "GetDbParameterGroupOutputTypeDef",
     "InfluxDBv2ParametersTypeDef",
+    "InfluxDBv3CoreParametersTypeDef",
+    "InfluxDBv3EnterpriseParametersTypeDef",
     "ListDbClustersInputPaginateTypeDef",
     "ListDbClustersInputTypeDef",
     "ListDbClustersOutputTypeDef",
@@ -84,6 +88,11 @@ __all__ = (
     "LogDeliveryConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ParametersTypeDef",
+    "PercentOrAbsoluteLongTypeDef",
+    "RebootDbClusterInputTypeDef",
+    "RebootDbClusterOutputTypeDef",
+    "RebootDbInstanceInputTypeDef",
+    "RebootDbInstanceOutputTypeDef",
     "ResponseMetadataTypeDef",
     "S3ConfigurationTypeDef",
     "TagResourceRequestTypeDef",
@@ -116,6 +125,7 @@ DbClusterSummaryTypeDef = TypedDict(
         "networkType": NotRequired[NetworkTypeType],
         "dbStorageType": NotRequired[DbStorageTypeType],
         "allocatedStorage": NotRequired[int],
+        "engineType": NotRequired[EngineTypeType],
     },
 )
 DbInstanceForClusterSummaryTypeDef = TypedDict(
@@ -133,6 +143,7 @@ DbInstanceForClusterSummaryTypeDef = TypedDict(
         "allocatedStorage": NotRequired[int],
         "deploymentType": NotRequired[DeploymentTypeType],
         "instanceMode": NotRequired[InstanceModeType],
+        "instanceModes": NotRequired[List[InstanceModeType]],
     },
 )
 DbInstanceSummaryTypeDef = TypedDict(
@@ -180,6 +191,10 @@ class GetDbInstanceInputTypeDef(TypedDict):
 class GetDbParameterGroupInputTypeDef(TypedDict):
     identifier: str
 
+class PercentOrAbsoluteLongTypeDef(TypedDict):
+    percent: NotRequired[str]
+    absolute: NotRequired[int]
+
 class PaginatorConfigTypeDef(TypedDict):
     MaxItems: NotRequired[int]
     PageSize: NotRequired[int]
@@ -209,6 +224,13 @@ class S3ConfigurationTypeDef(TypedDict):
     bucketName: str
     enabled: bool
 
+class RebootDbClusterInputTypeDef(TypedDict):
+    dbClusterId: str
+    instanceIds: NotRequired[Sequence[str]]
+
+class RebootDbInstanceInputTypeDef(TypedDict):
+    identifier: str
+
 class TagResourceRequestTypeDef(TypedDict):
     resourceArn: str
     tags: Mapping[str, str]
@@ -231,6 +253,10 @@ class EmptyResponseMetadataTypeDef(TypedDict):
 
 class ListTagsForResourceResponseTypeDef(TypedDict):
     tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RebootDbClusterOutputTypeDef(TypedDict):
+    dbClusterStatus: ClusterStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateDbClusterOutputTypeDef(TypedDict):
@@ -293,6 +319,101 @@ class InfluxDBv2ParametersTypeDef(TypedDict):
     storageWalMaxWriteDelay: NotRequired[DurationTypeDef]
     uiDisabled: NotRequired[bool]
 
+class InfluxDBv3CoreParametersTypeDef(TypedDict):
+    queryFileLimit: NotRequired[int]
+    queryLogSize: NotRequired[int]
+    logFilter: NotRequired[str]
+    logFormat: NotRequired[Literal["full"]]
+    dataFusionNumThreads: NotRequired[int]
+    dataFusionRuntimeType: NotRequired[DataFusionRuntimeTypeType]
+    dataFusionRuntimeDisableLifoSlot: NotRequired[bool]
+    dataFusionRuntimeEventInterval: NotRequired[int]
+    dataFusionRuntimeGlobalQueueInterval: NotRequired[int]
+    dataFusionRuntimeMaxBlockingThreads: NotRequired[int]
+    dataFusionRuntimeMaxIoEventsPerTick: NotRequired[int]
+    dataFusionRuntimeThreadKeepAlive: NotRequired[DurationTypeDef]
+    dataFusionRuntimeThreadPriority: NotRequired[int]
+    dataFusionMaxParquetFanout: NotRequired[int]
+    dataFusionUseCachedParquetLoader: NotRequired[bool]
+    dataFusionConfig: NotRequired[str]
+    maxHttpRequestSize: NotRequired[int]
+    forceSnapshotMemThreshold: NotRequired[PercentOrAbsoluteLongTypeDef]
+    walSnapshotSize: NotRequired[int]
+    walMaxWriteBufferSize: NotRequired[int]
+    snapshottedWalFilesToKeep: NotRequired[int]
+    preemptiveCacheAge: NotRequired[DurationTypeDef]
+    parquetMemCachePrunePercentage: NotRequired[float]
+    parquetMemCachePruneInterval: NotRequired[DurationTypeDef]
+    disableParquetMemCache: NotRequired[bool]
+    parquetMemCacheQueryPathDuration: NotRequired[DurationTypeDef]
+    lastCacheEvictionInterval: NotRequired[DurationTypeDef]
+    distinctCacheEvictionInterval: NotRequired[DurationTypeDef]
+    gen1Duration: NotRequired[DurationTypeDef]
+    execMemPoolBytes: NotRequired[PercentOrAbsoluteLongTypeDef]
+    parquetMemCacheSize: NotRequired[PercentOrAbsoluteLongTypeDef]
+    walReplayFailOnError: NotRequired[bool]
+    walReplayConcurrencyLimit: NotRequired[int]
+    tableIndexCacheMaxEntries: NotRequired[int]
+    tableIndexCacheConcurrencyLimit: NotRequired[int]
+    gen1LookbackDuration: NotRequired[DurationTypeDef]
+    retentionCheckInterval: NotRequired[DurationTypeDef]
+    deleteGracePeriod: NotRequired[DurationTypeDef]
+    hardDeleteDefaultDuration: NotRequired[DurationTypeDef]
+
+class InfluxDBv3EnterpriseParametersTypeDef(TypedDict):
+    ingestQueryInstances: int
+    queryOnlyInstances: int
+    dedicatedCompactor: bool
+    queryFileLimit: NotRequired[int]
+    queryLogSize: NotRequired[int]
+    logFilter: NotRequired[str]
+    logFormat: NotRequired[Literal["full"]]
+    dataFusionNumThreads: NotRequired[int]
+    dataFusionRuntimeType: NotRequired[DataFusionRuntimeTypeType]
+    dataFusionRuntimeDisableLifoSlot: NotRequired[bool]
+    dataFusionRuntimeEventInterval: NotRequired[int]
+    dataFusionRuntimeGlobalQueueInterval: NotRequired[int]
+    dataFusionRuntimeMaxBlockingThreads: NotRequired[int]
+    dataFusionRuntimeMaxIoEventsPerTick: NotRequired[int]
+    dataFusionRuntimeThreadKeepAlive: NotRequired[DurationTypeDef]
+    dataFusionRuntimeThreadPriority: NotRequired[int]
+    dataFusionMaxParquetFanout: NotRequired[int]
+    dataFusionUseCachedParquetLoader: NotRequired[bool]
+    dataFusionConfig: NotRequired[str]
+    maxHttpRequestSize: NotRequired[int]
+    forceSnapshotMemThreshold: NotRequired[PercentOrAbsoluteLongTypeDef]
+    walSnapshotSize: NotRequired[int]
+    walMaxWriteBufferSize: NotRequired[int]
+    snapshottedWalFilesToKeep: NotRequired[int]
+    preemptiveCacheAge: NotRequired[DurationTypeDef]
+    parquetMemCachePrunePercentage: NotRequired[float]
+    parquetMemCachePruneInterval: NotRequired[DurationTypeDef]
+    disableParquetMemCache: NotRequired[bool]
+    parquetMemCacheQueryPathDuration: NotRequired[DurationTypeDef]
+    lastCacheEvictionInterval: NotRequired[DurationTypeDef]
+    distinctCacheEvictionInterval: NotRequired[DurationTypeDef]
+    gen1Duration: NotRequired[DurationTypeDef]
+    execMemPoolBytes: NotRequired[PercentOrAbsoluteLongTypeDef]
+    parquetMemCacheSize: NotRequired[PercentOrAbsoluteLongTypeDef]
+    walReplayFailOnError: NotRequired[bool]
+    walReplayConcurrencyLimit: NotRequired[int]
+    tableIndexCacheMaxEntries: NotRequired[int]
+    tableIndexCacheConcurrencyLimit: NotRequired[int]
+    gen1LookbackDuration: NotRequired[DurationTypeDef]
+    retentionCheckInterval: NotRequired[DurationTypeDef]
+    deleteGracePeriod: NotRequired[DurationTypeDef]
+    hardDeleteDefaultDuration: NotRequired[DurationTypeDef]
+    compactionRowLimit: NotRequired[int]
+    compactionMaxNumFilesPerPlan: NotRequired[int]
+    compactionGen2Duration: NotRequired[DurationTypeDef]
+    compactionMultipliers: NotRequired[str]
+    compactionCleanupWait: NotRequired[DurationTypeDef]
+    compactionCheckInterval: NotRequired[DurationTypeDef]
+    lastValueCacheDisableFromHistory: NotRequired[bool]
+    distinctValueCacheDisableFromHistory: NotRequired[bool]
+    replicationInterval: NotRequired[DurationTypeDef]
+    catalogSyncInterval: NotRequired[DurationTypeDef]
+
 class ListDbClustersInputPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
@@ -311,23 +432,25 @@ class LogDeliveryConfigurationTypeDef(TypedDict):
 
 class ParametersTypeDef(TypedDict):
     InfluxDBv2: NotRequired[InfluxDBv2ParametersTypeDef]
+    InfluxDBv3Core: NotRequired[InfluxDBv3CoreParametersTypeDef]
+    InfluxDBv3Enterprise: NotRequired[InfluxDBv3EnterpriseParametersTypeDef]
 
 class CreateDbClusterInputTypeDef(TypedDict):
     name: str
-    password: str
     dbInstanceType: DbInstanceTypeType
-    allocatedStorage: int
     vpcSubnetIds: Sequence[str]
     vpcSecurityGroupIds: Sequence[str]
-    deploymentType: Literal["MULTI_NODE_READ_REPLICAS"]
     username: NotRequired[str]
+    password: NotRequired[str]
     organization: NotRequired[str]
     bucket: NotRequired[str]
     port: NotRequired[int]
     dbParameterGroupIdentifier: NotRequired[str]
     dbStorageType: NotRequired[DbStorageTypeType]
+    allocatedStorage: NotRequired[int]
     networkType: NotRequired[NetworkTypeType]
     publiclyAccessible: NotRequired[bool]
+    deploymentType: NotRequired[Literal["MULTI_NODE_READ_REPLICAS"]]
     failoverMode: NotRequired[FailoverModeType]
     logDeliveryConfiguration: NotRequired[LogDeliveryConfigurationTypeDef]
     tags: NotRequired[Mapping[str, str]]
@@ -375,6 +498,7 @@ CreateDbInstanceOutputTypeDef = TypedDict(
         "influxAuthParametersSecretArn": str,
         "dbClusterId": str,
         "instanceMode": InstanceModeType,
+        "instanceModes": List[InstanceModeType],
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -402,6 +526,7 @@ DeleteDbInstanceOutputTypeDef = TypedDict(
         "influxAuthParametersSecretArn": str,
         "dbClusterId": str,
         "instanceMode": InstanceModeType,
+        "instanceModes": List[InstanceModeType],
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -420,6 +545,7 @@ GetDbClusterOutputTypeDef = TypedDict(
         "networkType": NetworkTypeType,
         "dbStorageType": DbStorageTypeType,
         "allocatedStorage": int,
+        "engineType": EngineTypeType,
         "publiclyAccessible": bool,
         "dbParameterGroupIdentifier": str,
         "logDeliveryConfiguration": LogDeliveryConfigurationTypeDef,
@@ -454,6 +580,35 @@ GetDbInstanceOutputTypeDef = TypedDict(
         "influxAuthParametersSecretArn": str,
         "dbClusterId": str,
         "instanceMode": InstanceModeType,
+        "instanceModes": List[InstanceModeType],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+RebootDbInstanceOutputTypeDef = TypedDict(
+    "RebootDbInstanceOutputTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "status": StatusType,
+        "endpoint": str,
+        "port": int,
+        "networkType": NetworkTypeType,
+        "dbInstanceType": DbInstanceTypeType,
+        "dbStorageType": DbStorageTypeType,
+        "allocatedStorage": int,
+        "deploymentType": DeploymentTypeType,
+        "vpcSubnetIds": List[str],
+        "publiclyAccessible": bool,
+        "vpcSecurityGroupIds": List[str],
+        "dbParameterGroupIdentifier": str,
+        "availabilityZone": str,
+        "secondaryAvailabilityZone": str,
+        "logDeliveryConfiguration": LogDeliveryConfigurationTypeDef,
+        "influxAuthParametersSecretArn": str,
+        "dbClusterId": str,
+        "instanceMode": InstanceModeType,
+        "instanceModes": List[InstanceModeType],
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -500,6 +655,7 @@ UpdateDbInstanceOutputTypeDef = TypedDict(
         "influxAuthParametersSecretArn": str,
         "dbClusterId": str,
         "instanceMode": InstanceModeType,
+        "instanceModes": List[InstanceModeType],
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )

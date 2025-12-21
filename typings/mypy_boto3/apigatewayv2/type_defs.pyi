@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_apigatewayv2.type_defs import AccessLogSettingsTypeDef
+    from mypy_boto3_apigatewayv2.type_defs import ACMManagedTypeDef
 
-    data: AccessLogSettingsTypeDef = ...
+    data: ACMManagedTypeDef = ...
     ```
 """
 
@@ -18,7 +18,7 @@ from __future__ import annotations
 
 import sys
 from datetime import datetime
-from typing import Union
+from typing import Any, Union
 
 from botocore.response import StreamingBody
 
@@ -35,8 +35,13 @@ from .literals import (
     JSONYAMLType,
     LoggingLevelType,
     PassthroughBehaviorType,
+    PreviewStatusType,
     ProtocolTypeType,
+    PublishStatusType,
+    RoutingModeType,
     SecurityPolicyType,
+    StatusType,
+    TryItStateType,
     VpcLinkStatusType,
 )
 
@@ -52,10 +57,15 @@ else:
     from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ACMManagedTypeDef",
     "AccessLogSettingsTypeDef",
     "ApiMappingTypeDef",
     "ApiTypeDef",
+    "AuthorizationOutputTypeDef",
+    "AuthorizationTypeDef",
+    "AuthorizationUnionTypeDef",
     "AuthorizerTypeDef",
+    "CognitoConfigTypeDef",
     "CorsOutputTypeDef",
     "CorsTypeDef",
     "CorsUnionTypeDef",
@@ -75,14 +85,25 @@ __all__ = (
     "CreateIntegrationResultTypeDef",
     "CreateModelRequestTypeDef",
     "CreateModelResponseTypeDef",
+    "CreatePortalProductRequestTypeDef",
+    "CreatePortalProductResponseTypeDef",
+    "CreatePortalRequestTypeDef",
+    "CreatePortalResponseTypeDef",
+    "CreateProductPageRequestTypeDef",
+    "CreateProductPageResponseTypeDef",
+    "CreateProductRestEndpointPageRequestTypeDef",
+    "CreateProductRestEndpointPageResponseTypeDef",
     "CreateRouteRequestTypeDef",
     "CreateRouteResponseRequestTypeDef",
     "CreateRouteResponseResponseTypeDef",
     "CreateRouteResultTypeDef",
+    "CreateRoutingRuleRequestTypeDef",
+    "CreateRoutingRuleResponseTypeDef",
     "CreateStageRequestTypeDef",
     "CreateStageResponseTypeDef",
     "CreateVpcLinkRequestTypeDef",
     "CreateVpcLinkResponseTypeDef",
+    "CustomColorsTypeDef",
     "DeleteAccessLogSettingsRequestTypeDef",
     "DeleteApiMappingRequestTypeDef",
     "DeleteApiRequestTypeDef",
@@ -93,18 +114,34 @@ __all__ = (
     "DeleteIntegrationRequestTypeDef",
     "DeleteIntegrationResponseRequestTypeDef",
     "DeleteModelRequestTypeDef",
+    "DeletePortalProductRequestTypeDef",
+    "DeletePortalProductSharingPolicyRequestTypeDef",
+    "DeletePortalRequestTypeDef",
+    "DeleteProductPageRequestTypeDef",
+    "DeleteProductRestEndpointPageRequestTypeDef",
     "DeleteRouteRequestParameterRequestTypeDef",
     "DeleteRouteRequestTypeDef",
     "DeleteRouteResponseRequestTypeDef",
     "DeleteRouteSettingsRequestTypeDef",
+    "DeleteRoutingRuleRequestTypeDef",
     "DeleteStageRequestTypeDef",
     "DeleteVpcLinkRequestTypeDef",
     "DeploymentTypeDef",
+    "DisablePortalRequestTypeDef",
+    "DisplayContentOverridesTypeDef",
+    "DisplayContentTypeDef",
+    "DisplayOrderOutputTypeDef",
+    "DisplayOrderTypeDef",
+    "DisplayOrderUnionTypeDef",
     "DomainNameConfigurationOutputTypeDef",
     "DomainNameConfigurationTypeDef",
     "DomainNameConfigurationUnionTypeDef",
     "DomainNameTypeDef",
     "EmptyResponseMetadataTypeDef",
+    "EndpointConfigurationRequestTypeDef",
+    "EndpointConfigurationResponseTypeDef",
+    "EndpointDisplayContentResponseTypeDef",
+    "EndpointDisplayContentTypeDef",
     "ExportApiRequestTypeDef",
     "ExportApiResponseTypeDef",
     "GetApiMappingRequestTypeDef",
@@ -148,6 +185,16 @@ __all__ = (
     "GetModelsRequestPaginateTypeDef",
     "GetModelsRequestTypeDef",
     "GetModelsResponseTypeDef",
+    "GetPortalProductRequestTypeDef",
+    "GetPortalProductResponseTypeDef",
+    "GetPortalProductSharingPolicyRequestTypeDef",
+    "GetPortalProductSharingPolicyResponseTypeDef",
+    "GetPortalRequestTypeDef",
+    "GetPortalResponseTypeDef",
+    "GetProductPageRequestTypeDef",
+    "GetProductPageResponseTypeDef",
+    "GetProductRestEndpointPageRequestTypeDef",
+    "GetProductRestEndpointPageResponseTypeDef",
     "GetRouteRequestTypeDef",
     "GetRouteResponseRequestTypeDef",
     "GetRouteResponseResponseTypeDef",
@@ -158,6 +205,8 @@ __all__ = (
     "GetRoutesRequestPaginateTypeDef",
     "GetRoutesRequestTypeDef",
     "GetRoutesResponseTypeDef",
+    "GetRoutingRuleRequestTypeDef",
+    "GetRoutingRuleResponseTypeDef",
     "GetStageRequestTypeDef",
     "GetStageResponseTypeDef",
     "GetStagesRequestPaginateTypeDef",
@@ -169,6 +218,7 @@ __all__ = (
     "GetVpcLinkResponseTypeDef",
     "GetVpcLinksRequestTypeDef",
     "GetVpcLinksResponseTypeDef",
+    "IdentifierPartsTypeDef",
     "ImportApiRequestTypeDef",
     "ImportApiResponseTypeDef",
     "IntegrationResponseTypeDef",
@@ -176,19 +226,66 @@ __all__ = (
     "JWTConfigurationOutputTypeDef",
     "JWTConfigurationTypeDef",
     "JWTConfigurationUnionTypeDef",
+    "ListPortalProductsRequestPaginateTypeDef",
+    "ListPortalProductsRequestTypeDef",
+    "ListPortalProductsResponseTypeDef",
+    "ListPortalsRequestPaginateTypeDef",
+    "ListPortalsRequestTypeDef",
+    "ListPortalsResponseTypeDef",
+    "ListProductPagesRequestPaginateTypeDef",
+    "ListProductPagesRequestTypeDef",
+    "ListProductPagesResponseTypeDef",
+    "ListProductRestEndpointPagesRequestPaginateTypeDef",
+    "ListProductRestEndpointPagesRequestTypeDef",
+    "ListProductRestEndpointPagesResponseTypeDef",
+    "ListRoutingRulesRequestPaginateTypeDef",
+    "ListRoutingRulesRequestTypeDef",
+    "ListRoutingRulesResponseTypeDef",
     "ModelTypeDef",
     "MutualTlsAuthenticationInputTypeDef",
     "MutualTlsAuthenticationTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterConstraintsTypeDef",
+    "PortalContentOutputTypeDef",
+    "PortalContentTypeDef",
+    "PortalContentUnionTypeDef",
+    "PortalProductSummaryTypeDef",
+    "PortalSummaryTypeDef",
+    "PortalThemeOutputTypeDef",
+    "PortalThemeTypeDef",
+    "PreviewPortalRequestTypeDef",
+    "PreviewTypeDef",
+    "ProductPageSummaryNoBodyTypeDef",
+    "ProductRestEndpointPageSummaryNoBodyTypeDef",
+    "PublishPortalRequestTypeDef",
+    "PutPortalProductSharingPolicyRequestTypeDef",
+    "PutRoutingRuleRequestTypeDef",
+    "PutRoutingRuleResponseTypeDef",
     "ReimportApiRequestTypeDef",
     "ReimportApiResponseTypeDef",
     "ResetAuthorizersCacheRequestTypeDef",
     "ResponseMetadataTypeDef",
+    "RestEndpointIdentifierTypeDef",
     "RouteResponseTypeDef",
     "RouteSettingsTypeDef",
     "RouteTypeDef",
+    "RoutingRuleActionInvokeApiTypeDef",
+    "RoutingRuleActionTypeDef",
+    "RoutingRuleConditionOutputTypeDef",
+    "RoutingRuleConditionTypeDef",
+    "RoutingRuleConditionUnionTypeDef",
+    "RoutingRuleMatchBasePathsOutputTypeDef",
+    "RoutingRuleMatchBasePathsTypeDef",
+    "RoutingRuleMatchBasePathsUnionTypeDef",
+    "RoutingRuleMatchHeaderValueTypeDef",
+    "RoutingRuleMatchHeadersOutputTypeDef",
+    "RoutingRuleMatchHeadersTypeDef",
+    "RoutingRuleMatchHeadersUnionTypeDef",
+    "RoutingRuleTypeDef",
+    "SectionOutputTypeDef",
+    "SectionTypeDef",
     "StageTypeDef",
+    "StatusExceptionTypeDef",
     "TagResourceRequestTypeDef",
     "TimestampTypeDef",
     "TlsConfigInputTypeDef",
@@ -210,6 +307,14 @@ __all__ = (
     "UpdateIntegrationResultTypeDef",
     "UpdateModelRequestTypeDef",
     "UpdateModelResponseTypeDef",
+    "UpdatePortalProductRequestTypeDef",
+    "UpdatePortalProductResponseTypeDef",
+    "UpdatePortalRequestTypeDef",
+    "UpdatePortalResponseTypeDef",
+    "UpdateProductPageRequestTypeDef",
+    "UpdateProductPageResponseTypeDef",
+    "UpdateProductRestEndpointPageRequestTypeDef",
+    "UpdateProductRestEndpointPageResponseTypeDef",
     "UpdateRouteRequestTypeDef",
     "UpdateRouteResponseRequestTypeDef",
     "UpdateRouteResponseResponseTypeDef",
@@ -220,6 +325,10 @@ __all__ = (
     "UpdateVpcLinkResponseTypeDef",
     "VpcLinkTypeDef",
 )
+
+class ACMManagedTypeDef(TypedDict):
+    CertificateArn: str
+    DomainName: str
 
 class AccessLogSettingsTypeDef(TypedDict):
     DestinationArn: NotRequired[str]
@@ -238,6 +347,11 @@ class CorsOutputTypeDef(TypedDict):
     AllowOrigins: NotRequired[List[str]]
     ExposeHeaders: NotRequired[List[str]]
     MaxAge: NotRequired[int]
+
+class CognitoConfigTypeDef(TypedDict):
+    AppClientId: str
+    UserPoolArn: str
+    UserPoolDomain: str
 
 class JWTConfigurationOutputTypeDef(TypedDict):
     Audience: NotRequired[List[str]]
@@ -313,6 +427,34 @@ class CreateModelRequestTypeDef(TypedDict):
     ContentType: NotRequired[str]
     Description: NotRequired[str]
 
+class CreatePortalProductRequestTypeDef(TypedDict):
+    DisplayName: str
+    Description: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class EndpointConfigurationResponseTypeDef(TypedDict):
+    PortalDefaultDomainName: str
+    PortalDomainHostedZoneId: str
+    CertificateArn: NotRequired[str]
+    DomainName: NotRequired[str]
+
+StatusExceptionTypeDef = TypedDict(
+    "StatusExceptionTypeDef",
+    {
+        "Exception": NotRequired[str],
+        "Message": NotRequired[str],
+    },
+)
+
+class DisplayContentTypeDef(TypedDict):
+    Body: str
+    Title: str
+
+class EndpointDisplayContentResponseTypeDef(TypedDict):
+    Endpoint: str
+    Body: NotRequired[str]
+    OperationName: NotRequired[str]
+
 ParameterConstraintsTypeDef = TypedDict(
     "ParameterConstraintsTypeDef",
     {
@@ -332,6 +474,14 @@ class CreateVpcLinkRequestTypeDef(TypedDict):
     SubnetIds: Sequence[str]
     SecurityGroupIds: NotRequired[Sequence[str]]
     Tags: NotRequired[Mapping[str, str]]
+
+class CustomColorsTypeDef(TypedDict):
+    AccentColor: str
+    BackgroundColor: str
+    ErrorValidationColor: str
+    HeaderColor: str
+    NavigationColor: str
+    TextColor: str
 
 class DeleteAccessLogSettingsRequestTypeDef(TypedDict):
     ApiId: str
@@ -371,6 +521,23 @@ class DeleteModelRequestTypeDef(TypedDict):
     ApiId: str
     ModelId: str
 
+class DeletePortalProductRequestTypeDef(TypedDict):
+    PortalProductId: str
+
+class DeletePortalProductSharingPolicyRequestTypeDef(TypedDict):
+    PortalProductId: str
+
+class DeletePortalRequestTypeDef(TypedDict):
+    PortalId: str
+
+class DeleteProductPageRequestTypeDef(TypedDict):
+    PortalProductId: str
+    ProductPageId: str
+
+class DeleteProductRestEndpointPageRequestTypeDef(TypedDict):
+    PortalProductId: str
+    ProductRestEndpointPageId: str
+
 class DeleteRouteRequestParameterRequestTypeDef(TypedDict):
     ApiId: str
     RequestParameterKey: str
@@ -390,6 +557,11 @@ class DeleteRouteSettingsRequestTypeDef(TypedDict):
     RouteKey: str
     StageName: str
 
+class DeleteRoutingRuleRequestTypeDef(TypedDict):
+    DomainName: str
+    RoutingRuleId: str
+    DomainNameId: NotRequired[str]
+
 class DeleteStageRequestTypeDef(TypedDict):
     ApiId: str
     StageName: str
@@ -404,6 +576,22 @@ class DeploymentTypeDef(TypedDict):
     DeploymentStatus: NotRequired[DeploymentStatusType]
     DeploymentStatusMessage: NotRequired[str]
     Description: NotRequired[str]
+
+class DisablePortalRequestTypeDef(TypedDict):
+    PortalId: str
+
+class DisplayContentOverridesTypeDef(TypedDict):
+    Body: NotRequired[str]
+    Endpoint: NotRequired[str]
+    OperationName: NotRequired[str]
+
+class SectionOutputTypeDef(TypedDict):
+    ProductRestEndpointPageArns: List[str]
+    SectionName: str
+
+class SectionTypeDef(TypedDict):
+    ProductRestEndpointPageArns: Sequence[str]
+    SectionName: str
 
 TimestampTypeDef = Union[datetime, str]
 
@@ -509,6 +697,27 @@ class ModelTypeDef(TypedDict):
     ModelId: NotRequired[str]
     Schema: NotRequired[str]
 
+class GetPortalProductRequestTypeDef(TypedDict):
+    PortalProductId: str
+    ResourceOwnerAccountId: NotRequired[str]
+
+class GetPortalProductSharingPolicyRequestTypeDef(TypedDict):
+    PortalProductId: str
+
+class GetPortalRequestTypeDef(TypedDict):
+    PortalId: str
+
+class GetProductPageRequestTypeDef(TypedDict):
+    PortalProductId: str
+    ProductPageId: str
+    ResourceOwnerAccountId: NotRequired[str]
+
+class GetProductRestEndpointPageRequestTypeDef(TypedDict):
+    PortalProductId: str
+    ProductRestEndpointPageId: str
+    IncludeRawDisplayContent: NotRequired[str]
+    ResourceOwnerAccountId: NotRequired[str]
+
 class GetRouteRequestTypeDef(TypedDict):
     ApiId: str
     RouteId: str
@@ -528,6 +737,11 @@ class GetRoutesRequestTypeDef(TypedDict):
     ApiId: str
     MaxResults: NotRequired[str]
     NextToken: NotRequired[str]
+
+class GetRoutingRuleRequestTypeDef(TypedDict):
+    DomainName: str
+    RoutingRuleId: str
+    DomainNameId: NotRequired[str]
 
 class GetStageRequestTypeDef(TypedDict):
     ApiId: str
@@ -559,6 +773,12 @@ class VpcLinkTypeDef(TypedDict):
     VpcLinkStatusMessage: NotRequired[str]
     VpcLinkVersion: NotRequired[Literal["V2"]]
 
+class IdentifierPartsTypeDef(TypedDict):
+    Method: str
+    Path: str
+    RestApiId: str
+    Stage: str
+
 class ImportApiRequestTypeDef(TypedDict):
     Body: str
     Basepath: NotRequired[str]
@@ -567,6 +787,58 @@ class ImportApiRequestTypeDef(TypedDict):
 class JWTConfigurationTypeDef(TypedDict):
     Audience: NotRequired[Sequence[str]]
     Issuer: NotRequired[str]
+
+class ListPortalProductsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+    ResourceOwner: NotRequired[str]
+
+class PortalProductSummaryTypeDef(TypedDict):
+    Description: str
+    DisplayName: str
+    LastModified: datetime
+    PortalProductArn: str
+    PortalProductId: str
+    Tags: NotRequired[Dict[str, str]]
+
+class ListPortalsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListProductPagesRequestTypeDef(TypedDict):
+    PortalProductId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+    ResourceOwnerAccountId: NotRequired[str]
+
+class ProductPageSummaryNoBodyTypeDef(TypedDict):
+    LastModified: datetime
+    PageTitle: str
+    ProductPageArn: str
+    ProductPageId: str
+
+class ListProductRestEndpointPagesRequestTypeDef(TypedDict):
+    PortalProductId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+    ResourceOwnerAccountId: NotRequired[str]
+
+class ListRoutingRulesRequestTypeDef(TypedDict):
+    DomainName: str
+    DomainNameId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class PreviewPortalRequestTypeDef(TypedDict):
+    PortalId: str
+
+class PublishPortalRequestTypeDef(TypedDict):
+    PortalId: str
+    Description: NotRequired[str]
+
+class PutPortalProductSharingPolicyRequestTypeDef(TypedDict):
+    PolicyDocument: str
+    PortalProductId: str
 
 class ReimportApiRequestTypeDef(TypedDict):
     ApiId: str
@@ -577,6 +849,21 @@ class ReimportApiRequestTypeDef(TypedDict):
 class ResetAuthorizersCacheRequestTypeDef(TypedDict):
     ApiId: str
     StageName: str
+
+class RoutingRuleActionInvokeApiTypeDef(TypedDict):
+    ApiId: str
+    Stage: str
+    StripBasePath: NotRequired[bool]
+
+class RoutingRuleMatchBasePathsOutputTypeDef(TypedDict):
+    AnyOf: List[str]
+
+class RoutingRuleMatchBasePathsTypeDef(TypedDict):
+    AnyOf: Sequence[str]
+
+class RoutingRuleMatchHeaderValueTypeDef(TypedDict):
+    Header: str
+    ValueGlob: str
 
 class TagResourceRequestTypeDef(TypedDict):
     ResourceArn: str
@@ -620,6 +907,14 @@ class UpdateVpcLinkRequestTypeDef(TypedDict):
     VpcLinkId: str
     Name: NotRequired[str]
 
+EndpointConfigurationRequestTypeDef = TypedDict(
+    "EndpointConfigurationRequestTypeDef",
+    {
+        "AcmManaged": NotRequired[ACMManagedTypeDef],
+        "None": NotRequired[Mapping[str, Any]],
+    },
+)
+
 class ApiTypeDef(TypedDict):
     Name: str
     ProtocolType: ProtocolTypeType
@@ -638,6 +933,21 @@ class ApiTypeDef(TypedDict):
     Tags: NotRequired[Dict[str, str]]
     Version: NotRequired[str]
     Warnings: NotRequired[List[str]]
+
+AuthorizationOutputTypeDef = TypedDict(
+    "AuthorizationOutputTypeDef",
+    {
+        "CognitoConfig": NotRequired[CognitoConfigTypeDef],
+        "None": NotRequired[Dict[str, Any]],
+    },
+)
+AuthorizationTypeDef = TypedDict(
+    "AuthorizationTypeDef",
+    {
+        "CognitoConfig": NotRequired[CognitoConfigTypeDef],
+        "None": NotRequired[Mapping[str, Any]],
+    },
+)
 
 class AuthorizerTypeDef(TypedDict):
     Name: str
@@ -816,6 +1126,11 @@ class GetModelTemplateResponseTypeDef(TypedDict):
     Value: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class GetPortalProductSharingPolicyResponseTypeDef(TypedDict):
+    PolicyDocument: str
+    PortalProductId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class GetTagsResponseTypeDef(TypedDict):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -954,31 +1269,39 @@ class UpdateVpcLinkResponseTypeDef(TypedDict):
 class CreateDomainNameResponseTypeDef(TypedDict):
     ApiMappingSelectionExpression: str
     DomainName: str
+    DomainNameArn: str
     DomainNameConfigurations: List[DomainNameConfigurationOutputTypeDef]
     MutualTlsAuthentication: MutualTlsAuthenticationTypeDef
+    RoutingMode: RoutingModeType
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DomainNameTypeDef(TypedDict):
     DomainName: str
     ApiMappingSelectionExpression: NotRequired[str]
+    DomainNameArn: NotRequired[str]
     DomainNameConfigurations: NotRequired[List[DomainNameConfigurationOutputTypeDef]]
     MutualTlsAuthentication: NotRequired[MutualTlsAuthenticationTypeDef]
+    RoutingMode: NotRequired[RoutingModeType]
     Tags: NotRequired[Dict[str, str]]
 
 class GetDomainNameResponseTypeDef(TypedDict):
     ApiMappingSelectionExpression: str
     DomainName: str
+    DomainNameArn: str
     DomainNameConfigurations: List[DomainNameConfigurationOutputTypeDef]
     MutualTlsAuthentication: MutualTlsAuthenticationTypeDef
+    RoutingMode: RoutingModeType
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateDomainNameResponseTypeDef(TypedDict):
     ApiMappingSelectionExpression: str
     DomainName: str
+    DomainNameArn: str
     DomainNameConfigurations: List[DomainNameConfigurationOutputTypeDef]
     MutualTlsAuthentication: MutualTlsAuthenticationTypeDef
+    RoutingMode: RoutingModeType
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1112,6 +1435,41 @@ class UpdateIntegrationResultTypeDef(TypedDict):
     TemplateSelectionExpression: str
     TimeoutInMillis: int
     TlsConfig: TlsConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PreviewTypeDef(TypedDict):
+    PreviewStatus: PreviewStatusType
+    PreviewUrl: NotRequired[str]
+    StatusException: NotRequired[StatusExceptionTypeDef]
+
+class CreateProductPageRequestTypeDef(TypedDict):
+    DisplayContent: DisplayContentTypeDef
+    PortalProductId: str
+
+class CreateProductPageResponseTypeDef(TypedDict):
+    DisplayContent: DisplayContentTypeDef
+    LastModified: datetime
+    ProductPageArn: str
+    ProductPageId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetProductPageResponseTypeDef(TypedDict):
+    DisplayContent: DisplayContentTypeDef
+    LastModified: datetime
+    ProductPageArn: str
+    ProductPageId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateProductPageRequestTypeDef(TypedDict):
+    PortalProductId: str
+    ProductPageId: str
+    DisplayContent: NotRequired[DisplayContentTypeDef]
+
+class UpdateProductPageResponseTypeDef(TypedDict):
+    DisplayContent: DisplayContentTypeDef
+    LastModified: datetime
+    ProductPageArn: str
+    ProductPageId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateRouteRequestTypeDef(TypedDict):
@@ -1346,10 +1704,32 @@ class UpdateStageResponseTypeDef(TypedDict):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+class PortalThemeOutputTypeDef(TypedDict):
+    CustomColors: CustomColorsTypeDef
+    LogoLastUploaded: NotRequired[datetime]
+
 class GetDeploymentsResponseTypeDef(TypedDict):
     Items: List[DeploymentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
+
+EndpointDisplayContentTypeDef = TypedDict(
+    "EndpointDisplayContentTypeDef",
+    {
+        "None": NotRequired[Mapping[str, Any]],
+        "Overrides": NotRequired[DisplayContentOverridesTypeDef],
+    },
+)
+
+class DisplayOrderOutputTypeDef(TypedDict):
+    Contents: NotRequired[List[SectionOutputTypeDef]]
+    OverviewPageArn: NotRequired[str]
+    ProductPageArns: NotRequired[List[str]]
+
+class DisplayOrderTypeDef(TypedDict):
+    Contents: NotRequired[Sequence[SectionTypeDef]]
+    OverviewPageArn: NotRequired[str]
+    ProductPageArns: NotRequired[Sequence[str]]
 
 class DomainNameConfigurationTypeDef(TypedDict):
     ApiGatewayDomainName: NotRequired[str]
@@ -1363,6 +1743,10 @@ class DomainNameConfigurationTypeDef(TypedDict):
     IpAddressType: NotRequired[IpAddressTypeType]
     SecurityPolicy: NotRequired[SecurityPolicyType]
     OwnershipVerificationCertificateArn: NotRequired[str]
+
+class PortalThemeTypeDef(TypedDict):
+    CustomColors: CustomColorsTypeDef
+    LogoLastUploaded: NotRequired[TimestampTypeDef]
 
 class GetApisRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
@@ -1404,6 +1788,28 @@ class GetStagesRequestPaginateTypeDef(TypedDict):
     ApiId: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListPortalProductsRequestPaginateTypeDef(TypedDict):
+    ResourceOwner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPortalsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProductPagesRequestPaginateTypeDef(TypedDict):
+    PortalProductId: str
+    ResourceOwnerAccountId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProductRestEndpointPagesRequestPaginateTypeDef(TypedDict):
+    PortalProductId: str
+    ResourceOwnerAccountId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRoutingRulesRequestPaginateTypeDef(TypedDict):
+    DomainName: str
+    DomainNameId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class GetIntegrationResponsesResponseTypeDef(TypedDict):
     Items: List[IntegrationResponseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1419,12 +1825,40 @@ class GetVpcLinksResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class RestEndpointIdentifierTypeDef(TypedDict):
+    IdentifierParts: NotRequired[IdentifierPartsTypeDef]
+
 JWTConfigurationUnionTypeDef = Union[JWTConfigurationTypeDef, JWTConfigurationOutputTypeDef]
+
+class ListPortalProductsResponseTypeDef(TypedDict):
+    Items: List[PortalProductSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListProductPagesResponseTypeDef(TypedDict):
+    Items: List[ProductPageSummaryNoBodyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RoutingRuleActionTypeDef(TypedDict):
+    InvokeApi: RoutingRuleActionInvokeApiTypeDef
+
+RoutingRuleMatchBasePathsUnionTypeDef = Union[
+    RoutingRuleMatchBasePathsTypeDef, RoutingRuleMatchBasePathsOutputTypeDef
+]
+
+class RoutingRuleMatchHeadersOutputTypeDef(TypedDict):
+    AnyOf: List[RoutingRuleMatchHeaderValueTypeDef]
+
+class RoutingRuleMatchHeadersTypeDef(TypedDict):
+    AnyOf: Sequence[RoutingRuleMatchHeaderValueTypeDef]
 
 class GetApisResponseTypeDef(TypedDict):
     Items: List[ApiTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
+
+AuthorizationUnionTypeDef = Union[AuthorizationTypeDef, AuthorizationOutputTypeDef]
 
 class GetAuthorizersResponseTypeDef(TypedDict):
     Items: List[AuthorizerTypeDef]
@@ -1487,9 +1921,107 @@ class GetStagesResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class PortalContentOutputTypeDef(TypedDict):
+    DisplayName: str
+    Theme: PortalThemeOutputTypeDef
+    Description: NotRequired[str]
+
+class UpdateProductRestEndpointPageRequestTypeDef(TypedDict):
+    PortalProductId: str
+    ProductRestEndpointPageId: str
+    DisplayContent: NotRequired[EndpointDisplayContentTypeDef]
+    TryItState: NotRequired[TryItStateType]
+
+class CreatePortalProductResponseTypeDef(TypedDict):
+    Description: str
+    DisplayName: str
+    DisplayOrder: DisplayOrderOutputTypeDef
+    LastModified: datetime
+    PortalProductArn: str
+    PortalProductId: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPortalProductResponseTypeDef(TypedDict):
+    Description: str
+    DisplayName: str
+    DisplayOrder: DisplayOrderOutputTypeDef
+    LastModified: datetime
+    PortalProductArn: str
+    PortalProductId: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePortalProductResponseTypeDef(TypedDict):
+    Description: str
+    DisplayName: str
+    DisplayOrder: DisplayOrderOutputTypeDef
+    LastModified: datetime
+    PortalProductArn: str
+    PortalProductId: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DisplayOrderUnionTypeDef = Union[DisplayOrderTypeDef, DisplayOrderOutputTypeDef]
 DomainNameConfigurationUnionTypeDef = Union[
     DomainNameConfigurationTypeDef, DomainNameConfigurationOutputTypeDef
 ]
+
+class PortalContentTypeDef(TypedDict):
+    DisplayName: str
+    Theme: PortalThemeTypeDef
+    Description: NotRequired[str]
+
+class CreateProductRestEndpointPageRequestTypeDef(TypedDict):
+    PortalProductId: str
+    RestEndpointIdentifier: RestEndpointIdentifierTypeDef
+    DisplayContent: NotRequired[EndpointDisplayContentTypeDef]
+    TryItState: NotRequired[TryItStateType]
+
+class CreateProductRestEndpointPageResponseTypeDef(TypedDict):
+    DisplayContent: EndpointDisplayContentResponseTypeDef
+    LastModified: datetime
+    ProductRestEndpointPageArn: str
+    ProductRestEndpointPageId: str
+    RestEndpointIdentifier: RestEndpointIdentifierTypeDef
+    Status: StatusType
+    StatusException: StatusExceptionTypeDef
+    TryItState: TryItStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetProductRestEndpointPageResponseTypeDef(TypedDict):
+    DisplayContent: EndpointDisplayContentResponseTypeDef
+    LastModified: datetime
+    ProductRestEndpointPageArn: str
+    ProductRestEndpointPageId: str
+    RawDisplayContent: str
+    RestEndpointIdentifier: RestEndpointIdentifierTypeDef
+    Status: StatusType
+    StatusException: StatusExceptionTypeDef
+    TryItState: TryItStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProductRestEndpointPageSummaryNoBodyTypeDef(TypedDict):
+    Endpoint: str
+    LastModified: datetime
+    ProductRestEndpointPageArn: str
+    ProductRestEndpointPageId: str
+    RestEndpointIdentifier: RestEndpointIdentifierTypeDef
+    Status: StatusType
+    TryItState: TryItStateType
+    OperationName: NotRequired[str]
+    StatusException: NotRequired[StatusExceptionTypeDef]
+
+class UpdateProductRestEndpointPageResponseTypeDef(TypedDict):
+    DisplayContent: EndpointDisplayContentResponseTypeDef
+    LastModified: datetime
+    ProductRestEndpointPageArn: str
+    ProductRestEndpointPageId: str
+    RestEndpointIdentifier: RestEndpointIdentifierTypeDef
+    Status: StatusType
+    StatusException: StatusExceptionTypeDef
+    TryItState: TryItStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateAuthorizerRequestTypeDef(TypedDict):
     ApiId: str
@@ -1518,13 +2050,184 @@ class UpdateAuthorizerRequestTypeDef(TypedDict):
     JwtConfiguration: NotRequired[JWTConfigurationUnionTypeDef]
     Name: NotRequired[str]
 
+class RoutingRuleConditionOutputTypeDef(TypedDict):
+    MatchBasePaths: NotRequired[RoutingRuleMatchBasePathsOutputTypeDef]
+    MatchHeaders: NotRequired[RoutingRuleMatchHeadersOutputTypeDef]
+
+RoutingRuleMatchHeadersUnionTypeDef = Union[
+    RoutingRuleMatchHeadersTypeDef, RoutingRuleMatchHeadersOutputTypeDef
+]
+
+class CreatePortalResponseTypeDef(TypedDict):
+    Authorization: AuthorizationOutputTypeDef
+    EndpointConfiguration: EndpointConfigurationResponseTypeDef
+    IncludedPortalProductArns: List[str]
+    LastModified: datetime
+    LastPublished: datetime
+    LastPublishedDescription: str
+    PortalArn: str
+    PortalContent: PortalContentOutputTypeDef
+    PortalId: str
+    PublishStatus: PublishStatusType
+    RumAppMonitorName: str
+    StatusException: StatusExceptionTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPortalResponseTypeDef(TypedDict):
+    Authorization: AuthorizationOutputTypeDef
+    EndpointConfiguration: EndpointConfigurationResponseTypeDef
+    IncludedPortalProductArns: List[str]
+    LastModified: datetime
+    LastPublished: datetime
+    LastPublishedDescription: str
+    PortalArn: str
+    PortalContent: PortalContentOutputTypeDef
+    PortalId: str
+    Preview: PreviewTypeDef
+    PublishStatus: PublishStatusType
+    RumAppMonitorName: str
+    StatusException: StatusExceptionTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PortalSummaryTypeDef(TypedDict):
+    Authorization: AuthorizationOutputTypeDef
+    EndpointConfiguration: EndpointConfigurationResponseTypeDef
+    IncludedPortalProductArns: List[str]
+    LastModified: datetime
+    PortalArn: str
+    PortalContent: PortalContentOutputTypeDef
+    PortalId: str
+    LastPublished: NotRequired[datetime]
+    LastPublishedDescription: NotRequired[str]
+    Preview: NotRequired[PreviewTypeDef]
+    PublishStatus: NotRequired[PublishStatusType]
+    RumAppMonitorName: NotRequired[str]
+    StatusException: NotRequired[StatusExceptionTypeDef]
+    Tags: NotRequired[Dict[str, str]]
+
+class UpdatePortalResponseTypeDef(TypedDict):
+    Authorization: AuthorizationOutputTypeDef
+    EndpointConfiguration: EndpointConfigurationResponseTypeDef
+    IncludedPortalProductArns: List[str]
+    LastModified: datetime
+    LastPublished: datetime
+    LastPublishedDescription: str
+    PortalArn: str
+    PortalContent: PortalContentOutputTypeDef
+    PortalId: str
+    Preview: PreviewTypeDef
+    PublishStatus: PublishStatusType
+    RumAppMonitorName: str
+    StatusException: StatusExceptionTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePortalProductRequestTypeDef(TypedDict):
+    PortalProductId: str
+    Description: NotRequired[str]
+    DisplayName: NotRequired[str]
+    DisplayOrder: NotRequired[DisplayOrderUnionTypeDef]
+
 class CreateDomainNameRequestTypeDef(TypedDict):
     DomainName: str
     DomainNameConfigurations: NotRequired[Sequence[DomainNameConfigurationUnionTypeDef]]
     MutualTlsAuthentication: NotRequired[MutualTlsAuthenticationInputTypeDef]
+    RoutingMode: NotRequired[RoutingModeType]
     Tags: NotRequired[Mapping[str, str]]
 
 class UpdateDomainNameRequestTypeDef(TypedDict):
     DomainName: str
     DomainNameConfigurations: NotRequired[Sequence[DomainNameConfigurationUnionTypeDef]]
     MutualTlsAuthentication: NotRequired[MutualTlsAuthenticationInputTypeDef]
+    RoutingMode: NotRequired[RoutingModeType]
+
+PortalContentUnionTypeDef = Union[PortalContentTypeDef, PortalContentOutputTypeDef]
+
+class ListProductRestEndpointPagesResponseTypeDef(TypedDict):
+    Items: List[ProductRestEndpointPageSummaryNoBodyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateRoutingRuleResponseTypeDef(TypedDict):
+    Actions: List[RoutingRuleActionTypeDef]
+    Conditions: List[RoutingRuleConditionOutputTypeDef]
+    Priority: int
+    RoutingRuleArn: str
+    RoutingRuleId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRoutingRuleResponseTypeDef(TypedDict):
+    Actions: List[RoutingRuleActionTypeDef]
+    Conditions: List[RoutingRuleConditionOutputTypeDef]
+    Priority: int
+    RoutingRuleArn: str
+    RoutingRuleId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutRoutingRuleResponseTypeDef(TypedDict):
+    Actions: List[RoutingRuleActionTypeDef]
+    Conditions: List[RoutingRuleConditionOutputTypeDef]
+    Priority: int
+    RoutingRuleArn: str
+    RoutingRuleId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RoutingRuleTypeDef(TypedDict):
+    Actions: NotRequired[List[RoutingRuleActionTypeDef]]
+    Conditions: NotRequired[List[RoutingRuleConditionOutputTypeDef]]
+    Priority: NotRequired[int]
+    RoutingRuleArn: NotRequired[str]
+    RoutingRuleId: NotRequired[str]
+
+class RoutingRuleConditionTypeDef(TypedDict):
+    MatchBasePaths: NotRequired[RoutingRuleMatchBasePathsUnionTypeDef]
+    MatchHeaders: NotRequired[RoutingRuleMatchHeadersUnionTypeDef]
+
+class ListPortalsResponseTypeDef(TypedDict):
+    Items: List[PortalSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreatePortalRequestTypeDef(TypedDict):
+    Authorization: AuthorizationUnionTypeDef
+    EndpointConfiguration: EndpointConfigurationRequestTypeDef
+    PortalContent: PortalContentUnionTypeDef
+    IncludedPortalProductArns: NotRequired[Sequence[str]]
+    LogoUri: NotRequired[str]
+    RumAppMonitorName: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdatePortalRequestTypeDef(TypedDict):
+    PortalId: str
+    Authorization: NotRequired[AuthorizationUnionTypeDef]
+    EndpointConfiguration: NotRequired[EndpointConfigurationRequestTypeDef]
+    IncludedPortalProductArns: NotRequired[Sequence[str]]
+    LogoUri: NotRequired[str]
+    PortalContent: NotRequired[PortalContentUnionTypeDef]
+    RumAppMonitorName: NotRequired[str]
+
+class ListRoutingRulesResponseTypeDef(TypedDict):
+    RoutingRules: List[RoutingRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+RoutingRuleConditionUnionTypeDef = Union[
+    RoutingRuleConditionTypeDef, RoutingRuleConditionOutputTypeDef
+]
+
+class CreateRoutingRuleRequestTypeDef(TypedDict):
+    Actions: Sequence[RoutingRuleActionTypeDef]
+    Conditions: Sequence[RoutingRuleConditionUnionTypeDef]
+    DomainName: str
+    Priority: int
+    DomainNameId: NotRequired[str]
+
+class PutRoutingRuleRequestTypeDef(TypedDict):
+    Actions: Sequence[RoutingRuleActionTypeDef]
+    Conditions: Sequence[RoutingRuleConditionUnionTypeDef]
+    DomainName: str
+    Priority: int
+    RoutingRuleId: str
+    DomainNameId: NotRequired[str]

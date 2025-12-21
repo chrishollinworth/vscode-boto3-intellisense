@@ -46,6 +46,7 @@ from .type_defs import (
     CreateStackInputServiceResourceCreateStackTypeDef,
     DeleteStackInputStackDeleteTypeDef,
     ModuleInfoTypeDef,
+    OperationEntryTypeDef,
     OutputTypeDef,
     ParameterTypeDef,
     RollbackConfigurationOutputTypeDef,
@@ -151,7 +152,7 @@ class StackEventsCollection(ResourceCollection):
         """
 
     def filter(  # type: ignore[override]
-        self, *, StackName: str = ..., NextToken: str = ...
+        self, *, NextToken: str = ...
     ) -> StackEventsCollection:
         """
         Get items from the collection, passing keyword arguments along as parameters to
@@ -262,6 +263,7 @@ class Event(ServiceResource):
     stack_id: str
     event_id: str
     stack_name: str
+    operation_id: str
     logical_resource_id: str
     physical_resource_id: str
     resource_type: str
@@ -274,6 +276,7 @@ class Event(ServiceResource):
     hook_status: HookStatusType
     hook_status_reason: str
     hook_invocation_point: Literal["PRE_PROVISION"]
+    hook_invocation_id: str
     hook_failure_mode: HookFailureModeType
     detailed_status: DetailedStatusType
     meta: CloudFormationResourceMeta  # type: ignore[override]
@@ -322,6 +325,7 @@ class Stack(ServiceResource):
     retain_except_on_create: bool
     deletion_mode: DeletionModeType
     detailed_status: DetailedStatusType
+    last_operations: List[OperationEntryTypeDef]
     meta: CloudFormationResourceMeta  # type: ignore[override]
 
     def get_available_subresources(self) -> Sequence[str]:

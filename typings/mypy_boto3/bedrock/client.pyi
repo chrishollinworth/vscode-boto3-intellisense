@@ -26,7 +26,13 @@ from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
+    ListAutomatedReasoningPoliciesPaginator,
+    ListAutomatedReasoningPolicyBuildWorkflowsPaginator,
+    ListAutomatedReasoningPolicyTestCasesPaginator,
+    ListAutomatedReasoningPolicyTestResultsPaginator,
+    ListCustomModelDeploymentsPaginator,
     ListCustomModelsPaginator,
+    ListEnforcedGuardrailsConfigurationPaginator,
     ListEvaluationJobsPaginator,
     ListGuardrailsPaginator,
     ListImportedModelsPaginator,
@@ -42,8 +48,21 @@ from .paginator import (
 from .type_defs import (
     BatchDeleteEvaluationJobRequestTypeDef,
     BatchDeleteEvaluationJobResponseTypeDef,
+    CancelAutomatedReasoningPolicyBuildWorkflowRequestTypeDef,
+    CreateAutomatedReasoningPolicyRequestTypeDef,
+    CreateAutomatedReasoningPolicyResponseTypeDef,
+    CreateAutomatedReasoningPolicyTestCaseRequestTypeDef,
+    CreateAutomatedReasoningPolicyTestCaseResponseTypeDef,
+    CreateAutomatedReasoningPolicyVersionRequestTypeDef,
+    CreateAutomatedReasoningPolicyVersionResponseTypeDef,
+    CreateCustomModelDeploymentRequestTypeDef,
+    CreateCustomModelDeploymentResponseTypeDef,
+    CreateCustomModelRequestTypeDef,
+    CreateCustomModelResponseTypeDef,
     CreateEvaluationJobRequestTypeDef,
     CreateEvaluationJobResponseTypeDef,
+    CreateFoundationModelAgreementRequestTypeDef,
+    CreateFoundationModelAgreementResponseTypeDef,
     CreateGuardrailRequestTypeDef,
     CreateGuardrailResponseTypeDef,
     CreateGuardrailVersionRequestTypeDef,
@@ -64,7 +83,13 @@ from .type_defs import (
     CreatePromptRouterResponseTypeDef,
     CreateProvisionedModelThroughputRequestTypeDef,
     CreateProvisionedModelThroughputResponseTypeDef,
+    DeleteAutomatedReasoningPolicyBuildWorkflowRequestTypeDef,
+    DeleteAutomatedReasoningPolicyRequestTypeDef,
+    DeleteAutomatedReasoningPolicyTestCaseRequestTypeDef,
+    DeleteCustomModelDeploymentRequestTypeDef,
     DeleteCustomModelRequestTypeDef,
+    DeleteEnforcedGuardrailConfigurationRequestTypeDef,
+    DeleteFoundationModelAgreementRequestTypeDef,
     DeleteGuardrailRequestTypeDef,
     DeleteImportedModelRequestTypeDef,
     DeleteInferenceProfileRequestTypeDef,
@@ -72,10 +97,30 @@ from .type_defs import (
     DeletePromptRouterRequestTypeDef,
     DeleteProvisionedModelThroughputRequestTypeDef,
     DeregisterMarketplaceModelEndpointRequestTypeDef,
+    ExportAutomatedReasoningPolicyVersionRequestTypeDef,
+    ExportAutomatedReasoningPolicyVersionResponseTypeDef,
+    GetAutomatedReasoningPolicyAnnotationsRequestTypeDef,
+    GetAutomatedReasoningPolicyAnnotationsResponseTypeDef,
+    GetAutomatedReasoningPolicyBuildWorkflowRequestTypeDef,
+    GetAutomatedReasoningPolicyBuildWorkflowResponseTypeDef,
+    GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequestTypeDef,
+    GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponseTypeDef,
+    GetAutomatedReasoningPolicyNextScenarioRequestTypeDef,
+    GetAutomatedReasoningPolicyNextScenarioResponseTypeDef,
+    GetAutomatedReasoningPolicyRequestTypeDef,
+    GetAutomatedReasoningPolicyResponseTypeDef,
+    GetAutomatedReasoningPolicyTestCaseRequestTypeDef,
+    GetAutomatedReasoningPolicyTestCaseResponseTypeDef,
+    GetAutomatedReasoningPolicyTestResultRequestTypeDef,
+    GetAutomatedReasoningPolicyTestResultResponseTypeDef,
+    GetCustomModelDeploymentRequestTypeDef,
+    GetCustomModelDeploymentResponseTypeDef,
     GetCustomModelRequestTypeDef,
     GetCustomModelResponseTypeDef,
     GetEvaluationJobRequestTypeDef,
     GetEvaluationJobResponseTypeDef,
+    GetFoundationModelAvailabilityRequestTypeDef,
+    GetFoundationModelAvailabilityResponseTypeDef,
     GetFoundationModelRequestTypeDef,
     GetFoundationModelResponseTypeDef,
     GetGuardrailRequestTypeDef,
@@ -99,10 +144,25 @@ from .type_defs import (
     GetPromptRouterResponseTypeDef,
     GetProvisionedModelThroughputRequestTypeDef,
     GetProvisionedModelThroughputResponseTypeDef,
+    GetUseCaseForModelAccessResponseTypeDef,
+    ListAutomatedReasoningPoliciesRequestTypeDef,
+    ListAutomatedReasoningPoliciesResponseTypeDef,
+    ListAutomatedReasoningPolicyBuildWorkflowsRequestTypeDef,
+    ListAutomatedReasoningPolicyBuildWorkflowsResponseTypeDef,
+    ListAutomatedReasoningPolicyTestCasesRequestTypeDef,
+    ListAutomatedReasoningPolicyTestCasesResponseTypeDef,
+    ListAutomatedReasoningPolicyTestResultsRequestTypeDef,
+    ListAutomatedReasoningPolicyTestResultsResponseTypeDef,
+    ListCustomModelDeploymentsRequestTypeDef,
+    ListCustomModelDeploymentsResponseTypeDef,
     ListCustomModelsRequestTypeDef,
     ListCustomModelsResponseTypeDef,
+    ListEnforcedGuardrailsConfigurationRequestTypeDef,
+    ListEnforcedGuardrailsConfigurationResponseTypeDef,
     ListEvaluationJobsRequestTypeDef,
     ListEvaluationJobsResponseTypeDef,
+    ListFoundationModelAgreementOffersRequestTypeDef,
+    ListFoundationModelAgreementOffersResponseTypeDef,
     ListFoundationModelsRequestTypeDef,
     ListFoundationModelsResponseTypeDef,
     ListGuardrailsRequestTypeDef,
@@ -127,14 +187,29 @@ from .type_defs import (
     ListProvisionedModelThroughputsResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    PutEnforcedGuardrailConfigurationRequestTypeDef,
+    PutEnforcedGuardrailConfigurationResponseTypeDef,
     PutModelInvocationLoggingConfigurationRequestTypeDef,
+    PutUseCaseForModelAccessRequestTypeDef,
     RegisterMarketplaceModelEndpointRequestTypeDef,
     RegisterMarketplaceModelEndpointResponseTypeDef,
+    StartAutomatedReasoningPolicyBuildWorkflowRequestTypeDef,
+    StartAutomatedReasoningPolicyBuildWorkflowResponseTypeDef,
+    StartAutomatedReasoningPolicyTestWorkflowRequestTypeDef,
+    StartAutomatedReasoningPolicyTestWorkflowResponseTypeDef,
     StopEvaluationJobRequestTypeDef,
     StopModelCustomizationJobRequestTypeDef,
     StopModelInvocationJobRequestTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
+    UpdateAutomatedReasoningPolicyAnnotationsRequestTypeDef,
+    UpdateAutomatedReasoningPolicyAnnotationsResponseTypeDef,
+    UpdateAutomatedReasoningPolicyRequestTypeDef,
+    UpdateAutomatedReasoningPolicyResponseTypeDef,
+    UpdateAutomatedReasoningPolicyTestCaseRequestTypeDef,
+    UpdateAutomatedReasoningPolicyTestCaseResponseTypeDef,
+    UpdateCustomModelDeploymentRequestTypeDef,
+    UpdateCustomModelDeploymentResponseTypeDef,
     UpdateGuardrailRequestTypeDef,
     UpdateGuardrailResponseTypeDef,
     UpdateMarketplaceModelEndpointRequestTypeDef,
@@ -160,6 +235,7 @@ class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
+    ResourceInUseException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
     ServiceQuotaExceededException: Type[BotocoreClientError]
     ServiceUnavailableException: Type[BotocoreClientError]
@@ -212,6 +288,66 @@ class BedrockClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#batch_delete_evaluation_job)
         """
 
+    def cancel_automated_reasoning_policy_build_workflow(
+        self, **kwargs: Unpack[CancelAutomatedReasoningPolicyBuildWorkflowRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Cancels a running Automated Reasoning policy build workflow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/cancel_automated_reasoning_policy_build_workflow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#cancel_automated_reasoning_policy_build_workflow)
+        """
+
+    def create_automated_reasoning_policy(
+        self, **kwargs: Unpack[CreateAutomatedReasoningPolicyRequestTypeDef]
+    ) -> CreateAutomatedReasoningPolicyResponseTypeDef:
+        """
+        Creates an Automated Reasoning policy for Amazon Bedrock Guardrails.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_automated_reasoning_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_automated_reasoning_policy)
+        """
+
+    def create_automated_reasoning_policy_test_case(
+        self, **kwargs: Unpack[CreateAutomatedReasoningPolicyTestCaseRequestTypeDef]
+    ) -> CreateAutomatedReasoningPolicyTestCaseResponseTypeDef:
+        """
+        Creates a test for an Automated Reasoning policy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_automated_reasoning_policy_test_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_automated_reasoning_policy_test_case)
+        """
+
+    def create_automated_reasoning_policy_version(
+        self, **kwargs: Unpack[CreateAutomatedReasoningPolicyVersionRequestTypeDef]
+    ) -> CreateAutomatedReasoningPolicyVersionResponseTypeDef:
+        """
+        Creates a new version of an existing Automated Reasoning policy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_automated_reasoning_policy_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_automated_reasoning_policy_version)
+        """
+
+    def create_custom_model(
+        self, **kwargs: Unpack[CreateCustomModelRequestTypeDef]
+    ) -> CreateCustomModelResponseTypeDef:
+        """
+        Creates a new custom model in Amazon Bedrock.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_custom_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_custom_model)
+        """
+
+    def create_custom_model_deployment(
+        self, **kwargs: Unpack[CreateCustomModelDeploymentRequestTypeDef]
+    ) -> CreateCustomModelDeploymentResponseTypeDef:
+        """
+        Deploys a custom model for on-demand inference in Amazon Bedrock.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_custom_model_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_custom_model_deployment)
+        """
+
     def create_evaluation_job(
         self, **kwargs: Unpack[CreateEvaluationJobRequestTypeDef]
     ) -> CreateEvaluationJobResponseTypeDef:
@@ -220,6 +356,16 @@ class BedrockClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_evaluation_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_evaluation_job)
+        """
+
+    def create_foundation_model_agreement(
+        self, **kwargs: Unpack[CreateFoundationModelAgreementRequestTypeDef]
+    ) -> CreateFoundationModelAgreementResponseTypeDef:
+        """
+        Request a model access agreement for the specified model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_foundation_model_agreement.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_foundation_model_agreement)
         """
 
     def create_guardrail(
@@ -327,6 +473,37 @@ class BedrockClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_provisioned_model_throughput)
         """
 
+    def delete_automated_reasoning_policy(
+        self, **kwargs: Unpack[DeleteAutomatedReasoningPolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an Automated Reasoning policy or policy version.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_automated_reasoning_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_automated_reasoning_policy)
+        """
+
+    def delete_automated_reasoning_policy_build_workflow(
+        self, **kwargs: Unpack[DeleteAutomatedReasoningPolicyBuildWorkflowRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an Automated Reasoning policy build workflow and its associated
+        artifacts.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_automated_reasoning_policy_build_workflow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_automated_reasoning_policy_build_workflow)
+        """
+
+    def delete_automated_reasoning_policy_test_case(
+        self, **kwargs: Unpack[DeleteAutomatedReasoningPolicyTestCaseRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an Automated Reasoning policy test.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_automated_reasoning_policy_test_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_automated_reasoning_policy_test_case)
+        """
+
     def delete_custom_model(
         self, **kwargs: Unpack[DeleteCustomModelRequestTypeDef]
     ) -> Dict[str, Any]:
@@ -335,6 +512,36 @@ class BedrockClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_custom_model.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_custom_model)
+        """
+
+    def delete_custom_model_deployment(
+        self, **kwargs: Unpack[DeleteCustomModelDeploymentRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a custom model deployment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_custom_model_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_custom_model_deployment)
+        """
+
+    def delete_enforced_guardrail_configuration(
+        self, **kwargs: Unpack[DeleteEnforcedGuardrailConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the account-level enforced guardrail configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_enforced_guardrail_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_enforced_guardrail_configuration)
+        """
+
+    def delete_foundation_model_agreement(
+        self, **kwargs: Unpack[DeleteFoundationModelAgreementRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Delete the model access agreement for the specified model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_foundation_model_agreement.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_foundation_model_agreement)
         """
 
     def delete_guardrail(self, **kwargs: Unpack[DeleteGuardrailRequestTypeDef]) -> Dict[str, Any]:
@@ -413,18 +620,110 @@ class BedrockClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#deregister_marketplace_model_endpoint)
         """
 
+    def export_automated_reasoning_policy_version(
+        self, **kwargs: Unpack[ExportAutomatedReasoningPolicyVersionRequestTypeDef]
+    ) -> ExportAutomatedReasoningPolicyVersionResponseTypeDef:
+        """
+        Exports the policy definition for an Automated Reasoning policy version.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/export_automated_reasoning_policy_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#export_automated_reasoning_policy_version)
+        """
+
+    def get_automated_reasoning_policy(
+        self, **kwargs: Unpack[GetAutomatedReasoningPolicyRequestTypeDef]
+    ) -> GetAutomatedReasoningPolicyResponseTypeDef:
+        """
+        Retrieves details about an Automated Reasoning policy or policy version.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_automated_reasoning_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_automated_reasoning_policy)
+        """
+
+    def get_automated_reasoning_policy_annotations(
+        self, **kwargs: Unpack[GetAutomatedReasoningPolicyAnnotationsRequestTypeDef]
+    ) -> GetAutomatedReasoningPolicyAnnotationsResponseTypeDef:
+        """
+        Retrieves the current annotations for an Automated Reasoning policy build
+        workflow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_automated_reasoning_policy_annotations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_automated_reasoning_policy_annotations)
+        """
+
+    def get_automated_reasoning_policy_build_workflow(
+        self, **kwargs: Unpack[GetAutomatedReasoningPolicyBuildWorkflowRequestTypeDef]
+    ) -> GetAutomatedReasoningPolicyBuildWorkflowResponseTypeDef:
+        """
+        Retrieves detailed information about an Automated Reasoning policy build
+        workflow, including its status, configuration, and metadata.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_automated_reasoning_policy_build_workflow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_automated_reasoning_policy_build_workflow)
+        """
+
+    def get_automated_reasoning_policy_build_workflow_result_assets(
+        self, **kwargs: Unpack[GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequestTypeDef]
+    ) -> GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponseTypeDef:
+        """
+        Retrieves the resulting assets from a completed Automated Reasoning policy
+        build workflow, including build logs, quality reports, and generated policy
+        artifacts.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_automated_reasoning_policy_build_workflow_result_assets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_automated_reasoning_policy_build_workflow_result_assets)
+        """
+
+    def get_automated_reasoning_policy_next_scenario(
+        self, **kwargs: Unpack[GetAutomatedReasoningPolicyNextScenarioRequestTypeDef]
+    ) -> GetAutomatedReasoningPolicyNextScenarioResponseTypeDef:
+        """
+        Retrieves the next test scenario for validating an Automated Reasoning policy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_automated_reasoning_policy_next_scenario.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_automated_reasoning_policy_next_scenario)
+        """
+
+    def get_automated_reasoning_policy_test_case(
+        self, **kwargs: Unpack[GetAutomatedReasoningPolicyTestCaseRequestTypeDef]
+    ) -> GetAutomatedReasoningPolicyTestCaseResponseTypeDef:
+        """
+        Retrieves details about a specific Automated Reasoning policy test.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_automated_reasoning_policy_test_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_automated_reasoning_policy_test_case)
+        """
+
+    def get_automated_reasoning_policy_test_result(
+        self, **kwargs: Unpack[GetAutomatedReasoningPolicyTestResultRequestTypeDef]
+    ) -> GetAutomatedReasoningPolicyTestResultResponseTypeDef:
+        """
+        Retrieves the test result for a specific Automated Reasoning policy test.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_automated_reasoning_policy_test_result.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_automated_reasoning_policy_test_result)
+        """
+
     def get_custom_model(
         self, **kwargs: Unpack[GetCustomModelRequestTypeDef]
     ) -> GetCustomModelResponseTypeDef:
         """
         Get the properties associated with a Amazon Bedrock custom model that you have
-        created.For more information, see <a
-        href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-        models</a> in the <a
-        href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service...
+        created.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_custom_model.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_custom_model)
+        """
+
+    def get_custom_model_deployment(
+        self, **kwargs: Unpack[GetCustomModelDeploymentRequestTypeDef]
+    ) -> GetCustomModelDeploymentResponseTypeDef:
+        """
+        Retrieves information about a custom model deployment, including its status,
+        configuration, and metadata.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_custom_model_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_custom_model_deployment)
         """
 
     def get_evaluation_job(
@@ -445,6 +744,16 @@ class BedrockClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_foundation_model.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_foundation_model)
+        """
+
+    def get_foundation_model_availability(
+        self, **kwargs: Unpack[GetFoundationModelAvailabilityRequestTypeDef]
+    ) -> GetFoundationModelAvailabilityResponseTypeDef:
+        """
+        Get information about the Foundation model availability.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_foundation_model_availability.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_foundation_model_availability)
         """
 
     def get_guardrail(
@@ -560,6 +869,67 @@ class BedrockClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_provisioned_model_throughput)
         """
 
+    def get_use_case_for_model_access(self) -> GetUseCaseForModelAccessResponseTypeDef:
+        """
+        Get usecase for model access.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_use_case_for_model_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_use_case_for_model_access)
+        """
+
+    def list_automated_reasoning_policies(
+        self, **kwargs: Unpack[ListAutomatedReasoningPoliciesRequestTypeDef]
+    ) -> ListAutomatedReasoningPoliciesResponseTypeDef:
+        """
+        Lists all Automated Reasoning policies in your account, with optional filtering
+        by policy ARN.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_automated_reasoning_policies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_automated_reasoning_policies)
+        """
+
+    def list_automated_reasoning_policy_build_workflows(
+        self, **kwargs: Unpack[ListAutomatedReasoningPolicyBuildWorkflowsRequestTypeDef]
+    ) -> ListAutomatedReasoningPolicyBuildWorkflowsResponseTypeDef:
+        """
+        Lists all build workflows for an Automated Reasoning policy, showing the
+        history of policy creation and modification attempts.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_automated_reasoning_policy_build_workflows.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_automated_reasoning_policy_build_workflows)
+        """
+
+    def list_automated_reasoning_policy_test_cases(
+        self, **kwargs: Unpack[ListAutomatedReasoningPolicyTestCasesRequestTypeDef]
+    ) -> ListAutomatedReasoningPolicyTestCasesResponseTypeDef:
+        """
+        Lists tests for an Automated Reasoning policy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_automated_reasoning_policy_test_cases.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_automated_reasoning_policy_test_cases)
+        """
+
+    def list_automated_reasoning_policy_test_results(
+        self, **kwargs: Unpack[ListAutomatedReasoningPolicyTestResultsRequestTypeDef]
+    ) -> ListAutomatedReasoningPolicyTestResultsResponseTypeDef:
+        """
+        Lists test results for an Automated Reasoning policy, showing how the policy
+        performed against various test scenarios and validation checks.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_automated_reasoning_policy_test_results.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_automated_reasoning_policy_test_results)
+        """
+
+    def list_custom_model_deployments(
+        self, **kwargs: Unpack[ListCustomModelDeploymentsRequestTypeDef]
+    ) -> ListCustomModelDeploymentsResponseTypeDef:
+        """
+        Lists custom model deployments in your account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_custom_model_deployments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_custom_model_deployments)
+        """
+
     def list_custom_models(
         self, **kwargs: Unpack[ListCustomModelsRequestTypeDef]
     ) -> ListCustomModelsResponseTypeDef:
@@ -571,6 +941,16 @@ class BedrockClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_custom_models)
         """
 
+    def list_enforced_guardrails_configuration(
+        self, **kwargs: Unpack[ListEnforcedGuardrailsConfigurationRequestTypeDef]
+    ) -> ListEnforcedGuardrailsConfigurationResponseTypeDef:
+        """
+        Lists the account-level enforced guardrail configurations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_enforced_guardrails_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_enforced_guardrails_configuration)
+        """
+
     def list_evaluation_jobs(
         self, **kwargs: Unpack[ListEvaluationJobsRequestTypeDef]
     ) -> ListEvaluationJobsResponseTypeDef:
@@ -579,6 +959,16 @@ class BedrockClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_evaluation_jobs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_evaluation_jobs)
+        """
+
+    def list_foundation_model_agreement_offers(
+        self, **kwargs: Unpack[ListFoundationModelAgreementOffersRequestTypeDef]
+    ) -> ListFoundationModelAgreementOffersResponseTypeDef:
+        """
+        Get the offers associated with the specified model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_foundation_model_agreement_offers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_foundation_model_agreement_offers)
         """
 
     def list_foundation_models(
@@ -702,6 +1092,16 @@ class BedrockClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_tags_for_resource)
         """
 
+    def put_enforced_guardrail_configuration(
+        self, **kwargs: Unpack[PutEnforcedGuardrailConfigurationRequestTypeDef]
+    ) -> PutEnforcedGuardrailConfigurationResponseTypeDef:
+        """
+        Sets the account-level enforced guardrail configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/put_enforced_guardrail_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#put_enforced_guardrail_configuration)
+        """
+
     def put_model_invocation_logging_configuration(
         self, **kwargs: Unpack[PutModelInvocationLoggingConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
@@ -710,6 +1110,16 @@ class BedrockClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/put_model_invocation_logging_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#put_model_invocation_logging_configuration)
+        """
+
+    def put_use_case_for_model_access(
+        self, **kwargs: Unpack[PutUseCaseForModelAccessRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Put usecase for model access.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/put_use_case_for_model_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#put_use_case_for_model_access)
         """
 
     def register_marketplace_model_endpoint(
@@ -721,6 +1131,26 @@ class BedrockClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/register_marketplace_model_endpoint.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#register_marketplace_model_endpoint)
+        """
+
+    def start_automated_reasoning_policy_build_workflow(
+        self, **kwargs: Unpack[StartAutomatedReasoningPolicyBuildWorkflowRequestTypeDef]
+    ) -> StartAutomatedReasoningPolicyBuildWorkflowResponseTypeDef:
+        """
+        Starts a new build workflow for an Automated Reasoning policy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/start_automated_reasoning_policy_build_workflow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#start_automated_reasoning_policy_build_workflow)
+        """
+
+    def start_automated_reasoning_policy_test_workflow(
+        self, **kwargs: Unpack[StartAutomatedReasoningPolicyTestWorkflowRequestTypeDef]
+    ) -> StartAutomatedReasoningPolicyTestWorkflowResponseTypeDef:
+        """
+        Initiates a test workflow to validate Automated Reasoning policy tests.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/start_automated_reasoning_policy_test_workflow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#start_automated_reasoning_policy_test_workflow)
         """
 
     def stop_evaluation_job(
@@ -769,6 +1199,47 @@ class BedrockClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#untag_resource)
         """
 
+    def update_automated_reasoning_policy(
+        self, **kwargs: Unpack[UpdateAutomatedReasoningPolicyRequestTypeDef]
+    ) -> UpdateAutomatedReasoningPolicyResponseTypeDef:
+        """
+        Updates an existing Automated Reasoning policy with new rules, variables, or
+        configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/update_automated_reasoning_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#update_automated_reasoning_policy)
+        """
+
+    def update_automated_reasoning_policy_annotations(
+        self, **kwargs: Unpack[UpdateAutomatedReasoningPolicyAnnotationsRequestTypeDef]
+    ) -> UpdateAutomatedReasoningPolicyAnnotationsResponseTypeDef:
+        """
+        Updates the annotations for an Automated Reasoning policy build workflow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/update_automated_reasoning_policy_annotations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#update_automated_reasoning_policy_annotations)
+        """
+
+    def update_automated_reasoning_policy_test_case(
+        self, **kwargs: Unpack[UpdateAutomatedReasoningPolicyTestCaseRequestTypeDef]
+    ) -> UpdateAutomatedReasoningPolicyTestCaseResponseTypeDef:
+        """
+        Updates an existing Automated Reasoning policy test.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/update_automated_reasoning_policy_test_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#update_automated_reasoning_policy_test_case)
+        """
+
+    def update_custom_model_deployment(
+        self, **kwargs: Unpack[UpdateCustomModelDeploymentRequestTypeDef]
+    ) -> UpdateCustomModelDeploymentResponseTypeDef:
+        """
+        Updates a custom model deployment with a new custom model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/update_custom_model_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#update_custom_model_deployment)
+        """
+
     def update_guardrail(
         self, **kwargs: Unpack[UpdateGuardrailRequestTypeDef]
     ) -> UpdateGuardrailResponseTypeDef:
@@ -802,8 +1273,74 @@ class BedrockClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_automated_reasoning_policies"]
+    ) -> ListAutomatedReasoningPoliciesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_automated_reasoning_policy_build_workflows"]
+    ) -> ListAutomatedReasoningPolicyBuildWorkflowsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_automated_reasoning_policy_test_cases"]
+    ) -> ListAutomatedReasoningPolicyTestCasesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_automated_reasoning_policy_test_results"]
+    ) -> ListAutomatedReasoningPolicyTestResultsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_custom_model_deployments"]
+    ) -> ListCustomModelDeploymentsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_custom_models"]
     ) -> ListCustomModelsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_enforced_guardrails_configuration"]
+    ) -> ListEnforcedGuardrailsConfigurationPaginator:
         """
         Create a paginator for an operation.
 

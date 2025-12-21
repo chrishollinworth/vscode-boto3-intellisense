@@ -13,6 +13,7 @@ Usage::
     from mypy_boto3_vpc_lattice.client import VPCLatticeClient
     from mypy_boto3_vpc_lattice.paginator import (
         ListAccessLogSubscriptionsPaginator,
+        ListDomainVerificationsPaginator,
         ListListenersPaginator,
         ListResourceConfigurationsPaginator,
         ListResourceEndpointAssociationsPaginator,
@@ -32,6 +33,7 @@ Usage::
     client: VPCLatticeClient = session.client("vpc-lattice")
 
     list_access_log_subscriptions_paginator: ListAccessLogSubscriptionsPaginator = client.get_paginator("list_access_log_subscriptions")
+    list_domain_verifications_paginator: ListDomainVerificationsPaginator = client.get_paginator("list_domain_verifications")
     list_listeners_paginator: ListListenersPaginator = client.get_paginator("list_listeners")
     list_resource_configurations_paginator: ListResourceConfigurationsPaginator = client.get_paginator("list_resource_configurations")
     list_resource_endpoint_associations_paginator: ListResourceEndpointAssociationsPaginator = client.get_paginator("list_resource_endpoint_associations")
@@ -58,6 +60,8 @@ from botocore.paginate import PageIterator, Paginator
 from .type_defs import (
     ListAccessLogSubscriptionsRequestPaginateTypeDef,
     ListAccessLogSubscriptionsResponseTypeDef,
+    ListDomainVerificationsRequestPaginateTypeDef,
+    ListDomainVerificationsResponseTypeDef,
     ListListenersRequestPaginateTypeDef,
     ListListenersResponseTypeDef,
     ListResourceConfigurationsRequestPaginateTypeDef,
@@ -93,6 +97,7 @@ else:
 
 __all__ = (
     "ListAccessLogSubscriptionsPaginator",
+    "ListDomainVerificationsPaginator",
     "ListListenersPaginator",
     "ListResourceConfigurationsPaginator",
     "ListResourceEndpointAssociationsPaginator",
@@ -124,6 +129,24 @@ class ListAccessLogSubscriptionsPaginator(_ListAccessLogSubscriptionsPaginatorBa
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/vpc-lattice/paginator/ListAccessLogSubscriptions.html#VPCLattice.Paginator.ListAccessLogSubscriptions.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators/#listaccesslogsubscriptionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListDomainVerificationsPaginatorBase = Paginator[ListDomainVerificationsResponseTypeDef]
+else:
+    _ListDomainVerificationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListDomainVerificationsPaginator(_ListDomainVerificationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/vpc-lattice/paginator/ListDomainVerifications.html#VPCLattice.Paginator.ListDomainVerifications)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators/#listdomainverificationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDomainVerificationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDomainVerificationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/vpc-lattice/paginator/ListDomainVerifications.html#VPCLattice.Paginator.ListDomainVerifications.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators/#listdomainverificationspaginator)
         """
 
 if TYPE_CHECKING:

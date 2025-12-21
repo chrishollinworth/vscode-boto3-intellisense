@@ -13,6 +13,7 @@ Usage::
     from mypy_boto3_controlcatalog.client import ControlCatalogClient
     from mypy_boto3_controlcatalog.paginator import (
         ListCommonControlsPaginator,
+        ListControlMappingsPaginator,
         ListControlsPaginator,
         ListDomainsPaginator,
         ListObjectivesPaginator,
@@ -22,6 +23,7 @@ Usage::
     client: ControlCatalogClient = session.client("controlcatalog")
 
     list_common_controls_paginator: ListCommonControlsPaginator = client.get_paginator("list_common_controls")
+    list_control_mappings_paginator: ListControlMappingsPaginator = client.get_paginator("list_control_mappings")
     list_controls_paginator: ListControlsPaginator = client.get_paginator("list_controls")
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
     list_objectives_paginator: ListObjectivesPaginator = client.get_paginator("list_objectives")
@@ -38,6 +40,8 @@ from botocore.paginate import PageIterator, Paginator
 from .type_defs import (
     ListCommonControlsRequestPaginateTypeDef,
     ListCommonControlsResponseTypeDef,
+    ListControlMappingsRequestPaginateTypeDef,
+    ListControlMappingsResponseTypeDef,
     ListControlsRequestPaginateTypeDef,
     ListControlsResponseTypeDef,
     ListDomainsRequestPaginateTypeDef,
@@ -53,6 +57,7 @@ else:
 
 __all__ = (
     "ListCommonControlsPaginator",
+    "ListControlMappingsPaginator",
     "ListControlsPaginator",
     "ListDomainsPaginator",
     "ListObjectivesPaginator",
@@ -74,6 +79,24 @@ class ListCommonControlsPaginator(_ListCommonControlsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/paginator/ListCommonControls.html#ControlCatalog.Paginator.ListCommonControls.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators/#listcommoncontrolspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListControlMappingsPaginatorBase = Paginator[ListControlMappingsResponseTypeDef]
+else:
+    _ListControlMappingsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListControlMappingsPaginator(_ListControlMappingsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/paginator/ListControlMappings.html#ControlCatalog.Paginator.ListControlMappings)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators/#listcontrolmappingspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListControlMappingsRequestPaginateTypeDef]
+    ) -> PageIterator[ListControlMappingsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/paginator/ListControlMappings.html#ControlCatalog.Paginator.ListControlMappings.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators/#listcontrolmappingspaginator)
         """
 
 if TYPE_CHECKING:

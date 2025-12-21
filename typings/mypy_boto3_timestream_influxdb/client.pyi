@@ -59,6 +59,10 @@ from .type_defs import (
     ListDbParameterGroupsOutputTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    RebootDbClusterInputTypeDef,
+    RebootDbClusterOutputTypeDef,
+    RebootDbInstanceInputTypeDef,
+    RebootDbInstanceOutputTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
     UpdateDbClusterInputTypeDef,
@@ -253,6 +257,26 @@ class TimestreamInfluxDBClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/list_tags_for_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#list_tags_for_resource)
+        """
+
+    def reboot_db_cluster(
+        self, **kwargs: Unpack[RebootDbClusterInputTypeDef]
+    ) -> RebootDbClusterOutputTypeDef:
+        """
+        Reboots a Timestream for InfluxDB cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/reboot_db_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#reboot_db_cluster)
+        """
+
+    def reboot_db_instance(
+        self, **kwargs: Unpack[RebootDbInstanceInputTypeDef]
+    ) -> RebootDbInstanceOutputTypeDef:
+        """
+        Reboots a Timestream for InfluxDB instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/reboot_db_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#reboot_db_instance)
         """
 
     def tag_resource(

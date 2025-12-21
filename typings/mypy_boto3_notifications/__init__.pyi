@@ -17,9 +17,11 @@ Usage::
         ListManagedNotificationChildEventsPaginator,
         ListManagedNotificationConfigurationsPaginator,
         ListManagedNotificationEventsPaginator,
+        ListMemberAccountsPaginator,
         ListNotificationConfigurationsPaginator,
         ListNotificationEventsPaginator,
         ListNotificationHubsPaginator,
+        ListOrganizationalUnitsPaginator,
         UserNotificationsClient,
     )
 
@@ -32,9 +34,11 @@ Usage::
     list_managed_notification_child_events_paginator: ListManagedNotificationChildEventsPaginator = client.get_paginator("list_managed_notification_child_events")
     list_managed_notification_configurations_paginator: ListManagedNotificationConfigurationsPaginator = client.get_paginator("list_managed_notification_configurations")
     list_managed_notification_events_paginator: ListManagedNotificationEventsPaginator = client.get_paginator("list_managed_notification_events")
+    list_member_accounts_paginator: ListMemberAccountsPaginator = client.get_paginator("list_member_accounts")
     list_notification_configurations_paginator: ListNotificationConfigurationsPaginator = client.get_paginator("list_notification_configurations")
     list_notification_events_paginator: ListNotificationEventsPaginator = client.get_paginator("list_notification_events")
     list_notification_hubs_paginator: ListNotificationHubsPaginator = client.get_paginator("list_notification_hubs")
+    list_organizational_units_paginator: ListOrganizationalUnitsPaginator = client.get_paginator("list_organizational_units")
     ```
 """
 
@@ -46,9 +50,11 @@ from .paginator import (
     ListManagedNotificationChildEventsPaginator,
     ListManagedNotificationConfigurationsPaginator,
     ListManagedNotificationEventsPaginator,
+    ListMemberAccountsPaginator,
     ListNotificationConfigurationsPaginator,
     ListNotificationEventsPaginator,
     ListNotificationHubsPaginator,
+    ListOrganizationalUnitsPaginator,
 )
 
 Client = UserNotificationsClient
@@ -61,8 +67,10 @@ __all__ = (
     "ListManagedNotificationChildEventsPaginator",
     "ListManagedNotificationConfigurationsPaginator",
     "ListManagedNotificationEventsPaginator",
+    "ListMemberAccountsPaginator",
     "ListNotificationConfigurationsPaginator",
     "ListNotificationEventsPaginator",
     "ListNotificationHubsPaginator",
+    "ListOrganizationalUnitsPaginator",
     "UserNotificationsClient",
 )

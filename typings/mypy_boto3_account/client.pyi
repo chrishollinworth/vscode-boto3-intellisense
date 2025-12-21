@@ -39,6 +39,8 @@ from .type_defs import (
     GetAlternateContactResponseTypeDef,
     GetContactInformationRequestTypeDef,
     GetContactInformationResponseTypeDef,
+    GetGovCloudAccountInformationRequestTypeDef,
+    GetGovCloudAccountInformationResponseTypeDef,
     GetPrimaryEmailRequestTypeDef,
     GetPrimaryEmailResponseTypeDef,
     GetRegionOptStatusRequestTypeDef,
@@ -70,6 +72,7 @@ class Exceptions(BaseClientExceptions):
     ConflictException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
+    ResourceUnavailableException: Type[BotocoreClientError]
     TooManyRequestsException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
@@ -180,6 +183,17 @@ class AccountClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/account/client/get_contact_information.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_account/client/#get_contact_information)
+        """
+
+    def get_gov_cloud_account_information(
+        self, **kwargs: Unpack[GetGovCloudAccountInformationRequestTypeDef]
+    ) -> GetGovCloudAccountInformationResponseTypeDef:
+        """
+        Retrieves information about the GovCloud account linked to the specified
+        standard account (if it exists) including the GovCloud account ID and state.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/account/client/get_gov_cloud_account_information.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_account/client/#get_gov_cloud_account_information)
         """
 
     def get_primary_email(

@@ -28,9 +28,13 @@ from botocore.exceptions import ClientError as BotocoreClientError
 from .paginator import (
     ListApplicationsPaginator,
     ListComponentsPaginator,
+    ListConfigurationCheckDefinitionsPaginator,
+    ListConfigurationCheckOperationsPaginator,
     ListDatabasesPaginator,
     ListOperationEventsPaginator,
     ListOperationsPaginator,
+    ListSubCheckResultsPaginator,
+    ListSubCheckRuleResultsPaginator,
 )
 from .type_defs import (
     DeleteResourcePermissionInputTypeDef,
@@ -40,6 +44,8 @@ from .type_defs import (
     GetApplicationOutputTypeDef,
     GetComponentInputTypeDef,
     GetComponentOutputTypeDef,
+    GetConfigurationCheckOperationInputTypeDef,
+    GetConfigurationCheckOperationOutputTypeDef,
     GetDatabaseInputTypeDef,
     GetDatabaseOutputTypeDef,
     GetOperationInputTypeDef,
@@ -50,12 +56,20 @@ from .type_defs import (
     ListApplicationsOutputTypeDef,
     ListComponentsInputTypeDef,
     ListComponentsOutputTypeDef,
+    ListConfigurationCheckDefinitionsInputTypeDef,
+    ListConfigurationCheckDefinitionsOutputTypeDef,
+    ListConfigurationCheckOperationsInputTypeDef,
+    ListConfigurationCheckOperationsOutputTypeDef,
     ListDatabasesInputTypeDef,
     ListDatabasesOutputTypeDef,
     ListOperationEventsInputTypeDef,
     ListOperationEventsOutputTypeDef,
     ListOperationsInputTypeDef,
     ListOperationsOutputTypeDef,
+    ListSubCheckResultsInputTypeDef,
+    ListSubCheckResultsOutputTypeDef,
+    ListSubCheckRuleResultsInputTypeDef,
+    ListSubCheckRuleResultsOutputTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
     PutResourcePermissionInputTypeDef,
@@ -66,6 +80,8 @@ from .type_defs import (
     StartApplicationOutputTypeDef,
     StartApplicationRefreshInputTypeDef,
     StartApplicationRefreshOutputTypeDef,
+    StartConfigurationChecksInputTypeDef,
+    StartConfigurationChecksOutputTypeDef,
     StopApplicationInputTypeDef,
     StopApplicationOutputTypeDef,
     TagResourceRequestTypeDef,
@@ -171,6 +187,17 @@ class SsmSapClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#get_component)
         """
 
+    def get_configuration_check_operation(
+        self, **kwargs: Unpack[GetConfigurationCheckOperationInputTypeDef]
+    ) -> GetConfigurationCheckOperationOutputTypeDef:
+        """
+        Gets the details of a configuration check operation by specifying the operation
+        ID.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/get_configuration_check_operation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#get_configuration_check_operation)
+        """
+
     def get_database(self, **kwargs: Unpack[GetDatabaseInputTypeDef]) -> GetDatabaseOutputTypeDef:
         """
         Gets the SAP HANA database of an application registered with AWS Systems
@@ -220,6 +247,27 @@ class SsmSapClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#list_components)
         """
 
+    def list_configuration_check_definitions(
+        self, **kwargs: Unpack[ListConfigurationCheckDefinitionsInputTypeDef]
+    ) -> ListConfigurationCheckDefinitionsOutputTypeDef:
+        """
+        Lists all configuration check types supported by AWS Systems Manager for SAP.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/list_configuration_check_definitions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#list_configuration_check_definitions)
+        """
+
+    def list_configuration_check_operations(
+        self, **kwargs: Unpack[ListConfigurationCheckOperationsInputTypeDef]
+    ) -> ListConfigurationCheckOperationsOutputTypeDef:
+        """
+        Lists the configuration check operations performed by AWS Systems Manager for
+        SAP.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/list_configuration_check_operations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#list_configuration_check_operations)
+        """
+
     def list_databases(
         self, **kwargs: Unpack[ListDatabasesInputTypeDef]
     ) -> ListDatabasesOutputTypeDef:
@@ -249,6 +297,27 @@ class SsmSapClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/list_operations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#list_operations)
+        """
+
+    def list_sub_check_results(
+        self, **kwargs: Unpack[ListSubCheckResultsInputTypeDef]
+    ) -> ListSubCheckResultsOutputTypeDef:
+        """
+        Lists the sub-check results of a specified configuration check operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/list_sub_check_results.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#list_sub_check_results)
+        """
+
+    def list_sub_check_rule_results(
+        self, **kwargs: Unpack[ListSubCheckRuleResultsInputTypeDef]
+    ) -> ListSubCheckRuleResultsOutputTypeDef:
+        """
+        Lists the rules of a specified sub-check belonging to a configuration check
+        operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/list_sub_check_rule_results.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#list_sub_check_rule_results)
         """
 
     def list_tags_for_resource(
@@ -300,6 +369,16 @@ class SsmSapClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/start_application_refresh.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#start_application_refresh)
+        """
+
+    def start_configuration_checks(
+        self, **kwargs: Unpack[StartConfigurationChecksInputTypeDef]
+    ) -> StartConfigurationChecksOutputTypeDef:
+        """
+        Initiates configuration check operations against a specified application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/start_configuration_checks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#start_configuration_checks)
         """
 
     def stop_application(
@@ -363,6 +442,28 @@ class SsmSapClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_configuration_check_definitions"]
+    ) -> ListConfigurationCheckDefinitionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_configuration_check_operations"]
+    ) -> ListConfigurationCheckOperationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_databases"]
     ) -> ListDatabasesPaginator:
         """
@@ -387,6 +488,28 @@ class SsmSapClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_operations"]
     ) -> ListOperationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_sub_check_results"]
+    ) -> ListSubCheckResultsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-sap/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_sub_check_rule_results"]
+    ) -> ListSubCheckRuleResultsPaginator:
         """
         Create a paginator for an operation.
 

@@ -100,6 +100,10 @@ __all__ = (
     "DescribeMultiRegionClustersRequestPaginateTypeDef",
     "DescribeMultiRegionClustersRequestTypeDef",
     "DescribeMultiRegionClustersResponseTypeDef",
+    "DescribeMultiRegionParameterGroupsRequestTypeDef",
+    "DescribeMultiRegionParameterGroupsResponseTypeDef",
+    "DescribeMultiRegionParametersRequestTypeDef",
+    "DescribeMultiRegionParametersResponseTypeDef",
     "DescribeParameterGroupsRequestPaginateTypeDef",
     "DescribeParameterGroupsRequestTypeDef",
     "DescribeParameterGroupsResponseTypeDef",
@@ -137,6 +141,8 @@ __all__ = (
     "ListTagsRequestTypeDef",
     "ListTagsResponseTypeDef",
     "MultiRegionClusterTypeDef",
+    "MultiRegionParameterGroupTypeDef",
+    "MultiRegionParameterTypeDef",
     "NodeTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterGroupTypeDef",
@@ -315,6 +321,32 @@ class DescribeMultiRegionClustersRequestTypeDef(TypedDict):
     MaxResults: NotRequired[int]
     NextToken: NotRequired[str]
     ShowClusterDetails: NotRequired[bool]
+
+class DescribeMultiRegionParameterGroupsRequestTypeDef(TypedDict):
+    MultiRegionParameterGroupName: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class MultiRegionParameterGroupTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Family: NotRequired[str]
+    Description: NotRequired[str]
+    ARN: NotRequired[str]
+
+class DescribeMultiRegionParametersRequestTypeDef(TypedDict):
+    MultiRegionParameterGroupName: str
+    Source: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class MultiRegionParameterTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+    Description: NotRequired[str]
+    Source: NotRequired[str]
+    DataType: NotRequired[str]
+    AllowedValues: NotRequired[str]
+    MinimumEngineVersion: NotRequired[str]
 
 class DescribeParameterGroupsRequestTypeDef(TypedDict):
     ParameterGroupName: NotRequired[str]
@@ -701,6 +733,16 @@ class DescribeEventsRequestTypeDef(TypedDict):
 
 class DescribeEventsResponseTypeDef(TypedDict):
     Events: List[EventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeMultiRegionParameterGroupsResponseTypeDef(TypedDict):
+    MultiRegionParameterGroups: List[MultiRegionParameterGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeMultiRegionParametersResponseTypeDef(TypedDict):
+    MultiRegionParameters: List[MultiRegionParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 

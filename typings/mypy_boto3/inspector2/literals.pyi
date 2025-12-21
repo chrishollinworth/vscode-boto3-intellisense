@@ -28,6 +28,7 @@ __all__ = (
     "AggregationTypeType",
     "AmiSortByType",
     "ArchitectureType",
+    "AssociationResultStatusCodeType",
     "AwsEcrContainerSortByType",
     "CisFindingStatusComparisonType",
     "CisFindingStatusType",
@@ -49,7 +50,12 @@ __all__ = (
     "CisTargetStatusComparisonType",
     "CisTargetStatusReasonType",
     "CisTargetStatusType",
+    "CodeRepositoryProviderTypeType",
+    "CodeRepositorySortByType",
+    "CodeScanStatusType",
     "CodeSnippetErrorCodeType",
+    "ConfigurationLevelType",
+    "ContinuousIntegrationScanEventType",
     "CoverageMapComparisonType",
     "CoverageResourceTypeType",
     "CoverageStringComparisonType",
@@ -62,6 +68,7 @@ __all__ = (
     "Ec2ScanModeStatusType",
     "Ec2ScanModeType",
     "EcrPullDateRescanDurationType",
+    "EcrPullDateRescanModeType",
     "EcrRescanDurationStatusType",
     "EcrRescanDurationType",
     "EcrScanFrequencyType",
@@ -78,9 +85,12 @@ __all__ = (
     "FreeTrialStatusType",
     "FreeTrialTypeType",
     "GetCisScanResultDetailsPaginatorName",
+    "GetClustersForImagePaginatorName",
     "GroupKeyType",
     "ImageLayerSortByType",
     "Inspector2ServiceName",
+    "IntegrationStatusType",
+    "IntegrationTypeType",
     "LambdaFunctionSortByType",
     "LambdaLayerSortByType",
     "ListAccountPermissionsPaginatorName",
@@ -105,6 +115,8 @@ __all__ = (
     "PackageSortByType",
     "PackageTypeType",
     "PaginatorName",
+    "PeriodicScanFrequencyType",
+    "ProjectSelectionScopeType",
     "RegionName",
     "RelationshipStatusType",
     "ReportFormatType",
@@ -115,6 +127,7 @@ __all__ = (
     "ResourceServiceName",
     "ResourceStringComparisonType",
     "ResourceTypeType",
+    "RuleSetCategoryType",
     "RuntimeType",
     "SbomReportFormatType",
     "ScanModeType",
@@ -141,7 +154,7 @@ AggregationFindingTypeType = Literal[
     "CODE_VULNERABILITY", "NETWORK_REACHABILITY", "PACKAGE_VULNERABILITY"
 ]
 AggregationResourceTypeType = Literal[
-    "AWS_EC2_INSTANCE", "AWS_ECR_CONTAINER_IMAGE", "AWS_LAMBDA_FUNCTION"
+    "AWS_EC2_INSTANCE", "AWS_ECR_CONTAINER_IMAGE", "AWS_LAMBDA_FUNCTION", "CODE_REPOSITORY"
 ]
 AggregationTypeType = Literal[
     "ACCOUNT",
@@ -149,6 +162,7 @@ AggregationTypeType = Literal[
     "AWS_EC2_INSTANCE",
     "AWS_ECR_CONTAINER",
     "AWS_LAMBDA_FUNCTION",
+    "CODE_REPOSITORY",
     "FINDING_TYPE",
     "IMAGE_LAYER",
     "LAMBDA_LAYER",
@@ -158,6 +172,14 @@ AggregationTypeType = Literal[
 ]
 AmiSortByType = Literal["AFFECTED_INSTANCES", "ALL", "CRITICAL", "HIGH"]
 ArchitectureType = Literal["ARM64", "X86_64"]
+AssociationResultStatusCodeType = Literal[
+    "ACCESS_DENIED",
+    "INTERNAL_ERROR",
+    "INVALID_INPUT",
+    "QUOTA_EXCEEDED",
+    "RESOURCE_NOT_FOUND",
+    "SCAN_CONFIGURATION_NOT_FOUND",
+]
 AwsEcrContainerSortByType = Literal["ALL", "CRITICAL", "HIGH"]
 CisFindingStatusComparisonType = Literal["EQUALS"]
 CisFindingStatusType = Literal["FAILED", "PASSED", "SKIPPED"]
@@ -190,12 +212,21 @@ CisStringComparisonType = Literal["EQUALS", "NOT_EQUALS", "PREFIX"]
 CisTargetStatusComparisonType = Literal["EQUALS"]
 CisTargetStatusReasonType = Literal["SCAN_IN_PROGRESS", "SSM_UNMANAGED", "UNSUPPORTED_OS"]
 CisTargetStatusType = Literal["CANCELLED", "COMPLETED", "TIMED_OUT"]
+CodeRepositoryProviderTypeType = Literal["GITHUB", "GITLAB_SELF_MANAGED"]
+CodeRepositorySortByType = Literal["ALL", "CRITICAL", "HIGH"]
+CodeScanStatusType = Literal["FAILED", "IN_PROGRESS", "SKIPPED", "SUCCESSFUL"]
 CodeSnippetErrorCodeType = Literal[
     "ACCESS_DENIED", "CODE_SNIPPET_NOT_FOUND", "INTERNAL_ERROR", "INVALID_INPUT"
 ]
+ConfigurationLevelType = Literal["ACCOUNT", "ORGANIZATION"]
+ContinuousIntegrationScanEventType = Literal["PULL_REQUEST", "PUSH"]
 CoverageMapComparisonType = Literal["EQUALS"]
 CoverageResourceTypeType = Literal[
-    "AWS_EC2_INSTANCE", "AWS_ECR_CONTAINER_IMAGE", "AWS_ECR_REPOSITORY", "AWS_LAMBDA_FUNCTION"
+    "AWS_EC2_INSTANCE",
+    "AWS_ECR_CONTAINER_IMAGE",
+    "AWS_ECR_REPOSITORY",
+    "AWS_LAMBDA_FUNCTION",
+    "CODE_REPOSITORY",
 ]
 CoverageStringComparisonType = Literal["EQUALS", "NOT_EQUALS"]
 CurrencyType = Literal["USD"]
@@ -207,6 +238,7 @@ Ec2PlatformType = Literal["LINUX", "MACOS", "UNKNOWN", "WINDOWS"]
 Ec2ScanModeStatusType = Literal["PENDING", "SUCCESS"]
 Ec2ScanModeType = Literal["EC2_HYBRID", "EC2_SSM_AGENT_BASED"]
 EcrPullDateRescanDurationType = Literal["DAYS_14", "DAYS_180", "DAYS_30", "DAYS_60", "DAYS_90"]
+EcrPullDateRescanModeType = Literal["LAST_IN_USE_AT", "LAST_PULL_DATE"]
 EcrRescanDurationStatusType = Literal["FAILED", "PENDING", "SUCCESS"]
 EcrRescanDurationType = Literal["DAYS_14", "DAYS_180", "DAYS_30", "DAYS_60", "DAYS_90", "LIFETIME"]
 EcrScanFrequencyType = Literal["CONTINUOUS_SCAN", "MANUAL", "SCAN_ON_PUSH"]
@@ -214,6 +246,7 @@ ErrorCodeType = Literal[
     "ACCESS_DENIED",
     "ACCOUNT_IS_ISOLATED",
     "ALREADY_ENABLED",
+    "BLOCKED_BY_ORGANIZATION_POLICY",
     "DISABLE_IN_PROGRESS",
     "DISASSOCIATE_ALL_MEMBERS",
     "EC2_SSM_ASSOCIATION_VERSION_LIMIT_EXCEEDED",
@@ -240,12 +273,15 @@ FindingTypeType = Literal["CODE_VULNERABILITY", "NETWORK_REACHABILITY", "PACKAGE
 FixAvailableType = Literal["NO", "PARTIAL", "YES"]
 FreeTrialInfoErrorCodeType = Literal["ACCESS_DENIED", "INTERNAL_ERROR"]
 FreeTrialStatusType = Literal["ACTIVE", "INACTIVE"]
-FreeTrialTypeType = Literal["EC2", "ECR", "LAMBDA", "LAMBDA_CODE"]
+FreeTrialTypeType = Literal["CODE_REPOSITORY", "EC2", "ECR", "LAMBDA", "LAMBDA_CODE"]
 GetCisScanResultDetailsPaginatorName = Literal["get_cis_scan_result_details"]
+GetClustersForImagePaginatorName = Literal["get_clusters_for_image"]
 GroupKeyType = Literal[
     "ACCOUNT_ID", "ECR_REPOSITORY_NAME", "RESOURCE_TYPE", "SCAN_STATUS_CODE", "SCAN_STATUS_REASON"
 ]
 ImageLayerSortByType = Literal["ALL", "CRITICAL", "HIGH"]
+IntegrationStatusType = Literal["ACTIVE", "DISABLING", "INACTIVE", "IN_PROGRESS", "PENDING"]
+IntegrationTypeType = Literal["GITHUB", "GITLAB_SELF_MANAGED"]
 LambdaFunctionSortByType = Literal["ALL", "CRITICAL", "HIGH"]
 LambdaLayerSortByType = Literal["ALL", "CRITICAL", "HIGH"]
 ListAccountPermissionsPaginatorName = Literal["list_account_permissions"]
@@ -294,6 +330,8 @@ PackageManagerType = Literal[
 ]
 PackageSortByType = Literal["ALL", "CRITICAL", "HIGH"]
 PackageTypeType = Literal["IMAGE", "ZIP"]
+PeriodicScanFrequencyType = Literal["MONTHLY", "NEVER", "WEEKLY"]
+ProjectSelectionScopeType = Literal["ALL"]
 RelationshipStatusType = Literal[
     "ACCOUNT_SUSPENDED",
     "CANNOT_CREATE_DETECTOR_IN_ORG_MASTER",
@@ -319,11 +357,16 @@ ReportingErrorCodeType = Literal[
 ]
 RepositorySortByType = Literal["AFFECTED_IMAGES", "ALL", "CRITICAL", "HIGH"]
 ResourceMapComparisonType = Literal["EQUALS"]
-ResourceScanTypeType = Literal["EC2", "ECR", "LAMBDA", "LAMBDA_CODE"]
+ResourceScanTypeType = Literal["CODE_REPOSITORY", "EC2", "ECR", "LAMBDA", "LAMBDA_CODE"]
 ResourceStringComparisonType = Literal["EQUALS", "NOT_EQUALS"]
 ResourceTypeType = Literal[
-    "AWS_EC2_INSTANCE", "AWS_ECR_CONTAINER_IMAGE", "AWS_ECR_REPOSITORY", "AWS_LAMBDA_FUNCTION"
+    "AWS_EC2_INSTANCE",
+    "AWS_ECR_CONTAINER_IMAGE",
+    "AWS_ECR_REPOSITORY",
+    "AWS_LAMBDA_FUNCTION",
+    "CODE_REPOSITORY",
 ]
+RuleSetCategoryType = Literal["IAC", "SAST", "SCA"]
 RuntimeType = Literal[
     "DOTNETCORE_3_1",
     "DOTNET_6",
@@ -352,6 +395,7 @@ ScanModeType = Literal["EC2_AGENTLESS", "EC2_SSM_AGENT_BASED"]
 ScanStatusCodeType = Literal["ACTIVE", "INACTIVE"]
 ScanStatusReasonType = Literal[
     "ACCESS_DENIED",
+    "ACCESS_DENIED_TO_ENCRYPTION_KEY",
     "AGENTLESS_INSTANCE_COLLECTION_TIME_LIMIT_EXCEEDED",
     "AGENTLESS_INSTANCE_STORAGE_LIMIT_EXCEEDED",
     "DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED",
@@ -360,20 +404,27 @@ ScanStatusReasonType = Literal[
     "DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED",
     "EC2_INSTANCE_STOPPED",
     "EXCLUDED_BY_TAG",
+    "IMAGE_ARCHIVED",
     "IMAGE_SIZE_EXCEEDED",
+    "INTEGRATION_CONNECTION_LOST",
     "INTERNAL_ERROR",
     "NO_INVENTORY",
     "NO_RESOURCES_FOUND",
+    "NO_SCAN_CONFIGURATION_ASSOCIATED",
     "PENDING_DISABLE",
     "PENDING_INITIAL_SCAN",
+    "PENDING_REVIVAL_SCAN",
     "RESOURCE_TERMINATED",
     "SCAN_ELIGIBILITY_EXPIRED",
     "SCAN_FREQUENCY_MANUAL",
     "SCAN_FREQUENCY_SCAN_ON_PUSH",
+    "SCAN_IN_PROGRESS",
     "STALE_INVENTORY",
     "SUCCESSFUL",
     "UNMANAGED_EC2_INSTANCE",
+    "UNSUPPORTED_CODE_ARTIFACTS",
     "UNSUPPORTED_CONFIG_FILE",
+    "UNSUPPORTED_LANGUAGE",
     "UNSUPPORTED_MEDIA_TYPE",
     "UNSUPPORTED_OS",
     "UNSUPPORTED_RUNTIME",
@@ -408,6 +459,10 @@ StringComparisonType = Literal["EQUALS", "NOT_EQUALS", "PREFIX"]
 TagComparisonType = Literal["EQUALS"]
 TitleSortByType = Literal["ALL", "CRITICAL", "HIGH"]
 UsageTypeType = Literal[
+    "CODE_REPOSITORY_IAC",
+    "CODE_REPOSITORY_SAST",
+    "CODE_REPOSITORY_SCA",
+    "EC2_AGENTLESS_INSTANCE_HOURS",
     "EC2_INSTANCE_HOURS",
     "ECR_INITIAL_SCAN",
     "ECR_RESCAN",
@@ -421,6 +476,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -441,7 +497,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -453,11 +509,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -506,6 +566,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -561,6 +622,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -603,7 +665,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -618,6 +679,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -641,8 +703,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -673,9 +733,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -685,17 +747,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -713,13 +778,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -734,20 +796,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -772,8 +836,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -813,29 +877,23 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "get_cis_scan_result_details",
+    "get_clusters_for_image",
     "list_account_permissions",
     "list_cis_scan_configurations",
     "list_cis_scan_results_aggregated_by_checks",
@@ -858,18 +916,27 @@ RegionName = Literal[
     "ap-northeast-2",
     "ap-northeast-3",
     "ap-south-1",
+    "ap-south-2",
     "ap-southeast-1",
     "ap-southeast-2",
     "ap-southeast-3",
+    "ap-southeast-4",
+    "ap-southeast-5",
+    "ap-southeast-7",
     "ca-central-1",
+    "ca-west-1",
     "eu-central-1",
     "eu-central-2",
     "eu-north-1",
     "eu-south-1",
+    "eu-south-2",
     "eu-west-1",
     "eu-west-2",
     "eu-west-3",
+    "il-central-1",
+    "me-central-1",
     "me-south-1",
+    "mx-central-1",
     "sa-east-1",
     "us-east-1",
     "us-east-2",

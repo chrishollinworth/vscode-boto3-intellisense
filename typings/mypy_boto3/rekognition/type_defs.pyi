@@ -26,6 +26,7 @@ from .literals import (
     AttributeType,
     BodyPartType,
     CelebrityRecognitionSortByType,
+    ChallengeTypeType,
     ContentClassifierType,
     ContentModerationAggregateByType,
     ContentModerationSortByType,
@@ -93,6 +94,8 @@ __all__ = (
     "CelebrityDetailTypeDef",
     "CelebrityRecognitionTypeDef",
     "CelebrityTypeDef",
+    "ChallengePreferenceTypeDef",
+    "ChallengeTypeDef",
     "CompareFacesMatchTypeDef",
     "CompareFacesRequestTypeDef",
     "CompareFacesResponseTypeDef",
@@ -386,6 +389,7 @@ __all__ = (
     "UserMatchTypeDef",
     "UserTypeDef",
     "ValidationDataTypeDef",
+    "VersionsTypeDef",
     "VideoMetadataTypeDef",
     "VideoTypeDef",
     "WaiterConfigTypeDef",
@@ -448,6 +452,18 @@ KnownGenderTypeDef = TypedDict(
     "KnownGenderTypeDef",
     {
         "Type": NotRequired[KnownGenderTypeType],
+    },
+)
+
+class VersionsTypeDef(TypedDict):
+    Minimum: NotRequired[str]
+    Maximum: NotRequired[str]
+
+ChallengeTypeDef = TypedDict(
+    "ChallengeTypeDef",
+    {
+        "Type": ChallengeTypeType,
+        "Version": str,
     },
 )
 EmotionTypeDef = TypedDict(
@@ -1147,6 +1163,14 @@ class GetCelebrityInfoResponseTypeDef(TypedDict):
     KnownGender: KnownGenderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+ChallengePreferenceTypeDef = TypedDict(
+    "ChallengePreferenceTypeDef",
+    {
+        "Type": ChallengeTypeType,
+        "Versions": NotRequired[VersionsTypeDef],
+    },
+)
+
 class ComparedFaceTypeDef(TypedDict):
     BoundingBox: NotRequired[BoundingBoxTypeDef]
     Confidence: NotRequired[float]
@@ -1185,10 +1209,6 @@ EquipmentDetectionTypeDef = TypedDict(
         "CoversBodyPart": NotRequired[CoversBodyPartTypeDef],
     },
 )
-
-class CreateFaceLivenessSessionRequestSettingsTypeDef(TypedDict):
-    OutputConfig: NotRequired[LivenessOutputConfigTypeDef]
-    AuditImagesLimit: NotRequired[int]
 
 class CustomizationFeatureConfigTypeDef(TypedDict):
     ContentModeration: NotRequired[CustomizationFeatureContentModerationConfigTypeDef]
@@ -1425,6 +1445,7 @@ class GetFaceLivenessSessionResultsResponseTypeDef(TypedDict):
     Confidence: float
     ReferenceImage: AuditImageTypeDef
     AuditImages: List[AuditImageTypeDef]
+    Challenge: ChallengeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 class AssetTypeDef(TypedDict):
@@ -1525,6 +1546,11 @@ class SearchUsersByImageRequestTypeDef(TypedDict):
     MaxUsers: NotRequired[int]
     QualityFilter: NotRequired[QualityFilterType]
 
+class CreateFaceLivenessSessionRequestSettingsTypeDef(TypedDict):
+    OutputConfig: NotRequired[LivenessOutputConfigTypeDef]
+    AuditImagesLimit: NotRequired[int]
+    ChallengePreferences: NotRequired[Sequence[ChallengePreferenceTypeDef]]
+
 class CelebrityTypeDef(TypedDict):
     Urls: NotRequired[List[str]]
     Name: NotRequired[str]
@@ -1554,11 +1580,6 @@ class ProtectiveEquipmentBodyPartTypeDef(TypedDict):
     Name: NotRequired[BodyPartType]
     Confidence: NotRequired[float]
     EquipmentDetections: NotRequired[List[EquipmentDetectionTypeDef]]
-
-class CreateFaceLivenessSessionRequestTypeDef(TypedDict):
-    KmsKeyId: NotRequired[str]
-    Settings: NotRequired[CreateFaceLivenessSessionRequestSettingsTypeDef]
-    ClientRequestToken: NotRequired[str]
 
 class DescribeDatasetResponseTypeDef(TypedDict):
     DatasetDescription: DatasetDescriptionTypeDef
@@ -1792,6 +1813,11 @@ class StartSegmentDetectionRequestTypeDef(TypedDict):
     NotificationChannel: NotRequired[NotificationChannelTypeDef]
     JobTag: NotRequired[str]
     Filters: NotRequired[StartSegmentDetectionFiltersTypeDef]
+
+class CreateFaceLivenessSessionRequestTypeDef(TypedDict):
+    KmsKeyId: NotRequired[str]
+    Settings: NotRequired[CreateFaceLivenessSessionRequestSettingsTypeDef]
+    ClientRequestToken: NotRequired[str]
 
 class RecognizeCelebritiesResponseTypeDef(TypedDict):
     CelebrityFaces: List[CelebrityTypeDef]

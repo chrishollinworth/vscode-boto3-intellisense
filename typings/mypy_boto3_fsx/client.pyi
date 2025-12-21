@@ -28,6 +28,8 @@ from botocore.exceptions import ClientError as BotocoreClientError
 from .paginator import (
     DescribeBackupsPaginator,
     DescribeFileSystemsPaginator,
+    DescribeS3AccessPointAttachmentsPaginator,
+    DescribeSnapshotsPaginator,
     DescribeStorageVirtualMachinesPaginator,
     DescribeVolumesPaginator,
     ListTagsForResourcePaginator,
@@ -41,6 +43,8 @@ from .type_defs import (
     CopyBackupResponseTypeDef,
     CopySnapshotAndUpdateVolumeRequestTypeDef,
     CopySnapshotAndUpdateVolumeResponseTypeDef,
+    CreateAndAttachS3AccessPointRequestTypeDef,
+    CreateAndAttachS3AccessPointResponseTypeDef,
     CreateBackupRequestTypeDef,
     CreateBackupResponseTypeDef,
     CreateDataRepositoryAssociationRequestTypeDef,
@@ -87,6 +91,8 @@ from .type_defs import (
     DescribeFileSystemAliasesResponseTypeDef,
     DescribeFileSystemsRequestTypeDef,
     DescribeFileSystemsResponseTypeDef,
+    DescribeS3AccessPointAttachmentsRequestTypeDef,
+    DescribeS3AccessPointAttachmentsResponseTypeDef,
     DescribeSharedVpcConfigurationResponseTypeDef,
     DescribeSnapshotsRequestTypeDef,
     DescribeSnapshotsResponseTypeDef,
@@ -94,6 +100,8 @@ from .type_defs import (
     DescribeStorageVirtualMachinesResponseTypeDef,
     DescribeVolumesRequestTypeDef,
     DescribeVolumesResponseTypeDef,
+    DetachAndDeleteS3AccessPointRequestTypeDef,
+    DetachAndDeleteS3AccessPointResponseTypeDef,
     DisassociateFileSystemAliasesRequestTypeDef,
     DisassociateFileSystemAliasesResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
@@ -136,6 +144,7 @@ else:
 __all__ = ("FSxClient",)
 
 class Exceptions(BaseClientExceptions):
+    AccessPointAlreadyOwnedByYou: Type[BotocoreClientError]
     ActiveDirectoryError: Type[BotocoreClientError]
     BackupBeingCopied: Type[BotocoreClientError]
     BackupInProgress: Type[BotocoreClientError]
@@ -152,6 +161,7 @@ class Exceptions(BaseClientExceptions):
     IncompatibleParameterError: Type[BotocoreClientError]
     IncompatibleRegionForMultiAZ: Type[BotocoreClientError]
     InternalServerError: Type[BotocoreClientError]
+    InvalidAccessPoint: Type[BotocoreClientError]
     InvalidDataRepositoryType: Type[BotocoreClientError]
     InvalidDestinationKmsKey: Type[BotocoreClientError]
     InvalidExportPath: Type[BotocoreClientError]
@@ -159,6 +169,7 @@ class Exceptions(BaseClientExceptions):
     InvalidNetworkSettings: Type[BotocoreClientError]
     InvalidPerUnitStorageThroughput: Type[BotocoreClientError]
     InvalidRegion: Type[BotocoreClientError]
+    InvalidRequest: Type[BotocoreClientError]
     InvalidSourceKmsKey: Type[BotocoreClientError]
     MissingFileCacheConfiguration: Type[BotocoreClientError]
     MissingFileSystemConfiguration: Type[BotocoreClientError]
@@ -166,10 +177,12 @@ class Exceptions(BaseClientExceptions):
     NotServiceResourceError: Type[BotocoreClientError]
     ResourceDoesNotSupportTagging: Type[BotocoreClientError]
     ResourceNotFound: Type[BotocoreClientError]
+    S3AccessPointAttachmentNotFound: Type[BotocoreClientError]
     ServiceLimitExceeded: Type[BotocoreClientError]
     SnapshotNotFound: Type[BotocoreClientError]
     SourceBackupUnavailable: Type[BotocoreClientError]
     StorageVirtualMachineNotFound: Type[BotocoreClientError]
+    TooManyAccessPoints: Type[BotocoreClientError]
     UnsupportedOperation: Type[BotocoreClientError]
     VolumeNotFound: Type[BotocoreClientError]
 
@@ -249,6 +262,16 @@ class FSxClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/copy_snapshot_and_update_volume.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#copy_snapshot_and_update_volume)
+        """
+
+    def create_and_attach_s3_access_point(
+        self, **kwargs: Unpack[CreateAndAttachS3AccessPointRequestTypeDef]
+    ) -> CreateAndAttachS3AccessPointResponseTypeDef:
+        """
+        Creates an S3 access point and attaches it to an Amazon FSx volume.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_and_attach_s3_access_point.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_and_attach_s3_access_point)
         """
 
     def create_backup(
@@ -493,6 +516,16 @@ class FSxClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_file_systems)
         """
 
+    def describe_s3_access_point_attachments(
+        self, **kwargs: Unpack[DescribeS3AccessPointAttachmentsRequestTypeDef]
+    ) -> DescribeS3AccessPointAttachmentsResponseTypeDef:
+        """
+        Describes one or more S3 access points attached to Amazon FSx volumes.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_s3_access_point_attachments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_s3_access_point_attachments)
+        """
+
     def describe_shared_vpc_configuration(self) -> DescribeSharedVpcConfigurationResponseTypeDef:
         """
         Indicates whether participant accounts in your organization can create Amazon
@@ -534,6 +567,17 @@ class FSxClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_volumes.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_volumes)
+        """
+
+    def detach_and_delete_s3_access_point(
+        self, **kwargs: Unpack[DetachAndDeleteS3AccessPointRequestTypeDef]
+    ) -> DetachAndDeleteS3AccessPointResponseTypeDef:
+        """
+        Detaches an S3 access point from an Amazon FSx volume and deletes the S3 access
+        point.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/detach_and_delete_s3_access_point.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#detach_and_delete_s3_access_point)
         """
 
     def disassociate_file_system_aliases(
@@ -696,6 +740,28 @@ class FSxClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_file_systems"]
     ) -> DescribeFileSystemsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_s3_access_point_attachments"]
+    ) -> DescribeS3AccessPointAttachmentsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_snapshots"]
+    ) -> DescribeSnapshotsPaginator:
         """
         Create a paginator for an operation.
 

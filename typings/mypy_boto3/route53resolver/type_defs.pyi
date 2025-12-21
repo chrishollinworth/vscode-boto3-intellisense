@@ -288,6 +288,8 @@ class ResolverEndpointTypeDef(TypedDict):
     PreferredInstanceType: NotRequired[str]
     ResolverEndpointType: NotRequired[ResolverEndpointTypeType]
     Protocols: NotRequired[List[ProtocolType]]
+    RniEnhancedMetricsEnabled: NotRequired[bool]
+    TargetNameServerMetricsEnabled: NotRequired[bool]
 
 class AssociateResolverQueryLogConfigRequestTypeDef(TypedDict):
     ResolverQueryLogConfigId: str
@@ -923,6 +925,8 @@ class CreateResolverEndpointRequestTypeDef(TypedDict):
     Tags: NotRequired[Sequence[TagTypeDef]]
     ResolverEndpointType: NotRequired[ResolverEndpointTypeType]
     Protocols: NotRequired[Sequence[ProtocolType]]
+    RniEnhancedMetricsEnabled: NotRequired[bool]
+    TargetNameServerMetricsEnabled: NotRequired[bool]
 
 class CreateResolverQueryLogConfigResponseTypeDef(TypedDict):
     ResolverQueryLogConfig: ResolverQueryLogConfigTypeDef
@@ -951,6 +955,7 @@ class CreateResolverRuleRequestTypeDef(TypedDict):
     TargetIps: NotRequired[Sequence[TargetAddressTypeDef]]
     ResolverEndpointId: NotRequired[str]
     Tags: NotRequired[Sequence[TagTypeDef]]
+    DelegationRecord: NotRequired[str]
 
 class ResolverRuleConfigTypeDef(TypedDict):
     Name: NotRequired[str]
@@ -972,6 +977,7 @@ class ResolverRuleTypeDef(TypedDict):
     ShareStatus: NotRequired[ShareStatusType]
     CreationTime: NotRequired[str]
     ModificationTime: NotRequired[str]
+    DelegationRecord: NotRequired[str]
 
 class ListResolverDnssecConfigsRequestTypeDef(TypedDict):
     MaxResults: NotRequired[int]
@@ -1137,6 +1143,8 @@ class UpdateResolverEndpointRequestTypeDef(TypedDict):
     ResolverEndpointType: NotRequired[ResolverEndpointTypeType]
     UpdateIpAddresses: NotRequired[Sequence[UpdateIpAddressTypeDef]]
     Protocols: NotRequired[Sequence[ProtocolType]]
+    RniEnhancedMetricsEnabled: NotRequired[bool]
+    TargetNameServerMetricsEnabled: NotRequired[bool]
 
 class UpdateResolverRuleRequestTypeDef(TypedDict):
     ResolverRuleId: str

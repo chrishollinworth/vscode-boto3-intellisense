@@ -13,12 +13,18 @@ Usage::
         Client,
         DescribeActionTargetsPaginator,
         DescribeProductsPaginator,
+        DescribeProductsV2Paginator,
         DescribeStandardsControlsPaginator,
         DescribeStandardsPaginator,
         GetEnabledStandardsPaginator,
         GetFindingHistoryPaginator,
         GetFindingsPaginator,
+        GetFindingsTrendsV2Paginator,
+        GetFindingsV2Paginator,
         GetInsightsPaginator,
+        GetResourcesTrendsV2Paginator,
+        GetResourcesV2Paginator,
+        ListAggregatorsV2Paginator,
         ListConfigurationPoliciesPaginator,
         ListConfigurationPolicyAssociationsPaginator,
         ListEnabledProductsForImportPaginator,
@@ -36,12 +42,18 @@ Usage::
 
     describe_action_targets_paginator: DescribeActionTargetsPaginator = client.get_paginator("describe_action_targets")
     describe_products_paginator: DescribeProductsPaginator = client.get_paginator("describe_products")
+    describe_products_v2_paginator: DescribeProductsV2Paginator = client.get_paginator("describe_products_v2")
     describe_standards_controls_paginator: DescribeStandardsControlsPaginator = client.get_paginator("describe_standards_controls")
     describe_standards_paginator: DescribeStandardsPaginator = client.get_paginator("describe_standards")
     get_enabled_standards_paginator: GetEnabledStandardsPaginator = client.get_paginator("get_enabled_standards")
     get_finding_history_paginator: GetFindingHistoryPaginator = client.get_paginator("get_finding_history")
     get_findings_paginator: GetFindingsPaginator = client.get_paginator("get_findings")
+    get_findings_trends_v2_paginator: GetFindingsTrendsV2Paginator = client.get_paginator("get_findings_trends_v2")
+    get_findings_v2_paginator: GetFindingsV2Paginator = client.get_paginator("get_findings_v2")
     get_insights_paginator: GetInsightsPaginator = client.get_paginator("get_insights")
+    get_resources_trends_v2_paginator: GetResourcesTrendsV2Paginator = client.get_paginator("get_resources_trends_v2")
+    get_resources_v2_paginator: GetResourcesV2Paginator = client.get_paginator("get_resources_v2")
+    list_aggregators_v2_paginator: ListAggregatorsV2Paginator = client.get_paginator("list_aggregators_v2")
     list_configuration_policies_paginator: ListConfigurationPoliciesPaginator = client.get_paginator("list_configuration_policies")
     list_configuration_policy_associations_paginator: ListConfigurationPolicyAssociationsPaginator = client.get_paginator("list_configuration_policy_associations")
     list_enabled_products_for_import_paginator: ListEnabledProductsForImportPaginator = client.get_paginator("list_enabled_products_for_import")
@@ -58,12 +70,18 @@ from .client import SecurityHubClient
 from .paginator import (
     DescribeActionTargetsPaginator,
     DescribeProductsPaginator,
+    DescribeProductsV2Paginator,
     DescribeStandardsControlsPaginator,
     DescribeStandardsPaginator,
     GetEnabledStandardsPaginator,
     GetFindingHistoryPaginator,
     GetFindingsPaginator,
+    GetFindingsTrendsV2Paginator,
+    GetFindingsV2Paginator,
     GetInsightsPaginator,
+    GetResourcesTrendsV2Paginator,
+    GetResourcesV2Paginator,
+    ListAggregatorsV2Paginator,
     ListConfigurationPoliciesPaginator,
     ListConfigurationPolicyAssociationsPaginator,
     ListEnabledProductsForImportPaginator,
@@ -81,12 +99,18 @@ __all__ = (
     "Client",
     "DescribeActionTargetsPaginator",
     "DescribeProductsPaginator",
+    "DescribeProductsV2Paginator",
     "DescribeStandardsControlsPaginator",
     "DescribeStandardsPaginator",
     "GetEnabledStandardsPaginator",
     "GetFindingHistoryPaginator",
     "GetFindingsPaginator",
+    "GetFindingsTrendsV2Paginator",
+    "GetFindingsV2Paginator",
     "GetInsightsPaginator",
+    "GetResourcesTrendsV2Paginator",
+    "GetResourcesV2Paginator",
+    "ListAggregatorsV2Paginator",
     "ListConfigurationPoliciesPaginator",
     "ListConfigurationPolicyAssociationsPaginator",
     "ListEnabledProductsForImportPaginator",

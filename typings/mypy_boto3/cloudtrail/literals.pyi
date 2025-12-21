@@ -28,6 +28,7 @@ __all__ = (
     "DashboardTypeType",
     "DeliveryStatusType",
     "DestinationTypeType",
+    "EventCategoryAggregationType",
     "EventCategoryType",
     "EventDataStoreStatusType",
     "FederationStatusType",
@@ -37,11 +38,15 @@ __all__ = (
     "InsightsMetricDataTypeType",
     "ListImportFailuresPaginatorName",
     "ListImportsPaginatorName",
+    "ListInsightsDataDimensionKeyType",
+    "ListInsightsDataPaginatorName",
+    "ListInsightsDataTypeType",
     "ListPublicKeysPaginatorName",
     "ListTagsPaginatorName",
     "ListTrailsPaginatorName",
     "LookupAttributeKeyType",
     "LookupEventsPaginatorName",
+    "MaxEventSizeType",
     "PaginatorName",
     "QueryStatusType",
     "ReadWriteTypeType",
@@ -50,6 +55,9 @@ __all__ = (
     "RegionName",
     "ResourceServiceName",
     "ServiceName",
+    "SourceEventCategoryType",
+    "TemplateType",
+    "TypeType",
 )
 
 BillingModeType = Literal["EXTENDABLE_RETENTION_PRICING", "FIXED_RETENTION_PRICING"]
@@ -67,6 +75,7 @@ DeliveryStatusType = Literal[
     "UNKNOWN",
 ]
 DestinationTypeType = Literal["AWS_SERVICE", "EVENT_DATA_STORE"]
+EventCategoryAggregationType = Literal["Data"]
 EventCategoryType = Literal["insight"]
 EventDataStoreStatusType = Literal[
     "CREATED",
@@ -83,6 +92,9 @@ InsightTypeType = Literal["ApiCallRateInsight", "ApiErrorRateInsight"]
 InsightsMetricDataTypeType = Literal["FillWithZeros", "NonZeroData"]
 ListImportFailuresPaginatorName = Literal["list_import_failures"]
 ListImportsPaginatorName = Literal["list_imports"]
+ListInsightsDataDimensionKeyType = Literal["EventId", "EventName", "EventSource"]
+ListInsightsDataPaginatorName = Literal["list_insights_data"]
+ListInsightsDataTypeType = Literal["InsightsEvents"]
 ListPublicKeysPaginatorName = Literal["list_public_keys"]
 ListTagsPaginatorName = Literal["list_tags"]
 ListTrailsPaginatorName = Literal["list_trails"]
@@ -97,16 +109,21 @@ LookupAttributeKeyType = Literal[
     "Username",
 ]
 LookupEventsPaginatorName = Literal["lookup_events"]
+MaxEventSizeType = Literal["Large", "Standard"]
 QueryStatusType = Literal["CANCELLED", "FAILED", "FINISHED", "QUEUED", "RUNNING", "TIMED_OUT"]
 ReadWriteTypeType = Literal["All", "ReadOnly", "WriteOnly"]
 RefreshScheduleFrequencyUnitType = Literal["DAYS", "HOURS"]
 RefreshScheduleStatusType = Literal["DISABLED", "ENABLED"]
+SourceEventCategoryType = Literal["Data", "Management"]
+TemplateType = Literal["API_ACTIVITY", "RESOURCE_ACCESS", "USER_ACTIONS"]
+TypeType = Literal["RequestContext", "TagContext"]
 CloudTrailServiceName = Literal["cloudtrail"]
 ServiceName = Literal[
     "accessanalyzer",
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -127,7 +144,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -139,11 +156,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -192,6 +213,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -247,6 +269,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -289,7 +312,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -304,6 +326,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -327,8 +350,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -359,9 +380,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -371,17 +394,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -399,13 +425,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -420,20 +443,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -458,8 +483,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -499,30 +524,24 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_import_failures",
     "list_imports",
+    "list_insights_data",
     "list_public_keys",
     "list_tags",
     "list_trails",
@@ -531,6 +550,7 @@ PaginatorName = Literal[
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -541,6 +561,7 @@ RegionName = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ap-southeast-5",
+    "ap-southeast-6",
     "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",

@@ -30,6 +30,8 @@ from .type_defs import (
     GetDataAutomationStatusResponseTypeDef,
     InvokeDataAutomationAsyncRequestTypeDef,
     InvokeDataAutomationAsyncResponseTypeDef,
+    InvokeDataAutomationRequestTypeDef,
+    InvokeDataAutomationResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
     TagResourceRequestTypeDef,
@@ -55,6 +57,7 @@ class Exceptions(BaseClientExceptions):
     InternalServerException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
     ServiceQuotaExceededException: Type[BotocoreClientError]
+    ServiceUnavailableException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
@@ -101,6 +104,16 @@ class RuntimeforBedrockDataAutomationClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-data-automation-runtime/client/get_data_automation_status.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_data_automation_runtime/client/#get_data_automation_status)
+        """
+
+    def invoke_data_automation(
+        self, **kwargs: Unpack[InvokeDataAutomationRequestTypeDef]
+    ) -> InvokeDataAutomationResponseTypeDef:
+        """
+        Sync API: Invoke data automation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-data-automation-runtime/client/invoke_data_automation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_data_automation_runtime/client/#invoke_data_automation)
         """
 
     def invoke_data_automation_async(

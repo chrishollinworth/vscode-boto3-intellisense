@@ -131,20 +131,14 @@ class FilterTypeDef(TypedDict):
     Value: NotRequired[str]
 
 class SettingsOutputTypeDef(TypedDict):
-    SecurityGroupId: str
     Subnets: List[str]
-
-class InstanceSummaryTypeDef(TypedDict):
-    InstanceId: str
-    Products: List[str]
-    Status: str
-    LastStatusCheckDate: NotRequired[str]
-    StatusMessage: NotRequired[str]
+    SecurityGroupId: str
 
 class LicenseServerTypeDef(TypedDict):
+    ProvisioningStatus: NotRequired[LicenseServerEndpointProvisioningStatusType]
     HealthStatus: NotRequired[LicenseServerHealthStatusType]
     Ipv4Address: NotRequired[str]
-    ProvisioningStatus: NotRequired[LicenseServerEndpointProvisioningStatusType]
+    Ipv6Address: NotRequired[str]
 
 class ServerEndpointTypeDef(TypedDict):
     Endpoint: NotRequired[str]
@@ -158,8 +152,8 @@ class ListTagsForResourceRequestTypeDef(TypedDict):
     ResourceArn: str
 
 class SettingsTypeDef(TypedDict):
-    SecurityGroupId: str
     Subnets: Sequence[str]
+    SecurityGroupId: str
 
 class TagResourceRequestTypeDef(TypedDict):
     ResourceArn: str
@@ -187,37 +181,32 @@ class CredentialsProviderTypeDef(TypedDict):
     SecretsManagerCredentialsProvider: NotRequired[SecretsManagerCredentialsProviderTypeDef]
 
 class ListIdentityProvidersRequestTypeDef(TypedDict):
-    Filters: NotRequired[Sequence[FilterTypeDef]]
     MaxResults: NotRequired[int]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
     NextToken: NotRequired[str]
 
 class ListInstancesRequestTypeDef(TypedDict):
-    Filters: NotRequired[Sequence[FilterTypeDef]]
     MaxResults: NotRequired[int]
     NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
 
 class ListLicenseServerEndpointsRequestTypeDef(TypedDict):
-    Filters: NotRequired[Sequence[FilterTypeDef]]
     MaxResults: NotRequired[int]
-    NextToken: NotRequired[str]
-
-class ListInstancesResponseTypeDef(TypedDict):
-    InstanceSummaries: List[InstanceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Filters: NotRequired[Sequence[FilterTypeDef]]
     NextToken: NotRequired[str]
 
 class LicenseServerEndpointTypeDef(TypedDict):
-    CreationTime: NotRequired[datetime]
     IdentityProviderArn: NotRequired[str]
-    LicenseServerEndpointArn: NotRequired[str]
+    ServerType: NotRequired[Literal["RDS_SAL"]]
+    ServerEndpoint: NotRequired[ServerEndpointTypeDef]
+    StatusMessage: NotRequired[str]
     LicenseServerEndpointId: NotRequired[str]
+    LicenseServerEndpointArn: NotRequired[str]
     LicenseServerEndpointProvisioningStatus: NotRequired[
         LicenseServerEndpointProvisioningStatusType
     ]
     LicenseServers: NotRequired[List[LicenseServerTypeDef]]
-    ServerEndpoint: NotRequired[ServerEndpointTypeDef]
-    ServerType: NotRequired[Literal["RDS_SAL"]]
-    StatusMessage: NotRequired[str]
+    CreationTime: NotRequired[datetime]
 
 class ListIdentityProvidersRequestPaginateTypeDef(TypedDict):
     Filters: NotRequired[Sequence[FilterTypeDef]]
@@ -234,15 +223,17 @@ class ListLicenseServerEndpointsRequestPaginateTypeDef(TypedDict):
 SettingsUnionTypeDef = Union[SettingsTypeDef, SettingsOutputTypeDef]
 
 class ActiveDirectorySettingsOutputTypeDef(TypedDict):
-    DomainCredentialsProvider: NotRequired[CredentialsProviderTypeDef]
-    DomainIpv4List: NotRequired[List[str]]
     DomainName: NotRequired[str]
+    DomainIpv4List: NotRequired[List[str]]
+    DomainIpv6List: NotRequired[List[str]]
+    DomainCredentialsProvider: NotRequired[CredentialsProviderTypeDef]
     DomainNetworkSettings: NotRequired[DomainNetworkSettingsOutputTypeDef]
 
 class ActiveDirectorySettingsTypeDef(TypedDict):
-    DomainCredentialsProvider: NotRequired[CredentialsProviderTypeDef]
-    DomainIpv4List: NotRequired[Sequence[str]]
     DomainName: NotRequired[str]
+    DomainIpv4List: NotRequired[Sequence[str]]
+    DomainIpv6List: NotRequired[Sequence[str]]
+    DomainCredentialsProvider: NotRequired[CredentialsProviderTypeDef]
     DomainNetworkSettings: NotRequired[DomainNetworkSettingsTypeDef]
 
 class RdsSalSettingsTypeDef(TypedDict):
@@ -258,14 +249,16 @@ class ListLicenseServerEndpointsResponseTypeDef(TypedDict):
     NextToken: NotRequired[str]
 
 class ActiveDirectoryIdentityProviderOutputTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
     ActiveDirectorySettings: NotRequired[ActiveDirectorySettingsOutputTypeDef]
     ActiveDirectoryType: NotRequired[ActiveDirectoryTypeType]
-    DirectoryId: NotRequired[str]
+    IsSharedActiveDirectory: NotRequired[bool]
 
 class ActiveDirectoryIdentityProviderTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
     ActiveDirectorySettings: NotRequired[ActiveDirectorySettingsTypeDef]
     ActiveDirectoryType: NotRequired[ActiveDirectoryTypeType]
-    DirectoryId: NotRequired[str]
+    IsSharedActiveDirectory: NotRequired[bool]
 
 class ServerSettingsTypeDef(TypedDict):
     RdsSalSettings: NotRequired[RdsSalSettingsTypeDef]
@@ -277,38 +270,48 @@ class IdentityProviderTypeDef(TypedDict):
     ActiveDirectoryIdentityProvider: NotRequired[ActiveDirectoryIdentityProviderTypeDef]
 
 class LicenseServerSettingsTypeDef(TypedDict):
-    ServerSettings: ServerSettingsTypeDef
     ServerType: Literal["RDS_SAL"]
+    ServerSettings: ServerSettingsTypeDef
 
 class IdentityProviderSummaryTypeDef(TypedDict):
     IdentityProvider: IdentityProviderOutputTypeDef
-    Product: str
     Settings: SettingsOutputTypeDef
+    Product: str
     Status: str
-    FailureMessage: NotRequired[str]
     IdentityProviderArn: NotRequired[str]
+    FailureMessage: NotRequired[str]
+    OwnerAccountId: NotRequired[str]
 
-class InstanceUserSummaryTypeDef(TypedDict):
-    IdentityProvider: IdentityProviderOutputTypeDef
+class InstanceSummaryTypeDef(TypedDict):
     InstanceId: str
     Status: str
+    Products: List[str]
+    LastStatusCheckDate: NotRequired[str]
+    StatusMessage: NotRequired[str]
+    OwnerAccountId: NotRequired[str]
+    IdentityProvider: NotRequired[IdentityProviderOutputTypeDef]
+
+class InstanceUserSummaryTypeDef(TypedDict):
     Username: str
-    AssociationDate: NotRequired[str]
-    DisassociationDate: NotRequired[str]
-    Domain: NotRequired[str]
+    InstanceId: str
+    IdentityProvider: IdentityProviderOutputTypeDef
+    Status: str
     InstanceUserArn: NotRequired[str]
     StatusMessage: NotRequired[str]
+    Domain: NotRequired[str]
+    AssociationDate: NotRequired[str]
+    DisassociationDate: NotRequired[str]
 
 class ProductUserSummaryTypeDef(TypedDict):
-    IdentityProvider: IdentityProviderOutputTypeDef
-    Product: str
-    Status: str
     Username: str
-    Domain: NotRequired[str]
+    Product: str
+    IdentityProvider: IdentityProviderOutputTypeDef
+    Status: str
     ProductUserArn: NotRequired[str]
     StatusMessage: NotRequired[str]
-    SubscriptionEndDate: NotRequired[str]
+    Domain: NotRequired[str]
     SubscriptionStartDate: NotRequired[str]
+    SubscriptionEndDate: NotRequired[str]
 
 IdentityProviderUnionTypeDef = Union[IdentityProviderTypeDef, IdentityProviderOutputTypeDef]
 
@@ -333,6 +336,11 @@ class RegisterIdentityProviderResponseTypeDef(TypedDict):
 class UpdateIdentityProviderSettingsResponseTypeDef(TypedDict):
     IdentityProviderSummary: IdentityProviderSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class ListInstancesResponseTypeDef(TypedDict):
+    InstanceSummaries: List[InstanceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class AssociateUserResponseTypeDef(TypedDict):
     InstanceUserSummary: InstanceUserSummaryTypeDef
@@ -361,48 +369,48 @@ class StopProductSubscriptionResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class AssociateUserRequestTypeDef(TypedDict):
-    IdentityProvider: IdentityProviderUnionTypeDef
-    InstanceId: str
     Username: str
+    InstanceId: str
+    IdentityProvider: IdentityProviderUnionTypeDef
     Domain: NotRequired[str]
     Tags: NotRequired[Mapping[str, str]]
 
 class DeregisterIdentityProviderRequestTypeDef(TypedDict):
     IdentityProvider: NotRequired[IdentityProviderUnionTypeDef]
-    IdentityProviderArn: NotRequired[str]
     Product: NotRequired[str]
+    IdentityProviderArn: NotRequired[str]
 
 class DisassociateUserRequestTypeDef(TypedDict):
-    Domain: NotRequired[str]
-    IdentityProvider: NotRequired[IdentityProviderUnionTypeDef]
-    InstanceId: NotRequired[str]
-    InstanceUserArn: NotRequired[str]
     Username: NotRequired[str]
+    InstanceId: NotRequired[str]
+    IdentityProvider: NotRequired[IdentityProviderUnionTypeDef]
+    InstanceUserArn: NotRequired[str]
+    Domain: NotRequired[str]
 
 class ListProductSubscriptionsRequestPaginateTypeDef(TypedDict):
     IdentityProvider: IdentityProviderUnionTypeDef
-    Filters: NotRequired[Sequence[FilterTypeDef]]
     Product: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListProductSubscriptionsRequestTypeDef(TypedDict):
     IdentityProvider: IdentityProviderUnionTypeDef
-    Filters: NotRequired[Sequence[FilterTypeDef]]
-    MaxResults: NotRequired[int]
-    NextToken: NotRequired[str]
     Product: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    NextToken: NotRequired[str]
 
 class ListUserAssociationsRequestPaginateTypeDef(TypedDict):
-    IdentityProvider: IdentityProviderUnionTypeDef
     InstanceId: str
+    IdentityProvider: IdentityProviderUnionTypeDef
     Filters: NotRequired[Sequence[FilterTypeDef]]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListUserAssociationsRequestTypeDef(TypedDict):
-    IdentityProvider: IdentityProviderUnionTypeDef
     InstanceId: str
-    Filters: NotRequired[Sequence[FilterTypeDef]]
+    IdentityProvider: IdentityProviderUnionTypeDef
     MaxResults: NotRequired[int]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
     NextToken: NotRequired[str]
 
 class RegisterIdentityProviderRequestTypeDef(TypedDict):
@@ -412,21 +420,21 @@ class RegisterIdentityProviderRequestTypeDef(TypedDict):
     Tags: NotRequired[Mapping[str, str]]
 
 class StartProductSubscriptionRequestTypeDef(TypedDict):
+    Username: str
     IdentityProvider: IdentityProviderUnionTypeDef
     Product: str
-    Username: str
     Domain: NotRequired[str]
     Tags: NotRequired[Mapping[str, str]]
 
 class StopProductSubscriptionRequestTypeDef(TypedDict):
-    Domain: NotRequired[str]
+    Username: NotRequired[str]
     IdentityProvider: NotRequired[IdentityProviderUnionTypeDef]
     Product: NotRequired[str]
     ProductUserArn: NotRequired[str]
-    Username: NotRequired[str]
+    Domain: NotRequired[str]
 
 class UpdateIdentityProviderSettingsRequestTypeDef(TypedDict):
     UpdateSettings: UpdateSettingsTypeDef
     IdentityProvider: NotRequired[IdentityProviderUnionTypeDef]
-    IdentityProviderArn: NotRequired[str]
     Product: NotRequired[str]
+    IdentityProviderArn: NotRequired[str]

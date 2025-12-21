@@ -35,6 +35,7 @@ else:
 
 __all__ = (
     "BlobTypeDef",
+    "DeleteConnectionRequestTypeDef",
     "DeleteThingShadowRequestTypeDef",
     "DeleteThingShadowResponseTypeDef",
     "EmptyResponseMetadataTypeDef",
@@ -56,6 +57,11 @@ __all__ = (
 )
 
 BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class DeleteConnectionRequestTypeDef(TypedDict):
+    clientId: str
+    cleanSession: NotRequired[bool]
+    preventWillMessage: NotRequired[bool]
 
 class DeleteThingShadowRequestTypeDef(TypedDict):
     thingName: str

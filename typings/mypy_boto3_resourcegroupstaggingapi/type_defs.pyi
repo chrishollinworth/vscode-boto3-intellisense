@@ -47,7 +47,11 @@ __all__ = (
     "GetTagValuesInputPaginateTypeDef",
     "GetTagValuesInputTypeDef",
     "GetTagValuesOutputTypeDef",
+    "ListRequiredTagsInputPaginateTypeDef",
+    "ListRequiredTagsInputTypeDef",
+    "ListRequiredTagsOutputTypeDef",
     "PaginatorConfigTypeDef",
+    "RequiredTagTypeDef",
     "ResourceTagMappingTypeDef",
     "ResponseMetadataTypeDef",
     "StartReportCreationInputTypeDef",
@@ -110,6 +114,15 @@ class GetTagValuesInputTypeDef(TypedDict):
     Key: str
     PaginationToken: NotRequired[str]
 
+class ListRequiredTagsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class RequiredTagTypeDef(TypedDict):
+    ResourceType: NotRequired[str]
+    CloudFormationResourceTypes: NotRequired[List[str]]
+    ReportingTagKeys: NotRequired[List[str]]
+
 class TagTypeDef(TypedDict):
     Key: str
     Value: str
@@ -164,6 +177,9 @@ class GetTagValuesInputPaginateTypeDef(TypedDict):
     Key: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListRequiredTagsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class GetComplianceSummaryOutputTypeDef(TypedDict):
     SummaryList: List[SummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -187,6 +203,11 @@ class GetResourcesInputTypeDef(TypedDict):
     IncludeComplianceDetails: NotRequired[bool]
     ExcludeCompliantResources: NotRequired[bool]
     ResourceARNList: NotRequired[Sequence[str]]
+
+class ListRequiredTagsOutputTypeDef(TypedDict):
+    RequiredTags: List[RequiredTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class ResourceTagMappingTypeDef(TypedDict):
     ResourceARN: NotRequired[str]

@@ -25,6 +25,7 @@ Usage::
         ListConfiguredModelAlgorithmsPaginator,
         ListMLInputChannelsPaginator,
         ListTrainedModelInferenceJobsPaginator,
+        ListTrainedModelVersionsPaginator,
         ListTrainedModelsPaginator,
         ListTrainingDatasetsPaginator,
     )
@@ -45,6 +46,7 @@ Usage::
     list_configured_model_algorithms_paginator: ListConfiguredModelAlgorithmsPaginator = client.get_paginator("list_configured_model_algorithms")
     list_ml_input_channels_paginator: ListMLInputChannelsPaginator = client.get_paginator("list_ml_input_channels")
     list_trained_model_inference_jobs_paginator: ListTrainedModelInferenceJobsPaginator = client.get_paginator("list_trained_model_inference_jobs")
+    list_trained_model_versions_paginator: ListTrainedModelVersionsPaginator = client.get_paginator("list_trained_model_versions")
     list_trained_models_paginator: ListTrainedModelsPaginator = client.get_paginator("list_trained_models")
     list_training_datasets_paginator: ListTrainingDatasetsPaginator = client.get_paginator("list_training_datasets")
     ```
@@ -66,6 +68,7 @@ from .paginator import (
     ListMLInputChannelsPaginator,
     ListTrainedModelInferenceJobsPaginator,
     ListTrainedModelsPaginator,
+    ListTrainedModelVersionsPaginator,
     ListTrainingDatasetsPaginator,
 )
 
@@ -87,6 +90,7 @@ __all__ = (
     "ListConfiguredModelAlgorithmsPaginator",
     "ListMLInputChannelsPaginator",
     "ListTrainedModelInferenceJobsPaginator",
+    "ListTrainedModelVersionsPaginator",
     "ListTrainedModelsPaginator",
     "ListTrainingDatasetsPaginator",
 )

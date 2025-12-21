@@ -43,6 +43,7 @@ from .literals import (
     LookbackPeriodInDaysType,
     MatchOptionType,
     MetricType,
+    MonitorDimensionType,
     MonitorTypeType,
     NumericOperatorType,
     OfferingClassType,
@@ -86,12 +87,16 @@ __all__ = (
     "CommitmentPurchaseAnalysisConfigurationOutputTypeDef",
     "CommitmentPurchaseAnalysisConfigurationTypeDef",
     "CommitmentPurchaseAnalysisConfigurationUnionTypeDef",
+    "ComparisonMetricValueTypeDef",
     "CostAllocationTagBackfillRequestTypeDef",
     "CostAllocationTagStatusEntryTypeDef",
     "CostAllocationTagTypeDef",
+    "CostAndUsageComparisonPaginatorTypeDef",
+    "CostAndUsageComparisonTypeDef",
     "CostCategoryInheritedValueDimensionTypeDef",
     "CostCategoryProcessingStatusTypeDef",
     "CostCategoryReferenceTypeDef",
+    "CostCategoryResourceAssociationTypeDef",
     "CostCategoryRuleOutputTypeDef",
     "CostCategoryRuleTypeDef",
     "CostCategoryRuleUnionTypeDef",
@@ -105,6 +110,9 @@ __all__ = (
     "CostCategoryValuesOutputTypeDef",
     "CostCategoryValuesTypeDef",
     "CostCategoryValuesUnionTypeDef",
+    "CostComparisonDriverPaginatorTypeDef",
+    "CostComparisonDriverTypeDef",
+    "CostDriverTypeDef",
     "CoverageByTimeTypeDef",
     "CoverageCostTypeDef",
     "CoverageHoursTypeDef",
@@ -138,7 +146,9 @@ __all__ = (
     "ESInstanceDetailsTypeDef",
     "ElastiCacheInstanceDetailsTypeDef",
     "ExpressionOutputTypeDef",
+    "ExpressionPaginatorOutputTypeDef",
     "ExpressionPaginatorTypeDef",
+    "ExpressionPaginatorUnionTypeDef",
     "ExpressionTypeDef",
     "ExpressionUnionTypeDef",
     "ForecastResultTypeDef",
@@ -158,12 +168,20 @@ __all__ = (
     "GetApproximateUsageRecordsResponseTypeDef",
     "GetCommitmentPurchaseAnalysisRequestTypeDef",
     "GetCommitmentPurchaseAnalysisResponseTypeDef",
+    "GetCostAndUsageComparisonsRequestPaginateTypeDef",
+    "GetCostAndUsageComparisonsRequestTypeDef",
+    "GetCostAndUsageComparisonsResponsePaginatorTypeDef",
+    "GetCostAndUsageComparisonsResponseTypeDef",
     "GetCostAndUsageRequestTypeDef",
     "GetCostAndUsageResponseTypeDef",
     "GetCostAndUsageWithResourcesRequestTypeDef",
     "GetCostAndUsageWithResourcesResponseTypeDef",
     "GetCostCategoriesRequestTypeDef",
     "GetCostCategoriesResponseTypeDef",
+    "GetCostComparisonDriversRequestPaginateTypeDef",
+    "GetCostComparisonDriversRequestTypeDef",
+    "GetCostComparisonDriversResponsePaginatorTypeDef",
+    "GetCostComparisonDriversResponseTypeDef",
     "GetCostForecastRequestTypeDef",
     "GetCostForecastResponseTypeDef",
     "GetDimensionValuesRequestTypeDef",
@@ -196,12 +214,18 @@ __all__ = (
     "InstanceDetailsTypeDef",
     "ListCommitmentPurchaseAnalysesRequestTypeDef",
     "ListCommitmentPurchaseAnalysesResponseTypeDef",
+    "ListCostAllocationTagBackfillHistoryRequestPaginateTypeDef",
     "ListCostAllocationTagBackfillHistoryRequestTypeDef",
     "ListCostAllocationTagBackfillHistoryResponseTypeDef",
+    "ListCostAllocationTagsRequestPaginateTypeDef",
     "ListCostAllocationTagsRequestTypeDef",
     "ListCostAllocationTagsResponseTypeDef",
+    "ListCostCategoryDefinitionsRequestPaginateTypeDef",
     "ListCostCategoryDefinitionsRequestTypeDef",
     "ListCostCategoryDefinitionsResponseTypeDef",
+    "ListCostCategoryResourceAssociationsRequestPaginateTypeDef",
+    "ListCostCategoryResourceAssociationsRequestTypeDef",
+    "ListCostCategoryResourceAssociationsResponseTypeDef",
     "ListSavingsPlansPurchaseRecommendationGenerationRequestTypeDef",
     "ListSavingsPlansPurchaseRecommendationGenerationResponseTypeDef",
     "ListTagsForResourceRequestTypeDef",
@@ -305,6 +329,12 @@ class ImpactTypeDef(TypedDict):
     TotalExpectedSpend: NotRequired[float]
     TotalImpactPercentage: NotRequired[float]
 
+class ComparisonMetricValueTypeDef(TypedDict):
+    BaselineTimePeriodAmount: NotRequired[str]
+    ComparisonTimePeriodAmount: NotRequired[str]
+    Difference: NotRequired[str]
+    Unit: NotRequired[str]
+
 class CostAllocationTagBackfillRequestTypeDef(TypedDict):
     BackfillFrom: NotRequired[str]
     RequestedAt: NotRequired[str]
@@ -334,6 +364,11 @@ class CostCategoryInheritedValueDimensionTypeDef(TypedDict):
 class CostCategoryProcessingStatusTypeDef(TypedDict):
     Component: NotRequired[Literal["COST_EXPLORER"]]
     Status: NotRequired[CostCategoryStatusType]
+
+class CostCategoryResourceAssociationTypeDef(TypedDict):
+    ResourceArn: NotRequired[str]
+    CostCategoryName: NotRequired[str]
+    CostCategoryArn: NotRequired[str]
 
 CostCategorySplitChargeRuleParameterOutputTypeDef = TypedDict(
     "CostCategorySplitChargeRuleParameterOutputTypeDef",
@@ -482,6 +517,11 @@ class ElastiCacheInstanceDetailsTypeDef(TypedDict):
     ProductDescription: NotRequired[str]
     CurrentGeneration: NotRequired[bool]
     SizeFlexEligible: NotRequired[bool]
+
+class TagValuesTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
+    MatchOptions: NotRequired[Sequence[MatchOptionType]]
 
 class GenerationSummaryTypeDef(TypedDict):
     RecommendationId: NotRequired[str]
@@ -633,6 +673,12 @@ class ListCostCategoryDefinitionsRequestTypeDef(TypedDict):
     EffectiveOn: NotRequired[str]
     NextToken: NotRequired[str]
     MaxResults: NotRequired[int]
+    SupportedResourceTypes: NotRequired[Sequence[str]]
+
+class ListCostCategoryResourceAssociationsRequestTypeDef(TypedDict):
+    CostCategoryArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
 class ListSavingsPlansPurchaseRecommendationGenerationRequestTypeDef(TypedDict):
     GenerationStatus: NotRequired[GenerationStatusType]
@@ -717,11 +763,6 @@ class SavingsPlansUtilizationTypeDef(TypedDict):
 class StartCostAllocationTagBackfillRequestTypeDef(TypedDict):
     BackfillFrom: str
 
-class TagValuesTypeDef(TypedDict):
-    Key: NotRequired[str]
-    Values: NotRequired[Sequence[str]]
-    MatchOptions: NotRequired[Sequence[MatchOptionType]]
-
 class UntagResourceRequestTypeDef(TypedDict):
     ResourceArn: str
     ResourceTagKeys: Sequence[str]
@@ -735,6 +776,15 @@ class UpdateCostAllocationTagsStatusErrorTypeDef(TypedDict):
     Code: NotRequired[str]
     Message: NotRequired[str]
 
+CostDriverTypeDef = TypedDict(
+    "CostDriverTypeDef",
+    {
+        "Type": NotRequired[str],
+        "Name": NotRequired[str],
+        "Metrics": NotRequired[Dict[str, ComparisonMetricValueTypeDef]],
+    },
+)
+
 class UpdateCostAllocationTagsStatusRequestTypeDef(TypedDict):
     CostAllocationTagsStatus: Sequence[CostAllocationTagStatusEntryTypeDef]
 
@@ -747,6 +797,7 @@ class CostCategoryReferenceTypeDef(TypedDict):
     ProcessingStatus: NotRequired[List[CostCategoryProcessingStatusTypeDef]]
     Values: NotRequired[List[str]]
     DefaultValue: NotRequired[str]
+    SupportedResourceTypes: NotRequired[List[str]]
 
 class CostCategorySplitChargeRuleOutputTypeDef(TypedDict):
     Source: str
@@ -823,6 +874,11 @@ class ListCostAllocationTagsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class ListCostCategoryResourceAssociationsResponseTypeDef(TypedDict):
+    CostCategoryResourceAssociations: List[CostCategoryResourceAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
 class ListTagsForResourceResponseTypeDef(TypedDict):
     ResourceTags: List[ResourceTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -868,7 +924,7 @@ class ExpressionOutputTypeDef(TypedDict):
     Tags: NotRequired[TagValuesOutputTypeDef]
     CostCategories: NotRequired[CostCategoryValuesOutputTypeDef]
 
-class ExpressionPaginatorTypeDef(TypedDict):
+class ExpressionPaginatorOutputTypeDef(TypedDict):
     Or: NotRequired[List[Dict[str, Any]]]
     And: NotRequired[List[Dict[str, Any]]]
     Not: NotRequired[Dict[str, Any]]
@@ -902,6 +958,16 @@ class EC2ResourceUtilizationTypeDef(TypedDict):
 class ServiceSpecificationTypeDef(TypedDict):
     EC2Specification: NotRequired[EC2SpecificationTypeDef]
 
+class ExpressionPaginatorTypeDef(TypedDict):
+    Or: NotRequired[Sequence[Mapping[str, Any]]]
+    And: NotRequired[Sequence[Mapping[str, Any]]]
+    Not: NotRequired[Mapping[str, Any]]
+    Dimensions: NotRequired[DimensionValuesTypeDef]
+    Tags: NotRequired[TagValuesTypeDef]
+    CostCategories: NotRequired[CostCategoryValuesTypeDef]
+
+TagValuesUnionTypeDef = Union[TagValuesTypeDef, TagValuesOutputTypeDef]
+
 class ListSavingsPlansPurchaseRecommendationGenerationResponseTypeDef(TypedDict):
     GenerationSummaryList: List[GenerationSummaryTypeDef]
     NextPageToken: str
@@ -914,6 +980,28 @@ class GetAnomalyMonitorsRequestPaginateTypeDef(TypedDict):
 class GetAnomalySubscriptionsRequestPaginateTypeDef(TypedDict):
     SubscriptionArnList: NotRequired[Sequence[str]]
     MonitorArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCostAllocationTagBackfillHistoryRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListCostAllocationTagsRequestPaginateTypeDef = TypedDict(
+    "ListCostAllocationTagsRequestPaginateTypeDef",
+    {
+        "Status": NotRequired[CostAllocationTagStatusType],
+        "TagKeys": NotRequired[Sequence[str]],
+        "Type": NotRequired[CostAllocationTagTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class ListCostCategoryDefinitionsRequestPaginateTypeDef(TypedDict):
+    EffectiveOn: NotRequired[str]
+    SupportedResourceTypes: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCostCategoryResourceAssociationsRequestPaginateTypeDef(TypedDict):
+    CostCategoryArn: NotRequired[str]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class GetAnomaliesRequestPaginateTypeDef(TypedDict):
@@ -1070,8 +1158,6 @@ class SavingsPlansUtilizationDetailTypeDef(TypedDict):
     Savings: NotRequired[SavingsPlansSavingsTypeDef]
     AmortizedCommitment: NotRequired[SavingsPlansAmortizedCommitmentTypeDef]
 
-TagValuesUnionTypeDef = Union[TagValuesTypeDef, TagValuesOutputTypeDef]
-
 class UpdateCostAllocationTagsStatusResponseTypeDef(TypedDict):
     Errors: List[UpdateCostAllocationTagsStatusErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1108,7 +1194,7 @@ class AnomalyMonitorOutputTypeDef(TypedDict):
     CreationDate: NotRequired[str]
     LastUpdatedDate: NotRequired[str]
     LastEvaluatedDate: NotRequired[str]
-    MonitorDimension: NotRequired[Literal["SERVICE"]]
+    MonitorDimension: NotRequired[MonitorDimensionType]
     MonitorSpecification: NotRequired[ExpressionOutputTypeDef]
     DimensionalValueCount: NotRequired[int]
 
@@ -1122,6 +1208,10 @@ class AnomalySubscriptionOutputTypeDef(TypedDict):
     Threshold: NotRequired[float]
     ThresholdExpression: NotRequired[ExpressionOutputTypeDef]
 
+class CostAndUsageComparisonTypeDef(TypedDict):
+    CostAndUsageSelector: NotRequired[ExpressionOutputTypeDef]
+    Metrics: NotRequired[Dict[str, ComparisonMetricValueTypeDef]]
+
 CostCategoryRuleOutputTypeDef = TypedDict(
     "CostCategoryRuleOutputTypeDef",
     {
@@ -1132,6 +1222,11 @@ CostCategoryRuleOutputTypeDef = TypedDict(
     },
 )
 
+class CostComparisonDriverTypeDef(TypedDict):
+    CostSelector: NotRequired[ExpressionOutputTypeDef]
+    Metrics: NotRequired[Dict[str, ComparisonMetricValueTypeDef]]
+    CostDrivers: NotRequired[List[CostDriverTypeDef]]
+
 class AnomalyMonitorPaginatorTypeDef(TypedDict):
     MonitorName: str
     MonitorType: MonitorTypeType
@@ -1139,8 +1234,8 @@ class AnomalyMonitorPaginatorTypeDef(TypedDict):
     CreationDate: NotRequired[str]
     LastUpdatedDate: NotRequired[str]
     LastEvaluatedDate: NotRequired[str]
-    MonitorDimension: NotRequired[Literal["SERVICE"]]
-    MonitorSpecification: NotRequired[ExpressionPaginatorTypeDef]
+    MonitorDimension: NotRequired[MonitorDimensionType]
+    MonitorSpecification: NotRequired[ExpressionPaginatorOutputTypeDef]
     DimensionalValueCount: NotRequired[int]
 
 class AnomalySubscriptionPaginatorTypeDef(TypedDict):
@@ -1151,10 +1246,31 @@ class AnomalySubscriptionPaginatorTypeDef(TypedDict):
     SubscriptionArn: NotRequired[str]
     AccountId: NotRequired[str]
     Threshold: NotRequired[float]
-    ThresholdExpression: NotRequired[ExpressionPaginatorTypeDef]
+    ThresholdExpression: NotRequired[ExpressionPaginatorOutputTypeDef]
+
+class CostAndUsageComparisonPaginatorTypeDef(TypedDict):
+    CostAndUsageSelector: NotRequired[ExpressionPaginatorOutputTypeDef]
+    Metrics: NotRequired[Dict[str, ComparisonMetricValueTypeDef]]
+
+class CostComparisonDriverPaginatorTypeDef(TypedDict):
+    CostSelector: NotRequired[ExpressionPaginatorOutputTypeDef]
+    Metrics: NotRequired[Dict[str, ComparisonMetricValueTypeDef]]
+    CostDrivers: NotRequired[List[CostDriverTypeDef]]
 
 class ResourceUtilizationTypeDef(TypedDict):
     EC2ResourceUtilization: NotRequired[EC2ResourceUtilizationTypeDef]
+
+ExpressionPaginatorUnionTypeDef = Union[
+    ExpressionPaginatorTypeDef, ExpressionPaginatorOutputTypeDef
+]
+
+class ExpressionTypeDef(TypedDict):
+    Or: NotRequired[Sequence[Mapping[str, Any]]]
+    And: NotRequired[Sequence[Mapping[str, Any]]]
+    Not: NotRequired[Mapping[str, Any]]
+    Dimensions: NotRequired[DimensionValuesUnionTypeDef]
+    Tags: NotRequired[TagValuesUnionTypeDef]
+    CostCategories: NotRequired[CostCategoryValuesUnionTypeDef]
 
 class ResultByTimeTypeDef(TypedDict):
     TimePeriod: NotRequired[DateIntervalTypeDef]
@@ -1252,14 +1368,6 @@ class GetSavingsPlansUtilizationDetailsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
-class ExpressionTypeDef(TypedDict):
-    Or: NotRequired[Sequence[Mapping[str, Any]]]
-    And: NotRequired[Sequence[Mapping[str, Any]]]
-    Not: NotRequired[Mapping[str, Any]]
-    Dimensions: NotRequired[DimensionValuesUnionTypeDef]
-    Tags: NotRequired[TagValuesUnionTypeDef]
-    CostCategories: NotRequired[CostCategoryValuesUnionTypeDef]
-
 CostCategorySplitChargeRuleUnionTypeDef = Union[
     CostCategorySplitChargeRuleTypeDef, CostCategorySplitChargeRuleOutputTypeDef
 ]
@@ -1279,6 +1387,12 @@ class GetAnomalySubscriptionsResponseTypeDef(TypedDict):
     NextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class GetCostAndUsageComparisonsResponseTypeDef(TypedDict):
+    CostAndUsageComparisons: List[CostAndUsageComparisonTypeDef]
+    TotalCostAndUsage: Dict[str, ComparisonMetricValueTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class CostCategoryTypeDef(TypedDict):
     CostCategoryArn: str
     EffectiveStart: str
@@ -1290,6 +1404,11 @@ class CostCategoryTypeDef(TypedDict):
     ProcessingStatus: NotRequired[List[CostCategoryProcessingStatusTypeDef]]
     DefaultValue: NotRequired[str]
 
+class GetCostComparisonDriversResponseTypeDef(TypedDict):
+    CostComparisonDrivers: List[CostComparisonDriverTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class GetAnomalyMonitorsResponsePaginatorTypeDef(TypedDict):
     AnomalyMonitors: List[AnomalyMonitorPaginatorTypeDef]
     NextPageToken: str
@@ -1297,6 +1416,17 @@ class GetAnomalyMonitorsResponsePaginatorTypeDef(TypedDict):
 
 class GetAnomalySubscriptionsResponsePaginatorTypeDef(TypedDict):
     AnomalySubscriptions: List[AnomalySubscriptionPaginatorTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCostAndUsageComparisonsResponsePaginatorTypeDef(TypedDict):
+    CostAndUsageComparisons: List[CostAndUsageComparisonPaginatorTypeDef]
+    TotalCostAndUsage: Dict[str, ComparisonMetricValueTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCostComparisonDriversResponsePaginatorTypeDef(TypedDict):
+    CostComparisonDrivers: List[CostComparisonDriverPaginatorTypeDef]
     NextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1321,6 +1451,47 @@ class TargetInstanceTypeDef(TypedDict):
     ResourceDetails: NotRequired[ResourceDetailsTypeDef]
     ExpectedResourceUtilization: NotRequired[ResourceUtilizationTypeDef]
     PlatformDifferences: NotRequired[List[PlatformDifferenceType]]
+
+class GetCostAndUsageComparisonsRequestPaginateTypeDef(TypedDict):
+    BaselineTimePeriod: DateIntervalTypeDef
+    ComparisonTimePeriod: DateIntervalTypeDef
+    MetricForComparison: str
+    BillingViewArn: NotRequired[str]
+    Filter: NotRequired[ExpressionPaginatorUnionTypeDef]
+    GroupBy: NotRequired[Sequence[GroupDefinitionTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetCostComparisonDriversRequestPaginateTypeDef(TypedDict):
+    BaselineTimePeriod: DateIntervalTypeDef
+    ComparisonTimePeriod: DateIntervalTypeDef
+    MetricForComparison: str
+    BillingViewArn: NotRequired[str]
+    Filter: NotRequired[ExpressionPaginatorUnionTypeDef]
+    GroupBy: NotRequired[Sequence[GroupDefinitionTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class AnomalyMonitorTypeDef(TypedDict):
+    MonitorName: str
+    MonitorType: MonitorTypeType
+    MonitorArn: NotRequired[str]
+    CreationDate: NotRequired[str]
+    LastUpdatedDate: NotRequired[str]
+    LastEvaluatedDate: NotRequired[str]
+    MonitorDimension: NotRequired[MonitorDimensionType]
+    MonitorSpecification: NotRequired[ExpressionTypeDef]
+    DimensionalValueCount: NotRequired[int]
+
+class AnomalySubscriptionTypeDef(TypedDict):
+    MonitorArnList: Sequence[str]
+    Subscribers: Sequence[SubscriberTypeDef]
+    Frequency: AnomalySubscriptionFrequencyType
+    SubscriptionName: str
+    SubscriptionArn: NotRequired[str]
+    AccountId: NotRequired[str]
+    Threshold: NotRequired[float]
+    ThresholdExpression: NotRequired[ExpressionTypeDef]
+
+ExpressionUnionTypeDef = Union[ExpressionTypeDef, ExpressionOutputTypeDef]
 
 class GetCostAndUsageResponseTypeDef(TypedDict):
     NextPageToken: str
@@ -1389,29 +1560,6 @@ CommitmentPurchaseAnalysisConfigurationUnionTypeDef = Union[
     CommitmentPurchaseAnalysisConfigurationOutputTypeDef,
 ]
 
-class AnomalyMonitorTypeDef(TypedDict):
-    MonitorName: str
-    MonitorType: MonitorTypeType
-    MonitorArn: NotRequired[str]
-    CreationDate: NotRequired[str]
-    LastUpdatedDate: NotRequired[str]
-    LastEvaluatedDate: NotRequired[str]
-    MonitorDimension: NotRequired[Literal["SERVICE"]]
-    MonitorSpecification: NotRequired[ExpressionTypeDef]
-    DimensionalValueCount: NotRequired[int]
-
-class AnomalySubscriptionTypeDef(TypedDict):
-    MonitorArnList: Sequence[str]
-    Subscribers: Sequence[SubscriberTypeDef]
-    Frequency: AnomalySubscriptionFrequencyType
-    SubscriptionName: str
-    SubscriptionArn: NotRequired[str]
-    AccountId: NotRequired[str]
-    Threshold: NotRequired[float]
-    ThresholdExpression: NotRequired[ExpressionTypeDef]
-
-ExpressionUnionTypeDef = Union[ExpressionTypeDef, ExpressionOutputTypeDef]
-
 class GetReservationCoverageResponseTypeDef(TypedDict):
     CoveragesByTime: List[CoverageByTimeTypeDef]
     Total: CoverageTypeDef
@@ -1424,20 +1572,6 @@ class DescribeCostCategoryDefinitionResponseTypeDef(TypedDict):
 
 class ModifyRecommendationDetailTypeDef(TypedDict):
     TargetInstances: NotRequired[List[TargetInstanceTypeDef]]
-
-class GetReservationPurchaseRecommendationResponseTypeDef(TypedDict):
-    Metadata: ReservationPurchaseRecommendationMetadataTypeDef
-    Recommendations: List[ReservationPurchaseRecommendationTypeDef]
-    NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListCommitmentPurchaseAnalysesResponseTypeDef(TypedDict):
-    AnalysisSummaryList: List[AnalysisSummaryTypeDef]
-    NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class StartCommitmentPurchaseAnalysisRequestTypeDef(TypedDict):
-    CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfigurationUnionTypeDef
 
 AnomalyMonitorUnionTypeDef = Union[AnomalyMonitorTypeDef, AnomalyMonitorOutputTypeDef]
 AnomalySubscriptionUnionTypeDef = Union[
@@ -1452,6 +1586,16 @@ CostCategoryRuleTypeDef = TypedDict(
         "Type": NotRequired[CostCategoryRuleTypeType],
     },
 )
+
+class GetCostAndUsageComparisonsRequestTypeDef(TypedDict):
+    BaselineTimePeriod: DateIntervalTypeDef
+    ComparisonTimePeriod: DateIntervalTypeDef
+    MetricForComparison: str
+    BillingViewArn: NotRequired[str]
+    Filter: NotRequired[ExpressionUnionTypeDef]
+    GroupBy: NotRequired[Sequence[GroupDefinitionTypeDef]]
+    MaxResults: NotRequired[int]
+    NextPageToken: NotRequired[str]
 
 class GetCostAndUsageRequestTypeDef(TypedDict):
     TimePeriod: DateIntervalTypeDef
@@ -1478,6 +1622,16 @@ class GetCostCategoriesRequestTypeDef(TypedDict):
     Filter: NotRequired[ExpressionUnionTypeDef]
     SortBy: NotRequired[Sequence[SortDefinitionTypeDef]]
     BillingViewArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextPageToken: NotRequired[str]
+
+class GetCostComparisonDriversRequestTypeDef(TypedDict):
+    BaselineTimePeriod: DateIntervalTypeDef
+    ComparisonTimePeriod: DateIntervalTypeDef
+    MetricForComparison: str
+    BillingViewArn: NotRequired[str]
+    Filter: NotRequired[ExpressionUnionTypeDef]
+    GroupBy: NotRequired[Sequence[GroupDefinitionTypeDef]]
     MaxResults: NotRequired[int]
     NextPageToken: NotRequired[str]
 
@@ -1598,6 +1752,20 @@ class UpdateAnomalySubscriptionRequestTypeDef(TypedDict):
     Subscribers: NotRequired[Sequence[SubscriberTypeDef]]
     SubscriptionName: NotRequired[str]
     ThresholdExpression: NotRequired[ExpressionUnionTypeDef]
+
+class GetReservationPurchaseRecommendationResponseTypeDef(TypedDict):
+    Metadata: ReservationPurchaseRecommendationMetadataTypeDef
+    Recommendations: List[ReservationPurchaseRecommendationTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCommitmentPurchaseAnalysesResponseTypeDef(TypedDict):
+    AnalysisSummaryList: List[AnalysisSummaryTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartCommitmentPurchaseAnalysisRequestTypeDef(TypedDict):
+    CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfigurationUnionTypeDef
 
 class RightsizingRecommendationTypeDef(TypedDict):
     AccountId: NotRequired[str]

@@ -20,6 +20,8 @@ import sys
 from datetime import datetime
 from typing import Union
 
+from .literals import FilterTypeType
+
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
     from builtins import list as List
@@ -27,9 +29,9 @@ if sys.version_info >= (3, 9):
 else:
     from typing import Dict, List, Sequence
 if sys.version_info >= (3, 12):
-    from typing import Literal, NotRequired, TypedDict
+    from typing import NotRequired, TypedDict
 else:
-    from typing_extensions import Literal, NotRequired, TypedDict
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AttributeValueTypeDef",
@@ -83,7 +85,7 @@ class ServiceTypeDef(TypedDict):
 FilterTypeDef = TypedDict(
     "FilterTypeDef",
     {
-        "Type": Literal["TERM_MATCH"],
+        "Type": FilterTypeType,
         "Field": str,
         "Value": str,
     },

@@ -21,6 +21,8 @@ from datetime import datetime
 from typing import Union
 
 from .literals import (
+    LakehouseIdcRegistrationType,
+    LakehouseRegistrationType,
     LogExportType,
     ManagedWorkgroupStatusType,
     NamespaceStatusType,
@@ -94,6 +96,8 @@ __all__ = (
     "GetCustomDomainAssociationResponseTypeDef",
     "GetEndpointAccessRequestTypeDef",
     "GetEndpointAccessResponseTypeDef",
+    "GetIdentityCenterAuthTokenRequestTypeDef",
+    "GetIdentityCenterAuthTokenResponseTypeDef",
     "GetNamespaceRequestTypeDef",
     "GetNamespaceResponseTypeDef",
     "GetRecoveryPointRequestTypeDef",
@@ -200,6 +204,8 @@ __all__ = (
     "UpdateCustomDomainAssociationResponseTypeDef",
     "UpdateEndpointAccessRequestTypeDef",
     "UpdateEndpointAccessResponseTypeDef",
+    "UpdateLakehouseConfigurationRequestTypeDef",
+    "UpdateLakehouseConfigurationResponseTypeDef",
     "UpdateNamespaceRequestTypeDef",
     "UpdateNamespaceResponseTypeDef",
     "UpdateScheduledActionRequestTypeDef",
@@ -280,11 +286,13 @@ class NamespaceTypeDef(TypedDict):
     adminPasswordSecretArn: NotRequired[str]
     adminPasswordSecretKmsKeyId: NotRequired[str]
     adminUsername: NotRequired[str]
+    catalogArn: NotRequired[str]
     creationDate: NotRequired[datetime]
     dbName: NotRequired[str]
     defaultIamRoleArn: NotRequired[str]
     iamRoles: NotRequired[List[str]]
     kmsKeyId: NotRequired[str]
+    lakehouseRegistrationStatus: NotRequired[str]
     logExports: NotRequired[List[LogExportType]]
     namespaceArn: NotRequired[str]
     namespaceId: NotRequired[str]
@@ -378,6 +386,9 @@ class GetCustomDomainAssociationRequestTypeDef(TypedDict):
 
 class GetEndpointAccessRequestTypeDef(TypedDict):
     endpointName: str
+
+class GetIdentityCenterAuthTokenRequestTypeDef(TypedDict):
+    workgroupNames: Sequence[str]
 
 class GetNamespaceRequestTypeDef(TypedDict):
     namespaceName: str
@@ -602,6 +613,14 @@ class UpdateEndpointAccessRequestTypeDef(TypedDict):
     endpointName: str
     vpcSecurityGroupIds: NotRequired[Sequence[str]]
 
+class UpdateLakehouseConfigurationRequestTypeDef(TypedDict):
+    namespaceName: str
+    catalogName: NotRequired[str]
+    dryRun: NotRequired[bool]
+    lakehouseIdcApplicationArn: NotRequired[str]
+    lakehouseIdcRegistration: NotRequired[LakehouseIdcRegistrationType]
+    lakehouseRegistration: NotRequired[LakehouseRegistrationType]
+
 class UpdateNamespaceRequestTypeDef(TypedDict):
     namespaceName: str
     adminPasswordSecretKmsKeyId: NotRequired[str]
@@ -689,6 +708,11 @@ class GetCustomDomainAssociationResponseTypeDef(TypedDict):
     workgroupName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class GetIdentityCenterAuthTokenResponseTypeDef(TypedDict):
+    expirationTime: datetime
+    token: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class ListCustomDomainAssociationsResponseTypeDef(TypedDict):
     associations: List[AssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -703,6 +727,13 @@ class UpdateCustomDomainAssociationResponseTypeDef(TypedDict):
     customDomainCertificateExpiryTime: datetime
     customDomainName: str
     workgroupName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateLakehouseConfigurationResponseTypeDef(TypedDict):
+    catalogArn: str
+    lakehouseIdcApplicationArn: str
+    lakehouseRegistrationStatus: str
+    namespaceName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class ConvertRecoveryPointToSnapshotResponseTypeDef(TypedDict):

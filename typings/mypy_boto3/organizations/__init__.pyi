@@ -14,10 +14,12 @@ Usage::
         ListAWSServiceAccessForOrganizationPaginator,
         ListAccountsForParentPaginator,
         ListAccountsPaginator,
+        ListAccountsWithInvalidEffectivePolicyPaginator,
         ListChildrenPaginator,
         ListCreateAccountStatusPaginator,
         ListDelegatedAdministratorsPaginator,
         ListDelegatedServicesForAccountPaginator,
+        ListEffectivePolicyValidationErrorsPaginator,
         ListHandshakesForAccountPaginator,
         ListHandshakesForOrganizationPaginator,
         ListOrganizationalUnitsForParentPaginator,
@@ -36,10 +38,12 @@ Usage::
     list_aws_service_access_for_organization_paginator: ListAWSServiceAccessForOrganizationPaginator = client.get_paginator("list_aws_service_access_for_organization")
     list_accounts_for_parent_paginator: ListAccountsForParentPaginator = client.get_paginator("list_accounts_for_parent")
     list_accounts_paginator: ListAccountsPaginator = client.get_paginator("list_accounts")
+    list_accounts_with_invalid_effective_policy_paginator: ListAccountsWithInvalidEffectivePolicyPaginator = client.get_paginator("list_accounts_with_invalid_effective_policy")
     list_children_paginator: ListChildrenPaginator = client.get_paginator("list_children")
     list_create_account_status_paginator: ListCreateAccountStatusPaginator = client.get_paginator("list_create_account_status")
     list_delegated_administrators_paginator: ListDelegatedAdministratorsPaginator = client.get_paginator("list_delegated_administrators")
     list_delegated_services_for_account_paginator: ListDelegatedServicesForAccountPaginator = client.get_paginator("list_delegated_services_for_account")
+    list_effective_policy_validation_errors_paginator: ListEffectivePolicyValidationErrorsPaginator = client.get_paginator("list_effective_policy_validation_errors")
     list_handshakes_for_account_paginator: ListHandshakesForAccountPaginator = client.get_paginator("list_handshakes_for_account")
     list_handshakes_for_organization_paginator: ListHandshakesForOrganizationPaginator = client.get_paginator("list_handshakes_for_organization")
     list_organizational_units_for_parent_paginator: ListOrganizationalUnitsForParentPaginator = client.get_paginator("list_organizational_units_for_parent")
@@ -56,11 +60,13 @@ from .client import OrganizationsClient
 from .paginator import (
     ListAccountsForParentPaginator,
     ListAccountsPaginator,
+    ListAccountsWithInvalidEffectivePolicyPaginator,
     ListAWSServiceAccessForOrganizationPaginator,
     ListChildrenPaginator,
     ListCreateAccountStatusPaginator,
     ListDelegatedAdministratorsPaginator,
     ListDelegatedServicesForAccountPaginator,
+    ListEffectivePolicyValidationErrorsPaginator,
     ListHandshakesForAccountPaginator,
     ListHandshakesForOrganizationPaginator,
     ListOrganizationalUnitsForParentPaginator,
@@ -79,10 +85,12 @@ __all__ = (
     "ListAWSServiceAccessForOrganizationPaginator",
     "ListAccountsForParentPaginator",
     "ListAccountsPaginator",
+    "ListAccountsWithInvalidEffectivePolicyPaginator",
     "ListChildrenPaginator",
     "ListCreateAccountStatusPaginator",
     "ListDelegatedAdministratorsPaginator",
     "ListDelegatedServicesForAccountPaginator",
+    "ListEffectivePolicyValidationErrorsPaginator",
     "ListHandshakesForAccountPaginator",
     "ListHandshakesForOrganizationPaginator",
     "ListOrganizationalUnitsForParentPaginator",

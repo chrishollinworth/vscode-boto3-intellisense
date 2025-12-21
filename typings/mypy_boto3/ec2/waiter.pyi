@@ -21,6 +21,7 @@ Usage::
         ExportTaskCompletedWaiter,
         ImageAvailableWaiter,
         ImageExistsWaiter,
+        ImageUsageReportAvailableWaiter,
         InstanceExistsWaiter,
         InstanceRunningWaiter,
         InstanceStatusOkWaiter,
@@ -33,6 +34,8 @@ Usage::
         NetworkInterfaceAvailableWaiter,
         PasswordDataAvailableWaiter,
         SecurityGroupExistsWaiter,
+        SecurityGroupVpcAssociationAssociatedWaiter,
+        SecurityGroupVpcAssociationDisassociatedWaiter,
         SnapshotCompletedWaiter,
         SnapshotImportedWaiter,
         SpotInstanceRequestFulfilledWaiter,
@@ -62,6 +65,7 @@ Usage::
     export_task_completed_waiter: ExportTaskCompletedWaiter = client.get_waiter("export_task_completed")
     image_available_waiter: ImageAvailableWaiter = client.get_waiter("image_available")
     image_exists_waiter: ImageExistsWaiter = client.get_waiter("image_exists")
+    image_usage_report_available_waiter: ImageUsageReportAvailableWaiter = client.get_waiter("image_usage_report_available")
     instance_exists_waiter: InstanceExistsWaiter = client.get_waiter("instance_exists")
     instance_running_waiter: InstanceRunningWaiter = client.get_waiter("instance_running")
     instance_status_ok_waiter: InstanceStatusOkWaiter = client.get_waiter("instance_status_ok")
@@ -74,6 +78,8 @@ Usage::
     network_interface_available_waiter: NetworkInterfaceAvailableWaiter = client.get_waiter("network_interface_available")
     password_data_available_waiter: PasswordDataAvailableWaiter = client.get_waiter("password_data_available")
     security_group_exists_waiter: SecurityGroupExistsWaiter = client.get_waiter("security_group_exists")
+    security_group_vpc_association_associated_waiter: SecurityGroupVpcAssociationAssociatedWaiter = client.get_waiter("security_group_vpc_association_associated")
+    security_group_vpc_association_disassociated_waiter: SecurityGroupVpcAssociationDisassociatedWaiter = client.get_waiter("security_group_vpc_association_disassociated")
     snapshot_completed_waiter: SnapshotCompletedWaiter = client.get_waiter("snapshot_completed")
     snapshot_imported_waiter: SnapshotImportedWaiter = client.get_waiter("snapshot_imported")
     spot_instance_request_fulfilled_waiter: SpotInstanceRequestFulfilledWaiter = client.get_waiter("spot_instance_request_fulfilled")
@@ -108,6 +114,7 @@ from .type_defs import (
     DescribeExportTasksRequestWaitTypeDef,
     DescribeImagesRequestWaitExtraTypeDef,
     DescribeImagesRequestWaitTypeDef,
+    DescribeImageUsageReportsRequestWaitTypeDef,
     DescribeImportSnapshotTasksRequestWaitTypeDef,
     DescribeInstancesRequestWaitExtraExtraExtraTypeDef,
     DescribeInstancesRequestWaitExtraExtraTypeDef,
@@ -121,6 +128,8 @@ from .type_defs import (
     DescribeNatGatewaysRequestWaitTypeDef,
     DescribeNetworkInterfacesRequestWaitTypeDef,
     DescribeSecurityGroupsRequestWaitTypeDef,
+    DescribeSecurityGroupVpcAssociationsRequestWaitExtraTypeDef,
+    DescribeSecurityGroupVpcAssociationsRequestWaitTypeDef,
     DescribeSnapshotsRequestWaitTypeDef,
     DescribeSpotInstanceRequestsRequestWaitTypeDef,
     DescribeStoreImageTasksRequestWaitTypeDef,
@@ -152,6 +161,7 @@ __all__ = (
     "ExportTaskCompletedWaiter",
     "ImageAvailableWaiter",
     "ImageExistsWaiter",
+    "ImageUsageReportAvailableWaiter",
     "InstanceExistsWaiter",
     "InstanceRunningWaiter",
     "InstanceStatusOkWaiter",
@@ -164,6 +174,8 @@ __all__ = (
     "NetworkInterfaceAvailableWaiter",
     "PasswordDataAvailableWaiter",
     "SecurityGroupExistsWaiter",
+    "SecurityGroupVpcAssociationAssociatedWaiter",
+    "SecurityGroupVpcAssociationDisassociatedWaiter",
     "SnapshotCompletedWaiter",
     "SnapshotImportedWaiter",
     "SpotInstanceRequestFulfilledWaiter",
@@ -296,6 +308,19 @@ class ImageExistsWaiter(Waiter):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/waiter/ImageExists.html#EC2.Waiter.ImageExists.wait)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters/#imageexistswaiter)
+        """
+
+class ImageUsageReportAvailableWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/waiter/ImageUsageReportAvailable.html#EC2.Waiter.ImageUsageReportAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters/#imageusagereportavailablewaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeImageUsageReportsRequestWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/waiter/ImageUsageReportAvailable.html#EC2.Waiter.ImageUsageReportAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters/#imageusagereportavailablewaiter)
         """
 
 class InstanceExistsWaiter(Waiter):
@@ -452,6 +477,32 @@ class SecurityGroupExistsWaiter(Waiter):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/waiter/SecurityGroupExists.html#EC2.Waiter.SecurityGroupExists.wait)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters/#securitygroupexistswaiter)
+        """
+
+class SecurityGroupVpcAssociationAssociatedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/waiter/SecurityGroupVpcAssociationAssociated.html#EC2.Waiter.SecurityGroupVpcAssociationAssociated)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters/#securitygroupvpcassociationassociatedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeSecurityGroupVpcAssociationsRequestWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/waiter/SecurityGroupVpcAssociationAssociated.html#EC2.Waiter.SecurityGroupVpcAssociationAssociated.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters/#securitygroupvpcassociationassociatedwaiter)
+        """
+
+class SecurityGroupVpcAssociationDisassociatedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/waiter/SecurityGroupVpcAssociationDisassociated.html#EC2.Waiter.SecurityGroupVpcAssociationDisassociated)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters/#securitygroupvpcassociationdisassociatedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeSecurityGroupVpcAssociationsRequestWaitExtraTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/waiter/SecurityGroupVpcAssociationDisassociated.html#EC2.Waiter.SecurityGroupVpcAssociationDisassociated.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters/#securitygroupvpcassociationdisassociatedwaiter)
         """
 
 class SnapshotCompletedWaiter(Waiter):

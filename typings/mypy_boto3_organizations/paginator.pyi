@@ -15,10 +15,12 @@ Usage::
         ListAWSServiceAccessForOrganizationPaginator,
         ListAccountsForParentPaginator,
         ListAccountsPaginator,
+        ListAccountsWithInvalidEffectivePolicyPaginator,
         ListChildrenPaginator,
         ListCreateAccountStatusPaginator,
         ListDelegatedAdministratorsPaginator,
         ListDelegatedServicesForAccountPaginator,
+        ListEffectivePolicyValidationErrorsPaginator,
         ListHandshakesForAccountPaginator,
         ListHandshakesForOrganizationPaginator,
         ListOrganizationalUnitsForParentPaginator,
@@ -36,10 +38,12 @@ Usage::
     list_aws_service_access_for_organization_paginator: ListAWSServiceAccessForOrganizationPaginator = client.get_paginator("list_aws_service_access_for_organization")
     list_accounts_for_parent_paginator: ListAccountsForParentPaginator = client.get_paginator("list_accounts_for_parent")
     list_accounts_paginator: ListAccountsPaginator = client.get_paginator("list_accounts")
+    list_accounts_with_invalid_effective_policy_paginator: ListAccountsWithInvalidEffectivePolicyPaginator = client.get_paginator("list_accounts_with_invalid_effective_policy")
     list_children_paginator: ListChildrenPaginator = client.get_paginator("list_children")
     list_create_account_status_paginator: ListCreateAccountStatusPaginator = client.get_paginator("list_create_account_status")
     list_delegated_administrators_paginator: ListDelegatedAdministratorsPaginator = client.get_paginator("list_delegated_administrators")
     list_delegated_services_for_account_paginator: ListDelegatedServicesForAccountPaginator = client.get_paginator("list_delegated_services_for_account")
+    list_effective_policy_validation_errors_paginator: ListEffectivePolicyValidationErrorsPaginator = client.get_paginator("list_effective_policy_validation_errors")
     list_handshakes_for_account_paginator: ListHandshakesForAccountPaginator = client.get_paginator("list_handshakes_for_account")
     list_handshakes_for_organization_paginator: ListHandshakesForOrganizationPaginator = client.get_paginator("list_handshakes_for_organization")
     list_organizational_units_for_parent_paginator: ListOrganizationalUnitsForParentPaginator = client.get_paginator("list_organizational_units_for_parent")
@@ -64,6 +68,8 @@ from .type_defs import (
     ListAccountsForParentResponseTypeDef,
     ListAccountsRequestPaginateTypeDef,
     ListAccountsResponseTypeDef,
+    ListAccountsWithInvalidEffectivePolicyRequestPaginateTypeDef,
+    ListAccountsWithInvalidEffectivePolicyResponseTypeDef,
     ListAWSServiceAccessForOrganizationRequestPaginateTypeDef,
     ListAWSServiceAccessForOrganizationResponseTypeDef,
     ListChildrenRequestPaginateTypeDef,
@@ -74,6 +80,8 @@ from .type_defs import (
     ListDelegatedAdministratorsResponseTypeDef,
     ListDelegatedServicesForAccountRequestPaginateTypeDef,
     ListDelegatedServicesForAccountResponseTypeDef,
+    ListEffectivePolicyValidationErrorsRequestPaginateTypeDef,
+    ListEffectivePolicyValidationErrorsResponseTypeDef,
     ListHandshakesForAccountRequestPaginateTypeDef,
     ListHandshakesForAccountResponsePaginatorTypeDef,
     ListHandshakesForOrganizationRequestPaginateTypeDef,
@@ -103,10 +111,12 @@ __all__ = (
     "ListAWSServiceAccessForOrganizationPaginator",
     "ListAccountsForParentPaginator",
     "ListAccountsPaginator",
+    "ListAccountsWithInvalidEffectivePolicyPaginator",
     "ListChildrenPaginator",
     "ListCreateAccountStatusPaginator",
     "ListDelegatedAdministratorsPaginator",
     "ListDelegatedServicesForAccountPaginator",
+    "ListEffectivePolicyValidationErrorsPaginator",
     "ListHandshakesForAccountPaginator",
     "ListHandshakesForOrganizationPaginator",
     "ListOrganizationalUnitsForParentPaginator",
@@ -174,6 +184,28 @@ class ListAccountsPaginator(_ListAccountsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/paginator/ListAccounts.html#Organizations.Paginator.ListAccounts.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators/#listaccountspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListAccountsWithInvalidEffectivePolicyPaginatorBase = Paginator[
+        ListAccountsWithInvalidEffectivePolicyResponseTypeDef
+    ]
+else:
+    _ListAccountsWithInvalidEffectivePolicyPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAccountsWithInvalidEffectivePolicyPaginator(
+    _ListAccountsWithInvalidEffectivePolicyPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/paginator/ListAccountsWithInvalidEffectivePolicy.html#Organizations.Paginator.ListAccountsWithInvalidEffectivePolicy)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators/#listaccountswithinvalideffectivepolicypaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAccountsWithInvalidEffectivePolicyRequestPaginateTypeDef]
+    ) -> PageIterator[ListAccountsWithInvalidEffectivePolicyResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/paginator/ListAccountsWithInvalidEffectivePolicy.html#Organizations.Paginator.ListAccountsWithInvalidEffectivePolicy.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators/#listaccountswithinvalideffectivepolicypaginator)
         """
 
 if TYPE_CHECKING:
@@ -250,6 +282,28 @@ class ListDelegatedServicesForAccountPaginator(_ListDelegatedServicesForAccountP
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/paginator/ListDelegatedServicesForAccount.html#Organizations.Paginator.ListDelegatedServicesForAccount.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators/#listdelegatedservicesforaccountpaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListEffectivePolicyValidationErrorsPaginatorBase = Paginator[
+        ListEffectivePolicyValidationErrorsResponseTypeDef
+    ]
+else:
+    _ListEffectivePolicyValidationErrorsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListEffectivePolicyValidationErrorsPaginator(
+    _ListEffectivePolicyValidationErrorsPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/paginator/ListEffectivePolicyValidationErrors.html#Organizations.Paginator.ListEffectivePolicyValidationErrors)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators/#listeffectivepolicyvalidationerrorspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEffectivePolicyValidationErrorsRequestPaginateTypeDef]
+    ) -> PageIterator[ListEffectivePolicyValidationErrorsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/paginator/ListEffectivePolicyValidationErrors.html#Organizations.Paginator.ListEffectivePolicyValidationErrors.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators/#listeffectivepolicyvalidationerrorspaginator)
         """
 
 if TYPE_CHECKING:

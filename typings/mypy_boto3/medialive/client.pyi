@@ -27,10 +27,12 @@ from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
     DescribeSchedulePaginator,
+    ListAlertsPaginator,
     ListChannelPlacementGroupsPaginator,
     ListChannelsPaginator,
     ListCloudWatchAlarmTemplateGroupsPaginator,
     ListCloudWatchAlarmTemplatesPaginator,
+    ListClusterAlertsPaginator,
     ListClustersPaginator,
     ListEventBridgeRuleTemplateGroupsPaginator,
     ListEventBridgeRuleTemplatesPaginator,
@@ -38,6 +40,7 @@ from .paginator import (
     ListInputDeviceTransfersPaginator,
     ListInputSecurityGroupsPaginator,
     ListInputsPaginator,
+    ListMultiplexAlertsPaginator,
     ListMultiplexesPaginator,
     ListMultiplexProgramsPaginator,
     ListNetworksPaginator,
@@ -165,6 +168,8 @@ from .type_defs import (
     GetEventBridgeRuleTemplateResponseTypeDef,
     GetSignalMapRequestTypeDef,
     GetSignalMapResponseTypeDef,
+    ListAlertsRequestTypeDef,
+    ListAlertsResponseTypeDef,
     ListChannelPlacementGroupsRequestTypeDef,
     ListChannelPlacementGroupsResponseTypeDef,
     ListChannelsRequestTypeDef,
@@ -173,6 +178,8 @@ from .type_defs import (
     ListCloudWatchAlarmTemplateGroupsResponseTypeDef,
     ListCloudWatchAlarmTemplatesRequestTypeDef,
     ListCloudWatchAlarmTemplatesResponseTypeDef,
+    ListClusterAlertsRequestTypeDef,
+    ListClusterAlertsResponseTypeDef,
     ListClustersRequestTypeDef,
     ListClustersResponseTypeDef,
     ListEventBridgeRuleTemplateGroupsRequestTypeDef,
@@ -187,6 +194,8 @@ from .type_defs import (
     ListInputSecurityGroupsResponseTypeDef,
     ListInputsRequestTypeDef,
     ListInputsResponseTypeDef,
+    ListMultiplexAlertsRequestTypeDef,
+    ListMultiplexAlertsResponseTypeDef,
     ListMultiplexesRequestTypeDef,
     ListMultiplexesResponseTypeDef,
     ListMultiplexProgramsRequestTypeDef,
@@ -1536,10 +1545,49 @@ class MediaLiveClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_sdi_source)
         """
 
+    def list_alerts(self, **kwargs: Unpack[ListAlertsRequestTypeDef]) -> ListAlertsResponseTypeDef:
+        """
+        List the alerts for a channel with optional filtering based on alert state.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_alerts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_alerts)
+        """
+
+    def list_cluster_alerts(
+        self, **kwargs: Unpack[ListClusterAlertsRequestTypeDef]
+    ) -> ListClusterAlertsResponseTypeDef:
+        """
+        List the alerts for a cluster with optional filtering based on alert state.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_cluster_alerts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_cluster_alerts)
+        """
+
+    def list_multiplex_alerts(
+        self, **kwargs: Unpack[ListMultiplexAlertsRequestTypeDef]
+    ) -> ListMultiplexAlertsResponseTypeDef:
+        """
+        List the alerts for a multiplex with optional filtering based on alert state.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_multiplex_alerts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_multiplex_alerts)
+        """
+
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_schedule"]
     ) -> DescribeSchedulePaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_alerts"]
+    ) -> ListAlertsPaginator:
         """
         Create a paginator for an operation.
 
@@ -1584,6 +1632,17 @@ class MediaLiveClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_cloud_watch_alarm_templates"]
     ) -> ListCloudWatchAlarmTemplatesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_cluster_alerts"]
+    ) -> ListClusterAlertsPaginator:
         """
         Create a paginator for an operation.
 
@@ -1661,6 +1720,17 @@ class MediaLiveClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_inputs"]
     ) -> ListInputsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_multiplex_alerts"]
+    ) -> ListMultiplexAlertsPaginator:
         """
         Create a paginator for an operation.
 

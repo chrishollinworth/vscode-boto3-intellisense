@@ -48,6 +48,7 @@ from .literals import (
     RouteStateType,
     RouteTableTypeType,
     RouteTypeType,
+    RoutingPolicyDirectionType,
     SegmentActionServiceInsertionType,
     SendViaModeType,
     SiteStateType,
@@ -81,6 +82,7 @@ __all__ = (
     "AssociateTransitGatewayConnectPeerRequestTypeDef",
     "AssociateTransitGatewayConnectPeerResponseTypeDef",
     "AttachmentErrorTypeDef",
+    "AttachmentRoutingPolicyAssociationSummaryTypeDef",
     "AttachmentTypeDef",
     "BandwidthTypeDef",
     "BgpOptionsTypeDef",
@@ -104,6 +106,7 @@ __all__ = (
     "CoreNetworkPolicyErrorTypeDef",
     "CoreNetworkPolicyTypeDef",
     "CoreNetworkPolicyVersionTypeDef",
+    "CoreNetworkRoutingInformationTypeDef",
     "CoreNetworkSegmentEdgeIdentifierTypeDef",
     "CoreNetworkSegmentTypeDef",
     "CoreNetworkSummaryTypeDef",
@@ -114,6 +117,8 @@ __all__ = (
     "CreateConnectPeerResponseTypeDef",
     "CreateConnectionRequestTypeDef",
     "CreateConnectionResponseTypeDef",
+    "CreateCoreNetworkPrefixListAssociationRequestTypeDef",
+    "CreateCoreNetworkPrefixListAssociationResponseTypeDef",
     "CreateCoreNetworkRequestTypeDef",
     "CreateCoreNetworkResponseTypeDef",
     "CreateDeviceRequestTypeDef",
@@ -143,6 +148,8 @@ __all__ = (
     "DeleteConnectionResponseTypeDef",
     "DeleteCoreNetworkPolicyVersionRequestTypeDef",
     "DeleteCoreNetworkPolicyVersionResponseTypeDef",
+    "DeleteCoreNetworkPrefixListAssociationRequestTypeDef",
+    "DeleteCoreNetworkPrefixListAssociationResponseTypeDef",
     "DeleteCoreNetworkRequestTypeDef",
     "DeleteCoreNetworkResponseTypeDef",
     "DeleteDeviceRequestTypeDef",
@@ -245,6 +252,9 @@ __all__ = (
     "GlobalNetworkTypeDef",
     "LinkAssociationTypeDef",
     "LinkTypeDef",
+    "ListAttachmentRoutingPolicyAssociationsRequestPaginateTypeDef",
+    "ListAttachmentRoutingPolicyAssociationsRequestTypeDef",
+    "ListAttachmentRoutingPolicyAssociationsResponseTypeDef",
     "ListAttachmentsRequestPaginateTypeDef",
     "ListAttachmentsRequestTypeDef",
     "ListAttachmentsResponseTypeDef",
@@ -254,6 +264,12 @@ __all__ = (
     "ListCoreNetworkPolicyVersionsRequestPaginateTypeDef",
     "ListCoreNetworkPolicyVersionsRequestTypeDef",
     "ListCoreNetworkPolicyVersionsResponseTypeDef",
+    "ListCoreNetworkPrefixListAssociationsRequestPaginateTypeDef",
+    "ListCoreNetworkPrefixListAssociationsRequestTypeDef",
+    "ListCoreNetworkPrefixListAssociationsResponseTypeDef",
+    "ListCoreNetworkRoutingInformationRequestPaginateTypeDef",
+    "ListCoreNetworkRoutingInformationRequestTypeDef",
+    "ListCoreNetworkRoutingInformationResponseTypeDef",
     "ListCoreNetworksRequestPaginateTypeDef",
     "ListCoreNetworksRequestTypeDef",
     "ListCoreNetworksResponseTypeDef",
@@ -278,8 +294,11 @@ __all__ = (
     "PeeringErrorTypeDef",
     "PeeringTypeDef",
     "PermissionsErrorContextTypeDef",
+    "PrefixListAssociationTypeDef",
     "ProposedNetworkFunctionGroupChangeTypeDef",
     "ProposedSegmentChangeTypeDef",
+    "PutAttachmentRoutingPolicyLabelRequestTypeDef",
+    "PutAttachmentRoutingPolicyLabelResponseTypeDef",
     "PutCoreNetworkPolicyRequestTypeDef",
     "PutCoreNetworkPolicyResponseTypeDef",
     "PutResourcePolicyRequestTypeDef",
@@ -288,6 +307,8 @@ __all__ = (
     "RejectAttachmentRequestTypeDef",
     "RejectAttachmentResponseTypeDef",
     "RelationshipTypeDef",
+    "RemoveAttachmentRoutingPolicyLabelRequestTypeDef",
+    "RemoveAttachmentRoutingPolicyLabelResponseTypeDef",
     "ResponseMetadataTypeDef",
     "RestoreCoreNetworkPolicyVersionRequestTypeDef",
     "RestoreCoreNetworkPolicyVersionResponseTypeDef",
@@ -297,6 +318,8 @@ __all__ = (
     "RouteAnalysisPathTypeDef",
     "RouteAnalysisTypeDef",
     "RouteTableIdentifierTypeDef",
+    "RoutingInformationNextHopTypeDef",
+    "RoutingPolicyAssociationDetailTypeDef",
     "ServiceInsertionActionTypeDef",
     "ServiceInsertionSegmentsTypeDef",
     "SiteToSiteVpnAttachmentTypeDef",
@@ -411,6 +434,12 @@ class AttachmentErrorTypeDef(TypedDict):
     ResourceArn: NotRequired[str]
     RequestId: NotRequired[str]
 
+class AttachmentRoutingPolicyAssociationSummaryTypeDef(TypedDict):
+    AttachmentId: NotRequired[str]
+    PendingRoutingPolicies: NotRequired[List[str]]
+    AssociatedRoutingPolicies: NotRequired[List[str]]
+    RoutingPolicyLabel: NotRequired[str]
+
 class TagTypeDef(TypedDict):
     Key: NotRequired[str]
     Value: NotRequired[str]
@@ -450,12 +479,9 @@ ConnectionHealthTypeDef = TypedDict(
     },
 )
 
-class CoreNetworkChangeEventValuesTypeDef(TypedDict):
-    EdgeLocation: NotRequired[str]
-    SegmentName: NotRequired[str]
-    NetworkFunctionGroupName: NotRequired[str]
-    AttachmentId: NotRequired[str]
-    Cidr: NotRequired[str]
+class RoutingPolicyAssociationDetailTypeDef(TypedDict):
+    RoutingPolicyNames: NotRequired[List[str]]
+    SharedSegments: NotRequired[List[str]]
 
 class CoreNetworkEdgeTypeDef(TypedDict):
     EdgeLocation: NotRequired[str]
@@ -484,6 +510,14 @@ class CoreNetworkPolicyVersionTypeDef(TypedDict):
     CreatedAt: NotRequired[datetime]
     ChangeSetState: NotRequired[ChangeSetStateType]
 
+class RoutingInformationNextHopTypeDef(TypedDict):
+    IpAddress: NotRequired[str]
+    CoreNetworkAttachmentId: NotRequired[str]
+    ResourceId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    SegmentName: NotRequired[str]
+    EdgeLocation: NotRequired[str]
+
 class CoreNetworkSegmentEdgeIdentifierTypeDef(TypedDict):
     CoreNetworkId: NotRequired[str]
     SegmentName: NotRequired[str]
@@ -494,6 +528,12 @@ class CoreNetworkSegmentTypeDef(TypedDict):
     EdgeLocations: NotRequired[List[str]]
     SharedSegments: NotRequired[List[str]]
 
+class CreateCoreNetworkPrefixListAssociationRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    PrefixListArn: str
+    PrefixListAlias: str
+    ClientToken: NotRequired[str]
+
 class LocationTypeDef(TypedDict):
     Address: NotRequired[str]
     Latitude: NotRequired[str]
@@ -502,6 +542,8 @@ class LocationTypeDef(TypedDict):
 class VpcOptionsTypeDef(TypedDict):
     Ipv6Support: NotRequired[bool]
     ApplianceModeSupport: NotRequired[bool]
+    DnsSupport: NotRequired[bool]
+    SecurityGroupReferencingSupport: NotRequired[bool]
 
 class DeleteAttachmentRequestTypeDef(TypedDict):
     AttachmentId: str
@@ -516,6 +558,10 @@ class DeleteConnectionRequestTypeDef(TypedDict):
 class DeleteCoreNetworkPolicyVersionRequestTypeDef(TypedDict):
     CoreNetworkId: str
     PolicyVersionId: int
+
+class DeleteCoreNetworkPrefixListAssociationRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    PrefixListArn: str
 
 class DeleteCoreNetworkRequestTypeDef(TypedDict):
     CoreNetworkId: str
@@ -739,6 +785,12 @@ class GetTransitGatewayRouteTableAttachmentRequestTypeDef(TypedDict):
 class GetVpcAttachmentRequestTypeDef(TypedDict):
     AttachmentId: str
 
+class ListAttachmentRoutingPolicyAssociationsRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    AttachmentId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
 class ListAttachmentsRequestTypeDef(TypedDict):
     CoreNetworkId: NotRequired[str]
     AttachmentType: NotRequired[AttachmentTypeType]
@@ -755,6 +807,29 @@ class ListConnectPeersRequestTypeDef(TypedDict):
 
 class ListCoreNetworkPolicyVersionsRequestTypeDef(TypedDict):
     CoreNetworkId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCoreNetworkPrefixListAssociationsRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    PrefixListArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class PrefixListAssociationTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    PrefixListArn: NotRequired[str]
+    PrefixListAlias: NotRequired[str]
+
+class ListCoreNetworkRoutingInformationRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    SegmentName: str
+    EdgeLocation: str
+    NextHopFilters: NotRequired[Mapping[str, Sequence[str]]]
+    LocalPreferenceMatches: NotRequired[Sequence[str]]
+    ExactAsPathMatches: NotRequired[Sequence[str]]
+    MedMatches: NotRequired[Sequence[str]]
+    CommunityMatches: NotRequired[Sequence[str]]
     MaxResults: NotRequired[int]
     NextToken: NotRequired[str]
 
@@ -800,6 +875,12 @@ class NetworkRouteDestinationTypeDef(TypedDict):
 class PermissionsErrorContextTypeDef(TypedDict):
     MissingPermission: NotRequired[str]
 
+class PutAttachmentRoutingPolicyLabelRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    AttachmentId: str
+    RoutingPolicyLabel: str
+    ClientToken: NotRequired[str]
+
 class PutCoreNetworkPolicyRequestTypeDef(TypedDict):
     CoreNetworkId: str
     PolicyDocument: str
@@ -816,6 +897,10 @@ class RegisterTransitGatewayRequestTypeDef(TypedDict):
     TransitGatewayArn: str
 
 class RejectAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+
+class RemoveAttachmentRoutingPolicyLabelRequestTypeDef(TypedDict):
+    CoreNetworkId: str
     AttachmentId: str
 
 class RestoreCoreNetworkPolicyVersionRequestTypeDef(TypedDict):
@@ -874,8 +959,31 @@ class UpdateNetworkResourceMetadataRequestTypeDef(TypedDict):
     ResourceArn: str
     Metadata: Mapping[str, str]
 
+class CreateCoreNetworkPrefixListAssociationResponseTypeDef(TypedDict):
+    CoreNetworkId: str
+    PrefixListArn: str
+    PrefixListAlias: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCoreNetworkPrefixListAssociationResponseTypeDef(TypedDict):
+    CoreNetworkId: str
+    PrefixListArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class GetResourcePolicyResponseTypeDef(TypedDict):
     PolicyDocument: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutAttachmentRoutingPolicyLabelResponseTypeDef(TypedDict):
+    CoreNetworkId: str
+    AttachmentId: str
+    RoutingPolicyLabel: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RemoveAttachmentRoutingPolicyLabelResponseTypeDef(TypedDict):
+    CoreNetworkId: str
+    AttachmentId: str
+    RoutingPolicyLabel: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateNetworkResourceMetadataResponseTypeDef(TypedDict):
@@ -941,6 +1049,11 @@ class GetTransitGatewayConnectPeerAssociationsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class ListAttachmentRoutingPolicyAssociationsResponseTypeDef(TypedDict):
+    AttachmentRoutingPolicyAssociations: List[AttachmentRoutingPolicyAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
 class ConnectPeerSummaryTypeDef(TypedDict):
     CoreNetworkId: NotRequired[str]
     ConnectAttachmentId: NotRequired[str]
@@ -993,6 +1106,7 @@ class CreateDirectConnectGatewayAttachmentRequestTypeDef(TypedDict):
     CoreNetworkId: str
     DirectConnectGatewayArn: str
     EdgeLocations: Sequence[str]
+    RoutingPolicyLabel: NotRequired[str]
     Tags: NotRequired[Sequence[TagTypeDef]]
     ClientToken: NotRequired[str]
 
@@ -1003,6 +1117,7 @@ class CreateGlobalNetworkRequestTypeDef(TypedDict):
 class CreateSiteToSiteVpnAttachmentRequestTypeDef(TypedDict):
     CoreNetworkId: str
     VpnConnectionArn: str
+    RoutingPolicyLabel: NotRequired[str]
     Tags: NotRequired[Sequence[TagTypeDef]]
     ClientToken: NotRequired[str]
 
@@ -1015,6 +1130,7 @@ class CreateTransitGatewayPeeringRequestTypeDef(TypedDict):
 class CreateTransitGatewayRouteTableAttachmentRequestTypeDef(TypedDict):
     PeeringId: str
     TransitGatewayRouteTableArn: str
+    RoutingPolicyLabel: NotRequired[str]
     Tags: NotRequired[Sequence[TagTypeDef]]
     ClientToken: NotRequired[str]
 
@@ -1112,6 +1228,7 @@ class CreateConnectAttachmentRequestTypeDef(TypedDict):
     EdgeLocation: str
     TransportAttachmentId: str
     Options: ConnectAttachmentOptionsTypeDef
+    RoutingPolicyLabel: NotRequired[str]
     Tags: NotRequired[Sequence[TagTypeDef]]
     ClientToken: NotRequired[str]
 
@@ -1137,17 +1254,15 @@ class NetworkTelemetryTypeDef(TypedDict):
     Address: NotRequired[str]
     Health: NotRequired[ConnectionHealthTypeDef]
 
-CoreNetworkChangeEventTypeDef = TypedDict(
-    "CoreNetworkChangeEventTypeDef",
-    {
-        "Type": NotRequired[ChangeTypeType],
-        "Action": NotRequired[ChangeActionType],
-        "IdentifierPath": NotRequired[str],
-        "EventTime": NotRequired[datetime],
-        "Status": NotRequired[ChangeStatusType],
-        "Values": NotRequired[CoreNetworkChangeEventValuesTypeDef],
-    },
-)
+class CoreNetworkChangeEventValuesTypeDef(TypedDict):
+    EdgeLocation: NotRequired[str]
+    PeerEdgeLocation: NotRequired[str]
+    RoutingPolicyDirection: NotRequired[RoutingPolicyDirectionType]
+    SegmentName: NotRequired[str]
+    NetworkFunctionGroupName: NotRequired[str]
+    AttachmentId: NotRequired[str]
+    Cidr: NotRequired[str]
+    RoutingPolicyAssociationDetails: NotRequired[List[RoutingPolicyAssociationDetailTypeDef]]
 
 class CoreNetworkNetworkFunctionGroupTypeDef(TypedDict):
     Name: NotRequired[str]
@@ -1168,6 +1283,14 @@ class ListCoreNetworkPolicyVersionsResponseTypeDef(TypedDict):
     CoreNetworkPolicyVersions: List[CoreNetworkPolicyVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
+
+class CoreNetworkRoutingInformationTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    NextHop: NotRequired[RoutingInformationNextHopTypeDef]
+    LocalPreference: NotRequired[str]
+    Med: NotRequired[str]
+    AsPath: NotRequired[List[str]]
+    Communities: NotRequired[List[str]]
 
 class RouteTableIdentifierTypeDef(TypedDict):
     TransitGatewayRouteTableArn: NotRequired[str]
@@ -1253,6 +1376,7 @@ class CreateVpcAttachmentRequestTypeDef(TypedDict):
     VpcArn: str
     SubnetArns: Sequence[str]
     Options: NotRequired[VpcOptionsTypeDef]
+    RoutingPolicyLabel: NotRequired[str]
     Tags: NotRequired[Sequence[TagTypeDef]]
     ClientToken: NotRequired[str]
 
@@ -1366,6 +1490,11 @@ class GetTransitGatewayRegistrationsRequestPaginateTypeDef(TypedDict):
     TransitGatewayArns: NotRequired[Sequence[str]]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListAttachmentRoutingPolicyAssociationsRequestPaginateTypeDef(TypedDict):
+    CoreNetworkId: str
+    AttachmentId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class ListAttachmentsRequestPaginateTypeDef(TypedDict):
     CoreNetworkId: NotRequired[str]
     AttachmentType: NotRequired[AttachmentTypeType]
@@ -1380,6 +1509,22 @@ class ListConnectPeersRequestPaginateTypeDef(TypedDict):
 
 class ListCoreNetworkPolicyVersionsRequestPaginateTypeDef(TypedDict):
     CoreNetworkId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCoreNetworkPrefixListAssociationsRequestPaginateTypeDef(TypedDict):
+    CoreNetworkId: str
+    PrefixListArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCoreNetworkRoutingInformationRequestPaginateTypeDef(TypedDict):
+    CoreNetworkId: str
+    SegmentName: str
+    EdgeLocation: str
+    NextHopFilters: NotRequired[Mapping[str, Sequence[str]]]
+    LocalPreferenceMatches: NotRequired[Sequence[str]]
+    ExactAsPathMatches: NotRequired[Sequence[str]]
+    MedMatches: NotRequired[Sequence[str]]
+    CommunityMatches: NotRequired[Sequence[str]]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListCoreNetworksRequestPaginateTypeDef(TypedDict):
@@ -1399,6 +1544,11 @@ class GetNetworkResourceCountsResponseTypeDef(TypedDict):
 
 class GetNetworkResourceRelationshipsResponseTypeDef(TypedDict):
     Relationships: List[RelationshipTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCoreNetworkPrefixListAssociationsResponseTypeDef(TypedDict):
+    PrefixListAssociations: List[PrefixListAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
@@ -1556,10 +1706,17 @@ class GetNetworkTelemetryResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
-class GetCoreNetworkChangeEventsResponseTypeDef(TypedDict):
-    CoreNetworkChangeEvents: List[CoreNetworkChangeEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: NotRequired[str]
+CoreNetworkChangeEventTypeDef = TypedDict(
+    "CoreNetworkChangeEventTypeDef",
+    {
+        "Type": NotRequired[ChangeTypeType],
+        "Action": NotRequired[ChangeActionType],
+        "IdentifierPath": NotRequired[str],
+        "EventTime": NotRequired[datetime],
+        "Status": NotRequired[ChangeStatusType],
+        "Values": NotRequired[CoreNetworkChangeEventValuesTypeDef],
+    },
+)
 
 class CoreNetworkTypeDef(TypedDict):
     GlobalNetworkId: NotRequired[str]
@@ -1588,6 +1745,11 @@ class PutCoreNetworkPolicyResponseTypeDef(TypedDict):
 class RestoreCoreNetworkPolicyVersionResponseTypeDef(TypedDict):
     CoreNetworkPolicy: CoreNetworkPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCoreNetworkRoutingInformationResponseTypeDef(TypedDict):
+    CoreNetworkRoutingInformation: List[CoreNetworkRoutingInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class GetNetworkRoutesRequestTypeDef(TypedDict):
     GlobalNetworkId: str
@@ -1731,6 +1893,11 @@ class GetConnectPeerResponseTypeDef(TypedDict):
     ConnectPeer: ConnectPeerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+class GetCoreNetworkChangeEventsResponseTypeDef(TypedDict):
+    CoreNetworkChangeEvents: List[CoreNetworkChangeEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
 class CreateCoreNetworkResponseTypeDef(TypedDict):
     CoreNetwork: CoreNetworkTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1757,6 +1924,14 @@ class CoreNetworkChangeValuesTypeDef(TypedDict):
     InsideCidrBlocks: NotRequired[List[str]]
     SharedSegments: NotRequired[List[str]]
     ServiceInsertionActions: NotRequired[List[ServiceInsertionActionTypeDef]]
+    VpnEcmpSupport: NotRequired[bool]
+    DnsSupport: NotRequired[bool]
+    SecurityGroupReferencingSupport: NotRequired[bool]
+    RoutingPolicyDirection: NotRequired[RoutingPolicyDirectionType]
+    RoutingPolicy: NotRequired[str]
+    PeerEdgeLocations: NotRequired[List[str]]
+    AttachmentId: NotRequired[str]
+    RoutingPolicyAssociationDetails: NotRequired[List[RoutingPolicyAssociationDetailTypeDef]]
 
 class RouteAnalysisTypeDef(TypedDict):
     GlobalNetworkId: NotRequired[str]

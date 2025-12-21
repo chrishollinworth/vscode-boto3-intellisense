@@ -19,6 +19,8 @@ Usage::
         DescribeEndpointsPaginator,
         DescribeEventSubscriptionsPaginator,
         DescribeEventsPaginator,
+        DescribeMetadataModelChildrenPaginator,
+        DescribeMetadataModelCreationsPaginator,
         DescribeOrderableReplicationInstancesPaginator,
         DescribeReplicationInstancesPaginator,
         DescribeReplicationSubnetGroupsPaginator,
@@ -38,6 +40,8 @@ Usage::
     describe_endpoints_paginator: DescribeEndpointsPaginator = client.get_paginator("describe_endpoints")
     describe_event_subscriptions_paginator: DescribeEventSubscriptionsPaginator = client.get_paginator("describe_event_subscriptions")
     describe_events_paginator: DescribeEventsPaginator = client.get_paginator("describe_events")
+    describe_metadata_model_children_paginator: DescribeMetadataModelChildrenPaginator = client.get_paginator("describe_metadata_model_children")
+    describe_metadata_model_creations_paginator: DescribeMetadataModelCreationsPaginator = client.get_paginator("describe_metadata_model_creations")
     describe_orderable_replication_instances_paginator: DescribeOrderableReplicationInstancesPaginator = client.get_paginator("describe_orderable_replication_instances")
     describe_replication_instances_paginator: DescribeReplicationInstancesPaginator = client.get_paginator("describe_replication_instances")
     describe_replication_subnet_groups_paginator: DescribeReplicationSubnetGroupsPaginator = client.get_paginator("describe_replication_subnet_groups")
@@ -70,6 +74,10 @@ from .type_defs import (
     DescribeEventsResponseTypeDef,
     DescribeEventSubscriptionsMessagePaginateTypeDef,
     DescribeEventSubscriptionsResponseTypeDef,
+    DescribeMetadataModelChildrenMessagePaginateTypeDef,
+    DescribeMetadataModelChildrenResponseTypeDef,
+    DescribeMetadataModelCreationsMessagePaginateTypeDef,
+    DescribeMetadataModelCreationsResponseTypeDef,
     DescribeOrderableReplicationInstancesMessagePaginateTypeDef,
     DescribeOrderableReplicationInstancesResponseTypeDef,
     DescribeReplicationInstancesMessagePaginateTypeDef,
@@ -99,6 +107,8 @@ __all__ = (
     "DescribeEndpointsPaginator",
     "DescribeEventSubscriptionsPaginator",
     "DescribeEventsPaginator",
+    "DescribeMetadataModelChildrenPaginator",
+    "DescribeMetadataModelCreationsPaginator",
     "DescribeOrderableReplicationInstancesPaginator",
     "DescribeReplicationInstancesPaginator",
     "DescribeReplicationSubnetGroupsPaginator",
@@ -232,6 +242,46 @@ class DescribeEventsPaginator(_DescribeEventsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/paginator/DescribeEvents.html#DatabaseMigrationService.Paginator.DescribeEvents.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/paginators/#describeeventspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeMetadataModelChildrenPaginatorBase = Paginator[
+        DescribeMetadataModelChildrenResponseTypeDef
+    ]
+else:
+    _DescribeMetadataModelChildrenPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeMetadataModelChildrenPaginator(_DescribeMetadataModelChildrenPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/paginator/DescribeMetadataModelChildren.html#DatabaseMigrationService.Paginator.DescribeMetadataModelChildren)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/paginators/#describemetadatamodelchildrenpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMetadataModelChildrenMessagePaginateTypeDef]
+    ) -> PageIterator[DescribeMetadataModelChildrenResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/paginator/DescribeMetadataModelChildren.html#DatabaseMigrationService.Paginator.DescribeMetadataModelChildren.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/paginators/#describemetadatamodelchildrenpaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeMetadataModelCreationsPaginatorBase = Paginator[
+        DescribeMetadataModelCreationsResponseTypeDef
+    ]
+else:
+    _DescribeMetadataModelCreationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeMetadataModelCreationsPaginator(_DescribeMetadataModelCreationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/paginator/DescribeMetadataModelCreations.html#DatabaseMigrationService.Paginator.DescribeMetadataModelCreations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/paginators/#describemetadatamodelcreationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMetadataModelCreationsMessagePaginateTypeDef]
+    ) -> PageIterator[DescribeMetadataModelCreationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms/paginator/DescribeMetadataModelCreations.html#DatabaseMigrationService.Paginator.DescribeMetadataModelCreations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/paginators/#describemetadatamodelcreationspaginator)
         """
 
 if TYPE_CHECKING:

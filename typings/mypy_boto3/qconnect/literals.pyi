@@ -69,6 +69,8 @@ __all__ = (
     "ListMessageTemplatesPaginatorName",
     "ListMessagesPaginatorName",
     "ListQuickResponsesPaginatorName",
+    "ListSpansPaginatorName",
+    "MessageFilterTypeType",
     "MessageTemplateAttributeTypeType",
     "MessageTemplateFilterOperatorType",
     "MessageTemplateQueryOperatorType",
@@ -79,6 +81,7 @@ __all__ = (
     "ParsingStrategyType",
     "ParticipantType",
     "PriorityType",
+    "PushMessageActionType",
     "QConnectServiceName",
     "QueryAssistantPaginatorName",
     "QueryConditionComparisonOperatorType",
@@ -102,22 +105,44 @@ __all__ = (
     "ServiceName",
     "SessionDataNamespaceType",
     "SourceContentTypeType",
+    "SpanStatusType",
+    "SpanTypeType",
     "StatusType",
     "SyncStatusType",
     "TargetTypeType",
+    "ToolOverrideInputValueTypeType",
+    "ToolTypeType",
     "VisibilityStatusType",
     "WebScopeTypeType",
+    "WhatsAppSourceConfigurationStatusType",
 )
 
 AIAgentAssociationConfigurationTypeType = Literal["KNOWLEDGE_BASE"]
-AIAgentTypeType = Literal["ANSWER_RECOMMENDATION", "MANUAL_SEARCH", "SELF_SERVICE"]
+AIAgentTypeType = Literal[
+    "ANSWER_RECOMMENDATION",
+    "CASE_SUMMARIZATION",
+    "EMAIL_GENERATIVE_ANSWER",
+    "EMAIL_OVERVIEW",
+    "EMAIL_RESPONSE",
+    "MANUAL_SEARCH",
+    "NOTE_TAKING",
+    "ORCHESTRATION",
+    "SELF_SERVICE",
+]
 AIPromptAPIFormatType = Literal[
     "ANTHROPIC_CLAUDE_MESSAGES", "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS", "MESSAGES", "TEXT_COMPLETIONS"
 ]
 AIPromptTemplateTypeType = Literal["TEXT"]
 AIPromptTypeType = Literal[
     "ANSWER_GENERATION",
+    "CASE_SUMMARIZATION",
+    "EMAIL_GENERATIVE_ANSWER",
+    "EMAIL_OVERVIEW",
+    "EMAIL_QUERY_REFORMULATION",
+    "EMAIL_RESPONSE",
     "INTENT_LABELING_GENERATION",
+    "NOTE_TAKING",
+    "ORCHESTRATION",
     "QUERY_REFORMULATION",
     "SELF_SERVICE_ANSWER_GENERATION",
     "SELF_SERVICE_PRE_PROCESSING",
@@ -132,8 +157,8 @@ AssistantStatusType = Literal[
     "DELETE_IN_PROGRESS",
 ]
 AssistantTypeType = Literal["AGENT"]
-AssociationTypeType = Literal["KNOWLEDGE_BASE"]
-ChannelSubtypeType = Literal["EMAIL", "SMS"]
+AssociationTypeType = Literal["EXTERNAL_BEDROCK_KNOWLEDGE_BASE", "KNOWLEDGE_BASE"]
+ChannelSubtypeType = Literal["EMAIL", "PUSH", "SMS", "WHATSAPP"]
 ChunkingStrategyType = Literal["FIXED_SIZE", "HIERARCHICAL", "NONE", "SEMANTIC"]
 ContentAssociationTypeType = Literal["AMAZON_CONNECT_GUIDE"]
 ContentDispositionType = Literal["ATTACHMENT"]
@@ -224,6 +249,8 @@ ListMessageTemplateVersionsPaginatorName = Literal["list_message_template_versio
 ListMessageTemplatesPaginatorName = Literal["list_message_templates"]
 ListMessagesPaginatorName = Literal["list_messages"]
 ListQuickResponsesPaginatorName = Literal["list_quick_responses"]
+ListSpansPaginatorName = Literal["list_spans"]
+MessageFilterTypeType = Literal["ALL", "TEXT_ONLY"]
 MessageTemplateAttributeTypeType = Literal["AGENT", "CUSTOM", "CUSTOMER_PROFILE", "SYSTEM"]
 MessageTemplateFilterOperatorType = Literal["EQUALS", "PREFIX"]
 MessageTemplateQueryOperatorType = Literal["CONTAINS", "CONTAINS_AND_PREFIX"]
@@ -233,17 +260,26 @@ OriginType = Literal["CUSTOMER", "SYSTEM"]
 ParsingStrategyType = Literal["BEDROCK_FOUNDATION_MODEL"]
 ParticipantType = Literal["AGENT", "BOT", "CUSTOMER"]
 PriorityType = Literal["HIGH", "LOW", "MEDIUM"]
+PushMessageActionType = Literal["DEEP_LINK", "OPEN_APP", "URL"]
 QueryAssistantPaginatorName = Literal["query_assistant"]
 QueryConditionComparisonOperatorType = Literal["EQUALS"]
 QueryConditionFieldNameType = Literal["RESULT_TYPE"]
 QueryResultTypeType = Literal[
+    "BLOCKED_CASE_SUMMARIZATION_CHUNK",
     "BLOCKED_GENERATIVE_ANSWER_CHUNK",
     "BLOCKED_INTENT_ANSWER_CHUNK",
+    "BLOCKED_NOTES_CHUNK",
+    "CASE_SUMMARIZATION_CHUNK",
+    "EMAIL_GENERATIVE_ANSWER_CHUNK",
+    "EMAIL_OVERVIEW_CHUNK",
+    "EMAIL_RESPONSE_CHUNK",
     "GENERATIVE_ANSWER",
     "GENERATIVE_ANSWER_CHUNK",
     "INTENT_ANSWER",
     "INTENT_ANSWER_CHUNK",
     "KNOWLEDGE_CONTENT",
+    "NOTES",
+    "NOTES_CHUNK",
 ]
 QuickResponseFilterOperatorType = Literal["EQUALS", "PREFIX"]
 QuickResponseQueryOperatorType = Literal["CONTAINS", "CONTAINS_AND_PREFIX"]
@@ -260,16 +296,35 @@ QuickResponseStatusType = Literal[
 RecommendationSourceTypeType = Literal["ISSUE_DETECTION", "OTHER", "RULE_EVALUATION"]
 RecommendationTriggerTypeType = Literal["GENERATIVE", "QUERY"]
 RecommendationTypeType = Literal[
+    "BLOCKED_CASE_SUMMARIZATION_CHUNK",
     "BLOCKED_GENERATIVE_ANSWER_CHUNK",
     "BLOCKED_INTENT_ANSWER_CHUNK",
+    "BLOCKED_NOTES_CHUNK",
+    "CASE_SUMMARIZATION_CHUNK",
     "DETECTED_INTENT",
+    "EMAIL_GENERATIVE_ANSWER_CHUNK",
+    "EMAIL_OVERVIEW_CHUNK",
+    "EMAIL_RESPONSE_CHUNK",
     "GENERATIVE_ANSWER",
     "GENERATIVE_ANSWER_CHUNK",
     "GENERATIVE_RESPONSE",
     "INTENT_ANSWER_CHUNK",
     "KNOWLEDGE_CONTENT",
+    "NOTES_CHUNK",
+    "SUGGESTED_MESSAGE",
 ]
-ReferenceTypeType = Literal["KNOWLEDGE_BASE", "WEB_CRAWLER"]
+ReferenceTypeType = Literal[
+    "BEDROCK_KB_CONFLUENCE",
+    "BEDROCK_KB_CUSTOM_DOCUMENT",
+    "BEDROCK_KB_KENDRA",
+    "BEDROCK_KB_S3",
+    "BEDROCK_KB_SALESFORCE",
+    "BEDROCK_KB_SHAREPOINT",
+    "BEDROCK_KB_SQL",
+    "BEDROCK_KB_WEB",
+    "KNOWLEDGE_BASE",
+    "WEB_CRAWLER",
+]
 RelevanceLevelType = Literal["HIGH", "LOW", "MEDIUM"]
 RelevanceType = Literal["HELPFUL", "NOT_HELPFUL"]
 SearchContentPaginatorName = Literal["search_content"]
@@ -278,6 +333,8 @@ SearchQuickResponsesPaginatorName = Literal["search_quick_responses"]
 SearchSessionsPaginatorName = Literal["search_sessions"]
 SessionDataNamespaceType = Literal["Custom"]
 SourceContentTypeType = Literal["KNOWLEDGE_CONTENT"]
+SpanStatusType = Literal["ERROR", "OK", "TIMEOUT"]
+SpanTypeType = Literal["CLIENT", "INTERNAL", "SERVER"]
 StatusType = Literal[
     "ACTIVE",
     "CREATE_FAILED",
@@ -288,14 +345,18 @@ StatusType = Literal[
 ]
 SyncStatusType = Literal["CREATE_IN_PROGRESS", "SYNCING_IN_PROGRESS", "SYNC_FAILED", "SYNC_SUCCESS"]
 TargetTypeType = Literal["RECOMMENDATION", "RESULT"]
+ToolOverrideInputValueTypeType = Literal["JSON_STRING", "NUMBER", "STRING"]
+ToolTypeType = Literal["CONSTANT", "MODEL_CONTEXT_PROTOCOL", "RETURN_TO_CONTROL"]
 VisibilityStatusType = Literal["PUBLISHED", "SAVED"]
 WebScopeTypeType = Literal["HOST_ONLY", "SUBDOMAINS"]
+WhatsAppSourceConfigurationStatusType = Literal["INVALID", "REJECTED", "VALID"]
 QConnectServiceName = Literal["qconnect"]
 ServiceName = Literal[
     "accessanalyzer",
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -316,7 +377,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -328,11 +389,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -381,6 +446,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -436,6 +502,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -478,7 +545,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -493,6 +559,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -516,8 +583,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -548,9 +613,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -560,17 +627,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -588,13 +658,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -609,20 +676,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -647,8 +716,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -688,26 +757,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_ai_agent_versions",
@@ -726,6 +788,7 @@ PaginatorName = Literal[
     "list_message_templates",
     "list_messages",
     "list_quick_responses",
+    "list_spans",
     "query_assistant",
     "search_content",
     "search_message_templates",

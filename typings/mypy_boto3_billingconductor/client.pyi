@@ -315,8 +315,8 @@ class BillingConductorClient(BaseClient):
     ) -> GetBillingGroupCostReportOutputTypeDef:
         """
         Retrieves the margin summary report, which includes the Amazon Web Services
-        cost and charged amount (pro forma cost) by Amazon Web Service for a specific
-        billing group.
+        cost and charged amount (pro forma cost) by Amazon Web Services service for a
+        specific billing group.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/billingconductor/client/get_billing_group_cost_report.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client/#get_billing_group_cost_report)

@@ -45,6 +45,8 @@ from .type_defs import (
     GetCampaignStateResponseTypeDef,
     GetConnectInstanceConfigRequestTypeDef,
     GetConnectInstanceConfigResponseTypeDef,
+    GetInstanceCommunicationLimitsRequestTypeDef,
+    GetInstanceCommunicationLimitsResponseTypeDef,
     GetInstanceOnboardingJobStatusRequestTypeDef,
     GetInstanceOnboardingJobStatusResponseTypeDef,
     ListCampaignsRequestTypeDef,
@@ -55,6 +57,7 @@ from .type_defs import (
     ListTagsForResourceResponseTypeDef,
     PauseCampaignRequestTypeDef,
     PutConnectInstanceIntegrationRequestTypeDef,
+    PutInstanceCommunicationLimitsRequestTypeDef,
     PutOutboundRequestBatchRequestTypeDef,
     PutOutboundRequestBatchResponseTypeDef,
     PutProfileOutboundRequestBatchRequestTypeDef,
@@ -255,6 +258,16 @@ class ConnectCampaignServiceV2Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcampaignsv2/client/#get_connect_instance_config)
         """
 
+    def get_instance_communication_limits(
+        self, **kwargs: Unpack[GetInstanceCommunicationLimitsRequestTypeDef]
+    ) -> GetInstanceCommunicationLimitsResponseTypeDef:
+        """
+        Get the instance communication limits.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcampaignsv2/client/get_instance_communication_limits.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcampaignsv2/client/#get_instance_communication_limits)
+        """
+
     def get_instance_onboarding_job_status(
         self, **kwargs: Unpack[GetInstanceOnboardingJobStatusRequestTypeDef]
     ) -> GetInstanceOnboardingJobStatusResponseTypeDef:
@@ -315,6 +328,16 @@ class ConnectCampaignServiceV2Client(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcampaignsv2/client/put_connect_instance_integration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcampaignsv2/client/#put_connect_instance_integration)
+        """
+
+    def put_instance_communication_limits(
+        self, **kwargs: Unpack[PutInstanceCommunicationLimitsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Put the instance communication limits.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcampaignsv2/client/put_instance_communication_limits.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcampaignsv2/client/#put_instance_communication_limits)
         """
 
     def put_outbound_request_batch(

@@ -27,6 +27,7 @@ from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import ListRetainedMessagesPaginator
 from .type_defs import (
+    DeleteConnectionRequestTypeDef,
     DeleteThingShadowRequestTypeDef,
     DeleteThingShadowResponseTypeDef,
     EmptyResponseMetadataTypeDef,
@@ -58,6 +59,7 @@ __all__ = ("IoTDataPlaneClient",)
 class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
+    ForbiddenException: Type[BotocoreClientError]
     InternalFailureException: Type[BotocoreClientError]
     InvalidRequestException: Type[BotocoreClientError]
     MethodNotAllowedException: Type[BotocoreClientError]
@@ -101,6 +103,16 @@ class IoTDataPlaneClient(BaseClient):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/generate_presigned_url.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#generate_presigned_url)
+        """
+
+    def delete_connection(
+        self, **kwargs: Unpack[DeleteConnectionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Disconnects a connected MQTT client from Amazon Web Services IoT Core.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/delete_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#delete_connection)
         """
 
     def delete_thing_shadow(

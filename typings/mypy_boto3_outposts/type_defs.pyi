@@ -24,11 +24,13 @@ from .literals import (
     AddressTypeType,
     AssetStateType,
     AWSServiceNameType,
+    BlockingResourceTypeType,
     CapacityTaskFailureTypeType,
     CapacityTaskStatusType,
     CatalogItemClassType,
     CatalogItemStatusType,
     ComputeAssetStateType,
+    DecommissionRequestStatusType,
     FiberOpticCableTypeType,
     LineItemStatusType,
     MaximumSupportedWeightLbsType,
@@ -42,6 +44,8 @@ from .literals import (
     PowerFeedDropType,
     PowerPhaseType,
     ShipmentCarrierType,
+    SubscriptionStatusType,
+    SubscriptionTypeType,
     SupportedHardwareTypeType,
     SupportedStorageEnumType,
     TaskActionOnBlockingInstancesType,
@@ -91,6 +95,9 @@ __all__ = (
     "GetConnectionResponseTypeDef",
     "GetOrderInputTypeDef",
     "GetOrderOutputTypeDef",
+    "GetOutpostBillingInformationInputPaginateTypeDef",
+    "GetOutpostBillingInformationInputTypeDef",
+    "GetOutpostBillingInformationOutputTypeDef",
     "GetOutpostInputTypeDef",
     "GetOutpostInstanceTypesInputPaginateTypeDef",
     "GetOutpostInstanceTypesInputTypeDef",
@@ -149,6 +156,9 @@ __all__ = (
     "StartCapacityTaskOutputTypeDef",
     "StartConnectionRequestTypeDef",
     "StartConnectionResponseTypeDef",
+    "StartOutpostDecommissionInputTypeDef",
+    "StartOutpostDecommissionOutputTypeDef",
+    "SubscriptionTypeDef",
     "TagResourceRequestTypeDef",
     "UntagResourceRequestTypeDef",
     "UpdateOutpostInputTypeDef",
@@ -162,13 +172,13 @@ __all__ = (
 )
 
 class AddressTypeDef(TypedDict):
+    ContactName: str
+    ContactPhoneNumber: str
     AddressLine1: str
     City: str
     StateOrRegion: str
     PostalCode: str
     CountryCode: str
-    ContactName: NotRequired[str]
-    ContactPhoneNumber: NotRequired[str]
     AddressLine2: NotRequired[str]
     AddressLine3: NotRequired[str]
     DistrictOrCounty: NotRequired[str]
@@ -304,13 +314,28 @@ class GetConnectionRequestTypeDef(TypedDict):
 class GetOrderInputTypeDef(TypedDict):
     OrderId: str
 
-class GetOutpostInputTypeDef(TypedDict):
-    OutpostId: str
-
 class PaginatorConfigTypeDef(TypedDict):
     MaxItems: NotRequired[int]
     PageSize: NotRequired[int]
     StartingToken: NotRequired[str]
+
+class GetOutpostBillingInformationInputTypeDef(TypedDict):
+    OutpostIdentifier: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class SubscriptionTypeDef(TypedDict):
+    SubscriptionId: NotRequired[str]
+    SubscriptionType: NotRequired[SubscriptionTypeType]
+    SubscriptionStatus: NotRequired[SubscriptionStatusType]
+    OrderIds: NotRequired[List[str]]
+    BeginDate: NotRequired[datetime]
+    EndDate: NotRequired[datetime]
+    MonthlyRecurringPrice: NotRequired[float]
+    UpfrontPrice: NotRequired[float]
+
+class GetOutpostInputTypeDef(TypedDict):
+    OutpostId: str
 
 class GetOutpostInstanceTypesInputTypeDef(TypedDict):
     OutpostId: str
@@ -420,6 +445,10 @@ class StartConnectionRequestTypeDef(TypedDict):
     NetworkInterfaceDeviceIndex: int
     DeviceSerialNumber: NotRequired[str]
 
+class StartOutpostDecommissionInputTypeDef(TypedDict):
+    OutpostIdentifier: str
+    ValidateOnly: NotRequired[bool]
+
 class TagResourceRequestTypeDef(TypedDict):
     ResourceArn: str
     Tags: Mapping[str, str]
@@ -475,8 +504,8 @@ class CatalogItemTypeDef(TypedDict):
 
 class CreateOrderInputTypeDef(TypedDict):
     OutpostIdentifier: str
-    LineItems: Sequence[LineItemRequestTypeDef]
     PaymentOption: PaymentOptionType
+    LineItems: NotRequired[Sequence[LineItemRequestTypeDef]]
     PaymentTerm: NotRequired[PaymentTermType]
 
 class GetConnectionResponseTypeDef(TypedDict):
@@ -512,6 +541,11 @@ class ListTagsForResourceResponseTypeDef(TypedDict):
 class StartConnectionResponseTypeDef(TypedDict):
     ConnectionId: str
     UnderlayIpAddress: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartOutpostDecommissionOutputTypeDef(TypedDict):
+    Status: DecommissionRequestStatusType
+    BlockingResourceTypes: List[BlockingResourceTypeType]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateSiteAddressOutputTypeDef(TypedDict):
@@ -590,6 +624,10 @@ class StartCapacityTaskOutputTypeDef(TypedDict):
     TaskActionOnBlockingInstances: TaskActionOnBlockingInstancesType
     ResponseMetadata: ResponseMetadataTypeDef
 
+class GetOutpostBillingInformationInputPaginateTypeDef(TypedDict):
+    OutpostIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class GetOutpostInstanceTypesInputPaginateTypeDef(TypedDict):
     OutpostId: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
@@ -645,6 +683,12 @@ class ListSitesInputPaginateTypeDef(TypedDict):
     OperatingAddressStateOrRegionFilter: NotRequired[Sequence[str]]
     OperatingAddressCityFilter: NotRequired[Sequence[str]]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetOutpostBillingInformationOutputTypeDef(TypedDict):
+    Subscriptions: List[SubscriptionTypeDef]
+    ContractEndDate: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class GetOutpostInstanceTypesOutputTypeDef(TypedDict):
     InstanceTypes: List[InstanceTypeItemTypeDef]

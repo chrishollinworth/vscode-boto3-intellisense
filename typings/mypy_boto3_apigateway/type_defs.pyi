@@ -24,6 +24,7 @@ from botocore.response import StreamingBody
 
 from .literals import (
     ApiKeySourceTypeType,
+    ApiStatusType,
     AuthorizerTypeType,
     CacheClusterSizeType,
     CacheClusterStatusType,
@@ -31,6 +32,7 @@ from .literals import (
     ContentHandlingStrategyType,
     DocumentationPartTypeType,
     DomainNameStatusType,
+    EndpointAccessModeType,
     EndpointTypeType,
     GatewayResponseTypeType,
     IntegrationTypeType,
@@ -40,6 +42,8 @@ from .literals import (
     PutModeType,
     QuotaPeriodTypeType,
     ResourceOwnerType,
+    ResponseTransferModeType,
+    RoutingModeType,
     SecurityPolicyType,
     UnauthorizedCacheControlHeaderStrategyType,
     VpcLinkStatusType,
@@ -1358,6 +1362,10 @@ RestApiResponseTypeDef = TypedDict(
         "tags": Dict[str, str],
         "disableExecuteApiEndpoint": bool,
         "rootResourceId": str,
+        "securityPolicy": SecurityPolicyType,
+        "endpointAccessMode": EndpointAccessModeType,
+        "apiStatus": ApiStatusType,
+        "apiStatusMessage": str,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -1378,6 +1386,10 @@ RestApiTypeDef = TypedDict(
         "tags": NotRequired[Dict[str, str]],
         "disableExecuteApiEndpoint": NotRequired[bool],
         "rootResourceId": NotRequired[str],
+        "securityPolicy": NotRequired[SecurityPolicyType],
+        "endpointAccessMode": NotRequired[EndpointAccessModeType],
+        "apiStatus": NotRequired[ApiStatusType],
+        "apiStatusMessage": NotRequired[str],
     },
 )
 
@@ -1398,11 +1410,13 @@ class DomainNameResponseTypeDef(TypedDict):
     domainNameStatus: DomainNameStatusType
     domainNameStatusMessage: str
     securityPolicy: SecurityPolicyType
+    endpointAccessMode: EndpointAccessModeType
     tags: Dict[str, str]
     mutualTlsAuthentication: MutualTlsAuthenticationTypeDef
     ownershipVerificationCertificateArn: str
     managementPolicy: str
     policy: str
+    routingMode: RoutingModeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DomainNameTypeDef(TypedDict):
@@ -1422,11 +1436,13 @@ class DomainNameTypeDef(TypedDict):
     domainNameStatus: NotRequired[DomainNameStatusType]
     domainNameStatusMessage: NotRequired[str]
     securityPolicy: NotRequired[SecurityPolicyType]
+    endpointAccessMode: NotRequired[EndpointAccessModeType]
     tags: NotRequired[Dict[str, str]]
     mutualTlsAuthentication: NotRequired[MutualTlsAuthenticationTypeDef]
     ownershipVerificationCertificateArn: NotRequired[str]
     managementPolicy: NotRequired[str]
     policy: NotRequired[str]
+    routingMode: NotRequired[RoutingModeType]
 
 EndpointConfigurationUnionTypeDef = Union[
     EndpointConfigurationTypeDef, EndpointConfigurationOutputTypeDef
@@ -1539,6 +1555,8 @@ IntegrationResponseExtraTypeDef = TypedDict(
         "cacheKeyParameters": List[str],
         "integrationResponses": Dict[str, IntegrationResponseTypeDef],
         "tlsConfig": TlsConfigTypeDef,
+        "responseTransferMode": ResponseTransferModeType,
+        "integrationTarget": str,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -1560,6 +1578,8 @@ IntegrationTypeDef = TypedDict(
         "cacheKeyParameters": NotRequired[List[str]],
         "integrationResponses": NotRequired[Dict[str, IntegrationResponseTypeDef]],
         "tlsConfig": NotRequired[TlsConfigTypeDef],
+        "responseTransferMode": NotRequired[ResponseTransferModeType],
+        "integrationTarget": NotRequired[str],
     },
 )
 PutIntegrationRequestTypeDef = TypedDict(
@@ -1582,6 +1602,8 @@ PutIntegrationRequestTypeDef = TypedDict(
         "contentHandling": NotRequired[ContentHandlingStrategyType],
         "timeoutInMillis": NotRequired[int],
         "tlsConfig": NotRequired[TlsConfigTypeDef],
+        "responseTransferMode": NotRequired[ResponseTransferModeType],
+        "integrationTarget": NotRequired[str],
     },
 )
 
@@ -1848,9 +1870,11 @@ class CreateDomainNameRequestTypeDef(TypedDict):
     endpointConfiguration: NotRequired[EndpointConfigurationUnionTypeDef]
     tags: NotRequired[Mapping[str, str]]
     securityPolicy: NotRequired[SecurityPolicyType]
+    endpointAccessMode: NotRequired[EndpointAccessModeType]
     mutualTlsAuthentication: NotRequired[MutualTlsAuthenticationInputTypeDef]
     ownershipVerificationCertificateArn: NotRequired[str]
     policy: NotRequired[str]
+    routingMode: NotRequired[RoutingModeType]
 
 class CreateRestApiRequestTypeDef(TypedDict):
     name: str
@@ -1864,6 +1888,8 @@ class CreateRestApiRequestTypeDef(TypedDict):
     policy: NotRequired[str]
     tags: NotRequired[Mapping[str, str]]
     disableExecuteApiEndpoint: NotRequired[bool]
+    securityPolicy: NotRequired[SecurityPolicyType]
+    endpointAccessMode: NotRequired[EndpointAccessModeType]
 
 class MethodResponseExtraTypeDef(TypedDict):
     httpMethod: str

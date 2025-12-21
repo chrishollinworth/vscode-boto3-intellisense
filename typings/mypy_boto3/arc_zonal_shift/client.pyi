@@ -31,6 +31,8 @@ from .paginator import (
     ListZonalShiftsPaginator,
 )
 from .type_defs import (
+    CancelPracticeRunRequestTypeDef,
+    CancelPracticeRunResponseTypeDef,
     CancelZonalShiftRequestTypeDef,
     CreatePracticeRunConfigurationRequestTypeDef,
     CreatePracticeRunConfigurationResponseTypeDef,
@@ -45,6 +47,8 @@ from .type_defs import (
     ListManagedResourcesResponseTypeDef,
     ListZonalShiftsRequestTypeDef,
     ListZonalShiftsResponseTypeDef,
+    StartPracticeRunRequestTypeDef,
+    StartPracticeRunResponseTypeDef,
     StartZonalShiftRequestTypeDef,
     UpdateAutoshiftObserverNotificationStatusRequestTypeDef,
     UpdateAutoshiftObserverNotificationStatusResponseTypeDef,
@@ -112,11 +116,22 @@ class ARCZonalShiftClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#generate_presigned_url)
         """
 
+    def cancel_practice_run(
+        self, **kwargs: Unpack[CancelPracticeRunRequestTypeDef]
+    ) -> CancelPracticeRunResponseTypeDef:
+        """
+        Cancel an in-progress practice run zonal shift in Amazon Application Recovery
+        Controller.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/cancel_practice_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#cancel_practice_run)
+        """
+
     def cancel_zonal_shift(
         self, **kwargs: Unpack[CancelZonalShiftRequestTypeDef]
     ) -> ZonalShiftTypeDef:
         """
-        Cancel a zonal shift in Amazon Route 53 Application Recovery Controller.
+        Cancel a zonal shift in Amazon Application Recovery Controller.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/cancel_zonal_shift.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#cancel_zonal_shift)
@@ -158,8 +173,7 @@ class ARCZonalShiftClient(BaseClient):
     ) -> GetManagedResourceResponseTypeDef:
         """
         Get information about a resource that's been registered for zonal shifts with
-        Amazon Route 53 Application Recovery Controller in this Amazon Web Services
-        Region.
+        Amazon Application Recovery Controller in this Amazon Web Services Region.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/get_managed_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#get_managed_resource)
@@ -180,8 +194,8 @@ class ARCZonalShiftClient(BaseClient):
     ) -> ListManagedResourcesResponseTypeDef:
         """
         Lists all the resources in your Amazon Web Services account in this Amazon Web
-        Services Region that are managed for zonal shifts in Amazon Route 53
-        Application Recovery Controller, and information about them.
+        Services Region that are managed for zonal shifts in Amazon Application
+        Recovery Controller, and information about them.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/list_managed_resources.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#list_managed_resources)
@@ -191,12 +205,23 @@ class ARCZonalShiftClient(BaseClient):
         self, **kwargs: Unpack[ListZonalShiftsRequestTypeDef]
     ) -> ListZonalShiftsResponseTypeDef:
         """
-        Lists all active and completed zonal shifts in Amazon Route 53 Application
-        Recovery Controller in your Amazon Web Services account in this Amazon Web
-        Services Region.
+        Lists all active and completed zonal shifts in Amazon Application Recovery
+        Controller in your Amazon Web Services account in this Amazon Web Services
+        Region.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/list_zonal_shifts.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#list_zonal_shifts)
+        """
+
+    def start_practice_run(
+        self, **kwargs: Unpack[StartPracticeRunRequestTypeDef]
+    ) -> StartPracticeRunResponseTypeDef:
+        """
+        Start an on-demand practice run zonal shift in Amazon Application Recovery
+        Controller.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/start_practice_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#start_practice_run)
         """
 
     def start_zonal_shift(
@@ -249,8 +274,8 @@ class ARCZonalShiftClient(BaseClient):
         self, **kwargs: Unpack[UpdateZonalShiftRequestTypeDef]
     ) -> ZonalShiftTypeDef:
         """
-        Update an active zonal shift in Amazon Route 53 Application Recovery Controller
-        in your Amazon Web Services account.
+        Update an active zonal shift in Amazon Application Recovery Controller in your
+        Amazon Web Services account.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/update_zonal_shift.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#update_zonal_shift)

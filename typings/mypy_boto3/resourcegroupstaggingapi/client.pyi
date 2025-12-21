@@ -30,6 +30,7 @@ from .paginator import (
     GetResourcesPaginator,
     GetTagKeysPaginator,
     GetTagValuesPaginator,
+    ListRequiredTagsPaginator,
 )
 from .type_defs import (
     DescribeReportCreationOutputTypeDef,
@@ -41,6 +42,8 @@ from .type_defs import (
     GetTagKeysOutputTypeDef,
     GetTagValuesInputTypeDef,
     GetTagValuesOutputTypeDef,
+    ListRequiredTagsInputTypeDef,
+    ListRequiredTagsOutputTypeDef,
     StartReportCreationInputTypeDef,
     TagResourcesInputTypeDef,
     TagResourcesOutputTypeDef,
@@ -155,6 +158,17 @@ class ResourceGroupsTaggingAPIClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resourcegroupstaggingapi/client/#get_tag_values)
         """
 
+    def list_required_tags(
+        self, **kwargs: Unpack[ListRequiredTagsInputTypeDef]
+    ) -> ListRequiredTagsOutputTypeDef:
+        """
+        Lists the required tags for supported resource types in an Amazon Web Services
+        account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resourcegroupstaggingapi/client/list_required_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resourcegroupstaggingapi/client/#list_required_tags)
+        """
+
     def start_report_creation(
         self, **kwargs: Unpack[StartReportCreationInputTypeDef]
     ) -> Dict[str, Any]:
@@ -224,6 +238,17 @@ class ResourceGroupsTaggingAPIClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_tag_values"]
     ) -> GetTagValuesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resourcegroupstaggingapi/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resourcegroupstaggingapi/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_required_tags"]
+    ) -> ListRequiredTagsPaginator:
         """
         Create a paginator for an operation.
 

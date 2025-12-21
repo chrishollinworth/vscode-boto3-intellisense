@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_connectcampaignsv2.literals import CampaignDeletionPolicyType
+    from mypy_boto3_connectcampaignsv2.literals import AgentActionType
 
-    data: CampaignDeletionPolicyType = "DELETE_ALL"
+    data: AgentActionType = "DISCARD"
     ```
 """
 
@@ -22,6 +22,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AgentActionType",
     "CampaignDeletionPolicyType",
     "CampaignStateType",
     "ChannelSubtypeType",
@@ -32,9 +33,11 @@ __all__ = (
     "DayOfWeekType",
     "EncryptionTypeType",
     "EventTypeType",
+    "ExternalCampaignTypeType",
     "FailureCodeType",
     "GetCampaignStateBatchFailureCodeType",
     "InstanceIdFilterOperatorType",
+    "InstanceLimitsHandlingType",
     "InstanceOnboardingJobFailureCodeType",
     "InstanceOnboardingJobStatusCodeType",
     "ListCampaignsPaginatorName",
@@ -47,12 +50,13 @@ __all__ = (
     "ServiceName",
 )
 
+AgentActionType = Literal["DISCARD"]
 CampaignDeletionPolicyType = Literal["DELETE_ALL", "RETAIN_ALL"]
 CampaignStateType = Literal["Completed", "Failed", "Initialized", "Paused", "Running", "Stopped"]
-ChannelSubtypeType = Literal["EMAIL", "SMS", "TELEPHONY"]
+ChannelSubtypeType = Literal["EMAIL", "SMS", "TELEPHONY", "WHATSAPP"]
 CommunicationLimitTimeUnitType = Literal["DAY"]
 CommunicationLimitsConfigTypeType = Literal["ALL_CHANNEL_SUBTYPES"]
-CommunicationTimeConfigTypeType = Literal["EMAIL", "SMS", "TELEPHONY"]
+CommunicationTimeConfigTypeType = Literal["EMAIL", "SMS", "TELEPHONY", "WHATSAPP"]
 DayOfWeekType = Literal[
     "FRIDAY", "MONDAY", "SATURDAY", "SUNDAY", "THURSDAY", "TUESDAY", "WEDNESDAY"
 ]
@@ -60,9 +64,11 @@ EncryptionTypeType = Literal["KMS"]
 EventTypeType = Literal[
     "Campaign-Email", "Campaign-Orchestration", "Campaign-SMS", "Campaign-Telephony"
 ]
+ExternalCampaignTypeType = Literal["JOURNEY", "MANAGED"]
 FailureCodeType = Literal["BufferLimitExceeded", "InvalidInput", "RequestThrottled", "UnknownError"]
 GetCampaignStateBatchFailureCodeType = Literal["ResourceNotFound", "UnknownError"]
 InstanceIdFilterOperatorType = Literal["Eq"]
+InstanceLimitsHandlingType = Literal["OPT_IN", "OPT_OUT"]
 InstanceOnboardingJobFailureCodeType = Literal[
     "EVENT_BRIDGE_ACCESS_DENIED",
     "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED",
@@ -84,6 +90,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -104,7 +111,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -116,11 +123,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -169,6 +180,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -224,6 +236,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -266,7 +279,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -281,6 +293,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -304,8 +317,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -336,9 +347,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -348,17 +361,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -376,13 +392,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -397,20 +410,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -435,8 +450,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -476,30 +491,26 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal["list_campaigns", "list_connect_instance_integrations"]
 RegionName = Literal[
     "af-south-1",
+    "ap-northeast-1",
+    "ap-northeast-2",
+    "ap-southeast-1",
     "ap-southeast-2",
     "ca-central-1",
     "eu-central-1",

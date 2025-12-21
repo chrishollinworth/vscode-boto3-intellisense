@@ -58,6 +58,8 @@ __all__ = (
     "GetJobRunRequestTypeDef",
     "GetJobRunResponseTypeDef",
     "HiveTypeDef",
+    "IdentityCenterConfigurationInputTypeDef",
+    "IdentityCenterConfigurationTypeDef",
     "ImageConfigurationInputTypeDef",
     "ImageConfigurationTypeDef",
     "InitialCapacityConfigTypeDef",
@@ -65,7 +67,11 @@ __all__ = (
     "JobDriverOutputTypeDef",
     "JobDriverTypeDef",
     "JobDriverUnionTypeDef",
+    "JobLevelCostAllocationConfigurationTypeDef",
     "JobRunAttemptSummaryTypeDef",
+    "JobRunExecutionIamPolicyOutputTypeDef",
+    "JobRunExecutionIamPolicyTypeDef",
+    "JobRunExecutionIamPolicyUnionTypeDef",
     "JobRunSummaryTypeDef",
     "JobRunTypeDef",
     "ListApplicationsRequestPaginateTypeDef",
@@ -139,6 +145,11 @@ class ConfigurationOutputTypeDef(TypedDict):
     properties: NotRequired[Dict[str, str]]
     configurations: NotRequired[List[Dict[str, Any]]]
 
+class IdentityCenterConfigurationTypeDef(TypedDict):
+    identityCenterInstanceArn: NotRequired[str]
+    identityCenterApplicationArn: NotRequired[str]
+    userBackgroundSessionsEnabled: NotRequired[bool]
+
 class ImageConfigurationTypeDef(TypedDict):
     imageUri: str
     resolvedImageDigest: NotRequired[str]
@@ -146,6 +157,9 @@ class ImageConfigurationTypeDef(TypedDict):
 class InteractiveConfigurationTypeDef(TypedDict):
     studioEnabled: NotRequired[bool]
     livyEndpointEnabled: NotRequired[bool]
+
+class JobLevelCostAllocationConfigurationTypeDef(TypedDict):
+    enabled: NotRequired[bool]
 
 class MaximumAllowedResourcesTypeDef(TypedDict):
     cpu: str
@@ -163,6 +177,7 @@ class SchedulerConfigurationTypeDef(TypedDict):
 class CancelJobRunRequestTypeDef(TypedDict):
     applicationId: str
     jobRunId: str
+    shutdownGracePeriodInSeconds: NotRequired[int]
 
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
@@ -189,6 +204,10 @@ class ConfigurationTypeDef(TypedDict):
     classification: str
     properties: NotRequired[Mapping[str, str]]
     configurations: NotRequired[Sequence[Mapping[str, Any]]]
+
+class IdentityCenterConfigurationInputTypeDef(TypedDict):
+    identityCenterInstanceArn: NotRequired[str]
+    userBackgroundSessionsEnabled: NotRequired[bool]
 
 class ImageConfigurationInputTypeDef(TypedDict):
     imageUri: NotRequired[str]
@@ -251,6 +270,15 @@ JobRunAttemptSummaryTypeDef = TypedDict(
         "attempt": NotRequired[int],
     },
 )
+
+class JobRunExecutionIamPolicyOutputTypeDef(TypedDict):
+    policy: NotRequired[str]
+    policyArns: NotRequired[List[str]]
+
+class JobRunExecutionIamPolicyTypeDef(TypedDict):
+    policy: NotRequired[str]
+    policyArns: NotRequired[Sequence[str]]
+
 JobRunSummaryTypeDef = TypedDict(
     "JobRunSummaryTypeDef",
     {
@@ -392,6 +420,10 @@ class ListJobRunAttemptsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
+JobRunExecutionIamPolicyUnionTypeDef = Union[
+    JobRunExecutionIamPolicyTypeDef, JobRunExecutionIamPolicyOutputTypeDef
+]
+
 class ListJobRunsResponseTypeDef(TypedDict):
     jobRuns: List[JobRunSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -468,6 +500,10 @@ ApplicationTypeDef = TypedDict(
         "monitoringConfiguration": NotRequired[MonitoringConfigurationOutputTypeDef],
         "interactiveConfiguration": NotRequired[InteractiveConfigurationTypeDef],
         "schedulerConfiguration": NotRequired[SchedulerConfigurationTypeDef],
+        "identityCenterConfiguration": NotRequired[IdentityCenterConfigurationTypeDef],
+        "jobLevelCostAllocationConfiguration": NotRequired[
+            JobLevelCostAllocationConfigurationTypeDef
+        ],
     },
 )
 
@@ -504,6 +540,7 @@ class JobRunTypeDef(TypedDict):
     releaseLabel: str
     jobDriver: JobDriverOutputTypeDef
     name: NotRequired[str]
+    executionIamPolicy: NotRequired[JobRunExecutionIamPolicyOutputTypeDef]
     configurationOverrides: NotRequired[ConfigurationOverridesOutputTypeDef]
     tags: NotRequired[Dict[str, str]]
     totalResourceUtilization: NotRequired[TotalResourceUtilizationTypeDef]
@@ -543,6 +580,10 @@ CreateApplicationRequestTypeDef = TypedDict(
         "monitoringConfiguration": NotRequired[MonitoringConfigurationUnionTypeDef],
         "interactiveConfiguration": NotRequired[InteractiveConfigurationTypeDef],
         "schedulerConfiguration": NotRequired[SchedulerConfigurationTypeDef],
+        "identityCenterConfiguration": NotRequired[IdentityCenterConfigurationInputTypeDef],
+        "jobLevelCostAllocationConfiguration": NotRequired[
+            JobLevelCostAllocationConfigurationTypeDef
+        ],
     },
 )
 
@@ -562,6 +603,8 @@ class UpdateApplicationRequestTypeDef(TypedDict):
     runtimeConfiguration: NotRequired[Sequence[ConfigurationUnionTypeDef]]
     monitoringConfiguration: NotRequired[MonitoringConfigurationUnionTypeDef]
     schedulerConfiguration: NotRequired[SchedulerConfigurationTypeDef]
+    identityCenterConfiguration: NotRequired[IdentityCenterConfigurationInputTypeDef]
+    jobLevelCostAllocationConfiguration: NotRequired[JobLevelCostAllocationConfigurationTypeDef]
 
 class GetJobRunResponseTypeDef(TypedDict):
     jobRun: JobRunTypeDef
@@ -571,6 +614,7 @@ class StartJobRunRequestTypeDef(TypedDict):
     applicationId: str
     clientToken: str
     executionRoleArn: str
+    executionIamPolicy: NotRequired[JobRunExecutionIamPolicyUnionTypeDef]
     jobDriver: NotRequired[JobDriverUnionTypeDef]
     configurationOverrides: NotRequired[ConfigurationOverridesUnionTypeDef]
     tags: NotRequired[Mapping[str, str]]

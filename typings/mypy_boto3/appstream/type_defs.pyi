@@ -22,6 +22,7 @@ from typing import Union
 
 from .literals import (
     ActionType,
+    AgentSoftwareVersionType,
     AppBlockBuilderAttributeType,
     AppBlockBuilderStateType,
     AppBlockStateType,
@@ -30,6 +31,7 @@ from .literals import (
     AuthenticationTypeType,
     CertificateBasedAuthStatusType,
     DynamicAppProvidersEnabledType,
+    ExportImageTaskStateType,
     FleetAttributeType,
     FleetErrorCodeType,
     FleetStateType,
@@ -39,6 +41,7 @@ from .literals import (
     ImageSharedWithOthersType,
     ImageStateChangeReasonCodeType,
     ImageStateType,
+    ImageTypeType,
     LatestAppstreamAgentVersionType,
     MessageActionType,
     PackagingTypeType,
@@ -47,6 +50,7 @@ from .literals import (
     PreferredProtocolType,
     SessionConnectionStateType,
     SessionStateType,
+    SoftwareDeploymentStatusType,
     StackAttributeType,
     StackErrorCodeType,
     StorageConnectorTypeType,
@@ -71,10 +75,12 @@ else:
 
 __all__ = (
     "AccessEndpointTypeDef",
+    "AdminAppLicenseUsageRecordTypeDef",
     "AppBlockBuilderAppBlockAssociationTypeDef",
     "AppBlockBuilderStateChangeReasonTypeDef",
     "AppBlockBuilderTypeDef",
     "AppBlockTypeDef",
+    "ApplicationConfigTypeDef",
     "ApplicationFleetAssociationTypeDef",
     "ApplicationSettingsResponseTypeDef",
     "ApplicationSettingsTypeDef",
@@ -85,6 +91,7 @@ __all__ = (
     "AssociateApplicationFleetResultTypeDef",
     "AssociateApplicationToEntitlementRequestTypeDef",
     "AssociateFleetRequestTypeDef",
+    "AssociateSoftwareToImageBuilderRequestTypeDef",
     "BatchAssociateUserStackRequestTypeDef",
     "BatchAssociateUserStackResultTypeDef",
     "BatchDisassociateUserStackRequestTypeDef",
@@ -106,12 +113,16 @@ __all__ = (
     "CreateDirectoryConfigResultTypeDef",
     "CreateEntitlementRequestTypeDef",
     "CreateEntitlementResultTypeDef",
+    "CreateExportImageTaskRequestTypeDef",
+    "CreateExportImageTaskResultTypeDef",
     "CreateFleetRequestTypeDef",
     "CreateFleetResultTypeDef",
     "CreateImageBuilderRequestTypeDef",
     "CreateImageBuilderResultTypeDef",
     "CreateImageBuilderStreamingURLRequestTypeDef",
     "CreateImageBuilderStreamingURLResultTypeDef",
+    "CreateImportedImageRequestTypeDef",
+    "CreateImportedImageResultTypeDef",
     "CreateStackRequestTypeDef",
     "CreateStackResultTypeDef",
     "CreateStreamingURLRequestTypeDef",
@@ -142,6 +153,8 @@ __all__ = (
     "DescribeAppBlockBuildersResultTypeDef",
     "DescribeAppBlocksRequestTypeDef",
     "DescribeAppBlocksResultTypeDef",
+    "DescribeAppLicenseUsageRequestTypeDef",
+    "DescribeAppLicenseUsageResultTypeDef",
     "DescribeApplicationFleetAssociationsRequestTypeDef",
     "DescribeApplicationFleetAssociationsResultTypeDef",
     "DescribeApplicationsRequestTypeDef",
@@ -167,6 +180,8 @@ __all__ = (
     "DescribeSessionsRequestPaginateTypeDef",
     "DescribeSessionsRequestTypeDef",
     "DescribeSessionsResultTypeDef",
+    "DescribeSoftwareAssociationsRequestTypeDef",
+    "DescribeSoftwareAssociationsResultTypeDef",
     "DescribeStacksRequestPaginateTypeDef",
     "DescribeStacksRequestTypeDef",
     "DescribeStacksResultTypeDef",
@@ -186,6 +201,7 @@ __all__ = (
     "DisassociateApplicationFleetRequestTypeDef",
     "DisassociateApplicationFromEntitlementRequestTypeDef",
     "DisassociateFleetRequestTypeDef",
+    "DisassociateSoftwareFromImageBuilderRequestTypeDef",
     "DomainJoinInfoTypeDef",
     "EnableUserRequestTypeDef",
     "EntitledApplicationTypeDef",
@@ -193,8 +209,12 @@ __all__ = (
     "EntitlementTypeDef",
     "ErrorDetailsTypeDef",
     "ExpireSessionRequestTypeDef",
+    "ExportImageTaskTypeDef",
+    "FilterTypeDef",
     "FleetErrorTypeDef",
     "FleetTypeDef",
+    "GetExportImageTaskRequestTypeDef",
+    "GetExportImageTaskResultTypeDef",
     "ImageBuilderStateChangeReasonTypeDef",
     "ImageBuilderTypeDef",
     "ImagePermissionsTypeDef",
@@ -209,17 +229,21 @@ __all__ = (
     "ListAssociatedStacksResultTypeDef",
     "ListEntitledApplicationsRequestTypeDef",
     "ListEntitledApplicationsResultTypeDef",
+    "ListExportImageTasksRequestTypeDef",
+    "ListExportImageTasksResultTypeDef",
     "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NetworkAccessConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ResourceErrorTypeDef",
     "ResponseMetadataTypeDef",
+    "RuntimeValidationConfigTypeDef",
     "S3LocationTypeDef",
     "ScriptDetailsTypeDef",
     "ServiceAccountCredentialsTypeDef",
     "SessionTypeDef",
     "SharedImagePermissionsTypeDef",
+    "SoftwareAssociationsTypeDef",
     "StackErrorTypeDef",
     "StackTypeDef",
     "StartAppBlockBuilderRequestTypeDef",
@@ -227,6 +251,7 @@ __all__ = (
     "StartFleetRequestTypeDef",
     "StartImageBuilderRequestTypeDef",
     "StartImageBuilderResultTypeDef",
+    "StartSoftwareDeploymentToImageBuilderRequestTypeDef",
     "StopAppBlockBuilderRequestTypeDef",
     "StopAppBlockBuilderResultTypeDef",
     "StopFleetRequestTypeDef",
@@ -260,6 +285,7 @@ __all__ = (
     "UserStackAssociationErrorTypeDef",
     "UserStackAssociationTypeDef",
     "UserTypeDef",
+    "VolumeConfigTypeDef",
     "VpcConfigOutputTypeDef",
     "VpcConfigTypeDef",
     "VpcConfigUnionTypeDef",
@@ -269,6 +295,15 @@ __all__ = (
 class AccessEndpointTypeDef(TypedDict):
     EndpointType: Literal["STREAMING"]
     VpceId: NotRequired[str]
+
+class AdminAppLicenseUsageRecordTypeDef(TypedDict):
+    UserArn: str
+    BillingPeriod: str
+    OwnerAWSAccountId: str
+    SubscriptionFirstUsedDate: datetime
+    SubscriptionLastUsedDate: datetime
+    LicenseType: str
+    UserId: str
 
 class AppBlockBuilderAppBlockAssociationTypeDef(TypedDict):
     AppBlockArn: str
@@ -294,6 +329,15 @@ class ErrorDetailsTypeDef(TypedDict):
 class S3LocationTypeDef(TypedDict):
     S3Bucket: str
     S3Key: NotRequired[str]
+
+class ApplicationConfigTypeDef(TypedDict):
+    Name: str
+    AbsoluteAppPath: str
+    DisplayName: NotRequired[str]
+    AbsoluteIconPath: NotRequired[str]
+    AbsoluteManifestPath: NotRequired[str]
+    WorkingDirectory: NotRequired[str]
+    LaunchParameters: NotRequired[str]
 
 class ApplicationFleetAssociationTypeDef(TypedDict):
     FleetName: str
@@ -331,6 +375,10 @@ class AssociateApplicationToEntitlementRequestTypeDef(TypedDict):
 class AssociateFleetRequestTypeDef(TypedDict):
     FleetName: str
     StackName: str
+
+class AssociateSoftwareToImageBuilderRequestTypeDef(TypedDict):
+    ImageBuilderName: str
+    SoftwareNames: Sequence[str]
 
 class UserStackAssociationTypeDef(TypedDict):
     StackName: str
@@ -374,13 +422,26 @@ class EntitlementAttributeTypeDef(TypedDict):
     Name: str
     Value: str
 
+class CreateExportImageTaskRequestTypeDef(TypedDict):
+    ImageName: str
+    AmiName: str
+    IamRoleArn: str
+    TagSpecifications: NotRequired[Mapping[str, str]]
+    AmiDescription: NotRequired[str]
+
 class DomainJoinInfoTypeDef(TypedDict):
     DirectoryName: NotRequired[str]
     OrganizationalUnitDistinguishedName: NotRequired[str]
 
+class VolumeConfigTypeDef(TypedDict):
+    VolumeSizeInGb: NotRequired[int]
+
 class CreateImageBuilderStreamingURLRequestTypeDef(TypedDict):
     Name: str
     Validity: NotRequired[int]
+
+class RuntimeValidationConfigTypeDef(TypedDict):
+    IntendedInstanceType: NotRequired[str]
 
 class StreamingExperienceSettingsTypeDef(TypedDict):
     PreferredProtocol: NotRequired[PreferredProtocolType]
@@ -472,6 +533,11 @@ class DescribeAppBlocksRequestTypeDef(TypedDict):
     NextToken: NotRequired[str]
     MaxResults: NotRequired[int]
 
+class DescribeAppLicenseUsageRequestTypeDef(TypedDict):
+    BillingPeriod: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
 class DescribeApplicationFleetAssociationsRequestTypeDef(TypedDict):
     FleetName: NotRequired[str]
     ApplicationArn: NotRequired[str]
@@ -538,6 +604,11 @@ class DescribeSessionsRequestTypeDef(TypedDict):
     AuthenticationType: NotRequired[AuthenticationTypeType]
     InstanceId: NotRequired[str]
 
+class DescribeSoftwareAssociationsRequestTypeDef(TypedDict):
+    AssociatedResource: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
 class DescribeStacksRequestTypeDef(TypedDict):
     Names: NotRequired[Sequence[str]]
     NextToken: NotRequired[str]
@@ -592,6 +663,10 @@ class DisassociateFleetRequestTypeDef(TypedDict):
     FleetName: str
     StackName: str
 
+class DisassociateSoftwareFromImageBuilderRequestTypeDef(TypedDict):
+    ImageBuilderName: str
+    SoftwareNames: Sequence[str]
+
 class EnableUserRequestTypeDef(TypedDict):
     UserName: str
     AuthenticationType: AuthenticationTypeType
@@ -602,9 +677,16 @@ class EntitledApplicationTypeDef(TypedDict):
 class ExpireSessionRequestTypeDef(TypedDict):
     SessionId: str
 
+class FilterTypeDef(TypedDict):
+    Name: str
+    Values: Sequence[str]
+
 class FleetErrorTypeDef(TypedDict):
     ErrorCode: NotRequired[FleetErrorCodeType]
     ErrorMessage: NotRequired[str]
+
+class GetExportImageTaskRequestTypeDef(TypedDict):
+    TaskId: NotRequired[str]
 
 class ImageBuilderStateChangeReasonTypeDef(TypedDict):
     Code: NotRequired[ImageBuilderStateChangeReasonCodeType]
@@ -612,6 +694,7 @@ class ImageBuilderStateChangeReasonTypeDef(TypedDict):
 
 class NetworkAccessConfigurationTypeDef(TypedDict):
     EniPrivateIpAddress: NotRequired[str]
+    EniIpv6Addresses: NotRequired[List[str]]
     EniId: NotRequired[str]
 
 class ImagePermissionsTypeDef(TypedDict):
@@ -663,6 +746,10 @@ class StartImageBuilderRequestTypeDef(TypedDict):
     Name: str
     AppstreamAgentVersion: NotRequired[str]
 
+class StartSoftwareDeploymentToImageBuilderRequestTypeDef(TypedDict):
+    ImageBuilderName: str
+    RetryFailedDeployments: NotRequired[bool]
+
 class StopAppBlockBuilderRequestTypeDef(TypedDict):
     Name: str
 
@@ -705,6 +792,22 @@ class AppBlockBuilderTypeDef(TypedDict):
     AppBlockBuilderErrors: NotRequired[List[ResourceErrorTypeDef]]
     StateChangeReason: NotRequired[AppBlockBuilderStateChangeReasonTypeDef]
     AccessEndpoints: NotRequired[List[AccessEndpointTypeDef]]
+
+class ExportImageTaskTypeDef(TypedDict):
+    TaskId: str
+    ImageArn: str
+    AmiName: str
+    CreatedDate: datetime
+    AmiDescription: NotRequired[str]
+    State: NotRequired[ExportImageTaskStateType]
+    AmiId: NotRequired[str]
+    TagSpecifications: NotRequired[Dict[str, str]]
+    ErrorDetails: NotRequired[List[ErrorDetailsTypeDef]]
+
+class SoftwareAssociationsTypeDef(TypedDict):
+    SoftwareName: NotRequired[str]
+    Status: NotRequired[SoftwareDeploymentStatusType]
+    DeploymentError: NotRequired[List[ErrorDetailsTypeDef]]
 
 class ApplicationTypeDef(TypedDict):
     Name: NotRequired[str]
@@ -790,6 +893,11 @@ class DescribeAppBlockBuilderAppBlockAssociationsResultTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class DescribeAppLicenseUsageResultTypeDef(TypedDict):
+    AppLicenseUsages: List[AdminAppLicenseUsageRecordTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
 class DescribeApplicationFleetAssociationsResultTypeDef(TypedDict):
     ApplicationFleetAssociations: List[ApplicationFleetAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -866,6 +974,18 @@ class UpdateEntitlementRequestTypeDef(TypedDict):
     Description: NotRequired[str]
     AppVisibility: NotRequired[AppVisibilityType]
     Attributes: NotRequired[Sequence[EntitlementAttributeTypeDef]]
+
+class CreateImportedImageRequestTypeDef(TypedDict):
+    Name: str
+    SourceAmiId: str
+    IamRoleArn: str
+    Description: NotRequired[str]
+    DisplayName: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    RuntimeValidationConfig: NotRequired[RuntimeValidationConfigTypeDef]
+    AgentSoftwareVersion: NotRequired[AgentSoftwareVersionType]
+    AppCatalogConfig: NotRequired[Sequence[ApplicationConfigTypeDef]]
+    DryRun: NotRequired[bool]
 
 class CreateThemeForStackRequestTypeDef(TypedDict):
     StackName: str
@@ -967,6 +1087,11 @@ class ListEntitledApplicationsResultTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class ListExportImageTasksRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
 class FleetTypeDef(TypedDict):
     Arn: str
     Name: str
@@ -993,6 +1118,7 @@ class FleetTypeDef(TypedDict):
     UsbDeviceFilterStrings: NotRequired[List[str]]
     SessionScriptS3Location: NotRequired[S3LocationTypeDef]
     MaxSessionsPerInstance: NotRequired[int]
+    RootVolumeConfig: NotRequired[VolumeConfigTypeDef]
 
 class ImageBuilderTypeDef(TypedDict):
     Name: str
@@ -1013,6 +1139,7 @@ class ImageBuilderTypeDef(TypedDict):
     ImageBuilderErrors: NotRequired[List[ResourceErrorTypeDef]]
     AppstreamAgentVersion: NotRequired[str]
     AccessEndpoints: NotRequired[List[AccessEndpointTypeDef]]
+    RootVolumeConfig: NotRequired[VolumeConfigTypeDef]
     LatestAppstreamAgentVersion: NotRequired[LatestAppstreamAgentVersionType]
 
 class SessionTypeDef(TypedDict):
@@ -1083,6 +1210,25 @@ class UpdateAppBlockBuilderResultTypeDef(TypedDict):
     AppBlockBuilder: AppBlockBuilderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+class CreateExportImageTaskResultTypeDef(TypedDict):
+    ExportImageTask: ExportImageTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetExportImageTaskResultTypeDef(TypedDict):
+    ExportImageTask: ExportImageTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListExportImageTasksResultTypeDef(TypedDict):
+    ExportImageTasks: List[ExportImageTaskTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeSoftwareAssociationsResultTypeDef(TypedDict):
+    AssociatedResource: str
+    SoftwareAssociations: List[SoftwareAssociationsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
 class CreateApplicationResultTypeDef(TypedDict):
     Application: ApplicationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1114,6 +1260,8 @@ class ImageTypeDef(TypedDict):
     SupportedInstanceFamilies: NotRequired[List[str]]
     DynamicAppProvidersEnabled: NotRequired[DynamicAppProvidersEnabledType]
     ImageSharedWithOthers: NotRequired[ImageSharedWithOthersType]
+    ManagedSoftwareIncluded: NotRequired[bool]
+    ImageType: NotRequired[ImageTypeType]
 
 class UpdateApplicationResultTypeDef(TypedDict):
     Application: ApplicationTypeDef
@@ -1315,6 +1463,7 @@ class CreateFleetRequestTypeDef(TypedDict):
     UsbDeviceFilterStrings: NotRequired[Sequence[str]]
     SessionScriptS3Location: NotRequired[S3LocationTypeDef]
     MaxSessionsPerInstance: NotRequired[int]
+    RootVolumeConfig: NotRequired[VolumeConfigTypeDef]
 
 class CreateImageBuilderRequestTypeDef(TypedDict):
     Name: str
@@ -1330,6 +1479,9 @@ class CreateImageBuilderRequestTypeDef(TypedDict):
     AppstreamAgentVersion: NotRequired[str]
     Tags: NotRequired[Mapping[str, str]]
     AccessEndpoints: NotRequired[Sequence[AccessEndpointTypeDef]]
+    RootVolumeConfig: NotRequired[VolumeConfigTypeDef]
+    SoftwaresToInstall: NotRequired[Sequence[str]]
+    SoftwaresToUninstall: NotRequired[Sequence[str]]
 
 class UpdateAppBlockBuilderRequestTypeDef(TypedDict):
     Name: str
@@ -1366,6 +1518,11 @@ class UpdateFleetRequestTypeDef(TypedDict):
     UsbDeviceFilterStrings: NotRequired[Sequence[str]]
     SessionScriptS3Location: NotRequired[S3LocationTypeDef]
     MaxSessionsPerInstance: NotRequired[int]
+    RootVolumeConfig: NotRequired[VolumeConfigTypeDef]
+
+class CreateImportedImageResultTypeDef(TypedDict):
+    Image: ImageTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateUpdatedImageResultTypeDef(TypedDict):
     image: ImageTypeDef

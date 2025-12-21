@@ -47,8 +47,14 @@ __all__ = (
     "GetAnomaliesPaginatorName",
     "GetAnomalyMonitorsPaginatorName",
     "GetAnomalySubscriptionsPaginatorName",
+    "GetCostAndUsageComparisonsPaginatorName",
+    "GetCostComparisonDriversPaginatorName",
     "GranularityType",
     "GroupDefinitionTypeType",
+    "ListCostAllocationTagBackfillHistoryPaginatorName",
+    "ListCostAllocationTagsPaginatorName",
+    "ListCostCategoryDefinitionsPaginatorName",
+    "ListCostCategoryResourceAssociationsPaginatorName",
     "LookbackPeriodInDaysType",
     "MatchOptionType",
     "MetricType",
@@ -106,6 +112,7 @@ DimensionType = Literal[
     "LINKED_ACCOUNT_NAME",
     "OPERATING_SYSTEM",
     "OPERATION",
+    "PAYER_ACCOUNT",
     "PAYMENT_OPTION",
     "PLATFORM",
     "PURCHASE_TYPE",
@@ -153,8 +160,18 @@ GenerationStatusType = Literal["FAILED", "PROCESSING", "SUCCEEDED"]
 GetAnomaliesPaginatorName = Literal["get_anomalies"]
 GetAnomalyMonitorsPaginatorName = Literal["get_anomaly_monitors"]
 GetAnomalySubscriptionsPaginatorName = Literal["get_anomaly_subscriptions"]
+GetCostAndUsageComparisonsPaginatorName = Literal["get_cost_and_usage_comparisons"]
+GetCostComparisonDriversPaginatorName = Literal["get_cost_comparison_drivers"]
 GranularityType = Literal["DAILY", "HOURLY", "MONTHLY"]
 GroupDefinitionTypeType = Literal["COST_CATEGORY", "DIMENSION", "TAG"]
+ListCostAllocationTagBackfillHistoryPaginatorName = Literal[
+    "list_cost_allocation_tag_backfill_history"
+]
+ListCostAllocationTagsPaginatorName = Literal["list_cost_allocation_tags"]
+ListCostCategoryDefinitionsPaginatorName = Literal["list_cost_category_definitions"]
+ListCostCategoryResourceAssociationsPaginatorName = Literal[
+    "list_cost_category_resource_associations"
+]
 LookbackPeriodInDaysType = Literal["SEVEN_DAYS", "SIXTY_DAYS", "THIRTY_DAYS"]
 MatchOptionType = Literal[
     "ABSENT",
@@ -175,7 +192,7 @@ MetricType = Literal[
     "UNBLENDED_COST",
     "USAGE_QUANTITY",
 ]
-MonitorDimensionType = Literal["SERVICE"]
+MonitorDimensionType = Literal["COST_CATEGORY", "LINKED_ACCOUNT", "SERVICE", "TAG"]
 MonitorTypeType = Literal["CUSTOM", "DIMENSIONAL"]
 NumericOperatorType = Literal[
     "BETWEEN", "EQUAL", "GREATER_THAN", "GREATER_THAN_OR_EQUAL", "LESS_THAN", "LESS_THAN_OR_EQUAL"
@@ -202,7 +219,9 @@ SavingsPlansDataTypeType = Literal["AMORTIZED_COMMITMENT", "ATTRIBUTES", "SAVING
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
 SubscriberStatusType = Literal["CONFIRMED", "DECLINED"]
 SubscriberTypeType = Literal["EMAIL", "SNS"]
-SupportedSavingsPlansTypeType = Literal["COMPUTE_SP", "EC2_INSTANCE_SP", "SAGEMAKER_SP"]
+SupportedSavingsPlansTypeType = Literal[
+    "COMPUTE_SP", "DATABASE_SP", "EC2_INSTANCE_SP", "SAGEMAKER_SP"
+]
 TermInYearsType = Literal["ONE_YEAR", "THREE_YEARS"]
 CostExplorerServiceName = Literal["ce"]
 ServiceName = Literal[
@@ -210,6 +229,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -230,7 +250,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -242,11 +262,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -295,6 +319,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -350,6 +375,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -392,7 +418,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -407,6 +432,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -430,8 +456,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -462,9 +486,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -474,17 +500,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -502,13 +531,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -523,20 +549,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -561,8 +589,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -602,25 +630,28 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
-PaginatorName = Literal["get_anomalies", "get_anomaly_monitors", "get_anomaly_subscriptions"]
+PaginatorName = Literal[
+    "get_anomalies",
+    "get_anomaly_monitors",
+    "get_anomaly_subscriptions",
+    "get_cost_and_usage_comparisons",
+    "get_cost_comparison_drivers",
+    "list_cost_allocation_tag_backfill_history",
+    "list_cost_allocation_tags",
+    "list_cost_category_definitions",
+    "list_cost_category_resource_associations",
+]

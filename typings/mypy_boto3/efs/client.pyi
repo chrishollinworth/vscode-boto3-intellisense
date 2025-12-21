@@ -335,7 +335,7 @@ class EFSClient(BaseClient):
     ) -> LifecycleConfigurationDescriptionTypeDef:
         """
         Returns the current <code>LifecycleConfiguration</code> object for the
-        specified Amazon EFS file system.
+        specified EFS file system.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/efs/client/describe_lifecycle_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_efs/client/#describe_lifecycle_configuration)

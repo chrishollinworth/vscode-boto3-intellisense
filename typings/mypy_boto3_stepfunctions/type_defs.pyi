@@ -30,6 +30,7 @@ from .literals import (
     InspectionLevelType,
     LogLevelType,
     MapRunStatusType,
+    MockResponseValidationModeType,
     StateMachineStatusType,
     StateMachineTypeType,
     SyncExecutionStatusType,
@@ -102,6 +103,7 @@ __all__ = (
     "InspectionDataRequestTypeDef",
     "InspectionDataResponseTypeDef",
     "InspectionDataTypeDef",
+    "InspectionErrorDetailsTypeDef",
     "LambdaFunctionFailedEventDetailsTypeDef",
     "LambdaFunctionScheduleFailedEventDetailsTypeDef",
     "LambdaFunctionScheduledEventDetailsTypeDef",
@@ -138,6 +140,8 @@ __all__ = (
     "MapRunRedrivenEventDetailsTypeDef",
     "MapRunStartedEventDetailsTypeDef",
     "MapStateStartedEventDetailsTypeDef",
+    "MockErrorOutputTypeDef",
+    "MockInputTypeDef",
     "PaginatorConfigTypeDef",
     "PublishStateMachineVersionInputTypeDef",
     "PublishStateMachineVersionOutputTypeDef",
@@ -170,6 +174,7 @@ __all__ = (
     "TaskSubmittedEventDetailsTypeDef",
     "TaskSucceededEventDetailsTypeDef",
     "TaskTimedOutEventDetailsTypeDef",
+    "TestStateConfigurationTypeDef",
     "TestStateInputTypeDef",
     "TestStateOutputTypeDef",
     "TracingConfigurationTypeDef",
@@ -431,6 +436,11 @@ class InspectionDataResponseTypeDef(TypedDict):
     headers: NotRequired[str]
     body: NotRequired[str]
 
+class InspectionErrorDetailsTypeDef(TypedDict):
+    catchIndex: NotRequired[int]
+    retryIndex: NotRequired[int]
+    retryBackoffIntervalSeconds: NotRequired[int]
+
 class TaskCredentialsTypeDef(TypedDict):
     roleArn: NotRequired[str]
 
@@ -493,6 +503,10 @@ StateMachineListItemTypeDef = TypedDict(
 class ListTagsForResourceInputTypeDef(TypedDict):
     resourceArn: str
 
+class MockErrorOutputTypeDef(TypedDict):
+    error: NotRequired[str]
+    cause: NotRequired[str]
+
 class PublishStateMachineVersionInputTypeDef(TypedDict):
     stateMachineArn: str
     revisionId: NotRequired[str]
@@ -539,17 +553,11 @@ class StopExecutionInputTypeDef(TypedDict):
     error: NotRequired[str]
     cause: NotRequired[str]
 
-TestStateInputTypeDef = TypedDict(
-    "TestStateInputTypeDef",
-    {
-        "definition": str,
-        "roleArn": NotRequired[str],
-        "input": NotRequired[str],
-        "inspectionLevel": NotRequired[InspectionLevelType],
-        "revealSecrets": NotRequired[bool],
-        "variables": NotRequired[str],
-    },
-)
+class TestStateConfigurationTypeDef(TypedDict):
+    retrierRetryCount: NotRequired[int]
+    errorCausedByState: NotRequired[str]
+    mapIterationFailureCount: NotRequired[int]
+    mapItemReaderData: NotRequired[str]
 
 class UntagResourceInputTypeDef(TypedDict):
     resourceArn: str
@@ -841,6 +849,14 @@ InspectionDataTypeDef = TypedDict(
         "request": NotRequired[InspectionDataRequestTypeDef],
         "response": NotRequired[InspectionDataResponseTypeDef],
         "variables": NotRequired[str],
+        "errorDetails": NotRequired[InspectionErrorDetailsTypeDef],
+        "afterItemsPath": NotRequired[str],
+        "afterItemSelector": NotRequired[str],
+        "afterItemBatcher": NotRequired[str],
+        "afterItemsPointer": NotRequired[str],
+        "toleratedFailureCount": NotRequired[int],
+        "toleratedFailurePercentage": NotRequired[float],
+        "maxConcurrency": NotRequired[int],
     },
 )
 LambdaFunctionScheduledEventDetailsTypeDef = TypedDict(
@@ -882,6 +898,11 @@ class ListStateMachinesOutputTypeDef(TypedDict):
     stateMachines: List[StateMachineListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
+
+class MockInputTypeDef(TypedDict):
+    result: NotRequired[str]
+    errorOutput: NotRequired[MockErrorOutputTypeDef]
+    fieldValidationMode: NotRequired[MockResponseValidationModeType]
 
 class ValidateStateMachineDefinitionOutputTypeDef(TypedDict):
     result: ValidateStateMachineDefinitionResultCodeType
@@ -964,6 +985,21 @@ HistoryEventTypeDef = TypedDict(
         "mapRunFailedEventDetails": NotRequired[MapRunFailedEventDetailsTypeDef],
         "mapRunRedrivenEventDetails": NotRequired[MapRunRedrivenEventDetailsTypeDef],
         "evaluationFailedEventDetails": NotRequired[EvaluationFailedEventDetailsTypeDef],
+    },
+)
+TestStateInputTypeDef = TypedDict(
+    "TestStateInputTypeDef",
+    {
+        "definition": str,
+        "roleArn": NotRequired[str],
+        "input": NotRequired[str],
+        "inspectionLevel": NotRequired[InspectionLevelType],
+        "revealSecrets": NotRequired[bool],
+        "variables": NotRequired[str],
+        "stateName": NotRequired[str],
+        "mock": NotRequired[MockInputTypeDef],
+        "context": NotRequired[str],
+        "stateConfiguration": NotRequired[TestStateConfigurationTypeDef],
     },
 )
 

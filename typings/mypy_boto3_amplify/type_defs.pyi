@@ -21,6 +21,7 @@ from datetime import datetime
 from typing import Union
 
 from .literals import (
+    BuildComputeTypeType,
     CacheConfigTypeType,
     CertificateTypeType,
     DomainStatusType,
@@ -99,6 +100,7 @@ __all__ = (
     "GetJobResultTypeDef",
     "GetWebhookRequestTypeDef",
     "GetWebhookResultTypeDef",
+    "JobConfigTypeDef",
     "JobSummaryTypeDef",
     "JobTypeDef",
     "ListAppsRequestPaginateTypeDef",
@@ -172,6 +174,9 @@ class CustomRuleTypeDef(TypedDict):
     target: str
     status: NotRequired[str]
     condition: NotRequired[str]
+
+class JobConfigTypeDef(TypedDict):
+    buildComputeType: BuildComputeTypeType
 
 class ProductionBranchTypeDef(TypedDict):
     lastDeployTime: NotRequired[datetime]
@@ -441,6 +446,7 @@ class AppTypeDef(TypedDict):
     cacheConfig: NotRequired[CacheConfigTypeDef]
     webhookCreateTime: NotRequired[datetime]
     wafConfiguration: NotRequired[WafConfigurationTypeDef]
+    jobConfig: NotRequired[JobConfigTypeDef]
 
 AutoBranchCreationConfigUnionTypeDef = Union[
     AutoBranchCreationConfigTypeDef, AutoBranchCreationConfigOutputTypeDef
@@ -707,6 +713,7 @@ class CreateAppRequestTypeDef(TypedDict):
     enableAutoBranchCreation: NotRequired[bool]
     autoBranchCreationPatterns: NotRequired[Sequence[str]]
     autoBranchCreationConfig: NotRequired[AutoBranchCreationConfigUnionTypeDef]
+    jobConfig: NotRequired[JobConfigTypeDef]
     cacheConfig: NotRequired[CacheConfigTypeDef]
 
 class UpdateAppRequestTypeDef(TypedDict):
@@ -730,6 +737,7 @@ class UpdateAppRequestTypeDef(TypedDict):
     repository: NotRequired[str]
     oauthToken: NotRequired[str]
     accessToken: NotRequired[str]
+    jobConfig: NotRequired[JobConfigTypeDef]
     cacheConfig: NotRequired[CacheConfigTypeDef]
 
 class CreateBranchResultTypeDef(TypedDict):

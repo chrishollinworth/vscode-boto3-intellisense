@@ -25,9 +25,13 @@ Usage::
         DescribeResourcePoliciesPaginator,
         DescribeSubscriptionFiltersPaginator,
         FilterLogEventsPaginator,
+        GetScheduledQueryHistoryPaginator,
+        ListAggregateLogGroupSummariesPaginator,
         ListAnomaliesPaginator,
         ListLogAnomalyDetectorsPaginator,
         ListLogGroupsForQueryPaginator,
+        ListScheduledQueriesPaginator,
+        ListSourcesForS3TableIntegrationPaginator,
     )
 
     session = Session()
@@ -46,9 +50,13 @@ Usage::
     describe_resource_policies_paginator: DescribeResourcePoliciesPaginator = client.get_paginator("describe_resource_policies")
     describe_subscription_filters_paginator: DescribeSubscriptionFiltersPaginator = client.get_paginator("describe_subscription_filters")
     filter_log_events_paginator: FilterLogEventsPaginator = client.get_paginator("filter_log_events")
+    get_scheduled_query_history_paginator: GetScheduledQueryHistoryPaginator = client.get_paginator("get_scheduled_query_history")
+    list_aggregate_log_group_summaries_paginator: ListAggregateLogGroupSummariesPaginator = client.get_paginator("list_aggregate_log_group_summaries")
     list_anomalies_paginator: ListAnomaliesPaginator = client.get_paginator("list_anomalies")
     list_log_anomaly_detectors_paginator: ListLogAnomalyDetectorsPaginator = client.get_paginator("list_log_anomaly_detectors")
     list_log_groups_for_query_paginator: ListLogGroupsForQueryPaginator = client.get_paginator("list_log_groups_for_query")
+    list_scheduled_queries_paginator: ListScheduledQueriesPaginator = client.get_paginator("list_scheduled_queries")
+    list_sources_for_s3_table_integration_paginator: ListSourcesForS3TableIntegrationPaginator = client.get_paginator("list_sources_for_s3_table_integration")
     ```
 """
 
@@ -67,9 +75,13 @@ from .paginator import (
     DescribeResourcePoliciesPaginator,
     DescribeSubscriptionFiltersPaginator,
     FilterLogEventsPaginator,
+    GetScheduledQueryHistoryPaginator,
+    ListAggregateLogGroupSummariesPaginator,
     ListAnomaliesPaginator,
     ListLogAnomalyDetectorsPaginator,
     ListLogGroupsForQueryPaginator,
+    ListScheduledQueriesPaginator,
+    ListSourcesForS3TableIntegrationPaginator,
 )
 
 Client = CloudWatchLogsClient
@@ -90,7 +102,11 @@ __all__ = (
     "DescribeResourcePoliciesPaginator",
     "DescribeSubscriptionFiltersPaginator",
     "FilterLogEventsPaginator",
+    "GetScheduledQueryHistoryPaginator",
+    "ListAggregateLogGroupSummariesPaginator",
     "ListAnomaliesPaginator",
     "ListLogAnomalyDetectorsPaginator",
     "ListLogGroupsForQueryPaginator",
+    "ListScheduledQueriesPaginator",
+    "ListSourcesForS3TableIntegrationPaginator",
 )

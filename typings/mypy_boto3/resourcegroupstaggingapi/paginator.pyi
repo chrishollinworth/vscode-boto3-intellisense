@@ -16,6 +16,7 @@ Usage::
         GetResourcesPaginator,
         GetTagKeysPaginator,
         GetTagValuesPaginator,
+        ListRequiredTagsPaginator,
     )
 
     session = Session()
@@ -25,6 +26,7 @@ Usage::
     get_resources_paginator: GetResourcesPaginator = client.get_paginator("get_resources")
     get_tag_keys_paginator: GetTagKeysPaginator = client.get_paginator("get_tag_keys")
     get_tag_values_paginator: GetTagValuesPaginator = client.get_paginator("get_tag_values")
+    list_required_tags_paginator: ListRequiredTagsPaginator = client.get_paginator("list_required_tags")
     ```
 """
 
@@ -44,6 +46,8 @@ from .type_defs import (
     GetTagKeysOutputTypeDef,
     GetTagValuesInputPaginateTypeDef,
     GetTagValuesOutputTypeDef,
+    ListRequiredTagsInputPaginateTypeDef,
+    ListRequiredTagsOutputTypeDef,
 )
 
 if sys.version_info >= (3, 12):
@@ -56,6 +60,7 @@ __all__ = (
     "GetResourcesPaginator",
     "GetTagKeysPaginator",
     "GetTagValuesPaginator",
+    "ListRequiredTagsPaginator",
 )
 
 if TYPE_CHECKING:
@@ -128,4 +133,22 @@ class GetTagValuesPaginator(_GetTagValuesPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resourcegroupstaggingapi/paginator/GetTagValues.html#ResourceGroupsTaggingAPI.Paginator.GetTagValues.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resourcegroupstaggingapi/paginators/#gettagvaluespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListRequiredTagsPaginatorBase = Paginator[ListRequiredTagsOutputTypeDef]
+else:
+    _ListRequiredTagsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRequiredTagsPaginator(_ListRequiredTagsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resourcegroupstaggingapi/paginator/ListRequiredTags.html#ResourceGroupsTaggingAPI.Paginator.ListRequiredTags)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resourcegroupstaggingapi/paginators/#listrequiredtagspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRequiredTagsInputPaginateTypeDef]
+    ) -> PageIterator[ListRequiredTagsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resourcegroupstaggingapi/paginator/ListRequiredTags.html#ResourceGroupsTaggingAPI.Paginator.ListRequiredTags.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resourcegroupstaggingapi/paginators/#listrequiredtagspaginator)
         """

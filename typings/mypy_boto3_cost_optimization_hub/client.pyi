@@ -26,6 +26,7 @@ from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
+    ListEfficiencyMetricsPaginator,
     ListEnrollmentStatusesPaginator,
     ListRecommendationsPaginator,
     ListRecommendationSummariesPaginator,
@@ -34,6 +35,8 @@ from .type_defs import (
     GetPreferencesResponseTypeDef,
     GetRecommendationRequestTypeDef,
     GetRecommendationResponseTypeDef,
+    ListEfficiencyMetricsRequestTypeDef,
+    ListEfficiencyMetricsResponseTypeDef,
     ListEnrollmentStatusesRequestTypeDef,
     ListEnrollmentStatusesResponseTypeDef,
     ListRecommendationsRequestTypeDef,
@@ -121,6 +124,17 @@ class CostOptimizationHubClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client/#get_recommendation)
         """
 
+    def list_efficiency_metrics(
+        self, **kwargs: Unpack[ListEfficiencyMetricsRequestTypeDef]
+    ) -> ListEfficiencyMetricsResponseTypeDef:
+        """
+        Returns cost efficiency metrics aggregated over time and optionally grouped by
+        a specified dimension.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cost-optimization-hub/client/list_efficiency_metrics.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client/#list_efficiency_metrics)
+        """
+
     def list_enrollment_statuses(
         self, **kwargs: Unpack[ListEnrollmentStatusesRequestTypeDef]
     ) -> ListEnrollmentStatusesResponseTypeDef:
@@ -171,6 +185,17 @@ class CostOptimizationHubClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cost-optimization-hub/client/update_preferences.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client/#update_preferences)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_efficiency_metrics"]
+    ) -> ListEfficiencyMetricsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cost-optimization-hub/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client/#get_paginator)
         """
 
     @overload  # type: ignore[override]

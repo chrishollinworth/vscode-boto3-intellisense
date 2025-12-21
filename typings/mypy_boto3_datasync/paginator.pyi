@@ -12,11 +12,8 @@ Usage::
 
     from mypy_boto3_datasync.client import DataSyncClient
     from mypy_boto3_datasync.paginator import (
-        DescribeStorageSystemResourceMetricsPaginator,
         ListAgentsPaginator,
-        ListDiscoveryJobsPaginator,
         ListLocationsPaginator,
-        ListStorageSystemsPaginator,
         ListTagsForResourcePaginator,
         ListTaskExecutionsPaginator,
         ListTasksPaginator,
@@ -25,11 +22,8 @@ Usage::
     session = Session()
     client: DataSyncClient = session.client("datasync")
 
-    describe_storage_system_resource_metrics_paginator: DescribeStorageSystemResourceMetricsPaginator = client.get_paginator("describe_storage_system_resource_metrics")
     list_agents_paginator: ListAgentsPaginator = client.get_paginator("list_agents")
-    list_discovery_jobs_paginator: ListDiscoveryJobsPaginator = client.get_paginator("list_discovery_jobs")
     list_locations_paginator: ListLocationsPaginator = client.get_paginator("list_locations")
-    list_storage_systems_paginator: ListStorageSystemsPaginator = client.get_paginator("list_storage_systems")
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     list_task_executions_paginator: ListTaskExecutionsPaginator = client.get_paginator("list_task_executions")
     list_tasks_paginator: ListTasksPaginator = client.get_paginator("list_tasks")
@@ -44,16 +38,10 @@ from typing import TYPE_CHECKING
 from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
-    DescribeStorageSystemResourceMetricsRequestPaginateTypeDef,
-    DescribeStorageSystemResourceMetricsResponseTypeDef,
     ListAgentsRequestPaginateTypeDef,
     ListAgentsResponseTypeDef,
-    ListDiscoveryJobsRequestPaginateTypeDef,
-    ListDiscoveryJobsResponseTypeDef,
     ListLocationsRequestPaginateTypeDef,
     ListLocationsResponseTypeDef,
-    ListStorageSystemsRequestPaginateTypeDef,
-    ListStorageSystemsResponseTypeDef,
     ListTagsForResourceRequestPaginateTypeDef,
     ListTagsForResourceResponseTypeDef,
     ListTaskExecutionsRequestPaginateTypeDef,
@@ -68,37 +56,12 @@ else:
     from typing_extensions import Unpack
 
 __all__ = (
-    "DescribeStorageSystemResourceMetricsPaginator",
     "ListAgentsPaginator",
-    "ListDiscoveryJobsPaginator",
     "ListLocationsPaginator",
-    "ListStorageSystemsPaginator",
     "ListTagsForResourcePaginator",
     "ListTaskExecutionsPaginator",
     "ListTasksPaginator",
 )
-
-if TYPE_CHECKING:
-    _DescribeStorageSystemResourceMetricsPaginatorBase = Paginator[
-        DescribeStorageSystemResourceMetricsResponseTypeDef
-    ]
-else:
-    _DescribeStorageSystemResourceMetricsPaginatorBase = Paginator  # type: ignore[assignment]
-
-class DescribeStorageSystemResourceMetricsPaginator(
-    _DescribeStorageSystemResourceMetricsPaginatorBase
-):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/paginator/DescribeStorageSystemResourceMetrics.html#DataSync.Paginator.DescribeStorageSystemResourceMetrics)
-    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators/#describestoragesystemresourcemetricspaginator)
-    """
-    def paginate(  # type: ignore[override]
-        self, **kwargs: Unpack[DescribeStorageSystemResourceMetricsRequestPaginateTypeDef]
-    ) -> PageIterator[DescribeStorageSystemResourceMetricsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/paginator/DescribeStorageSystemResourceMetrics.html#DataSync.Paginator.DescribeStorageSystemResourceMetrics.paginate)
-        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators/#describestoragesystemresourcemetricspaginator)
-        """
 
 if TYPE_CHECKING:
     _ListAgentsPaginatorBase = Paginator[ListAgentsResponseTypeDef]
@@ -119,24 +82,6 @@ class ListAgentsPaginator(_ListAgentsPaginatorBase):
         """
 
 if TYPE_CHECKING:
-    _ListDiscoveryJobsPaginatorBase = Paginator[ListDiscoveryJobsResponseTypeDef]
-else:
-    _ListDiscoveryJobsPaginatorBase = Paginator  # type: ignore[assignment]
-
-class ListDiscoveryJobsPaginator(_ListDiscoveryJobsPaginatorBase):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/paginator/ListDiscoveryJobs.html#DataSync.Paginator.ListDiscoveryJobs)
-    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators/#listdiscoveryjobspaginator)
-    """
-    def paginate(  # type: ignore[override]
-        self, **kwargs: Unpack[ListDiscoveryJobsRequestPaginateTypeDef]
-    ) -> PageIterator[ListDiscoveryJobsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/paginator/ListDiscoveryJobs.html#DataSync.Paginator.ListDiscoveryJobs.paginate)
-        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators/#listdiscoveryjobspaginator)
-        """
-
-if TYPE_CHECKING:
     _ListLocationsPaginatorBase = Paginator[ListLocationsResponseTypeDef]
 else:
     _ListLocationsPaginatorBase = Paginator  # type: ignore[assignment]
@@ -152,24 +97,6 @@ class ListLocationsPaginator(_ListLocationsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/paginator/ListLocations.html#DataSync.Paginator.ListLocations.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators/#listlocationspaginator)
-        """
-
-if TYPE_CHECKING:
-    _ListStorageSystemsPaginatorBase = Paginator[ListStorageSystemsResponseTypeDef]
-else:
-    _ListStorageSystemsPaginatorBase = Paginator  # type: ignore[assignment]
-
-class ListStorageSystemsPaginator(_ListStorageSystemsPaginatorBase):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/paginator/ListStorageSystems.html#DataSync.Paginator.ListStorageSystems)
-    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators/#liststoragesystemspaginator)
-    """
-    def paginate(  # type: ignore[override]
-        self, **kwargs: Unpack[ListStorageSystemsRequestPaginateTypeDef]
-    ) -> PageIterator[ListStorageSystemsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/paginator/ListStorageSystems.html#DataSync.Paginator.ListStorageSystems.paginate)
-        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators/#liststoragesystemspaginator)
         """
 
 if TYPE_CHECKING:

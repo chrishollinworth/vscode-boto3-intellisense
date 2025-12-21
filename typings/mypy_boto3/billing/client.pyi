@@ -27,10 +27,14 @@ from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import ListBillingViewsPaginator, ListSourceViewsForBillingViewPaginator
 from .type_defs import (
+    AssociateSourceViewsRequestTypeDef,
+    AssociateSourceViewsResponseTypeDef,
     CreateBillingViewRequestTypeDef,
     CreateBillingViewResponseTypeDef,
     DeleteBillingViewRequestTypeDef,
     DeleteBillingViewResponseTypeDef,
+    DisassociateSourceViewsRequestTypeDef,
+    DisassociateSourceViewsResponseTypeDef,
     GetBillingViewRequestTypeDef,
     GetBillingViewResponseTypeDef,
     GetResourcePolicyRequestTypeDef,
@@ -62,6 +66,7 @@ __all__ = ("BillingClient",)
 
 class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
+    BillingViewHealthStatusException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
@@ -105,6 +110,16 @@ class BillingClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_billing/client/#generate_presigned_url)
         """
 
+    def associate_source_views(
+        self, **kwargs: Unpack[AssociateSourceViewsRequestTypeDef]
+    ) -> AssociateSourceViewsResponseTypeDef:
+        """
+        Associates one or more source billing views with an existing billing view.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/billing/client/associate_source_views.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_billing/client/#associate_source_views)
+        """
+
     def create_billing_view(
         self, **kwargs: Unpack[CreateBillingViewRequestTypeDef]
     ) -> CreateBillingViewResponseTypeDef:
@@ -123,6 +138,17 @@ class BillingClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/billing/client/delete_billing_view.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_billing/client/#delete_billing_view)
+        """
+
+    def disassociate_source_views(
+        self, **kwargs: Unpack[DisassociateSourceViewsRequestTypeDef]
+    ) -> DisassociateSourceViewsResponseTypeDef:
+        """
+        Removes the association between one or more source billing views and an
+        existing billing view.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/billing/client/disassociate_source_views.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_billing/client/#disassociate_source_views)
         """
 
     def get_billing_view(

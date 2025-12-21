@@ -29,6 +29,7 @@ from .literals import (
     CustomPluginStateType,
     KafkaClusterClientAuthenticationTypeType,
     KafkaClusterEncryptionInTransitTypeType,
+    NetworkTypeType,
     WorkerConfigurationStateType,
 )
 
@@ -566,6 +567,7 @@ class ConnectorSummaryTypeDef(TypedDict):
     kafkaClusterEncryptionInTransit: NotRequired[KafkaClusterEncryptionInTransitDescriptionTypeDef]
     kafkaConnectVersion: NotRequired[str]
     logDelivery: NotRequired[LogDeliveryDescriptionTypeDef]
+    networkType: NotRequired[NetworkTypeType]
     plugins: NotRequired[List[PluginDescriptionTypeDef]]
     serviceExecutionRoleArn: NotRequired[str]
     workerConfiguration: NotRequired[WorkerConfigurationDescriptionTypeDef]
@@ -584,6 +586,7 @@ class DescribeConnectorResponseTypeDef(TypedDict):
     kafkaClusterEncryptionInTransit: KafkaClusterEncryptionInTransitDescriptionTypeDef
     kafkaConnectVersion: str
     logDelivery: LogDeliveryDescriptionTypeDef
+    networkType: NetworkTypeType
     plugins: List[PluginDescriptionTypeDef]
     serviceExecutionRoleArn: str
     workerConfiguration: WorkerConfigurationDescriptionTypeDef
@@ -602,6 +605,7 @@ class CreateConnectorRequestTypeDef(TypedDict):
     serviceExecutionRoleArn: str
     connectorDescription: NotRequired[str]
     logDelivery: NotRequired[LogDeliveryTypeDef]
+    networkType: NotRequired[NetworkTypeType]
     workerConfiguration: NotRequired[WorkerConfigurationTypeDef]
     tags: NotRequired[Mapping[str, str]]
 

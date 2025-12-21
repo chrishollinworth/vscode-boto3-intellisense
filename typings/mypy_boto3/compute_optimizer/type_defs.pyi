@@ -90,6 +90,7 @@ from .literals import (
     RDSDBMetricNameType,
     RDSDBMetricStatisticType,
     RDSDBRecommendationFilterNameType,
+    RDSEstimatedMonthlyVolumeIOPsCostVariationType,
     RDSInstanceFindingReasonCodeType,
     RDSInstanceFindingType,
     RDSSavingsEstimationModeSourceType,
@@ -1087,6 +1088,9 @@ class RDSDBStorageRecommendationOptionTypeDef(TypedDict):
     rank: NotRequired[int]
     savingsOpportunity: NotRequired[SavingsOpportunityTypeDef]
     savingsOpportunityAfterDiscounts: NotRequired[RDSStorageSavingsOpportunityAfterDiscountsTypeDef]
+    estimatedMonthlyVolumeIOPsCostVariation: NotRequired[
+        RDSEstimatedMonthlyVolumeIOPsCostVariationType
+    ]
 
 class RecommendationSummaryTypeDef(TypedDict):
     summaries: NotRequired[List[SummaryTypeDef]]
@@ -1222,6 +1226,9 @@ class RDSDBRecommendationTypeDef(TypedDict):
     storageFinding: NotRequired[RDSStorageFindingType]
     instanceFindingReasonCodes: NotRequired[List[RDSInstanceFindingReasonCodeType]]
     currentInstancePerformanceRisk: NotRequired[RDSCurrentInstancePerformanceRiskType]
+    currentStorageEstimatedMonthlyVolumeIOPsCostVariation: NotRequired[
+        RDSEstimatedMonthlyVolumeIOPsCostVariationType
+    ]
     storageFindingReasonCodes: NotRequired[List[RDSStorageFindingReasonCodeType]]
     instanceRecommendationOptions: NotRequired[List[RDSDBInstanceRecommendationOptionTypeDef]]
     storageRecommendationOptions: NotRequired[List[RDSDBStorageRecommendationOptionTypeDef]]

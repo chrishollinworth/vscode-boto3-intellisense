@@ -26,10 +26,14 @@ Usage::
         ListRecoveryPointsByBackupVaultPaginator,
         ListRecoveryPointsByLegalHoldPaginator,
         ListRecoveryPointsByResourcePaginator,
+        ListRestoreAccessBackupVaultsPaginator,
         ListRestoreJobsByProtectedResourcePaginator,
         ListRestoreJobsPaginator,
         ListRestoreTestingPlansPaginator,
         ListRestoreTestingSelectionsPaginator,
+        ListScanJobSummariesPaginator,
+        ListScanJobsPaginator,
+        ListTieringConfigurationsPaginator,
     )
 
     session = Session()
@@ -49,10 +53,14 @@ Usage::
     list_recovery_points_by_backup_vault_paginator: ListRecoveryPointsByBackupVaultPaginator = client.get_paginator("list_recovery_points_by_backup_vault")
     list_recovery_points_by_legal_hold_paginator: ListRecoveryPointsByLegalHoldPaginator = client.get_paginator("list_recovery_points_by_legal_hold")
     list_recovery_points_by_resource_paginator: ListRecoveryPointsByResourcePaginator = client.get_paginator("list_recovery_points_by_resource")
+    list_restore_access_backup_vaults_paginator: ListRestoreAccessBackupVaultsPaginator = client.get_paginator("list_restore_access_backup_vaults")
     list_restore_jobs_by_protected_resource_paginator: ListRestoreJobsByProtectedResourcePaginator = client.get_paginator("list_restore_jobs_by_protected_resource")
     list_restore_jobs_paginator: ListRestoreJobsPaginator = client.get_paginator("list_restore_jobs")
     list_restore_testing_plans_paginator: ListRestoreTestingPlansPaginator = client.get_paginator("list_restore_testing_plans")
     list_restore_testing_selections_paginator: ListRestoreTestingSelectionsPaginator = client.get_paginator("list_restore_testing_selections")
+    list_scan_job_summaries_paginator: ListScanJobSummariesPaginator = client.get_paginator("list_scan_job_summaries")
+    list_scan_jobs_paginator: ListScanJobsPaginator = client.get_paginator("list_scan_jobs")
+    list_tiering_configurations_paginator: ListTieringConfigurationsPaginator = client.get_paginator("list_tiering_configurations")
     ```
 """
 
@@ -92,6 +100,8 @@ from .type_defs import (
     ListRecoveryPointsByLegalHoldOutputTypeDef,
     ListRecoveryPointsByResourceInputPaginateTypeDef,
     ListRecoveryPointsByResourceOutputTypeDef,
+    ListRestoreAccessBackupVaultsInputPaginateTypeDef,
+    ListRestoreAccessBackupVaultsOutputTypeDef,
     ListRestoreJobsByProtectedResourceInputPaginateTypeDef,
     ListRestoreJobsByProtectedResourceOutputTypeDef,
     ListRestoreJobsInputPaginateTypeDef,
@@ -100,6 +110,12 @@ from .type_defs import (
     ListRestoreTestingPlansOutputTypeDef,
     ListRestoreTestingSelectionsInputPaginateTypeDef,
     ListRestoreTestingSelectionsOutputTypeDef,
+    ListScanJobsInputPaginateTypeDef,
+    ListScanJobsOutputTypeDef,
+    ListScanJobSummariesInputPaginateTypeDef,
+    ListScanJobSummariesOutputTypeDef,
+    ListTieringConfigurationsInputPaginateTypeDef,
+    ListTieringConfigurationsOutputTypeDef,
 )
 
 if sys.version_info >= (3, 12):
@@ -122,10 +138,14 @@ __all__ = (
     "ListRecoveryPointsByBackupVaultPaginator",
     "ListRecoveryPointsByLegalHoldPaginator",
     "ListRecoveryPointsByResourcePaginator",
+    "ListRestoreAccessBackupVaultsPaginator",
     "ListRestoreJobsByProtectedResourcePaginator",
     "ListRestoreJobsPaginator",
     "ListRestoreTestingPlansPaginator",
     "ListRestoreTestingSelectionsPaginator",
+    "ListScanJobSummariesPaginator",
+    "ListScanJobsPaginator",
+    "ListTieringConfigurationsPaginator",
 )
 
 if TYPE_CHECKING:
@@ -391,6 +411,26 @@ class ListRecoveryPointsByResourcePaginator(_ListRecoveryPointsByResourcePaginat
         """
 
 if TYPE_CHECKING:
+    _ListRestoreAccessBackupVaultsPaginatorBase = Paginator[
+        ListRestoreAccessBackupVaultsOutputTypeDef
+    ]
+else:
+    _ListRestoreAccessBackupVaultsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRestoreAccessBackupVaultsPaginator(_ListRestoreAccessBackupVaultsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/paginator/ListRestoreAccessBackupVaults.html#Backup.Paginator.ListRestoreAccessBackupVaults)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators/#listrestoreaccessbackupvaultspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRestoreAccessBackupVaultsInputPaginateTypeDef]
+    ) -> PageIterator[ListRestoreAccessBackupVaultsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/paginator/ListRestoreAccessBackupVaults.html#Backup.Paginator.ListRestoreAccessBackupVaults.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators/#listrestoreaccessbackupvaultspaginator)
+        """
+
+if TYPE_CHECKING:
     _ListRestoreJobsByProtectedResourcePaginatorBase = Paginator[
         ListRestoreJobsByProtectedResourceOutputTypeDef
     ]
@@ -464,4 +504,58 @@ class ListRestoreTestingSelectionsPaginator(_ListRestoreTestingSelectionsPaginat
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/paginator/ListRestoreTestingSelections.html#Backup.Paginator.ListRestoreTestingSelections.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators/#listrestoretestingselectionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListScanJobSummariesPaginatorBase = Paginator[ListScanJobSummariesOutputTypeDef]
+else:
+    _ListScanJobSummariesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListScanJobSummariesPaginator(_ListScanJobSummariesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/paginator/ListScanJobSummaries.html#Backup.Paginator.ListScanJobSummaries)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators/#listscanjobsummariespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListScanJobSummariesInputPaginateTypeDef]
+    ) -> PageIterator[ListScanJobSummariesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/paginator/ListScanJobSummaries.html#Backup.Paginator.ListScanJobSummaries.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators/#listscanjobsummariespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListScanJobsPaginatorBase = Paginator[ListScanJobsOutputTypeDef]
+else:
+    _ListScanJobsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListScanJobsPaginator(_ListScanJobsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/paginator/ListScanJobs.html#Backup.Paginator.ListScanJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators/#listscanjobspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListScanJobsInputPaginateTypeDef]
+    ) -> PageIterator[ListScanJobsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/paginator/ListScanJobs.html#Backup.Paginator.ListScanJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators/#listscanjobspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTieringConfigurationsPaginatorBase = Paginator[ListTieringConfigurationsOutputTypeDef]
+else:
+    _ListTieringConfigurationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTieringConfigurationsPaginator(_ListTieringConfigurationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/paginator/ListTieringConfigurations.html#Backup.Paginator.ListTieringConfigurations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators/#listtieringconfigurationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTieringConfigurationsInputPaginateTypeDef]
+    ) -> PageIterator[ListTieringConfigurationsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup/paginator/ListTieringConfigurations.html#Backup.Paginator.ListTieringConfigurations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators/#listtieringconfigurationspaginator)
         """

@@ -20,7 +20,7 @@ import sys
 from datetime import datetime
 from typing import Union
 
-from .literals import BillingViewTypeType
+from .literals import BillingViewStatusReasonType, BillingViewStatusType, BillingViewTypeType
 
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
@@ -35,7 +35,10 @@ else:
 
 __all__ = (
     "ActiveTimeRangeTypeDef",
+    "AssociateSourceViewsRequestTypeDef",
+    "AssociateSourceViewsResponseTypeDef",
     "BillingViewElementTypeDef",
+    "BillingViewHealthStatusTypeDef",
     "BillingViewListElementTypeDef",
     "CreateBillingViewRequestTypeDef",
     "CreateBillingViewResponseTypeDef",
@@ -43,6 +46,8 @@ __all__ = (
     "DeleteBillingViewResponseTypeDef",
     "DimensionValuesOutputTypeDef",
     "DimensionValuesTypeDef",
+    "DisassociateSourceViewsRequestTypeDef",
+    "DisassociateSourceViewsResponseTypeDef",
     "ExpressionOutputTypeDef",
     "ExpressionTypeDef",
     "ExpressionUnionTypeDef",
@@ -61,9 +66,12 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "ResourceTagTypeDef",
     "ResponseMetadataTypeDef",
+    "StringSearchTypeDef",
     "TagResourceRequestTypeDef",
     "TagValuesOutputTypeDef",
     "TagValuesTypeDef",
+    "TimeRangeOutputTypeDef",
+    "TimeRangeTypeDef",
     "TimestampTypeDef",
     "UntagResourceRequestTypeDef",
     "UpdateBillingViewRequestTypeDef",
@@ -72,16 +80,9 @@ __all__ = (
 
 TimestampTypeDef = Union[datetime, str]
 
-class BillingViewListElementTypeDef(TypedDict):
-    arn: NotRequired[str]
-    name: NotRequired[str]
-    description: NotRequired[str]
-    ownerAccountId: NotRequired[str]
-    billingViewType: NotRequired[BillingViewTypeType]
-
-class ResourceTagTypeDef(TypedDict):
-    key: str
-    value: NotRequired[str]
+class AssociateSourceViewsRequestTypeDef(TypedDict):
+    arn: str
+    sourceViews: Sequence[str]
 
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
@@ -90,8 +91,17 @@ class ResponseMetadataTypeDef(TypedDict):
     RetryAttempts: int
     HostId: NotRequired[str]
 
+class BillingViewHealthStatusTypeDef(TypedDict):
+    statusCode: NotRequired[BillingViewStatusType]
+    statusReasons: NotRequired[List[BillingViewStatusReasonType]]
+
+class ResourceTagTypeDef(TypedDict):
+    key: str
+    value: NotRequired[str]
+
 class DeleteBillingViewRequestTypeDef(TypedDict):
     arn: str
+    force: NotRequired[bool]
 
 class DimensionValuesOutputTypeDef(TypedDict):
     key: Literal["LINKED_ACCOUNT"]
@@ -101,9 +111,17 @@ class DimensionValuesTypeDef(TypedDict):
     key: Literal["LINKED_ACCOUNT"]
     values: Sequence[str]
 
+class DisassociateSourceViewsRequestTypeDef(TypedDict):
+    arn: str
+    sourceViews: Sequence[str]
+
 class TagValuesOutputTypeDef(TypedDict):
     key: str
     values: List[str]
+
+class TimeRangeOutputTypeDef(TypedDict):
+    beginDateInclusive: NotRequired[datetime]
+    endDateInclusive: NotRequired[datetime]
 
 class TagValuesTypeDef(TypedDict):
     key: str
@@ -119,6 +137,10 @@ class PaginatorConfigTypeDef(TypedDict):
     MaxItems: NotRequired[int]
     PageSize: NotRequired[int]
     StartingToken: NotRequired[str]
+
+class StringSearchTypeDef(TypedDict):
+    searchOption: Literal["STARTS_WITH"]
+    searchValue: str
 
 class ListSourceViewsForBillingViewRequestTypeDef(TypedDict):
     arn: str
@@ -136,9 +158,13 @@ class ActiveTimeRangeTypeDef(TypedDict):
     activeAfterInclusive: TimestampTypeDef
     activeBeforeInclusive: TimestampTypeDef
 
-class TagResourceRequestTypeDef(TypedDict):
-    resourceArn: str
-    resourceTags: Sequence[ResourceTagTypeDef]
+class TimeRangeTypeDef(TypedDict):
+    beginDateInclusive: NotRequired[TimestampTypeDef]
+    endDateInclusive: NotRequired[TimestampTypeDef]
+
+class AssociateSourceViewsResponseTypeDef(TypedDict):
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateBillingViewResponseTypeDef(TypedDict):
     arn: str
@@ -149,37 +175,46 @@ class DeleteBillingViewResponseTypeDef(TypedDict):
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class DisassociateSourceViewsResponseTypeDef(TypedDict):
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class GetResourcePolicyResponseTypeDef(TypedDict):
     resourceArn: str
     policy: str
     ResponseMetadata: ResponseMetadataTypeDef
-
-class ListBillingViewsResponseTypeDef(TypedDict):
-    billingViews: List[BillingViewListElementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: NotRequired[str]
 
 class ListSourceViewsForBillingViewResponseTypeDef(TypedDict):
     sourceViews: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
-class ListTagsForResourceResponseTypeDef(TypedDict):
-    resourceTags: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
 class UpdateBillingViewResponseTypeDef(TypedDict):
     arn: str
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+class BillingViewListElementTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    description: NotRequired[str]
+    ownerAccountId: NotRequired[str]
+    sourceAccountId: NotRequired[str]
+    billingViewType: NotRequired[BillingViewTypeType]
+    healthStatus: NotRequired[BillingViewHealthStatusTypeDef]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    resourceTags: List[ResourceTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    resourceTags: Sequence[ResourceTagTypeDef]
+
 class ExpressionOutputTypeDef(TypedDict):
     dimensions: NotRequired[DimensionValuesOutputTypeDef]
     tags: NotRequired[TagValuesOutputTypeDef]
-
-class ExpressionTypeDef(TypedDict):
-    dimensions: NotRequired[DimensionValuesTypeDef]
-    tags: NotRequired[TagValuesTypeDef]
+    timeRange: NotRequired[TimeRangeOutputTypeDef]
 
 class ListSourceViewsForBillingViewRequestPaginateTypeDef(TypedDict):
     arn: str
@@ -189,15 +224,29 @@ class ListBillingViewsRequestPaginateTypeDef(TypedDict):
     activeTimeRange: NotRequired[ActiveTimeRangeTypeDef]
     arns: NotRequired[Sequence[str]]
     billingViewTypes: NotRequired[Sequence[BillingViewTypeType]]
+    names: NotRequired[Sequence[StringSearchTypeDef]]
     ownerAccountId: NotRequired[str]
+    sourceAccountId: NotRequired[str]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListBillingViewsRequestTypeDef(TypedDict):
     activeTimeRange: NotRequired[ActiveTimeRangeTypeDef]
     arns: NotRequired[Sequence[str]]
     billingViewTypes: NotRequired[Sequence[BillingViewTypeType]]
+    names: NotRequired[Sequence[StringSearchTypeDef]]
     ownerAccountId: NotRequired[str]
+    sourceAccountId: NotRequired[str]
     maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ExpressionTypeDef(TypedDict):
+    dimensions: NotRequired[DimensionValuesTypeDef]
+    tags: NotRequired[TagValuesTypeDef]
+    timeRange: NotRequired[TimeRangeTypeDef]
+
+class ListBillingViewsResponseTypeDef(TypedDict):
+    billingViews: List[BillingViewListElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
 class BillingViewElementTypeDef(TypedDict):
@@ -206,9 +255,14 @@ class BillingViewElementTypeDef(TypedDict):
     description: NotRequired[str]
     billingViewType: NotRequired[BillingViewTypeType]
     ownerAccountId: NotRequired[str]
+    sourceAccountId: NotRequired[str]
     dataFilterExpression: NotRequired[ExpressionOutputTypeDef]
     createdAt: NotRequired[datetime]
     updatedAt: NotRequired[datetime]
+    derivedViewCount: NotRequired[int]
+    sourceViewCount: NotRequired[int]
+    viewDefinitionLastUpdatedAt: NotRequired[datetime]
+    healthStatus: NotRequired[BillingViewHealthStatusTypeDef]
 
 ExpressionUnionTypeDef = Union[ExpressionTypeDef, ExpressionOutputTypeDef]
 

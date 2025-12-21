@@ -11,16 +11,27 @@ Usage::
     from boto3.session import Session
     from mypy_boto3_osis import (
         Client,
+        ListPipelineEndpointConnectionsPaginator,
+        ListPipelineEndpointsPaginator,
         OpenSearchIngestionClient,
     )
 
     session = Session()
     client: OpenSearchIngestionClient = session.client("osis")
+
+    list_pipeline_endpoint_connections_paginator: ListPipelineEndpointConnectionsPaginator = client.get_paginator("list_pipeline_endpoint_connections")
+    list_pipeline_endpoints_paginator: ListPipelineEndpointsPaginator = client.get_paginator("list_pipeline_endpoints")
     ```
 """
 
 from .client import OpenSearchIngestionClient
+from .paginator import ListPipelineEndpointConnectionsPaginator, ListPipelineEndpointsPaginator
 
 Client = OpenSearchIngestionClient
 
-__all__ = ("Client", "OpenSearchIngestionClient")
+__all__ = (
+    "Client",
+    "ListPipelineEndpointConnectionsPaginator",
+    "ListPipelineEndpointsPaginator",
+    "OpenSearchIngestionClient",
+)

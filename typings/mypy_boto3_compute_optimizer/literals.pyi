@@ -105,6 +105,7 @@ __all__ = (
     "RDSDBMetricNameType",
     "RDSDBMetricStatisticType",
     "RDSDBRecommendationFilterNameType",
+    "RDSEstimatedMonthlyVolumeIOPsCostVariationType",
     "RDSInstanceFindingReasonCodeType",
     "RDSInstanceFindingType",
     "RDSSavingsEstimationModeSourceType",
@@ -273,6 +274,7 @@ ExportableIdleFieldType = Literal[
     "SavingsOpportunity",
     "SavingsOpportunityAfterDiscount",
     "Tags",
+    "UtilizationMetricsActiveConnectionCountMaximum",
     "UtilizationMetricsCpuMaximum",
     "UtilizationMetricsDatabaseConnectionsMaximum",
     "UtilizationMetricsEBSVolumeReadIOPSMaximum",
@@ -280,6 +282,8 @@ ExportableIdleFieldType = Literal[
     "UtilizationMetricsMemoryMaximum",
     "UtilizationMetricsNetworkInBytesPerSecondMaximum",
     "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
+    "UtilizationMetricsPacketsInFromDestinationMaximum",
+    "UtilizationMetricsPacketsInFromSourceMaximum",
     "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
     "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
 ]
@@ -414,6 +418,7 @@ ExportableLicenseFieldType = Literal[
 ]
 ExportableRDSDBFieldType = Literal[
     "AccountId",
+    "ClusterWriter",
     "CurrentDBInstanceClass",
     "CurrentInstanceOnDemandHourlyPrice",
     "CurrentInstancePerformanceRisk",
@@ -422,6 +427,10 @@ ExportableRDSDBFieldType = Literal[
     "CurrentStorageConfigurationMaxAllocatedStorage",
     "CurrentStorageConfigurationStorageThroughput",
     "CurrentStorageConfigurationStorageType",
+    "CurrentStorageEstimatedClusterInstanceOnDemandMonthlyCost",
+    "CurrentStorageEstimatedClusterStorageIOOnDemandMonthlyCost",
+    "CurrentStorageEstimatedClusterStorageOnDemandMonthlyCost",
+    "CurrentStorageEstimatedMonthlyVolumeIOPsCostVariation",
     "CurrentStorageOnDemandMonthlyPrice",
     "DBClusterIdentifier",
     "EffectiveRecommendationPreferencesCpuVendorArchitectures",
@@ -452,10 +461,14 @@ ExportableRDSDBFieldType = Literal[
     "StorageFinding",
     "StorageFindingReasonCodes",
     "StorageRecommendationOptionsAllocatedStorage",
+    "StorageRecommendationOptionsEstimatedClusterInstanceOnDemandMonthlyCost",
+    "StorageRecommendationOptionsEstimatedClusterStorageIOOnDemandMonthlyCost",
+    "StorageRecommendationOptionsEstimatedClusterStorageOnDemandMonthlyCost",
     "StorageRecommendationOptionsEstimatedMonthlySavingsCurrency",
     "StorageRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
     "StorageRecommendationOptionsEstimatedMonthlySavingsValue",
     "StorageRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
+    "StorageRecommendationOptionsEstimatedMonthlyVolumeIOPsCostVariation",
     "StorageRecommendationOptionsIOPS",
     "StorageRecommendationOptionsMaxAllocatedStorage",
     "StorageRecommendationOptionsOnDemandMonthlyPrice",
@@ -482,6 +495,9 @@ ExportableRDSDBFieldType = Literal[
     "UtilizationMetricsReadIOPSEphemeralStorageMaximum",
     "UtilizationMetricsStorageNetworkReceiveThroughputMaximum",
     "UtilizationMetricsStorageNetworkTransmitThroughputMaximum",
+    "UtilizationMetricsVolumeBytesUsedAverage",
+    "UtilizationMetricsVolumeReadIOPsAverage",
+    "UtilizationMetricsVolumeWriteIOPsAverage",
     "UtilizationMetricsWriteIOPSEphemeralStorageMaximum",
 ]
 ExportableVolumeFieldType = Literal[
@@ -546,8 +562,9 @@ GetEnrollmentStatusesForOrganizationPaginatorName = Literal[
 GetLambdaFunctionRecommendationsPaginatorName = Literal["get_lambda_function_recommendations"]
 GetRecommendationPreferencesPaginatorName = Literal["get_recommendation_preferences"]
 GetRecommendationSummariesPaginatorName = Literal["get_recommendation_summaries"]
-IdleFindingType = Literal["Idle", "Unattached"]
+IdleFindingType = Literal["Idle", "Unattached", "Unused"]
 IdleMetricNameType = Literal[
+    "ActiveConnectionCount",
     "CPU",
     "DatabaseConnections",
     "EBSVolumeReadIOPS",
@@ -555,12 +572,14 @@ IdleMetricNameType = Literal[
     "Memory",
     "NetworkInBytesPerSecond",
     "NetworkOutBytesPerSecond",
+    "PacketsInFromDestination",
+    "PacketsInFromSource",
     "VolumeReadOpsPerSecond",
     "VolumeWriteOpsPerSecond",
 ]
 IdleRecommendationFilterNameType = Literal["Finding", "ResourceType"]
 IdleRecommendationResourceTypeType = Literal[
-    "AutoScalingGroup", "EBSVolume", "EC2Instance", "ECSService", "RDSDBInstance"
+    "AutoScalingGroup", "EBSVolume", "EC2Instance", "ECSService", "NatGateway", "RDSDBInstance"
 ]
 IdleType = Literal["False", "True"]
 InferredWorkloadTypeType = Literal[
@@ -680,6 +699,9 @@ RDSDBMetricNameType = Literal[
     "ReadIOPSEphemeralStorage",
     "StorageNetworkReceiveThroughput",
     "StorageNetworkTransmitThroughput",
+    "VolumeBytesUsed",
+    "VolumeReadIOPs",
+    "VolumeWriteIOPs",
     "WriteIOPSEphemeralStorage",
 ]
 RDSDBMetricStatisticType = Literal["Average", "Maximum", "Minimum"]
@@ -690,6 +712,7 @@ RDSDBRecommendationFilterNameType = Literal[
     "StorageFinding",
     "StorageFindingReasonCode",
 ]
+RDSEstimatedMonthlyVolumeIOPsCostVariationType = Literal["High", "Low", "Medium", "None"]
 RDSInstanceFindingReasonCodeType = Literal[
     "CPUOverprovisioned",
     "CPUUnderprovisioned",
@@ -711,13 +734,15 @@ RDSSavingsEstimationModeSourceType = Literal[
     "CostExplorerRightsizing", "CostOptimizationHub", "PublicPricing"
 ]
 RDSStorageFindingReasonCodeType = Literal[
+    "DBClusterStorageOptionAvailable",
+    "DBClusterStorageSavingsAvailable",
     "EBSVolumeAllocatedStorageUnderprovisioned",
     "EBSVolumeIOPSOverprovisioned",
     "EBSVolumeThroughputOverprovisioned",
     "EBSVolumeThroughputUnderprovisioned",
     "NewGenerationStorageTypeAvailable",
 ]
-RDSStorageFindingType = Literal["Optimized", "Overprovisioned", "Underprovisioned"]
+RDSStorageFindingType = Literal["NotOptimized", "Optimized", "Overprovisioned", "Underprovisioned"]
 RecommendationPreferenceNameType = Literal[
     "EnhancedInfrastructureMetrics",
     "ExternalMetricsPreference",
@@ -727,16 +752,19 @@ RecommendationPreferenceNameType = Literal[
     "UtilizationPreferences",
 ]
 RecommendationSourceTypeType = Literal[
+    "AuroraDBClusterStorage",
     "AutoScalingGroup",
     "EbsVolume",
     "Ec2Instance",
     "EcsService",
     "LambdaFunction",
     "License",
+    "NatGateway",
     "RdsDBInstance",
     "RdsDBInstanceStorage",
 ]
 ResourceTypeType = Literal[
+    "AuroraDBClusterStorage",
     "AutoScalingGroup",
     "EbsVolume",
     "Ec2Instance",
@@ -756,6 +784,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -776,7 +805,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -788,11 +817,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -841,6 +874,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -896,6 +930,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -938,7 +973,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -953,6 +987,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -976,8 +1011,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -1008,9 +1041,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -1020,17 +1055,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -1048,13 +1086,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -1069,20 +1104,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -1107,8 +1144,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -1148,26 +1185,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "describe_recommendation_export_jobs",

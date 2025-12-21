@@ -33,6 +33,9 @@ from .paginator import (
     ListGatewaysPaginator,
     ListOfferingsPaginator,
     ListReservationsPaginator,
+    ListRouterInputsPaginator,
+    ListRouterNetworkInterfacesPaginator,
+    ListRouterOutputsPaginator,
 )
 from .type_defs import (
     AddBridgeOutputsRequestTypeDef,
@@ -47,18 +50,36 @@ from .type_defs import (
     AddFlowSourcesResponseTypeDef,
     AddFlowVpcInterfacesRequestTypeDef,
     AddFlowVpcInterfacesResponseTypeDef,
+    BatchGetRouterInputRequestTypeDef,
+    BatchGetRouterInputResponseTypeDef,
+    BatchGetRouterNetworkInterfaceRequestTypeDef,
+    BatchGetRouterNetworkInterfaceResponseTypeDef,
+    BatchGetRouterOutputRequestTypeDef,
+    BatchGetRouterOutputResponseTypeDef,
     CreateBridgeRequestTypeDef,
     CreateBridgeResponseTypeDef,
     CreateFlowRequestTypeDef,
     CreateFlowResponseTypeDef,
     CreateGatewayRequestTypeDef,
     CreateGatewayResponseTypeDef,
+    CreateRouterInputRequestTypeDef,
+    CreateRouterInputResponseTypeDef,
+    CreateRouterNetworkInterfaceRequestTypeDef,
+    CreateRouterNetworkInterfaceResponseTypeDef,
+    CreateRouterOutputRequestTypeDef,
+    CreateRouterOutputResponseTypeDef,
     DeleteBridgeRequestTypeDef,
     DeleteBridgeResponseTypeDef,
     DeleteFlowRequestTypeDef,
     DeleteFlowResponseTypeDef,
     DeleteGatewayRequestTypeDef,
     DeleteGatewayResponseTypeDef,
+    DeleteRouterInputRequestTypeDef,
+    DeleteRouterInputResponseTypeDef,
+    DeleteRouterNetworkInterfaceRequestTypeDef,
+    DeleteRouterNetworkInterfaceResponseTypeDef,
+    DeleteRouterOutputRequestTypeDef,
+    DeleteRouterOutputResponseTypeDef,
     DeregisterGatewayInstanceRequestTypeDef,
     DeregisterGatewayInstanceResponseTypeDef,
     DescribeBridgeRequestTypeDef,
@@ -78,6 +99,16 @@ from .type_defs import (
     DescribeReservationRequestTypeDef,
     DescribeReservationResponseTypeDef,
     EmptyResponseMetadataTypeDef,
+    GetRouterInputRequestTypeDef,
+    GetRouterInputResponseTypeDef,
+    GetRouterInputSourceMetadataRequestTypeDef,
+    GetRouterInputSourceMetadataResponseTypeDef,
+    GetRouterInputThumbnailRequestTypeDef,
+    GetRouterInputThumbnailResponseTypeDef,
+    GetRouterNetworkInterfaceRequestTypeDef,
+    GetRouterNetworkInterfaceResponseTypeDef,
+    GetRouterOutputRequestTypeDef,
+    GetRouterOutputResponseTypeDef,
     GrantFlowEntitlementsRequestTypeDef,
     GrantFlowEntitlementsResponseTypeDef,
     ListBridgesRequestTypeDef,
@@ -94,6 +125,14 @@ from .type_defs import (
     ListOfferingsResponseTypeDef,
     ListReservationsRequestTypeDef,
     ListReservationsResponseTypeDef,
+    ListRouterInputsRequestTypeDef,
+    ListRouterInputsResponseTypeDef,
+    ListRouterNetworkInterfacesRequestTypeDef,
+    ListRouterNetworkInterfacesResponseTypeDef,
+    ListRouterOutputsRequestTypeDef,
+    ListRouterOutputsResponseTypeDef,
+    ListTagsForGlobalResourceRequestTypeDef,
+    ListTagsForGlobalResourceResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
     PurchaseOfferingRequestTypeDef,
@@ -110,13 +149,29 @@ from .type_defs import (
     RemoveFlowSourceResponseTypeDef,
     RemoveFlowVpcInterfaceRequestTypeDef,
     RemoveFlowVpcInterfaceResponseTypeDef,
+    RestartRouterInputRequestTypeDef,
+    RestartRouterInputResponseTypeDef,
+    RestartRouterOutputRequestTypeDef,
+    RestartRouterOutputResponseTypeDef,
     RevokeFlowEntitlementRequestTypeDef,
     RevokeFlowEntitlementResponseTypeDef,
     StartFlowRequestTypeDef,
     StartFlowResponseTypeDef,
+    StartRouterInputRequestTypeDef,
+    StartRouterInputResponseTypeDef,
+    StartRouterOutputRequestTypeDef,
+    StartRouterOutputResponseTypeDef,
     StopFlowRequestTypeDef,
     StopFlowResponseTypeDef,
+    StopRouterInputRequestTypeDef,
+    StopRouterInputResponseTypeDef,
+    StopRouterOutputRequestTypeDef,
+    StopRouterOutputResponseTypeDef,
+    TagGlobalResourceRequestTypeDef,
     TagResourceRequestTypeDef,
+    TakeRouterInputRequestTypeDef,
+    TakeRouterInputResponseTypeDef,
+    UntagGlobalResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
     UpdateBridgeOutputRequestTypeDef,
     UpdateBridgeOutputResponseTypeDef,
@@ -138,8 +193,25 @@ from .type_defs import (
     UpdateFlowSourceResponseTypeDef,
     UpdateGatewayInstanceRequestTypeDef,
     UpdateGatewayInstanceResponseTypeDef,
+    UpdateRouterInputRequestTypeDef,
+    UpdateRouterInputResponseTypeDef,
+    UpdateRouterNetworkInterfaceRequestTypeDef,
+    UpdateRouterNetworkInterfaceResponseTypeDef,
+    UpdateRouterOutputRequestTypeDef,
+    UpdateRouterOutputResponseTypeDef,
 )
-from .waiter import FlowActiveWaiter, FlowDeletedWaiter, FlowStandbyWaiter
+from .waiter import (
+    FlowActiveWaiter,
+    FlowDeletedWaiter,
+    FlowStandbyWaiter,
+    InputActiveWaiter,
+    InputDeletedWaiter,
+    InputStandbyWaiter,
+    OutputActiveWaiter,
+    OutputDeletedWaiter,
+    OutputRoutedWaiter,
+    OutputStandbyWaiter,
+)
 
 if sys.version_info >= (3, 9):
     from builtins import type as Type
@@ -165,6 +237,9 @@ class Exceptions(BaseClientExceptions):
     GrantFlowEntitlements420Exception: Type[BotocoreClientError]
     InternalServerErrorException: Type[BotocoreClientError]
     NotFoundException: Type[BotocoreClientError]
+    RouterInputServiceQuotaExceededException: Type[BotocoreClientError]
+    RouterNetworkInterfaceServiceQuotaExceededException: Type[BotocoreClientError]
+    RouterOutputServiceQuotaExceededException: Type[BotocoreClientError]
     ServiceUnavailableException: Type[BotocoreClientError]
     TooManyRequestsException: Type[BotocoreClientError]
 
@@ -263,6 +338,39 @@ class MediaConnectClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#add_flow_vpc_interfaces)
         """
 
+    def batch_get_router_input(
+        self, **kwargs: Unpack[BatchGetRouterInputRequestTypeDef]
+    ) -> BatchGetRouterInputResponseTypeDef:
+        """
+        Retrieves information about multiple router inputs in AWS Elemental
+        MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/batch_get_router_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#batch_get_router_input)
+        """
+
+    def batch_get_router_network_interface(
+        self, **kwargs: Unpack[BatchGetRouterNetworkInterfaceRequestTypeDef]
+    ) -> BatchGetRouterNetworkInterfaceResponseTypeDef:
+        """
+        Retrieves information about multiple router network interfaces in AWS Elemental
+        MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/batch_get_router_network_interface.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#batch_get_router_network_interface)
+        """
+
+    def batch_get_router_output(
+        self, **kwargs: Unpack[BatchGetRouterOutputRequestTypeDef]
+    ) -> BatchGetRouterOutputResponseTypeDef:
+        """
+        Retrieves information about multiple router outputs in AWS Elemental
+        MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/batch_get_router_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#batch_get_router_output)
+        """
+
     def create_bridge(
         self, **kwargs: Unpack[CreateBridgeRequestTypeDef]
     ) -> CreateBridgeResponseTypeDef:
@@ -291,6 +399,36 @@ class MediaConnectClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#create_gateway)
         """
 
+    def create_router_input(
+        self, **kwargs: Unpack[CreateRouterInputRequestTypeDef]
+    ) -> CreateRouterInputResponseTypeDef:
+        """
+        Creates a new router input in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/create_router_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#create_router_input)
+        """
+
+    def create_router_network_interface(
+        self, **kwargs: Unpack[CreateRouterNetworkInterfaceRequestTypeDef]
+    ) -> CreateRouterNetworkInterfaceResponseTypeDef:
+        """
+        Creates a new router network interface in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/create_router_network_interface.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#create_router_network_interface)
+        """
+
+    def create_router_output(
+        self, **kwargs: Unpack[CreateRouterOutputRequestTypeDef]
+    ) -> CreateRouterOutputResponseTypeDef:
+        """
+        Creates a new router output in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/create_router_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#create_router_output)
+        """
+
     def delete_bridge(
         self, **kwargs: Unpack[DeleteBridgeRequestTypeDef]
     ) -> DeleteBridgeResponseTypeDef:
@@ -317,6 +455,36 @@ class MediaConnectClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/delete_gateway.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#delete_gateway)
+        """
+
+    def delete_router_input(
+        self, **kwargs: Unpack[DeleteRouterInputRequestTypeDef]
+    ) -> DeleteRouterInputResponseTypeDef:
+        """
+        Deletes a router input from AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/delete_router_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#delete_router_input)
+        """
+
+    def delete_router_network_interface(
+        self, **kwargs: Unpack[DeleteRouterNetworkInterfaceRequestTypeDef]
+    ) -> DeleteRouterNetworkInterfaceResponseTypeDef:
+        """
+        Deletes a router network interface from AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/delete_router_network_interface.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#delete_router_network_interface)
+        """
+
+    def delete_router_output(
+        self, **kwargs: Unpack[DeleteRouterOutputRequestTypeDef]
+    ) -> DeleteRouterOutputResponseTypeDef:
+        """
+        Deletes a router output from AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/delete_router_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#delete_router_output)
         """
 
     def deregister_gateway_instance(
@@ -410,6 +578,60 @@ class MediaConnectClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#describe_reservation)
         """
 
+    def get_router_input(
+        self, **kwargs: Unpack[GetRouterInputRequestTypeDef]
+    ) -> GetRouterInputResponseTypeDef:
+        """
+        Retrieves information about a specific router input in AWS Elemental
+        MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_router_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_router_input)
+        """
+
+    def get_router_input_source_metadata(
+        self, **kwargs: Unpack[GetRouterInputSourceMetadataRequestTypeDef]
+    ) -> GetRouterInputSourceMetadataResponseTypeDef:
+        """
+        Retrieves detailed metadata information about a specific router input source,
+        including stream details and connection state.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_router_input_source_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_router_input_source_metadata)
+        """
+
+    def get_router_input_thumbnail(
+        self, **kwargs: Unpack[GetRouterInputThumbnailRequestTypeDef]
+    ) -> GetRouterInputThumbnailResponseTypeDef:
+        """
+        Retrieves the thumbnail for a router input in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_router_input_thumbnail.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_router_input_thumbnail)
+        """
+
+    def get_router_network_interface(
+        self, **kwargs: Unpack[GetRouterNetworkInterfaceRequestTypeDef]
+    ) -> GetRouterNetworkInterfaceResponseTypeDef:
+        """
+        Retrieves information about a specific router network interface in AWS
+        Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_router_network_interface.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_router_network_interface)
+        """
+
+    def get_router_output(
+        self, **kwargs: Unpack[GetRouterOutputRequestTypeDef]
+    ) -> GetRouterOutputResponseTypeDef:
+        """
+        Retrieves information about a specific router output in AWS Elemental
+        MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_router_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_router_output)
+        """
+
     def grant_flow_entitlements(
         self, **kwargs: Unpack[GrantFlowEntitlementsRequestTypeDef]
     ) -> GrantFlowEntitlementsResponseTypeDef:
@@ -491,11 +713,51 @@ class MediaConnectClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_reservations)
         """
 
+    def list_router_inputs(
+        self, **kwargs: Unpack[ListRouterInputsRequestTypeDef]
+    ) -> ListRouterInputsResponseTypeDef:
+        """
+        Retrieves a list of router inputs in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_router_inputs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_router_inputs)
+        """
+
+    def list_router_network_interfaces(
+        self, **kwargs: Unpack[ListRouterNetworkInterfacesRequestTypeDef]
+    ) -> ListRouterNetworkInterfacesResponseTypeDef:
+        """
+        Retrieves a list of router network interfaces in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_router_network_interfaces.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_router_network_interfaces)
+        """
+
+    def list_router_outputs(
+        self, **kwargs: Unpack[ListRouterOutputsRequestTypeDef]
+    ) -> ListRouterOutputsResponseTypeDef:
+        """
+        Retrieves a list of router outputs in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_router_outputs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_router_outputs)
+        """
+
+    def list_tags_for_global_resource(
+        self, **kwargs: Unpack[ListTagsForGlobalResourceRequestTypeDef]
+    ) -> ListTagsForGlobalResourceResponseTypeDef:
+        """
+        Lists the tags associated with a global resource in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_tags_for_global_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_tags_for_global_resource)
+        """
+
     def list_tags_for_resource(
         self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        List all tags on a MediaConnect resource.
+        List all tags on a MediaConnect resource in the current region.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_tags_for_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_tags_for_resource)
@@ -571,6 +833,26 @@ class MediaConnectClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#remove_flow_vpc_interface)
         """
 
+    def restart_router_input(
+        self, **kwargs: Unpack[RestartRouterInputRequestTypeDef]
+    ) -> RestartRouterInputResponseTypeDef:
+        """
+        Restarts a router input.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/restart_router_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#restart_router_input)
+        """
+
+    def restart_router_output(
+        self, **kwargs: Unpack[RestartRouterOutputRequestTypeDef]
+    ) -> RestartRouterOutputResponseTypeDef:
+        """
+        Restarts a router output.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/restart_router_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#restart_router_output)
+        """
+
     def revoke_flow_entitlement(
         self, **kwargs: Unpack[RevokeFlowEntitlementRequestTypeDef]
     ) -> RevokeFlowEntitlementResponseTypeDef:
@@ -589,6 +871,26 @@ class MediaConnectClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#start_flow)
         """
 
+    def start_router_input(
+        self, **kwargs: Unpack[StartRouterInputRequestTypeDef]
+    ) -> StartRouterInputResponseTypeDef:
+        """
+        Starts a router input in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/start_router_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#start_router_input)
+        """
+
+    def start_router_output(
+        self, **kwargs: Unpack[StartRouterOutputRequestTypeDef]
+    ) -> StartRouterOutputResponseTypeDef:
+        """
+        Starts a router output in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/start_router_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#start_router_output)
+        """
+
     def stop_flow(self, **kwargs: Unpack[StopFlowRequestTypeDef]) -> StopFlowResponseTypeDef:
         """
         Stops a flow.
@@ -597,22 +899,72 @@ class MediaConnectClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#stop_flow)
         """
 
+    def stop_router_input(
+        self, **kwargs: Unpack[StopRouterInputRequestTypeDef]
+    ) -> StopRouterInputResponseTypeDef:
+        """
+        Stops a router input in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/stop_router_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#stop_router_input)
+        """
+
+    def stop_router_output(
+        self, **kwargs: Unpack[StopRouterOutputRequestTypeDef]
+    ) -> StopRouterOutputResponseTypeDef:
+        """
+        Stops a router output in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/stop_router_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#stop_router_output)
+        """
+
+    def tag_global_resource(
+        self, **kwargs: Unpack[TagGlobalResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Adds tags to a global resource in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/tag_global_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#tag_global_resource)
+        """
+
     def tag_resource(
         self, **kwargs: Unpack[TagResourceRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
         Associates the specified tags to a resource with the specified
-        <code>resourceArn</code>.
+        <code>resourceArn</code> in the current region.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/tag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#tag_resource)
+        """
+
+    def take_router_input(
+        self, **kwargs: Unpack[TakeRouterInputRequestTypeDef]
+    ) -> TakeRouterInputResponseTypeDef:
+        """
+        Associates a router input with a router output in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/take_router_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#take_router_input)
+        """
+
+    def untag_global_resource(
+        self, **kwargs: Unpack[UntagGlobalResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Removes tags from a global resource in AWS Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/untag_global_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#untag_global_resource)
         """
 
     def untag_resource(
         self, **kwargs: Unpack[UntagResourceRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Deletes specified tags from a resource.
+        Deletes specified tags from a resource in the current region.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/untag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#untag_resource)
@@ -716,6 +1068,39 @@ class MediaConnectClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_gateway_instance)
         """
 
+    def update_router_input(
+        self, **kwargs: Unpack[UpdateRouterInputRequestTypeDef]
+    ) -> UpdateRouterInputResponseTypeDef:
+        """
+        Updates the configuration of an existing router input in AWS Elemental
+        MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_router_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_router_input)
+        """
+
+    def update_router_network_interface(
+        self, **kwargs: Unpack[UpdateRouterNetworkInterfaceRequestTypeDef]
+    ) -> UpdateRouterNetworkInterfaceResponseTypeDef:
+        """
+        Updates the configuration of an existing router network interface in AWS
+        Elemental MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_router_network_interface.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_router_network_interface)
+        """
+
+    def update_router_output(
+        self, **kwargs: Unpack[UpdateRouterOutputRequestTypeDef]
+    ) -> UpdateRouterOutputResponseTypeDef:
+        """
+        Updates the configuration of an existing router output in AWS Elemental
+        MediaConnect.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_router_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_router_output)
+        """
+
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_bridges"]
@@ -794,6 +1179,39 @@ class MediaConnectClient(BaseClient):
         """
 
     @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_router_inputs"]
+    ) -> ListRouterInputsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_router_network_interfaces"]
+    ) -> ListRouterNetworkInterfacesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_router_outputs"]
+    ) -> ListRouterOutputsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
     def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["flow_active"]
     ) -> FlowActiveWaiter:
@@ -819,6 +1237,83 @@ class MediaConnectClient(BaseClient):
     def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["flow_standby"]
     ) -> FlowStandbyWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["input_active"]
+    ) -> InputActiveWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["input_deleted"]
+    ) -> InputDeletedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["input_standby"]
+    ) -> InputStandbyWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["output_active"]
+    ) -> OutputActiveWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["output_deleted"]
+    ) -> OutputDeletedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["output_routed"]
+    ) -> OutputRoutedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["output_standby"]
+    ) -> OutputStandbyWaiter:
         """
         Returns an object that can wait for some condition.
 

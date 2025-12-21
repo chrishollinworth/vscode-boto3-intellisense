@@ -35,6 +35,7 @@ from .literals import (
     ConditionalOperatorType,
     ContinuousBackupsStatusType,
     ContributorInsightsActionType,
+    ContributorInsightsModeType,
     ContributorInsightsStatusType,
     DestinationStatusType,
     ExportFormatType,
@@ -64,6 +65,7 @@ from .literals import (
     TableClassType,
     TableStatusType,
     TimeToLiveStatusType,
+    WitnessStatusType,
 )
 
 if sys.version_info >= (3, 9):
@@ -120,6 +122,7 @@ __all__ = (
     "CreateGlobalSecondaryIndexActionTypeDef",
     "CreateGlobalTableInputTypeDef",
     "CreateGlobalTableOutputTypeDef",
+    "CreateGlobalTableWitnessGroupMemberActionTypeDef",
     "CreateReplicaActionTypeDef",
     "CreateReplicationGroupMemberActionTypeDef",
     "CreateTableInputServiceResourceCreateTableTypeDef",
@@ -130,6 +133,7 @@ __all__ = (
     "DeleteBackupInputTypeDef",
     "DeleteBackupOutputTypeDef",
     "DeleteGlobalSecondaryIndexActionTypeDef",
+    "DeleteGlobalTableWitnessGroupMemberActionTypeDef",
     "DeleteItemInputTableDeleteItemTypeDef",
     "DeleteItemInputTypeDef",
     "DeleteItemOutputTableTypeDef",
@@ -205,6 +209,8 @@ __all__ = (
     "GlobalTableDescriptionTypeDef",
     "GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef",
     "GlobalTableTypeDef",
+    "GlobalTableWitnessDescriptionTypeDef",
+    "GlobalTableWitnessGroupUpdateTypeDef",
     "ImportSummaryTypeDef",
     "ImportTableDescriptionTypeDef",
     "ImportTableInputTypeDef",
@@ -467,6 +473,7 @@ class ContributorInsightsSummaryTypeDef(TypedDict):
     TableName: NotRequired[str]
     IndexName: NotRequired[str]
     ContributorInsightsStatus: NotRequired[ContributorInsightsStatusType]
+    ContributorInsightsMode: NotRequired[ContributorInsightsModeType]
 
 class CreateBackupInputTypeDef(TypedDict):
     TableName: str
@@ -492,6 +499,12 @@ ReplicaTypeDef = TypedDict(
     "ReplicaTypeDef",
     {
         "RegionName": NotRequired[str],
+    },
+)
+CreateGlobalTableWitnessGroupMemberActionTypeDef = TypedDict(
+    "CreateGlobalTableWitnessGroupMemberActionTypeDef",
+    {
+        "RegionName": str,
     },
 )
 CreateReplicaActionTypeDef = TypedDict(
@@ -534,6 +547,12 @@ class DeleteBackupInputTypeDef(TypedDict):
 class DeleteGlobalSecondaryIndexActionTypeDef(TypedDict):
     IndexName: str
 
+DeleteGlobalTableWitnessGroupMemberActionTypeDef = TypedDict(
+    "DeleteGlobalTableWitnessGroupMemberActionTypeDef",
+    {
+        "RegionName": str,
+    },
+)
 DeleteReplicaActionTypeDef = TypedDict(
     "DeleteReplicaActionTypeDef",
     {
@@ -644,6 +663,14 @@ class ProvisionedThroughputDescriptionTypeDef(TypedDict):
     ReadCapacityUnits: NotRequired[int]
     WriteCapacityUnits: NotRequired[int]
 
+GlobalTableWitnessDescriptionTypeDef = TypedDict(
+    "GlobalTableWitnessDescriptionTypeDef",
+    {
+        "RegionName": NotRequired[str],
+        "WitnessStatus": NotRequired[WitnessStatusType],
+    },
+)
+
 class S3BucketSourceTypeDef(TypedDict):
     S3Bucket: str
     S3BucketOwner: NotRequired[str]
@@ -736,6 +763,7 @@ class UpdateContributorInsightsInputTypeDef(TypedDict):
     TableName: str
     ContributorInsightsAction: ContributorInsightsActionType
     IndexName: NotRequired[str]
+    ContributorInsightsMode: NotRequired[ContributorInsightsModeType]
 
 class UpdateKinesisStreamingConfigurationTypeDef(TypedDict):
     ApproximateCreationDateTimePrecision: NotRequired[ApproximateCreationDateTimePrecisionType]
@@ -892,6 +920,7 @@ class UpdateContributorInsightsOutputTypeDef(TypedDict):
     TableName: str
     IndexName: str
     ContributorInsightsStatus: ContributorInsightsStatusType
+    ContributorInsightsMode: ContributorInsightsModeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class ConsumedCapacityTypeDef(TypedDict):
@@ -958,6 +987,10 @@ class InputFormatOptionsOutputTypeDef(TypedDict):
 class InputFormatOptionsTypeDef(TypedDict):
     Csv: NotRequired[CsvOptionsTypeDef]
 
+class GlobalTableWitnessGroupUpdateTypeDef(TypedDict):
+    Create: NotRequired[CreateGlobalTableWitnessGroupMemberActionTypeDef]
+    Delete: NotRequired[DeleteGlobalTableWitnessGroupMemberActionTypeDef]
+
 class ReplicaUpdateTypeDef(TypedDict):
     Create: NotRequired[CreateReplicaActionTypeDef]
     Delete: NotRequired[DeleteReplicaActionTypeDef]
@@ -969,6 +1002,7 @@ class DescribeContributorInsightsOutputTypeDef(TypedDict):
     ContributorInsightsStatus: ContributorInsightsStatusType
     LastUpdateDateTime: datetime
     FailureException: FailureExceptionTypeDef
+    ContributorInsightsMode: ContributorInsightsModeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeEndpointsResponseTypeDef(TypedDict):
@@ -1816,6 +1850,7 @@ class TableDescriptionTypeDef(TypedDict):
     LatestStreamArn: NotRequired[str]
     GlobalTableVersion: NotRequired[str]
     Replicas: NotRequired[List[ReplicaDescriptionTypeDef]]
+    GlobalTableWitnesses: NotRequired[List[GlobalTableWitnessDescriptionTypeDef]]
     RestoreSummary: NotRequired[RestoreSummaryTypeDef]
     SSEDescription: NotRequired[SSEDescriptionTypeDef]
     ArchivalSummary: NotRequired[ArchivalSummaryTypeDef]
@@ -2017,6 +2052,7 @@ class UpdateTableInputTableUpdateTypeDef(TypedDict):
     TableClass: NotRequired[TableClassType]
     DeletionProtectionEnabled: NotRequired[bool]
     MultiRegionConsistency: NotRequired[MultiRegionConsistencyType]
+    GlobalTableWitnessUpdates: NotRequired[Sequence[GlobalTableWitnessGroupUpdateTypeDef]]
     OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
     WarmThroughput: NotRequired[WarmThroughputTypeDef]
 
@@ -2032,6 +2068,7 @@ class UpdateTableInputTypeDef(TypedDict):
     TableClass: NotRequired[TableClassType]
     DeletionProtectionEnabled: NotRequired[bool]
     MultiRegionConsistency: NotRequired[MultiRegionConsistencyType]
+    GlobalTableWitnessUpdates: NotRequired[Sequence[GlobalTableWitnessGroupUpdateTypeDef]]
     OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
     WarmThroughput: NotRequired[WarmThroughputTypeDef]
 

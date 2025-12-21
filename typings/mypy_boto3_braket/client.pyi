@@ -25,7 +25,12 @@ from botocore.client import BaseClient, ClientMeta
 from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
-from .paginator import SearchDevicesPaginator, SearchJobsPaginator, SearchQuantumTasksPaginator
+from .paginator import (
+    SearchDevicesPaginator,
+    SearchJobsPaginator,
+    SearchQuantumTasksPaginator,
+    SearchSpendingLimitsPaginator,
+)
 from .type_defs import (
     CancelJobRequestTypeDef,
     CancelJobResponseTypeDef,
@@ -35,6 +40,9 @@ from .type_defs import (
     CreateJobResponseTypeDef,
     CreateQuantumTaskRequestTypeDef,
     CreateQuantumTaskResponseTypeDef,
+    CreateSpendingLimitRequestTypeDef,
+    CreateSpendingLimitResponseTypeDef,
+    DeleteSpendingLimitRequestTypeDef,
     GetDeviceRequestTypeDef,
     GetDeviceResponseTypeDef,
     GetJobRequestTypeDef,
@@ -49,8 +57,11 @@ from .type_defs import (
     SearchJobsResponseTypeDef,
     SearchQuantumTasksRequestTypeDef,
     SearchQuantumTasksResponseTypeDef,
+    SearchSpendingLimitsRequestTypeDef,
+    SearchSpendingLimitsResponseTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
+    UpdateSpendingLimitRequestTypeDef,
 )
 
 if sys.version_info >= (3, 9):
@@ -115,7 +126,7 @@ class BraketClient(BaseClient):
 
     def cancel_job(self, **kwargs: Unpack[CancelJobRequestTypeDef]) -> CancelJobResponseTypeDef:
         """
-        Cancels an Amazon Braket job.
+        Cancels an Amazon Braket hybrid job.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/cancel_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#cancel_job)
@@ -133,7 +144,7 @@ class BraketClient(BaseClient):
 
     def create_job(self, **kwargs: Unpack[CreateJobRequestTypeDef]) -> CreateJobResponseTypeDef:
         """
-        Creates an Amazon Braket job.
+        Creates an Amazon Braket hybrid job.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/create_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#create_job)
@@ -149,6 +160,26 @@ class BraketClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#create_quantum_task)
         """
 
+    def create_spending_limit(
+        self, **kwargs: Unpack[CreateSpendingLimitRequestTypeDef]
+    ) -> CreateSpendingLimitResponseTypeDef:
+        """
+        Creates a spending limit for a specified quantum device.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/create_spending_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#create_spending_limit)
+        """
+
+    def delete_spending_limit(
+        self, **kwargs: Unpack[DeleteSpendingLimitRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an existing spending limit.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/delete_spending_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#delete_spending_limit)
+        """
+
     def get_device(self, **kwargs: Unpack[GetDeviceRequestTypeDef]) -> GetDeviceResponseTypeDef:
         """
         Retrieves the devices available in Amazon Braket.
@@ -159,7 +190,7 @@ class BraketClient(BaseClient):
 
     def get_job(self, **kwargs: Unpack[GetJobRequestTypeDef]) -> GetJobResponseTypeDef:
         """
-        Retrieves the specified Amazon Braket job.
+        Retrieves the specified Amazon Braket hybrid job.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/get_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#get_job)
@@ -197,7 +228,7 @@ class BraketClient(BaseClient):
 
     def search_jobs(self, **kwargs: Unpack[SearchJobsRequestTypeDef]) -> SearchJobsResponseTypeDef:
         """
-        Searches for Amazon Braket jobs that match the specified filter values.
+        Searches for Amazon Braket hybrid jobs that match the specified filter values.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/search_jobs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#search_jobs)
@@ -211,6 +242,16 @@ class BraketClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/search_quantum_tasks.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#search_quantum_tasks)
+        """
+
+    def search_spending_limits(
+        self, **kwargs: Unpack[SearchSpendingLimitsRequestTypeDef]
+    ) -> SearchSpendingLimitsResponseTypeDef:
+        """
+        Searches and lists spending limits based on specified filters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/search_spending_limits.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#search_spending_limits)
         """
 
     def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
@@ -227,6 +268,16 @@ class BraketClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/untag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#untag_resource)
+        """
+
+    def update_spending_limit(
+        self, **kwargs: Unpack[UpdateSpendingLimitRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Updates an existing spending limit.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/update_spending_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#update_spending_limit)
         """
 
     @overload  # type: ignore[override]
@@ -255,6 +306,17 @@ class BraketClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_quantum_tasks"]
     ) -> SearchQuantumTasksPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_spending_limits"]
+    ) -> SearchSpendingLimitsPaginator:
         """
         Create a paginator for an operation.
 

@@ -19,7 +19,12 @@ from __future__ import annotations
 import sys
 from datetime import datetime
 
-from .literals import AlternateContactTypeType, PrimaryEmailUpdateStatusType, RegionOptStatusType
+from .literals import (
+    AlternateContactTypeType,
+    AwsAccountStateType,
+    PrimaryEmailUpdateStatusType,
+    RegionOptStatusType,
+)
 
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
@@ -47,6 +52,8 @@ __all__ = (
     "GetAlternateContactResponseTypeDef",
     "GetContactInformationRequestTypeDef",
     "GetContactInformationResponseTypeDef",
+    "GetGovCloudAccountInformationRequestTypeDef",
+    "GetGovCloudAccountInformationResponseTypeDef",
     "GetPrimaryEmailRequestTypeDef",
     "GetPrimaryEmailResponseTypeDef",
     "GetRegionOptStatusRequestTypeDef",
@@ -119,6 +126,9 @@ class GetAlternateContactRequestTypeDef(TypedDict):
 class GetContactInformationRequestTypeDef(TypedDict):
     AccountId: NotRequired[str]
 
+class GetGovCloudAccountInformationRequestTypeDef(TypedDict):
+    StandardAccountId: NotRequired[str]
+
 class GetPrimaryEmailRequestTypeDef(TypedDict):
     AccountId: str
 
@@ -168,6 +178,11 @@ class GetAccountInformationResponseTypeDef(TypedDict):
     AccountCreatedDate: datetime
     AccountId: str
     AccountName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGovCloudAccountInformationResponseTypeDef(TypedDict):
+    AccountState: AwsAccountStateType
+    GovCloudAccountId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetPrimaryEmailResponseTypeDef(TypedDict):

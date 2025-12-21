@@ -37,6 +37,7 @@ __all__ = (
     "DkimSigningAttributesOriginType",
     "DkimSigningKeyLengthType",
     "DkimStatusType",
+    "EmailAddressInsightsConfidenceVerdictType",
     "EngagementEventTypeType",
     "EventTypeType",
     "ExportSourceTypeType",
@@ -47,6 +48,11 @@ __all__ = (
     "JobStatusType",
     "ListMultiRegionEndpointsPaginatorName",
     "ListRecommendationsFilterKeyType",
+    "ListReputationEntitiesPaginatorName",
+    "ListResourceTenantsPaginatorName",
+    "ListTenantResourcesFilterKeyType",
+    "ListTenantResourcesPaginatorName",
+    "ListTenantsPaginatorName",
     "MailFromDomainStatusType",
     "MailTypeType",
     "MetricAggregationType",
@@ -59,13 +65,18 @@ __all__ = (
     "RecommendationStatusType",
     "RecommendationTypeType",
     "RegionName",
+    "ReputationEntityFilterKeyType",
+    "ReputationEntityTypeType",
     "ResourceServiceName",
+    "ResourceTypeType",
     "ReviewStatusType",
     "SESV2ServiceName",
     "ScalingModeType",
+    "SendingStatusType",
     "ServiceName",
     "StatusType",
     "SubscriptionStatusType",
+    "SuppressionConfidenceVerdictThresholdType",
     "SuppressionListImportActionType",
     "SuppressionListReasonType",
     "TlsPolicyType",
@@ -112,15 +123,20 @@ DkimSigningAttributesOriginType = Literal[
     "AWS_SES_AP_SOUTHEAST_1",
     "AWS_SES_AP_SOUTHEAST_2",
     "AWS_SES_AP_SOUTHEAST_3",
+    "AWS_SES_AP_SOUTHEAST_5",
     "AWS_SES_AP_SOUTH_1",
+    "AWS_SES_AP_SOUTH_2",
     "AWS_SES_CA_CENTRAL_1",
+    "AWS_SES_CA_WEST_1",
     "AWS_SES_EU_CENTRAL_1",
+    "AWS_SES_EU_CENTRAL_2",
     "AWS_SES_EU_NORTH_1",
     "AWS_SES_EU_SOUTH_1",
     "AWS_SES_EU_WEST_1",
     "AWS_SES_EU_WEST_2",
     "AWS_SES_EU_WEST_3",
     "AWS_SES_IL_CENTRAL_1",
+    "AWS_SES_ME_CENTRAL_1",
     "AWS_SES_ME_SOUTH_1",
     "AWS_SES_SA_EAST_1",
     "AWS_SES_US_EAST_1",
@@ -131,6 +147,7 @@ DkimSigningAttributesOriginType = Literal[
 ]
 DkimSigningKeyLengthType = Literal["RSA_1024_BIT", "RSA_2048_BIT"]
 DkimStatusType = Literal["FAILED", "NOT_STARTED", "PENDING", "SUCCESS", "TEMPORARY_FAILURE"]
+EmailAddressInsightsConfidenceVerdictType = Literal["HIGH", "LOW", "MEDIUM"]
 EngagementEventTypeType = Literal["CLICK", "OPEN"]
 EventTypeType = Literal[
     "BOUNCE",
@@ -152,6 +169,11 @@ ImportDestinationTypeType = Literal["CONTACT_LIST", "SUPPRESSION_LIST"]
 JobStatusType = Literal["CANCELLED", "COMPLETED", "CREATED", "FAILED", "PROCESSING"]
 ListMultiRegionEndpointsPaginatorName = Literal["list_multi_region_endpoints"]
 ListRecommendationsFilterKeyType = Literal["IMPACT", "RESOURCE_ARN", "STATUS", "TYPE"]
+ListReputationEntitiesPaginatorName = Literal["list_reputation_entities"]
+ListResourceTenantsPaginatorName = Literal["list_resource_tenants"]
+ListTenantResourcesFilterKeyType = Literal["RESOURCE_TYPE"]
+ListTenantResourcesPaginatorName = Literal["list_tenant_resources"]
+ListTenantsPaginatorName = Literal["list_tenants"]
 MailFromDomainStatusType = Literal["FAILED", "PENDING", "SUCCESS", "TEMPORARY_FAILURE"]
 MailTypeType = Literal["MARKETING", "TRANSACTIONAL"]
 MetricAggregationType = Literal["RATE", "VOLUME"]
@@ -172,11 +194,20 @@ MetricType = Literal[
 QueryErrorCodeType = Literal["ACCESS_DENIED", "INTERNAL_FAILURE"]
 RecommendationImpactType = Literal["HIGH", "LOW"]
 RecommendationStatusType = Literal["FIXED", "OPEN"]
-RecommendationTypeType = Literal["BIMI", "COMPLAINT", "DKIM", "DMARC", "SPF"]
+RecommendationTypeType = Literal[
+    "BIMI", "BOUNCE", "COMPLAINT", "DKIM", "DMARC", "FEEDBACK_3P", "IP_LISTING", "SPF"
+]
+ReputationEntityFilterKeyType = Literal[
+    "ENTITY_REFERENCE_PREFIX", "ENTITY_TYPE", "REPUTATION_IMPACT", "SENDING_STATUS"
+]
+ReputationEntityTypeType = Literal["RESOURCE"]
+ResourceTypeType = Literal["CONFIGURATION_SET", "EMAIL_IDENTITY", "EMAIL_TEMPLATE"]
 ReviewStatusType = Literal["DENIED", "FAILED", "GRANTED", "PENDING"]
 ScalingModeType = Literal["MANAGED", "STANDARD"]
+SendingStatusType = Literal["DISABLED", "ENABLED", "REINSTATED"]
 StatusType = Literal["CREATING", "DELETING", "FAILED", "READY"]
 SubscriptionStatusType = Literal["OPT_IN", "OPT_OUT"]
+SuppressionConfidenceVerdictThresholdType = Literal["HIGH", "MANAGED", "MEDIUM"]
 SuppressionListImportActionType = Literal["DELETE", "PUT"]
 SuppressionListReasonType = Literal["BOUNCE", "COMPLAINT"]
 TlsPolicyType = Literal["OPTIONAL", "REQUIRE"]
@@ -193,13 +224,14 @@ VerificationErrorType = Literal[
     "TYPE_NOT_FOUND",
 ]
 VerificationStatusType = Literal["FAILED", "NOT_STARTED", "PENDING", "SUCCESS", "TEMPORARY_FAILURE"]
-WarmupStatusType = Literal["DONE", "IN_PROGRESS"]
+WarmupStatusType = Literal["DONE", "IN_PROGRESS", "NOT_APPLICABLE"]
 SESV2ServiceName = Literal["sesv2"]
 ServiceName = Literal[
     "accessanalyzer",
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -220,7 +252,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -232,11 +264,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -285,6 +321,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -340,6 +377,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -382,7 +420,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -397,6 +434,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -420,8 +458,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -452,9 +488,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -464,17 +502,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -492,13 +533,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -513,20 +551,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -551,8 +591,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -592,45 +632,49 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
-PaginatorName = Literal["list_multi_region_endpoints"]
+PaginatorName = Literal[
+    "list_multi_region_endpoints",
+    "list_reputation_entities",
+    "list_resource_tenants",
+    "list_tenant_resources",
+    "list_tenants",
+]
 RegionName = Literal[
     "af-south-1",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
     "ap-south-1",
+    "ap-south-2",
     "ap-southeast-1",
     "ap-southeast-2",
     "ap-southeast-3",
+    "ap-southeast-5",
     "ca-central-1",
+    "ca-west-1",
     "eu-central-1",
+    "eu-central-2",
     "eu-north-1",
     "eu-south-1",
     "eu-west-1",
     "eu-west-2",
     "eu-west-3",
     "il-central-1",
+    "me-central-1",
     "me-south-1",
     "sa-east-1",
     "us-east-1",

@@ -21,6 +21,7 @@ from datetime import datetime
 from typing import Union
 
 from .literals import (
+    AcceleratedRecoveryStatusType,
     AccountLimitTypeType,
     ChangeActionType,
     ChangeStatusType,
@@ -158,6 +159,8 @@ __all__ = (
     "HealthCheckObservationTypeDef",
     "HealthCheckTypeDef",
     "HostedZoneConfigTypeDef",
+    "HostedZoneFailureReasonsTypeDef",
+    "HostedZoneFeaturesTypeDef",
     "HostedZoneLimitTypeDef",
     "HostedZoneOwnerTypeDef",
     "HostedZoneSummaryTypeDef",
@@ -231,6 +234,7 @@ __all__ = (
     "UpdateHealthCheckResponseTypeDef",
     "UpdateHostedZoneCommentRequestTypeDef",
     "UpdateHostedZoneCommentResponseTypeDef",
+    "UpdateHostedZoneFeaturesRequestTypeDef",
     "UpdateTrafficPolicyCommentRequestTypeDef",
     "UpdateTrafficPolicyCommentResponseTypeDef",
     "UpdateTrafficPolicyInstanceRequestTypeDef",
@@ -543,6 +547,9 @@ class LinkedServiceTypeDef(TypedDict):
     ServicePrincipal: NotRequired[str]
     Description: NotRequired[str]
 
+class HostedZoneFailureReasonsTypeDef(TypedDict):
+    AcceleratedRecovery: NotRequired[str]
+
 class HostedZoneOwnerTypeDef(TypedDict):
     OwningAccount: NotRequired[str]
     OwningService: NotRequired[str]
@@ -680,6 +687,10 @@ class TestDNSAnswerRequestTypeDef(TypedDict):
 class UpdateHostedZoneCommentRequestTypeDef(TypedDict):
     Id: str
     Comment: NotRequired[str]
+
+class UpdateHostedZoneFeaturesRequestTypeDef(TypedDict):
+    HostedZoneId: str
+    EnableAcceleratedRecovery: NotRequired[bool]
 
 class UpdateTrafficPolicyCommentRequestTypeDef(TypedDict):
     Id: str
@@ -1060,13 +1071,9 @@ class HealthCheckObservationTypeDef(TypedDict):
     IPAddress: NotRequired[str]
     StatusReport: NotRequired[StatusReportTypeDef]
 
-class HostedZoneTypeDef(TypedDict):
-    Id: str
-    Name: str
-    CallerReference: str
-    Config: NotRequired[HostedZoneConfigTypeDef]
-    ResourceRecordSetCount: NotRequired[int]
-    LinkedService: NotRequired[LinkedServiceTypeDef]
+class HostedZoneFeaturesTypeDef(TypedDict):
+    AcceleratedRecoveryStatus: NotRequired[AcceleratedRecoveryStatusType]
+    FailureReasons: NotRequired[HostedZoneFailureReasonsTypeDef]
 
 class HostedZoneSummaryTypeDef(TypedDict):
     HostedZoneId: str
@@ -1185,41 +1192,14 @@ class GetHealthCheckStatusResponseTypeDef(TypedDict):
     HealthCheckObservations: List[HealthCheckObservationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHostedZoneResponseTypeDef(TypedDict):
-    HostedZone: HostedZoneTypeDef
-    ChangeInfo: ChangeInfoTypeDef
-    DelegationSet: DelegationSetTypeDef
-    VPC: VPCTypeDef
-    Location: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class GetHostedZoneResponseTypeDef(TypedDict):
-    HostedZone: HostedZoneTypeDef
-    DelegationSet: DelegationSetTypeDef
-    VPCs: List[VPCTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListHostedZonesByNameResponseTypeDef(TypedDict):
-    HostedZones: List[HostedZoneTypeDef]
-    DNSName: str
-    HostedZoneId: str
-    IsTruncated: bool
-    NextDNSName: str
-    NextHostedZoneId: str
-    MaxItems: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListHostedZonesResponseTypeDef(TypedDict):
-    HostedZones: List[HostedZoneTypeDef]
-    Marker: str
-    IsTruncated: bool
-    NextMarker: str
-    MaxItems: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class UpdateHostedZoneCommentResponseTypeDef(TypedDict):
-    HostedZone: HostedZoneTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class HostedZoneTypeDef(TypedDict):
+    Id: str
+    Name: str
+    CallerReference: str
+    Config: NotRequired[HostedZoneConfigTypeDef]
+    ResourceRecordSetCount: NotRequired[int]
+    LinkedService: NotRequired[LinkedServiceTypeDef]
+    Features: NotRequired[HostedZoneFeaturesTypeDef]
 
 class ListHostedZonesByVPCResponseTypeDef(TypedDict):
     HostedZoneSummaries: List[HostedZoneSummaryTypeDef]
@@ -1262,6 +1242,42 @@ class ListResourceRecordSetsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 ResourceRecordSetUnionTypeDef = Union[ResourceRecordSetTypeDef, ResourceRecordSetOutputTypeDef]
+
+class CreateHostedZoneResponseTypeDef(TypedDict):
+    HostedZone: HostedZoneTypeDef
+    ChangeInfo: ChangeInfoTypeDef
+    DelegationSet: DelegationSetTypeDef
+    VPC: VPCTypeDef
+    Location: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetHostedZoneResponseTypeDef(TypedDict):
+    HostedZone: HostedZoneTypeDef
+    DelegationSet: DelegationSetTypeDef
+    VPCs: List[VPCTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListHostedZonesByNameResponseTypeDef(TypedDict):
+    HostedZones: List[HostedZoneTypeDef]
+    DNSName: str
+    HostedZoneId: str
+    IsTruncated: bool
+    NextDNSName: str
+    NextHostedZoneId: str
+    MaxItems: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListHostedZonesResponseTypeDef(TypedDict):
+    HostedZones: List[HostedZoneTypeDef]
+    Marker: str
+    IsTruncated: bool
+    NextMarker: str
+    MaxItems: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateHostedZoneCommentResponseTypeDef(TypedDict):
+    HostedZone: HostedZoneTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class ChangeTypeDef(TypedDict):
     Action: ChangeActionType

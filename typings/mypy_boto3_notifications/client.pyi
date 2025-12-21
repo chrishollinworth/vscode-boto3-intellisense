@@ -32,14 +32,17 @@ from .paginator import (
     ListManagedNotificationChildEventsPaginator,
     ListManagedNotificationConfigurationsPaginator,
     ListManagedNotificationEventsPaginator,
+    ListMemberAccountsPaginator,
     ListNotificationConfigurationsPaginator,
     ListNotificationEventsPaginator,
     ListNotificationHubsPaginator,
+    ListOrganizationalUnitsPaginator,
 )
 from .type_defs import (
     AssociateChannelRequestTypeDef,
     AssociateManagedNotificationAccountContactRequestTypeDef,
     AssociateManagedNotificationAdditionalChannelRequestTypeDef,
+    AssociateOrganizationalUnitRequestTypeDef,
     CreateEventRuleRequestTypeDef,
     CreateEventRuleResponseTypeDef,
     CreateNotificationConfigurationRequestTypeDef,
@@ -51,6 +54,7 @@ from .type_defs import (
     DisassociateChannelRequestTypeDef,
     DisassociateManagedNotificationAccountContactRequestTypeDef,
     DisassociateManagedNotificationAdditionalChannelRequestTypeDef,
+    DisassociateOrganizationalUnitRequestTypeDef,
     GetEventRuleRequestTypeDef,
     GetEventRuleResponseTypeDef,
     GetManagedNotificationChildEventRequestTypeDef,
@@ -76,12 +80,16 @@ from .type_defs import (
     ListManagedNotificationConfigurationsResponseTypeDef,
     ListManagedNotificationEventsRequestTypeDef,
     ListManagedNotificationEventsResponseTypeDef,
+    ListMemberAccountsRequestTypeDef,
+    ListMemberAccountsResponseTypeDef,
     ListNotificationConfigurationsRequestTypeDef,
     ListNotificationConfigurationsResponseTypeDef,
     ListNotificationEventsRequestTypeDef,
     ListNotificationEventsResponseTypeDef,
     ListNotificationHubsRequestTypeDef,
     ListNotificationHubsResponseTypeDef,
+    ListOrganizationalUnitsRequestTypeDef,
+    ListOrganizationalUnitsResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
     RegisterNotificationHubRequestTypeDef,
@@ -184,6 +192,16 @@ class UserNotificationsClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/client/#associate_managed_notification_additional_channel)
         """
 
+    def associate_organizational_unit(
+        self, **kwargs: Unpack[AssociateOrganizationalUnitRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associates an organizational unit with a notification configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/client/associate_organizational_unit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/client/#associate_organizational_unit)
+        """
+
     def create_event_rule(
         self, **kwargs: Unpack[CreateEventRuleRequestTypeDef]
     ) -> CreateEventRuleResponseTypeDef:
@@ -274,6 +292,17 @@ class UserNotificationsClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/client/disassociate_managed_notification_additional_channel.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/client/#disassociate_managed_notification_additional_channel)
+        """
+
+    def disassociate_organizational_unit(
+        self, **kwargs: Unpack[DisassociateOrganizationalUnitRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Removes the association between an organizational unit and a notification
+        configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/client/disassociate_organizational_unit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/client/#disassociate_organizational_unit)
         """
 
     def enable_notifications_access_for_organization(self) -> Dict[str, Any]:
@@ -424,6 +453,16 @@ class UserNotificationsClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/client/#list_managed_notification_events)
         """
 
+    def list_member_accounts(
+        self, **kwargs: Unpack[ListMemberAccountsRequestTypeDef]
+    ) -> ListMemberAccountsResponseTypeDef:
+        """
+        Returns a list of member accounts associated with a notification configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/client/list_member_accounts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/client/#list_member_accounts)
+        """
+
     def list_notification_configurations(
         self, **kwargs: Unpack[ListNotificationConfigurationsRequestTypeDef]
     ) -> ListNotificationConfigurationsResponseTypeDef:
@@ -454,6 +493,17 @@ class UserNotificationsClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/client/list_notification_hubs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/client/#list_notification_hubs)
+        """
+
+    def list_organizational_units(
+        self, **kwargs: Unpack[ListOrganizationalUnitsRequestTypeDef]
+    ) -> ListOrganizationalUnitsResponseTypeDef:
+        """
+        Returns a list of organizational units associated with a notification
+        configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/client/list_organizational_units.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/client/#list_organizational_units)
         """
 
     def list_tags_for_resource(
@@ -580,6 +630,17 @@ class UserNotificationsClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_member_accounts"]
+    ) -> ListMemberAccountsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_notification_configurations"]
     ) -> ListNotificationConfigurationsPaginator:
         """
@@ -604,6 +665,17 @@ class UserNotificationsClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_notification_hubs"]
     ) -> ListNotificationHubsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_organizational_units"]
+    ) -> ListOrganizationalUnitsPaginator:
         """
         Create a paginator for an operation.
 

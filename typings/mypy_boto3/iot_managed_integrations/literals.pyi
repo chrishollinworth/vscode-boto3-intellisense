@@ -24,19 +24,31 @@ else:
 __all__ = (
     "AbortCriteriaActionType",
     "AbortCriteriaFailureTypeType",
+    "AssociationStateType",
     "AuthMaterialTypeType",
+    "AuthTypeType",
+    "CloudConnectorTypeType",
     "ConfigurationStateType",
+    "ConnectorEventOperationType",
     "DeliveryDestinationTypeType",
     "DeviceDiscoveryStatusType",
     "DisconnectReasonValueType",
     "DiscoveryAuthMaterialTypeType",
+    "DiscoveryModificationType",
     "DiscoveryTypeType",
     "EncryptionTypeType",
+    "EndpointTypeType",
     "EventTypeType",
     "HubNetworkModeType",
+    "ListAccountAssociationsPaginatorName",
+    "ListCloudConnectorsPaginatorName",
+    "ListConnectorDestinationsPaginatorName",
     "ListCredentialLockersPaginatorName",
     "ListDestinationsPaginatorName",
+    "ListDeviceDiscoveriesPaginatorName",
+    "ListDiscoveredDevicesPaginatorName",
     "ListEventLogConfigurationsPaginatorName",
+    "ListManagedThingAccountAssociationsPaginatorName",
     "ListManagedThingSchemasPaginatorName",
     "ListManagedThingsPaginatorName",
     "ListNotificationConfigurationsPaginatorName",
@@ -63,12 +75,31 @@ __all__ = (
     "SchemaVersionTypeType",
     "SchemaVersionVisibilityType",
     "ServiceName",
+    "TokenEndpointAuthenticationSchemeType",
 )
 
 AbortCriteriaActionType = Literal["CANCEL"]
 AbortCriteriaFailureTypeType = Literal["ALL", "FAILED", "REJECTED", "TIMED_OUT"]
-AuthMaterialTypeType = Literal["WIFI_SETUP_QR_BAR_CODE", "ZIGBEE_QR_BAR_CODE", "ZWAVE_QR_BAR_CODE"]
+AssociationStateType = Literal[
+    "ASSOCIATION_DELETING",
+    "ASSOCIATION_FAILED",
+    "ASSOCIATION_IN_PROGRESS",
+    "ASSOCIATION_SUCCEEDED",
+    "REFRESH_TOKEN_EXPIRED",
+]
+AuthMaterialTypeType = Literal[
+    "CUSTOM_PROTOCOL_QR_BAR_CODE",
+    "DISCOVERED_DEVICE",
+    "WIFI_SETUP_QR_BAR_CODE",
+    "ZIGBEE_QR_BAR_CODE",
+    "ZWAVE_QR_BAR_CODE",
+]
+AuthTypeType = Literal["OAUTH"]
+CloudConnectorTypeType = Literal["LISTED", "UNLISTED"]
 ConfigurationStateType = Literal["ENABLED", "UPDATE_FAILED", "UPDATE_IN_PROGRESS"]
+ConnectorEventOperationType = Literal[
+    "DEVICE_COMMAND_REQUEST", "DEVICE_COMMAND_RESPONSE", "DEVICE_DISCOVERY", "DEVICE_EVENT"
+]
 DeliveryDestinationTypeType = Literal["KINESIS"]
 DeviceDiscoveryStatusType = Literal["FAILED", "RUNNING", "SUCCEEDED", "TIMED_OUT"]
 DisconnectReasonValueType = Literal[
@@ -88,22 +119,34 @@ DisconnectReasonValueType = Literal[
     "WEBSOCKET_TTL_EXPIRATION",
 ]
 DiscoveryAuthMaterialTypeType = Literal["ZWAVE_INSTALL_CODE"]
-DiscoveryTypeType = Literal["CLOUD", "ZIGBEE", "ZWAVE"]
+DiscoveryModificationType = Literal["DISCOVERED", "NO_CHANGE", "UPDATED"]
+DiscoveryTypeType = Literal["CLOUD", "CUSTOM", "ZIGBEE", "ZWAVE"]
 EncryptionTypeType = Literal["CUSTOMER_KEY_ENCRYPTION", "MANAGED_INTEGRATIONS_DEFAULT_ENCRYPTION"]
+EndpointTypeType = Literal["LAMBDA"]
 EventTypeType = Literal[
+    "ACCOUNT_ASSOCIATION",
     "CONNECTOR_ASSOCIATION",
     "CONNECTOR_ERROR_REPORT",
     "DEVICE_COMMAND",
     "DEVICE_COMMAND_REQUEST",
+    "DEVICE_DISCOVERY_STATUS",
     "DEVICE_EVENT",
     "DEVICE_LIFE_CYCLE",
     "DEVICE_OTA",
     "DEVICE_STATE",
 ]
 HubNetworkModeType = Literal["NETWORK_WIDE_EXCLUSION", "STANDARD"]
+ListAccountAssociationsPaginatorName = Literal["list_account_associations"]
+ListCloudConnectorsPaginatorName = Literal["list_cloud_connectors"]
+ListConnectorDestinationsPaginatorName = Literal["list_connector_destinations"]
 ListCredentialLockersPaginatorName = Literal["list_credential_lockers"]
 ListDestinationsPaginatorName = Literal["list_destinations"]
+ListDeviceDiscoveriesPaginatorName = Literal["list_device_discoveries"]
+ListDiscoveredDevicesPaginatorName = Literal["list_discovered_devices"]
 ListEventLogConfigurationsPaginatorName = Literal["list_event_log_configurations"]
+ListManagedThingAccountAssociationsPaginatorName = Literal[
+    "list_managed_thing_account_associations"
+]
 ListManagedThingSchemasPaginatorName = Literal["list_managed_thing_schemas"]
 ListManagedThingsPaginatorName = Literal["list_managed_things"]
 ListNotificationConfigurationsPaginatorName = Literal["list_notification_configurations"]
@@ -137,12 +180,14 @@ SchedulingConfigEndBehaviorType = Literal["CANCEL", "FORCE_CANCEL", "STOP_ROLLOU
 SchemaVersionFormatType = Literal["AWS", "CONNECTOR", "ZCL"]
 SchemaVersionTypeType = Literal["capability", "definition"]
 SchemaVersionVisibilityType = Literal["PRIVATE", "PUBLIC"]
+TokenEndpointAuthenticationSchemeType = Literal["HTTP_BASIC", "REQUEST_BODY_CREDENTIALS"]
 ManagedintegrationsforIoTDeviceManagementServiceName = Literal["iot-managed-integrations"]
 ServiceName = Literal[
     "accessanalyzer",
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -163,7 +208,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -175,11 +220,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -228,6 +277,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -283,6 +333,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -325,7 +376,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -340,6 +390,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -363,8 +414,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -395,9 +444,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -407,17 +458,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -435,13 +489,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -456,20 +507,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -494,8 +547,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -535,31 +588,30 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
+    "list_account_associations",
+    "list_cloud_connectors",
+    "list_connector_destinations",
     "list_credential_lockers",
     "list_destinations",
+    "list_device_discoveries",
+    "list_discovered_devices",
     "list_event_log_configurations",
+    "list_managed_thing_account_associations",
     "list_managed_thing_schemas",
     "list_managed_things",
     "list_notification_configurations",

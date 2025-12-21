@@ -99,6 +99,8 @@ from .type_defs import (
     DescribeConnectionAliasesResultTypeDef,
     DescribeConnectionAliasPermissionsRequestTypeDef,
     DescribeConnectionAliasPermissionsResultTypeDef,
+    DescribeCustomWorkspaceImageImportRequestTypeDef,
+    DescribeCustomWorkspaceImageImportResultTypeDef,
     DescribeImageAssociationsRequestTypeDef,
     DescribeImageAssociationsResultTypeDef,
     DescribeIpGroupsRequestTypeDef,
@@ -133,6 +135,8 @@ from .type_defs import (
     GetAccountLinkResultTypeDef,
     ImportClientBrandingRequestTypeDef,
     ImportClientBrandingResultTypeDef,
+    ImportCustomWorkspaceImageRequestTypeDef,
+    ImportCustomWorkspaceImageResultTypeDef,
     ImportWorkspaceImageRequestTypeDef,
     ImportWorkspaceImageResultTypeDef,
     ListAccountLinksRequestTypeDef,
@@ -142,6 +146,7 @@ from .type_defs import (
     MigrateWorkspaceRequestTypeDef,
     MigrateWorkspaceResultTypeDef,
     ModifyAccountRequestTypeDef,
+    ModifyAccountResultTypeDef,
     ModifyCertificateBasedAuthPropertiesRequestTypeDef,
     ModifyClientPropertiesRequestTypeDef,
     ModifyEndpointEncryptionModeRequestTypeDef,
@@ -202,6 +207,7 @@ class Exceptions(BaseClientExceptions):
     ConflictException: Type[BotocoreClientError]
     IncompatibleApplicationsException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
+    InvalidParameterCombinationException: Type[BotocoreClientError]
     InvalidParameterValuesException: Type[BotocoreClientError]
     InvalidResourceStateException: Type[BotocoreClientError]
     OperatingSystemNotCompatibleException: Type[BotocoreClientError]
@@ -624,6 +630,17 @@ class WorkSpacesClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client/#describe_connection_aliases)
         """
 
+    def describe_custom_workspace_image_import(
+        self, **kwargs: Unpack[DescribeCustomWorkspaceImageImportRequestTypeDef]
+    ) -> DescribeCustomWorkspaceImageImportResultTypeDef:
+        """
+        Retrieves information about a WorkSpace BYOL image being imported via
+        ImportCustomWorkspaceImage.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces/client/describe_custom_workspace_image_import.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client/#describe_custom_workspace_image_import)
+        """
+
     def describe_image_associations(
         self, **kwargs: Unpack[DescribeImageAssociationsRequestTypeDef]
     ) -> DescribeImageAssociationsResultTypeDef:
@@ -807,6 +824,17 @@ class WorkSpacesClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client/#import_client_branding)
         """
 
+    def import_custom_workspace_image(
+        self, **kwargs: Unpack[ImportCustomWorkspaceImageRequestTypeDef]
+    ) -> ImportCustomWorkspaceImageResultTypeDef:
+        """
+        Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into
+        Amazon WorkSpaces using EC2 Image Builder.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces/client/import_custom_workspace_image.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client/#import_custom_workspace_image)
+        """
+
     def import_workspace_image(
         self, **kwargs: Unpack[ImportWorkspaceImageRequestTypeDef]
     ) -> ImportWorkspaceImageResultTypeDef:
@@ -851,7 +879,9 @@ class WorkSpacesClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client/#migrate_workspace)
         """
 
-    def modify_account(self, **kwargs: Unpack[ModifyAccountRequestTypeDef]) -> Dict[str, Any]:
+    def modify_account(
+        self, **kwargs: Unpack[ModifyAccountRequestTypeDef]
+    ) -> ModifyAccountResultTypeDef:
         """
         Modifies the configuration of Bring Your Own License (BYOL) for the specified
         account.

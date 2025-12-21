@@ -38,6 +38,7 @@ from .literals import (
     DkimSigningAttributesOriginType,
     DkimSigningKeyLengthType,
     DkimStatusType,
+    EmailAddressInsightsConfidenceVerdictType,
     EngagementEventTypeType,
     EventTypeType,
     ExportSourceTypeType,
@@ -56,10 +57,14 @@ from .literals import (
     RecommendationImpactType,
     RecommendationStatusType,
     RecommendationTypeType,
+    ReputationEntityFilterKeyType,
+    ResourceTypeType,
     ReviewStatusType,
     ScalingModeType,
+    SendingStatusType,
     StatusType,
     SubscriptionStatusType,
+    SuppressionConfidenceVerdictThresholdType,
     SuppressionListImportActionType,
     SuppressionListReasonType,
     TlsPolicyType,
@@ -121,6 +126,9 @@ __all__ = (
     "CreateImportJobResponseTypeDef",
     "CreateMultiRegionEndpointRequestTypeDef",
     "CreateMultiRegionEndpointResponseTypeDef",
+    "CreateTenantRequestTypeDef",
+    "CreateTenantResourceAssociationRequestTypeDef",
+    "CreateTenantResponseTypeDef",
     "CustomVerificationEmailTemplateMetadataTypeDef",
     "DailyVolumeTypeDef",
     "DashboardAttributesTypeDef",
@@ -139,6 +147,8 @@ __all__ = (
     "DeleteMultiRegionEndpointRequestTypeDef",
     "DeleteMultiRegionEndpointResponseTypeDef",
     "DeleteSuppressedDestinationRequestTypeDef",
+    "DeleteTenantRequestTypeDef",
+    "DeleteTenantResourceAssociationRequestTypeDef",
     "DeliverabilityTestReportTypeDef",
     "DeliveryOptionsTypeDef",
     "DestinationTypeDef",
@@ -150,6 +160,8 @@ __all__ = (
     "DomainDeliverabilityTrackingOptionTypeDef",
     "DomainDeliverabilityTrackingOptionUnionTypeDef",
     "DomainIspPlacementTypeDef",
+    "EmailAddressInsightsMailboxEvaluationsTypeDef",
+    "EmailAddressInsightsVerdictTypeDef",
     "EmailContentTypeDef",
     "EmailInsightsTypeDef",
     "EmailTemplateContentTypeDef",
@@ -192,6 +204,8 @@ __all__ = (
     "GetDomainDeliverabilityCampaignResponseTypeDef",
     "GetDomainStatisticsReportRequestTypeDef",
     "GetDomainStatisticsReportResponseTypeDef",
+    "GetEmailAddressInsightsRequestTypeDef",
+    "GetEmailAddressInsightsResponseTypeDef",
     "GetEmailIdentityPoliciesRequestTypeDef",
     "GetEmailIdentityPoliciesResponseTypeDef",
     "GetEmailIdentityRequestTypeDef",
@@ -206,8 +220,12 @@ __all__ = (
     "GetMessageInsightsResponseTypeDef",
     "GetMultiRegionEndpointRequestTypeDef",
     "GetMultiRegionEndpointResponseTypeDef",
+    "GetReputationEntityRequestTypeDef",
+    "GetReputationEntityResponseTypeDef",
     "GetSuppressedDestinationRequestTypeDef",
     "GetSuppressedDestinationResponseTypeDef",
+    "GetTenantRequestTypeDef",
+    "GetTenantResponseTypeDef",
     "GuardianAttributesTypeDef",
     "GuardianOptionsTypeDef",
     "IdentityInfoTypeDef",
@@ -249,11 +267,24 @@ __all__ = (
     "ListMultiRegionEndpointsResponseTypeDef",
     "ListRecommendationsRequestTypeDef",
     "ListRecommendationsResponseTypeDef",
+    "ListReputationEntitiesRequestPaginateTypeDef",
+    "ListReputationEntitiesRequestTypeDef",
+    "ListReputationEntitiesResponseTypeDef",
+    "ListResourceTenantsRequestPaginateTypeDef",
+    "ListResourceTenantsRequestTypeDef",
+    "ListResourceTenantsResponseTypeDef",
     "ListSuppressedDestinationsRequestTypeDef",
     "ListSuppressedDestinationsResponseTypeDef",
     "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTenantResourcesRequestPaginateTypeDef",
+    "ListTenantResourcesRequestTypeDef",
+    "ListTenantResourcesResponseTypeDef",
+    "ListTenantsRequestPaginateTypeDef",
+    "ListTenantsRequestTypeDef",
+    "ListTenantsResponseTypeDef",
     "MailFromAttributesTypeDef",
+    "MailboxValidationTypeDef",
     "MessageHeaderTypeDef",
     "MessageInsightsDataSourceOutputTypeDef",
     "MessageInsightsDataSourceTypeDef",
@@ -297,9 +328,11 @@ __all__ = (
     "RecommendationTypeDef",
     "ReplacementEmailContentTypeDef",
     "ReplacementTemplateTypeDef",
+    "ReputationEntityTypeDef",
     "ReputationOptionsOutputTypeDef",
     "ReputationOptionsTypeDef",
     "ReputationOptionsUnionTypeDef",
+    "ResourceTenantMetadataTypeDef",
     "ResponseMetadataTypeDef",
     "ReviewDetailsTypeDef",
     "RouteDetailsTypeDef",
@@ -314,17 +347,25 @@ __all__ = (
     "SendQuotaTypeDef",
     "SendingOptionsTypeDef",
     "SnsDestinationTypeDef",
+    "StatusRecordTypeDef",
     "SuppressedDestinationAttributesTypeDef",
     "SuppressedDestinationSummaryTypeDef",
     "SuppressedDestinationTypeDef",
     "SuppressionAttributesTypeDef",
+    "SuppressionConditionThresholdTypeDef",
+    "SuppressionConfidenceThresholdTypeDef",
     "SuppressionListDestinationTypeDef",
     "SuppressionOptionsOutputTypeDef",
     "SuppressionOptionsTypeDef",
     "SuppressionOptionsUnionTypeDef",
+    "SuppressionValidationAttributesTypeDef",
+    "SuppressionValidationOptionsTypeDef",
     "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TemplateTypeDef",
+    "TenantInfoTypeDef",
+    "TenantResourceTypeDef",
+    "TenantTypeDef",
     "TestRenderEmailTemplateRequestTypeDef",
     "TestRenderEmailTemplateResponseTypeDef",
     "TimestampTypeDef",
@@ -339,6 +380,8 @@ __all__ = (
     "UpdateCustomVerificationEmailTemplateRequestTypeDef",
     "UpdateEmailIdentityPolicyRequestTypeDef",
     "UpdateEmailTemplateRequestTypeDef",
+    "UpdateReputationEntityCustomerManagedStatusRequestTypeDef",
+    "UpdateReputationEntityPolicyRequestTypeDef",
     "VdmAttributesTypeDef",
     "VdmOptionsTypeDef",
     "VerificationInfoTypeDef",
@@ -450,14 +493,6 @@ class TopicTypeDef(TypedDict):
     DefaultSubscriptionStatus: SubscriptionStatusType
     Description: NotRequired[str]
 
-class CreateCustomVerificationEmailTemplateRequestTypeDef(TypedDict):
-    TemplateName: str
-    FromEmailAddress: str
-    TemplateSubject: str
-    TemplateContent: str
-    SuccessRedirectionURL: str
-    FailureRedirectionURL: str
-
 class CreateEmailIdentityPolicyRequestTypeDef(TypedDict):
     EmailIdentity: str
     PolicyName: str
@@ -473,6 +508,7 @@ class DkimAttributesTypeDef(TypedDict):
     SigningEnabled: NotRequired[bool]
     Status: NotRequired[DkimStatusType]
     Tokens: NotRequired[List[str]]
+    SigningHostedZone: NotRequired[str]
     SigningAttributesOrigin: NotRequired[DkimSigningAttributesOriginType]
     NextSigningKeyLength: NotRequired[DkimSigningKeyLengthType]
     CurrentSigningKeyLength: NotRequired[DkimSigningKeyLengthType]
@@ -494,6 +530,10 @@ class ExportDestinationTypeDef(TypedDict):
 class ImportDataSourceTypeDef(TypedDict):
     S3Url: str
     DataFormat: DataFormatType
+
+class CreateTenantResourceAssociationRequestTypeDef(TypedDict):
+    TenantName: str
+    ResourceArn: str
 
 class CustomVerificationEmailTemplateMetadataTypeDef(TypedDict):
     TemplateName: NotRequired[str]
@@ -567,6 +607,13 @@ class DeleteMultiRegionEndpointRequestTypeDef(TypedDict):
 class DeleteSuppressedDestinationRequestTypeDef(TypedDict):
     EmailAddress: str
 
+class DeleteTenantRequestTypeDef(TypedDict):
+    TenantName: str
+
+class DeleteTenantResourceAssociationRequestTypeDef(TypedDict):
+    TenantName: str
+    ResourceArn: str
+
 class DeliverabilityTestReportTypeDef(TypedDict):
     ReportId: NotRequired[str]
     ReportName: NotRequired[str]
@@ -597,6 +644,9 @@ class DomainDeliverabilityCampaignTypeDef(TypedDict):
 class InboxPlacementTrackingOptionOutputTypeDef(TypedDict):
     Global: NotRequired[bool]
     TrackedIsps: NotRequired[List[str]]
+
+class EmailAddressInsightsVerdictTypeDef(TypedDict):
+    ConfidenceVerdict: NotRequired[EmailAddressInsightsConfidenceVerdictType]
 
 class EmailTemplateMetadataTypeDef(TypedDict):
     TemplateName: NotRequired[str]
@@ -639,9 +689,6 @@ class SendQuotaTypeDef(TypedDict):
     MaxSendRate: NotRequired[float]
     SentLast24Hours: NotRequired[float]
 
-class SuppressionAttributesTypeDef(TypedDict):
-    SuppressedReasons: NotRequired[List[SuppressionListReasonType]]
-
 class GetBlacklistReportsRequestTypeDef(TypedDict):
     BlacklistItemNames: Sequence[str]
 
@@ -654,9 +701,6 @@ class GetConfigurationSetRequestTypeDef(TypedDict):
 class ReputationOptionsOutputTypeDef(TypedDict):
     ReputationMetricsEnabled: NotRequired[bool]
     LastFreshStart: NotRequired[datetime]
-
-class SuppressionOptionsOutputTypeDef(TypedDict):
-    SuppressedReasons: NotRequired[List[SuppressionListReasonType]]
 
 class GetContactListRequestTypeDef(TypedDict):
     ContactListName: str
@@ -692,6 +736,9 @@ class PlacementStatisticsTypeDef(TypedDict):
 class GetDomainDeliverabilityCampaignRequestTypeDef(TypedDict):
     CampaignId: str
 
+class GetEmailAddressInsightsRequestTypeDef(TypedDict):
+    EmailAddress: str
+
 class GetEmailIdentityPoliciesRequestTypeDef(TypedDict):
     EmailIdentity: str
 
@@ -721,8 +768,15 @@ class GetMultiRegionEndpointRequestTypeDef(TypedDict):
 class RouteTypeDef(TypedDict):
     Region: str
 
+class GetReputationEntityRequestTypeDef(TypedDict):
+    ReputationEntityReference: str
+    ReputationEntityType: Literal["RESOURCE"]
+
 class GetSuppressedDestinationRequestTypeDef(TypedDict):
     EmailAddress: str
+
+class GetTenantRequestTypeDef(TypedDict):
+    TenantName: str
 
 class GuardianAttributesTypeDef(TypedDict):
     OptimizedSharedDelivery: NotRequired[FeatureStatusType]
@@ -825,6 +879,22 @@ RecommendationTypeDef = TypedDict(
     },
 )
 
+class ListReputationEntitiesRequestTypeDef(TypedDict):
+    Filter: NotRequired[Mapping[ReputationEntityFilterKeyType, str]]
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class ListResourceTenantsRequestTypeDef(TypedDict):
+    ResourceArn: str
+    PageSize: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ResourceTenantMetadataTypeDef(TypedDict):
+    TenantName: NotRequired[str]
+    TenantId: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    AssociatedTimestamp: NotRequired[datetime]
+
 class SuppressedDestinationSummaryTypeDef(TypedDict):
     EmailAddress: str
     Reason: SuppressionListReasonType
@@ -832,6 +902,26 @@ class SuppressedDestinationSummaryTypeDef(TypedDict):
 
 class ListTagsForResourceRequestTypeDef(TypedDict):
     ResourceArn: str
+
+class ListTenantResourcesRequestTypeDef(TypedDict):
+    TenantName: str
+    Filter: NotRequired[Mapping[Literal["RESOURCE_TYPE"], str]]
+    PageSize: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class TenantResourceTypeDef(TypedDict):
+    ResourceType: NotRequired[ResourceTypeType]
+    ResourceArn: NotRequired[str]
+
+class ListTenantsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class TenantInfoTypeDef(TypedDict):
+    TenantName: NotRequired[str]
+    TenantId: NotRequired[str]
+    TenantArn: NotRequired[str]
+    CreatedTimestamp: NotRequired[datetime]
 
 class MessageInsightsFiltersOutputTypeDef(TypedDict):
     FromEmailAddress: NotRequired[List[str]]
@@ -863,9 +953,6 @@ class PutAccountDetailsRequestTypeDef(TypedDict):
 class PutAccountSendingAttributesRequestTypeDef(TypedDict):
     SendingEnabled: NotRequired[bool]
 
-class PutAccountSuppressionAttributesRequestTypeDef(TypedDict):
-    SuppressedReasons: NotRequired[Sequence[SuppressionListReasonType]]
-
 class PutConfigurationSetArchivingOptionsRequestTypeDef(TypedDict):
     ConfigurationSetName: str
     ArchiveArn: NotRequired[str]
@@ -883,10 +970,6 @@ class PutConfigurationSetReputationOptionsRequestTypeDef(TypedDict):
 class PutConfigurationSetSendingOptionsRequestTypeDef(TypedDict):
     ConfigurationSetName: str
     SendingEnabled: NotRequired[bool]
-
-class PutConfigurationSetSuppressionOptionsRequestTypeDef(TypedDict):
-    ConfigurationSetName: str
-    SuppressedReasons: NotRequired[Sequence[SuppressionListReasonType]]
 
 class PutConfigurationSetTrackingOptionsRequestTypeDef(TypedDict):
     ConfigurationSetName: str
@@ -929,6 +1012,11 @@ class PutSuppressedDestinationRequestTypeDef(TypedDict):
 class ReplacementTemplateTypeDef(TypedDict):
     ReplacementTemplateData: NotRequired[str]
 
+class StatusRecordTypeDef(TypedDict):
+    Status: NotRequired[SendingStatusType]
+    Cause: NotRequired[str]
+    LastUpdatedTimestamp: NotRequired[datetime]
+
 class SOARecordTypeDef(TypedDict):
     PrimaryNameServer: NotRequired[str]
     AdminEmail: NotRequired[str]
@@ -943,8 +1031,8 @@ class SuppressedDestinationAttributesTypeDef(TypedDict):
     MessageId: NotRequired[str]
     FeedbackId: NotRequired[str]
 
-class SuppressionOptionsTypeDef(TypedDict):
-    SuppressedReasons: NotRequired[Sequence[SuppressionListReasonType]]
+class SuppressionConfidenceThresholdTypeDef(TypedDict):
+    ConfidenceVerdictThreshold: SuppressionConfidenceVerdictThresholdType
 
 class TestRenderEmailTemplateRequestTypeDef(TypedDict):
     TemplateName: str
@@ -966,6 +1054,16 @@ class UpdateEmailIdentityPolicyRequestTypeDef(TypedDict):
     EmailIdentity: str
     PolicyName: str
     Policy: str
+
+class UpdateReputationEntityCustomerManagedStatusRequestTypeDef(TypedDict):
+    ReputationEntityType: Literal["RESOURCE"]
+    ReputationEntityReference: str
+    SendingStatus: SendingStatusType
+
+class UpdateReputationEntityPolicyRequestTypeDef(TypedDict):
+    ReputationEntityType: Literal["RESOURCE"]
+    ReputationEntityReference: str
+    ReputationEntityPolicy: str
 
 class AccountDetailsTypeDef(TypedDict):
     MailType: NotRequired[MailTypeType]
@@ -1045,15 +1143,6 @@ class DeleteMultiRegionEndpointResponseTypeDef(TypedDict):
     Status: StatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCustomVerificationEmailTemplateResponseTypeDef(TypedDict):
-    TemplateName: str
-    FromEmailAddress: str
-    TemplateSubject: str
-    TemplateContent: str
-    SuccessRedirectionURL: str
-    FailureRedirectionURL: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
 class GetEmailIdentityPoliciesResponseTypeDef(TypedDict):
     Policies: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1071,6 +1160,7 @@ class ListDedicatedIpPoolsResponseTypeDef(TypedDict):
 class PutEmailIdentityDkimSigningAttributesResponseTypeDef(TypedDict):
     DkimStatus: DkimStatusType
     DkimTokens: List[str]
+    SigningHostedZone: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class SendCustomVerificationEmailResponseTypeDef(TypedDict):
@@ -1148,10 +1238,42 @@ class UpdateContactRequestTypeDef(TypedDict):
     UnsubscribeAll: NotRequired[bool]
     AttributesData: NotRequired[str]
 
+class CreateCustomVerificationEmailTemplateRequestTypeDef(TypedDict):
+    TemplateName: str
+    FromEmailAddress: str
+    TemplateSubject: str
+    TemplateContent: str
+    SuccessRedirectionURL: str
+    FailureRedirectionURL: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
 class CreateDedicatedIpPoolRequestTypeDef(TypedDict):
     PoolName: str
     Tags: NotRequired[Sequence[TagTypeDef]]
     ScalingMode: NotRequired[ScalingModeType]
+
+class CreateTenantRequestTypeDef(TypedDict):
+    TenantName: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateTenantResponseTypeDef(TypedDict):
+    TenantName: str
+    TenantId: str
+    TenantArn: str
+    CreatedTimestamp: datetime
+    Tags: List[TagTypeDef]
+    SendingStatus: SendingStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCustomVerificationEmailTemplateResponseTypeDef(TypedDict):
+    TemplateName: str
+    FromEmailAddress: str
+    TemplateSubject: str
+    TemplateContent: str
+    Tags: List[TagTypeDef]
+    SuccessRedirectionURL: str
+    FailureRedirectionURL: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListTagsForResourceResponseTypeDef(TypedDict):
     Tags: List[TagTypeDef]
@@ -1160,6 +1282,14 @@ class ListTagsForResourceResponseTypeDef(TypedDict):
 class TagResourceRequestTypeDef(TypedDict):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
+
+class TenantTypeDef(TypedDict):
+    TenantName: NotRequired[str]
+    TenantId: NotRequired[str]
+    TenantArn: NotRequired[str]
+    CreatedTimestamp: NotRequired[datetime]
+    Tags: NotRequired[List[TagTypeDef]]
+    SendingStatus: NotRequired[SendingStatusType]
 
 class CreateContactListRequestTypeDef(TypedDict):
     ContactListName: str
@@ -1201,10 +1331,12 @@ class CreateEmailIdentityResponseTypeDef(TypedDict):
 class CreateEmailTemplateRequestTypeDef(TypedDict):
     TemplateName: str
     TemplateContent: EmailTemplateContentTypeDef
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
 class GetEmailTemplateResponseTypeDef(TypedDict):
     TemplateName: str
     TemplateContent: EmailTemplateContentTypeDef
+    Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateEmailTemplateRequestTypeDef(TypedDict):
@@ -1260,6 +1392,14 @@ class DomainDeliverabilityTrackingOptionOutputTypeDef(TypedDict):
     Domain: NotRequired[str]
     SubscriptionStartDate: NotRequired[datetime]
     InboxPlacementTrackingOption: NotRequired[InboxPlacementTrackingOptionOutputTypeDef]
+
+class EmailAddressInsightsMailboxEvaluationsTypeDef(TypedDict):
+    HasValidSyntax: NotRequired[EmailAddressInsightsVerdictTypeDef]
+    HasValidDnsRecords: NotRequired[EmailAddressInsightsVerdictTypeDef]
+    MailboxExists: NotRequired[EmailAddressInsightsVerdictTypeDef]
+    IsRoleAddress: NotRequired[EmailAddressInsightsVerdictTypeDef]
+    IsDisposable: NotRequired[EmailAddressInsightsVerdictTypeDef]
+    IsRandomInput: NotRequired[EmailAddressInsightsVerdictTypeDef]
 
 class ListEmailTemplatesResponseTypeDef(TypedDict):
     TemplatesMetadata: List[EmailTemplateMetadataTypeDef]
@@ -1327,6 +1467,22 @@ class ListContactsFilterTypeDef(TypedDict):
 class ListMultiRegionEndpointsRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListReputationEntitiesRequestPaginateTypeDef(TypedDict):
+    Filter: NotRequired[Mapping[ReputationEntityFilterKeyType, str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceTenantsRequestPaginateTypeDef(TypedDict):
+    ResourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTenantResourcesRequestPaginateTypeDef(TypedDict):
+    TenantName: str
+    Filter: NotRequired[Mapping[Literal["RESOURCE_TYPE"], str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTenantsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class ListMultiRegionEndpointsResponseTypeDef(TypedDict):
     MultiRegionEndpoints: List[MultiRegionEndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1337,8 +1493,23 @@ class ListRecommendationsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class ListResourceTenantsResponseTypeDef(TypedDict):
+    ResourceTenants: List[ResourceTenantMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
 class ListSuppressedDestinationsResponseTypeDef(TypedDict):
     SuppressedDestinationSummaries: List[SuppressedDestinationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTenantResourcesResponseTypeDef(TypedDict):
+    TenantResources: List[TenantResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTenantsResponseTypeDef(TypedDict):
+    Tenants: List[TenantInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
@@ -1359,6 +1530,15 @@ class MessageInsightsDataSourceTypeDef(TypedDict):
 class ReplacementEmailContentTypeDef(TypedDict):
     ReplacementTemplate: NotRequired[ReplacementTemplateTypeDef]
 
+class ReputationEntityTypeDef(TypedDict):
+    ReputationEntityReference: NotRequired[str]
+    ReputationEntityType: NotRequired[Literal["RESOURCE"]]
+    ReputationManagementPolicy: NotRequired[str]
+    CustomerManagedStatus: NotRequired[StatusRecordTypeDef]
+    AwsSesManagedStatus: NotRequired[StatusRecordTypeDef]
+    SendingStatusAggregate: NotRequired[SendingStatusType]
+    ReputationImpact: NotRequired[RecommendationImpactType]
+
 class VerificationInfoTypeDef(TypedDict):
     LastCheckedTimestamp: NotRequired[datetime]
     LastSuccessTimestamp: NotRequired[datetime]
@@ -1371,7 +1551,9 @@ class SuppressedDestinationTypeDef(TypedDict):
     LastUpdateTime: datetime
     Attributes: NotRequired[SuppressedDestinationAttributesTypeDef]
 
-SuppressionOptionsUnionTypeDef = Union[SuppressionOptionsTypeDef, SuppressionOptionsOutputTypeDef]
+class SuppressionConditionThresholdTypeDef(TypedDict):
+    ConditionThresholdEnabled: FeatureStatusType
+    OverallConfidenceThreshold: NotRequired[SuppressionConfidenceThresholdTypeDef]
 
 class TemplateTypeDef(TypedDict):
     TemplateName: NotRequired[str]
@@ -1419,6 +1601,10 @@ class ListContactsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class GetTenantResponseTypeDef(TypedDict):
+    Tenant: TenantTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class GetDomainStatisticsReportResponseTypeDef(TypedDict):
     OverallVolume: OverallVolumeTypeDef
     DailyVolumes: List[DailyVolumeTypeDef]
@@ -1437,6 +1623,10 @@ class GetDeliverabilityDashboardOptionsResponseTypeDef(TypedDict):
     PendingExpirationSubscribedDomains: List[DomainDeliverabilityTrackingOptionOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+class MailboxValidationTypeDef(TypedDict):
+    IsValid: NotRequired[EmailAddressInsightsVerdictTypeDef]
+    Evaluations: NotRequired[EmailAddressInsightsMailboxEvaluationsTypeDef]
+
 class GetDeliverabilityTestReportResponseTypeDef(TypedDict):
     DeliverabilityTestReport: DeliverabilityTestReportTypeDef
     OverallPlacement: PlacementStatisticsTypeDef
@@ -1445,31 +1635,8 @@ class GetDeliverabilityTestReportResponseTypeDef(TypedDict):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccountResponseTypeDef(TypedDict):
-    DedicatedIpAutoWarmupEnabled: bool
-    EnforcementStatus: str
-    ProductionAccessEnabled: bool
-    SendQuota: SendQuotaTypeDef
-    SendingEnabled: bool
-    SuppressionAttributes: SuppressionAttributesTypeDef
-    Details: AccountDetailsTypeDef
-    VdmAttributes: VdmAttributesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
 class PutAccountVdmAttributesRequestTypeDef(TypedDict):
     VdmAttributes: VdmAttributesTypeDef
-
-class GetConfigurationSetResponseTypeDef(TypedDict):
-    ConfigurationSetName: str
-    TrackingOptions: TrackingOptionsTypeDef
-    DeliveryOptions: DeliveryOptionsTypeDef
-    ReputationOptions: ReputationOptionsOutputTypeDef
-    SendingOptions: SendingOptionsTypeDef
-    Tags: List[TagTypeDef]
-    SuppressionOptions: SuppressionOptionsOutputTypeDef
-    VdmOptions: VdmOptionsTypeDef
-    ArchivingOptions: ArchivingOptionsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class PutConfigurationSetVdmOptionsRequestTypeDef(TypedDict):
     ConfigurationSetName: str
@@ -1524,6 +1691,15 @@ class BulkEmailEntryTypeDef(TypedDict):
     ReplacementEmailContent: NotRequired[ReplacementEmailContentTypeDef]
     ReplacementHeaders: NotRequired[Sequence[MessageHeaderTypeDef]]
 
+class GetReputationEntityResponseTypeDef(TypedDict):
+    ReputationEntity: ReputationEntityTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListReputationEntitiesResponseTypeDef(TypedDict):
+    ReputationEntities: List[ReputationEntityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
 class GetEmailIdentityResponseTypeDef(TypedDict):
     IdentityType: IdentityTypeType
     FeedbackForwardingStatus: bool
@@ -1541,19 +1717,14 @@ class GetSuppressedDestinationResponseTypeDef(TypedDict):
     SuppressedDestination: SuppressedDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+class SuppressionValidationAttributesTypeDef(TypedDict):
+    ConditionThreshold: SuppressionConditionThresholdTypeDef
+
+class SuppressionValidationOptionsTypeDef(TypedDict):
+    ConditionThreshold: SuppressionConditionThresholdTypeDef
+
 class BulkEmailContentTypeDef(TypedDict):
     Template: NotRequired[TemplateTypeDef]
-
-class CreateConfigurationSetRequestTypeDef(TypedDict):
-    ConfigurationSetName: str
-    TrackingOptions: NotRequired[TrackingOptionsTypeDef]
-    DeliveryOptions: NotRequired[DeliveryOptionsTypeDef]
-    ReputationOptions: NotRequired[ReputationOptionsUnionTypeDef]
-    SendingOptions: NotRequired[SendingOptionsTypeDef]
-    Tags: NotRequired[Sequence[TagTypeDef]]
-    SuppressionOptions: NotRequired[SuppressionOptionsUnionTypeDef]
-    VdmOptions: NotRequired[VdmOptionsTypeDef]
-    ArchivingOptions: NotRequired[ArchivingOptionsTypeDef]
 
 class EmailContentTypeDef(TypedDict):
     Simple: NotRequired[MessageTypeDef]
@@ -1578,6 +1749,10 @@ class EmailInsightsTypeDef(TypedDict):
     Isp: NotRequired[str]
     Events: NotRequired[List[InsightsEventTypeDef]]
 
+class GetEmailAddressInsightsResponseTypeDef(TypedDict):
+    MailboxValidation: MailboxValidationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class ListImportJobsResponseTypeDef(TypedDict):
     ImportJobs: List[ImportJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1601,6 +1776,27 @@ class GetExportJobResponseTypeDef(TypedDict):
 
 ExportDataSourceUnionTypeDef = Union[ExportDataSourceTypeDef, ExportDataSourceOutputTypeDef]
 
+class PutAccountSuppressionAttributesRequestTypeDef(TypedDict):
+    SuppressedReasons: NotRequired[Sequence[SuppressionListReasonType]]
+    ValidationAttributes: NotRequired[SuppressionValidationAttributesTypeDef]
+
+class SuppressionAttributesTypeDef(TypedDict):
+    SuppressedReasons: NotRequired[List[SuppressionListReasonType]]
+    ValidationAttributes: NotRequired[SuppressionValidationAttributesTypeDef]
+
+class PutConfigurationSetSuppressionOptionsRequestTypeDef(TypedDict):
+    ConfigurationSetName: str
+    SuppressedReasons: NotRequired[Sequence[SuppressionListReasonType]]
+    ValidationOptions: NotRequired[SuppressionValidationOptionsTypeDef]
+
+class SuppressionOptionsOutputTypeDef(TypedDict):
+    SuppressedReasons: NotRequired[List[SuppressionListReasonType]]
+    ValidationOptions: NotRequired[SuppressionValidationOptionsTypeDef]
+
+class SuppressionOptionsTypeDef(TypedDict):
+    SuppressedReasons: NotRequired[Sequence[SuppressionListReasonType]]
+    ValidationOptions: NotRequired[SuppressionValidationOptionsTypeDef]
+
 class SendBulkEmailRequestTypeDef(TypedDict):
     DefaultContent: BulkEmailContentTypeDef
     BulkEmailEntries: Sequence[BulkEmailEntryTypeDef]
@@ -1612,6 +1808,7 @@ class SendBulkEmailRequestTypeDef(TypedDict):
     DefaultEmailTags: NotRequired[Sequence[MessageTagTypeDef]]
     ConfigurationSetName: NotRequired[str]
     EndpointId: NotRequired[str]
+    TenantName: NotRequired[str]
 
 class CreateDeliverabilityTestReportRequestTypeDef(TypedDict):
     FromEmailAddress: str
@@ -1630,6 +1827,7 @@ class SendEmailRequestTypeDef(TypedDict):
     EmailTags: NotRequired[Sequence[MessageTagTypeDef]]
     ConfigurationSetName: NotRequired[str]
     EndpointId: NotRequired[str]
+    TenantName: NotRequired[str]
     ListManagementOptions: NotRequired[ListManagementOptionsTypeDef]
 
 class CreateConfigurationSetEventDestinationRequestTypeDef(TypedDict):
@@ -1657,3 +1855,39 @@ class PutDeliverabilityDashboardOptionRequestTypeDef(TypedDict):
 class CreateExportJobRequestTypeDef(TypedDict):
     ExportDataSource: ExportDataSourceUnionTypeDef
     ExportDestination: ExportDestinationTypeDef
+
+class GetAccountResponseTypeDef(TypedDict):
+    DedicatedIpAutoWarmupEnabled: bool
+    EnforcementStatus: str
+    ProductionAccessEnabled: bool
+    SendQuota: SendQuotaTypeDef
+    SendingEnabled: bool
+    SuppressionAttributes: SuppressionAttributesTypeDef
+    Details: AccountDetailsTypeDef
+    VdmAttributes: VdmAttributesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConfigurationSetResponseTypeDef(TypedDict):
+    ConfigurationSetName: str
+    TrackingOptions: TrackingOptionsTypeDef
+    DeliveryOptions: DeliveryOptionsTypeDef
+    ReputationOptions: ReputationOptionsOutputTypeDef
+    SendingOptions: SendingOptionsTypeDef
+    Tags: List[TagTypeDef]
+    SuppressionOptions: SuppressionOptionsOutputTypeDef
+    VdmOptions: VdmOptionsTypeDef
+    ArchivingOptions: ArchivingOptionsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+SuppressionOptionsUnionTypeDef = Union[SuppressionOptionsTypeDef, SuppressionOptionsOutputTypeDef]
+
+class CreateConfigurationSetRequestTypeDef(TypedDict):
+    ConfigurationSetName: str
+    TrackingOptions: NotRequired[TrackingOptionsTypeDef]
+    DeliveryOptions: NotRequired[DeliveryOptionsTypeDef]
+    ReputationOptions: NotRequired[ReputationOptionsUnionTypeDef]
+    SendingOptions: NotRequired[SendingOptionsTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    SuppressionOptions: NotRequired[SuppressionOptionsUnionTypeDef]
+    VdmOptions: NotRequired[VdmOptionsTypeDef]
+    ArchivingOptions: NotRequired[ArchivingOptionsTypeDef]

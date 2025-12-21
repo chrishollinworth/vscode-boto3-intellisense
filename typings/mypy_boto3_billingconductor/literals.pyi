@@ -25,6 +25,8 @@ __all__ = (
     "AssociateResourceErrorReasonType",
     "BillingConductorServiceName",
     "BillingGroupStatusType",
+    "BillingGroupTypeType",
+    "ComputationRuleEnumType",
     "CurrencyCodeType",
     "CustomLineItemRelationshipType",
     "CustomLineItemTypeType",
@@ -46,6 +48,7 @@ __all__ = (
     "PricingRuleScopeType",
     "PricingRuleTypeType",
     "ResourceServiceName",
+    "SearchOptionType",
     "ServiceName",
 )
 
@@ -56,12 +59,14 @@ AssociateResourceErrorReasonType = Literal[
     "INVALID_BILLING_PERIOD_RANGE",
     "SERVICE_LIMIT_EXCEEDED",
 ]
-BillingGroupStatusType = Literal["ACTIVE", "PRIMARY_ACCOUNT_MISSING"]
+BillingGroupStatusType = Literal["ACTIVE", "PENDING", "PRIMARY_ACCOUNT_MISSING"]
+BillingGroupTypeType = Literal["STANDARD", "TRANSFER_BILLING"]
+ComputationRuleEnumType = Literal["CONSOLIDATED", "ITEMIZED"]
 CurrencyCodeType = Literal["CNY", "USD"]
 CustomLineItemRelationshipType = Literal["CHILD", "PARENT"]
 CustomLineItemTypeType = Literal["CREDIT", "FEE"]
 GroupByAttributeNameType = Literal["BILLING_PERIOD", "PRODUCT_NAME"]
-LineItemFilterAttributeNameType = Literal["LINE_ITEM_TYPE"]
+LineItemFilterAttributeNameType = Literal["LINE_ITEM_TYPE", "SERVICE"]
 LineItemFilterValueType = Literal["SAVINGS_PLAN_NEGATION"]
 ListAccountAssociationsPaginatorName = Literal["list_account_associations"]
 ListBillingGroupCostReportsPaginatorName = Literal["list_billing_group_cost_reports"]
@@ -79,15 +84,17 @@ ListPricingRulesPaginatorName = Literal["list_pricing_rules"]
 ListResourcesAssociatedToCustomLineItemPaginatorName = Literal[
     "list_resources_associated_to_custom_line_item"
 ]
-MatchOptionType = Literal["NOT_EQUAL"]
+MatchOptionType = Literal["EQUAL", "NOT_EQUAL"]
 PricingRuleScopeType = Literal["BILLING_ENTITY", "GLOBAL", "SERVICE", "SKU"]
 PricingRuleTypeType = Literal["DISCOUNT", "MARKUP", "TIERING"]
+SearchOptionType = Literal["STARTS_WITH"]
 BillingConductorServiceName = Literal["billingconductor"]
 ServiceName = Literal[
     "accessanalyzer",
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -108,7 +115,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -120,11 +127,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -173,6 +184,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -228,6 +240,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -270,7 +283,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -285,6 +297,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -308,8 +321,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -340,9 +351,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -352,17 +365,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -380,13 +396,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -401,20 +414,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -439,8 +454,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -480,26 +495,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_account_associations",

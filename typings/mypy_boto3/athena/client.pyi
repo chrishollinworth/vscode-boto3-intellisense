@@ -88,6 +88,10 @@ from .type_defs import (
     GetQueryResultsOutputTypeDef,
     GetQueryRuntimeStatisticsInputTypeDef,
     GetQueryRuntimeStatisticsOutputTypeDef,
+    GetResourceDashboardRequestTypeDef,
+    GetResourceDashboardResponseTypeDef,
+    GetSessionEndpointRequestTypeDef,
+    GetSessionEndpointResponseTypeDef,
     GetSessionRequestTypeDef,
     GetSessionResponseTypeDef,
     GetSessionStatusRequestTypeDef,
@@ -523,6 +527,16 @@ class AthenaClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/client/#get_query_runtime_statistics)
         """
 
+    def get_resource_dashboard(
+        self, **kwargs: Unpack[GetResourceDashboardRequestTypeDef]
+    ) -> GetResourceDashboardResponseTypeDef:
+        """
+        Gets the Live UI/Persistence UI for a session.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/client/get_resource_dashboard.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/client/#get_resource_dashboard)
+        """
+
     def get_session(self, **kwargs: Unpack[GetSessionRequestTypeDef]) -> GetSessionResponseTypeDef:
         """
         Gets the full details of a previously created session, including the session
@@ -530,6 +544,16 @@ class AthenaClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/client/get_session.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/client/#get_session)
+        """
+
+    def get_session_endpoint(
+        self, **kwargs: Unpack[GetSessionEndpointRequestTypeDef]
+    ) -> GetSessionEndpointResponseTypeDef:
+        """
+        Gets a connection endpoint and authentication token for a given session Id.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/client/get_session_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/client/#get_session_endpoint)
         """
 
     def get_session_status(

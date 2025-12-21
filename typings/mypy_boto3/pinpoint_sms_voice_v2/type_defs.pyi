@@ -40,6 +40,7 @@ from .literals import (
     NumberTypeType,
     OwnerType,
     PhoneNumberFilterNameType,
+    PhoneNumberTypeType,
     PoolFilterNameType,
     PoolOriginationIdentitiesFilterNameType,
     PoolStatusType,
@@ -82,6 +83,8 @@ __all__ = (
     "AssociateProtectConfigurationRequestTypeDef",
     "AssociateProtectConfigurationResultTypeDef",
     "BlobTypeDef",
+    "CarrierLookupRequestTypeDef",
+    "CarrierLookupResultTypeDef",
     "CloudWatchLogsDestinationTypeDef",
     "ConfigurationSetFilterTypeDef",
     "ConfigurationSetInformationTypeDef",
@@ -358,6 +361,9 @@ class AssociateProtectConfigurationRequestTypeDef(TypedDict):
 
 BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
+class CarrierLookupRequestTypeDef(TypedDict):
+    PhoneNumber: str
+
 class CloudWatchLogsDestinationTypeDef(TypedDict):
     IamRoleArn: str
     LogGroupArn: str
@@ -508,6 +514,7 @@ class PhoneNumberInformationTypeDef(TypedDict):
     PhoneNumberId: NotRequired[str]
     TwoWayChannelArn: NotRequired[str]
     TwoWayChannelRole: NotRequired[str]
+    InternationalSendingEnabled: NotRequired[bool]
     PoolId: NotRequired[str]
     RegistrationId: NotRequired[str]
 
@@ -869,6 +876,7 @@ class UpdatePhoneNumberRequestTypeDef(TypedDict):
     TwoWayChannelRole: NotRequired[str]
     SelfManagedOptOutsEnabled: NotRequired[bool]
     OptOutListName: NotRequired[str]
+    InternationalSendingEnabled: NotRequired[bool]
     DeletionProtectionEnabled: NotRequired[bool]
 
 class UpdatePoolRequestTypeDef(TypedDict):
@@ -907,6 +915,17 @@ class AssociateProtectConfigurationResultTypeDef(TypedDict):
     ConfigurationSetName: str
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CarrierLookupResultTypeDef(TypedDict):
+    E164PhoneNumber: str
+    DialingCountryCode: str
+    IsoCountryCode: str
+    Country: str
+    MCC: str
+    MNC: str
+    Carrier: str
+    PhoneNumberType: PhoneNumberTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateRegistrationAssociationResultTypeDef(TypedDict):
@@ -1219,6 +1238,7 @@ class UpdatePhoneNumberResultTypeDef(TypedDict):
     TwoWayChannelRole: str
     SelfManagedOptOutsEnabled: bool
     OptOutListName: str
+    InternationalSendingEnabled: bool
     DeletionProtectionEnabled: bool
     RegistrationId: str
     CreatedTimestamp: datetime
@@ -1391,6 +1411,7 @@ class RequestPhoneNumberRequestTypeDef(TypedDict):
     OptOutListName: NotRequired[str]
     PoolId: NotRequired[str]
     RegistrationId: NotRequired[str]
+    InternationalSendingEnabled: NotRequired[bool]
     DeletionProtectionEnabled: NotRequired[bool]
     Tags: NotRequired[Sequence[TagTypeDef]]
     ClientToken: NotRequired[str]
@@ -1410,6 +1431,7 @@ class RequestPhoneNumberResultTypeDef(TypedDict):
     TwoWayChannelRole: str
     SelfManagedOptOutsEnabled: bool
     OptOutListName: str
+    InternationalSendingEnabled: bool
     DeletionProtectionEnabled: bool
     PoolId: str
     RegistrationId: str

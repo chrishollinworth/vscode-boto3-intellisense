@@ -19,7 +19,7 @@ Usage::
 from __future__ import annotations
 
 import sys
-from typing import Any
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
 from botocore.errorfactory import BaseClientExceptions
@@ -51,6 +51,12 @@ from .type_defs import (
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
 )
+from .waiter import (
+    FHIRDatastoreActiveWaiter,
+    FHIRDatastoreDeletedWaiter,
+    FHIRExportJobCompletedWaiter,
+    FHIRImportJobCompletedWaiter,
+)
 
 if sys.version_info >= (3, 9):
     from builtins import dict as Dict
@@ -59,9 +65,9 @@ if sys.version_info >= (3, 9):
 else:
     from typing import Dict, Mapping, Type
 if sys.version_info >= (3, 12):
-    from typing import Unpack
+    from typing import Literal, Unpack
 else:
-    from typing_extensions import Unpack
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("HealthLakeClient",)
 
@@ -113,7 +119,7 @@ class HealthLakeClient(BaseClient):
         self, **kwargs: Unpack[CreateFHIRDatastoreRequestTypeDef]
     ) -> CreateFHIRDatastoreResponseTypeDef:
         """
-        Creates a data store that can ingest and export FHIR formatted data.
+        Create a FHIR-enabled data store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/create_fhir_datastore.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#create_fhir_datastore)
@@ -123,7 +129,7 @@ class HealthLakeClient(BaseClient):
         self, **kwargs: Unpack[DeleteFHIRDatastoreRequestTypeDef]
     ) -> DeleteFHIRDatastoreResponseTypeDef:
         """
-        Deletes a data store.
+        Delete a FHIR-enabled data store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/delete_fhir_datastore.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#delete_fhir_datastore)
@@ -133,9 +139,7 @@ class HealthLakeClient(BaseClient):
         self, **kwargs: Unpack[DescribeFHIRDatastoreRequestTypeDef]
     ) -> DescribeFHIRDatastoreResponseTypeDef:
         """
-        Gets the properties associated with the FHIR data store, including the data
-        store ID, data store ARN, data store name, data store status, when the data
-        store was created, data store type version, and the data store's endpoint.
+        Get properties for a FHIR-enabled data store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/describe_fhir_datastore.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#describe_fhir_datastore)
@@ -145,8 +149,7 @@ class HealthLakeClient(BaseClient):
         self, **kwargs: Unpack[DescribeFHIRExportJobRequestTypeDef]
     ) -> DescribeFHIRExportJobResponseTypeDef:
         """
-        Displays the properties of a FHIR export job, including the ID, ARN, name, and
-        the status of the job.
+        Get FHIR export job properties.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/describe_fhir_export_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#describe_fhir_export_job)
@@ -156,8 +159,7 @@ class HealthLakeClient(BaseClient):
         self, **kwargs: Unpack[DescribeFHIRImportJobRequestTypeDef]
     ) -> DescribeFHIRImportJobResponseTypeDef:
         """
-        Displays the properties of a FHIR import job, including the ID, ARN, name, and
-        the status of the job.
+        Get the import job properties to learn more about the job or job progress.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/describe_fhir_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#describe_fhir_import_job)
@@ -167,8 +169,8 @@ class HealthLakeClient(BaseClient):
         self, **kwargs: Unpack[ListFHIRDatastoresRequestTypeDef]
     ) -> ListFHIRDatastoresResponseTypeDef:
         """
-        Lists all FHIR data stores that are in the user's account, regardless of data
-        store status.
+        List all FHIR-enabled data stores in a user's account, regardless of data store
+        status.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/list_fhir_datastores.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#list_fhir_datastores)
@@ -188,7 +190,7 @@ class HealthLakeClient(BaseClient):
         self, **kwargs: Unpack[ListFHIRImportJobsRequestTypeDef]
     ) -> ListFHIRImportJobsResponseTypeDef:
         """
-        Lists all FHIR import jobs associated with an account and their statuses.
+        List all FHIR import jobs associated with an account and their statuses.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/list_fhir_import_jobs.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#list_fhir_import_jobs)
@@ -208,7 +210,7 @@ class HealthLakeClient(BaseClient):
         self, **kwargs: Unpack[StartFHIRExportJobRequestTypeDef]
     ) -> StartFHIRExportJobResponseTypeDef:
         """
-        Begins a FHIR export job.
+        Start a FHIR export job.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/start_fhir_export_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#start_fhir_export_job)
@@ -218,7 +220,7 @@ class HealthLakeClient(BaseClient):
         self, **kwargs: Unpack[StartFHIRImportJobRequestTypeDef]
     ) -> StartFHIRImportJobResponseTypeDef:
         """
-        Begins a FHIR Import job.
+        Start importing bulk FHIR data into an ACTIVE data store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/start_fhir_import_job.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#start_fhir_import_job)
@@ -226,7 +228,7 @@ class HealthLakeClient(BaseClient):
 
     def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
-        Adds a user specified key and value tag to a data store.
+        Add a user-specifed key and value tag to a data store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/tag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#tag_resource)
@@ -234,8 +236,52 @@ class HealthLakeClient(BaseClient):
 
     def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
-        Removes tags from a data store.
+        Remove a user-specifed key and value tag from a data store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/untag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#untag_resource)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["fhir_datastore_active"]
+    ) -> FHIRDatastoreActiveWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["fhir_datastore_deleted"]
+    ) -> FHIRDatastoreDeletedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["fhir_export_job_completed"]
+    ) -> FHIRExportJobCompletedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["fhir_import_job_completed"]
+    ) -> FHIRImportJobCompletedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/healthlake/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client/#get_waiter)
         """

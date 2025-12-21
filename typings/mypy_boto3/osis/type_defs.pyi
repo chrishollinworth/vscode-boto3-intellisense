@@ -23,6 +23,7 @@ from typing import Union
 from .literals import (
     ChangeProgressStageStatusesType,
     ChangeProgressStatusesType,
+    PipelineEndpointStatusType,
     PipelineStatusType,
     VpcEndpointManagementType,
 )
@@ -43,9 +44,13 @@ __all__ = (
     "ChangeProgressStageTypeDef",
     "ChangeProgressStatusTypeDef",
     "CloudWatchLogDestinationTypeDef",
+    "CreatePipelineEndpointRequestTypeDef",
+    "CreatePipelineEndpointResponseTypeDef",
     "CreatePipelineRequestTypeDef",
     "CreatePipelineResponseTypeDef",
+    "DeletePipelineEndpointRequestTypeDef",
     "DeletePipelineRequestTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
     "EncryptionAtRestOptionsTypeDef",
     "GetPipelineBlueprintRequestTypeDef",
     "GetPipelineBlueprintResponseTypeDef",
@@ -53,19 +58,37 @@ __all__ = (
     "GetPipelineChangeProgressResponseTypeDef",
     "GetPipelineRequestTypeDef",
     "GetPipelineResponseTypeDef",
+    "GetResourcePolicyRequestTypeDef",
+    "GetResourcePolicyResponseTypeDef",
     "ListPipelineBlueprintsResponseTypeDef",
+    "ListPipelineEndpointConnectionsRequestPaginateTypeDef",
+    "ListPipelineEndpointConnectionsRequestTypeDef",
+    "ListPipelineEndpointConnectionsResponseTypeDef",
+    "ListPipelineEndpointsRequestPaginateTypeDef",
+    "ListPipelineEndpointsRequestTypeDef",
+    "ListPipelineEndpointsResponseTypeDef",
     "ListPipelinesRequestTypeDef",
     "ListPipelinesResponseTypeDef",
     "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LogPublishingOptionsTypeDef",
+    "PaginatorConfigTypeDef",
     "PipelineBlueprintSummaryTypeDef",
     "PipelineBlueprintTypeDef",
     "PipelineDestinationTypeDef",
+    "PipelineEndpointConnectionTypeDef",
+    "PipelineEndpointTypeDef",
+    "PipelineEndpointVpcOptionsOutputTypeDef",
+    "PipelineEndpointVpcOptionsTypeDef",
+    "PipelineEndpointVpcOptionsUnionTypeDef",
     "PipelineStatusReasonTypeDef",
     "PipelineSummaryTypeDef",
     "PipelineTypeDef",
+    "PutResourcePolicyRequestTypeDef",
+    "PutResourcePolicyResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "RevokePipelineEndpointConnectionsRequestTypeDef",
+    "RevokePipelineEndpointConnectionsResponseTypeDef",
     "ServiceVpcEndpointTypeDef",
     "StartPipelineRequestTypeDef",
     "StartPipelineResponseTypeDef",
@@ -98,13 +121,6 @@ class ChangeProgressStageTypeDef(TypedDict):
 class CloudWatchLogDestinationTypeDef(TypedDict):
     LogGroup: str
 
-class EncryptionAtRestOptionsTypeDef(TypedDict):
-    KmsKeyArn: str
-
-class TagTypeDef(TypedDict):
-    Key: str
-    Value: str
-
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
     HTTPStatusCode: int
@@ -112,8 +128,21 @@ class ResponseMetadataTypeDef(TypedDict):
     RetryAttempts: int
     HostId: NotRequired[str]
 
+class EncryptionAtRestOptionsTypeDef(TypedDict):
+    KmsKeyArn: str
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class DeletePipelineEndpointRequestTypeDef(TypedDict):
+    EndpointId: str
+
 class DeletePipelineRequestTypeDef(TypedDict):
     PipelineName: str
+
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
 
 class GetPipelineBlueprintRequestTypeDef(TypedDict):
     BlueprintName: str
@@ -133,12 +162,34 @@ class GetPipelineChangeProgressRequestTypeDef(TypedDict):
 class GetPipelineRequestTypeDef(TypedDict):
     PipelineName: str
 
+class GetResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+
 class PipelineBlueprintSummaryTypeDef(TypedDict):
     BlueprintName: NotRequired[str]
     DisplayName: NotRequired[str]
     DisplayDescription: NotRequired[str]
     Service: NotRequired[str]
     UseCase: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListPipelineEndpointConnectionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class PipelineEndpointConnectionTypeDef(TypedDict):
+    PipelineArn: NotRequired[str]
+    EndpointId: NotRequired[str]
+    Status: NotRequired[PipelineEndpointStatusType]
+    VpcEndpointOwner: NotRequired[str]
+
+class ListPipelineEndpointsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
 class ListPipelinesRequestTypeDef(TypedDict):
     MaxResults: NotRequired[int]
@@ -155,6 +206,14 @@ PipelineDestinationTypeDef = TypedDict(
     },
 )
 
+class PipelineEndpointVpcOptionsOutputTypeDef(TypedDict):
+    SubnetIds: NotRequired[List[str]]
+    SecurityGroupIds: NotRequired[List[str]]
+
+class PipelineEndpointVpcOptionsTypeDef(TypedDict):
+    SubnetIds: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+
 class PipelineStatusReasonTypeDef(TypedDict):
     Description: NotRequired[str]
 
@@ -165,6 +224,14 @@ ServiceVpcEndpointTypeDef = TypedDict(
         "VpcEndpointId": NotRequired[str],
     },
 )
+
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Policy: str
+
+class RevokePipelineEndpointConnectionsRequestTypeDef(TypedDict):
+    PipelineArn: str
+    EndpointIds: Sequence[str]
 
 class StartPipelineRequestTypeDef(TypedDict):
     PipelineName: str
@@ -196,13 +263,34 @@ class LogPublishingOptionsTypeDef(TypedDict):
     IsLoggingEnabled: NotRequired[bool]
     CloudWatchLogDestination: NotRequired[CloudWatchLogDestinationTypeDef]
 
-class TagResourceRequestTypeDef(TypedDict):
-    Arn: str
-    Tags: Sequence[TagTypeDef]
+class CreatePipelineEndpointResponseTypeDef(TypedDict):
+    PipelineArn: str
+    EndpointId: str
+    Status: PipelineEndpointStatusType
+    VpcId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResourcePolicyResponseTypeDef(TypedDict):
+    ResourceArn: str
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResourcePolicyResponseTypeDef(TypedDict):
+    ResourceArn: str
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RevokePipelineEndpointConnectionsResponseTypeDef(TypedDict):
+    PipelineArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListTagsForResourceResponseTypeDef(TypedDict):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    Arn: str
+    Tags: Sequence[TagTypeDef]
 
 class GetPipelineBlueprintResponseTypeDef(TypedDict):
     Blueprint: PipelineBlueprintTypeDef
@@ -212,6 +300,29 @@ class GetPipelineBlueprintResponseTypeDef(TypedDict):
 class ListPipelineBlueprintsResponseTypeDef(TypedDict):
     Blueprints: List[PipelineBlueprintSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPipelineEndpointConnectionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPipelineEndpointsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPipelineEndpointConnectionsResponseTypeDef(TypedDict):
+    PipelineEndpointConnections: List[PipelineEndpointConnectionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PipelineEndpointTypeDef(TypedDict):
+    PipelineArn: NotRequired[str]
+    EndpointId: NotRequired[str]
+    Status: NotRequired[PipelineEndpointStatusType]
+    VpcId: NotRequired[str]
+    VpcOptions: NotRequired[PipelineEndpointVpcOptionsOutputTypeDef]
+    IngestEndpointUrl: NotRequired[str]
+
+PipelineEndpointVpcOptionsUnionTypeDef = Union[
+    PipelineEndpointVpcOptionsTypeDef, PipelineEndpointVpcOptionsOutputTypeDef
+]
 
 class PipelineSummaryTypeDef(TypedDict):
     Status: NotRequired[PipelineStatusType]
@@ -254,6 +365,16 @@ class UpdatePipelineRequestTypeDef(TypedDict):
     LogPublishingOptions: NotRequired[LogPublishingOptionsTypeDef]
     BufferOptions: NotRequired[BufferOptionsTypeDef]
     EncryptionAtRestOptions: NotRequired[EncryptionAtRestOptionsTypeDef]
+    PipelineRoleArn: NotRequired[str]
+
+class ListPipelineEndpointsResponseTypeDef(TypedDict):
+    PipelineEndpoints: List[PipelineEndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreatePipelineEndpointRequestTypeDef(TypedDict):
+    PipelineArn: str
+    VpcOptions: PipelineEndpointVpcOptionsUnionTypeDef
 
 class ListPipelinesResponseTypeDef(TypedDict):
     Pipelines: List[PipelineSummaryTypeDef]
@@ -286,6 +407,7 @@ class PipelineTypeDef(TypedDict):
     ServiceVpcEndpoints: NotRequired[List[ServiceVpcEndpointTypeDef]]
     Destinations: NotRequired[List[PipelineDestinationTypeDef]]
     Tags: NotRequired[List[TagTypeDef]]
+    PipelineRoleArn: NotRequired[str]
 
 class CreatePipelineRequestTypeDef(TypedDict):
     PipelineName: str
@@ -297,6 +419,7 @@ class CreatePipelineRequestTypeDef(TypedDict):
     BufferOptions: NotRequired[BufferOptionsTypeDef]
     EncryptionAtRestOptions: NotRequired[EncryptionAtRestOptionsTypeDef]
     Tags: NotRequired[Sequence[TagTypeDef]]
+    PipelineRoleArn: NotRequired[str]
 
 class CreatePipelineResponseTypeDef(TypedDict):
     Pipeline: PipelineTypeDef

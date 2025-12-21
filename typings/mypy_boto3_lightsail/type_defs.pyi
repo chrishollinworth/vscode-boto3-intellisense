@@ -136,6 +136,11 @@ __all__ = (
     "BlueprintTypeDef",
     "BucketAccessLogConfigTypeDef",
     "BucketBundleTypeDef",
+    "BucketCorsConfigOutputTypeDef",
+    "BucketCorsConfigTypeDef",
+    "BucketCorsConfigUnionTypeDef",
+    "BucketCorsRuleOutputTypeDef",
+    "BucketCorsRuleTypeDef",
     "BucketStateTypeDef",
     "BucketTypeDef",
     "BundleTypeDef",
@@ -686,6 +691,29 @@ class BucketBundleTypeDef(TypedDict):
     transferPerMonthInGb: NotRequired[int]
     isActive: NotRequired[bool]
 
+BucketCorsRuleOutputTypeDef = TypedDict(
+    "BucketCorsRuleOutputTypeDef",
+    {
+        "allowedMethods": List[str],
+        "allowedOrigins": List[str],
+        "id": NotRequired[str],
+        "allowedHeaders": NotRequired[List[str]],
+        "exposeHeaders": NotRequired[List[str]],
+        "maxAgeSeconds": NotRequired[int],
+    },
+)
+BucketCorsRuleTypeDef = TypedDict(
+    "BucketCorsRuleTypeDef",
+    {
+        "allowedMethods": Sequence[str],
+        "allowedOrigins": Sequence[str],
+        "id": NotRequired[str],
+        "allowedHeaders": NotRequired[Sequence[str]],
+        "exposeHeaders": NotRequired[Sequence[str]],
+        "maxAgeSeconds": NotRequired[int],
+    },
+)
+
 class BucketStateTypeDef(TypedDict):
     code: NotRequired[str]
     message: NotRequired[str]
@@ -1051,6 +1079,7 @@ class GetBucketsRequestTypeDef(TypedDict):
     bucketName: NotRequired[str]
     pageToken: NotRequired[str]
     includeConnectedResources: NotRequired[bool]
+    includeCors: NotRequired[bool]
 
 class GetBundlesRequestTypeDef(TypedDict):
     includeInactive: NotRequired[bool]
@@ -1614,34 +1643,15 @@ class GetBlueprintsResultTypeDef(TypedDict):
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBucketRequestTypeDef(TypedDict):
-    bucketName: str
-    accessRules: NotRequired[AccessRulesTypeDef]
-    versioning: NotRequired[str]
-    readonlyAccessAccounts: NotRequired[Sequence[str]]
-    accessLogConfig: NotRequired[BucketAccessLogConfigTypeDef]
-
 class GetBucketBundlesResultTypeDef(TypedDict):
     bundles: List[BucketBundleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BucketTypeDef(TypedDict):
-    resourceType: NotRequired[str]
-    accessRules: NotRequired[AccessRulesTypeDef]
-    arn: NotRequired[str]
-    bundleId: NotRequired[str]
-    createdAt: NotRequired[datetime]
-    url: NotRequired[str]
-    location: NotRequired[ResourceLocationTypeDef]
-    name: NotRequired[str]
-    supportCode: NotRequired[str]
-    tags: NotRequired[List[TagTypeDef]]
-    objectVersioning: NotRequired[str]
-    ableToUpdateBundle: NotRequired[bool]
-    readonlyAccessAccounts: NotRequired[List[str]]
-    resourcesReceivingAccess: NotRequired[List[ResourceReceivingAccessTypeDef]]
-    state: NotRequired[BucketStateTypeDef]
-    accessLogConfig: NotRequired[BucketAccessLogConfigTypeDef]
+class BucketCorsConfigOutputTypeDef(TypedDict):
+    rules: NotRequired[List[BucketCorsRuleOutputTypeDef]]
+
+class BucketCorsConfigTypeDef(TypedDict):
+    rules: NotRequired[Sequence[BucketCorsRuleTypeDef]]
 
 class CreateBucketRequestTypeDef(TypedDict):
     bucketName: str
@@ -2647,21 +2657,26 @@ class GetRegionsResultTypeDef(TypedDict):
     regions: List[RegionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBucketResultTypeDef(TypedDict):
-    bucket: BucketTypeDef
-    operations: List[OperationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BucketTypeDef(TypedDict):
+    resourceType: NotRequired[str]
+    accessRules: NotRequired[AccessRulesTypeDef]
+    arn: NotRequired[str]
+    bundleId: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    url: NotRequired[str]
+    location: NotRequired[ResourceLocationTypeDef]
+    name: NotRequired[str]
+    supportCode: NotRequired[str]
+    tags: NotRequired[List[TagTypeDef]]
+    objectVersioning: NotRequired[str]
+    ableToUpdateBundle: NotRequired[bool]
+    readonlyAccessAccounts: NotRequired[List[str]]
+    resourcesReceivingAccess: NotRequired[List[ResourceReceivingAccessTypeDef]]
+    state: NotRequired[BucketStateTypeDef]
+    accessLogConfig: NotRequired[BucketAccessLogConfigTypeDef]
+    cors: NotRequired[BucketCorsConfigOutputTypeDef]
 
-class GetBucketsResultTypeDef(TypedDict):
-    buckets: List[BucketTypeDef]
-    nextPageToken: str
-    accountLevelBpaSync: AccountLevelBpaSyncTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class UpdateBucketResultTypeDef(TypedDict):
-    bucket: BucketTypeDef
-    operations: List[OperationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+BucketCorsConfigUnionTypeDef = Union[BucketCorsConfigTypeDef, BucketCorsConfigOutputTypeDef]
 
 class GetDiskSnapshotResultTypeDef(TypedDict):
     diskSnapshot: DiskSnapshotTypeDef
@@ -2881,6 +2896,30 @@ class GetSetupHistoryResultTypeDef(TypedDict):
     setupHistory: List[SetupHistoryTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBucketResultTypeDef(TypedDict):
+    bucket: BucketTypeDef
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBucketsResultTypeDef(TypedDict):
+    buckets: List[BucketTypeDef]
+    nextPageToken: str
+    accountLevelBpaSync: AccountLevelBpaSyncTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBucketResultTypeDef(TypedDict):
+    bucket: BucketTypeDef
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBucketRequestTypeDef(TypedDict):
+    bucketName: str
+    accessRules: NotRequired[AccessRulesTypeDef]
+    versioning: NotRequired[str]
+    readonlyAccessAccounts: NotRequired[Sequence[str]]
+    accessLogConfig: NotRequired[BucketAccessLogConfigTypeDef]
+    cors: NotRequired[BucketCorsConfigUnionTypeDef]
 
 class InstanceTypeDef(TypedDict):
     name: NotRequired[str]

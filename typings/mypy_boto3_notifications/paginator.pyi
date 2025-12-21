@@ -18,9 +18,11 @@ Usage::
         ListManagedNotificationChildEventsPaginator,
         ListManagedNotificationConfigurationsPaginator,
         ListManagedNotificationEventsPaginator,
+        ListMemberAccountsPaginator,
         ListNotificationConfigurationsPaginator,
         ListNotificationEventsPaginator,
         ListNotificationHubsPaginator,
+        ListOrganizationalUnitsPaginator,
     )
 
     session = Session()
@@ -32,9 +34,11 @@ Usage::
     list_managed_notification_child_events_paginator: ListManagedNotificationChildEventsPaginator = client.get_paginator("list_managed_notification_child_events")
     list_managed_notification_configurations_paginator: ListManagedNotificationConfigurationsPaginator = client.get_paginator("list_managed_notification_configurations")
     list_managed_notification_events_paginator: ListManagedNotificationEventsPaginator = client.get_paginator("list_managed_notification_events")
+    list_member_accounts_paginator: ListMemberAccountsPaginator = client.get_paginator("list_member_accounts")
     list_notification_configurations_paginator: ListNotificationConfigurationsPaginator = client.get_paginator("list_notification_configurations")
     list_notification_events_paginator: ListNotificationEventsPaginator = client.get_paginator("list_notification_events")
     list_notification_hubs_paginator: ListNotificationHubsPaginator = client.get_paginator("list_notification_hubs")
+    list_organizational_units_paginator: ListOrganizationalUnitsPaginator = client.get_paginator("list_organizational_units")
     ```
 """
 
@@ -58,12 +62,16 @@ from .type_defs import (
     ListManagedNotificationConfigurationsResponseTypeDef,
     ListManagedNotificationEventsRequestPaginateTypeDef,
     ListManagedNotificationEventsResponseTypeDef,
+    ListMemberAccountsRequestPaginateTypeDef,
+    ListMemberAccountsResponseTypeDef,
     ListNotificationConfigurationsRequestPaginateTypeDef,
     ListNotificationConfigurationsResponseTypeDef,
     ListNotificationEventsRequestPaginateTypeDef,
     ListNotificationEventsResponseTypeDef,
     ListNotificationHubsRequestPaginateTypeDef,
     ListNotificationHubsResponseTypeDef,
+    ListOrganizationalUnitsRequestPaginateTypeDef,
+    ListOrganizationalUnitsResponseTypeDef,
 )
 
 if sys.version_info >= (3, 12):
@@ -78,9 +86,11 @@ __all__ = (
     "ListManagedNotificationChildEventsPaginator",
     "ListManagedNotificationConfigurationsPaginator",
     "ListManagedNotificationEventsPaginator",
+    "ListMemberAccountsPaginator",
     "ListNotificationConfigurationsPaginator",
     "ListNotificationEventsPaginator",
     "ListNotificationHubsPaginator",
+    "ListOrganizationalUnitsPaginator",
 )
 
 if TYPE_CHECKING:
@@ -204,6 +214,24 @@ class ListManagedNotificationEventsPaginator(_ListManagedNotificationEventsPagin
         """
 
 if TYPE_CHECKING:
+    _ListMemberAccountsPaginatorBase = Paginator[ListMemberAccountsResponseTypeDef]
+else:
+    _ListMemberAccountsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListMemberAccountsPaginator(_ListMemberAccountsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/paginator/ListMemberAccounts.html#UserNotifications.Paginator.ListMemberAccounts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/paginators/#listmemberaccountspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMemberAccountsRequestPaginateTypeDef]
+    ) -> PageIterator[ListMemberAccountsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/paginator/ListMemberAccounts.html#UserNotifications.Paginator.ListMemberAccounts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/paginators/#listmemberaccountspaginator)
+        """
+
+if TYPE_CHECKING:
     _ListNotificationConfigurationsPaginatorBase = Paginator[
         ListNotificationConfigurationsResponseTypeDef
     ]
@@ -257,4 +285,22 @@ class ListNotificationHubsPaginator(_ListNotificationHubsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/paginator/ListNotificationHubs.html#UserNotifications.Paginator.ListNotificationHubs.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/paginators/#listnotificationhubspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOrganizationalUnitsPaginatorBase = Paginator[ListOrganizationalUnitsResponseTypeDef]
+else:
+    _ListOrganizationalUnitsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOrganizationalUnitsPaginator(_ListOrganizationalUnitsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/paginator/ListOrganizationalUnits.html#UserNotifications.Paginator.ListOrganizationalUnits)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/paginators/#listorganizationalunitspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOrganizationalUnitsRequestPaginateTypeDef]
+    ) -> PageIterator[ListOrganizationalUnitsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/notifications/paginator/ListOrganizationalUnits.html#UserNotifications.Paginator.ListOrganizationalUnits.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_notifications/paginators/#listorganizationalunitspaginator)
         """

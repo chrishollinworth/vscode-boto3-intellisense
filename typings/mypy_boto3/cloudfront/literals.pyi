@@ -47,19 +47,26 @@ __all__ = (
     "ImportSourceTypeType",
     "InvalidationCompletedWaiterName",
     "InvalidationForDistributionTenantCompletedWaiterName",
+    "IpAddressTypeType",
+    "IpamCidrStatusType",
     "ItemSelectionType",
     "ListCloudFrontOriginAccessIdentitiesPaginatorName",
+    "ListConnectionFunctionsPaginatorName",
     "ListConnectionGroupsPaginatorName",
     "ListDistributionTenantsByCustomizationPaginatorName",
     "ListDistributionTenantsPaginatorName",
+    "ListDistributionsByConnectionFunctionPaginatorName",
     "ListDistributionsByConnectionModePaginatorName",
+    "ListDistributionsByTrustStorePaginatorName",
     "ListDistributionsPaginatorName",
     "ListDomainConflictsPaginatorName",
     "ListInvalidationsForDistributionTenantPaginatorName",
     "ListInvalidationsPaginatorName",
     "ListKeyValueStoresPaginatorName",
+    "ListOriginAccessControlsPaginatorName",
     "ListPublicKeysPaginatorName",
     "ListStreamingDistributionsPaginatorName",
+    "ListTrustStoresPaginatorName",
     "ManagedCertificateStatusType",
     "MethodType",
     "MinimumProtocolVersionType",
@@ -83,7 +90,9 @@ __all__ = (
     "ServiceName",
     "SslProtocolType",
     "StreamingDistributionDeployedWaiterName",
+    "TrustStoreStatusType",
     "ValidationTokenHostType",
+    "ViewerMtlsModeType",
     "ViewerProtocolPolicyType",
     "WaiterName",
 )
@@ -116,16 +125,36 @@ InvalidationCompletedWaiterName = Literal["invalidation_completed"]
 InvalidationForDistributionTenantCompletedWaiterName = Literal[
     "invalidation_for_distribution_tenant_completed"
 ]
+IpAddressTypeType = Literal["dualstack", "ipv4", "ipv6"]
+IpamCidrStatusType = Literal[
+    "advertised",
+    "advertising",
+    "deprovisioned",
+    "deprovisioning",
+    "failed-advertise",
+    "failed-deprovision",
+    "failed-provision",
+    "failed-withdraw",
+    "provisioned",
+    "provisioning",
+    "withdrawing",
+    "withdrawn",
+]
 ItemSelectionType = Literal["all", "none", "whitelist"]
 ListCloudFrontOriginAccessIdentitiesPaginatorName = Literal[
     "list_cloud_front_origin_access_identities"
 ]
+ListConnectionFunctionsPaginatorName = Literal["list_connection_functions"]
 ListConnectionGroupsPaginatorName = Literal["list_connection_groups"]
 ListDistributionTenantsByCustomizationPaginatorName = Literal[
     "list_distribution_tenants_by_customization"
 ]
 ListDistributionTenantsPaginatorName = Literal["list_distribution_tenants"]
+ListDistributionsByConnectionFunctionPaginatorName = Literal[
+    "list_distributions_by_connection_function"
+]
 ListDistributionsByConnectionModePaginatorName = Literal["list_distributions_by_connection_mode"]
+ListDistributionsByTrustStorePaginatorName = Literal["list_distributions_by_trust_store"]
 ListDistributionsPaginatorName = Literal["list_distributions"]
 ListDomainConflictsPaginatorName = Literal["list_domain_conflicts"]
 ListInvalidationsForDistributionTenantPaginatorName = Literal[
@@ -133,8 +162,10 @@ ListInvalidationsForDistributionTenantPaginatorName = Literal[
 ]
 ListInvalidationsPaginatorName = Literal["list_invalidations"]
 ListKeyValueStoresPaginatorName = Literal["list_key_value_stores"]
+ListOriginAccessControlsPaginatorName = Literal["list_origin_access_controls"]
 ListPublicKeysPaginatorName = Literal["list_public_keys"]
 ListStreamingDistributionsPaginatorName = Literal["list_streaming_distributions"]
+ListTrustStoresPaginatorName = Literal["list_trust_stores"]
 ManagedCertificateStatusType = Literal[
     "expired",
     "failed",
@@ -146,7 +177,15 @@ ManagedCertificateStatusType = Literal[
 ]
 MethodType = Literal["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
 MinimumProtocolVersionType = Literal[
-    "SSLv3", "TLSv1", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021", "TLSv1_2016"
+    "SSLv3",
+    "TLSv1",
+    "TLSv1.1_2016",
+    "TLSv1.2_2018",
+    "TLSv1.2_2019",
+    "TLSv1.2_2021",
+    "TLSv1.2_2025",
+    "TLSv1.3_2025",
+    "TLSv1_2016",
 ]
 OriginAccessControlOriginTypesType = Literal["lambda", "mediapackagev2", "mediastore", "s3"]
 OriginAccessControlSigningBehaviorsType = Literal["always", "never", "no-override"]
@@ -178,7 +217,9 @@ ResponseHeadersPolicyTypeType = Literal["custom", "managed"]
 SSLSupportMethodType = Literal["sni-only", "static-ip", "vip"]
 SslProtocolType = Literal["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
 StreamingDistributionDeployedWaiterName = Literal["streaming_distribution_deployed"]
+TrustStoreStatusType = Literal["active", "failed", "pending"]
 ValidationTokenHostType = Literal["cloudfront", "self-hosted"]
+ViewerMtlsModeType = Literal["optional", "required"]
 ViewerProtocolPolicyType = Literal["allow-all", "https-only", "redirect-to-https"]
 CloudFrontServiceName = Literal["cloudfront"]
 ServiceName = Literal[
@@ -186,6 +227,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -206,7 +248,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -218,11 +260,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -271,6 +317,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -326,6 +373,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -368,7 +416,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -383,6 +430,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -406,8 +454,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -438,9 +484,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -450,17 +498,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -478,13 +529,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -499,20 +547,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -537,8 +587,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -578,40 +628,38 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_cloud_front_origin_access_identities",
+    "list_connection_functions",
     "list_connection_groups",
     "list_distribution_tenants",
     "list_distribution_tenants_by_customization",
     "list_distributions",
+    "list_distributions_by_connection_function",
     "list_distributions_by_connection_mode",
+    "list_distributions_by_trust_store",
     "list_domain_conflicts",
     "list_invalidations",
     "list_invalidations_for_distribution_tenant",
     "list_key_value_stores",
+    "list_origin_access_controls",
     "list_public_keys",
     "list_streaming_distributions",
+    "list_trust_stores",
 ]
 WaiterName = Literal[
     "distribution_deployed",

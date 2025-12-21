@@ -23,6 +23,9 @@ Usage::
         DescribeCapacityBlockExtensionHistoryPaginator,
         DescribeCapacityBlockExtensionOfferingsPaginator,
         DescribeCapacityBlockOfferingsPaginator,
+        DescribeCapacityBlockStatusPaginator,
+        DescribeCapacityBlocksPaginator,
+        DescribeCapacityManagerDataExportsPaginator,
         DescribeCapacityReservationBillingRequestsPaginator,
         DescribeCapacityReservationFleetsPaginator,
         DescribeCapacityReservationsPaginator,
@@ -46,6 +49,9 @@ Usage::
         DescribeHostReservationsPaginator,
         DescribeHostsPaginator,
         DescribeIamInstanceProfileAssociationsPaginator,
+        DescribeImageReferencesPaginator,
+        DescribeImageUsageReportEntriesPaginator,
+        DescribeImageUsageReportsPaginator,
         DescribeImagesPaginator,
         DescribeImportImageTasksPaginator,
         DescribeImportSnapshotTasksPaginator,
@@ -60,6 +66,8 @@ Usage::
         DescribeInstancesPaginator,
         DescribeInternetGatewaysPaginator,
         DescribeIpamPoolsPaginator,
+        DescribeIpamPrefixListResolverTargetsPaginator,
+        DescribeIpamPrefixListResolversPaginator,
         DescribeIpamResourceDiscoveriesPaginator,
         DescribeIpamResourceDiscoveryAssociationsPaginator,
         DescribeIpamScopesPaginator,
@@ -74,6 +82,7 @@ Usage::
         DescribeLocalGatewayVirtualInterfacesPaginator,
         DescribeLocalGatewaysPaginator,
         DescribeMacHostsPaginator,
+        DescribeMacModificationTasksPaginator,
         DescribeManagedPrefixListsPaginator,
         DescribeMovingAddressesPaginator,
         DescribeNatGatewaysPaginator,
@@ -140,12 +149,15 @@ Usage::
         DescribeVpcEndpointsPaginator,
         DescribeVpcPeeringConnectionsPaginator,
         DescribeVpcsPaginator,
+        DescribeVpnConcentratorsPaginator,
         EC2Client,
         EC2ServiceResource,
         ExportTaskCancelledWaiter,
         ExportTaskCompletedWaiter,
         GetAssociatedIpv6PoolCidrsPaginator,
         GetAwsNetworkPerformanceDataPaginator,
+        GetCapacityManagerMetricDataPaginator,
+        GetCapacityManagerMetricDimensionsPaginator,
         GetGroupsForCapacityReservationPaginator,
         GetInstanceTypesFromInstanceRequirementsPaginator,
         GetIpamAddressHistoryPaginator,
@@ -153,6 +165,9 @@ Usage::
         GetIpamDiscoveredResourceCidrsPaginator,
         GetIpamPoolAllocationsPaginator,
         GetIpamPoolCidrsPaginator,
+        GetIpamPrefixListResolverRulesPaginator,
+        GetIpamPrefixListResolverVersionEntriesPaginator,
+        GetIpamPrefixListResolverVersionsPaginator,
         GetIpamResourceCidrsPaginator,
         GetManagedPrefixListAssociationsPaginator,
         GetManagedPrefixListEntriesPaginator,
@@ -168,6 +183,7 @@ Usage::
         GetVpnConnectionDeviceTypesPaginator,
         ImageAvailableWaiter,
         ImageExistsWaiter,
+        ImageUsageReportAvailableWaiter,
         InstanceExistsWaiter,
         InstanceRunningWaiter,
         InstanceStatusOkWaiter,
@@ -184,6 +200,8 @@ Usage::
         SearchLocalGatewayRoutesPaginator,
         SearchTransitGatewayMulticastGroupsPaginator,
         SecurityGroupExistsWaiter,
+        SecurityGroupVpcAssociationAssociatedWaiter,
+        SecurityGroupVpcAssociationDisassociatedWaiter,
         ServiceResource,
         SnapshotCompletedWaiter,
         SnapshotImportedWaiter,
@@ -216,6 +234,7 @@ Usage::
     export_task_completed_waiter: ExportTaskCompletedWaiter = client.get_waiter("export_task_completed")
     image_available_waiter: ImageAvailableWaiter = client.get_waiter("image_available")
     image_exists_waiter: ImageExistsWaiter = client.get_waiter("image_exists")
+    image_usage_report_available_waiter: ImageUsageReportAvailableWaiter = client.get_waiter("image_usage_report_available")
     instance_exists_waiter: InstanceExistsWaiter = client.get_waiter("instance_exists")
     instance_running_waiter: InstanceRunningWaiter = client.get_waiter("instance_running")
     instance_status_ok_waiter: InstanceStatusOkWaiter = client.get_waiter("instance_status_ok")
@@ -228,6 +247,8 @@ Usage::
     network_interface_available_waiter: NetworkInterfaceAvailableWaiter = client.get_waiter("network_interface_available")
     password_data_available_waiter: PasswordDataAvailableWaiter = client.get_waiter("password_data_available")
     security_group_exists_waiter: SecurityGroupExistsWaiter = client.get_waiter("security_group_exists")
+    security_group_vpc_association_associated_waiter: SecurityGroupVpcAssociationAssociatedWaiter = client.get_waiter("security_group_vpc_association_associated")
+    security_group_vpc_association_disassociated_waiter: SecurityGroupVpcAssociationDisassociatedWaiter = client.get_waiter("security_group_vpc_association_disassociated")
     snapshot_completed_waiter: SnapshotCompletedWaiter = client.get_waiter("snapshot_completed")
     snapshot_imported_waiter: SnapshotImportedWaiter = client.get_waiter("snapshot_imported")
     spot_instance_request_fulfilled_waiter: SpotInstanceRequestFulfilledWaiter = client.get_waiter("spot_instance_request_fulfilled")
@@ -251,6 +272,9 @@ Usage::
     describe_capacity_block_extension_history_paginator: DescribeCapacityBlockExtensionHistoryPaginator = client.get_paginator("describe_capacity_block_extension_history")
     describe_capacity_block_extension_offerings_paginator: DescribeCapacityBlockExtensionOfferingsPaginator = client.get_paginator("describe_capacity_block_extension_offerings")
     describe_capacity_block_offerings_paginator: DescribeCapacityBlockOfferingsPaginator = client.get_paginator("describe_capacity_block_offerings")
+    describe_capacity_block_status_paginator: DescribeCapacityBlockStatusPaginator = client.get_paginator("describe_capacity_block_status")
+    describe_capacity_blocks_paginator: DescribeCapacityBlocksPaginator = client.get_paginator("describe_capacity_blocks")
+    describe_capacity_manager_data_exports_paginator: DescribeCapacityManagerDataExportsPaginator = client.get_paginator("describe_capacity_manager_data_exports")
     describe_capacity_reservation_billing_requests_paginator: DescribeCapacityReservationBillingRequestsPaginator = client.get_paginator("describe_capacity_reservation_billing_requests")
     describe_capacity_reservation_fleets_paginator: DescribeCapacityReservationFleetsPaginator = client.get_paginator("describe_capacity_reservation_fleets")
     describe_capacity_reservations_paginator: DescribeCapacityReservationsPaginator = client.get_paginator("describe_capacity_reservations")
@@ -274,6 +298,9 @@ Usage::
     describe_host_reservations_paginator: DescribeHostReservationsPaginator = client.get_paginator("describe_host_reservations")
     describe_hosts_paginator: DescribeHostsPaginator = client.get_paginator("describe_hosts")
     describe_iam_instance_profile_associations_paginator: DescribeIamInstanceProfileAssociationsPaginator = client.get_paginator("describe_iam_instance_profile_associations")
+    describe_image_references_paginator: DescribeImageReferencesPaginator = client.get_paginator("describe_image_references")
+    describe_image_usage_report_entries_paginator: DescribeImageUsageReportEntriesPaginator = client.get_paginator("describe_image_usage_report_entries")
+    describe_image_usage_reports_paginator: DescribeImageUsageReportsPaginator = client.get_paginator("describe_image_usage_reports")
     describe_images_paginator: DescribeImagesPaginator = client.get_paginator("describe_images")
     describe_import_image_tasks_paginator: DescribeImportImageTasksPaginator = client.get_paginator("describe_import_image_tasks")
     describe_import_snapshot_tasks_paginator: DescribeImportSnapshotTasksPaginator = client.get_paginator("describe_import_snapshot_tasks")
@@ -288,6 +315,8 @@ Usage::
     describe_instances_paginator: DescribeInstancesPaginator = client.get_paginator("describe_instances")
     describe_internet_gateways_paginator: DescribeInternetGatewaysPaginator = client.get_paginator("describe_internet_gateways")
     describe_ipam_pools_paginator: DescribeIpamPoolsPaginator = client.get_paginator("describe_ipam_pools")
+    describe_ipam_prefix_list_resolver_targets_paginator: DescribeIpamPrefixListResolverTargetsPaginator = client.get_paginator("describe_ipam_prefix_list_resolver_targets")
+    describe_ipam_prefix_list_resolvers_paginator: DescribeIpamPrefixListResolversPaginator = client.get_paginator("describe_ipam_prefix_list_resolvers")
     describe_ipam_resource_discoveries_paginator: DescribeIpamResourceDiscoveriesPaginator = client.get_paginator("describe_ipam_resource_discoveries")
     describe_ipam_resource_discovery_associations_paginator: DescribeIpamResourceDiscoveryAssociationsPaginator = client.get_paginator("describe_ipam_resource_discovery_associations")
     describe_ipam_scopes_paginator: DescribeIpamScopesPaginator = client.get_paginator("describe_ipam_scopes")
@@ -302,6 +331,7 @@ Usage::
     describe_local_gateway_virtual_interfaces_paginator: DescribeLocalGatewayVirtualInterfacesPaginator = client.get_paginator("describe_local_gateway_virtual_interfaces")
     describe_local_gateways_paginator: DescribeLocalGatewaysPaginator = client.get_paginator("describe_local_gateways")
     describe_mac_hosts_paginator: DescribeMacHostsPaginator = client.get_paginator("describe_mac_hosts")
+    describe_mac_modification_tasks_paginator: DescribeMacModificationTasksPaginator = client.get_paginator("describe_mac_modification_tasks")
     describe_managed_prefix_lists_paginator: DescribeManagedPrefixListsPaginator = client.get_paginator("describe_managed_prefix_lists")
     describe_moving_addresses_paginator: DescribeMovingAddressesPaginator = client.get_paginator("describe_moving_addresses")
     describe_nat_gateways_paginator: DescribeNatGatewaysPaginator = client.get_paginator("describe_nat_gateways")
@@ -368,8 +398,11 @@ Usage::
     describe_vpc_endpoints_paginator: DescribeVpcEndpointsPaginator = client.get_paginator("describe_vpc_endpoints")
     describe_vpc_peering_connections_paginator: DescribeVpcPeeringConnectionsPaginator = client.get_paginator("describe_vpc_peering_connections")
     describe_vpcs_paginator: DescribeVpcsPaginator = client.get_paginator("describe_vpcs")
+    describe_vpn_concentrators_paginator: DescribeVpnConcentratorsPaginator = client.get_paginator("describe_vpn_concentrators")
     get_associated_ipv6_pool_cidrs_paginator: GetAssociatedIpv6PoolCidrsPaginator = client.get_paginator("get_associated_ipv6_pool_cidrs")
     get_aws_network_performance_data_paginator: GetAwsNetworkPerformanceDataPaginator = client.get_paginator("get_aws_network_performance_data")
+    get_capacity_manager_metric_data_paginator: GetCapacityManagerMetricDataPaginator = client.get_paginator("get_capacity_manager_metric_data")
+    get_capacity_manager_metric_dimensions_paginator: GetCapacityManagerMetricDimensionsPaginator = client.get_paginator("get_capacity_manager_metric_dimensions")
     get_groups_for_capacity_reservation_paginator: GetGroupsForCapacityReservationPaginator = client.get_paginator("get_groups_for_capacity_reservation")
     get_instance_types_from_instance_requirements_paginator: GetInstanceTypesFromInstanceRequirementsPaginator = client.get_paginator("get_instance_types_from_instance_requirements")
     get_ipam_address_history_paginator: GetIpamAddressHistoryPaginator = client.get_paginator("get_ipam_address_history")
@@ -377,6 +410,9 @@ Usage::
     get_ipam_discovered_resource_cidrs_paginator: GetIpamDiscoveredResourceCidrsPaginator = client.get_paginator("get_ipam_discovered_resource_cidrs")
     get_ipam_pool_allocations_paginator: GetIpamPoolAllocationsPaginator = client.get_paginator("get_ipam_pool_allocations")
     get_ipam_pool_cidrs_paginator: GetIpamPoolCidrsPaginator = client.get_paginator("get_ipam_pool_cidrs")
+    get_ipam_prefix_list_resolver_rules_paginator: GetIpamPrefixListResolverRulesPaginator = client.get_paginator("get_ipam_prefix_list_resolver_rules")
+    get_ipam_prefix_list_resolver_version_entries_paginator: GetIpamPrefixListResolverVersionEntriesPaginator = client.get_paginator("get_ipam_prefix_list_resolver_version_entries")
+    get_ipam_prefix_list_resolver_versions_paginator: GetIpamPrefixListResolverVersionsPaginator = client.get_paginator("get_ipam_prefix_list_resolver_versions")
     get_ipam_resource_cidrs_paginator: GetIpamResourceCidrsPaginator = client.get_paginator("get_ipam_resource_cidrs")
     get_managed_prefix_list_associations_paginator: GetManagedPrefixListAssociationsPaginator = client.get_paginator("get_managed_prefix_list_associations")
     get_managed_prefix_list_entries_paginator: GetManagedPrefixListEntriesPaginator = client.get_paginator("get_managed_prefix_list_entries")
@@ -406,6 +442,9 @@ from .paginator import (
     DescribeCapacityBlockExtensionHistoryPaginator,
     DescribeCapacityBlockExtensionOfferingsPaginator,
     DescribeCapacityBlockOfferingsPaginator,
+    DescribeCapacityBlocksPaginator,
+    DescribeCapacityBlockStatusPaginator,
+    DescribeCapacityManagerDataExportsPaginator,
     DescribeCapacityReservationBillingRequestsPaginator,
     DescribeCapacityReservationFleetsPaginator,
     DescribeCapacityReservationsPaginator,
@@ -429,7 +468,10 @@ from .paginator import (
     DescribeHostReservationsPaginator,
     DescribeHostsPaginator,
     DescribeIamInstanceProfileAssociationsPaginator,
+    DescribeImageReferencesPaginator,
     DescribeImagesPaginator,
+    DescribeImageUsageReportEntriesPaginator,
+    DescribeImageUsageReportsPaginator,
     DescribeImportImageTasksPaginator,
     DescribeImportSnapshotTasksPaginator,
     DescribeInstanceConnectEndpointsPaginator,
@@ -443,6 +485,8 @@ from .paginator import (
     DescribeInstanceTypesPaginator,
     DescribeInternetGatewaysPaginator,
     DescribeIpamPoolsPaginator,
+    DescribeIpamPrefixListResolversPaginator,
+    DescribeIpamPrefixListResolverTargetsPaginator,
     DescribeIpamResourceDiscoveriesPaginator,
     DescribeIpamResourceDiscoveryAssociationsPaginator,
     DescribeIpamScopesPaginator,
@@ -457,6 +501,7 @@ from .paginator import (
     DescribeLocalGatewayVirtualInterfaceGroupsPaginator,
     DescribeLocalGatewayVirtualInterfacesPaginator,
     DescribeMacHostsPaginator,
+    DescribeMacModificationTasksPaginator,
     DescribeManagedPrefixListsPaginator,
     DescribeMovingAddressesPaginator,
     DescribeNatGatewaysPaginator,
@@ -523,8 +568,11 @@ from .paginator import (
     DescribeVpcEndpointsPaginator,
     DescribeVpcPeeringConnectionsPaginator,
     DescribeVpcsPaginator,
+    DescribeVpnConcentratorsPaginator,
     GetAssociatedIpv6PoolCidrsPaginator,
     GetAwsNetworkPerformanceDataPaginator,
+    GetCapacityManagerMetricDataPaginator,
+    GetCapacityManagerMetricDimensionsPaginator,
     GetGroupsForCapacityReservationPaginator,
     GetInstanceTypesFromInstanceRequirementsPaginator,
     GetIpamAddressHistoryPaginator,
@@ -532,6 +580,9 @@ from .paginator import (
     GetIpamDiscoveredResourceCidrsPaginator,
     GetIpamPoolAllocationsPaginator,
     GetIpamPoolCidrsPaginator,
+    GetIpamPrefixListResolverRulesPaginator,
+    GetIpamPrefixListResolverVersionEntriesPaginator,
+    GetIpamPrefixListResolverVersionsPaginator,
     GetIpamResourceCidrsPaginator,
     GetManagedPrefixListAssociationsPaginator,
     GetManagedPrefixListEntriesPaginator,
@@ -560,6 +611,7 @@ from .waiter import (
     ExportTaskCompletedWaiter,
     ImageAvailableWaiter,
     ImageExistsWaiter,
+    ImageUsageReportAvailableWaiter,
     InstanceExistsWaiter,
     InstanceRunningWaiter,
     InstanceStatusOkWaiter,
@@ -572,6 +624,8 @@ from .waiter import (
     NetworkInterfaceAvailableWaiter,
     PasswordDataAvailableWaiter,
     SecurityGroupExistsWaiter,
+    SecurityGroupVpcAssociationAssociatedWaiter,
+    SecurityGroupVpcAssociationDisassociatedWaiter,
     SnapshotCompletedWaiter,
     SnapshotImportedWaiter,
     SpotInstanceRequestFulfilledWaiter,
@@ -612,6 +666,9 @@ __all__ = (
     "DescribeCapacityBlockExtensionHistoryPaginator",
     "DescribeCapacityBlockExtensionOfferingsPaginator",
     "DescribeCapacityBlockOfferingsPaginator",
+    "DescribeCapacityBlockStatusPaginator",
+    "DescribeCapacityBlocksPaginator",
+    "DescribeCapacityManagerDataExportsPaginator",
     "DescribeCapacityReservationBillingRequestsPaginator",
     "DescribeCapacityReservationFleetsPaginator",
     "DescribeCapacityReservationsPaginator",
@@ -635,6 +692,9 @@ __all__ = (
     "DescribeHostReservationsPaginator",
     "DescribeHostsPaginator",
     "DescribeIamInstanceProfileAssociationsPaginator",
+    "DescribeImageReferencesPaginator",
+    "DescribeImageUsageReportEntriesPaginator",
+    "DescribeImageUsageReportsPaginator",
     "DescribeImagesPaginator",
     "DescribeImportImageTasksPaginator",
     "DescribeImportSnapshotTasksPaginator",
@@ -649,6 +709,8 @@ __all__ = (
     "DescribeInstancesPaginator",
     "DescribeInternetGatewaysPaginator",
     "DescribeIpamPoolsPaginator",
+    "DescribeIpamPrefixListResolverTargetsPaginator",
+    "DescribeIpamPrefixListResolversPaginator",
     "DescribeIpamResourceDiscoveriesPaginator",
     "DescribeIpamResourceDiscoveryAssociationsPaginator",
     "DescribeIpamScopesPaginator",
@@ -663,6 +725,7 @@ __all__ = (
     "DescribeLocalGatewayVirtualInterfacesPaginator",
     "DescribeLocalGatewaysPaginator",
     "DescribeMacHostsPaginator",
+    "DescribeMacModificationTasksPaginator",
     "DescribeManagedPrefixListsPaginator",
     "DescribeMovingAddressesPaginator",
     "DescribeNatGatewaysPaginator",
@@ -729,12 +792,15 @@ __all__ = (
     "DescribeVpcEndpointsPaginator",
     "DescribeVpcPeeringConnectionsPaginator",
     "DescribeVpcsPaginator",
+    "DescribeVpnConcentratorsPaginator",
     "EC2Client",
     "EC2ServiceResource",
     "ExportTaskCancelledWaiter",
     "ExportTaskCompletedWaiter",
     "GetAssociatedIpv6PoolCidrsPaginator",
     "GetAwsNetworkPerformanceDataPaginator",
+    "GetCapacityManagerMetricDataPaginator",
+    "GetCapacityManagerMetricDimensionsPaginator",
     "GetGroupsForCapacityReservationPaginator",
     "GetInstanceTypesFromInstanceRequirementsPaginator",
     "GetIpamAddressHistoryPaginator",
@@ -742,6 +808,9 @@ __all__ = (
     "GetIpamDiscoveredResourceCidrsPaginator",
     "GetIpamPoolAllocationsPaginator",
     "GetIpamPoolCidrsPaginator",
+    "GetIpamPrefixListResolverRulesPaginator",
+    "GetIpamPrefixListResolverVersionEntriesPaginator",
+    "GetIpamPrefixListResolverVersionsPaginator",
     "GetIpamResourceCidrsPaginator",
     "GetManagedPrefixListAssociationsPaginator",
     "GetManagedPrefixListEntriesPaginator",
@@ -757,6 +826,7 @@ __all__ = (
     "GetVpnConnectionDeviceTypesPaginator",
     "ImageAvailableWaiter",
     "ImageExistsWaiter",
+    "ImageUsageReportAvailableWaiter",
     "InstanceExistsWaiter",
     "InstanceRunningWaiter",
     "InstanceStatusOkWaiter",
@@ -773,6 +843,8 @@ __all__ = (
     "SearchLocalGatewayRoutesPaginator",
     "SearchTransitGatewayMulticastGroupsPaginator",
     "SecurityGroupExistsWaiter",
+    "SecurityGroupVpcAssociationAssociatedWaiter",
+    "SecurityGroupVpcAssociationDisassociatedWaiter",
     "ServiceResource",
     "SnapshotCompletedWaiter",
     "SnapshotImportedWaiter",

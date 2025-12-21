@@ -26,12 +26,14 @@ from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
+    ListEntityEventsPaginator,
     ListServiceDependenciesPaginator,
     ListServiceDependentsPaginator,
     ListServiceLevelObjectiveExclusionWindowsPaginator,
     ListServiceLevelObjectivesPaginator,
     ListServiceOperationsPaginator,
     ListServicesPaginator,
+    ListServiceStatesPaginator,
 )
 from .type_defs import (
     BatchGetServiceLevelObjectiveBudgetReportInputTypeDef,
@@ -45,6 +47,12 @@ from .type_defs import (
     GetServiceLevelObjectiveInputTypeDef,
     GetServiceLevelObjectiveOutputTypeDef,
     GetServiceOutputTypeDef,
+    ListAuditFindingsInputTypeDef,
+    ListAuditFindingsOutputTypeDef,
+    ListEntityEventsInputTypeDef,
+    ListEntityEventsOutputTypeDef,
+    ListGroupingAttributeDefinitionsInputTypeDef,
+    ListGroupingAttributeDefinitionsOutputTypeDef,
     ListServiceDependenciesInputTypeDef,
     ListServiceDependenciesOutputTypeDef,
     ListServiceDependentsInputTypeDef,
@@ -57,8 +65,12 @@ from .type_defs import (
     ListServiceOperationsOutputTypeDef,
     ListServicesInputTypeDef,
     ListServicesOutputTypeDef,
+    ListServiceStatesInputTypeDef,
+    ListServiceStatesOutputTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    PutGroupingConfigurationInputTypeDef,
+    PutGroupingConfigurationOutputTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
     UpdateServiceLevelObjectiveInputTypeDef,
@@ -155,6 +167,14 @@ class CloudWatchApplicationSignalsClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#create_service_level_objective)
         """
 
+    def delete_grouping_configuration(self) -> Dict[str, Any]:
+        """
+        Deletes the grouping configuration for this account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/delete_grouping_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#delete_grouping_configuration)
+        """
+
     def delete_service_level_objective(
         self, **kwargs: Unpack[DeleteServiceLevelObjectiveInputTypeDef]
     ) -> Dict[str, Any]:
@@ -181,6 +201,39 @@ class CloudWatchApplicationSignalsClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/get_service_level_objective.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#get_service_level_objective)
+        """
+
+    def list_audit_findings(
+        self, **kwargs: Unpack[ListAuditFindingsInputTypeDef]
+    ) -> ListAuditFindingsOutputTypeDef:
+        """
+        Returns a list of audit findings that provide automated analysis of service
+        behavior and root cause analysis.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/list_audit_findings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#list_audit_findings)
+        """
+
+    def list_entity_events(
+        self, **kwargs: Unpack[ListEntityEventsInputTypeDef]
+    ) -> ListEntityEventsOutputTypeDef:
+        """
+        Returns a list of change events for a specific entity, such as deployments,
+        configuration changes, or other state-changing activities.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/list_entity_events.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#list_entity_events)
+        """
+
+    def list_grouping_attribute_definitions(
+        self, **kwargs: Unpack[ListGroupingAttributeDefinitionsInputTypeDef]
+    ) -> ListGroupingAttributeDefinitionsOutputTypeDef:
+        """
+        Returns the current grouping configuration for this account, including all
+        custom grouping attribute definitions that have been configured.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/list_grouping_attribute_definitions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#list_grouping_attribute_definitions)
         """
 
     def list_service_dependencies(
@@ -235,6 +288,17 @@ class CloudWatchApplicationSignalsClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#list_service_operations)
         """
 
+    def list_service_states(
+        self, **kwargs: Unpack[ListServiceStatesInputTypeDef]
+    ) -> ListServiceStatesOutputTypeDef:
+        """
+        Returns information about the last deployment and other change states of
+        services.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/list_service_states.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#list_service_states)
+        """
+
     def list_services(
         self, **kwargs: Unpack[ListServicesInputTypeDef]
     ) -> ListServicesOutputTypeDef:
@@ -253,6 +317,16 @@ class CloudWatchApplicationSignalsClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/list_tags_for_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#list_tags_for_resource)
+        """
+
+    def put_grouping_configuration(
+        self, **kwargs: Unpack[PutGroupingConfigurationInputTypeDef]
+    ) -> PutGroupingConfigurationOutputTypeDef:
+        """
+        Creates or updates the grouping configuration for this account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/put_grouping_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#put_grouping_configuration)
         """
 
     def start_discovery(self) -> Dict[str, Any]:
@@ -290,6 +364,17 @@ class CloudWatchApplicationSignalsClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/update_service_level_objective.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#update_service_level_objective)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_entity_events"]
+    ) -> ListEntityEventsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#get_paginator)
         """
 
     @overload  # type: ignore[override]
@@ -340,6 +425,17 @@ class CloudWatchApplicationSignalsClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_service_operations"]
     ) -> ListServiceOperationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-signals/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_signals/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_service_states"]
+    ) -> ListServiceStatesPaginator:
         """
         Create a paginator for an operation.
 

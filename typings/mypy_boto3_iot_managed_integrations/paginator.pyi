@@ -12,9 +12,15 @@ Usage::
 
     from mypy_boto3_iot_managed_integrations.client import ManagedintegrationsforIoTDeviceManagementClient
     from mypy_boto3_iot_managed_integrations.paginator import (
+        ListAccountAssociationsPaginator,
+        ListCloudConnectorsPaginator,
+        ListConnectorDestinationsPaginator,
         ListCredentialLockersPaginator,
         ListDestinationsPaginator,
+        ListDeviceDiscoveriesPaginator,
+        ListDiscoveredDevicesPaginator,
         ListEventLogConfigurationsPaginator,
+        ListManagedThingAccountAssociationsPaginator,
         ListManagedThingSchemasPaginator,
         ListManagedThingsPaginator,
         ListNotificationConfigurationsPaginator,
@@ -28,9 +34,15 @@ Usage::
     session = Session()
     client: ManagedintegrationsforIoTDeviceManagementClient = session.client("iot-managed-integrations")
 
+    list_account_associations_paginator: ListAccountAssociationsPaginator = client.get_paginator("list_account_associations")
+    list_cloud_connectors_paginator: ListCloudConnectorsPaginator = client.get_paginator("list_cloud_connectors")
+    list_connector_destinations_paginator: ListConnectorDestinationsPaginator = client.get_paginator("list_connector_destinations")
     list_credential_lockers_paginator: ListCredentialLockersPaginator = client.get_paginator("list_credential_lockers")
     list_destinations_paginator: ListDestinationsPaginator = client.get_paginator("list_destinations")
+    list_device_discoveries_paginator: ListDeviceDiscoveriesPaginator = client.get_paginator("list_device_discoveries")
+    list_discovered_devices_paginator: ListDiscoveredDevicesPaginator = client.get_paginator("list_discovered_devices")
     list_event_log_configurations_paginator: ListEventLogConfigurationsPaginator = client.get_paginator("list_event_log_configurations")
+    list_managed_thing_account_associations_paginator: ListManagedThingAccountAssociationsPaginator = client.get_paginator("list_managed_thing_account_associations")
     list_managed_thing_schemas_paginator: ListManagedThingSchemasPaginator = client.get_paginator("list_managed_thing_schemas")
     list_managed_things_paginator: ListManagedThingsPaginator = client.get_paginator("list_managed_things")
     list_notification_configurations_paginator: ListNotificationConfigurationsPaginator = client.get_paginator("list_notification_configurations")
@@ -50,12 +62,24 @@ from typing import TYPE_CHECKING
 from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListAccountAssociationsRequestPaginateTypeDef,
+    ListAccountAssociationsResponseTypeDef,
+    ListCloudConnectorsRequestPaginateTypeDef,
+    ListCloudConnectorsResponseTypeDef,
+    ListConnectorDestinationsRequestPaginateTypeDef,
+    ListConnectorDestinationsResponseTypeDef,
     ListCredentialLockersRequestPaginateTypeDef,
     ListCredentialLockersResponseTypeDef,
     ListDestinationsRequestPaginateTypeDef,
     ListDestinationsResponseTypeDef,
+    ListDeviceDiscoveriesRequestPaginateTypeDef,
+    ListDeviceDiscoveriesResponseTypeDef,
+    ListDiscoveredDevicesRequestPaginateTypeDef,
+    ListDiscoveredDevicesResponseTypeDef,
     ListEventLogConfigurationsRequestPaginateTypeDef,
     ListEventLogConfigurationsResponseTypeDef,
+    ListManagedThingAccountAssociationsRequestPaginateTypeDef,
+    ListManagedThingAccountAssociationsResponseTypeDef,
     ListManagedThingSchemasRequestPaginateTypeDef,
     ListManagedThingSchemasResponseTypeDef,
     ListManagedThingsRequestPaginateTypeDef,
@@ -80,9 +104,15 @@ else:
     from typing_extensions import Unpack
 
 __all__ = (
+    "ListAccountAssociationsPaginator",
+    "ListCloudConnectorsPaginator",
+    "ListConnectorDestinationsPaginator",
     "ListCredentialLockersPaginator",
     "ListDestinationsPaginator",
+    "ListDeviceDiscoveriesPaginator",
+    "ListDiscoveredDevicesPaginator",
     "ListEventLogConfigurationsPaginator",
+    "ListManagedThingAccountAssociationsPaginator",
     "ListManagedThingSchemasPaginator",
     "ListManagedThingsPaginator",
     "ListNotificationConfigurationsPaginator",
@@ -92,6 +122,60 @@ __all__ = (
     "ListProvisioningProfilesPaginator",
     "ListSchemaVersionsPaginator",
 )
+
+if TYPE_CHECKING:
+    _ListAccountAssociationsPaginatorBase = Paginator[ListAccountAssociationsResponseTypeDef]
+else:
+    _ListAccountAssociationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAccountAssociationsPaginator(_ListAccountAssociationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListAccountAssociations.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListAccountAssociations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listaccountassociationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAccountAssociationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAccountAssociationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListAccountAssociations.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListAccountAssociations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listaccountassociationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListCloudConnectorsPaginatorBase = Paginator[ListCloudConnectorsResponseTypeDef]
+else:
+    _ListCloudConnectorsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListCloudConnectorsPaginator(_ListCloudConnectorsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListCloudConnectors.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListCloudConnectors)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listcloudconnectorspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCloudConnectorsRequestPaginateTypeDef]
+    ) -> PageIterator[ListCloudConnectorsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListCloudConnectors.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListCloudConnectors.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listcloudconnectorspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListConnectorDestinationsPaginatorBase = Paginator[ListConnectorDestinationsResponseTypeDef]
+else:
+    _ListConnectorDestinationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListConnectorDestinationsPaginator(_ListConnectorDestinationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListConnectorDestinations.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListConnectorDestinations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listconnectordestinationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListConnectorDestinationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListConnectorDestinationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListConnectorDestinations.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListConnectorDestinations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listconnectordestinationspaginator)
+        """
 
 if TYPE_CHECKING:
     _ListCredentialLockersPaginatorBase = Paginator[ListCredentialLockersResponseTypeDef]
@@ -130,6 +214,42 @@ class ListDestinationsPaginator(_ListDestinationsPaginatorBase):
         """
 
 if TYPE_CHECKING:
+    _ListDeviceDiscoveriesPaginatorBase = Paginator[ListDeviceDiscoveriesResponseTypeDef]
+else:
+    _ListDeviceDiscoveriesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListDeviceDiscoveriesPaginator(_ListDeviceDiscoveriesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListDeviceDiscoveries.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListDeviceDiscoveries)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listdevicediscoveriespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDeviceDiscoveriesRequestPaginateTypeDef]
+    ) -> PageIterator[ListDeviceDiscoveriesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListDeviceDiscoveries.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListDeviceDiscoveries.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listdevicediscoveriespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListDiscoveredDevicesPaginatorBase = Paginator[ListDiscoveredDevicesResponseTypeDef]
+else:
+    _ListDiscoveredDevicesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListDiscoveredDevicesPaginator(_ListDiscoveredDevicesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListDiscoveredDevices.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListDiscoveredDevices)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listdiscovereddevicespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDiscoveredDevicesRequestPaginateTypeDef]
+    ) -> PageIterator[ListDiscoveredDevicesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListDiscoveredDevices.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListDiscoveredDevices.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listdiscovereddevicespaginator)
+        """
+
+if TYPE_CHECKING:
     _ListEventLogConfigurationsPaginatorBase = Paginator[ListEventLogConfigurationsResponseTypeDef]
 else:
     _ListEventLogConfigurationsPaginatorBase = Paginator  # type: ignore[assignment]
@@ -145,6 +265,28 @@ class ListEventLogConfigurationsPaginator(_ListEventLogConfigurationsPaginatorBa
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListEventLogConfigurations.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListEventLogConfigurations.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listeventlogconfigurationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListManagedThingAccountAssociationsPaginatorBase = Paginator[
+        ListManagedThingAccountAssociationsResponseTypeDef
+    ]
+else:
+    _ListManagedThingAccountAssociationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListManagedThingAccountAssociationsPaginator(
+    _ListManagedThingAccountAssociationsPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListManagedThingAccountAssociations.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListManagedThingAccountAssociations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listmanagedthingaccountassociationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListManagedThingAccountAssociationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListManagedThingAccountAssociationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-managed-integrations/paginator/ListManagedThingAccountAssociations.html#ManagedintegrationsforIoTDeviceManagement.Paginator.ListManagedThingAccountAssociations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_managed_integrations/paginators/#listmanagedthingaccountassociationspaginator)
         """
 
 if TYPE_CHECKING:

@@ -41,6 +41,8 @@ from .literals import (
     ComputeType,
     ConnectionAliasStateType,
     ConnectionStateType,
+    CustomImageProtocolType,
+    CustomWorkspaceImageImportStateType,
     DataReplicationType,
     DedicatedTenancyAccountTypeType,
     DedicatedTenancyModificationStateEnumType,
@@ -49,12 +51,15 @@ from .literals import (
     DescribeWorkspaceDirectoriesFilterNameType,
     DescribeWorkspacesPoolsFilterOperatorType,
     EndpointEncryptionModeType,
+    ImageComputeTypeType,
     ImageTypeType,
     LogUploadEnumType,
     ModificationResourceEnumType,
     ModificationStateEnumType,
     OperatingSystemNameType,
     OperatingSystemTypeType,
+    OSVersionType,
+    PoolsRunningModeType,
     ProtocolType,
     ReconnectEnumType,
     RunningModeType,
@@ -97,6 +102,9 @@ else:
 __all__ = (
     "AcceptAccountLinkInvitationRequestTypeDef",
     "AcceptAccountLinkInvitationResultTypeDef",
+    "AccessEndpointConfigOutputTypeDef",
+    "AccessEndpointConfigTypeDef",
+    "AccessEndpointTypeDef",
     "AccountLinkTypeDef",
     "AccountModificationTypeDef",
     "ActiveDirectoryConfigTypeDef",
@@ -145,6 +153,7 @@ __all__ = (
     "CreateWorkspacesPoolResultTypeDef",
     "CreateWorkspacesRequestTypeDef",
     "CreateWorkspacesResultTypeDef",
+    "CustomWorkspaceImageImportErrorDetailsTypeDef",
     "DataReplicationSettingsTypeDef",
     "DefaultClientBrandingAttributesTypeDef",
     "DefaultImportClientBrandingAttributesTypeDef",
@@ -181,6 +190,8 @@ __all__ = (
     "DescribeConnectionAliasPermissionsResultTypeDef",
     "DescribeConnectionAliasesRequestTypeDef",
     "DescribeConnectionAliasesResultTypeDef",
+    "DescribeCustomWorkspaceImageImportRequestTypeDef",
+    "DescribeCustomWorkspaceImageImportResultTypeDef",
     "DescribeImageAssociationsRequestTypeDef",
     "DescribeImageAssociationsResultTypeDef",
     "DescribeIpGroupsRequestPaginateTypeDef",
@@ -230,8 +241,11 @@ __all__ = (
     "IDCConfigTypeDef",
     "ImagePermissionTypeDef",
     "ImageResourceAssociationTypeDef",
+    "ImageSourceIdentifierTypeDef",
     "ImportClientBrandingRequestTypeDef",
     "ImportClientBrandingResultTypeDef",
+    "ImportCustomWorkspaceImageRequestTypeDef",
+    "ImportCustomWorkspaceImageResultTypeDef",
     "ImportWorkspaceImageRequestTypeDef",
     "ImportWorkspaceImageResultTypeDef",
     "IosClientBrandingAttributesTypeDef",
@@ -248,6 +262,7 @@ __all__ = (
     "MigrateWorkspaceResultTypeDef",
     "ModificationStateTypeDef",
     "ModifyAccountRequestTypeDef",
+    "ModifyAccountResultTypeDef",
     "ModifyCertificateBasedAuthPropertiesRequestTypeDef",
     "ModifyClientPropertiesRequestTypeDef",
     "ModifyEndpointEncryptionModeRequestTypeDef",
@@ -315,7 +330,9 @@ __all__ = (
     "UserStorageTypeDef",
     "WorkSpaceApplicationDeploymentTypeDef",
     "WorkSpaceApplicationTypeDef",
+    "WorkspaceAccessPropertiesOutputTypeDef",
     "WorkspaceAccessPropertiesTypeDef",
+    "WorkspaceAccessPropertiesUnionTypeDef",
     "WorkspaceBundleTypeDef",
     "WorkspaceConnectionStatusTypeDef",
     "WorkspaceCreationPropertiesTypeDef",
@@ -351,6 +368,10 @@ class ResponseMetadataTypeDef(TypedDict):
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: NotRequired[str]
+
+class AccessEndpointTypeDef(TypedDict):
+    AccessEndpointType: NotRequired[Literal["STREAMING_WSP"]]
+    VpcEndpointId: NotRequired[str]
 
 class AccountModificationTypeDef(TypedDict):
     ModificationState: NotRequired[DedicatedTenancyModificationStateEnumType]
@@ -468,6 +489,10 @@ class TimeoutSettingsTypeDef(TypedDict):
     IdleDisconnectTimeoutInSeconds: NotRequired[int]
     MaxUserDurationInSeconds: NotRequired[int]
 
+class CustomWorkspaceImageImportErrorDetailsTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
 class DataReplicationSettingsTypeDef(TypedDict):
     DataReplication: NotRequired[DataReplicationType]
     RecoverySnapshotTime: NotRequired[datetime]
@@ -480,7 +505,6 @@ class DefaultClientBrandingAttributesTypeDef(TypedDict):
     LoginMessage: NotRequired[Dict[str, str]]
 
 class DefaultWorkspaceCreationPropertiesTypeDef(TypedDict):
-    EnableWorkDocs: NotRequired[bool]
     EnableInternetAccess: NotRequired[bool]
     DefaultOu: NotRequired[str]
     CustomSecurityGroupId: NotRequired[str]
@@ -591,6 +615,14 @@ class DescribeConnectionAliasesRequestTypeDef(TypedDict):
     ResourceId: NotRequired[str]
     Limit: NotRequired[int]
     NextToken: NotRequired[str]
+
+class DescribeCustomWorkspaceImageImportRequestTypeDef(TypedDict):
+    ImageId: str
+
+class ImageSourceIdentifierTypeDef(TypedDict):
+    Ec2ImportTaskId: NotRequired[str]
+    ImageBuildVersionArn: NotRequired[str]
+    Ec2ImageId: NotRequired[str]
 
 class DescribeImageAssociationsRequestTypeDef(TypedDict):
     ImageId: str
@@ -745,19 +777,7 @@ class SelfservicePermissionsTypeDef(TypedDict):
     SwitchRunningMode: NotRequired[ReconnectEnumType]
     RebuildWorkspace: NotRequired[ReconnectEnumType]
 
-class WorkspaceAccessPropertiesTypeDef(TypedDict):
-    DeviceTypeWindows: NotRequired[AccessPropertyValueType]
-    DeviceTypeOsx: NotRequired[AccessPropertyValueType]
-    DeviceTypeWeb: NotRequired[AccessPropertyValueType]
-    DeviceTypeIos: NotRequired[AccessPropertyValueType]
-    DeviceTypeAndroid: NotRequired[AccessPropertyValueType]
-    DeviceTypeChromeOs: NotRequired[AccessPropertyValueType]
-    DeviceTypeZeroClient: NotRequired[AccessPropertyValueType]
-    DeviceTypeLinux: NotRequired[AccessPropertyValueType]
-    DeviceTypeWorkSpacesThinClient: NotRequired[AccessPropertyValueType]
-
 class WorkspaceCreationPropertiesTypeDef(TypedDict):
-    EnableWorkDocs: NotRequired[bool]
     EnableInternetAccess: NotRequired[bool]
     DefaultOu: NotRequired[str]
     CustomSecurityGroupId: NotRequired[str]
@@ -898,10 +918,16 @@ class DescribeAccountResultTypeDef(TypedDict):
     DedicatedTenancySupport: DedicatedTenancySupportResultEnumType
     DedicatedTenancyManagementCidrRange: str
     DedicatedTenancyAccountType: DedicatedTenancyAccountTypeType
+    Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetAccountLinkResultTypeDef(TypedDict):
     AccountLink: AccountLinkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportCustomWorkspaceImageResultTypeDef(TypedDict):
+    ImageId: str
+    State: CustomWorkspaceImageImportStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class ImportWorkspaceImageResultTypeDef(TypedDict):
@@ -923,6 +949,10 @@ class MigrateWorkspaceResultTypeDef(TypedDict):
     TargetWorkspaceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class ModifyAccountResultTypeDef(TypedDict):
+    Message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class RegisterWorkspaceDirectoryResultTypeDef(TypedDict):
     DirectoryId: str
     State: WorkspaceDirectoryStateType
@@ -931,6 +961,14 @@ class RegisterWorkspaceDirectoryResultTypeDef(TypedDict):
 class RejectAccountLinkInvitationResultTypeDef(TypedDict):
     AccountLink: AccountLinkTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class AccessEndpointConfigOutputTypeDef(TypedDict):
+    AccessEndpoints: List[AccessEndpointTypeDef]
+    InternetFallbackProtocols: NotRequired[List[Literal["PCOIP"]]]
+
+class AccessEndpointConfigTypeDef(TypedDict):
+    AccessEndpoints: Sequence[AccessEndpointTypeDef]
+    InternetFallbackProtocols: NotRequired[Sequence[Literal["PCOIP"]]]
 
 class DescribeAccountModificationsResultTypeDef(TypedDict):
     AccountModifications: List[AccountModificationTypeDef]
@@ -1149,6 +1187,7 @@ class CreateWorkspacesPoolRequestTypeDef(TypedDict):
     Tags: NotRequired[Sequence[TagTypeDef]]
     ApplicationSettings: NotRequired[ApplicationSettingsRequestTypeDef]
     TimeoutSettings: NotRequired[TimeoutSettingsTypeDef]
+    RunningMode: NotRequired[PoolsRunningModeType]
 
 class UpdateWorkspacesPoolRequestTypeDef(TypedDict):
     PoolId: str
@@ -1158,6 +1197,7 @@ class UpdateWorkspacesPoolRequestTypeDef(TypedDict):
     Capacity: NotRequired[CapacityTypeDef]
     ApplicationSettings: NotRequired[ApplicationSettingsRequestTypeDef]
     TimeoutSettings: NotRequired[TimeoutSettingsTypeDef]
+    RunningMode: NotRequired[PoolsRunningModeType]
 
 class DescribeAccountModificationsRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
@@ -1218,6 +1258,32 @@ class ImportClientBrandingResultTypeDef(TypedDict):
     DeviceTypeLinux: DefaultClientBrandingAttributesTypeDef
     DeviceTypeWeb: DefaultClientBrandingAttributesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCustomWorkspaceImageImportResultTypeDef(TypedDict):
+    ImageId: str
+    InfrastructureConfigurationArn: str
+    State: CustomWorkspaceImageImportStateType
+    Created: datetime
+    LastUpdatedTime: datetime
+    ImageSource: ImageSourceIdentifierTypeDef
+    ImageBuilderInstanceId: str
+    ErrorDetails: List[CustomWorkspaceImageImportErrorDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ImportCustomWorkspaceImageRequestTypeDef = TypedDict(
+    "ImportCustomWorkspaceImageRequestTypeDef",
+    {
+        "ImageName": str,
+        "ImageDescription": str,
+        "ComputeType": ImageComputeTypeType,
+        "Protocol": CustomImageProtocolType,
+        "ImageSource": ImageSourceIdentifierTypeDef,
+        "InfrastructureConfigurationArn": str,
+        "Platform": Literal["WINDOWS"],
+        "OsVersion": OSVersionType,
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+    },
+)
 
 class DescribeWorkspaceDirectoriesRequestPaginateTypeDef(TypedDict):
     DirectoryIds: NotRequired[Sequence[str]]
@@ -1298,7 +1364,6 @@ class WorkspacePropertiesTypeDef(TypedDict):
 class RegisterWorkspaceDirectoryRequestTypeDef(TypedDict):
     DirectoryId: NotRequired[str]
     SubnetIds: NotRequired[Sequence[str]]
-    EnableWorkDocs: NotRequired[bool]
     EnableSelfService: NotRequired[bool]
     Tenancy: NotRequired[TenancyType]
     Tags: NotRequired[Sequence[TagTypeDef]]
@@ -1318,10 +1383,6 @@ class ModifySamlPropertiesRequestTypeDef(TypedDict):
 class ModifySelfservicePermissionsRequestTypeDef(TypedDict):
     ResourceId: str
     SelfservicePermissions: SelfservicePermissionsTypeDef
-
-class ModifyWorkspaceAccessPropertiesRequestTypeDef(TypedDict):
-    ResourceId: str
-    WorkspaceAccessProperties: WorkspaceAccessPropertiesTypeDef
 
 class ModifyWorkspaceCreationPropertiesRequestTypeDef(TypedDict):
     ResourceId: str
@@ -1388,10 +1449,35 @@ class WorkspacesPoolTypeDef(TypedDict):
     CreatedAt: datetime
     BundleId: str
     DirectoryId: str
+    RunningMode: PoolsRunningModeType
     Description: NotRequired[str]
     Errors: NotRequired[List[WorkspacesPoolErrorTypeDef]]
     ApplicationSettings: NotRequired[ApplicationSettingsResponseTypeDef]
     TimeoutSettings: NotRequired[TimeoutSettingsTypeDef]
+
+class WorkspaceAccessPropertiesOutputTypeDef(TypedDict):
+    DeviceTypeWindows: NotRequired[AccessPropertyValueType]
+    DeviceTypeOsx: NotRequired[AccessPropertyValueType]
+    DeviceTypeWeb: NotRequired[AccessPropertyValueType]
+    DeviceTypeIos: NotRequired[AccessPropertyValueType]
+    DeviceTypeAndroid: NotRequired[AccessPropertyValueType]
+    DeviceTypeChromeOs: NotRequired[AccessPropertyValueType]
+    DeviceTypeZeroClient: NotRequired[AccessPropertyValueType]
+    DeviceTypeLinux: NotRequired[AccessPropertyValueType]
+    DeviceTypeWorkSpacesThinClient: NotRequired[AccessPropertyValueType]
+    AccessEndpointConfig: NotRequired[AccessEndpointConfigOutputTypeDef]
+
+class WorkspaceAccessPropertiesTypeDef(TypedDict):
+    DeviceTypeWindows: NotRequired[AccessPropertyValueType]
+    DeviceTypeOsx: NotRequired[AccessPropertyValueType]
+    DeviceTypeWeb: NotRequired[AccessPropertyValueType]
+    DeviceTypeIos: NotRequired[AccessPropertyValueType]
+    DeviceTypeAndroid: NotRequired[AccessPropertyValueType]
+    DeviceTypeChromeOs: NotRequired[AccessPropertyValueType]
+    DeviceTypeZeroClient: NotRequired[AccessPropertyValueType]
+    DeviceTypeLinux: NotRequired[AccessPropertyValueType]
+    DeviceTypeWorkSpacesThinClient: NotRequired[AccessPropertyValueType]
+    AccessEndpointConfig: NotRequired[AccessEndpointConfigTypeDef]
 
 class DescribeApplicationAssociationsResultTypeDef(TypedDict):
     Associations: List[ApplicationResourceAssociationTypeDef]
@@ -1470,12 +1556,14 @@ class WorkspaceRequestOutputTypeDef(TypedDict):
     WorkspaceProperties: NotRequired[WorkspacePropertiesOutputTypeDef]
     Tags: NotRequired[List[TagTypeDef]]
     WorkspaceName: NotRequired[str]
+    Ipv6Address: NotRequired[str]
 
 class WorkspaceTypeDef(TypedDict):
     WorkspaceId: NotRequired[str]
     DirectoryId: NotRequired[str]
     UserName: NotRequired[str]
     IpAddress: NotRequired[str]
+    Ipv6Address: NotRequired[str]
     State: NotRequired[WorkspaceStateType]
     BundleId: NotRequired[str]
     SubnetId: NotRequired[str]
@@ -1501,36 +1589,6 @@ class DescribeWorkspacesPoolSessionsResultTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
-class WorkspaceDirectoryTypeDef(TypedDict):
-    DirectoryId: NotRequired[str]
-    Alias: NotRequired[str]
-    DirectoryName: NotRequired[str]
-    RegistrationCode: NotRequired[str]
-    SubnetIds: NotRequired[List[str]]
-    DnsIpAddresses: NotRequired[List[str]]
-    CustomerUserName: NotRequired[str]
-    IamRoleId: NotRequired[str]
-    DirectoryType: NotRequired[WorkspaceDirectoryTypeType]
-    WorkspaceSecurityGroupId: NotRequired[str]
-    State: NotRequired[WorkspaceDirectoryStateType]
-    WorkspaceCreationProperties: NotRequired[DefaultWorkspaceCreationPropertiesTypeDef]
-    ipGroupIds: NotRequired[List[str]]
-    WorkspaceAccessProperties: NotRequired[WorkspaceAccessPropertiesTypeDef]
-    Tenancy: NotRequired[TenancyType]
-    SelfservicePermissions: NotRequired[SelfservicePermissionsTypeDef]
-    SamlProperties: NotRequired[SamlPropertiesTypeDef]
-    CertificateBasedAuthProperties: NotRequired[CertificateBasedAuthPropertiesTypeDef]
-    EndpointEncryptionMode: NotRequired[EndpointEncryptionModeType]
-    MicrosoftEntraConfig: NotRequired[MicrosoftEntraConfigTypeDef]
-    WorkspaceDirectoryName: NotRequired[str]
-    WorkspaceDirectoryDescription: NotRequired[str]
-    UserIdentityType: NotRequired[UserIdentityTypeType]
-    WorkspaceType: NotRequired[WorkspaceTypeType]
-    IDCConfig: NotRequired[IDCConfigTypeDef]
-    ActiveDirectoryConfig: NotRequired[ActiveDirectoryConfigTypeDef]
-    StreamingProperties: NotRequired[StreamingPropertiesOutputTypeDef]
-    ErrorMessage: NotRequired[str]
-
 StreamingPropertiesUnionTypeDef = Union[
     StreamingPropertiesTypeDef, StreamingPropertiesOutputTypeDef
 ]
@@ -1552,6 +1610,41 @@ class DescribeWorkspacesPoolsResultTypeDef(TypedDict):
 class UpdateWorkspacesPoolResultTypeDef(TypedDict):
     WorkspacesPool: WorkspacesPoolTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class WorkspaceDirectoryTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    Alias: NotRequired[str]
+    DirectoryName: NotRequired[str]
+    RegistrationCode: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    DnsIpAddresses: NotRequired[List[str]]
+    DnsIpv6Addresses: NotRequired[List[str]]
+    CustomerUserName: NotRequired[str]
+    IamRoleId: NotRequired[str]
+    DirectoryType: NotRequired[WorkspaceDirectoryTypeType]
+    WorkspaceSecurityGroupId: NotRequired[str]
+    State: NotRequired[WorkspaceDirectoryStateType]
+    WorkspaceCreationProperties: NotRequired[DefaultWorkspaceCreationPropertiesTypeDef]
+    ipGroupIds: NotRequired[List[str]]
+    WorkspaceAccessProperties: NotRequired[WorkspaceAccessPropertiesOutputTypeDef]
+    Tenancy: NotRequired[TenancyType]
+    SelfservicePermissions: NotRequired[SelfservicePermissionsTypeDef]
+    SamlProperties: NotRequired[SamlPropertiesTypeDef]
+    CertificateBasedAuthProperties: NotRequired[CertificateBasedAuthPropertiesTypeDef]
+    EndpointEncryptionMode: NotRequired[EndpointEncryptionModeType]
+    MicrosoftEntraConfig: NotRequired[MicrosoftEntraConfigTypeDef]
+    WorkspaceDirectoryName: NotRequired[str]
+    WorkspaceDirectoryDescription: NotRequired[str]
+    UserIdentityType: NotRequired[UserIdentityTypeType]
+    WorkspaceType: NotRequired[WorkspaceTypeType]
+    IDCConfig: NotRequired[IDCConfigTypeDef]
+    ActiveDirectoryConfig: NotRequired[ActiveDirectoryConfigTypeDef]
+    StreamingProperties: NotRequired[StreamingPropertiesOutputTypeDef]
+    ErrorMessage: NotRequired[str]
+
+WorkspaceAccessPropertiesUnionTypeDef = Union[
+    WorkspaceAccessPropertiesTypeDef, WorkspaceAccessPropertiesOutputTypeDef
+]
 
 class DeployWorkspaceApplicationsResultTypeDef(TypedDict):
     Deployment: WorkSpaceApplicationDeploymentTypeDef
@@ -1591,15 +1684,20 @@ class WorkspaceRequestTypeDef(TypedDict):
     WorkspaceProperties: NotRequired[WorkspacePropertiesUnionTypeDef]
     Tags: NotRequired[Sequence[TagTypeDef]]
     WorkspaceName: NotRequired[str]
+    Ipv6Address: NotRequired[str]
+
+class ModifyStreamingPropertiesRequestTypeDef(TypedDict):
+    ResourceId: str
+    StreamingProperties: NotRequired[StreamingPropertiesUnionTypeDef]
 
 class DescribeWorkspaceDirectoriesResultTypeDef(TypedDict):
     Directories: List[WorkspaceDirectoryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
-class ModifyStreamingPropertiesRequestTypeDef(TypedDict):
+class ModifyWorkspaceAccessPropertiesRequestTypeDef(TypedDict):
     ResourceId: str
-    StreamingProperties: NotRequired[StreamingPropertiesUnionTypeDef]
+    WorkspaceAccessProperties: WorkspaceAccessPropertiesUnionTypeDef
 
 class CreateWorkspacesResultTypeDef(TypedDict):
     FailedRequests: List[FailedCreateWorkspaceRequestTypeDef]

@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_payment_cryptography.literals import DeriveKeyUsageType
+    from mypy_boto3_payment_cryptography.literals import As2805KeyVariantType
 
-    data: DeriveKeyUsageType = "TR31_B0_BASE_DERIVATION_KEY"
+    data: As2805KeyVariantType = "DATA_ENCRYPTION_KEY_VARIANT_22"
     ```
 """
 
@@ -22,6 +22,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "As2805KeyVariantType",
     "DeriveKeyUsageType",
     "KeyAlgorithmType",
     "KeyCheckValueAlgorithmType",
@@ -31,21 +32,30 @@ __all__ = (
     "KeyExportabilityType",
     "KeyMaterialTypeType",
     "KeyOriginType",
+    "KeyReplicationStateType",
     "KeyStateType",
     "KeyUsageType",
     "ListAliasesPaginatorName",
     "ListKeysPaginatorName",
     "ListTagsForResourcePaginatorName",
+    "MultiRegionKeyTypeType",
     "PaginatorName",
     "PaymentCryptographyControlPlaneServiceName",
     "ResourceServiceName",
     "ServiceName",
+    "SigningAlgorithmTypeType",
     "SymmetricKeyAlgorithmType",
     "Tr34KeyBlockFormatType",
     "WrappedKeyMaterialFormatType",
     "WrappingKeySpecType",
 )
 
+As2805KeyVariantType = Literal[
+    "DATA_ENCRYPTION_KEY_VARIANT_22",
+    "MESSAGE_AUTHENTICATION_KEY_VARIANT_24",
+    "PIN_ENCRYPTION_KEY_VARIANT_28",
+    "TERMINAL_MAJOR_KEY_VARIANT_00",
+]
 DeriveKeyUsageType = Literal[
     "TR31_B0_BASE_DERIVATION_KEY",
     "TR31_C0_CARD_VERIFICATION_KEY",
@@ -74,13 +84,17 @@ KeyAlgorithmType = Literal[
     "ECC_NIST_P256",
     "ECC_NIST_P384",
     "ECC_NIST_P521",
+    "HMAC_SHA224",
+    "HMAC_SHA256",
+    "HMAC_SHA384",
+    "HMAC_SHA512",
     "RSA_2048",
     "RSA_3072",
     "RSA_4096",
     "TDES_2KEY",
     "TDES_3KEY",
 ]
-KeyCheckValueAlgorithmType = Literal["ANSI_X9_24", "CMAC"]
+KeyCheckValueAlgorithmType = Literal["ANSI_X9_24", "CMAC", "HMAC", "SHA_1"]
 KeyClassType = Literal["ASYMMETRIC_KEY_PAIR", "PRIVATE_KEY", "PUBLIC_KEY", "SYMMETRIC_KEY"]
 KeyDerivationFunctionType = Literal["ANSI_X963", "NIST_SP800"]
 KeyDerivationHashAlgorithmType = Literal["SHA_256", "SHA_384", "SHA_512"]
@@ -93,6 +107,7 @@ KeyMaterialTypeType = Literal[
     "TRUSTED_PUBLIC_KEY_CERTIFICATE",
 ]
 KeyOriginType = Literal["AWS_PAYMENT_CRYPTOGRAPHY", "EXTERNAL"]
+KeyReplicationStateType = Literal["DELETE_IN_PROGRESS", "FAILED", "IN_PROGRESS", "SYNCHRONIZED"]
 KeyStateType = Literal["CREATE_COMPLETE", "CREATE_IN_PROGRESS", "DELETE_COMPLETE", "DELETE_PENDING"]
 KeyUsageType = Literal[
     "TR31_B0_BASE_DERIVATION_KEY",
@@ -109,6 +124,7 @@ KeyUsageType = Literal[
     "TR31_K1_KEY_BLOCK_PROTECTION_KEY",
     "TR31_K2_TR34_ASYMMETRIC_KEY",
     "TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT",
+    "TR31_M0_ISO_16609_MAC_KEY",
     "TR31_M1_ISO_9797_1_MAC_KEY",
     "TR31_M3_ISO_9797_3_MAC_KEY",
     "TR31_M6_ISO_9797_5_CMAC_KEY",
@@ -122,7 +138,19 @@ KeyUsageType = Literal[
 ListAliasesPaginatorName = Literal["list_aliases"]
 ListKeysPaginatorName = Literal["list_keys"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
-SymmetricKeyAlgorithmType = Literal["AES_128", "AES_192", "AES_256", "TDES_2KEY", "TDES_3KEY"]
+MultiRegionKeyTypeType = Literal["PRIMARY", "REPLICA"]
+SigningAlgorithmTypeType = Literal["SHA224", "SHA256", "SHA384", "SHA512"]
+SymmetricKeyAlgorithmType = Literal[
+    "AES_128",
+    "AES_192",
+    "AES_256",
+    "HMAC_SHA224",
+    "HMAC_SHA256",
+    "HMAC_SHA384",
+    "HMAC_SHA512",
+    "TDES_2KEY",
+    "TDES_3KEY",
+]
 Tr34KeyBlockFormatType = Literal["X9_TR34_2012"]
 WrappedKeyMaterialFormatType = Literal["KEY_CRYPTOGRAM", "TR31_KEY_BLOCK", "TR34_KEY_BLOCK"]
 WrappingKeySpecType = Literal["RSA_OAEP_SHA_256", "RSA_OAEP_SHA_512"]
@@ -132,6 +160,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -152,7 +181,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -164,11 +193,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -217,6 +250,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -272,6 +306,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -314,7 +349,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -329,6 +363,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -352,8 +387,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -384,9 +417,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -396,17 +431,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -424,13 +462,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -445,20 +480,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -483,8 +520,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -524,25 +561,18 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal["list_aliases", "list_keys", "list_tags_for_resource"]

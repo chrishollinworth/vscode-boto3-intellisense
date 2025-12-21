@@ -67,7 +67,7 @@ class FunctionActiveV2Waiter(Waiter):
     [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionactivev2waiter)
     """
     def wait(  # type: ignore[override]
-        self, **kwargs: Unpack[GetFunctionRequestWaitExtraTypeDef]
+        self, **kwargs: Unpack[GetFunctionRequestWaitTypeDef]
     ) -> None:
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionActiveV2.html#Lambda.Waiter.FunctionActiveV2.wait)
@@ -93,7 +93,7 @@ class FunctionExistsWaiter(Waiter):
     [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionexistswaiter)
     """
     def wait(  # type: ignore[override]
-        self, **kwargs: Unpack[GetFunctionRequestWaitTypeDef]
+        self, **kwargs: Unpack[GetFunctionRequestWaitExtraTypeDef]
     ) -> None:
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionExists.html#Lambda.Waiter.FunctionExists.wait)

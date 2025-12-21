@@ -15,6 +15,7 @@ Usage::
         GetResourcesPaginator,
         GetTagKeysPaginator,
         GetTagValuesPaginator,
+        ListRequiredTagsPaginator,
         ResourceGroupsTaggingAPIClient,
     )
 
@@ -25,6 +26,7 @@ Usage::
     get_resources_paginator: GetResourcesPaginator = client.get_paginator("get_resources")
     get_tag_keys_paginator: GetTagKeysPaginator = client.get_paginator("get_tag_keys")
     get_tag_values_paginator: GetTagValuesPaginator = client.get_paginator("get_tag_values")
+    list_required_tags_paginator: ListRequiredTagsPaginator = client.get_paginator("list_required_tags")
     ```
 """
 
@@ -34,6 +36,7 @@ from .paginator import (
     GetResourcesPaginator,
     GetTagKeysPaginator,
     GetTagValuesPaginator,
+    ListRequiredTagsPaginator,
 )
 
 Client = ResourceGroupsTaggingAPIClient
@@ -44,5 +47,6 @@ __all__ = (
     "GetResourcesPaginator",
     "GetTagKeysPaginator",
     "GetTagValuesPaginator",
+    "ListRequiredTagsPaginator",
     "ResourceGroupsTaggingAPIClient",
 )

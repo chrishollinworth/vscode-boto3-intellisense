@@ -17,6 +17,7 @@ Usage::
         GraphDeletedWaiter,
         GraphSnapshotAvailableWaiter,
         GraphSnapshotDeletedWaiter,
+        GraphStoppedWaiter,
         ImportTaskCancelledWaiter,
         ImportTaskSuccessfulWaiter,
         ListExportTasksPaginator,
@@ -38,6 +39,7 @@ Usage::
     graph_deleted_waiter: GraphDeletedWaiter = client.get_waiter("graph_deleted")
     graph_snapshot_available_waiter: GraphSnapshotAvailableWaiter = client.get_waiter("graph_snapshot_available")
     graph_snapshot_deleted_waiter: GraphSnapshotDeletedWaiter = client.get_waiter("graph_snapshot_deleted")
+    graph_stopped_waiter: GraphStoppedWaiter = client.get_waiter("graph_stopped")
     import_task_cancelled_waiter: ImportTaskCancelledWaiter = client.get_waiter("import_task_cancelled")
     import_task_successful_waiter: ImportTaskSuccessfulWaiter = client.get_waiter("import_task_successful")
     private_graph_endpoint_available_waiter: PrivateGraphEndpointAvailableWaiter = client.get_waiter("private_graph_endpoint_available")
@@ -66,6 +68,7 @@ from .waiter import (
     GraphDeletedWaiter,
     GraphSnapshotAvailableWaiter,
     GraphSnapshotDeletedWaiter,
+    GraphStoppedWaiter,
     ImportTaskCancelledWaiter,
     ImportTaskSuccessfulWaiter,
     PrivateGraphEndpointAvailableWaiter,
@@ -82,6 +85,7 @@ __all__ = (
     "GraphDeletedWaiter",
     "GraphSnapshotAvailableWaiter",
     "GraphSnapshotDeletedWaiter",
+    "GraphStoppedWaiter",
     "ImportTaskCancelledWaiter",
     "ImportTaskSuccessfulWaiter",
     "ListExportTasksPaginator",

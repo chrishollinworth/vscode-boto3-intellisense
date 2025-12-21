@@ -29,6 +29,12 @@ from .paginator import (
     GetAnomaliesPaginator,
     GetAnomalyMonitorsPaginator,
     GetAnomalySubscriptionsPaginator,
+    GetCostAndUsageComparisonsPaginator,
+    GetCostComparisonDriversPaginator,
+    ListCostAllocationTagBackfillHistoryPaginator,
+    ListCostAllocationTagsPaginator,
+    ListCostCategoryDefinitionsPaginator,
+    ListCostCategoryResourceAssociationsPaginator,
 )
 from .type_defs import (
     CreateAnomalyMonitorRequestTypeDef,
@@ -53,12 +59,16 @@ from .type_defs import (
     GetApproximateUsageRecordsResponseTypeDef,
     GetCommitmentPurchaseAnalysisRequestTypeDef,
     GetCommitmentPurchaseAnalysisResponseTypeDef,
+    GetCostAndUsageComparisonsRequestTypeDef,
+    GetCostAndUsageComparisonsResponseTypeDef,
     GetCostAndUsageRequestTypeDef,
     GetCostAndUsageResponseTypeDef,
     GetCostAndUsageWithResourcesRequestTypeDef,
     GetCostAndUsageWithResourcesResponseTypeDef,
     GetCostCategoriesRequestTypeDef,
     GetCostCategoriesResponseTypeDef,
+    GetCostComparisonDriversRequestTypeDef,
+    GetCostComparisonDriversResponseTypeDef,
     GetCostForecastRequestTypeDef,
     GetCostForecastResponseTypeDef,
     GetDimensionValuesRequestTypeDef,
@@ -93,6 +103,8 @@ from .type_defs import (
     ListCostAllocationTagsResponseTypeDef,
     ListCostCategoryDefinitionsRequestTypeDef,
     ListCostCategoryDefinitionsResponseTypeDef,
+    ListCostCategoryResourceAssociationsRequestTypeDef,
+    ListCostCategoryResourceAssociationsResponseTypeDef,
     ListSavingsPlansPurchaseRecommendationGenerationRequestTypeDef,
     ListSavingsPlansPurchaseRecommendationGenerationResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
@@ -133,6 +145,7 @@ class Exceptions(BaseClientExceptions):
     AnalysisNotFoundException: Type[BotocoreClientError]
     BackfillLimitExceededException: Type[BotocoreClientError]
     BillExpirationException: Type[BotocoreClientError]
+    BillingViewHealthStatusException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     DataUnavailableException: Type[BotocoreClientError]
     GenerationExistsException: Type[BotocoreClientError]
@@ -206,7 +219,7 @@ class CostExplorerClient(BaseClient):
         self, **kwargs: Unpack[CreateCostCategoryDefinitionRequestTypeDef]
     ) -> CreateCostCategoryDefinitionResponseTypeDef:
         """
-        Creates a new Cost Category with the requested name and rules.
+        Creates a new cost category with the requested name and rules.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/create_cost_category_definition.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#create_cost_category_definition)
@@ -236,7 +249,7 @@ class CostExplorerClient(BaseClient):
         self, **kwargs: Unpack[DeleteCostCategoryDefinitionRequestTypeDef]
     ) -> DeleteCostCategoryDefinitionResponseTypeDef:
         """
-        Deletes a Cost Category.
+        Deletes a cost category.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/delete_cost_category_definition.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#delete_cost_category_definition)
@@ -247,7 +260,7 @@ class CostExplorerClient(BaseClient):
     ) -> DescribeCostCategoryDefinitionResponseTypeDef:
         """
         Returns the name, Amazon Resource Name (ARN), rules, definition, and effective
-        dates of a Cost Category that's defined in the account.
+        dates of a cost category that's defined in the account.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/describe_cost_category_definition.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#describe_cost_category_definition)
@@ -316,6 +329,17 @@ class CostExplorerClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_cost_and_usage)
         """
 
+    def get_cost_and_usage_comparisons(
+        self, **kwargs: Unpack[GetCostAndUsageComparisonsRequestTypeDef]
+    ) -> GetCostAndUsageComparisonsResponseTypeDef:
+        """
+        Retrieves cost and usage comparisons for your account between two periods
+        within the last 13 months.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_cost_and_usage_comparisons.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_cost_and_usage_comparisons)
+        """
+
     def get_cost_and_usage_with_resources(
         self, **kwargs: Unpack[GetCostAndUsageWithResourcesRequestTypeDef]
     ) -> GetCostAndUsageWithResourcesResponseTypeDef:
@@ -330,10 +354,22 @@ class CostExplorerClient(BaseClient):
         self, **kwargs: Unpack[GetCostCategoriesRequestTypeDef]
     ) -> GetCostCategoriesResponseTypeDef:
         """
-        Retrieves an array of Cost Category names and values incurred cost.
+        Retrieves an array of cost category names and values incurred cost.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_cost_categories.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_cost_categories)
+        """
+
+    def get_cost_comparison_drivers(
+        self, **kwargs: Unpack[GetCostComparisonDriversRequestTypeDef]
+    ) -> GetCostComparisonDriversResponseTypeDef:
+        """
+        Retrieves key factors driving cost changes between two time periods within the
+        last 13 months, such as usage changes, discount changes, and commitment-based
+        savings.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_cost_comparison_drivers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_cost_comparison_drivers)
         """
 
     def get_cost_forecast(
@@ -508,10 +544,20 @@ class CostExplorerClient(BaseClient):
     ) -> ListCostCategoryDefinitionsResponseTypeDef:
         """
         Returns the name, Amazon Resource Name (ARN), <code>NumberOfRules</code> and
-        effective dates of all Cost Categories defined in the account.
+        effective dates of all cost categories defined in the account.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/list_cost_category_definitions.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#list_cost_category_definitions)
+        """
+
+    def list_cost_category_resource_associations(
+        self, **kwargs: Unpack[ListCostCategoryResourceAssociationsRequestTypeDef]
+    ) -> ListCostCategoryResourceAssociationsResponseTypeDef:
+        """
+        Returns resource associations of all cost categories defined in the account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/list_cost_category_resource_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#list_cost_category_resource_associations)
         """
 
     def list_savings_plans_purchase_recommendation_generation(
@@ -627,7 +673,7 @@ class CostExplorerClient(BaseClient):
         self, **kwargs: Unpack[UpdateCostCategoryDefinitionRequestTypeDef]
     ) -> UpdateCostCategoryDefinitionResponseTypeDef:
         """
-        Updates an existing Cost Category.
+        Updates an existing cost category.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/update_cost_category_definition.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#update_cost_category_definition)
@@ -659,6 +705,72 @@ class CostExplorerClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_anomaly_subscriptions"]
     ) -> GetAnomalySubscriptionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_cost_and_usage_comparisons"]
+    ) -> GetCostAndUsageComparisonsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_cost_comparison_drivers"]
+    ) -> GetCostComparisonDriversPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_cost_allocation_tag_backfill_history"]
+    ) -> ListCostAllocationTagBackfillHistoryPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_cost_allocation_tags"]
+    ) -> ListCostAllocationTagsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_cost_category_definitions"]
+    ) -> ListCostCategoryDefinitionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_cost_category_resource_associations"]
+    ) -> ListCostCategoryResourceAssociationsPaginator:
         """
         Create a paginator for an operation.
 

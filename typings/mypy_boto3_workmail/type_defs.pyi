@@ -804,8 +804,8 @@ class PutAccessControlRuleRequestTypeDef(TypedDict):
 
 class PutEmailMonitoringConfigurationRequestTypeDef(TypedDict):
     OrganizationId: str
-    RoleArn: str
     LogGroupArn: str
+    RoleArn: NotRequired[str]
 
 class PutInboundDmarcSettingsRequestTypeDef(TypedDict):
     OrganizationId: str

@@ -13,6 +13,7 @@ Usage::
     from mypy_boto3_connectcases.client import ConnectCasesClient
     from mypy_boto3_connectcases.paginator import (
         ListCaseRulesPaginator,
+        SearchAllRelatedItemsPaginator,
         SearchCasesPaginator,
         SearchRelatedItemsPaginator,
     )
@@ -21,6 +22,7 @@ Usage::
     client: ConnectCasesClient = session.client("connectcases")
 
     list_case_rules_paginator: ListCaseRulesPaginator = client.get_paginator("list_case_rules")
+    search_all_related_items_paginator: SearchAllRelatedItemsPaginator = client.get_paginator("search_all_related_items")
     search_cases_paginator: SearchCasesPaginator = client.get_paginator("search_cases")
     search_related_items_paginator: SearchRelatedItemsPaginator = client.get_paginator("search_related_items")
     ```
@@ -36,6 +38,8 @@ from botocore.paginate import PageIterator, Paginator
 from .type_defs import (
     ListCaseRulesRequestPaginateTypeDef,
     ListCaseRulesResponseTypeDef,
+    SearchAllRelatedItemsRequestPaginateTypeDef,
+    SearchAllRelatedItemsResponseTypeDef,
     SearchCasesRequestPaginateTypeDef,
     SearchCasesResponseTypeDef,
     SearchRelatedItemsRequestPaginateTypeDef,
@@ -47,7 +51,12 @@ if sys.version_info >= (3, 12):
 else:
     from typing_extensions import Unpack
 
-__all__ = ("ListCaseRulesPaginator", "SearchCasesPaginator", "SearchRelatedItemsPaginator")
+__all__ = (
+    "ListCaseRulesPaginator",
+    "SearchAllRelatedItemsPaginator",
+    "SearchCasesPaginator",
+    "SearchRelatedItemsPaginator",
+)
 
 if TYPE_CHECKING:
     _ListCaseRulesPaginatorBase = Paginator[ListCaseRulesResponseTypeDef]
@@ -65,6 +74,24 @@ class ListCaseRulesPaginator(_ListCaseRulesPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/paginator/ListCaseRules.html#ConnectCases.Paginator.ListCaseRules.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators/#listcaserulespaginator)
+        """
+
+if TYPE_CHECKING:
+    _SearchAllRelatedItemsPaginatorBase = Paginator[SearchAllRelatedItemsResponseTypeDef]
+else:
+    _SearchAllRelatedItemsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SearchAllRelatedItemsPaginator(_SearchAllRelatedItemsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/paginator/SearchAllRelatedItems.html#ConnectCases.Paginator.SearchAllRelatedItems)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators/#searchallrelateditemspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchAllRelatedItemsRequestPaginateTypeDef]
+    ) -> PageIterator[SearchAllRelatedItemsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/paginator/SearchAllRelatedItems.html#ConnectCases.Paginator.SearchAllRelatedItems.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators/#searchallrelateditemspaginator)
         """
 
 if TYPE_CHECKING:

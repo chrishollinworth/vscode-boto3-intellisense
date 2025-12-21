@@ -36,8 +36,10 @@ from .literals import (
     PinBlockFormatForPinDataType,
     PinBlockLengthPositionType,
     PinBlockPaddingTypeType,
+    RandomKeySendVariantMaskType,
     SessionKeyDerivationModeType,
     SymmetricKeyAlgorithmType,
+    WrappedKeyMaterialFormatType,
 )
 
 if sys.version_info >= (3, 9):
@@ -54,6 +56,8 @@ __all__ = (
     "AmexAttributesTypeDef",
     "AmexCardSecurityCodeVersion1TypeDef",
     "AmexCardSecurityCodeVersion2TypeDef",
+    "As2805KekValidationTypeTypeDef",
+    "As2805PekDerivationAttributesTypeDef",
     "AsymmetricEncryptionAttributesTypeDef",
     "CardGenerationAttributesTypeDef",
     "CardHolderVerificationValueTypeDef",
@@ -67,6 +71,7 @@ __all__ = (
     "DecryptDataInputTypeDef",
     "DecryptDataOutputTypeDef",
     "DerivationMethodAttributesTypeDef",
+    "DiffieHellmanDerivationDataTypeDef",
     "DiscoverDynamicCardVerificationCodeTypeDef",
     "DukptAttributesTypeDef",
     "DukptDerivationAttributesTypeDef",
@@ -80,6 +85,8 @@ __all__ = (
     "EncryptDataInputTypeDef",
     "EncryptDataOutputTypeDef",
     "EncryptionDecryptionAttributesTypeDef",
+    "GenerateAs2805KekValidationInputTypeDef",
+    "GenerateAs2805KekValidationOutputTypeDef",
     "GenerateCardValidationDataInputTypeDef",
     "GenerateCardValidationDataOutputTypeDef",
     "GenerateMacEmvPinChangeInputTypeDef",
@@ -93,10 +100,16 @@ __all__ = (
     "Ibm3624PinOffsetTypeDef",
     "Ibm3624PinVerificationTypeDef",
     "Ibm3624RandomPinTypeDef",
+    "IncomingDiffieHellmanTr31KeyBlockTypeDef",
+    "IncomingKeyMaterialTypeDef",
+    "KekValidationRequestTypeDef",
+    "KekValidationResponseTypeDef",
     "MacAlgorithmDukptTypeDef",
     "MacAlgorithmEmvTypeDef",
     "MacAttributesTypeDef",
     "MasterCardAttributesTypeDef",
+    "OutgoingKeyMaterialTypeDef",
+    "OutgoingTr31KeyBlockTypeDef",
     "PinDataTypeDef",
     "PinGenerationAttributesTypeDef",
     "PinVerificationAttributesTypeDef",
@@ -112,9 +125,12 @@ __all__ = (
     "SessionKeyMastercardTypeDef",
     "SessionKeyVisaTypeDef",
     "SymmetricEncryptionAttributesTypeDef",
+    "TranslateKeyMaterialInputTypeDef",
+    "TranslateKeyMaterialOutputTypeDef",
     "TranslatePinDataInputTypeDef",
     "TranslatePinDataOutputTypeDef",
     "TranslationIsoFormatsTypeDef",
+    "TranslationPinDataAs2805Format0TypeDef",
     "TranslationPinDataIsoFormat034TypeDef",
     "VerifyAuthRequestCryptogramInputTypeDef",
     "VerifyAuthRequestCryptogramOutputTypeDef",
@@ -131,6 +147,7 @@ __all__ = (
     "VisaPinVerificationValueTypeDef",
     "WrappedKeyMaterialTypeDef",
     "WrappedKeyTypeDef",
+    "WrappedWorkingKeyTypeDef",
 )
 
 class CurrentPinAttributesTypeDef(TypedDict):
@@ -143,6 +160,16 @@ class AmexCardSecurityCodeVersion1TypeDef(TypedDict):
 class AmexCardSecurityCodeVersion2TypeDef(TypedDict):
     CardExpiryDate: str
     ServiceCode: str
+
+class KekValidationRequestTypeDef(TypedDict):
+    DeriveKeyAlgorithm: SymmetricKeyAlgorithmType
+
+class KekValidationResponseTypeDef(TypedDict):
+    RandomKeySend: str
+
+class As2805PekDerivationAttributesTypeDef(TypedDict):
+    SystemTraceAuditNumber: str
+    TransactionAmount: str
 
 class AsymmetricEncryptionAttributesTypeDef(TypedDict):
     PaddingType: NotRequired[PaddingTypeType]
@@ -210,6 +237,9 @@ class MasterCardAttributesTypeDef(TypedDict):
     PrimaryAccountNumber: str
     PanSequenceNumber: str
     ApplicationCryptogram: str
+
+class DiffieHellmanDerivationDataTypeDef(TypedDict):
+    SharedInformation: NotRequired[str]
 
 class DukptAttributesTypeDef(TypedDict):
     KeySerialNumber: str
@@ -295,6 +325,9 @@ class SessionKeyDerivationValueTypeDef(TypedDict):
     ApplicationCryptogram: NotRequired[str]
     ApplicationTransactionCounter: NotRequired[str]
 
+class OutgoingTr31KeyBlockTypeDef(TypedDict):
+    WrappingKeyIdentifier: str
+
 class VisaPinTypeDef(TypedDict):
     PinVerificationKeyIndex: int
 
@@ -330,6 +363,14 @@ class SessionKeyVisaTypeDef(TypedDict):
     PrimaryAccountNumber: str
     PanSequenceNumber: str
 
+class WrappedWorkingKeyTypeDef(TypedDict):
+    WrappedKeyMaterial: str
+    KeyCheckValue: str
+    WrappedKeyMaterialFormat: WrappedKeyMaterialFormatType
+
+class TranslationPinDataAs2805Format0TypeDef(TypedDict):
+    PrimaryAccountNumber: str
+
 class TranslationPinDataIsoFormat034TypeDef(TypedDict):
     PrimaryAccountNumber: str
 
@@ -348,6 +389,10 @@ class VisaAttributesTypeDef(TypedDict):
     ApplicationTransactionCounter: str
     AuthorizationRequestKeyIdentifier: str
     CurrentPinAttributes: NotRequired[CurrentPinAttributesTypeDef]
+
+class As2805KekValidationTypeTypeDef(TypedDict):
+    KekValidationRequest: NotRequired[KekValidationRequestTypeDef]
+    KekValidationResponse: NotRequired[KekValidationResponseTypeDef]
 
 class CardGenerationAttributesTypeDef(TypedDict):
     AmexCardSecurityCodeVersion1: NotRequired[AmexCardSecurityCodeVersion1TypeDef]
@@ -382,6 +427,13 @@ class EncryptDataOutputTypeDef(TypedDict):
     KeyArn: str
     KeyCheckValue: str
     CipherText: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GenerateAs2805KekValidationOutputTypeDef(TypedDict):
+    KeyArn: str
+    KeyCheckValue: str
+    RandomKeySend: str
+    RandomKeyReceive: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GenerateCardValidationDataOutputTypeDef(TypedDict):
@@ -431,6 +483,16 @@ class VerifyPinDataOutputTypeDef(TypedDict):
     EncryptionKeyCheckValue: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class IncomingDiffieHellmanTr31KeyBlockTypeDef(TypedDict):
+    PrivateKeyIdentifier: str
+    CertificateAuthorityPublicKeyIdentifier: str
+    PublicKeyCertificate: str
+    DeriveKeyAlgorithm: SymmetricKeyAlgorithmType
+    KeyDerivationFunction: KeyDerivationFunctionType
+    KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithmType
+    DerivationData: DiffieHellmanDerivationDataTypeDef
+    WrappedKeyBlock: str
+
 class WrappedKeyMaterialTypeDef(TypedDict):
     Tr31KeyBlock: NotRequired[str]
     DiffieHellmanSymmetricKey: NotRequired[EcdhDerivationAttributesTypeDef]
@@ -473,6 +535,9 @@ class MacAlgorithmEmvTypeDef(TypedDict):
     SessionKeyDerivationMode: SessionKeyDerivationModeType
     SessionKeyDerivationValue: SessionKeyDerivationValueTypeDef
 
+class OutgoingKeyMaterialTypeDef(TypedDict):
+    Tr31KeyBlock: NotRequired[OutgoingTr31KeyBlockTypeDef]
+
 class PinGenerationAttributesTypeDef(TypedDict):
     VisaPin: NotRequired[VisaPinTypeDef]
     VisaPinVerificationValue: NotRequired[VisaPinVerificationValueTypeDef]
@@ -492,11 +557,16 @@ class SessionKeyDerivationTypeDef(TypedDict):
     Amex: NotRequired[SessionKeyAmexTypeDef]
     Visa: NotRequired[SessionKeyVisaTypeDef]
 
+class TranslateKeyMaterialOutputTypeDef(TypedDict):
+    WrappedKey: WrappedWorkingKeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class TranslationIsoFormatsTypeDef(TypedDict):
     IsoFormat0: NotRequired[TranslationPinDataIsoFormat034TypeDef]
     IsoFormat1: NotRequired[Mapping[str, Any]]
     IsoFormat3: NotRequired[TranslationPinDataIsoFormat034TypeDef]
     IsoFormat4: NotRequired[TranslationPinDataIsoFormat034TypeDef]
+    As2805Format0: NotRequired[TranslationPinDataAs2805Format0TypeDef]
 
 class DerivationMethodAttributesTypeDef(TypedDict):
     EmvCommon: NotRequired[EmvCommonAttributesTypeDef]
@@ -504,6 +574,11 @@ class DerivationMethodAttributesTypeDef(TypedDict):
     Visa: NotRequired[VisaAttributesTypeDef]
     Emv2000: NotRequired[Emv2000AttributesTypeDef]
     Mastercard: NotRequired[MasterCardAttributesTypeDef]
+
+class GenerateAs2805KekValidationInputTypeDef(TypedDict):
+    KeyIdentifier: str
+    KekValidationType: As2805KekValidationTypeTypeDef
+    RandomKeySendVariantMask: RandomKeySendVariantMaskType
 
 class GenerateCardValidationDataInputTypeDef(TypedDict):
     KeyIdentifier: str
@@ -516,6 +591,9 @@ class VerifyCardValidationDataInputTypeDef(TypedDict):
     PrimaryAccountNumber: str
     VerificationAttributes: CardVerificationAttributesTypeDef
     ValidationData: str
+
+class IncomingKeyMaterialTypeDef(TypedDict):
+    DiffieHellmanTr31KeyBlock: NotRequired[IncomingDiffieHellmanTr31KeyBlockTypeDef]
 
 class WrappedKeyTypeDef(TypedDict):
     WrappedKeyMaterial: WrappedKeyMaterialTypeDef
@@ -545,6 +623,11 @@ class GenerateMacEmvPinChangeInputTypeDef(TypedDict):
     MessageData: str
     DerivationMethodAttributes: DerivationMethodAttributesTypeDef
 
+class TranslateKeyMaterialInputTypeDef(TypedDict):
+    IncomingKeyMaterial: IncomingKeyMaterialTypeDef
+    OutgoingKeyMaterial: OutgoingKeyMaterialTypeDef
+    KeyCheckValueAlgorithm: NotRequired[KeyCheckValueAlgorithmType]
+
 class DecryptDataInputTypeDef(TypedDict):
     KeyIdentifier: str
     CipherText: str
@@ -561,9 +644,9 @@ class GeneratePinDataInputTypeDef(TypedDict):
     GenerationKeyIdentifier: str
     EncryptionKeyIdentifier: str
     GenerationAttributes: PinGenerationAttributesTypeDef
-    PrimaryAccountNumber: str
     PinBlockFormat: PinBlockFormatForPinDataType
     PinDataLength: NotRequired[int]
+    PrimaryAccountNumber: NotRequired[str]
     EncryptionWrappedKey: NotRequired[WrappedKeyTypeDef]
 
 class ReEncryptDataInputTypeDef(TypedDict):
@@ -585,14 +668,15 @@ class TranslatePinDataInputTypeDef(TypedDict):
     OutgoingDukptAttributes: NotRequired[DukptDerivationAttributesTypeDef]
     IncomingWrappedKey: NotRequired[WrappedKeyTypeDef]
     OutgoingWrappedKey: NotRequired[WrappedKeyTypeDef]
+    IncomingAs2805Attributes: NotRequired[As2805PekDerivationAttributesTypeDef]
 
 class VerifyPinDataInputTypeDef(TypedDict):
     VerificationKeyIdentifier: str
     EncryptionKeyIdentifier: str
     VerificationAttributes: PinVerificationAttributesTypeDef
     EncryptedPinBlock: str
-    PrimaryAccountNumber: str
     PinBlockFormat: PinBlockFormatForPinDataType
+    PrimaryAccountNumber: NotRequired[str]
     PinDataLength: NotRequired[int]
     DukptAttributes: NotRequired[DukptAttributesTypeDef]
     EncryptionWrappedKey: NotRequired[WrappedKeyTypeDef]

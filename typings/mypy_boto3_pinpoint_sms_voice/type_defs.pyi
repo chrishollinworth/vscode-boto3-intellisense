@@ -43,6 +43,8 @@ __all__ = (
     "GetConfigurationSetEventDestinationsRequestTypeDef",
     "GetConfigurationSetEventDestinationsResponseTypeDef",
     "KinesisFirehoseDestinationTypeDef",
+    "ListConfigurationSetsRequestTypeDef",
+    "ListConfigurationSetsResponseTypeDef",
     "PlainTextMessageTypeTypeDef",
     "ResponseMetadataTypeDef",
     "SSMLMessageTypeTypeDef",
@@ -91,6 +93,10 @@ class ResponseMetadataTypeDef(TypedDict):
     RetryAttempts: int
     HostId: NotRequired[str]
 
+class ListConfigurationSetsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    PageSize: NotRequired[str]
+
 PlainTextMessageTypeTypeDef = TypedDict(
     "PlainTextMessageTypeTypeDef",
     {
@@ -122,6 +128,11 @@ class EventDestinationTypeDef(TypedDict):
     MatchingEventTypes: NotRequired[List[EventTypeType]]
     Name: NotRequired[str]
     SnsDestination: NotRequired[SnsDestinationTypeDef]
+
+class ListConfigurationSetsResponseTypeDef(TypedDict):
+    ConfigurationSets: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class SendVoiceMessageResponseTypeDef(TypedDict):
     MessageId: str

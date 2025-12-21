@@ -26,10 +26,14 @@ from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
+    GetResourceExplorerSetupPaginator,
     ListIndexesForMembersPaginator,
     ListIndexesPaginator,
     ListManagedViewsPaginator,
     ListResourcesPaginator,
+    ListServiceIndexesPaginator,
+    ListServiceViewsPaginator,
+    ListStreamingAccessForServicesPaginator,
     ListSupportedResourceTypesPaginator,
     ListViewsPaginator,
     SearchPaginator,
@@ -41,10 +45,14 @@ from .type_defs import (
     BatchGetViewOutputTypeDef,
     CreateIndexInputTypeDef,
     CreateIndexOutputTypeDef,
+    CreateResourceExplorerSetupInputTypeDef,
+    CreateResourceExplorerSetupOutputTypeDef,
     CreateViewInputTypeDef,
     CreateViewOutputTypeDef,
     DeleteIndexInputTypeDef,
     DeleteIndexOutputTypeDef,
+    DeleteResourceExplorerSetupInputTypeDef,
+    DeleteResourceExplorerSetupOutputTypeDef,
     DeleteViewInputTypeDef,
     DeleteViewOutputTypeDef,
     EmptyResponseMetadataTypeDef,
@@ -53,6 +61,11 @@ from .type_defs import (
     GetIndexOutputTypeDef,
     GetManagedViewInputTypeDef,
     GetManagedViewOutputTypeDef,
+    GetResourceExplorerSetupInputTypeDef,
+    GetResourceExplorerSetupOutputTypeDef,
+    GetServiceIndexOutputTypeDef,
+    GetServiceViewInputTypeDef,
+    GetServiceViewOutputTypeDef,
     GetViewInputTypeDef,
     GetViewOutputTypeDef,
     ListIndexesForMembersInputTypeDef,
@@ -63,6 +76,12 @@ from .type_defs import (
     ListManagedViewsOutputTypeDef,
     ListResourcesInputTypeDef,
     ListResourcesOutputTypeDef,
+    ListServiceIndexesInputTypeDef,
+    ListServiceIndexesOutputTypeDef,
+    ListServiceViewsInputTypeDef,
+    ListServiceViewsOutputTypeDef,
+    ListStreamingAccessForServicesInputTypeDef,
+    ListStreamingAccessForServicesOutputTypeDef,
     ListSupportedResourceTypesInputTypeDef,
     ListSupportedResourceTypesOutputTypeDef,
     ListTagsForResourceInputTypeDef,
@@ -168,6 +187,17 @@ class ResourceExplorerClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#create_index)
         """
 
+    def create_resource_explorer_setup(
+        self, **kwargs: Unpack[CreateResourceExplorerSetupInputTypeDef]
+    ) -> CreateResourceExplorerSetupOutputTypeDef:
+        """
+        Creates a Resource Explorer setup configuration across multiple Amazon Web
+        Services Regions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/create_resource_explorer_setup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#create_resource_explorer_setup)
+        """
+
     def create_view(self, **kwargs: Unpack[CreateViewInputTypeDef]) -> CreateViewOutputTypeDef:
         """
         Creates a view that users can query by using the <a>Search</a> operation.
@@ -183,6 +213,16 @@ class ResourceExplorerClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/delete_index.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#delete_index)
+        """
+
+    def delete_resource_explorer_setup(
+        self, **kwargs: Unpack[DeleteResourceExplorerSetupInputTypeDef]
+    ) -> DeleteResourceExplorerSetupOutputTypeDef:
+        """
+        Deletes a Resource Explorer setup configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/delete_resource_explorer_setup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#delete_resource_explorer_setup)
         """
 
     def delete_view(self, **kwargs: Unpack[DeleteViewInputTypeDef]) -> DeleteViewOutputTypeDef:
@@ -244,6 +284,35 @@ class ResourceExplorerClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#get_managed_view)
         """
 
+    def get_resource_explorer_setup(
+        self, **kwargs: Unpack[GetResourceExplorerSetupInputTypeDef]
+    ) -> GetResourceExplorerSetupOutputTypeDef:
+        """
+        Retrieves the status and details of a Resource Explorer setup operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/get_resource_explorer_setup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#get_resource_explorer_setup)
+        """
+
+    def get_service_index(self) -> GetServiceIndexOutputTypeDef:
+        """
+        Retrieves information about the Resource Explorer index in the current Amazon
+        Web Services Region.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/get_service_index.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#get_service_index)
+        """
+
+    def get_service_view(
+        self, **kwargs: Unpack[GetServiceViewInputTypeDef]
+    ) -> GetServiceViewOutputTypeDef:
+        """
+        Retrieves details about a specific Resource Explorer service view.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/get_service_view.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#get_service_view)
+        """
+
     def get_view(self, **kwargs: Unpack[GetViewInputTypeDef]) -> GetViewOutputTypeDef:
         """
         Retrieves details of the specified view.
@@ -295,6 +364,39 @@ class ResourceExplorerClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/list_resources.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#list_resources)
+        """
+
+    def list_service_indexes(
+        self, **kwargs: Unpack[ListServiceIndexesInputTypeDef]
+    ) -> ListServiceIndexesOutputTypeDef:
+        """
+        Lists all Resource Explorer indexes across the specified Amazon Web Services
+        Regions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/list_service_indexes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#list_service_indexes)
+        """
+
+    def list_service_views(
+        self, **kwargs: Unpack[ListServiceViewsInputTypeDef]
+    ) -> ListServiceViewsOutputTypeDef:
+        """
+        Lists all Resource Explorer service views available in the current Amazon Web
+        Services account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/list_service_views.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#list_service_views)
+        """
+
+    def list_streaming_access_for_services(
+        self, **kwargs: Unpack[ListStreamingAccessForServicesInputTypeDef]
+    ) -> ListStreamingAccessForServicesOutputTypeDef:
+        """
+        Returns a list of Amazon Web Services services that have been granted streaming
+        access to your Resource Explorer data.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/list_streaming_access_for_services.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#list_streaming_access_for_services)
         """
 
     def list_supported_resource_types(
@@ -376,6 +478,17 @@ class ResourceExplorerClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_resource_explorer_setup"]
+    ) -> GetResourceExplorerSetupPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_indexes_for_members"]
     ) -> ListIndexesForMembersPaginator:
         """
@@ -411,6 +524,39 @@ class ResourceExplorerClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_resources"]
     ) -> ListResourcesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_service_indexes"]
+    ) -> ListServiceIndexesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_service_views"]
+    ) -> ListServiceViewsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-explorer-2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_streaming_access_for_services"]
+    ) -> ListStreamingAccessForServicesPaginator:
         """
         Create a paginator for an operation.
 

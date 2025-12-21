@@ -28,11 +28,13 @@ from botocore.exceptions import ClientError as BotocoreClientError
 from .paginator import (
     ListAccountsForParentPaginator,
     ListAccountsPaginator,
+    ListAccountsWithInvalidEffectivePolicyPaginator,
     ListAWSServiceAccessForOrganizationPaginator,
     ListChildrenPaginator,
     ListCreateAccountStatusPaginator,
     ListDelegatedAdministratorsPaginator,
     ListDelegatedServicesForAccountPaginator,
+    ListEffectivePolicyValidationErrorsPaginator,
     ListHandshakesForAccountPaginator,
     ListHandshakesForOrganizationPaginator,
     ListOrganizationalUnitsForParentPaginator,
@@ -79,6 +81,8 @@ from .type_defs import (
     DescribePolicyRequestTypeDef,
     DescribePolicyResponseTypeDef,
     DescribeResourcePolicyResponseTypeDef,
+    DescribeResponsibilityTransferRequestTypeDef,
+    DescribeResponsibilityTransferResponseTypeDef,
     DetachPolicyRequestTypeDef,
     DisableAWSServiceAccessRequestTypeDef,
     DisablePolicyTypeRequestTypeDef,
@@ -90,10 +94,14 @@ from .type_defs import (
     EnablePolicyTypeResponseTypeDef,
     InviteAccountToOrganizationRequestTypeDef,
     InviteAccountToOrganizationResponseTypeDef,
+    InviteOrganizationToTransferResponsibilityRequestTypeDef,
+    InviteOrganizationToTransferResponsibilityResponseTypeDef,
     ListAccountsForParentRequestTypeDef,
     ListAccountsForParentResponseTypeDef,
     ListAccountsRequestTypeDef,
     ListAccountsResponseTypeDef,
+    ListAccountsWithInvalidEffectivePolicyRequestTypeDef,
+    ListAccountsWithInvalidEffectivePolicyResponseTypeDef,
     ListAWSServiceAccessForOrganizationRequestTypeDef,
     ListAWSServiceAccessForOrganizationResponseTypeDef,
     ListChildrenRequestTypeDef,
@@ -104,12 +112,18 @@ from .type_defs import (
     ListDelegatedAdministratorsResponseTypeDef,
     ListDelegatedServicesForAccountRequestTypeDef,
     ListDelegatedServicesForAccountResponseTypeDef,
+    ListEffectivePolicyValidationErrorsRequestTypeDef,
+    ListEffectivePolicyValidationErrorsResponseTypeDef,
     ListHandshakesForAccountRequestTypeDef,
     ListHandshakesForAccountResponseTypeDef,
     ListHandshakesForOrganizationRequestTypeDef,
     ListHandshakesForOrganizationResponseTypeDef,
+    ListInboundResponsibilityTransfersRequestTypeDef,
+    ListInboundResponsibilityTransfersResponseTypeDef,
     ListOrganizationalUnitsForParentRequestTypeDef,
     ListOrganizationalUnitsForParentResponseTypeDef,
+    ListOutboundResponsibilityTransfersRequestTypeDef,
+    ListOutboundResponsibilityTransfersResponseTypeDef,
     ListParentsRequestTypeDef,
     ListParentsResponseTypeDef,
     ListPoliciesForTargetRequestTypeDef,
@@ -128,11 +142,15 @@ from .type_defs import (
     RegisterDelegatedAdministratorRequestTypeDef,
     RemoveAccountFromOrganizationRequestTypeDef,
     TagResourceRequestTypeDef,
+    TerminateResponsibilityTransferRequestTypeDef,
+    TerminateResponsibilityTransferResponseTypeDef,
     UntagResourceRequestTypeDef,
     UpdateOrganizationalUnitRequestTypeDef,
     UpdateOrganizationalUnitResponseTypeDef,
     UpdatePolicyRequestTypeDef,
     UpdatePolicyResponseTypeDef,
+    UpdateResponsibilityTransferRequestTypeDef,
+    UpdateResponsibilityTransferResponseTypeDef,
 )
 
 if sys.version_info >= (3, 9):
@@ -176,6 +194,7 @@ class Exceptions(BaseClientExceptions):
     HandshakeNotFoundException: Type[BotocoreClientError]
     InvalidHandshakeTransitionException: Type[BotocoreClientError]
     InvalidInputException: Type[BotocoreClientError]
+    InvalidResponsibilityTransferTransitionException: Type[BotocoreClientError]
     MalformedPolicyDocumentException: Type[BotocoreClientError]
     MasterCannotLeaveOrganizationException: Type[BotocoreClientError]
     OrganizationNotEmptyException: Type[BotocoreClientError]
@@ -190,6 +209,8 @@ class Exceptions(BaseClientExceptions):
     PolicyTypeNotAvailableForOrganizationException: Type[BotocoreClientError]
     PolicyTypeNotEnabledException: Type[BotocoreClientError]
     ResourcePolicyNotFoundException: Type[BotocoreClientError]
+    ResponsibilityTransferAlreadyInStatusException: Type[BotocoreClientError]
+    ResponsibilityTransferNotFoundException: Type[BotocoreClientError]
     RootNotFoundException: Type[BotocoreClientError]
     ServiceException: Type[BotocoreClientError]
     SourceParentNotFoundException: Type[BotocoreClientError]
@@ -236,8 +257,7 @@ class OrganizationsClient(BaseClient):
         self, **kwargs: Unpack[AcceptHandshakeRequestTypeDef]
     ) -> AcceptHandshakeResponseTypeDef:
         """
-        Sends a response to the originator of a handshake agreeing to the action
-        proposed by the handshake request.
+        Accepts a handshake by sending an <code>ACCEPTED</code> response to the sender.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/accept_handshake.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#accept_handshake)
@@ -258,7 +278,7 @@ class OrganizationsClient(BaseClient):
         self, **kwargs: Unpack[CancelHandshakeRequestTypeDef]
     ) -> CancelHandshakeResponseTypeDef:
         """
-        Cancels a handshake.
+        Cancels a <a>Handshake</a>.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/cancel_handshake.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#cancel_handshake)
@@ -330,7 +350,7 @@ class OrganizationsClient(BaseClient):
         self, **kwargs: Unpack[DeclineHandshakeRequestTypeDef]
     ) -> DeclineHandshakeResponseTypeDef:
         """
-        Declines a handshake request.
+        Declines a <a>Handshake</a>.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/decline_handshake.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#decline_handshake)
@@ -418,7 +438,7 @@ class OrganizationsClient(BaseClient):
         self, **kwargs: Unpack[DescribeHandshakeRequestTypeDef]
     ) -> DescribeHandshakeResponseTypeDef:
         """
-        Retrieves information about a previously requested handshake.
+        Returns details for a handshake.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/describe_handshake.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#describe_handshake)
@@ -458,6 +478,16 @@ class OrganizationsClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/describe_resource_policy.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#describe_resource_policy)
+        """
+
+    def describe_responsibility_transfer(
+        self, **kwargs: Unpack[DescribeResponsibilityTransferRequestTypeDef]
+    ) -> DescribeResponsibilityTransferResponseTypeDef:
+        """
+        Returns details for a transfer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/describe_responsibility_transfer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#describe_responsibility_transfer)
         """
 
     def detach_policy(
@@ -534,6 +564,17 @@ class OrganizationsClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#invite_account_to_organization)
         """
 
+    def invite_organization_to_transfer_responsibility(
+        self, **kwargs: Unpack[InviteOrganizationToTransferResponsibilityRequestTypeDef]
+    ) -> InviteOrganizationToTransferResponsibilityResponseTypeDef:
+        """
+        Sends an invitation to another organization's management account to designate
+        your account with the specified responsibilities for their organization.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/invite_organization_to_transfer_responsibility.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#invite_organization_to_transfer_responsibility)
+        """
+
     def leave_organization(self) -> EmptyResponseMetadataTypeDef:
         """
         Removes a member account from its parent organization.
@@ -572,6 +613,16 @@ class OrganizationsClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/list_accounts_for_parent.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#list_accounts_for_parent)
+        """
+
+    def list_accounts_with_invalid_effective_policy(
+        self, **kwargs: Unpack[ListAccountsWithInvalidEffectivePolicyRequestTypeDef]
+    ) -> ListAccountsWithInvalidEffectivePolicyResponseTypeDef:
+        """
+        Lists all the accounts in an organization that have invalid effective policies.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/list_accounts_with_invalid_effective_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#list_accounts_with_invalid_effective_policy)
         """
 
     def list_children(
@@ -618,12 +669,23 @@ class OrganizationsClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#list_delegated_services_for_account)
         """
 
+    def list_effective_policy_validation_errors(
+        self, **kwargs: Unpack[ListEffectivePolicyValidationErrorsRequestTypeDef]
+    ) -> ListEffectivePolicyValidationErrorsResponseTypeDef:
+        """
+        Lists all the validation errors on an <a
+        href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective
+        policy</a> for a specified account and policy type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/list_effective_policy_validation_errors.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#list_effective_policy_validation_errors)
+        """
+
     def list_handshakes_for_account(
         self, **kwargs: Unpack[ListHandshakesForAccountRequestTypeDef]
     ) -> ListHandshakesForAccountResponseTypeDef:
         """
-        Lists the current handshakes that are associated with the account of the
-        requesting user.
+        Lists the recent handshakes that you have received.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/list_handshakes_for_account.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#list_handshakes_for_account)
@@ -633,11 +695,21 @@ class OrganizationsClient(BaseClient):
         self, **kwargs: Unpack[ListHandshakesForOrganizationRequestTypeDef]
     ) -> ListHandshakesForOrganizationResponseTypeDef:
         """
-        Lists the handshakes that are associated with the organization that the
-        requesting user is part of.
+        Lists the recent handshakes that you have sent.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/list_handshakes_for_organization.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#list_handshakes_for_organization)
+        """
+
+    def list_inbound_responsibility_transfers(
+        self, **kwargs: Unpack[ListInboundResponsibilityTransfersRequestTypeDef]
+    ) -> ListInboundResponsibilityTransfersResponseTypeDef:
+        """
+        Lists transfers that allow you to manage the specified responsibilities for
+        another organization.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/list_inbound_responsibility_transfers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#list_inbound_responsibility_transfers)
         """
 
     def list_organizational_units_for_parent(
@@ -648,6 +720,17 @@ class OrganizationsClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/list_organizational_units_for_parent.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#list_organizational_units_for_parent)
+        """
+
+    def list_outbound_responsibility_transfers(
+        self, **kwargs: Unpack[ListOutboundResponsibilityTransfersRequestTypeDef]
+    ) -> ListOutboundResponsibilityTransfersResponseTypeDef:
+        """
+        Lists transfers that allow an account outside your organization to manage the
+        specified responsibilities for your organization.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/list_outbound_responsibility_transfers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#list_outbound_responsibility_transfers)
         """
 
     def list_parents(
@@ -763,6 +846,16 @@ class OrganizationsClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#tag_resource)
         """
 
+    def terminate_responsibility_transfer(
+        self, **kwargs: Unpack[TerminateResponsibilityTransferRequestTypeDef]
+    ) -> TerminateResponsibilityTransferResponseTypeDef:
+        """
+        Ends a transfer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/terminate_responsibility_transfer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#terminate_responsibility_transfer)
+        """
+
     def untag_resource(
         self, **kwargs: Unpack[UntagResourceRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
@@ -793,6 +886,16 @@ class OrganizationsClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#update_policy)
         """
 
+    def update_responsibility_transfer(
+        self, **kwargs: Unpack[UpdateResponsibilityTransferRequestTypeDef]
+    ) -> UpdateResponsibilityTransferResponseTypeDef:
+        """
+        Updates a transfer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/update_responsibility_transfer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#update_responsibility_transfer)
+        """
+
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_aws_service_access_for_organization"]
@@ -819,6 +922,17 @@ class OrganizationsClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_accounts"]
     ) -> ListAccountsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_accounts_with_invalid_effective_policy"]
+    ) -> ListAccountsWithInvalidEffectivePolicyPaginator:
         """
         Create a paginator for an operation.
 
@@ -863,6 +977,17 @@ class OrganizationsClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_delegated_services_for_account"]
     ) -> ListDelegatedServicesForAccountPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_effective_policy_validation_errors"]
+    ) -> ListEffectivePolicyValidationErrorsPaginator:
         """
         Create a paginator for an operation.
 

@@ -28,6 +28,8 @@ from .literals import (
     CertificateTypeType,
     CertificateUsageTypeType,
     CompressionEnumType,
+    ConnectorEgressTypeType,
+    ConnectorStatusType,
     CustomStepStatusType,
     DirectoryListingOptimizationType,
     DomainType,
@@ -38,6 +40,7 @@ from .literals import (
     ExecutionStatusType,
     HomeDirectoryTypeType,
     IdentityProviderTypeType,
+    IpAddressTypeType,
     MapTypeType,
     MdnResponseType,
     MdnSigningAlgType,
@@ -55,6 +58,7 @@ from .literals import (
     TlsSessionResumptionModeType,
     TransferTableStatusType,
     WebAppEndpointPolicyType,
+    WebAppEndpointTypeType,
     WorkflowStepTypeType,
 )
 
@@ -72,7 +76,9 @@ else:
 __all__ = (
     "As2ConnectorConfigTypeDef",
     "BlobTypeDef",
+    "ConnectorEgressConfigTypeDef",
     "ConnectorFileTransferResultTypeDef",
+    "ConnectorVpcLatticeEgressConfigTypeDef",
     "CopyStepDetailsTypeDef",
     "CreateAccessRequestTypeDef",
     "CreateAccessResponseTypeDef",
@@ -137,7 +143,9 @@ __all__ = (
     "DescribedAccessTypeDef",
     "DescribedAgreementTypeDef",
     "DescribedCertificateTypeDef",
+    "DescribedConnectorEgressConfigTypeDef",
     "DescribedConnectorTypeDef",
+    "DescribedConnectorVpcLatticeEgressConfigTypeDef",
     "DescribedExecutionTypeDef",
     "DescribedHostKeyTypeDef",
     "DescribedIdentityCenterConfigTypeDef",
@@ -146,8 +154,10 @@ __all__ = (
     "DescribedServerTypeDef",
     "DescribedUserTypeDef",
     "DescribedWebAppCustomizationTypeDef",
+    "DescribedWebAppEndpointDetailsTypeDef",
     "DescribedWebAppIdentityProviderDetailsTypeDef",
     "DescribedWebAppTypeDef",
+    "DescribedWebAppVpcConfigTypeDef",
     "DescribedWorkflowTypeDef",
     "EfsFileLocationTypeDef",
     "EmptyResponseMetadataTypeDef",
@@ -267,8 +277,10 @@ __all__ = (
     "UpdateAgreementResponseTypeDef",
     "UpdateCertificateRequestTypeDef",
     "UpdateCertificateResponseTypeDef",
+    "UpdateConnectorEgressConfigTypeDef",
     "UpdateConnectorRequestTypeDef",
     "UpdateConnectorResponseTypeDef",
+    "UpdateConnectorVpcLatticeEgressConfigTypeDef",
     "UpdateHostKeyRequestTypeDef",
     "UpdateHostKeyResponseTypeDef",
     "UpdateProfileRequestTypeDef",
@@ -279,14 +291,18 @@ __all__ = (
     "UpdateUserResponseTypeDef",
     "UpdateWebAppCustomizationRequestTypeDef",
     "UpdateWebAppCustomizationResponseTypeDef",
+    "UpdateWebAppEndpointDetailsTypeDef",
     "UpdateWebAppIdentityCenterConfigTypeDef",
     "UpdateWebAppIdentityProviderDetailsTypeDef",
     "UpdateWebAppRequestTypeDef",
     "UpdateWebAppResponseTypeDef",
+    "UpdateWebAppVpcConfigTypeDef",
     "UserDetailsTypeDef",
     "WaiterConfigTypeDef",
+    "WebAppEndpointDetailsTypeDef",
     "WebAppIdentityProviderDetailsTypeDef",
     "WebAppUnitsTypeDef",
+    "WebAppVpcConfigTypeDef",
     "WorkflowDetailTypeDef",
     "WorkflowDetailsOutputTypeDef",
     "WorkflowDetailsTypeDef",
@@ -309,6 +325,10 @@ class As2ConnectorConfigTypeDef(TypedDict):
     PreserveContentType: NotRequired[PreserveContentTypeType]
 
 BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class ConnectorVpcLatticeEgressConfigTypeDef(TypedDict):
+    ResourceConfigurationArn: str
+    PortNumber: NotRequired[int]
 
 class ConnectorFileTransferResultTypeDef(TypedDict):
     FilePath: str
@@ -483,6 +503,10 @@ class PosixProfileOutputTypeDef(TypedDict):
     Gid: int
     SecondaryGids: NotRequired[List[int]]
 
+class DescribedConnectorVpcLatticeEgressConfigTypeDef(TypedDict):
+    ResourceConfigurationArn: str
+    PortNumber: NotRequired[int]
+
 class SftpConnectorConfigOutputTypeDef(TypedDict):
     UserSecretId: NotRequired[str]
     TrustedHostKeys: NotRequired[List[str]]
@@ -514,6 +538,11 @@ class SshPublicKeyTypeDef(TypedDict):
     DateImported: datetime
     SshPublicKeyBody: str
     SshPublicKeyId: str
+
+class DescribedWebAppVpcConfigTypeDef(TypedDict):
+    SubnetIds: NotRequired[List[str]]
+    VpcId: NotRequired[str]
+    VpcEndpointId: NotRequired[str]
 
 class EfsFileLocationTypeDef(TypedDict):
     FileSystemId: NotRequired[str]
@@ -696,6 +725,7 @@ class ListedWebAppTypeDef(TypedDict):
     WebAppId: str
     AccessEndpoint: NotRequired[str]
     WebAppEndpoint: NotRequired[str]
+    EndpointType: NotRequired[WebAppEndpointTypeType]
 
 class ListWorkflowsRequestTypeDef(TypedDict):
     MaxResults: NotRequired[int]
@@ -782,6 +812,10 @@ class UntagResourceRequestTypeDef(TypedDict):
     Arn: str
     TagKeys: Sequence[str]
 
+class UpdateConnectorVpcLatticeEgressConfigTypeDef(TypedDict):
+    ResourceConfigurationArn: NotRequired[str]
+    PortNumber: NotRequired[int]
+
 class UpdateHostKeyRequestTypeDef(TypedDict):
     ServerId: str
     HostKeyId: str
@@ -791,8 +825,16 @@ class UpdateProfileRequestTypeDef(TypedDict):
     ProfileId: str
     CertificateIds: NotRequired[Sequence[str]]
 
+class UpdateWebAppVpcConfigTypeDef(TypedDict):
+    SubnetIds: NotRequired[Sequence[str]]
+
 class UpdateWebAppIdentityCenterConfigTypeDef(TypedDict):
     Role: NotRequired[str]
+
+class WebAppVpcConfigTypeDef(TypedDict):
+    SubnetIds: NotRequired[Sequence[str]]
+    VpcId: NotRequired[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
 
 class WorkflowDetailTypeDef(TypedDict):
     WorkflowId: str
@@ -803,6 +845,9 @@ class UpdateWebAppCustomizationRequestTypeDef(TypedDict):
     Title: NotRequired[str]
     LogoFile: NotRequired[BlobTypeDef]
     FaviconFile: NotRequired[BlobTypeDef]
+
+class ConnectorEgressConfigTypeDef(TypedDict):
+    VpcLattice: NotRequired[ConnectorVpcLatticeEgressConfigTypeDef]
 
 class CreateAccessResponseTypeDef(TypedDict):
     ServerId: str
@@ -1061,17 +1106,8 @@ class DescribedAccessTypeDef(TypedDict):
     Role: NotRequired[str]
     ExternalId: NotRequired[str]
 
-class DescribedConnectorTypeDef(TypedDict):
-    Arn: str
-    ConnectorId: NotRequired[str]
-    Url: NotRequired[str]
-    As2Config: NotRequired[As2ConnectorConfigTypeDef]
-    AccessRole: NotRequired[str]
-    LoggingRole: NotRequired[str]
-    Tags: NotRequired[List[TagTypeDef]]
-    SftpConfig: NotRequired[SftpConnectorConfigOutputTypeDef]
-    ServiceManagedEgressIpAddresses: NotRequired[List[str]]
-    SecurityPolicyName: NotRequired[str]
+class DescribedConnectorEgressConfigTypeDef(TypedDict):
+    VpcLattice: NotRequired[DescribedConnectorVpcLatticeEgressConfigTypeDef]
 
 class DescribedWebAppIdentityProviderDetailsTypeDef(TypedDict):
     IdentityCenterConfig: NotRequired[DescribedIdentityCenterConfigTypeDef]
@@ -1087,6 +1123,9 @@ class DescribedUserTypeDef(TypedDict):
     SshPublicKeys: NotRequired[List[SshPublicKeyTypeDef]]
     Tags: NotRequired[List[TagTypeDef]]
     UserName: NotRequired[str]
+
+class DescribedWebAppEndpointDetailsTypeDef(TypedDict):
+    Vpc: NotRequired[DescribedWebAppVpcConfigTypeDef]
 
 EndpointDetailsUnionTypeDef = Union[EndpointDetailsTypeDef, EndpointDetailsOutputTypeDef]
 
@@ -1249,8 +1288,17 @@ class TestConnectionResponseTypeDef(TypedDict):
     SftpConnectionDetails: SftpConnectorConnectionDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+class UpdateConnectorEgressConfigTypeDef(TypedDict):
+    VpcLattice: NotRequired[UpdateConnectorVpcLatticeEgressConfigTypeDef]
+
+class UpdateWebAppEndpointDetailsTypeDef(TypedDict):
+    Vpc: NotRequired[UpdateWebAppVpcConfigTypeDef]
+
 class UpdateWebAppIdentityProviderDetailsTypeDef(TypedDict):
     IdentityCenterConfig: NotRequired[UpdateWebAppIdentityCenterConfigTypeDef]
+
+class WebAppEndpointDetailsTypeDef(TypedDict):
+    Vpc: NotRequired[WebAppVpcConfigTypeDef]
 
 class WorkflowDetailsOutputTypeDef(TypedDict):
     OnUpload: NotRequired[List[WorkflowDetailTypeDef]]
@@ -1281,8 +1329,25 @@ class DescribeAccessResponseTypeDef(TypedDict):
     Access: DescribedAccessTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeConnectorResponseTypeDef(TypedDict):
-    Connector: DescribedConnectorTypeDef
+class DescribedConnectorTypeDef(TypedDict):
+    Arn: str
+    EgressType: ConnectorEgressTypeType
+    Status: ConnectorStatusType
+    ConnectorId: NotRequired[str]
+    Url: NotRequired[str]
+    As2Config: NotRequired[As2ConnectorConfigTypeDef]
+    AccessRole: NotRequired[str]
+    LoggingRole: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    SftpConfig: NotRequired[SftpConnectorConfigOutputTypeDef]
+    ServiceManagedEgressIpAddresses: NotRequired[List[str]]
+    SecurityPolicyName: NotRequired[str]
+    EgressConfig: NotRequired[DescribedConnectorEgressConfigTypeDef]
+    ErrorMessage: NotRequired[str]
+
+class DescribeUserResponseTypeDef(TypedDict):
+    ServerId: str
+    User: DescribedUserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribedWebAppTypeDef(TypedDict):
@@ -1294,22 +1359,12 @@ class DescribedWebAppTypeDef(TypedDict):
     WebAppUnits: NotRequired[WebAppUnitsTypeDef]
     Tags: NotRequired[List[TagTypeDef]]
     WebAppEndpointPolicy: NotRequired[WebAppEndpointPolicyType]
-
-class DescribeUserResponseTypeDef(TypedDict):
-    ServerId: str
-    User: DescribedUserTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    EndpointType: NotRequired[WebAppEndpointTypeType]
+    DescribedEndpointDetails: NotRequired[DescribedWebAppEndpointDetailsTypeDef]
 
 class ExecutionResultsTypeDef(TypedDict):
     Steps: NotRequired[List[ExecutionStepResultTypeDef]]
     OnExceptionSteps: NotRequired[List[ExecutionStepResultTypeDef]]
-
-class CreateWebAppRequestTypeDef(TypedDict):
-    IdentityProviderDetails: WebAppIdentityProviderDetailsTypeDef
-    AccessEndpoint: NotRequired[str]
-    WebAppUnits: NotRequired[WebAppUnitsTypeDef]
-    Tags: NotRequired[Sequence[TagTypeDef]]
-    WebAppEndpointPolicy: NotRequired[WebAppEndpointPolicyType]
 
 class CopyStepDetailsTypeDef(TypedDict):
     Name: NotRequired[str]
@@ -1379,13 +1434,14 @@ class ListedExecutionTypeDef(TypedDict):
     Status: NotRequired[ExecutionStatusType]
 
 class CreateConnectorRequestTypeDef(TypedDict):
-    Url: str
     AccessRole: str
+    Url: NotRequired[str]
     As2Config: NotRequired[As2ConnectorConfigTypeDef]
     LoggingRole: NotRequired[str]
     Tags: NotRequired[Sequence[TagTypeDef]]
     SftpConfig: NotRequired[SftpConnectorConfigUnionTypeDef]
     SecurityPolicyName: NotRequired[str]
+    EgressConfig: NotRequired[ConnectorEgressConfigTypeDef]
 
 class UpdateConnectorRequestTypeDef(TypedDict):
     ConnectorId: str
@@ -1395,12 +1451,22 @@ class UpdateConnectorRequestTypeDef(TypedDict):
     LoggingRole: NotRequired[str]
     SftpConfig: NotRequired[SftpConnectorConfigUnionTypeDef]
     SecurityPolicyName: NotRequired[str]
+    EgressConfig: NotRequired[UpdateConnectorEgressConfigTypeDef]
 
 class UpdateWebAppRequestTypeDef(TypedDict):
     WebAppId: str
     IdentityProviderDetails: NotRequired[UpdateWebAppIdentityProviderDetailsTypeDef]
     AccessEndpoint: NotRequired[str]
     WebAppUnits: NotRequired[WebAppUnitsTypeDef]
+    EndpointDetails: NotRequired[UpdateWebAppEndpointDetailsTypeDef]
+
+class CreateWebAppRequestTypeDef(TypedDict):
+    IdentityProviderDetails: WebAppIdentityProviderDetailsTypeDef
+    AccessEndpoint: NotRequired[str]
+    WebAppUnits: NotRequired[WebAppUnitsTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    WebAppEndpointPolicy: NotRequired[WebAppEndpointPolicyType]
+    EndpointDetails: NotRequired[WebAppEndpointDetailsTypeDef]
 
 class DescribedServerTypeDef(TypedDict):
     Arn: str
@@ -1425,8 +1491,13 @@ class DescribedServerTypeDef(TypedDict):
     StructuredLogDestinations: NotRequired[List[str]]
     S3StorageOptions: NotRequired[S3StorageOptionsTypeDef]
     As2ServiceManagedEgressIpAddresses: NotRequired[List[str]]
+    IpAddressType: NotRequired[IpAddressTypeType]
 
 WorkflowDetailsUnionTypeDef = Union[WorkflowDetailsTypeDef, WorkflowDetailsOutputTypeDef]
+
+class DescribeConnectorResponseTypeDef(TypedDict):
+    Connector: DescribedConnectorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeWebAppResponseTypeDef(TypedDict):
     WebApp: DescribedWebAppTypeDef
@@ -1493,6 +1564,7 @@ class CreateServerRequestTypeDef(TypedDict):
     WorkflowDetails: NotRequired[WorkflowDetailsUnionTypeDef]
     StructuredLogDestinations: NotRequired[Sequence[str]]
     S3StorageOptions: NotRequired[S3StorageOptionsTypeDef]
+    IpAddressType: NotRequired[IpAddressTypeType]
 
 class UpdateServerRequestTypeDef(TypedDict):
     ServerId: str
@@ -1510,6 +1582,8 @@ class UpdateServerRequestTypeDef(TypedDict):
     WorkflowDetails: NotRequired[WorkflowDetailsUnionTypeDef]
     StructuredLogDestinations: NotRequired[Sequence[str]]
     S3StorageOptions: NotRequired[S3StorageOptionsTypeDef]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    IdentityProviderType: NotRequired[IdentityProviderTypeType]
 
 class DescribeExecutionResponseTypeDef(TypedDict):
     WorkflowId: str

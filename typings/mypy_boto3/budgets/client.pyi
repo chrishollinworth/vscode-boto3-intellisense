@@ -94,6 +94,7 @@ __all__ = ("BudgetsClient",)
 
 class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
+    BillingViewHealthStatusException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     CreationLimitExceededException: Type[BotocoreClientError]
     DuplicateRecordException: Type[BotocoreClientError]

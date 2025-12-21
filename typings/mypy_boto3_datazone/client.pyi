@@ -26,6 +26,8 @@ from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
+    ListAccountPoolsPaginator,
+    ListAccountsInAccountPoolPaginator,
     ListAssetFiltersPaginator,
     ListAssetRevisionsPaginator,
     ListConnectionsPaginator,
@@ -69,10 +71,18 @@ from .type_defs import (
     AcceptSubscriptionRequestOutputTypeDef,
     AddEntityOwnerInputTypeDef,
     AddPolicyGrantInputTypeDef,
+    AddPolicyGrantOutputTypeDef,
     AssociateEnvironmentRoleInputTypeDef,
+    AssociateGovernedTermsInputTypeDef,
+    BatchGetAttributesMetadataInputTypeDef,
+    BatchGetAttributesMetadataOutputTypeDef,
+    BatchPutAttributesMetadataInputTypeDef,
+    BatchPutAttributesMetadataOutputTypeDef,
     CancelMetadataGenerationRunInputTypeDef,
     CancelSubscriptionInputTypeDef,
     CancelSubscriptionOutputTypeDef,
+    CreateAccountPoolInputTypeDef,
+    CreateAccountPoolOutputTypeDef,
     CreateAssetFilterInputTypeDef,
     CreateAssetFilterOutputTypeDef,
     CreateAssetInputTypeDef,
@@ -95,6 +105,8 @@ from .type_defs import (
     CreateDomainUnitOutputTypeDef,
     CreateEnvironmentActionInputTypeDef,
     CreateEnvironmentActionOutputTypeDef,
+    CreateEnvironmentBlueprintInputTypeDef,
+    CreateEnvironmentBlueprintOutputTypeDef,
     CreateEnvironmentInputTypeDef,
     CreateEnvironmentOutputTypeDef,
     CreateEnvironmentProfileInputTypeDef,
@@ -124,6 +136,7 @@ from .type_defs import (
     CreateSubscriptionTargetOutputTypeDef,
     CreateUserProfileInputTypeDef,
     CreateUserProfileOutputTypeDef,
+    DeleteAccountPoolInputTypeDef,
     DeleteAssetFilterInputTypeDef,
     DeleteAssetInputTypeDef,
     DeleteAssetTypeInputTypeDef,
@@ -137,6 +150,7 @@ from .type_defs import (
     DeleteDomainUnitInputTypeDef,
     DeleteEnvironmentActionInputTypeDef,
     DeleteEnvironmentBlueprintConfigurationInputTypeDef,
+    DeleteEnvironmentBlueprintInputTypeDef,
     DeleteEnvironmentInputTypeDef,
     DeleteEnvironmentProfileInputTypeDef,
     DeleteFormTypeInputTypeDef,
@@ -153,7 +167,10 @@ from .type_defs import (
     DeleteSubscriptionTargetInputTypeDef,
     DeleteTimeSeriesDataPointsInputTypeDef,
     DisassociateEnvironmentRoleInputTypeDef,
+    DisassociateGovernedTermsInputTypeDef,
     EmptyResponseMetadataTypeDef,
+    GetAccountPoolInputTypeDef,
+    GetAccountPoolOutputTypeDef,
     GetAssetFilterInputTypeDef,
     GetAssetFilterOutputTypeDef,
     GetAssetInputTypeDef,
@@ -162,6 +179,8 @@ from .type_defs import (
     GetAssetTypeOutputTypeDef,
     GetConnectionInputTypeDef,
     GetConnectionOutputTypeDef,
+    GetDataExportConfigurationInputTypeDef,
+    GetDataExportConfigurationOutputTypeDef,
     GetDataProductInputTypeDef,
     GetDataProductOutputTypeDef,
     GetDataSourceInputTypeDef,
@@ -222,6 +241,10 @@ from .type_defs import (
     GetTimeSeriesDataPointOutputTypeDef,
     GetUserProfileInputTypeDef,
     GetUserProfileOutputTypeDef,
+    ListAccountPoolsInputTypeDef,
+    ListAccountPoolsOutputTypeDef,
+    ListAccountsInAccountPoolInputTypeDef,
+    ListAccountsInAccountPoolOutputTypeDef,
     ListAssetFiltersInputTypeDef,
     ListAssetFiltersOutputTypeDef,
     ListAssetRevisionsInputTypeDef,
@@ -288,6 +311,7 @@ from .type_defs import (
     PostLineageEventOutputTypeDef,
     PostTimeSeriesDataPointsInputTypeDef,
     PostTimeSeriesDataPointsOutputTypeDef,
+    PutDataExportConfigurationInputTypeDef,
     PutEnvironmentBlueprintConfigurationInputTypeDef,
     PutEnvironmentBlueprintConfigurationOutputTypeDef,
     RejectPredictionsInputTypeDef,
@@ -314,6 +338,8 @@ from .type_defs import (
     StartMetadataGenerationRunOutputTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
+    UpdateAccountPoolInputTypeDef,
+    UpdateAccountPoolOutputTypeDef,
     UpdateAssetFilterInputTypeDef,
     UpdateAssetFilterOutputTypeDef,
     UpdateConnectionInputTypeDef,
@@ -326,6 +352,8 @@ from .type_defs import (
     UpdateDomainUnitOutputTypeDef,
     UpdateEnvironmentActionInputTypeDef,
     UpdateEnvironmentActionOutputTypeDef,
+    UpdateEnvironmentBlueprintInputTypeDef,
+    UpdateEnvironmentBlueprintOutputTypeDef,
     UpdateEnvironmentInputTypeDef,
     UpdateEnvironmentOutputTypeDef,
     UpdateEnvironmentProfileInputTypeDef,
@@ -340,6 +368,7 @@ from .type_defs import (
     UpdateProjectOutputTypeDef,
     UpdateProjectProfileInputTypeDef,
     UpdateProjectProfileOutputTypeDef,
+    UpdateRootDomainUnitOwnerInputTypeDef,
     UpdateRuleInputTypeDef,
     UpdateRuleOutputTypeDef,
     UpdateSubscriptionGrantStatusInputTypeDef,
@@ -440,7 +469,9 @@ class DataZoneClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#add_entity_owner)
         """
 
-    def add_policy_grant(self, **kwargs: Unpack[AddPolicyGrantInputTypeDef]) -> Dict[str, Any]:
+    def add_policy_grant(
+        self, **kwargs: Unpack[AddPolicyGrantInputTypeDef]
+    ) -> AddPolicyGrantOutputTypeDef:
         """
         Adds a policy grant (an authorization policy) to a specified entity, including
         domain units, environment blueprint configurations, or environment profiles.
@@ -457,6 +488,36 @@ class DataZoneClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/associate_environment_role.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#associate_environment_role)
+        """
+
+    def associate_governed_terms(
+        self, **kwargs: Unpack[AssociateGovernedTermsInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associates governed terms with an asset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/associate_governed_terms.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#associate_governed_terms)
+        """
+
+    def batch_get_attributes_metadata(
+        self, **kwargs: Unpack[BatchGetAttributesMetadataInputTypeDef]
+    ) -> BatchGetAttributesMetadataOutputTypeDef:
+        """
+        Gets the attribute metadata.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/batch_get_attributes_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#batch_get_attributes_metadata)
+        """
+
+    def batch_put_attributes_metadata(
+        self, **kwargs: Unpack[BatchPutAttributesMetadataInputTypeDef]
+    ) -> BatchPutAttributesMetadataOutputTypeDef:
+        """
+        Writes the attribute metadata.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/batch_put_attributes_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#batch_put_attributes_metadata)
         """
 
     def cancel_metadata_generation_run(
@@ -477,6 +538,16 @@ class DataZoneClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/cancel_subscription.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#cancel_subscription)
+        """
+
+    def create_account_pool(
+        self, **kwargs: Unpack[CreateAccountPoolInputTypeDef]
+    ) -> CreateAccountPoolOutputTypeDef:
+        """
+        Creates an account pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_account_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_account_pool)
         """
 
     def create_asset(self, **kwargs: Unpack[CreateAssetInputTypeDef]) -> CreateAssetOutputTypeDef:
@@ -596,6 +667,16 @@ class DataZoneClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_environment_action.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_environment_action)
+        """
+
+    def create_environment_blueprint(
+        self, **kwargs: Unpack[CreateEnvironmentBlueprintInputTypeDef]
+    ) -> CreateEnvironmentBlueprintOutputTypeDef:
+        """
+        Creates a Amazon DataZone blueprint.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_environment_blueprint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_environment_blueprint)
         """
 
     def create_environment_profile(
@@ -737,6 +818,16 @@ class DataZoneClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_user_profile)
         """
 
+    def delete_account_pool(
+        self, **kwargs: Unpack[DeleteAccountPoolInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an account pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_account_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_account_pool)
+        """
+
     def delete_asset(self, **kwargs: Unpack[DeleteAssetInputTypeDef]) -> Dict[str, Any]:
         """
         Deletes an asset in Amazon DataZone.
@@ -832,6 +923,16 @@ class DataZoneClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_environment_action)
         """
 
+    def delete_environment_blueprint(
+        self, **kwargs: Unpack[DeleteEnvironmentBlueprintInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a blueprint in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_environment_blueprint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_environment_blueprint)
+        """
+
     def delete_environment_blueprint_configuration(
         self, **kwargs: Unpack[DeleteEnvironmentBlueprintConfigurationInputTypeDef]
     ) -> Dict[str, Any]:
@@ -854,7 +955,7 @@ class DataZoneClient(BaseClient):
 
     def delete_form_type(self, **kwargs: Unpack[DeleteFormTypeInputTypeDef]) -> Dict[str, Any]:
         """
-        Delets and metadata form type in Amazon DataZone.
+        Deletes and metadata form type in Amazon DataZone.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_form_type.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_form_type)
@@ -972,6 +1073,26 @@ class DataZoneClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#disassociate_environment_role)
         """
 
+    def disassociate_governed_terms(
+        self, **kwargs: Unpack[DisassociateGovernedTermsInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates restricted terms from an asset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/disassociate_governed_terms.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#disassociate_governed_terms)
+        """
+
+    def get_account_pool(
+        self, **kwargs: Unpack[GetAccountPoolInputTypeDef]
+    ) -> GetAccountPoolOutputTypeDef:
+        """
+        Gets the details of the account pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_account_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_account_pool)
+        """
+
     def get_asset(self, **kwargs: Unpack[GetAssetInputTypeDef]) -> GetAssetOutputTypeDef:
         """
         Gets an Amazon DataZone asset.
@@ -1008,6 +1129,16 @@ class DataZoneClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_connection.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_connection)
+        """
+
+    def get_data_export_configuration(
+        self, **kwargs: Unpack[GetDataExportConfigurationInputTypeDef]
+    ) -> GetDataExportConfigurationOutputTypeDef:
+        """
+        Gets data export configuration details.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_data_export_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_data_export_configuration)
         """
 
     def get_data_product(
@@ -1294,6 +1425,26 @@ class DataZoneClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_user_profile.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_user_profile)
+        """
+
+    def list_account_pools(
+        self, **kwargs: Unpack[ListAccountPoolsInputTypeDef]
+    ) -> ListAccountPoolsOutputTypeDef:
+        """
+        Lists existing account pools.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_account_pools.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_account_pools)
+        """
+
+    def list_accounts_in_account_pool(
+        self, **kwargs: Unpack[ListAccountsInAccountPoolInputTypeDef]
+    ) -> ListAccountsInAccountPoolOutputTypeDef:
+        """
+        Lists the accounts in the specified account pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_accounts_in_account_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_accounts_in_account_pool)
         """
 
     def list_asset_filters(
@@ -1620,6 +1771,16 @@ class DataZoneClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#post_time_series_data_points)
         """
 
+    def put_data_export_configuration(
+        self, **kwargs: Unpack[PutDataExportConfigurationInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Creates data export configuration details.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/put_data_export_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#put_data_export_configuration)
+        """
+
     def put_environment_blueprint_configuration(
         self, **kwargs: Unpack[PutEnvironmentBlueprintConfigurationInputTypeDef]
     ) -> PutEnvironmentBlueprintConfigurationOutputTypeDef:
@@ -1704,7 +1865,7 @@ class DataZoneClient(BaseClient):
         self, **kwargs: Unpack[SearchListingsInputTypeDef]
     ) -> SearchListingsOutputTypeDef:
         """
-        Searches listings (records of an asset at a given time) in Amazon DataZone.
+        Searches listings in Amazon DataZone.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/search_listings.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#search_listings)
@@ -1762,6 +1923,16 @@ class DataZoneClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/untag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#untag_resource)
+        """
+
+    def update_account_pool(
+        self, **kwargs: Unpack[UpdateAccountPoolInputTypeDef]
+    ) -> UpdateAccountPoolOutputTypeDef:
+        """
+        Updates the account pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_account_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_account_pool)
         """
 
     def update_asset_filter(
@@ -1834,6 +2005,16 @@ class DataZoneClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_environment_action)
         """
 
+    def update_environment_blueprint(
+        self, **kwargs: Unpack[UpdateEnvironmentBlueprintInputTypeDef]
+    ) -> UpdateEnvironmentBlueprintOutputTypeDef:
+        """
+        Updates an environment blueprint in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_environment_blueprint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_environment_blueprint)
+        """
+
     def update_environment_profile(
         self, **kwargs: Unpack[UpdateEnvironmentProfileInputTypeDef]
     ) -> UpdateEnvironmentProfileOutputTypeDef:
@@ -1894,6 +2075,16 @@ class DataZoneClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_project_profile)
         """
 
+    def update_root_domain_unit_owner(
+        self, **kwargs: Unpack[UpdateRootDomainUnitOwnerInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Updates the owner of the root domain unit.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_root_domain_unit_owner.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_root_domain_unit_owner)
+        """
+
     def update_rule(self, **kwargs: Unpack[UpdateRuleInputTypeDef]) -> UpdateRuleOutputTypeDef:
         """
         Updates a rule.
@@ -1941,6 +2132,28 @@ class DataZoneClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_user_profile.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_user_profile)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_account_pools"]
+    ) -> ListAccountPoolsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_accounts_in_account_pool"]
+    ) -> ListAccountsInAccountPoolPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
     @overload  # type: ignore[override]

@@ -190,6 +190,7 @@ class Exceptions(BaseClientExceptions):
     TableAlreadyExistsException: Type[BotocoreClientError]
     TableInUseException: Type[BotocoreClientError]
     TableNotFoundException: Type[BotocoreClientError]
+    ThrottlingException: Type[BotocoreClientError]
     TransactionCanceledException: Type[BotocoreClientError]
     TransactionConflictException: Type[BotocoreClientError]
     TransactionInProgressException: Type[BotocoreClientError]

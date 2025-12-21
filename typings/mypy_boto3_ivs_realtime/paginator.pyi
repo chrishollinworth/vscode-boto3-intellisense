@@ -13,6 +13,7 @@ Usage::
     from mypy_boto3_ivs_realtime.client import IvsrealtimeClient
     from mypy_boto3_ivs_realtime.paginator import (
         ListIngestConfigurationsPaginator,
+        ListParticipantReplicasPaginator,
         ListPublicKeysPaginator,
     )
 
@@ -20,6 +21,7 @@ Usage::
     client: IvsrealtimeClient = session.client("ivs-realtime")
 
     list_ingest_configurations_paginator: ListIngestConfigurationsPaginator = client.get_paginator("list_ingest_configurations")
+    list_participant_replicas_paginator: ListParticipantReplicasPaginator = client.get_paginator("list_participant_replicas")
     list_public_keys_paginator: ListPublicKeysPaginator = client.get_paginator("list_public_keys")
     ```
 """
@@ -34,6 +36,8 @@ from botocore.paginate import PageIterator, Paginator
 from .type_defs import (
     ListIngestConfigurationsRequestPaginateTypeDef,
     ListIngestConfigurationsResponseTypeDef,
+    ListParticipantReplicasRequestPaginateTypeDef,
+    ListParticipantReplicasResponseTypeDef,
     ListPublicKeysRequestPaginateTypeDef,
     ListPublicKeysResponseTypeDef,
 )
@@ -43,7 +47,11 @@ if sys.version_info >= (3, 12):
 else:
     from typing_extensions import Unpack
 
-__all__ = ("ListIngestConfigurationsPaginator", "ListPublicKeysPaginator")
+__all__ = (
+    "ListIngestConfigurationsPaginator",
+    "ListParticipantReplicasPaginator",
+    "ListPublicKeysPaginator",
+)
 
 if TYPE_CHECKING:
     _ListIngestConfigurationsPaginatorBase = Paginator[ListIngestConfigurationsResponseTypeDef]
@@ -61,6 +69,24 @@ class ListIngestConfigurationsPaginator(_ListIngestConfigurationsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/paginator/ListIngestConfigurations.html#Ivsrealtime.Paginator.ListIngestConfigurations.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/paginators/#listingestconfigurationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListParticipantReplicasPaginatorBase = Paginator[ListParticipantReplicasResponseTypeDef]
+else:
+    _ListParticipantReplicasPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListParticipantReplicasPaginator(_ListParticipantReplicasPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/paginator/ListParticipantReplicas.html#Ivsrealtime.Paginator.ListParticipantReplicas)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/paginators/#listparticipantreplicaspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListParticipantReplicasRequestPaginateTypeDef]
+    ) -> PageIterator[ListParticipantReplicasResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/paginator/ListParticipantReplicas.html#Ivsrealtime.Paginator.ListParticipantReplicas.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/paginators/#listparticipantreplicaspaginator)
         """
 
 if TYPE_CHECKING:

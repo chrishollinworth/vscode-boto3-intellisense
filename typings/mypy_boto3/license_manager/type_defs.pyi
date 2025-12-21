@@ -28,6 +28,7 @@ from .literals import (
     EntitlementUnitType,
     GrantStatusType,
     InventoryFilterConditionType,
+    LicenseAssetGroupStatusType,
     LicenseConfigurationStatusType,
     LicenseConversionTaskStatusType,
     LicenseCountingTypeType,
@@ -54,6 +55,10 @@ else:
 __all__ = (
     "AcceptGrantRequestTypeDef",
     "AcceptGrantResponseTypeDef",
+    "AndRuleStatementOutputTypeDef",
+    "AndRuleStatementTypeDef",
+    "AndRuleStatementUnionTypeDef",
+    "AssetTypeDef",
     "AutomatedDiscoveryInformationTypeDef",
     "BorrowConfigurationTypeDef",
     "CheckInLicenseRequestTypeDef",
@@ -67,6 +72,10 @@ __all__ = (
     "CreateGrantResponseTypeDef",
     "CreateGrantVersionRequestTypeDef",
     "CreateGrantVersionResponseTypeDef",
+    "CreateLicenseAssetGroupRequestTypeDef",
+    "CreateLicenseAssetGroupResponseTypeDef",
+    "CreateLicenseAssetRulesetRequestTypeDef",
+    "CreateLicenseAssetRulesetResponseTypeDef",
     "CreateLicenseConfigurationRequestTypeDef",
     "CreateLicenseConfigurationResponseTypeDef",
     "CreateLicenseConversionTaskForResourceRequestTypeDef",
@@ -79,9 +88,14 @@ __all__ = (
     "CreateLicenseVersionResponseTypeDef",
     "CreateTokenRequestTypeDef",
     "CreateTokenResponseTypeDef",
+    "CrossAccountDiscoveryServiceStatusTypeDef",
+    "CrossRegionDiscoveryStatusTypeDef",
     "DatetimeRangeTypeDef",
     "DeleteGrantRequestTypeDef",
     "DeleteGrantResponseTypeDef",
+    "DeleteLicenseAssetGroupRequestTypeDef",
+    "DeleteLicenseAssetGroupResponseTypeDef",
+    "DeleteLicenseAssetRulesetRequestTypeDef",
     "DeleteLicenseConfigurationRequestTypeDef",
     "DeleteLicenseManagerReportGeneratorRequestTypeDef",
     "DeleteLicenseRequestTypeDef",
@@ -97,6 +111,10 @@ __all__ = (
     "GetAccessTokenResponseTypeDef",
     "GetGrantRequestTypeDef",
     "GetGrantResponseTypeDef",
+    "GetLicenseAssetGroupRequestTypeDef",
+    "GetLicenseAssetGroupResponseTypeDef",
+    "GetLicenseAssetRulesetRequestTypeDef",
+    "GetLicenseAssetRulesetResponseTypeDef",
     "GetLicenseConfigurationRequestTypeDef",
     "GetLicenseConfigurationResponseTypeDef",
     "GetLicenseConversionTaskRequestTypeDef",
@@ -110,18 +128,38 @@ __all__ = (
     "GetServiceSettingsResponseTypeDef",
     "GrantTypeDef",
     "GrantedLicenseTypeDef",
+    "InstanceRuleStatementOutputTypeDef",
+    "InstanceRuleStatementTypeDef",
+    "InstanceRuleStatementUnionTypeDef",
     "InventoryFilterTypeDef",
     "IssuerDetailsTypeDef",
     "IssuerTypeDef",
+    "LicenseAssetGroupConfigurationTypeDef",
+    "LicenseAssetGroupPropertyTypeDef",
+    "LicenseAssetGroupTypeDef",
+    "LicenseAssetRuleOutputTypeDef",
+    "LicenseAssetRuleTypeDef",
+    "LicenseAssetRuleUnionTypeDef",
+    "LicenseAssetRulesetTypeDef",
     "LicenseConfigurationAssociationTypeDef",
+    "LicenseConfigurationRuleStatementOutputTypeDef",
+    "LicenseConfigurationRuleStatementTypeDef",
+    "LicenseConfigurationRuleStatementUnionTypeDef",
     "LicenseConfigurationTypeDef",
     "LicenseConfigurationUsageTypeDef",
+    "LicenseConversionContextOutputTypeDef",
     "LicenseConversionContextTypeDef",
+    "LicenseConversionContextUnionTypeDef",
     "LicenseConversionTaskTypeDef",
     "LicenseOperationFailureTypeDef",
+    "LicenseRuleStatementOutputTypeDef",
+    "LicenseRuleStatementTypeDef",
+    "LicenseRuleStatementUnionTypeDef",
     "LicenseSpecificationTypeDef",
     "LicenseTypeDef",
     "LicenseUsageTypeDef",
+    "ListAssetsForLicenseAssetGroupRequestTypeDef",
+    "ListAssetsForLicenseAssetGroupResponseTypeDef",
     "ListAssociationsForLicenseConfigurationRequestPaginateTypeDef",
     "ListAssociationsForLicenseConfigurationRequestTypeDef",
     "ListAssociationsForLicenseConfigurationResponseTypeDef",
@@ -129,6 +167,12 @@ __all__ = (
     "ListDistributedGrantsResponseTypeDef",
     "ListFailuresForLicenseConfigurationOperationsRequestTypeDef",
     "ListFailuresForLicenseConfigurationOperationsResponseTypeDef",
+    "ListLicenseAssetGroupsRequestTypeDef",
+    "ListLicenseAssetGroupsResponseTypeDef",
+    "ListLicenseAssetRulesetsRequestTypeDef",
+    "ListLicenseAssetRulesetsResponseTypeDef",
+    "ListLicenseConfigurationsForOrganizationRequestTypeDef",
+    "ListLicenseConfigurationsForOrganizationResponseTypeDef",
     "ListLicenseConfigurationsRequestPaginateTypeDef",
     "ListLicenseConfigurationsRequestTypeDef",
     "ListLicenseConfigurationsResponseTypeDef",
@@ -162,10 +206,17 @@ __all__ = (
     "ListUsageForLicenseConfigurationRequestTypeDef",
     "ListUsageForLicenseConfigurationResponseTypeDef",
     "ManagedResourceSummaryTypeDef",
+    "MatchingRuleStatementOutputTypeDef",
+    "MatchingRuleStatementTypeDef",
+    "MatchingRuleStatementUnionTypeDef",
     "MetadataTypeDef",
     "OptionsTypeDef",
+    "OrRuleStatementOutputTypeDef",
+    "OrRuleStatementTypeDef",
+    "OrRuleStatementUnionTypeDef",
     "OrganizationConfigurationTypeDef",
     "PaginatorConfigTypeDef",
+    "ProductCodeListItemTypeDef",
     "ProductInformationFilterOutputTypeDef",
     "ProductInformationFilterTypeDef",
     "ProductInformationFilterUnionTypeDef",
@@ -174,6 +225,7 @@ __all__ = (
     "ProductInformationUnionTypeDef",
     "ProvisionalConfigurationTypeDef",
     "ReceivedMetadataTypeDef",
+    "RegionStatusTypeDef",
     "RejectGrantRequestTypeDef",
     "RejectGrantResponseTypeDef",
     "ReportContextOutputTypeDef",
@@ -183,11 +235,21 @@ __all__ = (
     "ReportGeneratorTypeDef",
     "ResourceInventoryTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleStatementOutputTypeDef",
+    "RuleStatementTypeDef",
+    "RuleStatementUnionTypeDef",
     "S3LocationTypeDef",
+    "ScriptRuleStatementTypeDef",
+    "ServiceStatusTypeDef",
     "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TimestampTypeDef",
     "TokenDataTypeDef",
     "UntagResourceRequestTypeDef",
+    "UpdateLicenseAssetGroupRequestTypeDef",
+    "UpdateLicenseAssetGroupResponseTypeDef",
+    "UpdateLicenseAssetRulesetRequestTypeDef",
+    "UpdateLicenseAssetRulesetResponseTypeDef",
     "UpdateLicenseConfigurationRequestTypeDef",
     "UpdateLicenseManagerReportGeneratorRequestTypeDef",
     "UpdateLicenseSpecificationsForResourceRequestTypeDef",
@@ -203,6 +265,19 @@ class ResponseMetadataTypeDef(TypedDict):
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: NotRequired[str]
+
+class MatchingRuleStatementOutputTypeDef(TypedDict):
+    KeyToMatch: str
+    Constraint: str
+    ValueToMatch: List[str]
+
+class ScriptRuleStatementTypeDef(TypedDict):
+    KeyToMatch: str
+    Script: str
+
+class AssetTypeDef(TypedDict):
+    AssetArn: NotRequired[str]
+    LatestAssetDiscoveryTime: NotRequired[datetime]
 
 class AutomatedDiscoveryInformationTypeDef(TypedDict):
     LastRunTime: NotRequired[datetime]
@@ -231,23 +306,19 @@ class ConsumedLicenseSummaryTypeDef(TypedDict):
 class ProvisionalConfigurationTypeDef(TypedDict):
     MaxTimeToLiveInMinutes: int
 
-class CreateGrantRequestTypeDef(TypedDict):
-    ClientToken: str
-    GrantName: str
-    LicenseArn: str
-    Principals: Sequence[str]
-    HomeRegion: str
-    AllowedOperations: Sequence[AllowedOperationType]
-
-class OptionsTypeDef(TypedDict):
-    ActivationOverrideBehavior: NotRequired[ActivationOverrideBehaviorType]
-
 class TagTypeDef(TypedDict):
     Key: NotRequired[str]
     Value: NotRequired[str]
 
-class LicenseConversionContextTypeDef(TypedDict):
-    UsageOperation: NotRequired[str]
+class OptionsTypeDef(TypedDict):
+    ActivationOverrideBehavior: NotRequired[ActivationOverrideBehaviorType]
+
+class LicenseAssetGroupConfigurationTypeDef(TypedDict):
+    UsageDimension: NotRequired[str]
+
+class LicenseAssetGroupPropertyTypeDef(TypedDict):
+    Key: str
+    Value: str
 
 class ReportFrequencyTypeDef(TypedDict):
     value: NotRequired[int]
@@ -276,10 +347,22 @@ class CreateTokenRequestTypeDef(TypedDict):
     ExpirationInDays: NotRequired[int]
     TokenProperties: NotRequired[Sequence[str]]
 
+class CrossAccountDiscoveryServiceStatusTypeDef(TypedDict):
+    Message: NotRequired[str]
+
+class RegionStatusTypeDef(TypedDict):
+    Status: NotRequired[str]
+
 class DeleteGrantRequestTypeDef(TypedDict):
     GrantArn: str
     Version: str
     StatusReason: NotRequired[str]
+
+class DeleteLicenseAssetGroupRequestTypeDef(TypedDict):
+    LicenseAssetGroupArn: str
+
+class DeleteLicenseAssetRulesetRequestTypeDef(TypedDict):
+    LicenseAssetRulesetArn: str
 
 class DeleteLicenseConfigurationRequestTypeDef(TypedDict):
     LicenseConfigurationArn: str
@@ -315,6 +398,12 @@ class GetAccessTokenRequestTypeDef(TypedDict):
 class GetGrantRequestTypeDef(TypedDict):
     GrantArn: str
     Version: NotRequired[str]
+
+class GetLicenseAssetGroupRequestTypeDef(TypedDict):
+    LicenseAssetGroupArn: str
+
+class GetLicenseAssetRulesetRequestTypeDef(TypedDict):
+    LicenseAssetRulesetArn: str
 
 class GetLicenseConfigurationRequestTypeDef(TypedDict):
     LicenseConfigurationArn: str
@@ -369,9 +458,19 @@ class LicenseConfigurationUsageTypeDef(TypedDict):
     AssociationTime: NotRequired[datetime]
     ConsumedLicenses: NotRequired[int]
 
+class ProductCodeListItemTypeDef(TypedDict):
+    ProductCodeId: str
+    ProductCodeType: Literal["marketplace"]
+
 class LicenseSpecificationTypeDef(TypedDict):
     LicenseConfigurationArn: str
     AmiAssociationScope: NotRequired[str]
+
+class ListAssetsForLicenseAssetGroupRequestTypeDef(TypedDict):
+    LicenseAssetGroupArn: str
+    AssetType: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
 class PaginatorConfigTypeDef(TypedDict):
     MaxItems: NotRequired[int]
@@ -405,6 +504,12 @@ class ResourceInventoryTypeDef(TypedDict):
     Platform: NotRequired[str]
     PlatformVersion: NotRequired[str]
     ResourceOwningAccountId: NotRequired[str]
+    MarketplaceProductCodes: NotRequired[List[str]]
+    UsageOperation: NotRequired[str]
+    AmiId: NotRequired[str]
+    HostId: NotRequired[str]
+    Region: NotRequired[str]
+    InstanceType: NotRequired[str]
 
 class ListTagsForResourceRequestTypeDef(TypedDict):
     ResourceArn: str
@@ -417,6 +522,11 @@ class TokenDataTypeDef(TypedDict):
     TokenProperties: NotRequired[List[str]]
     RoleArns: NotRequired[List[str]]
     Status: NotRequired[str]
+
+class MatchingRuleStatementTypeDef(TypedDict):
+    KeyToMatch: str
+    Constraint: str
+    ValueToMatch: Sequence[str]
 
 class ProductInformationFilterOutputTypeDef(TypedDict):
     ProductInformationFilterName: str
@@ -432,10 +542,12 @@ class RejectGrantRequestTypeDef(TypedDict):
     GrantArn: str
 
 class ReportContextOutputTypeDef(TypedDict):
-    licenseConfigurationArns: List[str]
+    licenseConfigurationArns: NotRequired[List[str]]
+    licenseAssetGroupArns: NotRequired[List[str]]
+    reportStartDate: NotRequired[datetime]
+    reportEndDate: NotRequired[datetime]
 
-class ReportContextTypeDef(TypedDict):
-    licenseConfigurationArns: Sequence[str]
+TimestampTypeDef = Union[datetime, str]
 
 class S3LocationTypeDef(TypedDict):
     bucket: NotRequired[str]
@@ -461,6 +573,15 @@ class CreateGrantVersionResponseTypeDef(TypedDict):
     GrantArn: str
     Status: GrantStatusType
     Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLicenseAssetGroupResponseTypeDef(TypedDict):
+    LicenseAssetGroupArn: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLicenseAssetRulesetResponseTypeDef(TypedDict):
+    LicenseAssetRulesetArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateLicenseConfigurationResponseTypeDef(TypedDict):
@@ -499,6 +620,10 @@ class DeleteGrantResponseTypeDef(TypedDict):
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class DeleteLicenseAssetGroupResponseTypeDef(TypedDict):
+    Status: LicenseAssetGroupStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class DeleteLicenseResponseTypeDef(TypedDict):
     Status: LicenseDeletionStatusType
     DeletionDate: str
@@ -518,6 +643,28 @@ class RejectGrantResponseTypeDef(TypedDict):
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateLicenseAssetGroupResponseTypeDef(TypedDict):
+    LicenseAssetGroupArn: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateLicenseAssetRulesetResponseTypeDef(TypedDict):
+    LicenseAssetRulesetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AndRuleStatementOutputTypeDef(TypedDict):
+    MatchingRuleStatements: NotRequired[List[MatchingRuleStatementOutputTypeDef]]
+    ScriptRuleStatements: NotRequired[List[ScriptRuleStatementTypeDef]]
+
+class OrRuleStatementOutputTypeDef(TypedDict):
+    MatchingRuleStatements: NotRequired[List[MatchingRuleStatementOutputTypeDef]]
+    ScriptRuleStatements: NotRequired[List[ScriptRuleStatementTypeDef]]
+
+class ListAssetsForLicenseAssetGroupResponseTypeDef(TypedDict):
+    Assets: List[AssetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class CheckoutLicenseRequestTypeDef(TypedDict):
     ProductSKU: str
@@ -573,6 +720,23 @@ class ConsumptionConfigurationTypeDef(TypedDict):
     ProvisionalConfiguration: NotRequired[ProvisionalConfigurationTypeDef]
     BorrowConfiguration: NotRequired[BorrowConfigurationTypeDef]
 
+class CreateGrantRequestTypeDef(TypedDict):
+    ClientToken: str
+    GrantName: str
+    LicenseArn: str
+    Principals: Sequence[str]
+    HomeRegion: str
+    AllowedOperations: Sequence[AllowedOperationType]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
 class CreateGrantVersionRequestTypeDef(TypedDict):
     ClientToken: str
     GrantArn: str
@@ -596,41 +760,39 @@ class GrantTypeDef(TypedDict):
     StatusReason: NotRequired[str]
     Options: NotRequired[OptionsTypeDef]
 
-class ListTagsForResourceResponseTypeDef(TypedDict):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateLicenseAssetGroupRequestTypeDef(TypedDict):
+    Name: str
+    LicenseAssetGroupConfigurations: Sequence[LicenseAssetGroupConfigurationTypeDef]
+    AssociatedLicenseAssetRulesetARNs: Sequence[str]
+    ClientToken: str
+    Description: NotRequired[str]
+    Properties: NotRequired[Sequence[LicenseAssetGroupPropertyTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-class TagResourceRequestTypeDef(TypedDict):
-    ResourceArn: str
-    Tags: Sequence[TagTypeDef]
-
-class CreateLicenseConversionTaskForResourceRequestTypeDef(TypedDict):
-    ResourceArn: str
-    SourceLicenseContext: LicenseConversionContextTypeDef
-    DestinationLicenseContext: LicenseConversionContextTypeDef
-
-class GetLicenseConversionTaskResponseTypeDef(TypedDict):
-    LicenseConversionTaskId: str
-    ResourceArn: str
-    SourceLicenseContext: LicenseConversionContextTypeDef
-    DestinationLicenseContext: LicenseConversionContextTypeDef
-    StatusMessage: str
-    Status: LicenseConversionTaskStatusType
-    StartTime: datetime
-    LicenseConversionTime: datetime
-    EndTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class LicenseConversionTaskTypeDef(TypedDict):
-    LicenseConversionTaskId: NotRequired[str]
-    ResourceArn: NotRequired[str]
-    SourceLicenseContext: NotRequired[LicenseConversionContextTypeDef]
-    DestinationLicenseContext: NotRequired[LicenseConversionContextTypeDef]
-    Status: NotRequired[LicenseConversionTaskStatusType]
+class LicenseAssetGroupTypeDef(TypedDict):
+    Name: str
+    AssociatedLicenseAssetRulesetARNs: List[str]
+    LicenseAssetGroupArn: str
+    Status: LicenseAssetGroupStatusType
+    Description: NotRequired[str]
+    LicenseAssetGroupConfigurations: NotRequired[List[LicenseAssetGroupConfigurationTypeDef]]
+    Properties: NotRequired[List[LicenseAssetGroupPropertyTypeDef]]
     StatusMessage: NotRequired[str]
-    StartTime: NotRequired[datetime]
-    LicenseConversionTime: NotRequired[datetime]
-    EndTime: NotRequired[datetime]
+    LatestUsageAnalysisTime: NotRequired[datetime]
+    LatestResourceDiscoveryTime: NotRequired[datetime]
+
+class UpdateLicenseAssetGroupRequestTypeDef(TypedDict):
+    AssociatedLicenseAssetRulesetARNs: Sequence[str]
+    LicenseAssetGroupArn: str
+    ClientToken: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    LicenseAssetGroupConfigurations: NotRequired[Sequence[LicenseAssetGroupConfigurationTypeDef]]
+    Properties: NotRequired[Sequence[LicenseAssetGroupPropertyTypeDef]]
+    Status: NotRequired[LicenseAssetGroupStatusType]
+
+class CrossRegionDiscoveryStatusTypeDef(TypedDict):
+    Message: NotRequired[Dict[str, RegionStatusTypeDef]]
 
 class LicenseUsageTypeDef(TypedDict):
     EntitlementUsages: NotRequired[List[EntitlementUsageTypeDef]]
@@ -640,6 +802,23 @@ class ListDistributedGrantsRequestTypeDef(TypedDict):
     Filters: NotRequired[Sequence[FilterTypeDef]]
     NextToken: NotRequired[str]
     MaxResults: NotRequired[int]
+
+class ListLicenseAssetGroupsRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListLicenseAssetRulesetsRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    ShowAWSManagedLicenseAssetRulesets: NotRequired[bool]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListLicenseConfigurationsForOrganizationRequestTypeDef(TypedDict):
+    LicenseConfigurationArns: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
 
 class ListLicenseConfigurationsRequestTypeDef(TypedDict):
     LicenseConfigurationArns: NotRequired[Sequence[str]]
@@ -698,19 +877,12 @@ class ListUsageForLicenseConfigurationRequestTypeDef(TypedDict):
     NextToken: NotRequired[str]
     Filters: NotRequired[Sequence[FilterTypeDef]]
 
-class GetServiceSettingsResponseTypeDef(TypedDict):
-    S3BucketArn: str
-    SnsTopicArn: str
-    OrganizationConfiguration: OrganizationConfigurationTypeDef
-    EnableCrossAccountsDiscovery: bool
-    LicenseManagerResourceShareArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
 class UpdateServiceSettingsRequestTypeDef(TypedDict):
     S3BucketArn: NotRequired[str]
     SnsTopicArn: NotRequired[str]
     OrganizationConfiguration: NotRequired[OrganizationConfigurationTypeDef]
     EnableCrossAccountsDiscovery: NotRequired[bool]
+    EnabledDiscoverySourceRegions: NotRequired[Sequence[str]]
 
 class ListResourceInventoryRequestTypeDef(TypedDict):
     MaxResults: NotRequired[int]
@@ -726,6 +898,14 @@ class ListUsageForLicenseConfigurationResponseTypeDef(TypedDict):
     LicenseConfigurationUsageList: List[LicenseConfigurationUsageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
+
+class LicenseConversionContextOutputTypeDef(TypedDict):
+    UsageOperation: NotRequired[str]
+    ProductCodes: NotRequired[List[ProductCodeListItemTypeDef]]
+
+class LicenseConversionContextTypeDef(TypedDict):
+    UsageOperation: NotRequired[str]
+    ProductCodes: NotRequired[Sequence[ProductCodeListItemTypeDef]]
 
 class ListLicenseSpecificationsForResourceResponseTypeDef(TypedDict):
     LicenseSpecifications: List[LicenseSpecificationTypeDef]
@@ -769,6 +949,10 @@ class ListTokensResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+MatchingRuleStatementUnionTypeDef = Union[
+    MatchingRuleStatementTypeDef, MatchingRuleStatementOutputTypeDef
+]
+
 class ProductInformationOutputTypeDef(TypedDict):
     ResourceType: str
     ProductInformationFilterList: List[ProductInformationFilterOutputTypeDef]
@@ -776,7 +960,12 @@ class ProductInformationOutputTypeDef(TypedDict):
 ProductInformationFilterUnionTypeDef = Union[
     ProductInformationFilterTypeDef, ProductInformationFilterOutputTypeDef
 ]
-ReportContextUnionTypeDef = Union[ReportContextTypeDef, ReportContextOutputTypeDef]
+
+class ReportContextTypeDef(TypedDict):
+    licenseConfigurationArns: NotRequired[Sequence[str]]
+    licenseAssetGroupArns: NotRequired[Sequence[str]]
+    reportStartDate: NotRequired[TimestampTypeDef]
+    reportEndDate: NotRequired[TimestampTypeDef]
 
 class ReportGeneratorTypeDef(TypedDict):
     ReportGeneratorName: NotRequired[str]
@@ -792,6 +981,22 @@ class ReportGeneratorTypeDef(TypedDict):
     S3Location: NotRequired[S3LocationTypeDef]
     CreateTime: NotRequired[str]
     Tags: NotRequired[List[TagTypeDef]]
+
+class InstanceRuleStatementOutputTypeDef(TypedDict):
+    AndRuleStatement: NotRequired[AndRuleStatementOutputTypeDef]
+    OrRuleStatement: NotRequired[OrRuleStatementOutputTypeDef]
+    MatchingRuleStatement: NotRequired[MatchingRuleStatementOutputTypeDef]
+    ScriptRuleStatement: NotRequired[ScriptRuleStatementTypeDef]
+
+class LicenseConfigurationRuleStatementOutputTypeDef(TypedDict):
+    AndRuleStatement: NotRequired[AndRuleStatementOutputTypeDef]
+    OrRuleStatement: NotRequired[OrRuleStatementOutputTypeDef]
+    MatchingRuleStatement: NotRequired[MatchingRuleStatementOutputTypeDef]
+
+class LicenseRuleStatementOutputTypeDef(TypedDict):
+    AndRuleStatement: NotRequired[AndRuleStatementOutputTypeDef]
+    OrRuleStatement: NotRequired[OrRuleStatementOutputTypeDef]
+    MatchingRuleStatement: NotRequired[MatchingRuleStatementOutputTypeDef]
 
 class ListFailuresForLicenseConfigurationOperationsResponseTypeDef(TypedDict):
     LicenseOperationFailureList: List[LicenseOperationFailureTypeDef]
@@ -810,6 +1015,7 @@ class CreateLicenseRequestTypeDef(TypedDict):
     ConsumptionConfiguration: ConsumptionConfigurationTypeDef
     ClientToken: str
     LicenseMetadata: NotRequired[Sequence[MetadataTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
 class CreateLicenseVersionRequestTypeDef(TypedDict):
     LicenseArn: str
@@ -877,14 +1083,57 @@ class ListReceivedGrantsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
-class ListLicenseConversionTasksResponseTypeDef(TypedDict):
-    LicenseConversionTasks: List[LicenseConversionTaskTypeDef]
+class GetLicenseAssetGroupResponseTypeDef(TypedDict):
+    LicenseAssetGroup: LicenseAssetGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLicenseAssetGroupsResponseTypeDef(TypedDict):
+    LicenseAssetGroups: List[LicenseAssetGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
+
+class ServiceStatusTypeDef(TypedDict):
+    CrossAccountDiscovery: NotRequired[CrossAccountDiscoveryServiceStatusTypeDef]
+    CrossRegionDiscovery: NotRequired[CrossRegionDiscoveryStatusTypeDef]
 
 class GetLicenseUsageResponseTypeDef(TypedDict):
     LicenseUsage: LicenseUsageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLicenseConversionTaskResponseTypeDef(TypedDict):
+    LicenseConversionTaskId: str
+    ResourceArn: str
+    SourceLicenseContext: LicenseConversionContextOutputTypeDef
+    DestinationLicenseContext: LicenseConversionContextOutputTypeDef
+    StatusMessage: str
+    Status: LicenseConversionTaskStatusType
+    StartTime: datetime
+    LicenseConversionTime: datetime
+    EndTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LicenseConversionTaskTypeDef(TypedDict):
+    LicenseConversionTaskId: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    SourceLicenseContext: NotRequired[LicenseConversionContextOutputTypeDef]
+    DestinationLicenseContext: NotRequired[LicenseConversionContextOutputTypeDef]
+    Status: NotRequired[LicenseConversionTaskStatusType]
+    StatusMessage: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    LicenseConversionTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+
+LicenseConversionContextUnionTypeDef = Union[
+    LicenseConversionContextTypeDef, LicenseConversionContextOutputTypeDef
+]
+
+class AndRuleStatementTypeDef(TypedDict):
+    MatchingRuleStatements: NotRequired[Sequence[MatchingRuleStatementUnionTypeDef]]
+    ScriptRuleStatements: NotRequired[Sequence[ScriptRuleStatementTypeDef]]
+
+class OrRuleStatementTypeDef(TypedDict):
+    MatchingRuleStatements: NotRequired[Sequence[MatchingRuleStatementUnionTypeDef]]
+    ScriptRuleStatements: NotRequired[Sequence[ScriptRuleStatementTypeDef]]
 
 class GetLicenseConfigurationResponseTypeDef(TypedDict):
     LicenseConfigurationId: str
@@ -904,6 +1153,7 @@ class GetLicenseConfigurationResponseTypeDef(TypedDict):
     ProductInformationList: List[ProductInformationOutputTypeDef]
     AutomatedDiscoveryInformation: AutomatedDiscoveryInformationTypeDef
     DisassociateWhenNotFound: bool
+    LicenseExpiry: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 class LicenseConfigurationTypeDef(TypedDict):
@@ -923,35 +1173,13 @@ class LicenseConfigurationTypeDef(TypedDict):
     ManagedResourceSummaryList: NotRequired[List[ManagedResourceSummaryTypeDef]]
     ProductInformationList: NotRequired[List[ProductInformationOutputTypeDef]]
     AutomatedDiscoveryInformation: NotRequired[AutomatedDiscoveryInformationTypeDef]
+    LicenseExpiry: NotRequired[int]
 
 class ProductInformationTypeDef(TypedDict):
     ResourceType: str
     ProductInformationFilterList: Sequence[ProductInformationFilterUnionTypeDef]
 
-CreateLicenseManagerReportGeneratorRequestTypeDef = TypedDict(
-    "CreateLicenseManagerReportGeneratorRequestTypeDef",
-    {
-        "ReportGeneratorName": str,
-        "Type": Sequence[ReportTypeType],
-        "ReportContext": ReportContextUnionTypeDef,
-        "ReportFrequency": ReportFrequencyTypeDef,
-        "ClientToken": str,
-        "Description": NotRequired[str],
-        "Tags": NotRequired[Sequence[TagTypeDef]],
-    },
-)
-UpdateLicenseManagerReportGeneratorRequestTypeDef = TypedDict(
-    "UpdateLicenseManagerReportGeneratorRequestTypeDef",
-    {
-        "LicenseManagerReportGeneratorArn": str,
-        "ReportGeneratorName": str,
-        "Type": Sequence[ReportTypeType],
-        "ReportContext": ReportContextUnionTypeDef,
-        "ReportFrequency": ReportFrequencyTypeDef,
-        "ClientToken": str,
-        "Description": NotRequired[str],
-    },
-)
+ReportContextUnionTypeDef = Union[ReportContextTypeDef, ReportContextOutputTypeDef]
 
 class GetLicenseManagerReportGeneratorResponseTypeDef(TypedDict):
     ReportGenerator: ReportGeneratorTypeDef
@@ -961,6 +1189,11 @@ class ListLicenseManagerReportGeneratorsResponseTypeDef(TypedDict):
     ReportGenerators: List[ReportGeneratorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
+
+class RuleStatementOutputTypeDef(TypedDict):
+    LicenseConfigurationRuleStatement: NotRequired[LicenseConfigurationRuleStatementOutputTypeDef]
+    LicenseRuleStatement: NotRequired[LicenseRuleStatementOutputTypeDef]
+    InstanceRuleStatement: NotRequired[InstanceRuleStatementOutputTypeDef]
 
 class ListReceivedLicensesForOrganizationResponseTypeDef(TypedDict):
     Licenses: List[GrantedLicenseTypeDef]
@@ -986,12 +1219,84 @@ class ListLicensesResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class GetServiceSettingsResponseTypeDef(TypedDict):
+    S3BucketArn: str
+    SnsTopicArn: str
+    OrganizationConfiguration: OrganizationConfigurationTypeDef
+    EnableCrossAccountsDiscovery: bool
+    LicenseManagerResourceShareArn: str
+    CrossRegionDiscoveryHomeRegion: str
+    CrossRegionDiscoverySourceRegions: List[str]
+    ServiceStatus: ServiceStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLicenseConversionTasksResponseTypeDef(TypedDict):
+    LicenseConversionTasks: List[LicenseConversionTaskTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateLicenseConversionTaskForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    SourceLicenseContext: LicenseConversionContextUnionTypeDef
+    DestinationLicenseContext: LicenseConversionContextUnionTypeDef
+
+AndRuleStatementUnionTypeDef = Union[AndRuleStatementTypeDef, AndRuleStatementOutputTypeDef]
+OrRuleStatementUnionTypeDef = Union[OrRuleStatementTypeDef, OrRuleStatementOutputTypeDef]
+
+class ListLicenseConfigurationsForOrganizationResponseTypeDef(TypedDict):
+    LicenseConfigurations: List[LicenseConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
 class ListLicenseConfigurationsResponseTypeDef(TypedDict):
     LicenseConfigurations: List[LicenseConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
 ProductInformationUnionTypeDef = Union[ProductInformationTypeDef, ProductInformationOutputTypeDef]
+CreateLicenseManagerReportGeneratorRequestTypeDef = TypedDict(
+    "CreateLicenseManagerReportGeneratorRequestTypeDef",
+    {
+        "ReportGeneratorName": str,
+        "Type": Sequence[ReportTypeType],
+        "ReportContext": ReportContextUnionTypeDef,
+        "ReportFrequency": ReportFrequencyTypeDef,
+        "ClientToken": str,
+        "Description": NotRequired[str],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+    },
+)
+UpdateLicenseManagerReportGeneratorRequestTypeDef = TypedDict(
+    "UpdateLicenseManagerReportGeneratorRequestTypeDef",
+    {
+        "LicenseManagerReportGeneratorArn": str,
+        "ReportGeneratorName": str,
+        "Type": Sequence[ReportTypeType],
+        "ReportContext": ReportContextUnionTypeDef,
+        "ReportFrequency": ReportFrequencyTypeDef,
+        "ClientToken": str,
+        "Description": NotRequired[str],
+    },
+)
+
+class LicenseAssetRuleOutputTypeDef(TypedDict):
+    RuleStatement: RuleStatementOutputTypeDef
+
+class InstanceRuleStatementTypeDef(TypedDict):
+    AndRuleStatement: NotRequired[AndRuleStatementUnionTypeDef]
+    OrRuleStatement: NotRequired[OrRuleStatementUnionTypeDef]
+    MatchingRuleStatement: NotRequired[MatchingRuleStatementUnionTypeDef]
+    ScriptRuleStatement: NotRequired[ScriptRuleStatementTypeDef]
+
+class LicenseConfigurationRuleStatementTypeDef(TypedDict):
+    AndRuleStatement: NotRequired[AndRuleStatementUnionTypeDef]
+    OrRuleStatement: NotRequired[OrRuleStatementUnionTypeDef]
+    MatchingRuleStatement: NotRequired[MatchingRuleStatementUnionTypeDef]
+
+class LicenseRuleStatementTypeDef(TypedDict):
+    AndRuleStatement: NotRequired[AndRuleStatementUnionTypeDef]
+    OrRuleStatement: NotRequired[OrRuleStatementUnionTypeDef]
+    MatchingRuleStatement: NotRequired[MatchingRuleStatementUnionTypeDef]
 
 class CreateLicenseConfigurationRequestTypeDef(TypedDict):
     Name: str
@@ -1003,6 +1308,7 @@ class CreateLicenseConfigurationRequestTypeDef(TypedDict):
     Tags: NotRequired[Sequence[TagTypeDef]]
     DisassociateWhenNotFound: NotRequired[bool]
     ProductInformationList: NotRequired[Sequence[ProductInformationUnionTypeDef]]
+    LicenseExpiry: NotRequired[int]
 
 class UpdateLicenseConfigurationRequestTypeDef(TypedDict):
     LicenseConfigurationArn: str
@@ -1014,3 +1320,55 @@ class UpdateLicenseConfigurationRequestTypeDef(TypedDict):
     Description: NotRequired[str]
     ProductInformationList: NotRequired[Sequence[ProductInformationUnionTypeDef]]
     DisassociateWhenNotFound: NotRequired[bool]
+    LicenseExpiry: NotRequired[int]
+
+class LicenseAssetRulesetTypeDef(TypedDict):
+    Name: str
+    Rules: List[LicenseAssetRuleOutputTypeDef]
+    LicenseAssetRulesetArn: str
+    Description: NotRequired[str]
+
+InstanceRuleStatementUnionTypeDef = Union[
+    InstanceRuleStatementTypeDef, InstanceRuleStatementOutputTypeDef
+]
+LicenseConfigurationRuleStatementUnionTypeDef = Union[
+    LicenseConfigurationRuleStatementTypeDef, LicenseConfigurationRuleStatementOutputTypeDef
+]
+LicenseRuleStatementUnionTypeDef = Union[
+    LicenseRuleStatementTypeDef, LicenseRuleStatementOutputTypeDef
+]
+
+class GetLicenseAssetRulesetResponseTypeDef(TypedDict):
+    LicenseAssetRuleset: LicenseAssetRulesetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLicenseAssetRulesetsResponseTypeDef(TypedDict):
+    LicenseAssetRulesets: List[LicenseAssetRulesetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RuleStatementTypeDef(TypedDict):
+    LicenseConfigurationRuleStatement: NotRequired[LicenseConfigurationRuleStatementUnionTypeDef]
+    LicenseRuleStatement: NotRequired[LicenseRuleStatementUnionTypeDef]
+    InstanceRuleStatement: NotRequired[InstanceRuleStatementUnionTypeDef]
+
+RuleStatementUnionTypeDef = Union[RuleStatementTypeDef, RuleStatementOutputTypeDef]
+
+class LicenseAssetRuleTypeDef(TypedDict):
+    RuleStatement: RuleStatementUnionTypeDef
+
+LicenseAssetRuleUnionTypeDef = Union[LicenseAssetRuleTypeDef, LicenseAssetRuleOutputTypeDef]
+
+class CreateLicenseAssetRulesetRequestTypeDef(TypedDict):
+    Name: str
+    Rules: Sequence[LicenseAssetRuleUnionTypeDef]
+    ClientToken: str
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateLicenseAssetRulesetRequestTypeDef(TypedDict):
+    Rules: Sequence[LicenseAssetRuleUnionTypeDef]
+    LicenseAssetRulesetArn: str
+    ClientToken: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]

@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_payment_cryptography.type_defs import AliasTypeDef
+    from mypy_boto3_payment_cryptography.type_defs import AddKeyReplicationRegionsInputTypeDef
 
-    data: AliasTypeDef = ...
+    data: AddKeyReplicationRegionsInputTypeDef = ...
     ```
 """
 
@@ -20,6 +20,7 @@ import sys
 from datetime import datetime
 
 from .literals import (
+    As2805KeyVariantType,
     DeriveKeyUsageType,
     KeyAlgorithmType,
     KeyCheckValueAlgorithmType,
@@ -29,8 +30,11 @@ from .literals import (
     KeyExportabilityType,
     KeyMaterialTypeType,
     KeyOriginType,
+    KeyReplicationStateType,
     KeyStateType,
     KeyUsageType,
+    MultiRegionKeyTypeType,
+    SigningAlgorithmTypeType,
     SymmetricKeyAlgorithmType,
     WrappedKeyMaterialFormatType,
     WrappingKeySpecType,
@@ -48,7 +52,10 @@ else:
     from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AddKeyReplicationRegionsInputTypeDef",
+    "AddKeyReplicationRegionsOutputTypeDef",
     "AliasTypeDef",
+    "CertificateSubjectTypeTypeDef",
     "CreateAliasInputTypeDef",
     "CreateAliasOutputTypeDef",
     "CreateKeyInputTypeDef",
@@ -57,6 +64,11 @@ __all__ = (
     "DeleteKeyInputTypeDef",
     "DeleteKeyOutputTypeDef",
     "DiffieHellmanDerivationDataTypeDef",
+    "DisableDefaultKeyReplicationRegionsInputTypeDef",
+    "DisableDefaultKeyReplicationRegionsOutputTypeDef",
+    "EnableDefaultKeyReplicationRegionsInputTypeDef",
+    "EnableDefaultKeyReplicationRegionsOutputTypeDef",
+    "ExportAs2805KeyCryptogramTypeDef",
     "ExportAttributesTypeDef",
     "ExportDiffieHellmanTr31KeyBlockTypeDef",
     "ExportDukptInitialKeyTypeDef",
@@ -68,6 +80,9 @@ __all__ = (
     "ExportTr34KeyBlockTypeDef",
     "GetAliasInputTypeDef",
     "GetAliasOutputTypeDef",
+    "GetCertificateSigningRequestInputTypeDef",
+    "GetCertificateSigningRequestOutputTypeDef",
+    "GetDefaultKeyReplicationRegionsOutputTypeDef",
     "GetKeyInputTypeDef",
     "GetKeyOutputTypeDef",
     "GetParametersForExportInputTypeDef",
@@ -76,6 +91,7 @@ __all__ = (
     "GetParametersForImportOutputTypeDef",
     "GetPublicKeyCertificateInputTypeDef",
     "GetPublicKeyCertificateOutputTypeDef",
+    "ImportAs2805KeyCryptogramTypeDef",
     "ImportDiffieHellmanTr31KeyBlockTypeDef",
     "ImportKeyCryptogramTypeDef",
     "ImportKeyInputTypeDef",
@@ -98,6 +114,9 @@ __all__ = (
     "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "PaginatorConfigTypeDef",
+    "RemoveKeyReplicationRegionsInputTypeDef",
+    "RemoveKeyReplicationRegionsOutputTypeDef",
+    "ReplicationStatusTypeTypeDef",
     "ResponseMetadataTypeDef",
     "RestoreKeyInputTypeDef",
     "RestoreKeyOutputTypeDef",
@@ -115,13 +134,9 @@ __all__ = (
     "WrappedKeyTypeDef",
 )
 
-class AliasTypeDef(TypedDict):
-    AliasName: str
-    KeyArn: NotRequired[str]
-
-class CreateAliasInputTypeDef(TypedDict):
-    AliasName: str
-    KeyArn: NotRequired[str]
+class AddKeyReplicationRegionsInputTypeDef(TypedDict):
+    KeyIdentifier: str
+    ReplicationRegions: Sequence[str]
 
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
@@ -129,6 +144,23 @@ class ResponseMetadataTypeDef(TypedDict):
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: NotRequired[str]
+
+class AliasTypeDef(TypedDict):
+    AliasName: str
+    KeyArn: NotRequired[str]
+
+class CertificateSubjectTypeTypeDef(TypedDict):
+    CommonName: str
+    OrganizationUnit: NotRequired[str]
+    Organization: NotRequired[str]
+    City: NotRequired[str]
+    Country: NotRequired[str]
+    StateOrProvince: NotRequired[str]
+    EmailAddress: NotRequired[str]
+
+class CreateAliasInputTypeDef(TypedDict):
+    AliasName: str
+    KeyArn: NotRequired[str]
 
 class TagTypeDef(TypedDict):
     Key: str
@@ -143,6 +175,16 @@ class DeleteKeyInputTypeDef(TypedDict):
 
 class DiffieHellmanDerivationDataTypeDef(TypedDict):
     SharedInformation: NotRequired[str]
+
+class DisableDefaultKeyReplicationRegionsInputTypeDef(TypedDict):
+    ReplicationRegions: Sequence[str]
+
+class EnableDefaultKeyReplicationRegionsInputTypeDef(TypedDict):
+    ReplicationRegions: Sequence[str]
+
+class ExportAs2805KeyCryptogramTypeDef(TypedDict):
+    WrappingKeyIdentifier: str
+    As2805KeyVariant: As2805KeyVariantType
 
 class ExportDukptInitialKeyTypeDef(TypedDict):
     KeySerialNumber: str
@@ -176,18 +218,6 @@ class GetParametersForImportInputTypeDef(TypedDict):
 class GetPublicKeyCertificateInputTypeDef(TypedDict):
     KeyIdentifier: str
 
-class ImportTr31KeyBlockTypeDef(TypedDict):
-    WrappingKeyIdentifier: str
-    WrappedKeyBlock: str
-
-class ImportTr34KeyBlockTypeDef(TypedDict):
-    CertificateAuthorityPublicKeyIdentifier: str
-    SigningKeyCertificate: str
-    ImportToken: str
-    WrappedKeyBlock: str
-    KeyBlockFormat: Literal["X9_TR34_2012"]
-    RandomNonce: NotRequired[str]
-
 class KeyModesOfUseTypeDef(TypedDict):
     Encrypt: NotRequired[bool]
     Decrypt: NotRequired[bool]
@@ -198,6 +228,24 @@ class KeyModesOfUseTypeDef(TypedDict):
     Verify: NotRequired[bool]
     DeriveKey: NotRequired[bool]
     NoRestrictions: NotRequired[bool]
+
+class ImportTr31KeyBlockTypeDef(TypedDict):
+    WrappingKeyIdentifier: str
+    WrappedKeyBlock: str
+
+class ImportTr34KeyBlockTypeDef(TypedDict):
+    CertificateAuthorityPublicKeyIdentifier: str
+    SigningKeyCertificate: str
+    WrappedKeyBlock: str
+    KeyBlockFormat: Literal["X9_TR34_2012"]
+    ImportToken: NotRequired[str]
+    WrappingKeyIdentifier: NotRequired[str]
+    WrappingKeyCertificate: NotRequired[str]
+    RandomNonce: NotRequired[str]
+
+class ReplicationStatusTypeTypeDef(TypedDict):
+    Status: KeyReplicationStateType
+    StatusMessage: NotRequired[str]
 
 class PaginatorConfigTypeDef(TypedDict):
     MaxItems: NotRequired[int]
@@ -219,6 +267,10 @@ class ListTagsForResourceInputTypeDef(TypedDict):
     NextToken: NotRequired[str]
     MaxResults: NotRequired[int]
 
+class RemoveKeyReplicationRegionsInputTypeDef(TypedDict):
+    KeyIdentifier: str
+    ReplicationRegions: Sequence[str]
+
 class RestoreKeyInputTypeDef(TypedDict):
     KeyIdentifier: str
 
@@ -236,12 +288,20 @@ class UpdateAliasInputTypeDef(TypedDict):
     AliasName: str
     KeyArn: NotRequired[str]
 
-class CreateAliasOutputTypeDef(TypedDict):
-    Alias: AliasTypeDef
+class DisableDefaultKeyReplicationRegionsOutputTypeDef(TypedDict):
+    EnabledReplicationRegions: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAliasOutputTypeDef(TypedDict):
-    Alias: AliasTypeDef
+class EnableDefaultKeyReplicationRegionsOutputTypeDef(TypedDict):
+    EnabledReplicationRegions: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCertificateSigningRequestOutputTypeDef(TypedDict):
+    CertificateSigningRequest: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDefaultKeyReplicationRegionsOutputTypeDef(TypedDict):
+    EnabledReplicationRegions: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetParametersForExportOutputTypeDef(TypedDict):
@@ -265,6 +325,14 @@ class GetPublicKeyCertificateOutputTypeDef(TypedDict):
     KeyCertificateChain: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class CreateAliasOutputTypeDef(TypedDict):
+    Alias: AliasTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAliasOutputTypeDef(TypedDict):
+    Alias: AliasTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class ListAliasesOutputTypeDef(TypedDict):
     Aliases: List[AliasTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -273,6 +341,11 @@ class ListAliasesOutputTypeDef(TypedDict):
 class UpdateAliasOutputTypeDef(TypedDict):
     Alias: AliasTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCertificateSigningRequestInputTypeDef(TypedDict):
+    KeyIdentifier: str
+    SigningAlgorithm: SigningAlgorithmTypeType
+    CertificateSubject: CertificateSubjectTypeTypeDef
 
 class ListTagsForResourceOutputTypeDef(TypedDict):
     Tags: List[TagTypeDef]
@@ -300,6 +373,14 @@ class ExportAttributesTypeDef(TypedDict):
 class ExportKeyOutputTypeDef(TypedDict):
     WrappedKey: WrappedKeyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportAs2805KeyCryptogramTypeDef(TypedDict):
+    As2805KeyVariant: As2805KeyVariantType
+    KeyModesOfUse: KeyModesOfUseTypeDef
+    KeyAlgorithm: KeyAlgorithmType
+    Exportable: bool
+    WrappingKeyIdentifier: str
+    WrappedKeyCryptogram: str
 
 class KeyAttributesTypeDef(TypedDict):
     KeyUsage: KeyUsageType
@@ -332,6 +413,7 @@ class CreateKeyInputTypeDef(TypedDict):
     Enabled: NotRequired[bool]
     Tags: NotRequired[Sequence[TagTypeDef]]
     DeriveKeyUsage: NotRequired[DeriveKeyUsageType]
+    ReplicationRegions: NotRequired[Sequence[str]]
 
 class ImportKeyCryptogramTypeDef(TypedDict):
     KeyAttributes: KeyAttributesTypeDef
@@ -347,6 +429,8 @@ class KeySummaryTypeDef(TypedDict):
     KeyCheckValue: str
     Exportable: bool
     Enabled: bool
+    MultiRegionKeyType: NotRequired[MultiRegionKeyTypeType]
+    PrimaryRegion: NotRequired[str]
 
 class KeyTypeDef(TypedDict):
     KeyArn: str
@@ -363,6 +447,10 @@ class KeyTypeDef(TypedDict):
     DeletePendingTimestamp: NotRequired[datetime]
     DeleteTimestamp: NotRequired[datetime]
     DeriveKeyUsage: NotRequired[DeriveKeyUsageType]
+    MultiRegionKeyType: NotRequired[MultiRegionKeyTypeType]
+    PrimaryRegion: NotRequired[str]
+    ReplicationStatus: NotRequired[Dict[str, ReplicationStatusTypeTypeDef]]
+    UsingDefaultReplicationRegions: NotRequired[bool]
 
 class RootCertificatePublicKeyTypeDef(TypedDict):
     KeyAttributes: KeyAttributesTypeDef
@@ -390,8 +478,10 @@ class ExportTr31KeyBlockTypeDef(TypedDict):
 class ExportTr34KeyBlockTypeDef(TypedDict):
     CertificateAuthorityPublicKeyIdentifier: str
     WrappingKeyCertificate: str
-    ExportToken: str
     KeyBlockFormat: Literal["X9_TR34_2012"]
+    ExportToken: NotRequired[str]
+    SigningKeyIdentifier: NotRequired[str]
+    SigningKeyCertificate: NotRequired[str]
     RandomNonce: NotRequired[str]
     KeyBlockHeaders: NotRequired[KeyBlockHeadersTypeDef]
 
@@ -399,6 +489,10 @@ class ListKeysOutputTypeDef(TypedDict):
     Keys: List[KeySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
+
+class AddKeyReplicationRegionsOutputTypeDef(TypedDict):
+    Key: KeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateKeyOutputTypeDef(TypedDict):
     Key: KeyTypeDef
@@ -413,6 +507,10 @@ class GetKeyOutputTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class ImportKeyOutputTypeDef(TypedDict):
+    Key: KeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RemoveKeyReplicationRegionsOutputTypeDef(TypedDict):
     Key: KeyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -435,18 +533,21 @@ class ImportKeyMaterialTypeDef(TypedDict):
     Tr34KeyBlock: NotRequired[ImportTr34KeyBlockTypeDef]
     KeyCryptogram: NotRequired[ImportKeyCryptogramTypeDef]
     DiffieHellmanTr31KeyBlock: NotRequired[ImportDiffieHellmanTr31KeyBlockTypeDef]
+    As2805KeyCryptogram: NotRequired[ImportAs2805KeyCryptogramTypeDef]
 
 class ExportKeyMaterialTypeDef(TypedDict):
     Tr31KeyBlock: NotRequired[ExportTr31KeyBlockTypeDef]
     Tr34KeyBlock: NotRequired[ExportTr34KeyBlockTypeDef]
     KeyCryptogram: NotRequired[ExportKeyCryptogramTypeDef]
     DiffieHellmanTr31KeyBlock: NotRequired[ExportDiffieHellmanTr31KeyBlockTypeDef]
+    As2805KeyCryptogram: NotRequired[ExportAs2805KeyCryptogramTypeDef]
 
 class ImportKeyInputTypeDef(TypedDict):
     KeyMaterial: ImportKeyMaterialTypeDef
     KeyCheckValueAlgorithm: NotRequired[KeyCheckValueAlgorithmType]
     Enabled: NotRequired[bool]
     Tags: NotRequired[Sequence[TagTypeDef]]
+    ReplicationRegions: NotRequired[Sequence[str]]
 
 class ExportKeyInputTypeDef(TypedDict):
     KeyMaterial: ExportKeyMaterialTypeDef

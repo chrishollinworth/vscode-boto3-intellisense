@@ -12,7 +12,13 @@ Usage::
     from mypy_boto3_bedrock import (
         BedrockClient,
         Client,
+        ListAutomatedReasoningPoliciesPaginator,
+        ListAutomatedReasoningPolicyBuildWorkflowsPaginator,
+        ListAutomatedReasoningPolicyTestCasesPaginator,
+        ListAutomatedReasoningPolicyTestResultsPaginator,
+        ListCustomModelDeploymentsPaginator,
         ListCustomModelsPaginator,
+        ListEnforcedGuardrailsConfigurationPaginator,
         ListEvaluationJobsPaginator,
         ListGuardrailsPaginator,
         ListImportedModelsPaginator,
@@ -29,7 +35,13 @@ Usage::
     session = Session()
     client: BedrockClient = session.client("bedrock")
 
+    list_automated_reasoning_policies_paginator: ListAutomatedReasoningPoliciesPaginator = client.get_paginator("list_automated_reasoning_policies")
+    list_automated_reasoning_policy_build_workflows_paginator: ListAutomatedReasoningPolicyBuildWorkflowsPaginator = client.get_paginator("list_automated_reasoning_policy_build_workflows")
+    list_automated_reasoning_policy_test_cases_paginator: ListAutomatedReasoningPolicyTestCasesPaginator = client.get_paginator("list_automated_reasoning_policy_test_cases")
+    list_automated_reasoning_policy_test_results_paginator: ListAutomatedReasoningPolicyTestResultsPaginator = client.get_paginator("list_automated_reasoning_policy_test_results")
+    list_custom_model_deployments_paginator: ListCustomModelDeploymentsPaginator = client.get_paginator("list_custom_model_deployments")
     list_custom_models_paginator: ListCustomModelsPaginator = client.get_paginator("list_custom_models")
+    list_enforced_guardrails_configuration_paginator: ListEnforcedGuardrailsConfigurationPaginator = client.get_paginator("list_enforced_guardrails_configuration")
     list_evaluation_jobs_paginator: ListEvaluationJobsPaginator = client.get_paginator("list_evaluation_jobs")
     list_guardrails_paginator: ListGuardrailsPaginator = client.get_paginator("list_guardrails")
     list_imported_models_paginator: ListImportedModelsPaginator = client.get_paginator("list_imported_models")
@@ -46,7 +58,13 @@ Usage::
 
 from .client import BedrockClient
 from .paginator import (
+    ListAutomatedReasoningPoliciesPaginator,
+    ListAutomatedReasoningPolicyBuildWorkflowsPaginator,
+    ListAutomatedReasoningPolicyTestCasesPaginator,
+    ListAutomatedReasoningPolicyTestResultsPaginator,
+    ListCustomModelDeploymentsPaginator,
     ListCustomModelsPaginator,
+    ListEnforcedGuardrailsConfigurationPaginator,
     ListEvaluationJobsPaginator,
     ListGuardrailsPaginator,
     ListImportedModelsPaginator,
@@ -65,7 +83,13 @@ Client = BedrockClient
 __all__ = (
     "BedrockClient",
     "Client",
+    "ListAutomatedReasoningPoliciesPaginator",
+    "ListAutomatedReasoningPolicyBuildWorkflowsPaginator",
+    "ListAutomatedReasoningPolicyTestCasesPaginator",
+    "ListAutomatedReasoningPolicyTestResultsPaginator",
+    "ListCustomModelDeploymentsPaginator",
     "ListCustomModelsPaginator",
+    "ListEnforcedGuardrailsConfigurationPaginator",
     "ListEvaluationJobsPaginator",
     "ListGuardrailsPaginator",
     "ListImportedModelsPaginator",

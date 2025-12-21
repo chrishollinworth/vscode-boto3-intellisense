@@ -28,6 +28,7 @@ from .literals import (
     UnitType,
     UpdateStatusType,
     WebserverAccessModeType,
+    WorkerReplacementStrategyType,
 )
 
 if sys.version_info >= (3, 9):
@@ -203,6 +204,7 @@ class LastUpdateTypeDef(TypedDict):
     CreatedAt: NotRequired[datetime]
     Error: NotRequired[UpdateErrorTypeDef]
     Source: NotRequired[str]
+    WorkerReplacementStrategy: NotRequired[WorkerReplacementStrategyType]
 
 class ListEnvironmentsInputPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
@@ -236,26 +238,27 @@ NetworkConfigurationUnionTypeDef = Union[
 class UpdateEnvironmentInputTypeDef(TypedDict):
     Name: str
     ExecutionRoleArn: NotRequired[str]
+    AirflowConfigurationOptions: NotRequired[Mapping[str, str]]
     AirflowVersion: NotRequired[str]
-    SourceBucketArn: NotRequired[str]
     DagS3Path: NotRequired[str]
+    EnvironmentClass: NotRequired[str]
+    LoggingConfiguration: NotRequired[LoggingConfigurationInputTypeDef]
+    MaxWorkers: NotRequired[int]
+    MinWorkers: NotRequired[int]
+    MaxWebservers: NotRequired[int]
+    MinWebservers: NotRequired[int]
+    WorkerReplacementStrategy: NotRequired[WorkerReplacementStrategyType]
+    NetworkConfiguration: NotRequired[UpdateNetworkConfigurationInputTypeDef]
     PluginsS3Path: NotRequired[str]
     PluginsS3ObjectVersion: NotRequired[str]
     RequirementsS3Path: NotRequired[str]
     RequirementsS3ObjectVersion: NotRequired[str]
+    Schedulers: NotRequired[int]
+    SourceBucketArn: NotRequired[str]
     StartupScriptS3Path: NotRequired[str]
     StartupScriptS3ObjectVersion: NotRequired[str]
-    AirflowConfigurationOptions: NotRequired[Mapping[str, str]]
-    EnvironmentClass: NotRequired[str]
-    MaxWorkers: NotRequired[int]
-    NetworkConfiguration: NotRequired[UpdateNetworkConfigurationInputTypeDef]
-    LoggingConfiguration: NotRequired[LoggingConfigurationInputTypeDef]
-    WeeklyMaintenanceWindowStart: NotRequired[str]
     WebserverAccessMode: NotRequired[WebserverAccessModeType]
-    MinWorkers: NotRequired[int]
-    Schedulers: NotRequired[int]
-    MinWebservers: NotRequired[int]
-    MaxWebservers: NotRequired[int]
+    WeeklyMaintenanceWindowStart: NotRequired[str]
 
 class EnvironmentTypeDef(TypedDict):
     Name: NotRequired[str]

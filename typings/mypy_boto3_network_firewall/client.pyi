@@ -32,32 +32,66 @@ from .paginator import (
     ListFirewallsPaginator,
     ListFlowOperationResultsPaginator,
     ListFlowOperationsPaginator,
+    ListProxiesPaginator,
+    ListProxyConfigurationsPaginator,
+    ListProxyRuleGroupsPaginator,
     ListRuleGroupsPaginator,
     ListTagsForResourcePaginator,
     ListTLSInspectionConfigurationsPaginator,
+    ListVpcEndpointAssociationsPaginator,
 )
 from .type_defs import (
+    AcceptNetworkFirewallTransitGatewayAttachmentRequestTypeDef,
+    AcceptNetworkFirewallTransitGatewayAttachmentResponseTypeDef,
+    AssociateAvailabilityZonesRequestTypeDef,
+    AssociateAvailabilityZonesResponseTypeDef,
     AssociateFirewallPolicyRequestTypeDef,
     AssociateFirewallPolicyResponseTypeDef,
     AssociateSubnetsRequestTypeDef,
     AssociateSubnetsResponseTypeDef,
+    AttachRuleGroupsToProxyConfigurationRequestTypeDef,
+    AttachRuleGroupsToProxyConfigurationResponseTypeDef,
     CreateFirewallPolicyRequestTypeDef,
     CreateFirewallPolicyResponseTypeDef,
     CreateFirewallRequestTypeDef,
     CreateFirewallResponseTypeDef,
+    CreateProxyConfigurationRequestTypeDef,
+    CreateProxyConfigurationResponseTypeDef,
+    CreateProxyRequestTypeDef,
+    CreateProxyResponseTypeDef,
+    CreateProxyRuleGroupRequestTypeDef,
+    CreateProxyRuleGroupResponseTypeDef,
+    CreateProxyRulesRequestTypeDef,
+    CreateProxyRulesResponseTypeDef,
     CreateRuleGroupRequestTypeDef,
     CreateRuleGroupResponseTypeDef,
     CreateTLSInspectionConfigurationRequestTypeDef,
     CreateTLSInspectionConfigurationResponseTypeDef,
+    CreateVpcEndpointAssociationRequestTypeDef,
+    CreateVpcEndpointAssociationResponseTypeDef,
     DeleteFirewallPolicyRequestTypeDef,
     DeleteFirewallPolicyResponseTypeDef,
     DeleteFirewallRequestTypeDef,
     DeleteFirewallResponseTypeDef,
+    DeleteNetworkFirewallTransitGatewayAttachmentRequestTypeDef,
+    DeleteNetworkFirewallTransitGatewayAttachmentResponseTypeDef,
+    DeleteProxyConfigurationRequestTypeDef,
+    DeleteProxyConfigurationResponseTypeDef,
+    DeleteProxyRequestTypeDef,
+    DeleteProxyResponseTypeDef,
+    DeleteProxyRuleGroupRequestTypeDef,
+    DeleteProxyRuleGroupResponseTypeDef,
+    DeleteProxyRulesRequestTypeDef,
+    DeleteProxyRulesResponseTypeDef,
     DeleteResourcePolicyRequestTypeDef,
     DeleteRuleGroupRequestTypeDef,
     DeleteRuleGroupResponseTypeDef,
     DeleteTLSInspectionConfigurationRequestTypeDef,
     DeleteTLSInspectionConfigurationResponseTypeDef,
+    DeleteVpcEndpointAssociationRequestTypeDef,
+    DeleteVpcEndpointAssociationResponseTypeDef,
+    DescribeFirewallMetadataRequestTypeDef,
+    DescribeFirewallMetadataResponseTypeDef,
     DescribeFirewallPolicyRequestTypeDef,
     DescribeFirewallPolicyResponseTypeDef,
     DescribeFirewallRequestTypeDef,
@@ -66,14 +100,30 @@ from .type_defs import (
     DescribeFlowOperationResponseTypeDef,
     DescribeLoggingConfigurationRequestTypeDef,
     DescribeLoggingConfigurationResponseTypeDef,
+    DescribeProxyConfigurationRequestTypeDef,
+    DescribeProxyConfigurationResponseTypeDef,
+    DescribeProxyRequestTypeDef,
+    DescribeProxyResponseTypeDef,
+    DescribeProxyRuleGroupRequestTypeDef,
+    DescribeProxyRuleGroupResponseTypeDef,
+    DescribeProxyRuleRequestTypeDef,
+    DescribeProxyRuleResponseTypeDef,
     DescribeResourcePolicyRequestTypeDef,
     DescribeResourcePolicyResponseTypeDef,
     DescribeRuleGroupMetadataRequestTypeDef,
     DescribeRuleGroupMetadataResponseTypeDef,
     DescribeRuleGroupRequestTypeDef,
     DescribeRuleGroupResponseTypeDef,
+    DescribeRuleGroupSummaryRequestTypeDef,
+    DescribeRuleGroupSummaryResponseTypeDef,
     DescribeTLSInspectionConfigurationRequestTypeDef,
     DescribeTLSInspectionConfigurationResponseTypeDef,
+    DescribeVpcEndpointAssociationRequestTypeDef,
+    DescribeVpcEndpointAssociationResponseTypeDef,
+    DetachRuleGroupsFromProxyConfigurationRequestTypeDef,
+    DetachRuleGroupsFromProxyConfigurationResponseTypeDef,
+    DisassociateAvailabilityZonesRequestTypeDef,
+    DisassociateAvailabilityZonesResponseTypeDef,
     DisassociateSubnetsRequestTypeDef,
     DisassociateSubnetsResponseTypeDef,
     GetAnalysisReportResultsRequestTypeDef,
@@ -88,13 +138,23 @@ from .type_defs import (
     ListFlowOperationResultsResponseTypeDef,
     ListFlowOperationsRequestTypeDef,
     ListFlowOperationsResponseTypeDef,
+    ListProxiesRequestTypeDef,
+    ListProxiesResponseTypeDef,
+    ListProxyConfigurationsRequestTypeDef,
+    ListProxyConfigurationsResponseTypeDef,
+    ListProxyRuleGroupsRequestTypeDef,
+    ListProxyRuleGroupsResponseTypeDef,
     ListRuleGroupsRequestTypeDef,
     ListRuleGroupsResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
     ListTLSInspectionConfigurationsRequestTypeDef,
     ListTLSInspectionConfigurationsResponseTypeDef,
+    ListVpcEndpointAssociationsRequestTypeDef,
+    ListVpcEndpointAssociationsResponseTypeDef,
     PutResourcePolicyRequestTypeDef,
+    RejectNetworkFirewallTransitGatewayAttachmentRequestTypeDef,
+    RejectNetworkFirewallTransitGatewayAttachmentResponseTypeDef,
     StartAnalysisReportRequestTypeDef,
     StartAnalysisReportResponseTypeDef,
     StartFlowCaptureRequestTypeDef,
@@ -103,6 +163,8 @@ from .type_defs import (
     StartFlowFlushResponseTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
+    UpdateAvailabilityZoneChangeProtectionRequestTypeDef,
+    UpdateAvailabilityZoneChangeProtectionResponseTypeDef,
     UpdateFirewallAnalysisSettingsRequestTypeDef,
     UpdateFirewallAnalysisSettingsResponseTypeDef,
     UpdateFirewallDeleteProtectionRequestTypeDef,
@@ -117,6 +179,16 @@ from .type_defs import (
     UpdateFirewallPolicyResponseTypeDef,
     UpdateLoggingConfigurationRequestTypeDef,
     UpdateLoggingConfigurationResponseTypeDef,
+    UpdateProxyConfigurationRequestTypeDef,
+    UpdateProxyConfigurationResponseTypeDef,
+    UpdateProxyRequestTypeDef,
+    UpdateProxyResponseTypeDef,
+    UpdateProxyRuleGroupPrioritiesRequestTypeDef,
+    UpdateProxyRuleGroupPrioritiesResponseTypeDef,
+    UpdateProxyRulePrioritiesRequestTypeDef,
+    UpdateProxyRulePrioritiesResponseTypeDef,
+    UpdateProxyRuleRequestTypeDef,
+    UpdateProxyRuleResponseTypeDef,
     UpdateRuleGroupRequestTypeDef,
     UpdateRuleGroupResponseTypeDef,
     UpdateSubnetChangeProtectionRequestTypeDef,
@@ -188,6 +260,27 @@ class NetworkFirewallClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#generate_presigned_url)
         """
 
+    def accept_network_firewall_transit_gateway_attachment(
+        self, **kwargs: Unpack[AcceptNetworkFirewallTransitGatewayAttachmentRequestTypeDef]
+    ) -> AcceptNetworkFirewallTransitGatewayAttachmentResponseTypeDef:
+        """
+        Accepts a transit gateway attachment request for Network Firewall.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/accept_network_firewall_transit_gateway_attachment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#accept_network_firewall_transit_gateway_attachment)
+        """
+
+    def associate_availability_zones(
+        self, **kwargs: Unpack[AssociateAvailabilityZonesRequestTypeDef]
+    ) -> AssociateAvailabilityZonesResponseTypeDef:
+        """
+        Associates the specified Availability Zones with a transit gateway-attached
+        firewall.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/associate_availability_zones.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#associate_availability_zones)
+        """
+
     def associate_firewall_policy(
         self, **kwargs: Unpack[AssociateFirewallPolicyRequestTypeDef]
     ) -> AssociateFirewallPolicyResponseTypeDef:
@@ -206,6 +299,16 @@ class NetworkFirewallClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/associate_subnets.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#associate_subnets)
+        """
+
+    def attach_rule_groups_to_proxy_configuration(
+        self, **kwargs: Unpack[AttachRuleGroupsToProxyConfigurationRequestTypeDef]
+    ) -> AttachRuleGroupsToProxyConfigurationResponseTypeDef:
+        """
+        Attaches <a>ProxyRuleGroup</a> resources to a <a>ProxyConfiguration</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/attach_rule_groups_to_proxy_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#attach_rule_groups_to_proxy_configuration)
         """
 
     def create_firewall(
@@ -229,6 +332,46 @@ class NetworkFirewallClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#create_firewall_policy)
         """
 
+    def create_proxy(
+        self, **kwargs: Unpack[CreateProxyRequestTypeDef]
+    ) -> CreateProxyResponseTypeDef:
+        """
+        Creates an Network Firewall <a>Proxy</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/create_proxy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#create_proxy)
+        """
+
+    def create_proxy_configuration(
+        self, **kwargs: Unpack[CreateProxyConfigurationRequestTypeDef]
+    ) -> CreateProxyConfigurationResponseTypeDef:
+        """
+        Creates an Network Firewall <a>ProxyConfiguration</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/create_proxy_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#create_proxy_configuration)
+        """
+
+    def create_proxy_rule_group(
+        self, **kwargs: Unpack[CreateProxyRuleGroupRequestTypeDef]
+    ) -> CreateProxyRuleGroupResponseTypeDef:
+        """
+        Creates an Network Firewall <a>ProxyRuleGroup</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/create_proxy_rule_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#create_proxy_rule_group)
+        """
+
+    def create_proxy_rules(
+        self, **kwargs: Unpack[CreateProxyRulesRequestTypeDef]
+    ) -> CreateProxyRulesResponseTypeDef:
+        """
+        Creates Network Firewall <a>ProxyRule</a> resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/create_proxy_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#create_proxy_rules)
+        """
+
     def create_rule_group(
         self, **kwargs: Unpack[CreateRuleGroupRequestTypeDef]
     ) -> CreateRuleGroupResponseTypeDef:
@@ -250,6 +393,16 @@ class NetworkFirewallClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#create_tls_inspection_configuration)
         """
 
+    def create_vpc_endpoint_association(
+        self, **kwargs: Unpack[CreateVpcEndpointAssociationRequestTypeDef]
+    ) -> CreateVpcEndpointAssociationResponseTypeDef:
+        """
+        Creates a firewall endpoint for an Network Firewall firewall.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/create_vpc_endpoint_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#create_vpc_endpoint_association)
+        """
+
     def delete_firewall(
         self, **kwargs: Unpack[DeleteFirewallRequestTypeDef]
     ) -> DeleteFirewallResponseTypeDef:
@@ -268,6 +421,56 @@ class NetworkFirewallClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/delete_firewall_policy.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#delete_firewall_policy)
+        """
+
+    def delete_network_firewall_transit_gateway_attachment(
+        self, **kwargs: Unpack[DeleteNetworkFirewallTransitGatewayAttachmentRequestTypeDef]
+    ) -> DeleteNetworkFirewallTransitGatewayAttachmentResponseTypeDef:
+        """
+        Deletes a transit gateway attachment from a Network Firewall.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/delete_network_firewall_transit_gateway_attachment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#delete_network_firewall_transit_gateway_attachment)
+        """
+
+    def delete_proxy(
+        self, **kwargs: Unpack[DeleteProxyRequestTypeDef]
+    ) -> DeleteProxyResponseTypeDef:
+        """
+        Deletes the specified <a>Proxy</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/delete_proxy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#delete_proxy)
+        """
+
+    def delete_proxy_configuration(
+        self, **kwargs: Unpack[DeleteProxyConfigurationRequestTypeDef]
+    ) -> DeleteProxyConfigurationResponseTypeDef:
+        """
+        Deletes the specified <a>ProxyConfiguration</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/delete_proxy_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#delete_proxy_configuration)
+        """
+
+    def delete_proxy_rule_group(
+        self, **kwargs: Unpack[DeleteProxyRuleGroupRequestTypeDef]
+    ) -> DeleteProxyRuleGroupResponseTypeDef:
+        """
+        Deletes the specified <a>ProxyRuleGroup</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/delete_proxy_rule_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#delete_proxy_rule_group)
+        """
+
+    def delete_proxy_rules(
+        self, **kwargs: Unpack[DeleteProxyRulesRequestTypeDef]
+    ) -> DeleteProxyRulesResponseTypeDef:
+        """
+        Deletes the specified <a>ProxyRule</a>(s).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/delete_proxy_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#delete_proxy_rules)
         """
 
     def delete_resource_policy(
@@ -301,6 +504,16 @@ class NetworkFirewallClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#delete_tls_inspection_configuration)
         """
 
+    def delete_vpc_endpoint_association(
+        self, **kwargs: Unpack[DeleteVpcEndpointAssociationRequestTypeDef]
+    ) -> DeleteVpcEndpointAssociationResponseTypeDef:
+        """
+        Deletes the specified <a>VpcEndpointAssociation</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/delete_vpc_endpoint_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#delete_vpc_endpoint_association)
+        """
+
     def describe_firewall(
         self, **kwargs: Unpack[DescribeFirewallRequestTypeDef]
     ) -> DescribeFirewallResponseTypeDef:
@@ -309,6 +522,17 @@ class NetworkFirewallClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/describe_firewall.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_firewall)
+        """
+
+    def describe_firewall_metadata(
+        self, **kwargs: Unpack[DescribeFirewallMetadataRequestTypeDef]
+    ) -> DescribeFirewallMetadataResponseTypeDef:
+        """
+        Returns the high-level information about a firewall, including the Availability
+        Zones where the Firewall is currently in use.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/describe_firewall_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_firewall_metadata)
         """
 
     def describe_firewall_policy(
@@ -339,6 +563,47 @@ class NetworkFirewallClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/describe_logging_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_logging_configuration)
+        """
+
+    def describe_proxy(
+        self, **kwargs: Unpack[DescribeProxyRequestTypeDef]
+    ) -> DescribeProxyResponseTypeDef:
+        """
+        Returns the data objects for the specified proxy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/describe_proxy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_proxy)
+        """
+
+    def describe_proxy_configuration(
+        self, **kwargs: Unpack[DescribeProxyConfigurationRequestTypeDef]
+    ) -> DescribeProxyConfigurationResponseTypeDef:
+        """
+        Returns the data objects for the specified proxy configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/describe_proxy_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_proxy_configuration)
+        """
+
+    def describe_proxy_rule(
+        self, **kwargs: Unpack[DescribeProxyRuleRequestTypeDef]
+    ) -> DescribeProxyRuleResponseTypeDef:
+        """
+        Returns the data objects for the specified proxy configuration for the
+        specified proxy rule group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/describe_proxy_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_proxy_rule)
+        """
+
+    def describe_proxy_rule_group(
+        self, **kwargs: Unpack[DescribeProxyRuleGroupRequestTypeDef]
+    ) -> DescribeProxyRuleGroupResponseTypeDef:
+        """
+        Returns the data objects for the specified proxy rule group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/describe_proxy_rule_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_proxy_rule_group)
         """
 
     def describe_resource_policy(
@@ -373,6 +638,16 @@ class NetworkFirewallClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_rule_group_metadata)
         """
 
+    def describe_rule_group_summary(
+        self, **kwargs: Unpack[DescribeRuleGroupSummaryRequestTypeDef]
+    ) -> DescribeRuleGroupSummaryResponseTypeDef:
+        """
+        Returns detailed information for a stateful rule group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/describe_rule_group_summary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_rule_group_summary)
+        """
+
     def describe_tls_inspection_configuration(
         self, **kwargs: Unpack[DescribeTLSInspectionConfigurationRequestTypeDef]
     ) -> DescribeTLSInspectionConfigurationResponseTypeDef:
@@ -381,6 +656,37 @@ class NetworkFirewallClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/describe_tls_inspection_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_tls_inspection_configuration)
+        """
+
+    def describe_vpc_endpoint_association(
+        self, **kwargs: Unpack[DescribeVpcEndpointAssociationRequestTypeDef]
+    ) -> DescribeVpcEndpointAssociationResponseTypeDef:
+        """
+        Returns the data object for the specified VPC endpoint association.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/describe_vpc_endpoint_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#describe_vpc_endpoint_association)
+        """
+
+    def detach_rule_groups_from_proxy_configuration(
+        self, **kwargs: Unpack[DetachRuleGroupsFromProxyConfigurationRequestTypeDef]
+    ) -> DetachRuleGroupsFromProxyConfigurationResponseTypeDef:
+        """
+        Detaches <a>ProxyRuleGroup</a> resources from a <a>ProxyConfiguration</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/detach_rule_groups_from_proxy_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#detach_rule_groups_from_proxy_configuration)
+        """
+
+    def disassociate_availability_zones(
+        self, **kwargs: Unpack[DisassociateAvailabilityZonesRequestTypeDef]
+    ) -> DisassociateAvailabilityZonesResponseTypeDef:
+        """
+        Removes the specified Availability Zone associations from a transit
+        gateway-attached firewall.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/disassociate_availability_zones.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#disassociate_availability_zones)
         """
 
     def disassociate_subnets(
@@ -455,6 +761,36 @@ class NetworkFirewallClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#list_flow_operations)
         """
 
+    def list_proxies(
+        self, **kwargs: Unpack[ListProxiesRequestTypeDef]
+    ) -> ListProxiesResponseTypeDef:
+        """
+        Retrieves the metadata for the proxies that you have defined.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/list_proxies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#list_proxies)
+        """
+
+    def list_proxy_configurations(
+        self, **kwargs: Unpack[ListProxyConfigurationsRequestTypeDef]
+    ) -> ListProxyConfigurationsResponseTypeDef:
+        """
+        Retrieves the metadata for the proxy configuration that you have defined.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/list_proxy_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#list_proxy_configurations)
+        """
+
+    def list_proxy_rule_groups(
+        self, **kwargs: Unpack[ListProxyRuleGroupsRequestTypeDef]
+    ) -> ListProxyRuleGroupsResponseTypeDef:
+        """
+        Retrieves the metadata for the proxy rule groups that you have defined.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/list_proxy_rule_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#list_proxy_rule_groups)
+        """
+
     def list_rule_groups(
         self, **kwargs: Unpack[ListRuleGroupsRequestTypeDef]
     ) -> ListRuleGroupsResponseTypeDef:
@@ -486,14 +822,35 @@ class NetworkFirewallClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#list_tags_for_resource)
         """
 
+    def list_vpc_endpoint_associations(
+        self, **kwargs: Unpack[ListVpcEndpointAssociationsRequestTypeDef]
+    ) -> ListVpcEndpointAssociationsResponseTypeDef:
+        """
+        Retrieves the metadata for the VPC endpoint associations that you have defined.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/list_vpc_endpoint_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#list_vpc_endpoint_associations)
+        """
+
     def put_resource_policy(
         self, **kwargs: Unpack[PutResourcePolicyRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Creates or updates an IAM policy for your rule group or firewall policy.
+        Creates or updates an IAM policy for your rule group, firewall policy, or
+        firewall.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/put_resource_policy.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#put_resource_policy)
+        """
+
+    def reject_network_firewall_transit_gateway_attachment(
+        self, **kwargs: Unpack[RejectNetworkFirewallTransitGatewayAttachmentRequestTypeDef]
+    ) -> RejectNetworkFirewallTransitGatewayAttachmentResponseTypeDef:
+        """
+        Rejects a transit gateway attachment request for Network Firewall.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/reject_network_firewall_transit_gateway_attachment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#reject_network_firewall_transit_gateway_attachment)
         """
 
     def start_analysis_report(
@@ -542,6 +899,17 @@ class NetworkFirewallClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/untag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#untag_resource)
+        """
+
+    def update_availability_zone_change_protection(
+        self, **kwargs: Unpack[UpdateAvailabilityZoneChangeProtectionRequestTypeDef]
+    ) -> UpdateAvailabilityZoneChangeProtectionResponseTypeDef:
+        """
+        Modifies the <code>AvailabilityZoneChangeProtection</code> setting for a
+        transit gateway-attached firewall.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/update_availability_zone_change_protection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#update_availability_zone_change_protection)
         """
 
     def update_firewall_analysis_settings(
@@ -614,6 +982,56 @@ class NetworkFirewallClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/update_logging_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#update_logging_configuration)
+        """
+
+    def update_proxy(
+        self, **kwargs: Unpack[UpdateProxyRequestTypeDef]
+    ) -> UpdateProxyResponseTypeDef:
+        """
+        Updates the properties of the specified proxy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/update_proxy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#update_proxy)
+        """
+
+    def update_proxy_configuration(
+        self, **kwargs: Unpack[UpdateProxyConfigurationRequestTypeDef]
+    ) -> UpdateProxyConfigurationResponseTypeDef:
+        """
+        Updates the properties of the specified proxy configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/update_proxy_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#update_proxy_configuration)
+        """
+
+    def update_proxy_rule(
+        self, **kwargs: Unpack[UpdateProxyRuleRequestTypeDef]
+    ) -> UpdateProxyRuleResponseTypeDef:
+        """
+        Updates the properties of the specified proxy rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/update_proxy_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#update_proxy_rule)
+        """
+
+    def update_proxy_rule_group_priorities(
+        self, **kwargs: Unpack[UpdateProxyRuleGroupPrioritiesRequestTypeDef]
+    ) -> UpdateProxyRuleGroupPrioritiesResponseTypeDef:
+        """
+        Updates proxy rule group priorities within a proxy configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/update_proxy_rule_group_priorities.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#update_proxy_rule_group_priorities)
+        """
+
+    def update_proxy_rule_priorities(
+        self, **kwargs: Unpack[UpdateProxyRulePrioritiesRequestTypeDef]
+    ) -> UpdateProxyRulePrioritiesResponseTypeDef:
+        """
+        Updates proxy rule priorities within a proxy rule group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/update_proxy_rule_priorities.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#update_proxy_rule_priorities)
         """
 
     def update_rule_group(
@@ -715,6 +1133,39 @@ class NetworkFirewallClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_proxies"]
+    ) -> ListProxiesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_proxy_configurations"]
+    ) -> ListProxyConfigurationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_proxy_rule_groups"]
+    ) -> ListProxyRuleGroupsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_rule_groups"]
     ) -> ListRuleGroupsPaginator:
         """
@@ -739,6 +1190,17 @@ class NetworkFirewallClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_vpc_endpoint_associations"]
+    ) -> ListVpcEndpointAssociationsPaginator:
         """
         Create a paginator for an operation.
 

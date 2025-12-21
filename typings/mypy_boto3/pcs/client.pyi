@@ -36,7 +36,6 @@ from .type_defs import (
     DeleteClusterRequestTypeDef,
     DeleteComputeNodeGroupRequestTypeDef,
     DeleteQueueRequestTypeDef,
-    EmptyResponseMetadataTypeDef,
     GetClusterRequestTypeDef,
     GetClusterResponseTypeDef,
     GetComputeNodeGroupRequestTypeDef,
@@ -55,6 +54,8 @@ from .type_defs import (
     RegisterComputeNodeGroupInstanceResponseTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
+    UpdateClusterRequestTypeDef,
+    UpdateClusterResponseTypeDef,
     UpdateComputeNodeGroupRequestTypeDef,
     UpdateComputeNodeGroupResponseTypeDef,
     UpdateQueueRequestTypeDef,
@@ -233,7 +234,7 @@ class ParallelComputingServiceClient(BaseClient):
         self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        Returns a list of all tags on an Amazon Web Services PCS resource.
+        Returns a list of all tags on an PCS resource.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pcs/client/list_tags_for_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pcs/client/#list_tags_for_resource)
@@ -243,30 +244,36 @@ class ParallelComputingServiceClient(BaseClient):
         self, **kwargs: Unpack[RegisterComputeNodeGroupInstanceRequestTypeDef]
     ) -> RegisterComputeNodeGroupInstanceResponseTypeDef:
         """
-        This API action isn't intended for you to use.
+        <important> <p>This API action isn't intended for you to use.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pcs/client/register_compute_node_group_instance.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pcs/client/#register_compute_node_group_instance)
         """
 
-    def tag_resource(
-        self, **kwargs: Unpack[TagResourceRequestTypeDef]
-    ) -> EmptyResponseMetadataTypeDef:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
-        Adds or edits tags on an Amazon Web Services PCS resource.
+        Adds or edits tags on an PCS resource.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pcs/client/tag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pcs/client/#tag_resource)
         """
 
-    def untag_resource(
-        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
-    ) -> EmptyResponseMetadataTypeDef:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
-        Deletes tags from an Amazon Web Services PCS resource.
+        Deletes tags from an PCS resource.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pcs/client/untag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pcs/client/#untag_resource)
+        """
+
+    def update_cluster(
+        self, **kwargs: Unpack[UpdateClusterRequestTypeDef]
+    ) -> UpdateClusterResponseTypeDef:
+        """
+        Updates a cluster configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pcs/client/update_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pcs/client/#update_cluster)
         """
 
     def update_compute_node_group(

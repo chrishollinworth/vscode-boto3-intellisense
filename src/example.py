@@ -10,7 +10,7 @@ networkfirewall_client = boto3.client("network-firewall")
 lambda_client = boto3.client("lambda")
 
 ec2_client.accept_reserved_instances_exchange_quote(TargetConfigurations=)
-
+lambda_client.
 lambda_client.add_layer_version_permission(LayerName=,VersionNumber=)
 servicecatalog_client.accept_portfolio_share()
 

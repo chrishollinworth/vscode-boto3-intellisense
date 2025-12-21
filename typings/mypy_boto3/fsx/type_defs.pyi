@@ -44,8 +44,11 @@ from .literals import (
     InputOntapVolumeTypeType,
     LustreAccessAuditLogLevelType,
     LustreDeploymentTypeType,
+    LustreReadCacheSizingModeType,
     MetadataConfigurationModeType,
+    NetworkTypeType,
     OntapDeploymentTypeType,
+    OntapFileSystemUserTypeType,
     OntapVolumeTypeType,
     OpenZFSCopyStrategyType,
     OpenZFSDataCompressionTypeType,
@@ -56,6 +59,9 @@ from .literals import (
     ResourceTypeType,
     RestoreOpenZFSVolumeOptionType,
     RetentionPeriodTypeType,
+    S3AccessPointAttachmentLifecycleType,
+    S3AccessPointAttachmentsFilterNameType,
+    S3AccessPointAttachmentTypeType,
     SecurityStyleType,
     SnaplockTypeType,
     SnapshotFilterNameType,
@@ -111,6 +117,11 @@ __all__ = (
     "CopySnapshotAndUpdateVolumeRequestTypeDef",
     "CopySnapshotAndUpdateVolumeResponseTypeDef",
     "CreateAggregateConfigurationTypeDef",
+    "CreateAndAttachS3AccessPointOntapConfigurationTypeDef",
+    "CreateAndAttachS3AccessPointOpenZFSConfigurationTypeDef",
+    "CreateAndAttachS3AccessPointRequestTypeDef",
+    "CreateAndAttachS3AccessPointResponseTypeDef",
+    "CreateAndAttachS3AccessPointS3ConfigurationTypeDef",
     "CreateBackupRequestTypeDef",
     "CreateBackupResponseTypeDef",
     "CreateDataRepositoryAssociationRequestTypeDef",
@@ -188,8 +199,13 @@ __all__ = (
     "DescribeFileSystemsRequestTypeDef",
     "DescribeFileSystemsResponsePaginatorTypeDef",
     "DescribeFileSystemsResponseTypeDef",
+    "DescribeS3AccessPointAttachmentsRequestPaginateTypeDef",
+    "DescribeS3AccessPointAttachmentsRequestTypeDef",
+    "DescribeS3AccessPointAttachmentsResponseTypeDef",
     "DescribeSharedVpcConfigurationResponseTypeDef",
+    "DescribeSnapshotsRequestPaginateTypeDef",
     "DescribeSnapshotsRequestTypeDef",
+    "DescribeSnapshotsResponsePaginatorTypeDef",
     "DescribeSnapshotsResponseTypeDef",
     "DescribeStorageVirtualMachinesRequestPaginateTypeDef",
     "DescribeStorageVirtualMachinesRequestTypeDef",
@@ -198,6 +214,8 @@ __all__ = (
     "DescribeVolumesRequestTypeDef",
     "DescribeVolumesResponsePaginatorTypeDef",
     "DescribeVolumesResponseTypeDef",
+    "DetachAndDeleteS3AccessPointRequestTypeDef",
+    "DetachAndDeleteS3AccessPointResponseTypeDef",
     "DisassociateFileSystemAliasesRequestTypeDef",
     "DisassociateFileSystemAliasesResponseTypeDef",
     "DiskIopsConfigurationTypeDef",
@@ -223,21 +241,31 @@ __all__ = (
     "LustreFileSystemConfigurationTypeDef",
     "LustreLogConfigurationTypeDef",
     "LustreLogCreateConfigurationTypeDef",
+    "LustreReadCacheConfigurationTypeDef",
     "LustreRootSquashConfigurationOutputTypeDef",
     "LustreRootSquashConfigurationTypeDef",
     "LustreRootSquashConfigurationUnionTypeDef",
     "NFSDataRepositoryConfigurationTypeDef",
     "OntapFileSystemConfigurationTypeDef",
+    "OntapFileSystemIdentityTypeDef",
+    "OntapUnixFileSystemUserTypeDef",
     "OntapVolumeConfigurationTypeDef",
+    "OntapWindowsFileSystemUserTypeDef",
     "OpenZFSClientConfigurationOutputTypeDef",
     "OpenZFSClientConfigurationTypeDef",
     "OpenZFSClientConfigurationUnionTypeDef",
     "OpenZFSCreateRootVolumeConfigurationTypeDef",
     "OpenZFSFileSystemConfigurationTypeDef",
+    "OpenZFSFileSystemIdentityOutputTypeDef",
+    "OpenZFSFileSystemIdentityTypeDef",
+    "OpenZFSFileSystemIdentityUnionTypeDef",
     "OpenZFSNfsExportOutputTypeDef",
     "OpenZFSNfsExportTypeDef",
     "OpenZFSNfsExportUnionTypeDef",
     "OpenZFSOriginSnapshotConfigurationTypeDef",
+    "OpenZFSPosixFileSystemUserOutputTypeDef",
+    "OpenZFSPosixFileSystemUserTypeDef",
+    "OpenZFSPosixFileSystemUserUnionTypeDef",
     "OpenZFSReadCacheConfigurationTypeDef",
     "OpenZFSUserOrGroupQuotaTypeDef",
     "OpenZFSVolumeConfigurationTypeDef",
@@ -249,6 +277,12 @@ __all__ = (
     "RestoreVolumeFromSnapshotRequestTypeDef",
     "RestoreVolumeFromSnapshotResponseTypeDef",
     "RetentionPeriodTypeDef",
+    "S3AccessPointAttachmentTypeDef",
+    "S3AccessPointAttachmentsFilterTypeDef",
+    "S3AccessPointOntapConfigurationTypeDef",
+    "S3AccessPointOpenZFSConfigurationTypeDef",
+    "S3AccessPointTypeDef",
+    "S3AccessPointVpcConfigurationTypeDef",
     "S3DataRepositoryConfigurationOutputTypeDef",
     "S3DataRepositoryConfigurationTypeDef",
     "S3DataRepositoryConfigurationUnionTypeDef",
@@ -301,6 +335,7 @@ __all__ = (
     "WindowsAuditLogConfigurationTypeDef",
     "WindowsAuditLogCreateConfigurationTypeDef",
     "WindowsFileSystemConfigurationTypeDef",
+    "WindowsFsrmConfigurationTypeDef",
 )
 
 class ActiveDirectoryBackupAttributesTypeDef(TypedDict):
@@ -378,6 +413,9 @@ class CreateAggregateConfigurationTypeDef(TypedDict):
     Aggregates: NotRequired[Sequence[str]]
     ConstituentsPerAggregate: NotRequired[int]
 
+class S3AccessPointVpcConfigurationTypeDef(TypedDict):
+    VpcId: NotRequired[str]
+
 class FileCacheLustreMetadataConfigurationTypeDef(TypedDict):
     StorageCapacity: int
 
@@ -389,6 +427,10 @@ class LustreLogCreateConfigurationTypeDef(TypedDict):
     Level: LustreAccessAuditLogLevelType
     Destination: NotRequired[str]
 
+class LustreReadCacheConfigurationTypeDef(TypedDict):
+    SizingMode: NotRequired[LustreReadCacheSizingModeType]
+    SizeGiB: NotRequired[int]
+
 class DiskIopsConfigurationTypeDef(TypedDict):
     Mode: NotRequired[DiskIopsConfigurationModeType]
     Iops: NotRequired[int]
@@ -399,16 +441,21 @@ class OpenZFSReadCacheConfigurationTypeDef(TypedDict):
 
 class SelfManagedActiveDirectoryConfigurationTypeDef(TypedDict):
     DomainName: str
-    UserName: str
-    Password: str
     DnsIps: Sequence[str]
     OrganizationalUnitDistinguishedName: NotRequired[str]
     FileSystemAdministratorsGroup: NotRequired[str]
+    UserName: NotRequired[str]
+    Password: NotRequired[str]
+    DomainJoinServiceAccountSecret: NotRequired[str]
 
 class WindowsAuditLogCreateConfigurationTypeDef(TypedDict):
     FileAccessAuditLogLevel: WindowsAccessAuditLogLevelType
     FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevelType
     AuditLogDestination: NotRequired[str]
+
+class WindowsFsrmConfigurationTypeDef(TypedDict):
+    FsrmServiceEnabled: bool
+    EventLogDestination: NotRequired[str]
 
 class TieringPolicyTypeDef(TypedDict):
     CoolingPeriod: NotRequired[int]
@@ -493,6 +540,10 @@ class DescribeFileSystemsRequestTypeDef(TypedDict):
     MaxResults: NotRequired[int]
     NextToken: NotRequired[str]
 
+class S3AccessPointAttachmentsFilterTypeDef(TypedDict):
+    Name: NotRequired[S3AccessPointAttachmentsFilterNameType]
+    Values: NotRequired[Sequence[str]]
+
 class SnapshotFilterTypeDef(TypedDict):
     Name: NotRequired[SnapshotFilterNameType]
     Values: NotRequired[Sequence[str]]
@@ -504,6 +555,10 @@ class StorageVirtualMachineFilterTypeDef(TypedDict):
 class VolumeFilterTypeDef(TypedDict):
     Name: NotRequired[VolumeFilterNameType]
     Values: NotRequired[Sequence[str]]
+
+class DetachAndDeleteS3AccessPointRequestTypeDef(TypedDict):
+    Name: str
+    ClientRequestToken: NotRequired[str]
 
 class DisassociateFileSystemAliasesRequestTypeDef(TypedDict):
     FileSystemId: str
@@ -528,6 +583,7 @@ class LustreLogConfigurationTypeDef(TypedDict):
 class FileSystemEndpointTypeDef(TypedDict):
     DNSName: NotRequired[str]
     IpAddresses: NotRequired[List[str]]
+    Ipv6Addresses: NotRequired[List[str]]
 
 class FileSystemFailureDetailsTypeDef(TypedDict):
     Message: NotRequired[str]
@@ -552,6 +608,12 @@ class LustreRootSquashConfigurationTypeDef(TypedDict):
     RootSquash: NotRequired[str]
     NoSquashNids: NotRequired[Sequence[str]]
 
+class OntapUnixFileSystemUserTypeDef(TypedDict):
+    Name: str
+
+class OntapWindowsFileSystemUserTypeDef(TypedDict):
+    Name: str
+
 class OpenZFSClientConfigurationOutputTypeDef(TypedDict):
     Clients: str
     Options: List[str]
@@ -560,9 +622,19 @@ class OpenZFSClientConfigurationTypeDef(TypedDict):
     Clients: str
     Options: Sequence[str]
 
+class OpenZFSPosixFileSystemUserOutputTypeDef(TypedDict):
+    Uid: int
+    Gid: int
+    SecondaryGids: NotRequired[List[int]]
+
 class OpenZFSOriginSnapshotConfigurationTypeDef(TypedDict):
     SnapshotARN: NotRequired[str]
     CopyStrategy: NotRequired[OpenZFSCopyStrategyType]
+
+class OpenZFSPosixFileSystemUserTypeDef(TypedDict):
+    Uid: int
+    Gid: int
+    SecondaryGids: NotRequired[Sequence[int]]
 
 class ReleaseFileSystemNfsV3LocksRequestTypeDef(TypedDict):
     FileSystemId: str
@@ -588,6 +660,7 @@ class SelfManagedActiveDirectoryAttributesTypeDef(TypedDict):
     FileSystemAdministratorsGroup: NotRequired[str]
     UserName: NotRequired[str]
     DnsIps: NotRequired[List[str]]
+    DomainJoinServiceAccountSecret: NotRequired[str]
 
 class SelfManagedActiveDirectoryConfigurationUpdatesTypeDef(TypedDict):
     UserName: NotRequired[str]
@@ -596,6 +669,7 @@ class SelfManagedActiveDirectoryConfigurationUpdatesTypeDef(TypedDict):
     DomainName: NotRequired[str]
     OrganizationalUnitDistinguishedName: NotRequired[str]
     FileSystemAdministratorsGroup: NotRequired[str]
+    DomainJoinServiceAccountSecret: NotRequired[str]
 
 class StartMisconfiguredStateRecoveryRequestTypeDef(TypedDict):
     FileSystemId: str
@@ -604,6 +678,7 @@ class StartMisconfiguredStateRecoveryRequestTypeDef(TypedDict):
 class SvmEndpointTypeDef(TypedDict):
     DNSName: NotRequired[str]
     IpAddresses: NotRequired[List[str]]
+    Ipv6Addresses: NotRequired[List[str]]
 
 class UntagResourceRequestTypeDef(TypedDict):
     ResourceARN: str
@@ -672,6 +747,11 @@ class DescribeFileSystemAliasesResponseTypeDef(TypedDict):
 
 class DescribeSharedVpcConfigurationResponseTypeDef(TypedDict):
     EnableFsxRouteTableUpdatesFromParticipantAccounts: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetachAndDeleteS3AccessPointResponseTypeDef(TypedDict):
+    Lifecycle: S3AccessPointAttachmentLifecycleType
+    Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class DisassociateFileSystemAliasesResponseTypeDef(TypedDict):
@@ -758,6 +838,15 @@ class TagResourceRequestTypeDef(TypedDict):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
+class CreateAndAttachS3AccessPointS3ConfigurationTypeDef(TypedDict):
+    VpcConfiguration: NotRequired[S3AccessPointVpcConfigurationTypeDef]
+    Policy: NotRequired[str]
+
+class S3AccessPointTypeDef(TypedDict):
+    ResourceARN: NotRequired[str]
+    Alias: NotRequired[str]
+    VpcConfiguration: NotRequired[S3AccessPointVpcConfigurationTypeDef]
+
 class CreateFileCacheLustreConfigurationTypeDef(TypedDict):
     PerUnitStorageThroughput: int
     DeploymentType: Literal["CACHE_1"]
@@ -777,6 +866,7 @@ class CreateFileSystemOntapConfigurationTypeDef(TypedDict):
     WeeklyMaintenanceStartTime: NotRequired[str]
     HAPairs: NotRequired[int]
     ThroughputCapacityPerHAPair: NotRequired[int]
+    EndpointIpv6AddressRange: NotRequired[str]
 
 class UpdateFileSystemOntapConfigurationTypeDef(TypedDict):
     AutomaticBackupRetentionDays: NotRequired[int]
@@ -789,6 +879,7 @@ class UpdateFileSystemOntapConfigurationTypeDef(TypedDict):
     RemoveRouteTableIds: NotRequired[Sequence[str]]
     ThroughputCapacityPerHAPair: NotRequired[int]
     HAPairs: NotRequired[int]
+    EndpointIpv6AddressRange: NotRequired[str]
 
 class OpenZFSFileSystemConfigurationTypeDef(TypedDict):
     AutomaticBackupRetentionDays: NotRequired[int]
@@ -802,8 +893,10 @@ class OpenZFSFileSystemConfigurationTypeDef(TypedDict):
     RootVolumeId: NotRequired[str]
     PreferredSubnetId: NotRequired[str]
     EndpointIpAddressRange: NotRequired[str]
+    EndpointIpv6AddressRange: NotRequired[str]
     RouteTableIds: NotRequired[List[str]]
     EndpointIpAddress: NotRequired[str]
+    EndpointIpv6Address: NotRequired[str]
     ReadCacheConfiguration: NotRequired[OpenZFSReadCacheConfigurationTypeDef]
 
 class UpdateFileSystemOpenZFSConfigurationTypeDef(TypedDict):
@@ -817,6 +910,7 @@ class UpdateFileSystemOpenZFSConfigurationTypeDef(TypedDict):
     AddRouteTableIds: NotRequired[Sequence[str]]
     RemoveRouteTableIds: NotRequired[Sequence[str]]
     ReadCacheConfiguration: NotRequired[OpenZFSReadCacheConfigurationTypeDef]
+    EndpointIpv6AddressRange: NotRequired[str]
 
 class CreateSvmActiveDirectoryConfigurationTypeDef(TypedDict):
     NetBiosName: str
@@ -839,6 +933,7 @@ class CreateFileSystemWindowsConfigurationTypeDef(TypedDict):
     Aliases: NotRequired[Sequence[str]]
     AuditLogConfiguration: NotRequired[WindowsAuditLogCreateConfigurationTypeDef]
     DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+    FsrmConfiguration: NotRequired[WindowsFsrmConfigurationTypeDef]
 
 class DataRepositoryConfigurationTypeDef(TypedDict):
     Lifecycle: NotRequired[DataRepositoryLifecycleType]
@@ -877,6 +972,23 @@ class DescribeFileSystemsRequestPaginateTypeDef(TypedDict):
 
 class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
     ResourceARN: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeS3AccessPointAttachmentsRequestPaginateTypeDef(TypedDict):
+    Names: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[S3AccessPointAttachmentsFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeS3AccessPointAttachmentsRequestTypeDef(TypedDict):
+    Names: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[S3AccessPointAttachmentsFilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeSnapshotsRequestPaginateTypeDef(TypedDict):
+    SnapshotIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[SnapshotFilterTypeDef]]
+    IncludeShared: NotRequired[bool]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class DescribeSnapshotsRequestTypeDef(TypedDict):
@@ -954,12 +1066,30 @@ class SnapshotTypeDef(TypedDict):
 LustreRootSquashConfigurationUnionTypeDef = Union[
     LustreRootSquashConfigurationTypeDef, LustreRootSquashConfigurationOutputTypeDef
 ]
+OntapFileSystemIdentityTypeDef = TypedDict(
+    "OntapFileSystemIdentityTypeDef",
+    {
+        "Type": OntapFileSystemUserTypeType,
+        "UnixUser": NotRequired[OntapUnixFileSystemUserTypeDef],
+        "WindowsUser": NotRequired[OntapWindowsFileSystemUserTypeDef],
+    },
+)
 
 class OpenZFSNfsExportOutputTypeDef(TypedDict):
     ClientConfigurations: List[OpenZFSClientConfigurationOutputTypeDef]
 
 OpenZFSClientConfigurationUnionTypeDef = Union[
     OpenZFSClientConfigurationTypeDef, OpenZFSClientConfigurationOutputTypeDef
+]
+OpenZFSFileSystemIdentityOutputTypeDef = TypedDict(
+    "OpenZFSFileSystemIdentityOutputTypeDef",
+    {
+        "Type": Literal["POSIX"],
+        "PosixUser": NotRequired[OpenZFSPosixFileSystemUserOutputTypeDef],
+    },
+)
+OpenZFSPosixFileSystemUserUnionTypeDef = Union[
+    OpenZFSPosixFileSystemUserTypeDef, OpenZFSPosixFileSystemUserOutputTypeDef
 ]
 
 class SnaplockRetentionPeriodTypeDef(TypedDict):
@@ -983,6 +1113,7 @@ class UpdateFileSystemWindowsConfigurationTypeDef(TypedDict):
     ]
     AuditLogConfiguration: NotRequired[WindowsAuditLogCreateConfigurationTypeDef]
     DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+    FsrmConfiguration: NotRequired[WindowsFsrmConfigurationTypeDef]
 
 class UpdateSvmActiveDirectoryConfigurationTypeDef(TypedDict):
     SelfManagedActiveDirectoryConfiguration: NotRequired[
@@ -1019,6 +1150,8 @@ class WindowsFileSystemConfigurationTypeDef(TypedDict):
     Aliases: NotRequired[List[AliasTypeDef]]
     AuditLogConfiguration: NotRequired[WindowsAuditLogConfigurationTypeDef]
     DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+    PreferredFileServerIpv6: NotRequired[str]
+    FsrmConfiguration: NotRequired[WindowsFsrmConfigurationTypeDef]
 
 class DataRepositoryAssociationTypeDef(TypedDict):
     AssociationId: NotRequired[str]
@@ -1093,6 +1226,8 @@ class LustreFileSystemConfigurationTypeDef(TypedDict):
     RootSquashConfiguration: NotRequired[LustreRootSquashConfigurationOutputTypeDef]
     MetadataConfiguration: NotRequired[FileSystemLustreMetadataConfigurationTypeDef]
     EfaEnabled: NotRequired[bool]
+    ThroughputCapacity: NotRequired[int]
+    DataReadCacheConfiguration: NotRequired[LustreReadCacheConfigurationTypeDef]
 
 CreateDataRepositoryTaskRequestTypeDef = TypedDict(
     "CreateDataRepositoryTaskRequestTypeDef",
@@ -1194,6 +1329,12 @@ class OntapFileSystemConfigurationTypeDef(TypedDict):
     FsxAdminPassword: NotRequired[str]
     HAPairs: NotRequired[int]
     ThroughputCapacityPerHAPair: NotRequired[int]
+    EndpointIpv6AddressRange: NotRequired[str]
+
+class DescribeSnapshotsResponsePaginatorTypeDef(TypedDict):
+    Snapshots: List[SnapshotPaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class CreateSnapshotResponseTypeDef(TypedDict):
     Snapshot: SnapshotTypeDef
@@ -1225,6 +1366,8 @@ class CreateFileSystemLustreConfigurationTypeDef(TypedDict):
     LogConfiguration: NotRequired[LustreLogCreateConfigurationTypeDef]
     RootSquashConfiguration: NotRequired[LustreRootSquashConfigurationUnionTypeDef]
     MetadataConfiguration: NotRequired[CreateFileSystemLustreMetadataConfigurationTypeDef]
+    ThroughputCapacity: NotRequired[int]
+    DataReadCacheConfiguration: NotRequired[LustreReadCacheConfigurationTypeDef]
 
 class UpdateFileSystemLustreConfigurationTypeDef(TypedDict):
     WeeklyMaintenanceStartTime: NotRequired[str]
@@ -1236,6 +1379,16 @@ class UpdateFileSystemLustreConfigurationTypeDef(TypedDict):
     RootSquashConfiguration: NotRequired[LustreRootSquashConfigurationUnionTypeDef]
     PerUnitStorageThroughput: NotRequired[int]
     MetadataConfiguration: NotRequired[UpdateFileSystemLustreMetadataConfigurationTypeDef]
+    ThroughputCapacity: NotRequired[int]
+    DataReadCacheConfiguration: NotRequired[LustreReadCacheConfigurationTypeDef]
+
+class CreateAndAttachS3AccessPointOntapConfigurationTypeDef(TypedDict):
+    VolumeId: str
+    FileSystemIdentity: OntapFileSystemIdentityTypeDef
+
+class S3AccessPointOntapConfigurationTypeDef(TypedDict):
+    VolumeId: NotRequired[str]
+    FileSystemIdentity: NotRequired[OntapFileSystemIdentityTypeDef]
 
 OpenZFSVolumeConfigurationTypeDef = TypedDict(
     "OpenZFSVolumeConfigurationTypeDef",
@@ -1263,6 +1416,18 @@ OpenZFSVolumeConfigurationTypeDef = TypedDict(
 
 class OpenZFSNfsExportTypeDef(TypedDict):
     ClientConfigurations: Sequence[OpenZFSClientConfigurationUnionTypeDef]
+
+class S3AccessPointOpenZFSConfigurationTypeDef(TypedDict):
+    VolumeId: NotRequired[str]
+    FileSystemIdentity: NotRequired[OpenZFSFileSystemIdentityOutputTypeDef]
+
+OpenZFSFileSystemIdentityTypeDef = TypedDict(
+    "OpenZFSFileSystemIdentityTypeDef",
+    {
+        "Type": Literal["POSIX"],
+        "PosixUser": NotRequired[OpenZFSPosixFileSystemUserUnionTypeDef],
+    },
+)
 
 class CreateSnaplockConfigurationTypeDef(TypedDict):
     SnaplockType: SnaplockTypeType
@@ -1369,8 +1534,25 @@ class UpdateFileSystemRequestTypeDef(TypedDict):
     OpenZFSConfiguration: NotRequired[UpdateFileSystemOpenZFSConfigurationTypeDef]
     StorageType: NotRequired[StorageTypeType]
     FileSystemTypeVersion: NotRequired[str]
+    NetworkType: NotRequired[NetworkTypeType]
 
 OpenZFSNfsExportUnionTypeDef = Union[OpenZFSNfsExportTypeDef, OpenZFSNfsExportOutputTypeDef]
+S3AccessPointAttachmentTypeDef = TypedDict(
+    "S3AccessPointAttachmentTypeDef",
+    {
+        "Lifecycle": NotRequired[S3AccessPointAttachmentLifecycleType],
+        "LifecycleTransitionReason": NotRequired[LifecycleTransitionReasonTypeDef],
+        "CreationTime": NotRequired[datetime],
+        "Name": NotRequired[str],
+        "Type": NotRequired[S3AccessPointAttachmentTypeType],
+        "OpenZFSConfiguration": NotRequired[S3AccessPointOpenZFSConfigurationTypeDef],
+        "OntapConfiguration": NotRequired[S3AccessPointOntapConfigurationTypeDef],
+        "S3AccessPoint": NotRequired[S3AccessPointTypeDef],
+    },
+)
+OpenZFSFileSystemIdentityUnionTypeDef = Union[
+    OpenZFSFileSystemIdentityTypeDef, OpenZFSFileSystemIdentityOutputTypeDef
+]
 
 class CreateOntapVolumeConfigurationTypeDef(TypedDict):
     StorageVirtualMachineId: str
@@ -1468,6 +1650,19 @@ UpdateOpenZFSVolumeConfigurationTypeDef = TypedDict(
     },
 )
 
+class CreateAndAttachS3AccessPointResponseTypeDef(TypedDict):
+    S3AccessPointAttachment: S3AccessPointAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeS3AccessPointAttachmentsResponseTypeDef(TypedDict):
+    S3AccessPointAttachments: List[S3AccessPointAttachmentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateAndAttachS3AccessPointOpenZFSConfigurationTypeDef(TypedDict):
+    VolumeId: str
+    FileSystemIdentity: OpenZFSFileSystemIdentityUnionTypeDef
+
 class CreateVolumeFromBackupRequestTypeDef(TypedDict):
     BackupId: str
     Name: str
@@ -1523,6 +1718,7 @@ class CreateFileSystemOpenZFSConfigurationTypeDef(TypedDict):
     RootVolumeConfiguration: NotRequired[OpenZFSCreateRootVolumeConfigurationTypeDef]
     PreferredSubnetId: NotRequired[str]
     EndpointIpAddressRange: NotRequired[str]
+    EndpointIpv6AddressRange: NotRequired[str]
     RouteTableIds: NotRequired[Sequence[str]]
     ReadCacheConfiguration: NotRequired[OpenZFSReadCacheConfigurationTypeDef]
 
@@ -1532,6 +1728,20 @@ class UpdateVolumeRequestTypeDef(TypedDict):
     OntapConfiguration: NotRequired[UpdateOntapVolumeConfigurationTypeDef]
     Name: NotRequired[str]
     OpenZFSConfiguration: NotRequired[UpdateOpenZFSVolumeConfigurationTypeDef]
+
+CreateAndAttachS3AccessPointRequestTypeDef = TypedDict(
+    "CreateAndAttachS3AccessPointRequestTypeDef",
+    {
+        "Name": str,
+        "Type": S3AccessPointAttachmentTypeType,
+        "ClientRequestToken": NotRequired[str],
+        "OpenZFSConfiguration": NotRequired[
+            CreateAndAttachS3AccessPointOpenZFSConfigurationTypeDef
+        ],
+        "OntapConfiguration": NotRequired[CreateAndAttachS3AccessPointOntapConfigurationTypeDef],
+        "S3AccessPoint": NotRequired[CreateAndAttachS3AccessPointS3ConfigurationTypeDef],
+    },
+)
 
 class AdministrativeActionPaginatorTypeDef(TypedDict):
     AdministrativeActionType: NotRequired[AdministrativeActionTypeType]
@@ -1544,6 +1754,7 @@ class AdministrativeActionPaginatorTypeDef(TypedDict):
     TargetSnapshotValues: NotRequired[SnapshotPaginatorTypeDef]
     TotalTransferBytes: NotRequired[int]
     RemainingTransferBytes: NotRequired[int]
+    Message: NotRequired[str]
 
 class DescribeVolumesResponsePaginatorTypeDef(TypedDict):
     Volumes: List[VolumePaginatorTypeDef]
@@ -1561,6 +1772,7 @@ class AdministrativeActionTypeDef(TypedDict):
     TargetSnapshotValues: NotRequired[SnapshotTypeDef]
     TotalTransferBytes: NotRequired[int]
     RemainingTransferBytes: NotRequired[int]
+    Message: NotRequired[str]
 
 class CreateVolumeFromBackupResponseTypeDef(TypedDict):
     Volume: VolumeTypeDef
@@ -1592,6 +1804,7 @@ class CreateFileSystemFromBackupRequestTypeDef(TypedDict):
     FileSystemTypeVersion: NotRequired[str]
     OpenZFSConfiguration: NotRequired[CreateFileSystemOpenZFSConfigurationTypeDef]
     StorageCapacity: NotRequired[int]
+    NetworkType: NotRequired[NetworkTypeType]
 
 class CreateFileSystemRequestTypeDef(TypedDict):
     FileSystemType: FileSystemTypeType
@@ -1607,6 +1820,7 @@ class CreateFileSystemRequestTypeDef(TypedDict):
     OntapConfiguration: NotRequired[CreateFileSystemOntapConfigurationTypeDef]
     FileSystemTypeVersion: NotRequired[str]
     OpenZFSConfiguration: NotRequired[CreateFileSystemOpenZFSConfigurationTypeDef]
+    NetworkType: NotRequired[NetworkTypeType]
 
 class FileSystemPaginatorTypeDef(TypedDict):
     OwnerId: NotRequired[str]
@@ -1630,6 +1844,7 @@ class FileSystemPaginatorTypeDef(TypedDict):
     OntapConfiguration: NotRequired[OntapFileSystemConfigurationTypeDef]
     FileSystemTypeVersion: NotRequired[str]
     OpenZFSConfiguration: NotRequired[OpenZFSFileSystemConfigurationTypeDef]
+    NetworkType: NotRequired[NetworkTypeType]
 
 class CopySnapshotAndUpdateVolumeResponseTypeDef(TypedDict):
     VolumeId: str
@@ -1659,6 +1874,7 @@ class FileSystemTypeDef(TypedDict):
     OntapConfiguration: NotRequired[OntapFileSystemConfigurationTypeDef]
     FileSystemTypeVersion: NotRequired[str]
     OpenZFSConfiguration: NotRequired[OpenZFSFileSystemConfigurationTypeDef]
+    NetworkType: NotRequired[NetworkTypeType]
 
 class RestoreVolumeFromSnapshotResponseTypeDef(TypedDict):
     VolumeId: str

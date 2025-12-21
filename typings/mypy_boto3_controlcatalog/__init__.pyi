@@ -13,6 +13,7 @@ Usage::
         Client,
         ControlCatalogClient,
         ListCommonControlsPaginator,
+        ListControlMappingsPaginator,
         ListControlsPaginator,
         ListDomainsPaginator,
         ListObjectivesPaginator,
@@ -22,6 +23,7 @@ Usage::
     client: ControlCatalogClient = session.client("controlcatalog")
 
     list_common_controls_paginator: ListCommonControlsPaginator = client.get_paginator("list_common_controls")
+    list_control_mappings_paginator: ListControlMappingsPaginator = client.get_paginator("list_control_mappings")
     list_controls_paginator: ListControlsPaginator = client.get_paginator("list_controls")
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
     list_objectives_paginator: ListObjectivesPaginator = client.get_paginator("list_objectives")
@@ -31,6 +33,7 @@ Usage::
 from .client import ControlCatalogClient
 from .paginator import (
     ListCommonControlsPaginator,
+    ListControlMappingsPaginator,
     ListControlsPaginator,
     ListDomainsPaginator,
     ListObjectivesPaginator,
@@ -42,6 +45,7 @@ __all__ = (
     "Client",
     "ControlCatalogClient",
     "ListCommonControlsPaginator",
+    "ListControlMappingsPaginator",
     "ListControlsPaginator",
     "ListDomainsPaginator",
     "ListObjectivesPaginator",

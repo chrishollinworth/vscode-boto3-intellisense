@@ -19,6 +19,9 @@ Usage::
         ListGatewaysPaginator,
         ListOfferingsPaginator,
         ListReservationsPaginator,
+        ListRouterInputsPaginator,
+        ListRouterNetworkInterfacesPaginator,
+        ListRouterOutputsPaginator,
     )
 
     session = Session()
@@ -31,6 +34,9 @@ Usage::
     list_gateways_paginator: ListGatewaysPaginator = client.get_paginator("list_gateways")
     list_offerings_paginator: ListOfferingsPaginator = client.get_paginator("list_offerings")
     list_reservations_paginator: ListReservationsPaginator = client.get_paginator("list_reservations")
+    list_router_inputs_paginator: ListRouterInputsPaginator = client.get_paginator("list_router_inputs")
+    list_router_network_interfaces_paginator: ListRouterNetworkInterfacesPaginator = client.get_paginator("list_router_network_interfaces")
+    list_router_outputs_paginator: ListRouterOutputsPaginator = client.get_paginator("list_router_outputs")
     ```
 """
 
@@ -56,6 +62,12 @@ from .type_defs import (
     ListOfferingsResponseTypeDef,
     ListReservationsRequestPaginateTypeDef,
     ListReservationsResponseTypeDef,
+    ListRouterInputsRequestPaginateTypeDef,
+    ListRouterInputsResponseTypeDef,
+    ListRouterNetworkInterfacesRequestPaginateTypeDef,
+    ListRouterNetworkInterfacesResponseTypeDef,
+    ListRouterOutputsRequestPaginateTypeDef,
+    ListRouterOutputsResponseTypeDef,
 )
 
 if sys.version_info >= (3, 12):
@@ -71,6 +83,9 @@ __all__ = (
     "ListGatewaysPaginator",
     "ListOfferingsPaginator",
     "ListReservationsPaginator",
+    "ListRouterInputsPaginator",
+    "ListRouterNetworkInterfacesPaginator",
+    "ListRouterOutputsPaginator",
 )
 
 if TYPE_CHECKING:
@@ -197,4 +212,60 @@ class ListReservationsPaginator(_ListReservationsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListReservations.html#MediaConnect.Paginator.ListReservations.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listreservationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListRouterInputsPaginatorBase = Paginator[ListRouterInputsResponseTypeDef]
+else:
+    _ListRouterInputsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRouterInputsPaginator(_ListRouterInputsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListRouterInputs.html#MediaConnect.Paginator.ListRouterInputs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listrouterinputspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRouterInputsRequestPaginateTypeDef]
+    ) -> PageIterator[ListRouterInputsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListRouterInputs.html#MediaConnect.Paginator.ListRouterInputs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listrouterinputspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListRouterNetworkInterfacesPaginatorBase = Paginator[
+        ListRouterNetworkInterfacesResponseTypeDef
+    ]
+else:
+    _ListRouterNetworkInterfacesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRouterNetworkInterfacesPaginator(_ListRouterNetworkInterfacesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListRouterNetworkInterfaces.html#MediaConnect.Paginator.ListRouterNetworkInterfaces)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listrouternetworkinterfacespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRouterNetworkInterfacesRequestPaginateTypeDef]
+    ) -> PageIterator[ListRouterNetworkInterfacesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListRouterNetworkInterfaces.html#MediaConnect.Paginator.ListRouterNetworkInterfaces.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listrouternetworkinterfacespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListRouterOutputsPaginatorBase = Paginator[ListRouterOutputsResponseTypeDef]
+else:
+    _ListRouterOutputsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRouterOutputsPaginator(_ListRouterOutputsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListRouterOutputs.html#MediaConnect.Paginator.ListRouterOutputs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listrouteroutputspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRouterOutputsRequestPaginateTypeDef]
+    ) -> PageIterator[ListRouterOutputsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListRouterOutputs.html#MediaConnect.Paginator.ListRouterOutputs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listrouteroutputspaginator)
         """

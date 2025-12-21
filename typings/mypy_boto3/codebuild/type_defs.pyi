@@ -48,6 +48,8 @@ from .literals import (
     PlatformTypeType,
     ProjectSortByTypeType,
     ProjectVisibilityTypeType,
+    PullRequestBuildApproverRoleType,
+    PullRequestBuildCommentApprovalType,
     ReportCodeCoverageSortByTypeType,
     ReportExportConfigTypeType,
     ReportGroupSortByTypeType,
@@ -142,6 +144,9 @@ __all__ = (
     "DescribeTestCasesInputPaginateTypeDef",
     "DescribeTestCasesInputTypeDef",
     "DescribeTestCasesOutputTypeDef",
+    "DockerServerOutputTypeDef",
+    "DockerServerStatusTypeDef",
+    "DockerServerTypeDef",
     "EnvironmentImageTypeDef",
     "EnvironmentLanguageTypeDef",
     "EnvironmentPlatformTypeDef",
@@ -226,6 +231,9 @@ __all__ = (
     "ProxyConfigurationOutputTypeDef",
     "ProxyConfigurationTypeDef",
     "ProxyConfigurationUnionTypeDef",
+    "PullRequestBuildPolicyOutputTypeDef",
+    "PullRequestBuildPolicyTypeDef",
+    "PullRequestBuildPolicyUnionTypeDef",
     "PutResourcePolicyInputTypeDef",
     "PutResourcePolicyOutputTypeDef",
     "RegistryCredentialTypeDef",
@@ -546,6 +554,10 @@ class TestCaseTypeDef(TypedDict):
     expired: NotRequired[datetime]
     testSuiteName: NotRequired[str]
 
+class DockerServerStatusTypeDef(TypedDict):
+    status: NotRequired[str]
+    message: NotRequired[str]
+
 class EnvironmentImageTypeDef(TypedDict):
     name: NotRequired[str]
     description: NotRequired[str]
@@ -713,6 +725,14 @@ SourceAuthTypeDef = TypedDict(
         "resource": NotRequired[str],
     },
 )
+
+class PullRequestBuildPolicyOutputTypeDef(TypedDict):
+    requiresCommentApproval: PullRequestBuildCommentApprovalType
+    approverRoles: NotRequired[List[PullRequestBuildApproverRoleType]]
+
+class PullRequestBuildPolicyTypeDef(TypedDict):
+    requiresCommentApproval: PullRequestBuildCommentApprovalType
+    approverRoles: NotRequired[Sequence[PullRequestBuildApproverRoleType]]
 
 class PutResourcePolicyInputTypeDef(TypedDict):
     policy: str
@@ -969,34 +989,6 @@ class DescribeCodeCoveragesOutputTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
-class CreateWebhookInputTypeDef(TypedDict):
-    projectName: str
-    branchFilter: NotRequired[str]
-    filterGroups: NotRequired[Sequence[Sequence[WebhookFilterTypeDef]]]
-    buildType: NotRequired[WebhookBuildTypeType]
-    manualCreation: NotRequired[bool]
-    scopeConfiguration: NotRequired[ScopeConfigurationTypeDef]
-
-class UpdateWebhookInputTypeDef(TypedDict):
-    projectName: str
-    branchFilter: NotRequired[str]
-    rotateSecret: NotRequired[bool]
-    filterGroups: NotRequired[Sequence[Sequence[WebhookFilterTypeDef]]]
-    buildType: NotRequired[WebhookBuildTypeType]
-
-class WebhookTypeDef(TypedDict):
-    url: NotRequired[str]
-    payloadUrl: NotRequired[str]
-    secret: NotRequired[str]
-    branchFilter: NotRequired[str]
-    filterGroups: NotRequired[List[List[WebhookFilterTypeDef]]]
-    buildType: NotRequired[WebhookBuildTypeType]
-    manualCreation: NotRequired[bool]
-    lastModifiedSecret: NotRequired[datetime]
-    scopeConfiguration: NotRequired[ScopeConfigurationTypeDef]
-    status: NotRequired[WebhookStatusType]
-    statusMessage: NotRequired[str]
-
 class DescribeCodeCoveragesInputPaginateTypeDef(TypedDict):
     reportArn: str
     sortOrder: NotRequired[SortOrderTypeType]
@@ -1089,6 +1081,16 @@ class DescribeTestCasesOutputTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
+class DockerServerOutputTypeDef(TypedDict):
+    computeType: ComputeTypeType
+    securityGroupIds: NotRequired[List[str]]
+    status: NotRequired[DockerServerStatusTypeDef]
+
+class DockerServerTypeDef(TypedDict):
+    computeType: ComputeTypeType
+    securityGroupIds: NotRequired[Sequence[str]]
+    status: NotRequired[DockerServerStatusTypeDef]
+
 class EnvironmentLanguageTypeDef(TypedDict):
     language: NotRequired[LanguageTypeType]
     images: NotRequired[List[EnvironmentImageTypeDef]]
@@ -1162,36 +1164,6 @@ class LogsLocationTypeDef(TypedDict):
     s3Logs: NotRequired[S3LogsConfigTypeDef]
 
 ProjectCacheUnionTypeDef = Union[ProjectCacheTypeDef, ProjectCacheOutputTypeDef]
-ProjectEnvironmentOutputTypeDef = TypedDict(
-    "ProjectEnvironmentOutputTypeDef",
-    {
-        "type": EnvironmentTypeType,
-        "image": str,
-        "computeType": ComputeTypeType,
-        "computeConfiguration": NotRequired[ComputeConfigurationTypeDef],
-        "fleet": NotRequired[ProjectFleetTypeDef],
-        "environmentVariables": NotRequired[List[EnvironmentVariableTypeDef]],
-        "privilegedMode": NotRequired[bool],
-        "certificate": NotRequired[str],
-        "registryCredential": NotRequired[RegistryCredentialTypeDef],
-        "imagePullCredentialsType": NotRequired[ImagePullCredentialsTypeType],
-    },
-)
-ProjectEnvironmentTypeDef = TypedDict(
-    "ProjectEnvironmentTypeDef",
-    {
-        "type": EnvironmentTypeType,
-        "image": str,
-        "computeType": ComputeTypeType,
-        "computeConfiguration": NotRequired[ComputeConfigurationTypeDef],
-        "fleet": NotRequired[ProjectFleetTypeDef],
-        "environmentVariables": NotRequired[Sequence[EnvironmentVariableTypeDef]],
-        "privilegedMode": NotRequired[bool],
-        "certificate": NotRequired[str],
-        "registryCredential": NotRequired[RegistryCredentialTypeDef],
-        "imagePullCredentialsType": NotRequired[ImagePullCredentialsTypeType],
-    },
-)
 ProjectSourceTypeDef = TypedDict(
     "ProjectSourceTypeDef",
     {
@@ -1207,6 +1179,24 @@ ProjectSourceTypeDef = TypedDict(
         "sourceIdentifier": NotRequired[str],
     },
 )
+
+class WebhookTypeDef(TypedDict):
+    url: NotRequired[str]
+    payloadUrl: NotRequired[str]
+    secret: NotRequired[str]
+    branchFilter: NotRequired[str]
+    filterGroups: NotRequired[List[List[WebhookFilterTypeDef]]]
+    buildType: NotRequired[WebhookBuildTypeType]
+    manualCreation: NotRequired[bool]
+    lastModifiedSecret: NotRequired[datetime]
+    scopeConfiguration: NotRequired[ScopeConfigurationTypeDef]
+    status: NotRequired[WebhookStatusType]
+    statusMessage: NotRequired[str]
+    pullRequestBuildPolicy: NotRequired[PullRequestBuildPolicyOutputTypeDef]
+
+PullRequestBuildPolicyUnionTypeDef = Union[
+    PullRequestBuildPolicyTypeDef, PullRequestBuildPolicyOutputTypeDef
+]
 
 class ReportExportConfigTypeDef(TypedDict):
     exportConfigType: NotRequired[ReportExportConfigTypeType]
@@ -1239,13 +1229,38 @@ class BuildGroupTypeDef(TypedDict):
     currentBuildSummary: NotRequired[BuildSummaryTypeDef]
     priorBuildSummaryList: NotRequired[List[BuildSummaryTypeDef]]
 
-class CreateWebhookOutputTypeDef(TypedDict):
-    webhook: WebhookTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class UpdateWebhookOutputTypeDef(TypedDict):
-    webhook: WebhookTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+ProjectEnvironmentOutputTypeDef = TypedDict(
+    "ProjectEnvironmentOutputTypeDef",
+    {
+        "type": EnvironmentTypeType,
+        "image": str,
+        "computeType": ComputeTypeType,
+        "computeConfiguration": NotRequired[ComputeConfigurationTypeDef],
+        "fleet": NotRequired[ProjectFleetTypeDef],
+        "environmentVariables": NotRequired[List[EnvironmentVariableTypeDef]],
+        "privilegedMode": NotRequired[bool],
+        "certificate": NotRequired[str],
+        "registryCredential": NotRequired[RegistryCredentialTypeDef],
+        "imagePullCredentialsType": NotRequired[ImagePullCredentialsTypeType],
+        "dockerServer": NotRequired[DockerServerOutputTypeDef],
+    },
+)
+ProjectEnvironmentTypeDef = TypedDict(
+    "ProjectEnvironmentTypeDef",
+    {
+        "type": EnvironmentTypeType,
+        "image": str,
+        "computeType": ComputeTypeType,
+        "computeConfiguration": NotRequired[ComputeConfigurationTypeDef],
+        "fleet": NotRequired[ProjectFleetTypeDef],
+        "environmentVariables": NotRequired[Sequence[EnvironmentVariableTypeDef]],
+        "privilegedMode": NotRequired[bool],
+        "certificate": NotRequired[str],
+        "registryCredential": NotRequired[RegistryCredentialTypeDef],
+        "imagePullCredentialsType": NotRequired[ImagePullCredentialsTypeType],
+        "dockerServer": NotRequired[DockerServerTypeDef],
+    },
+)
 
 class EnvironmentPlatformTypeDef(TypedDict):
     platform: NotRequired[PlatformTypeType]
@@ -1284,76 +1299,6 @@ SandboxSessionTypeDef = TypedDict(
         "networkInterface": NotRequired[NetworkInterfaceTypeDef],
     },
 )
-ProjectEnvironmentUnionTypeDef = Union[ProjectEnvironmentTypeDef, ProjectEnvironmentOutputTypeDef]
-BuildTypeDef = TypedDict(
-    "BuildTypeDef",
-    {
-        "id": NotRequired[str],
-        "arn": NotRequired[str],
-        "buildNumber": NotRequired[int],
-        "startTime": NotRequired[datetime],
-        "endTime": NotRequired[datetime],
-        "currentPhase": NotRequired[str],
-        "buildStatus": NotRequired[StatusTypeType],
-        "sourceVersion": NotRequired[str],
-        "resolvedSourceVersion": NotRequired[str],
-        "projectName": NotRequired[str],
-        "phases": NotRequired[List[BuildPhaseTypeDef]],
-        "source": NotRequired[ProjectSourceTypeDef],
-        "secondarySources": NotRequired[List[ProjectSourceTypeDef]],
-        "secondarySourceVersions": NotRequired[List[ProjectSourceVersionTypeDef]],
-        "artifacts": NotRequired[BuildArtifactsTypeDef],
-        "secondaryArtifacts": NotRequired[List[BuildArtifactsTypeDef]],
-        "cache": NotRequired[ProjectCacheOutputTypeDef],
-        "environment": NotRequired[ProjectEnvironmentOutputTypeDef],
-        "serviceRole": NotRequired[str],
-        "logs": NotRequired[LogsLocationTypeDef],
-        "timeoutInMinutes": NotRequired[int],
-        "queuedTimeoutInMinutes": NotRequired[int],
-        "buildComplete": NotRequired[bool],
-        "initiator": NotRequired[str],
-        "vpcConfig": NotRequired[VpcConfigOutputTypeDef],
-        "networkInterface": NotRequired[NetworkInterfaceTypeDef],
-        "encryptionKey": NotRequired[str],
-        "exportedEnvironmentVariables": NotRequired[List[ExportedEnvironmentVariableTypeDef]],
-        "reportArns": NotRequired[List[str]],
-        "fileSystemLocations": NotRequired[List[ProjectFileSystemLocationTypeDef]],
-        "debugSession": NotRequired[DebugSessionTypeDef],
-        "buildBatchArn": NotRequired[str],
-        "autoRetryConfig": NotRequired[AutoRetryConfigTypeDef],
-    },
-)
-
-class ProjectTypeDef(TypedDict):
-    name: NotRequired[str]
-    arn: NotRequired[str]
-    description: NotRequired[str]
-    source: NotRequired[ProjectSourceTypeDef]
-    secondarySources: NotRequired[List[ProjectSourceTypeDef]]
-    sourceVersion: NotRequired[str]
-    secondarySourceVersions: NotRequired[List[ProjectSourceVersionTypeDef]]
-    artifacts: NotRequired[ProjectArtifactsTypeDef]
-    secondaryArtifacts: NotRequired[List[ProjectArtifactsTypeDef]]
-    cache: NotRequired[ProjectCacheOutputTypeDef]
-    environment: NotRequired[ProjectEnvironmentOutputTypeDef]
-    serviceRole: NotRequired[str]
-    timeoutInMinutes: NotRequired[int]
-    queuedTimeoutInMinutes: NotRequired[int]
-    encryptionKey: NotRequired[str]
-    tags: NotRequired[List[TagTypeDef]]
-    created: NotRequired[datetime]
-    lastModified: NotRequired[datetime]
-    webhook: NotRequired[WebhookTypeDef]
-    vpcConfig: NotRequired[VpcConfigOutputTypeDef]
-    badge: NotRequired[ProjectBadgeTypeDef]
-    logsConfig: NotRequired[LogsConfigTypeDef]
-    fileSystemLocations: NotRequired[List[ProjectFileSystemLocationTypeDef]]
-    buildBatchConfig: NotRequired[ProjectBuildBatchConfigOutputTypeDef]
-    concurrentBuildLimit: NotRequired[int]
-    projectVisibility: NotRequired[ProjectVisibilityTypeType]
-    publicProjectAlias: NotRequired[str]
-    resourceAccessRole: NotRequired[str]
-    autoRetryLimit: NotRequired[int]
 
 class StartBuildInputTypeDef(TypedDict):
     projectName: str
@@ -1389,6 +1334,31 @@ class StartBuildInputTypeDef(TypedDict):
     debugSessionEnabled: NotRequired[bool]
     fleetOverride: NotRequired[ProjectFleetTypeDef]
     autoRetryLimitOverride: NotRequired[int]
+
+class CreateWebhookOutputTypeDef(TypedDict):
+    webhook: WebhookTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateWebhookOutputTypeDef(TypedDict):
+    webhook: WebhookTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWebhookInputTypeDef(TypedDict):
+    projectName: str
+    branchFilter: NotRequired[str]
+    filterGroups: NotRequired[Sequence[Sequence[WebhookFilterTypeDef]]]
+    buildType: NotRequired[WebhookBuildTypeType]
+    manualCreation: NotRequired[bool]
+    scopeConfiguration: NotRequired[ScopeConfigurationTypeDef]
+    pullRequestBuildPolicy: NotRequired[PullRequestBuildPolicyUnionTypeDef]
+
+class UpdateWebhookInputTypeDef(TypedDict):
+    projectName: str
+    branchFilter: NotRequired[str]
+    rotateSecret: NotRequired[bool]
+    filterGroups: NotRequired[Sequence[Sequence[WebhookFilterTypeDef]]]
+    buildType: NotRequired[WebhookBuildTypeType]
+    pullRequestBuildPolicy: NotRequired[PullRequestBuildPolicyUnionTypeDef]
 
 CreateReportGroupInputTypeDef = TypedDict(
     "CreateReportGroupInputTypeDef",
@@ -1527,6 +1497,77 @@ BuildBatchTypeDef = TypedDict(
         "reportArns": NotRequired[List[str]],
     },
 )
+BuildTypeDef = TypedDict(
+    "BuildTypeDef",
+    {
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "buildNumber": NotRequired[int],
+        "startTime": NotRequired[datetime],
+        "endTime": NotRequired[datetime],
+        "currentPhase": NotRequired[str],
+        "buildStatus": NotRequired[StatusTypeType],
+        "sourceVersion": NotRequired[str],
+        "resolvedSourceVersion": NotRequired[str],
+        "projectName": NotRequired[str],
+        "phases": NotRequired[List[BuildPhaseTypeDef]],
+        "source": NotRequired[ProjectSourceTypeDef],
+        "secondarySources": NotRequired[List[ProjectSourceTypeDef]],
+        "secondarySourceVersions": NotRequired[List[ProjectSourceVersionTypeDef]],
+        "artifacts": NotRequired[BuildArtifactsTypeDef],
+        "secondaryArtifacts": NotRequired[List[BuildArtifactsTypeDef]],
+        "cache": NotRequired[ProjectCacheOutputTypeDef],
+        "environment": NotRequired[ProjectEnvironmentOutputTypeDef],
+        "serviceRole": NotRequired[str],
+        "logs": NotRequired[LogsLocationTypeDef],
+        "timeoutInMinutes": NotRequired[int],
+        "queuedTimeoutInMinutes": NotRequired[int],
+        "buildComplete": NotRequired[bool],
+        "initiator": NotRequired[str],
+        "vpcConfig": NotRequired[VpcConfigOutputTypeDef],
+        "networkInterface": NotRequired[NetworkInterfaceTypeDef],
+        "encryptionKey": NotRequired[str],
+        "exportedEnvironmentVariables": NotRequired[List[ExportedEnvironmentVariableTypeDef]],
+        "reportArns": NotRequired[List[str]],
+        "fileSystemLocations": NotRequired[List[ProjectFileSystemLocationTypeDef]],
+        "debugSession": NotRequired[DebugSessionTypeDef],
+        "buildBatchArn": NotRequired[str],
+        "autoRetryConfig": NotRequired[AutoRetryConfigTypeDef],
+    },
+)
+
+class ProjectTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    description: NotRequired[str]
+    source: NotRequired[ProjectSourceTypeDef]
+    secondarySources: NotRequired[List[ProjectSourceTypeDef]]
+    sourceVersion: NotRequired[str]
+    secondarySourceVersions: NotRequired[List[ProjectSourceVersionTypeDef]]
+    artifacts: NotRequired[ProjectArtifactsTypeDef]
+    secondaryArtifacts: NotRequired[List[ProjectArtifactsTypeDef]]
+    cache: NotRequired[ProjectCacheOutputTypeDef]
+    environment: NotRequired[ProjectEnvironmentOutputTypeDef]
+    serviceRole: NotRequired[str]
+    timeoutInMinutes: NotRequired[int]
+    queuedTimeoutInMinutes: NotRequired[int]
+    encryptionKey: NotRequired[str]
+    tags: NotRequired[List[TagTypeDef]]
+    created: NotRequired[datetime]
+    lastModified: NotRequired[datetime]
+    webhook: NotRequired[WebhookTypeDef]
+    vpcConfig: NotRequired[VpcConfigOutputTypeDef]
+    badge: NotRequired[ProjectBadgeTypeDef]
+    logsConfig: NotRequired[LogsConfigTypeDef]
+    fileSystemLocations: NotRequired[List[ProjectFileSystemLocationTypeDef]]
+    buildBatchConfig: NotRequired[ProjectBuildBatchConfigOutputTypeDef]
+    concurrentBuildLimit: NotRequired[int]
+    projectVisibility: NotRequired[ProjectVisibilityTypeType]
+    publicProjectAlias: NotRequired[str]
+    resourceAccessRole: NotRequired[str]
+    autoRetryLimit: NotRequired[int]
+
+ProjectEnvironmentUnionTypeDef = Union[ProjectEnvironmentTypeDef, ProjectEnvironmentOutputTypeDef]
 
 class ListCuratedEnvironmentImagesOutputTypeDef(TypedDict):
     platforms: List[EnvironmentPlatformTypeDef]
@@ -1600,84 +1641,6 @@ SandboxTypeDef = TypedDict(
     },
 )
 
-class CreateProjectInputTypeDef(TypedDict):
-    name: str
-    source: ProjectSourceTypeDef
-    artifacts: ProjectArtifactsTypeDef
-    environment: ProjectEnvironmentUnionTypeDef
-    serviceRole: str
-    description: NotRequired[str]
-    secondarySources: NotRequired[Sequence[ProjectSourceTypeDef]]
-    sourceVersion: NotRequired[str]
-    secondarySourceVersions: NotRequired[Sequence[ProjectSourceVersionTypeDef]]
-    secondaryArtifacts: NotRequired[Sequence[ProjectArtifactsTypeDef]]
-    cache: NotRequired[ProjectCacheUnionTypeDef]
-    timeoutInMinutes: NotRequired[int]
-    queuedTimeoutInMinutes: NotRequired[int]
-    encryptionKey: NotRequired[str]
-    tags: NotRequired[Sequence[TagTypeDef]]
-    vpcConfig: NotRequired[VpcConfigUnionTypeDef]
-    badgeEnabled: NotRequired[bool]
-    logsConfig: NotRequired[LogsConfigTypeDef]
-    fileSystemLocations: NotRequired[Sequence[ProjectFileSystemLocationTypeDef]]
-    buildBatchConfig: NotRequired[ProjectBuildBatchConfigUnionTypeDef]
-    concurrentBuildLimit: NotRequired[int]
-    autoRetryLimit: NotRequired[int]
-
-class UpdateProjectInputTypeDef(TypedDict):
-    name: str
-    description: NotRequired[str]
-    source: NotRequired[ProjectSourceTypeDef]
-    secondarySources: NotRequired[Sequence[ProjectSourceTypeDef]]
-    sourceVersion: NotRequired[str]
-    secondarySourceVersions: NotRequired[Sequence[ProjectSourceVersionTypeDef]]
-    artifacts: NotRequired[ProjectArtifactsTypeDef]
-    secondaryArtifacts: NotRequired[Sequence[ProjectArtifactsTypeDef]]
-    cache: NotRequired[ProjectCacheUnionTypeDef]
-    environment: NotRequired[ProjectEnvironmentUnionTypeDef]
-    serviceRole: NotRequired[str]
-    timeoutInMinutes: NotRequired[int]
-    queuedTimeoutInMinutes: NotRequired[int]
-    encryptionKey: NotRequired[str]
-    tags: NotRequired[Sequence[TagTypeDef]]
-    vpcConfig: NotRequired[VpcConfigUnionTypeDef]
-    badgeEnabled: NotRequired[bool]
-    logsConfig: NotRequired[LogsConfigTypeDef]
-    fileSystemLocations: NotRequired[Sequence[ProjectFileSystemLocationTypeDef]]
-    buildBatchConfig: NotRequired[ProjectBuildBatchConfigUnionTypeDef]
-    concurrentBuildLimit: NotRequired[int]
-    autoRetryLimit: NotRequired[int]
-
-class BatchGetBuildsOutputTypeDef(TypedDict):
-    builds: List[BuildTypeDef]
-    buildsNotFound: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class RetryBuildOutputTypeDef(TypedDict):
-    build: BuildTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class StartBuildOutputTypeDef(TypedDict):
-    build: BuildTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class StopBuildOutputTypeDef(TypedDict):
-    build: BuildTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class BatchGetProjectsOutputTypeDef(TypedDict):
-    projects: List[ProjectTypeDef]
-    projectsNotFound: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class CreateProjectOutputTypeDef(TypedDict):
-    project: ProjectTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class UpdateProjectOutputTypeDef(TypedDict):
-    project: ProjectTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
 class BatchGetReportGroupsOutputTypeDef(TypedDict):
     reportGroups: List[ReportGroupTypeDef]
     reportGroupsNotFound: List[str]
@@ -1725,6 +1688,84 @@ class StartBuildBatchOutputTypeDef(TypedDict):
 class StopBuildBatchOutputTypeDef(TypedDict):
     buildBatch: BuildBatchTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetBuildsOutputTypeDef(TypedDict):
+    builds: List[BuildTypeDef]
+    buildsNotFound: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RetryBuildOutputTypeDef(TypedDict):
+    build: BuildTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartBuildOutputTypeDef(TypedDict):
+    build: BuildTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopBuildOutputTypeDef(TypedDict):
+    build: BuildTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetProjectsOutputTypeDef(TypedDict):
+    projects: List[ProjectTypeDef]
+    projectsNotFound: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProjectOutputTypeDef(TypedDict):
+    project: ProjectTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateProjectOutputTypeDef(TypedDict):
+    project: ProjectTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProjectInputTypeDef(TypedDict):
+    name: str
+    source: ProjectSourceTypeDef
+    artifacts: ProjectArtifactsTypeDef
+    environment: ProjectEnvironmentUnionTypeDef
+    serviceRole: str
+    description: NotRequired[str]
+    secondarySources: NotRequired[Sequence[ProjectSourceTypeDef]]
+    sourceVersion: NotRequired[str]
+    secondarySourceVersions: NotRequired[Sequence[ProjectSourceVersionTypeDef]]
+    secondaryArtifacts: NotRequired[Sequence[ProjectArtifactsTypeDef]]
+    cache: NotRequired[ProjectCacheUnionTypeDef]
+    timeoutInMinutes: NotRequired[int]
+    queuedTimeoutInMinutes: NotRequired[int]
+    encryptionKey: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    vpcConfig: NotRequired[VpcConfigUnionTypeDef]
+    badgeEnabled: NotRequired[bool]
+    logsConfig: NotRequired[LogsConfigTypeDef]
+    fileSystemLocations: NotRequired[Sequence[ProjectFileSystemLocationTypeDef]]
+    buildBatchConfig: NotRequired[ProjectBuildBatchConfigUnionTypeDef]
+    concurrentBuildLimit: NotRequired[int]
+    autoRetryLimit: NotRequired[int]
+
+class UpdateProjectInputTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    source: NotRequired[ProjectSourceTypeDef]
+    secondarySources: NotRequired[Sequence[ProjectSourceTypeDef]]
+    sourceVersion: NotRequired[str]
+    secondarySourceVersions: NotRequired[Sequence[ProjectSourceVersionTypeDef]]
+    artifacts: NotRequired[ProjectArtifactsTypeDef]
+    secondaryArtifacts: NotRequired[Sequence[ProjectArtifactsTypeDef]]
+    cache: NotRequired[ProjectCacheUnionTypeDef]
+    environment: NotRequired[ProjectEnvironmentUnionTypeDef]
+    serviceRole: NotRequired[str]
+    timeoutInMinutes: NotRequired[int]
+    queuedTimeoutInMinutes: NotRequired[int]
+    encryptionKey: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    vpcConfig: NotRequired[VpcConfigUnionTypeDef]
+    badgeEnabled: NotRequired[bool]
+    logsConfig: NotRequired[LogsConfigTypeDef]
+    fileSystemLocations: NotRequired[Sequence[ProjectFileSystemLocationTypeDef]]
+    buildBatchConfig: NotRequired[ProjectBuildBatchConfigUnionTypeDef]
+    concurrentBuildLimit: NotRequired[int]
+    autoRetryLimit: NotRequired[int]
 
 class BatchGetSandboxesOutputTypeDef(TypedDict):
     sandboxes: List[SandboxTypeDef]

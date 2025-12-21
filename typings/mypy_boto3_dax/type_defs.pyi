@@ -24,6 +24,7 @@ from .literals import (
     ChangeTypeType,
     ClusterEndpointEncryptionTypeType,
     IsModifiableType,
+    NetworkTypeType,
     ParameterTypeType,
     SourceTypeType,
     SSEStatusType,
@@ -236,6 +237,7 @@ class RebootNodeRequestTypeDef(TypedDict):
 class SubnetTypeDef(TypedDict):
     SubnetIdentifier: NotRequired[str]
     SubnetAvailabilityZone: NotRequired[str]
+    SupportedNetworkTypes: NotRequired[List[NetworkTypeType]]
 
 class UntagResourceRequestTypeDef(TypedDict):
     ResourceName: str
@@ -278,6 +280,7 @@ class CreateClusterRequestTypeDef(TypedDict):
     Tags: NotRequired[Sequence[TagTypeDef]]
     SSESpecification: NotRequired[SSESpecificationTypeDef]
     ClusterEndpointEncryptionType: NotRequired[ClusterEndpointEncryptionTypeType]
+    NetworkType: NotRequired[NetworkTypeType]
 
 class TagResourceRequestTypeDef(TypedDict):
     ResourceName: str
@@ -384,6 +387,7 @@ class SubnetGroupTypeDef(TypedDict):
     Description: NotRequired[str]
     VpcId: NotRequired[str]
     Subnets: NotRequired[List[SubnetTypeDef]]
+    SupportedNetworkTypes: NotRequired[List[NetworkTypeType]]
 
 class ClusterTypeDef(TypedDict):
     ClusterName: NotRequired[str]
@@ -404,6 +408,7 @@ class ClusterTypeDef(TypedDict):
     ParameterGroup: NotRequired[ParameterGroupStatusTypeDef]
     SSEDescription: NotRequired[SSEDescriptionTypeDef]
     ClusterEndpointEncryptionType: NotRequired[ClusterEndpointEncryptionTypeType]
+    NetworkType: NotRequired[NetworkTypeType]
 
 class DescribeDefaultParametersResponseTypeDef(TypedDict):
     Parameters: List[ParameterTypeDef]

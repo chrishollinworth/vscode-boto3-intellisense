@@ -27,8 +27,11 @@ from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
     ListCloudFrontOriginAccessIdentitiesPaginator,
+    ListConnectionFunctionsPaginator,
     ListConnectionGroupsPaginator,
+    ListDistributionsByConnectionFunctionPaginator,
     ListDistributionsByConnectionModePaginator,
+    ListDistributionsByTrustStorePaginator,
     ListDistributionsPaginator,
     ListDistributionTenantsByCustomizationPaginator,
     ListDistributionTenantsPaginator,
@@ -36,8 +39,10 @@ from .paginator import (
     ListInvalidationsForDistributionTenantPaginator,
     ListInvalidationsPaginator,
     ListKeyValueStoresPaginator,
+    ListOriginAccessControlsPaginator,
     ListPublicKeysPaginator,
     ListStreamingDistributionsPaginator,
+    ListTrustStoresPaginator,
 )
 from .type_defs import (
     AssociateAliasRequestTypeDef,
@@ -53,6 +58,8 @@ from .type_defs import (
     CreateCachePolicyResultTypeDef,
     CreateCloudFrontOriginAccessIdentityRequestTypeDef,
     CreateCloudFrontOriginAccessIdentityResultTypeDef,
+    CreateConnectionFunctionRequestTypeDef,
+    CreateConnectionFunctionResultTypeDef,
     CreateConnectionGroupRequestTypeDef,
     CreateConnectionGroupResultTypeDef,
     CreateContinuousDeploymentPolicyRequestTypeDef,
@@ -93,11 +100,14 @@ from .type_defs import (
     CreateStreamingDistributionResultTypeDef,
     CreateStreamingDistributionWithTagsRequestTypeDef,
     CreateStreamingDistributionWithTagsResultTypeDef,
+    CreateTrustStoreRequestTypeDef,
+    CreateTrustStoreResultTypeDef,
     CreateVpcOriginRequestTypeDef,
     CreateVpcOriginResultTypeDef,
     DeleteAnycastIpListRequestTypeDef,
     DeleteCachePolicyRequestTypeDef,
     DeleteCloudFrontOriginAccessIdentityRequestTypeDef,
+    DeleteConnectionFunctionRequestTypeDef,
     DeleteConnectionGroupRequestTypeDef,
     DeleteContinuousDeploymentPolicyRequestTypeDef,
     DeleteDistributionRequestTypeDef,
@@ -112,10 +122,14 @@ from .type_defs import (
     DeleteOriginRequestPolicyRequestTypeDef,
     DeletePublicKeyRequestTypeDef,
     DeleteRealtimeLogConfigRequestTypeDef,
+    DeleteResourcePolicyRequestTypeDef,
     DeleteResponseHeadersPolicyRequestTypeDef,
     DeleteStreamingDistributionRequestTypeDef,
+    DeleteTrustStoreRequestTypeDef,
     DeleteVpcOriginRequestTypeDef,
     DeleteVpcOriginResultTypeDef,
+    DescribeConnectionFunctionRequestTypeDef,
+    DescribeConnectionFunctionResultTypeDef,
     DescribeFunctionRequestTypeDef,
     DescribeFunctionResultTypeDef,
     DescribeKeyValueStoreRequestTypeDef,
@@ -135,6 +149,8 @@ from .type_defs import (
     GetCloudFrontOriginAccessIdentityConfigResultTypeDef,
     GetCloudFrontOriginAccessIdentityRequestTypeDef,
     GetCloudFrontOriginAccessIdentityResultTypeDef,
+    GetConnectionFunctionRequestTypeDef,
+    GetConnectionFunctionResultTypeDef,
     GetConnectionGroupByRoutingEndpointRequestTypeDef,
     GetConnectionGroupByRoutingEndpointResultTypeDef,
     GetConnectionGroupRequestTypeDef,
@@ -187,6 +203,8 @@ from .type_defs import (
     GetPublicKeyResultTypeDef,
     GetRealtimeLogConfigRequestTypeDef,
     GetRealtimeLogConfigResultTypeDef,
+    GetResourcePolicyRequestTypeDef,
+    GetResourcePolicyResultTypeDef,
     GetResponseHeadersPolicyConfigRequestTypeDef,
     GetResponseHeadersPolicyConfigResultTypeDef,
     GetResponseHeadersPolicyRequestTypeDef,
@@ -195,6 +213,8 @@ from .type_defs import (
     GetStreamingDistributionConfigResultTypeDef,
     GetStreamingDistributionRequestTypeDef,
     GetStreamingDistributionResultTypeDef,
+    GetTrustStoreRequestTypeDef,
+    GetTrustStoreResultTypeDef,
     GetVpcOriginRequestTypeDef,
     GetVpcOriginResultTypeDef,
     ListAnycastIpListsRequestTypeDef,
@@ -205,6 +225,8 @@ from .type_defs import (
     ListCloudFrontOriginAccessIdentitiesResultTypeDef,
     ListConflictingAliasesRequestTypeDef,
     ListConflictingAliasesResultTypeDef,
+    ListConnectionFunctionsRequestTypeDef,
+    ListConnectionFunctionsResultTypeDef,
     ListConnectionGroupsRequestTypeDef,
     ListConnectionGroupsResultTypeDef,
     ListContinuousDeploymentPoliciesRequestTypeDef,
@@ -213,16 +235,22 @@ from .type_defs import (
     ListDistributionsByAnycastIpListIdResultTypeDef,
     ListDistributionsByCachePolicyIdRequestTypeDef,
     ListDistributionsByCachePolicyIdResultTypeDef,
+    ListDistributionsByConnectionFunctionRequestTypeDef,
+    ListDistributionsByConnectionFunctionResultTypeDef,
     ListDistributionsByConnectionModeRequestTypeDef,
     ListDistributionsByConnectionModeResultTypeDef,
     ListDistributionsByKeyGroupRequestTypeDef,
     ListDistributionsByKeyGroupResultTypeDef,
     ListDistributionsByOriginRequestPolicyIdRequestTypeDef,
     ListDistributionsByOriginRequestPolicyIdResultTypeDef,
+    ListDistributionsByOwnedResourceRequestTypeDef,
+    ListDistributionsByOwnedResourceResultTypeDef,
     ListDistributionsByRealtimeLogConfigRequestTypeDef,
     ListDistributionsByRealtimeLogConfigResultTypeDef,
     ListDistributionsByResponseHeadersPolicyIdRequestTypeDef,
     ListDistributionsByResponseHeadersPolicyIdResultTypeDef,
+    ListDistributionsByTrustStoreRequestTypeDef,
+    ListDistributionsByTrustStoreResultTypeDef,
     ListDistributionsByVpcOriginIdRequestTypeDef,
     ListDistributionsByVpcOriginIdResultTypeDef,
     ListDistributionsByWebACLIdRequestTypeDef,
@@ -263,18 +291,30 @@ from .type_defs import (
     ListStreamingDistributionsResultTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResultTypeDef,
+    ListTrustStoresRequestTypeDef,
+    ListTrustStoresResultTypeDef,
     ListVpcOriginsRequestTypeDef,
     ListVpcOriginsResultTypeDef,
+    PublishConnectionFunctionRequestTypeDef,
+    PublishConnectionFunctionResultTypeDef,
     PublishFunctionRequestTypeDef,
     PublishFunctionResultTypeDef,
+    PutResourcePolicyRequestTypeDef,
+    PutResourcePolicyResultTypeDef,
     TagResourceRequestTypeDef,
+    TestConnectionFunctionRequestTypeDef,
+    TestConnectionFunctionResultTypeDef,
     TestFunctionRequestTypeDef,
     TestFunctionResultTypeDef,
     UntagResourceRequestTypeDef,
+    UpdateAnycastIpListRequestTypeDef,
+    UpdateAnycastIpListResultTypeDef,
     UpdateCachePolicyRequestTypeDef,
     UpdateCachePolicyResultTypeDef,
     UpdateCloudFrontOriginAccessIdentityRequestTypeDef,
     UpdateCloudFrontOriginAccessIdentityResultTypeDef,
+    UpdateConnectionFunctionRequestTypeDef,
+    UpdateConnectionFunctionResultTypeDef,
     UpdateConnectionGroupRequestTypeDef,
     UpdateConnectionGroupResultTypeDef,
     UpdateContinuousDeploymentPolicyRequestTypeDef,
@@ -309,6 +349,8 @@ from .type_defs import (
     UpdateResponseHeadersPolicyResultTypeDef,
     UpdateStreamingDistributionRequestTypeDef,
     UpdateStreamingDistributionResultTypeDef,
+    UpdateTrustStoreRequestTypeDef,
+    UpdateTrustStoreResultTypeDef,
     UpdateVpcOriginRequestTypeDef,
     UpdateVpcOriginResultTypeDef,
     VerifyDnsConfigurationRequestTypeDef,
@@ -528,8 +570,8 @@ class CloudFrontClient(BaseClient):
         self, **kwargs: Unpack[AssociateAliasRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Associates an alias (also known as a CNAME or an alternate domain name) with a
-        CloudFront distribution.
+        <note> <p>The <code>AssociateAlias</code> API operation only supports standard
+        distributions.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/associate_alias.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#associate_alias)
@@ -594,6 +636,16 @@ class CloudFrontClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/create_cloud_front_origin_access_identity.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#create_cloud_front_origin_access_identity)
+        """
+
+    def create_connection_function(
+        self, **kwargs: Unpack[CreateConnectionFunctionRequestTypeDef]
+    ) -> CreateConnectionFunctionResultTypeDef:
+        """
+        Creates a connection function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/create_connection_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#create_connection_function)
         """
 
     def create_connection_group(
@@ -803,6 +855,16 @@ class CloudFrontClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#create_streaming_distribution_with_tags)
         """
 
+    def create_trust_store(
+        self, **kwargs: Unpack[CreateTrustStoreRequestTypeDef]
+    ) -> CreateTrustStoreResultTypeDef:
+        """
+        Creates a trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/create_trust_store.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#create_trust_store)
+        """
+
     def create_vpc_origin(
         self, **kwargs: Unpack[CreateVpcOriginRequestTypeDef]
     ) -> CreateVpcOriginResultTypeDef:
@@ -841,6 +903,16 @@ class CloudFrontClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/delete_cloud_front_origin_access_identity.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#delete_cloud_front_origin_access_identity)
+        """
+
+    def delete_connection_function(
+        self, **kwargs: Unpack[DeleteConnectionFunctionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a connection function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/delete_connection_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#delete_connection_function)
         """
 
     def delete_connection_group(
@@ -984,6 +1056,16 @@ class CloudFrontClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#delete_realtime_log_config)
         """
 
+    def delete_resource_policy(
+        self, **kwargs: Unpack[DeleteResourcePolicyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the resource policy attached to the CloudFront resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/delete_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#delete_resource_policy)
+        """
+
     def delete_response_headers_policy(
         self, **kwargs: Unpack[DeleteResponseHeadersPolicyRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
@@ -1004,6 +1086,16 @@ class CloudFrontClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#delete_streaming_distribution)
         """
 
+    def delete_trust_store(
+        self, **kwargs: Unpack[DeleteTrustStoreRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/delete_trust_store.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#delete_trust_store)
+        """
+
     def delete_vpc_origin(
         self, **kwargs: Unpack[DeleteVpcOriginRequestTypeDef]
     ) -> DeleteVpcOriginResultTypeDef:
@@ -1012,6 +1104,16 @@ class CloudFrontClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/delete_vpc_origin.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#delete_vpc_origin)
+        """
+
+    def describe_connection_function(
+        self, **kwargs: Unpack[DescribeConnectionFunctionRequestTypeDef]
+    ) -> DescribeConnectionFunctionResultTypeDef:
+        """
+        Describes a connection function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/describe_connection_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#describe_connection_function)
         """
 
     def describe_function(
@@ -1103,6 +1205,16 @@ class CloudFrontClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/get_cloud_front_origin_access_identity_config.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_cloud_front_origin_access_identity_config)
+        """
+
+    def get_connection_function(
+        self, **kwargs: Unpack[GetConnectionFunctionRequestTypeDef]
+    ) -> GetConnectionFunctionResultTypeDef:
+        """
+        Gets a connection function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/get_connection_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_connection_function)
         """
 
     def get_connection_group(
@@ -1367,6 +1479,17 @@ class CloudFrontClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_realtime_log_config)
         """
 
+    def get_resource_policy(
+        self, **kwargs: Unpack[GetResourcePolicyRequestTypeDef]
+    ) -> GetResourcePolicyResultTypeDef:
+        """
+        Retrieves the resource policy for the specified CloudFront resource that you
+        own and have shared.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/get_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_resource_policy)
+        """
+
     def get_response_headers_policy(
         self, **kwargs: Unpack[GetResponseHeadersPolicyRequestTypeDef]
     ) -> GetResponseHeadersPolicyResultTypeDef:
@@ -1407,6 +1530,16 @@ class CloudFrontClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/get_streaming_distribution_config.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_streaming_distribution_config)
+        """
+
+    def get_trust_store(
+        self, **kwargs: Unpack[GetTrustStoreRequestTypeDef]
+    ) -> GetTrustStoreResultTypeDef:
+        """
+        Gets a trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/get_trust_store.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_trust_store)
         """
 
     def get_vpc_origin(
@@ -1453,12 +1586,21 @@ class CloudFrontClient(BaseClient):
         self, **kwargs: Unpack[ListConflictingAliasesRequestTypeDef]
     ) -> ListConflictingAliasesResultTypeDef:
         """
-        Gets a list of aliases (also called CNAMEs or alternate domain names) that
-        conflict or overlap with the provided alias, and the associated CloudFront
-        distributions and Amazon Web Services accounts for each conflicting alias.
+        <note> <p>The <code>ListConflictingAliases</code> API operation only supports
+        standard distributions.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/list_conflicting_aliases.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_conflicting_aliases)
+        """
+
+    def list_connection_functions(
+        self, **kwargs: Unpack[ListConnectionFunctionsRequestTypeDef]
+    ) -> ListConnectionFunctionsResultTypeDef:
+        """
+        Lists connection functions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/list_connection_functions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_connection_functions)
         """
 
     def list_connection_groups(
@@ -1534,6 +1676,16 @@ class CloudFrontClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_distributions_by_cache_policy_id)
         """
 
+    def list_distributions_by_connection_function(
+        self, **kwargs: Unpack[ListDistributionsByConnectionFunctionRequestTypeDef]
+    ) -> ListDistributionsByConnectionFunctionResultTypeDef:
+        """
+        Lists distributions by connection function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/list_distributions_by_connection_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_distributions_by_connection_function)
+        """
+
     def list_distributions_by_connection_mode(
         self, **kwargs: Unpack[ListDistributionsByConnectionModeRequestTypeDef]
     ) -> ListDistributionsByConnectionModeResultTypeDef:
@@ -1566,6 +1718,17 @@ class CloudFrontClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_distributions_by_origin_request_policy_id)
         """
 
+    def list_distributions_by_owned_resource(
+        self, **kwargs: Unpack[ListDistributionsByOwnedResourceRequestTypeDef]
+    ) -> ListDistributionsByOwnedResourceResultTypeDef:
+        """
+        Lists the CloudFront distributions that are associated with the specified
+        resource that you own.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/list_distributions_by_owned_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_distributions_by_owned_resource)
+        """
+
     def list_distributions_by_realtime_log_config(
         self, **kwargs: Unpack[ListDistributionsByRealtimeLogConfigRequestTypeDef]
     ) -> ListDistributionsByRealtimeLogConfigResultTypeDef:
@@ -1586,6 +1749,16 @@ class CloudFrontClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/list_distributions_by_response_headers_policy_id.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_distributions_by_response_headers_policy_id)
+        """
+
+    def list_distributions_by_trust_store(
+        self, **kwargs: Unpack[ListDistributionsByTrustStoreRequestTypeDef]
+    ) -> ListDistributionsByTrustStoreResultTypeDef:
+        """
+        Lists distributions by trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/list_distributions_by_trust_store.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_distributions_by_trust_store)
         """
 
     def list_distributions_by_vpc_origin_id(
@@ -1612,8 +1785,9 @@ class CloudFrontClient(BaseClient):
         self, **kwargs: Unpack[ListDomainConflictsRequestTypeDef]
     ) -> ListDomainConflictsResultTypeDef:
         """
-        Lists existing domain associations that conflict with the domain that you
-        specify.
+        <note> <p>We recommend that you use the <code>ListDomainConflicts</code> API
+        operation to check for domain conflicts, as it supports both standard
+        distributions and distribution tenants.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/list_domain_conflicts.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_domain_conflicts)
@@ -1762,6 +1936,16 @@ class CloudFrontClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_tags_for_resource)
         """
 
+    def list_trust_stores(
+        self, **kwargs: Unpack[ListTrustStoresRequestTypeDef]
+    ) -> ListTrustStoresResultTypeDef:
+        """
+        Lists trust stores.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/list_trust_stores.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_trust_stores)
+        """
+
     def list_vpc_origins(
         self, **kwargs: Unpack[ListVpcOriginsRequestTypeDef]
     ) -> ListVpcOriginsResultTypeDef:
@@ -1770,6 +1954,16 @@ class CloudFrontClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/list_vpc_origins.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#list_vpc_origins)
+        """
+
+    def publish_connection_function(
+        self, **kwargs: Unpack[PublishConnectionFunctionRequestTypeDef]
+    ) -> PublishConnectionFunctionResultTypeDef:
+        """
+        Publishes a connection function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/publish_connection_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#publish_connection_function)
         """
 
     def publish_function(
@@ -1783,6 +1977,16 @@ class CloudFrontClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#publish_function)
         """
 
+    def put_resource_policy(
+        self, **kwargs: Unpack[PutResourcePolicyRequestTypeDef]
+    ) -> PutResourcePolicyResultTypeDef:
+        """
+        Creates a resource control policy for a given CloudFront resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/put_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#put_resource_policy)
+        """
+
     def tag_resource(
         self, **kwargs: Unpack[TagResourceRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
@@ -1791,6 +1995,16 @@ class CloudFrontClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/tag_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#tag_resource)
+        """
+
+    def test_connection_function(
+        self, **kwargs: Unpack[TestConnectionFunctionRequestTypeDef]
+    ) -> TestConnectionFunctionResultTypeDef:
+        """
+        Tests a connection function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/test_connection_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#test_connection_function)
         """
 
     def test_function(
@@ -1813,6 +2027,16 @@ class CloudFrontClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#untag_resource)
         """
 
+    def update_anycast_ip_list(
+        self, **kwargs: Unpack[UpdateAnycastIpListRequestTypeDef]
+    ) -> UpdateAnycastIpListResultTypeDef:
+        """
+        Updates an Anycast static IP list.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/update_anycast_ip_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#update_anycast_ip_list)
+        """
+
     def update_cache_policy(
         self, **kwargs: Unpack[UpdateCachePolicyRequestTypeDef]
     ) -> UpdateCachePolicyResultTypeDef:
@@ -1831,6 +2055,16 @@ class CloudFrontClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/update_cloud_front_origin_access_identity.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#update_cloud_front_origin_access_identity)
+        """
+
+    def update_connection_function(
+        self, **kwargs: Unpack[UpdateConnectionFunctionRequestTypeDef]
+    ) -> UpdateConnectionFunctionResultTypeDef:
+        """
+        Updates a connection function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/update_connection_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#update_connection_function)
         """
 
     def update_connection_group(
@@ -1888,8 +2122,9 @@ class CloudFrontClient(BaseClient):
         self, **kwargs: Unpack[UpdateDomainAssociationRequestTypeDef]
     ) -> UpdateDomainAssociationResultTypeDef:
         """
-        Moves a domain from its current distribution or distribution tenant to another
-        one.
+        <note> <p>We recommend that you use the <code>UpdateDomainAssociation</code>
+        API operation to move a domain association, as it supports both standard
+        distributions and distribution tenants.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/update_domain_association.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#update_domain_association)
@@ -2005,6 +2240,16 @@ class CloudFrontClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#update_streaming_distribution)
         """
 
+    def update_trust_store(
+        self, **kwargs: Unpack[UpdateTrustStoreRequestTypeDef]
+    ) -> UpdateTrustStoreResultTypeDef:
+        """
+        Updates a trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/update_trust_store.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#update_trust_store)
+        """
+
     def update_vpc_origin(
         self, **kwargs: Unpack[UpdateVpcOriginRequestTypeDef]
     ) -> UpdateVpcOriginResultTypeDef:
@@ -2029,6 +2274,17 @@ class CloudFrontClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_cloud_front_origin_access_identities"]
     ) -> ListCloudFrontOriginAccessIdentitiesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_connection_functions"]
+    ) -> ListConnectionFunctionsPaginator:
         """
         Create a paginator for an operation.
 
@@ -2071,8 +2327,30 @@ class CloudFrontClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_distributions_by_connection_function"]
+    ) -> ListDistributionsByConnectionFunctionPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_distributions_by_connection_mode"]
     ) -> ListDistributionsByConnectionModePaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_distributions_by_trust_store"]
+    ) -> ListDistributionsByTrustStorePaginator:
         """
         Create a paginator for an operation.
 
@@ -2137,6 +2415,17 @@ class CloudFrontClient(BaseClient):
 
     @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_origin_access_controls"]
+    ) -> ListOriginAccessControlsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_public_keys"]
     ) -> ListPublicKeysPaginator:
         """
@@ -2150,6 +2439,17 @@ class CloudFrontClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_streaming_distributions"]
     ) -> ListStreamingDistributionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_trust_stores"]
+    ) -> ListTrustStoresPaginator:
         """
         Create a paginator for an operation.
 

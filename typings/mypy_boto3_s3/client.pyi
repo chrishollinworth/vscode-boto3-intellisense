@@ -43,6 +43,7 @@ from .type_defs import (
     CopyObjectOutputTypeDef,
     CopyObjectRequestTypeDef,
     CopySourceTypeDef,
+    CreateBucketMetadataConfigurationRequestTypeDef,
     CreateBucketMetadataTableConfigurationRequestTypeDef,
     CreateBucketOutputTypeDef,
     CreateBucketRequestTypeDef,
@@ -56,6 +57,7 @@ from .type_defs import (
     DeleteBucketIntelligentTieringConfigurationRequestTypeDef,
     DeleteBucketInventoryConfigurationRequestTypeDef,
     DeleteBucketLifecycleRequestTypeDef,
+    DeleteBucketMetadataConfigurationRequestTypeDef,
     DeleteBucketMetadataTableConfigurationRequestTypeDef,
     DeleteBucketMetricsConfigurationRequestTypeDef,
     DeleteBucketOwnershipControlsRequestTypeDef,
@@ -73,6 +75,8 @@ from .type_defs import (
     DeletePublicAccessBlockRequestTypeDef,
     EmptyResponseMetadataTypeDef,
     FileobjTypeDef,
+    GetBucketAbacOutputTypeDef,
+    GetBucketAbacRequestTypeDef,
     GetBucketAccelerateConfigurationOutputTypeDef,
     GetBucketAccelerateConfigurationRequestTypeDef,
     GetBucketAclOutputTypeDef,
@@ -95,6 +99,8 @@ from .type_defs import (
     GetBucketLocationRequestTypeDef,
     GetBucketLoggingOutputTypeDef,
     GetBucketLoggingRequestTypeDef,
+    GetBucketMetadataConfigurationOutputTypeDef,
+    GetBucketMetadataConfigurationRequestTypeDef,
     GetBucketMetadataTableConfigurationOutputTypeDef,
     GetBucketMetadataTableConfigurationRequestTypeDef,
     GetBucketMetricsConfigurationOutputTypeDef,
@@ -163,6 +169,7 @@ from .type_defs import (
     ListPartsRequestTypeDef,
     NotificationConfigurationDeprecatedResponseTypeDef,
     NotificationConfigurationResponseTypeDef,
+    PutBucketAbacRequestTypeDef,
     PutBucketAccelerateConfigurationRequestTypeDef,
     PutBucketAclRequestTypeDef,
     PutBucketAnalyticsConfigurationRequestTypeDef,
@@ -197,10 +204,13 @@ from .type_defs import (
     PutObjectTaggingOutputTypeDef,
     PutObjectTaggingRequestTypeDef,
     PutPublicAccessBlockRequestTypeDef,
+    RenameObjectRequestTypeDef,
     RestoreObjectOutputTypeDef,
     RestoreObjectRequestTypeDef,
     SelectObjectContentOutputTypeDef,
     SelectObjectContentRequestTypeDef,
+    UpdateBucketMetadataInventoryTableConfigurationRequestTypeDef,
+    UpdateBucketMetadataJournalTableConfigurationRequestTypeDef,
     UploadPartCopyOutputTypeDef,
     UploadPartCopyRequestTypeDef,
     UploadPartOutputTypeDef,
@@ -233,6 +243,7 @@ class Exceptions(BaseClientExceptions):
     BucketAlreadyOwnedByYou: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     EncryptionTypeMismatch: Type[BotocoreClientError]
+    IdempotencyParameterMismatch: Type[BotocoreClientError]
     InvalidObjectState: Type[BotocoreClientError]
     InvalidRequest: Type[BotocoreClientError]
     InvalidWriteOffset: Type[BotocoreClientError]
@@ -316,11 +327,23 @@ class S3Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#create_bucket)
         """
 
+    def create_bucket_metadata_configuration(
+        self, **kwargs: Unpack[CreateBucketMetadataConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Creates an S3 Metadata V2 metadata configuration for a general purpose bucket.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/create_bucket_metadata_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#create_bucket_metadata_configuration)
+        """
+
     def create_bucket_metadata_table_configuration(
         self, **kwargs: Unpack[CreateBucketMetadataTableConfigurationRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Creates a metadata table configuration for a general purpose bucket.
+        We recommend that you create your S3 Metadata configurations by using the V2 <a
+        href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a>
+        API operation.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/create_bucket_metadata_table_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#create_bucket_metadata_table_configuration)
@@ -330,7 +353,8 @@ class S3Client(BaseClient):
         self, **kwargs: Unpack[CreateMultipartUploadRequestTypeDef]
     ) -> CreateMultipartUploadOutputTypeDef:
         """
-        This action initiates a multipart upload and returns an upload ID.
+        End of support notice: As of October 1, 2025, Amazon S3 has discontinued
+        support for Email Grantee Access Control Lists (ACLs).
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/create_multipart_upload.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#create_multipart_upload)
@@ -419,11 +443,23 @@ class S3Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#delete_bucket_lifecycle)
         """
 
+    def delete_bucket_metadata_configuration(
+        self, **kwargs: Unpack[DeleteBucketMetadataConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an S3 Metadata configuration from a general purpose bucket.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/delete_bucket_metadata_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#delete_bucket_metadata_configuration)
+        """
+
     def delete_bucket_metadata_table_configuration(
         self, **kwargs: Unpack[DeleteBucketMetadataTableConfigurationRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        Deletes a metadata table configuration from a general purpose bucket.
+        We recommend that you delete your S3 Metadata configurations by using the V2 <a
+        href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataTableConfiguration.html">DeleteBucketMetadataTableConfiguration</a>
+        API operation.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/delete_bucket_metadata_table_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#delete_bucket_metadata_table_configuration)
@@ -530,6 +566,17 @@ class S3Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#delete_public_access_block)
         """
 
+    def get_bucket_abac(
+        self, **kwargs: Unpack[GetBucketAbacRequestTypeDef]
+    ) -> GetBucketAbacOutputTypeDef:
+        """
+        Returns the attribute-based access control (ABAC) property of the general
+        purpose bucket.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_bucket_abac.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#get_bucket_abac)
+        """
+
     def get_bucket_accelerate_configuration(
         self, **kwargs: Unpack[GetBucketAccelerateConfigurationRequestTypeDef]
     ) -> GetBucketAccelerateConfigurationOutputTypeDef:
@@ -625,7 +672,7 @@ class S3Client(BaseClient):
         self, **kwargs: Unpack[GetBucketLocationRequestTypeDef]
     ) -> GetBucketLocationOutputTypeDef:
         """
-        This operation is not supported for directory buckets.
+        Using the <code>GetBucketLocation</code> operation is no longer a best practice.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_bucket_location.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#get_bucket_location)
@@ -641,11 +688,24 @@ class S3Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#get_bucket_logging)
         """
 
+    def get_bucket_metadata_configuration(
+        self, **kwargs: Unpack[GetBucketMetadataConfigurationRequestTypeDef]
+    ) -> GetBucketMetadataConfigurationOutputTypeDef:
+        """
+        Retrieves the S3 Metadata configuration for a general purpose bucket.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_bucket_metadata_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#get_bucket_metadata_configuration)
+        """
+
     def get_bucket_metadata_table_configuration(
         self, **kwargs: Unpack[GetBucketMetadataTableConfigurationRequestTypeDef]
     ) -> GetBucketMetadataTableConfigurationOutputTypeDef:
         """
-        Retrieves the metadata table configuration for a general purpose bucket.
+        We recommend that you retrieve your S3 Metadata configurations by using the V2
+        <a
+        href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataTableConfiguration.html">GetBucketMetadataTableConfiguration</a>
+        API operation.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_bucket_metadata_table_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#get_bucket_metadata_table_configuration)
@@ -783,7 +843,8 @@ class S3Client(BaseClient):
         self, **kwargs: Unpack[GetObjectAttributesRequestTypeDef]
     ) -> GetObjectAttributesOutputTypeDef:
         """
-        Retrieves all the metadata from an object without returning the object itself.
+        Retrieves all of the metadata from an object without returning the object
+        itself.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_object_attributes.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#get_object_attributes)
@@ -972,6 +1033,17 @@ class S3Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#list_parts)
         """
 
+    def put_bucket_abac(
+        self, **kwargs: Unpack[PutBucketAbacRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Sets the attribute-based access control (ABAC) property of the general purpose
+        bucket.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/put_bucket_abac.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#put_bucket_abac)
+        """
+
     def put_bucket_accelerate_configuration(
         self, **kwargs: Unpack[PutBucketAccelerateConfigurationRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
@@ -986,7 +1058,8 @@ class S3Client(BaseClient):
         self, **kwargs: Unpack[PutBucketAclRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        This operation is not supported for directory buckets.
+        End of support notice: As of October 1, 2025, Amazon S3 has discontinued
+        support for Email Grantee Access Control Lists (ACLs).
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/put_bucket_acl.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#put_bucket_acl)
@@ -1068,7 +1141,8 @@ class S3Client(BaseClient):
         self, **kwargs: Unpack[PutBucketLoggingRequestTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
         """
-        This operation is not supported for directory buckets.
+        End of support notice: As of October 1, 2025, Amazon S3 has discontinued
+        support for Email Grantee Access Control Lists (ACLs).
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/put_bucket_logging.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#put_bucket_logging)
@@ -1176,7 +1250,8 @@ class S3Client(BaseClient):
 
     def put_object(self, **kwargs: Unpack[PutObjectRequestTypeDef]) -> PutObjectOutputTypeDef:
         """
-        Adds an object to a bucket.
+        End of support notice: As of October 1, 2025, Amazon S3 has discontinued
+        support for Email Grantee Access Control Lists (ACLs).
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/put_object.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#put_object)
@@ -1186,7 +1261,8 @@ class S3Client(BaseClient):
         self, **kwargs: Unpack[PutObjectAclRequestTypeDef]
     ) -> PutObjectAclOutputTypeDef:
         """
-        This operation is not supported for directory buckets.
+        End of support notice: As of October 1, 2025, Amazon S3 has discontinued
+        support for Email Grantee Access Control Lists (ACLs).
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/put_object_acl.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#put_object_acl)
@@ -1242,6 +1318,15 @@ class S3Client(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#put_public_access_block)
         """
 
+    def rename_object(self, **kwargs: Unpack[RenameObjectRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Renames an existing object in a directory bucket that uses the S3 Express One
+        Zone storage class.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/rename_object.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#rename_object)
+        """
+
     def restore_object(
         self, **kwargs: Unpack[RestoreObjectRequestTypeDef]
     ) -> RestoreObjectOutputTypeDef:
@@ -1260,6 +1345,28 @@ class S3Client(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/select_object_content.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#select_object_content)
+        """
+
+    def update_bucket_metadata_inventory_table_configuration(
+        self, **kwargs: Unpack[UpdateBucketMetadataInventoryTableConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Enables or disables a live inventory table for an S3 Metadata configuration on
+        a general purpose bucket.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/update_bucket_metadata_inventory_table_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#update_bucket_metadata_inventory_table_configuration)
+        """
+
+    def update_bucket_metadata_journal_table_configuration(
+        self, **kwargs: Unpack[UpdateBucketMetadataJournalTableConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Enables or disables journal table record expiration for an S3 Metadata
+        configuration on a general purpose bucket.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/update_bucket_metadata_journal_table_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#update_bucket_metadata_journal_table_configuration)
         """
 
     def upload_part(self, **kwargs: Unpack[UploadPartRequestTypeDef]) -> UploadPartOutputTypeDef:

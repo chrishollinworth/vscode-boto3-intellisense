@@ -24,28 +24,44 @@ else:
 __all__ = (
     "ActorSessionMfaStatusType",
     "AdminStatusType",
+    "AllowedOperatorsType",
     "AssociationStatusType",
     "AssociationTypeType",
     "AutoEnableStandardsType",
     "AutomationRulesActionTypeType",
+    "AutomationRulesActionTypeV2Type",
     "AwsIamAccessKeyStatusType",
     "AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType",
+    "BatchUpdateFindingsV2UnprocessedFindingErrorCodeType",
     "ComplianceStatusType",
     "ConfigurationPolicyAssociationStatusType",
     "ConnectionDirectionType",
+    "ConnectorAuthStatusType",
+    "ConnectorProviderNameType",
+    "ConnectorStatusType",
     "ControlFindingGeneratorType",
     "ControlStatusType",
     "DateRangeUnitType",
     "DescribeActionTargetsPaginatorName",
     "DescribeProductsPaginatorName",
+    "DescribeProductsV2PaginatorName",
     "DescribeStandardsControlsPaginatorName",
     "DescribeStandardsPaginatorName",
     "FindingHistoryUpdateSourceTypeType",
+    "FindingsTrendsStringFieldType",
     "GetEnabledStandardsPaginatorName",
     "GetFindingHistoryPaginatorName",
     "GetFindingsPaginatorName",
+    "GetFindingsTrendsV2PaginatorName",
+    "GetFindingsV2PaginatorName",
     "GetInsightsPaginatorName",
+    "GetResourcesTrendsV2PaginatorName",
+    "GetResourcesV2PaginatorName",
+    "GranularityFieldType",
+    "GroupByFieldType",
     "IntegrationTypeType",
+    "IntegrationV2TypeType",
+    "ListAggregatorsV2PaginatorName",
     "ListConfigurationPoliciesPaginatorName",
     "ListConfigurationPolicyAssociationsPaginatorName",
     "ListEnabledProductsForImportPaginatorName",
@@ -59,6 +75,12 @@ __all__ = (
     "MalwareTypeType",
     "MapFilterComparisonType",
     "NetworkDirectionType",
+    "OcsfBooleanFieldType",
+    "OcsfDateFieldType",
+    "OcsfIpFieldType",
+    "OcsfMapFieldType",
+    "OcsfNumberFieldType",
+    "OcsfStringFieldType",
     "OrganizationConfigurationConfigurationTypeType",
     "OrganizationConfigurationStatusType",
     "PaginatorName",
@@ -67,9 +89,18 @@ __all__ = (
     "RecordStateType",
     "RegionAvailabilityStatusType",
     "RegionName",
+    "ResourceCategoryType",
+    "ResourceGroupByFieldType",
     "ResourceServiceName",
+    "ResourcesDateFieldType",
+    "ResourcesMapFieldType",
+    "ResourcesNumberFieldType",
+    "ResourcesStringFieldType",
+    "ResourcesTrendsStringFieldType",
     "RuleStatusType",
+    "RuleStatusV2Type",
     "SecurityControlPropertyType",
+    "SecurityHubFeatureType",
     "SecurityHubServiceName",
     "ServiceName",
     "SeverityLabelType",
@@ -82,6 +113,7 @@ __all__ = (
     "TargetTypeType",
     "ThreatIntelIndicatorCategoryType",
     "ThreatIntelIndicatorTypeType",
+    "TicketCreationModeType",
     "UnprocessedErrorCodeType",
     "UpdateStatusType",
     "VerificationStateType",
@@ -93,32 +125,94 @@ __all__ = (
 
 ActorSessionMfaStatusType = Literal["DISABLED", "ENABLED"]
 AdminStatusType = Literal["DISABLE_IN_PROGRESS", "ENABLED"]
+AllowedOperatorsType = Literal["AND", "OR"]
 AssociationStatusType = Literal["DISABLED", "ENABLED"]
 AssociationTypeType = Literal["APPLIED", "INHERITED"]
 AutoEnableStandardsType = Literal["DEFAULT", "NONE"]
 AutomationRulesActionTypeType = Literal["FINDING_FIELDS_UPDATE"]
+AutomationRulesActionTypeV2Type = Literal["EXTERNAL_INTEGRATION", "FINDING_FIELDS_UPDATE"]
 AwsIamAccessKeyStatusType = Literal["Active", "Inactive"]
 AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType = Literal["Prefix", "Suffix"]
+BatchUpdateFindingsV2UnprocessedFindingErrorCodeType = Literal[
+    "ConflictException",
+    "InternalServerException",
+    "ResourceNotFoundException",
+    "ValidationException",
+]
 ComplianceStatusType = Literal["FAILED", "NOT_AVAILABLE", "PASSED", "WARNING"]
 ConfigurationPolicyAssociationStatusType = Literal["FAILED", "PENDING", "SUCCESS"]
 ConnectionDirectionType = Literal["INBOUND", "OUTBOUND"]
+ConnectorAuthStatusType = Literal["ACTIVE", "FAILED"]
+ConnectorProviderNameType = Literal["JIRA_CLOUD", "SERVICENOW"]
+ConnectorStatusType = Literal[
+    "CONNECTED", "FAILED_TO_CONNECT", "PENDING_AUTHORIZATION", "PENDING_CONFIGURATION"
+]
 ControlFindingGeneratorType = Literal["SECURITY_CONTROL", "STANDARD_CONTROL"]
 ControlStatusType = Literal["DISABLED", "ENABLED"]
 DateRangeUnitType = Literal["DAYS"]
 DescribeActionTargetsPaginatorName = Literal["describe_action_targets"]
 DescribeProductsPaginatorName = Literal["describe_products"]
+DescribeProductsV2PaginatorName = Literal["describe_products_v2"]
 DescribeStandardsControlsPaginatorName = Literal["describe_standards_controls"]
 DescribeStandardsPaginatorName = Literal["describe_standards"]
 FindingHistoryUpdateSourceTypeType = Literal["BATCH_IMPORT_FINDINGS", "BATCH_UPDATE_FINDINGS"]
+FindingsTrendsStringFieldType = Literal[
+    "account_id",
+    "finding_activity_name",
+    "finding_class_name",
+    "finding_compliance_status",
+    "finding_control_id",
+    "finding_cve_ids",
+    "finding_provider",
+    "finding_status",
+    "finding_types",
+    "region",
+]
 GetEnabledStandardsPaginatorName = Literal["get_enabled_standards"]
 GetFindingHistoryPaginatorName = Literal["get_finding_history"]
 GetFindingsPaginatorName = Literal["get_findings"]
+GetFindingsTrendsV2PaginatorName = Literal["get_findings_trends_v2"]
+GetFindingsV2PaginatorName = Literal["get_findings_v2"]
 GetInsightsPaginatorName = Literal["get_insights"]
+GetResourcesTrendsV2PaginatorName = Literal["get_resources_trends_v2"]
+GetResourcesV2PaginatorName = Literal["get_resources_v2"]
+GranularityFieldType = Literal["Daily", "Monthly", "Weekly"]
+GroupByFieldType = Literal[
+    "activity_name",
+    "class_name",
+    "cloud.account.name",
+    "cloud.account.uid",
+    "cloud.provider",
+    "cloud.region",
+    "compliance.assessments.name",
+    "compliance.control",
+    "compliance.standards",
+    "compliance.status",
+    "finding_info.analytic.name",
+    "finding_info.related_events.traits.category",
+    "finding_info.title",
+    "finding_info.types",
+    "metadata.product.name",
+    "metadata.product.uid",
+    "resources.type",
+    "resources.uid",
+    "severity",
+    "status",
+    "vendor_attributes.severity",
+    "vulnerabilities.affected_packages.name",
+    "vulnerabilities.fix_coverage",
+]
 IntegrationTypeType = Literal[
     "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
     "SEND_FINDINGS_TO_SECURITY_HUB",
     "UPDATE_FINDINGS_IN_SECURITY_HUB",
 ]
+IntegrationV2TypeType = Literal[
+    "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
+    "SEND_FINDINGS_TO_SECURITY_HUB",
+    "UPDATE_FINDINGS_IN_SECURITY_HUB",
+]
+ListAggregatorsV2PaginatorName = Literal["list_aggregators_v2"]
 ListConfigurationPoliciesPaginatorName = Literal["list_configuration_policies"]
 ListConfigurationPolicyAssociationsPaginatorName = Literal["list_configuration_policy_associations"]
 ListEnabledProductsForImportPaginatorName = Literal["list_enabled_products_for_import"]
@@ -148,14 +242,161 @@ MalwareTypeType = Literal[
 ]
 MapFilterComparisonType = Literal["CONTAINS", "EQUALS", "NOT_CONTAINS", "NOT_EQUALS"]
 NetworkDirectionType = Literal["IN", "OUT"]
+OcsfBooleanFieldType = Literal[
+    "compliance.assessments.meets_criteria",
+    "vulnerabilities.is_exploit_available",
+    "vulnerabilities.is_fix_available",
+]
+OcsfDateFieldType = Literal[
+    "finding_info.created_time_dt",
+    "finding_info.first_seen_time_dt",
+    "finding_info.last_seen_time_dt",
+    "finding_info.modified_time_dt",
+    "resources.image.created_time_dt",
+    "resources.image.last_used_time_dt",
+    "resources.modified_time_dt",
+]
+OcsfIpFieldType = Literal["evidences.dst_endpoint.ip", "evidences.src_endpoint.ip"]
+OcsfMapFieldType = Literal[
+    "compliance.control_parameters", "databucket.tags", "finding_info.tags", "resources.tags"
+]
+OcsfNumberFieldType = Literal[
+    "activity_id",
+    "compliance.status_id",
+    "confidence_score",
+    "evidences.api.response.code",
+    "evidences.dst_endpoint.autonomous_system.number",
+    "evidences.dst_endpoint.port",
+    "evidences.src_endpoint.autonomous_system.number",
+    "evidences.src_endpoint.port",
+    "finding_info.related_events_count",
+    "resources.image.in_use_count",
+    "severity_id",
+    "status_id",
+    "vendor_attributes.severity_id",
+    "vulnerabilities.cve.cvss.base_score",
+]
+OcsfStringFieldType = Literal[
+    "activity_name",
+    "class_name",
+    "cloud.account.name",
+    "cloud.account.uid",
+    "cloud.provider",
+    "cloud.region",
+    "comment",
+    "compliance.assessments.category",
+    "compliance.assessments.name",
+    "compliance.control",
+    "compliance.standards",
+    "compliance.status",
+    "databucket.encryption_details.algorithm",
+    "databucket.encryption_details.key_uid",
+    "databucket.file.data_classifications.classifier_details.type",
+    "evidences.actor.user.account.uid",
+    "evidences.api.operation",
+    "evidences.api.response.error_message",
+    "evidences.api.service.name",
+    "evidences.connection_info.direction",
+    "evidences.connection_info.protocol_name",
+    "evidences.dst_endpoint.autonomous_system.name",
+    "evidences.dst_endpoint.location.city",
+    "evidences.dst_endpoint.location.country",
+    "evidences.src_endpoint.autonomous_system.name",
+    "evidences.src_endpoint.hostname",
+    "evidences.src_endpoint.location.city",
+    "evidences.src_endpoint.location.country",
+    "finding_info.analytic.name",
+    "finding_info.desc",
+    "finding_info.related_events.product.uid",
+    "finding_info.related_events.title",
+    "finding_info.related_events.traits.category",
+    "finding_info.related_events.uid",
+    "finding_info.src_url",
+    "finding_info.title",
+    "finding_info.types",
+    "finding_info.uid",
+    "malware.name",
+    "malware.severity",
+    "malware_scan_info.uid",
+    "metadata.product.name",
+    "metadata.product.uid",
+    "metadata.product.vendor_name",
+    "metadata.uid",
+    "remediation.desc",
+    "remediation.references",
+    "resources.cloud_function.layers.uid_alt",
+    "resources.cloud_function.runtime",
+    "resources.cloud_function.user.uid",
+    "resources.cloud_partition",
+    "resources.device.encryption_details.key_uid",
+    "resources.device.image.uid",
+    "resources.image.architecture",
+    "resources.image.registry_uid",
+    "resources.image.repository_name",
+    "resources.image.uid",
+    "resources.region",
+    "resources.subnet_info.uid",
+    "resources.type",
+    "resources.uid",
+    "resources.vpc_uid",
+    "severity",
+    "status",
+    "vendor_attributes.severity",
+    "vulnerabilities.affected_code.file.path",
+    "vulnerabilities.affected_packages.name",
+    "vulnerabilities.cve.epss.score",
+    "vulnerabilities.cve.uid",
+    "vulnerabilities.fix_coverage",
+    "vulnerabilities.related_vulnerabilities",
+]
 OrganizationConfigurationConfigurationTypeType = Literal["CENTRAL", "LOCAL"]
 OrganizationConfigurationStatusType = Literal["ENABLED", "FAILED", "PENDING"]
 ParameterValueTypeType = Literal["CUSTOM", "DEFAULT"]
 PartitionType = Literal["aws", "aws-cn", "aws-us-gov"]
 RecordStateType = Literal["ACTIVE", "ARCHIVED"]
 RegionAvailabilityStatusType = Literal["AVAILABLE", "UNAVAILABLE"]
+ResourceCategoryType = Literal[
+    "AI/ML", "Code", "Compute", "Database", "Identity", "Network", "Other", "Storage"
+]
+ResourceGroupByFieldType = Literal[
+    "AccountId",
+    "FindingsSummary.FindingType",
+    "Region",
+    "ResourceCategory",
+    "ResourceName",
+    "ResourceType",
+]
+ResourcesDateFieldType = Literal["ResourceCreationTime", "ResourceDetailCaptureTime"]
+ResourcesMapFieldType = Literal["ResourceTags"]
+ResourcesNumberFieldType = Literal[
+    "FindingsSummary.Severities.Critical",
+    "FindingsSummary.Severities.Fatal",
+    "FindingsSummary.Severities.High",
+    "FindingsSummary.Severities.Informational",
+    "FindingsSummary.Severities.Low",
+    "FindingsSummary.Severities.Medium",
+    "FindingsSummary.Severities.Other",
+    "FindingsSummary.Severities.Unknown",
+    "FindingsSummary.TotalFindings",
+]
+ResourcesStringFieldType = Literal[
+    "AccountId",
+    "FindingsSummary.FindingType",
+    "FindingsSummary.ProductName",
+    "Region",
+    "ResourceCategory",
+    "ResourceGuid",
+    "ResourceId",
+    "ResourceName",
+    "ResourceType",
+]
+ResourcesTrendsStringFieldType = Literal[
+    "account_id", "region", "resource_category", "resource_type"
+]
 RuleStatusType = Literal["DISABLED", "ENABLED"]
+RuleStatusV2Type = Literal["DISABLED", "ENABLED"]
 SecurityControlPropertyType = Literal["Parameters"]
+SecurityHubFeatureType = Literal["SecurityHub", "SecurityHubV2"]
 SeverityLabelType = Literal["CRITICAL", "HIGH", "INFORMATIONAL", "LOW", "MEDIUM"]
 SeverityRatingType = Literal["CRITICAL", "HIGH", "LOW", "MEDIUM"]
 SortOrderType = Literal["asc", "desc"]
@@ -167,7 +408,13 @@ StatusReasonCodeType = Literal[
     "NO_AVAILABLE_CONFIGURATION_RECORDER",
 ]
 StringFilterComparisonType = Literal[
-    "CONTAINS", "EQUALS", "NOT_CONTAINS", "NOT_EQUALS", "PREFIX", "PREFIX_NOT_EQUALS"
+    "CONTAINS",
+    "CONTAINS_WORD",
+    "EQUALS",
+    "NOT_CONTAINS",
+    "NOT_EQUALS",
+    "PREFIX",
+    "PREFIX_NOT_EQUALS",
 ]
 TargetTypeType = Literal["ACCOUNT", "ORGANIZATIONAL_UNIT", "ROOT"]
 ThreatIntelIndicatorCategoryType = Literal[
@@ -186,7 +433,10 @@ ThreatIntelIndicatorTypeType = Literal[
     "PROCESS",
     "URL",
 ]
-UnprocessedErrorCodeType = Literal["ACCESS_DENIED", "INVALID_INPUT", "LIMIT_EXCEEDED", "NOT_FOUND"]
+TicketCreationModeType = Literal["DRYRUN"]
+UnprocessedErrorCodeType = Literal[
+    "ACCESS_DENIED", "INVALID_INPUT", "LIMIT_EXCEEDED", "NOT_FOUND", "RESOURCE_NOT_FOUND"
+]
 UpdateStatusType = Literal["READY", "UPDATING"]
 VerificationStateType = Literal["BENIGN_POSITIVE", "FALSE_POSITIVE", "TRUE_POSITIVE", "UNKNOWN"]
 VulnerabilityExploitAvailableType = Literal["NO", "YES"]
@@ -199,6 +449,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -219,7 +470,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -231,11 +482,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -284,6 +539,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -339,6 +595,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -381,7 +638,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -396,6 +652,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -419,8 +676,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -451,9 +706,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -463,17 +720,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -491,13 +751,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -512,20 +769,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -550,8 +809,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -591,36 +850,35 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "describe_action_targets",
     "describe_products",
+    "describe_products_v2",
     "describe_standards",
     "describe_standards_controls",
     "get_enabled_standards",
     "get_finding_history",
     "get_findings",
+    "get_findings_trends_v2",
+    "get_findings_v2",
     "get_insights",
+    "get_resources_trends_v2",
+    "get_resources_v2",
+    "list_aggregators_v2",
     "list_configuration_policies",
     "list_configuration_policy_associations",
     "list_enabled_products_for_import",
@@ -634,6 +892,7 @@ PaginatorName = Literal[
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -644,6 +903,7 @@ RegionName = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ap-southeast-5",
+    "ap-southeast-6",
     "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",

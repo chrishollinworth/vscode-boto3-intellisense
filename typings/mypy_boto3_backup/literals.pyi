@@ -30,9 +30,11 @@ __all__ = (
     "ConditionTypeType",
     "CopyJobStateType",
     "CopyJobStatusType",
+    "EncryptionKeyTypeType",
     "IndexStatusType",
     "IndexType",
     "LegalHoldStatusType",
+    "LifecycleDeleteAfterEventType",
     "ListBackupJobsPaginatorName",
     "ListBackupPlanTemplatesPaginatorName",
     "ListBackupPlanVersionsPaginatorName",
@@ -47,10 +49,17 @@ __all__ = (
     "ListRecoveryPointsByBackupVaultPaginatorName",
     "ListRecoveryPointsByLegalHoldPaginatorName",
     "ListRecoveryPointsByResourcePaginatorName",
+    "ListRestoreAccessBackupVaultsPaginatorName",
     "ListRestoreJobsByProtectedResourcePaginatorName",
     "ListRestoreJobsPaginatorName",
     "ListRestoreTestingPlansPaginatorName",
     "ListRestoreTestingSelectionsPaginatorName",
+    "ListScanJobSummariesPaginatorName",
+    "ListScanJobsPaginatorName",
+    "ListTieringConfigurationsPaginatorName",
+    "MalwareScannerType",
+    "MpaRevokeSessionStatusType",
+    "MpaSessionStatusType",
     "PaginatorName",
     "RecoveryPointStatusType",
     "RegionName",
@@ -61,6 +70,14 @@ __all__ = (
     "RestoreTestingRecoveryPointSelectionAlgorithmType",
     "RestoreTestingRecoveryPointTypeType",
     "RestoreValidationStatusType",
+    "RuleExecutionTypeType",
+    "ScanFindingType",
+    "ScanJobStateType",
+    "ScanJobStatusType",
+    "ScanModeType",
+    "ScanResourceTypeType",
+    "ScanResultStatusType",
+    "ScanStateType",
     "ServiceName",
     "StorageClassType",
     "VaultStateType",
@@ -100,9 +117,13 @@ BackupVaultEventType = Literal[
     "BACKUP_JOB_SUCCESSFUL",
     "BACKUP_PLAN_CREATED",
     "BACKUP_PLAN_MODIFIED",
+    "CONTINUOUS_BACKUP_INTERRUPTED",
     "COPY_JOB_FAILED",
     "COPY_JOB_STARTED",
     "COPY_JOB_SUCCESSFUL",
+    "RECOVERY_POINT_INDEXING_FAILED",
+    "RECOVERY_POINT_INDEX_COMPLETED",
+    "RECOVERY_POINT_INDEX_DELETED",
     "RECOVERY_POINT_MODIFIED",
     "RESTORE_JOB_COMPLETED",
     "RESTORE_JOB_FAILED",
@@ -126,9 +147,11 @@ CopyJobStatusType = Literal[
     "PARTIAL",
     "RUNNING",
 ]
+EncryptionKeyTypeType = Literal["AWS_OWNED_KMS_KEY", "CUSTOMER_MANAGED_KMS_KEY"]
 IndexStatusType = Literal["ACTIVE", "DELETING", "FAILED", "PENDING"]
 IndexType = Literal["DISABLED", "ENABLED"]
 LegalHoldStatusType = Literal["ACTIVE", "CANCELED", "CANCELING", "CREATING"]
+LifecycleDeleteAfterEventType = Literal["DELETE_AFTER_COPY"]
 ListBackupJobsPaginatorName = Literal["list_backup_jobs"]
 ListBackupPlanTemplatesPaginatorName = Literal["list_backup_plan_templates"]
 ListBackupPlanVersionsPaginatorName = Literal["list_backup_plan_versions"]
@@ -145,11 +168,20 @@ ListProtectedResourcesPaginatorName = Literal["list_protected_resources"]
 ListRecoveryPointsByBackupVaultPaginatorName = Literal["list_recovery_points_by_backup_vault"]
 ListRecoveryPointsByLegalHoldPaginatorName = Literal["list_recovery_points_by_legal_hold"]
 ListRecoveryPointsByResourcePaginatorName = Literal["list_recovery_points_by_resource"]
+ListRestoreAccessBackupVaultsPaginatorName = Literal["list_restore_access_backup_vaults"]
 ListRestoreJobsByProtectedResourcePaginatorName = Literal["list_restore_jobs_by_protected_resource"]
 ListRestoreJobsPaginatorName = Literal["list_restore_jobs"]
 ListRestoreTestingPlansPaginatorName = Literal["list_restore_testing_plans"]
 ListRestoreTestingSelectionsPaginatorName = Literal["list_restore_testing_selections"]
-RecoveryPointStatusType = Literal["COMPLETED", "DELETING", "EXPIRED", "PARTIAL"]
+ListScanJobSummariesPaginatorName = Literal["list_scan_job_summaries"]
+ListScanJobsPaginatorName = Literal["list_scan_jobs"]
+ListTieringConfigurationsPaginatorName = Literal["list_tiering_configurations"]
+MalwareScannerType = Literal["GUARDDUTY"]
+MpaRevokeSessionStatusType = Literal["FAILED", "PENDING"]
+MpaSessionStatusType = Literal["APPROVED", "FAILED", "PENDING"]
+RecoveryPointStatusType = Literal[
+    "AVAILABLE", "COMPLETED", "CREATING", "DELETING", "EXPIRED", "PARTIAL", "STOPPED"
+]
 RestoreDeletionStatusType = Literal["DELETING", "FAILED", "SUCCESSFUL"]
 RestoreJobStateType = Literal[
     "ABORTED", "AGGREGATE_ALL", "ANY", "COMPLETED", "CREATED", "FAILED", "PENDING", "RUNNING"
@@ -160,15 +192,37 @@ RestoreTestingRecoveryPointSelectionAlgorithmType = Literal[
 ]
 RestoreTestingRecoveryPointTypeType = Literal["CONTINUOUS", "SNAPSHOT"]
 RestoreValidationStatusType = Literal["FAILED", "SUCCESSFUL", "TIMED_OUT", "VALIDATING"]
+RuleExecutionTypeType = Literal["CONTINUOUS", "CONTINUOUS_AND_SNAPSHOTS", "SNAPSHOTS"]
+ScanFindingType = Literal["MALWARE"]
+ScanJobStateType = Literal["CANCELED", "COMPLETED", "COMPLETED_WITH_ISSUES", "FAILED"]
+ScanJobStatusType = Literal[
+    "AGGREGATE_ALL",
+    "ANY",
+    "CANCELED",
+    "COMPLETED",
+    "COMPLETED_WITH_ISSUES",
+    "CREATED",
+    "FAILED",
+    "RUNNING",
+]
+ScanModeType = Literal["FULL_SCAN", "INCREMENTAL_SCAN"]
+ScanResourceTypeType = Literal["EBS", "EC2", "S3"]
+ScanResultStatusType = Literal["NO_THREATS_FOUND", "THREATS_FOUND"]
+ScanStateType = Literal[
+    "CANCELED", "COMPLETED", "COMPLETED_WITH_ISSUES", "CREATED", "FAILED", "RUNNING"
+]
 StorageClassType = Literal["COLD", "DELETED", "WARM"]
 VaultStateType = Literal["AVAILABLE", "CREATING", "FAILED"]
-VaultTypeType = Literal["BACKUP_VAULT", "LOGICALLY_AIR_GAPPED_BACKUP_VAULT"]
+VaultTypeType = Literal[
+    "BACKUP_VAULT", "LOGICALLY_AIR_GAPPED_BACKUP_VAULT", "RESTORE_ACCESS_BACKUP_VAULT"
+]
 BackupServiceName = Literal["backup"]
 ServiceName = Literal[
     "accessanalyzer",
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -189,7 +243,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -201,11 +255,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -254,6 +312,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -309,6 +368,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -351,7 +411,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -366,6 +425,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -389,8 +449,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -421,9 +479,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -433,17 +493,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -461,13 +524,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -482,20 +542,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -520,8 +582,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -561,26 +623,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "list_backup_jobs",
@@ -597,14 +652,19 @@ PaginatorName = Literal[
     "list_recovery_points_by_backup_vault",
     "list_recovery_points_by_legal_hold",
     "list_recovery_points_by_resource",
+    "list_restore_access_backup_vaults",
     "list_restore_jobs",
     "list_restore_jobs_by_protected_resource",
     "list_restore_testing_plans",
     "list_restore_testing_selections",
+    "list_scan_job_summaries",
+    "list_scan_jobs",
+    "list_tiering_configurations",
 ]
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -615,6 +675,7 @@ RegionName = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ap-southeast-5",
+    "ap-southeast-6",
     "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",

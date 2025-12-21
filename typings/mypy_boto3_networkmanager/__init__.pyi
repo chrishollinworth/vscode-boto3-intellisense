@@ -27,9 +27,12 @@ Usage::
         GetSitesPaginator,
         GetTransitGatewayConnectPeerAssociationsPaginator,
         GetTransitGatewayRegistrationsPaginator,
+        ListAttachmentRoutingPolicyAssociationsPaginator,
         ListAttachmentsPaginator,
         ListConnectPeersPaginator,
         ListCoreNetworkPolicyVersionsPaginator,
+        ListCoreNetworkPrefixListAssociationsPaginator,
+        ListCoreNetworkRoutingInformationPaginator,
         ListCoreNetworksPaginator,
         ListPeeringsPaginator,
         NetworkManagerClient,
@@ -54,9 +57,12 @@ Usage::
     get_sites_paginator: GetSitesPaginator = client.get_paginator("get_sites")
     get_transit_gateway_connect_peer_associations_paginator: GetTransitGatewayConnectPeerAssociationsPaginator = client.get_paginator("get_transit_gateway_connect_peer_associations")
     get_transit_gateway_registrations_paginator: GetTransitGatewayRegistrationsPaginator = client.get_paginator("get_transit_gateway_registrations")
+    list_attachment_routing_policy_associations_paginator: ListAttachmentRoutingPolicyAssociationsPaginator = client.get_paginator("list_attachment_routing_policy_associations")
     list_attachments_paginator: ListAttachmentsPaginator = client.get_paginator("list_attachments")
     list_connect_peers_paginator: ListConnectPeersPaginator = client.get_paginator("list_connect_peers")
     list_core_network_policy_versions_paginator: ListCoreNetworkPolicyVersionsPaginator = client.get_paginator("list_core_network_policy_versions")
+    list_core_network_prefix_list_associations_paginator: ListCoreNetworkPrefixListAssociationsPaginator = client.get_paginator("list_core_network_prefix_list_associations")
+    list_core_network_routing_information_paginator: ListCoreNetworkRoutingInformationPaginator = client.get_paginator("list_core_network_routing_information")
     list_core_networks_paginator: ListCoreNetworksPaginator = client.get_paginator("list_core_networks")
     list_peerings_paginator: ListPeeringsPaginator = client.get_paginator("list_peerings")
     ```
@@ -80,9 +86,12 @@ from .paginator import (
     GetSitesPaginator,
     GetTransitGatewayConnectPeerAssociationsPaginator,
     GetTransitGatewayRegistrationsPaginator,
+    ListAttachmentRoutingPolicyAssociationsPaginator,
     ListAttachmentsPaginator,
     ListConnectPeersPaginator,
     ListCoreNetworkPolicyVersionsPaginator,
+    ListCoreNetworkPrefixListAssociationsPaginator,
+    ListCoreNetworkRoutingInformationPaginator,
     ListCoreNetworksPaginator,
     ListPeeringsPaginator,
 )
@@ -107,9 +116,12 @@ __all__ = (
     "GetSitesPaginator",
     "GetTransitGatewayConnectPeerAssociationsPaginator",
     "GetTransitGatewayRegistrationsPaginator",
+    "ListAttachmentRoutingPolicyAssociationsPaginator",
     "ListAttachmentsPaginator",
     "ListConnectPeersPaginator",
     "ListCoreNetworkPolicyVersionsPaginator",
+    "ListCoreNetworkPrefixListAssociationsPaginator",
+    "ListCoreNetworkRoutingInformationPaginator",
     "ListCoreNetworksPaginator",
     "ListPeeringsPaginator",
     "NetworkManagerClient",

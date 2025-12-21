@@ -19,30 +19,50 @@ Usage::
 from __future__ import annotations
 
 import sys
-from typing import Any
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
 from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
-from .paginator import ListInvoiceUnitsPaginator
+from .paginator import (
+    ListInvoiceSummariesPaginator,
+    ListInvoiceUnitsPaginator,
+    ListProcurementPortalPreferencesPaginator,
+)
 from .type_defs import (
     BatchGetInvoiceProfileRequestTypeDef,
     BatchGetInvoiceProfileResponseTypeDef,
     CreateInvoiceUnitRequestTypeDef,
     CreateInvoiceUnitResponseTypeDef,
+    CreateProcurementPortalPreferenceRequestTypeDef,
+    CreateProcurementPortalPreferenceResponseTypeDef,
     DeleteInvoiceUnitRequestTypeDef,
     DeleteInvoiceUnitResponseTypeDef,
+    DeleteProcurementPortalPreferenceRequestTypeDef,
+    DeleteProcurementPortalPreferenceResponseTypeDef,
+    GetInvoicePDFRequestTypeDef,
+    GetInvoicePDFResponseTypeDef,
     GetInvoiceUnitRequestTypeDef,
     GetInvoiceUnitResponseTypeDef,
+    GetProcurementPortalPreferenceRequestTypeDef,
+    GetProcurementPortalPreferenceResponseTypeDef,
+    ListInvoiceSummariesRequestTypeDef,
+    ListInvoiceSummariesResponseTypeDef,
     ListInvoiceUnitsRequestTypeDef,
     ListInvoiceUnitsResponseTypeDef,
+    ListProcurementPortalPreferencesRequestTypeDef,
+    ListProcurementPortalPreferencesResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    PutProcurementPortalPreferenceRequestTypeDef,
+    PutProcurementPortalPreferenceResponseTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
     UpdateInvoiceUnitRequestTypeDef,
     UpdateInvoiceUnitResponseTypeDef,
+    UpdateProcurementPortalPreferenceStatusRequestTypeDef,
+    UpdateProcurementPortalPreferenceStatusResponseTypeDef,
 )
 
 if sys.version_info >= (3, 9):
@@ -61,6 +81,7 @@ __all__ = ("InvoicingClient",)
 class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
     ServiceQuotaExceededException: Type[BotocoreClientError]
@@ -122,6 +143,17 @@ class InvoicingClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#create_invoice_unit)
         """
 
+    def create_procurement_portal_preference(
+        self, **kwargs: Unpack[CreateProcurementPortalPreferenceRequestTypeDef]
+    ) -> CreateProcurementPortalPreferenceResponseTypeDef:
+        """
+        Creates a procurement portal preference configuration for e-invoice delivery
+        and purchase order retrieval.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/create_procurement_portal_preference.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#create_procurement_portal_preference)
+        """
+
     def delete_invoice_unit(
         self, **kwargs: Unpack[DeleteInvoiceUnitRequestTypeDef]
     ) -> DeleteInvoiceUnitResponseTypeDef:
@@ -132,6 +164,27 @@ class InvoicingClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#delete_invoice_unit)
         """
 
+    def delete_procurement_portal_preference(
+        self, **kwargs: Unpack[DeleteProcurementPortalPreferenceRequestTypeDef]
+    ) -> DeleteProcurementPortalPreferenceResponseTypeDef:
+        """
+        Deletes an existing procurement portal preference.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/delete_procurement_portal_preference.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#delete_procurement_portal_preference)
+        """
+
+    def get_invoice_pdf(
+        self, **kwargs: Unpack[GetInvoicePDFRequestTypeDef]
+    ) -> GetInvoicePDFResponseTypeDef:
+        """
+        Returns a URL to download the invoice document and supplemental documents
+        associated with an invoice.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/get_invoice_pdf.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#get_invoice_pdf)
+        """
+
     def get_invoice_unit(
         self, **kwargs: Unpack[GetInvoiceUnitRequestTypeDef]
     ) -> GetInvoiceUnitResponseTypeDef:
@@ -140,6 +193,26 @@ class InvoicingClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/get_invoice_unit.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#get_invoice_unit)
+        """
+
+    def get_procurement_portal_preference(
+        self, **kwargs: Unpack[GetProcurementPortalPreferenceRequestTypeDef]
+    ) -> GetProcurementPortalPreferenceResponseTypeDef:
+        """
+        Retrieves the details of a specific procurement portal preference configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/get_procurement_portal_preference.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#get_procurement_portal_preference)
+        """
+
+    def list_invoice_summaries(
+        self, **kwargs: Unpack[ListInvoiceSummariesRequestTypeDef]
+    ) -> ListInvoiceSummariesResponseTypeDef:
+        """
+        Retrieves your invoice details programmatically, without line item details.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/list_invoice_summaries.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#list_invoice_summaries)
         """
 
     def list_invoice_units(
@@ -153,6 +226,17 @@ class InvoicingClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#list_invoice_units)
         """
 
+    def list_procurement_portal_preferences(
+        self, **kwargs: Unpack[ListProcurementPortalPreferencesRequestTypeDef]
+    ) -> ListProcurementPortalPreferencesResponseTypeDef:
+        """
+        Retrieves a list of procurement portal preferences associated with the Amazon
+        Web Services account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/list_procurement_portal_preferences.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#list_procurement_portal_preferences)
+        """
+
     def list_tags_for_resource(
         self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
@@ -161,6 +245,16 @@ class InvoicingClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/list_tags_for_resource.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#list_tags_for_resource)
+        """
+
+    def put_procurement_portal_preference(
+        self, **kwargs: Unpack[PutProcurementPortalPreferenceRequestTypeDef]
+    ) -> PutProcurementPortalPreferenceResponseTypeDef:
+        """
+        Updates an existing procurement portal preference configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/put_procurement_portal_preference.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#put_procurement_portal_preference)
         """
 
     def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
@@ -190,9 +284,43 @@ class InvoicingClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#update_invoice_unit)
         """
 
+    def update_procurement_portal_preference_status(
+        self, **kwargs: Unpack[UpdateProcurementPortalPreferenceStatusRequestTypeDef]
+    ) -> UpdateProcurementPortalPreferenceStatusResponseTypeDef:
+        """
+        Updates the status of a procurement portal preference, including the activation
+        state of e-invoice delivery and purchase order retrieval features.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/update_procurement_portal_preference_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#update_procurement_portal_preference_status)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_invoice_summaries"]
+    ) -> ListInvoiceSummariesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_invoice_units"]
     ) -> ListInvoiceUnitsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/invoicing/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_invoicing/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_procurement_portal_preferences"]
+    ) -> ListProcurementPortalPreferencesPaginator:
         """
         Create a paginator for an operation.
 

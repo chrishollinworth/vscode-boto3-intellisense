@@ -1065,8 +1065,8 @@ class ConfigServiceClient(BaseClient):
         self, **kwargs: Unpack[ListDiscoveredResourcesRequestTypeDef]
     ) -> ListDiscoveredResourcesResponseTypeDef:
         """
-        Accepts a resource type and returns a list of resource identifiers for the
-        resources of that type.
+        Returns a list of resource resource identifiers for the specified resource
+        types for the resources of that type.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/list_discovered_resources.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#list_discovered_resources)

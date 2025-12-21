@@ -12,6 +12,7 @@ Usage::
     from mypy_boto3_inspector2 import (
         Client,
         GetCisScanResultDetailsPaginator,
+        GetClustersForImagePaginator,
         Inspector2Client,
         ListAccountPermissionsPaginator,
         ListCisScanConfigurationsPaginator,
@@ -33,6 +34,7 @@ Usage::
     client: Inspector2Client = session.client("inspector2")
 
     get_cis_scan_result_details_paginator: GetCisScanResultDetailsPaginator = client.get_paginator("get_cis_scan_result_details")
+    get_clusters_for_image_paginator: GetClustersForImagePaginator = client.get_paginator("get_clusters_for_image")
     list_account_permissions_paginator: ListAccountPermissionsPaginator = client.get_paginator("list_account_permissions")
     list_cis_scan_configurations_paginator: ListCisScanConfigurationsPaginator = client.get_paginator("list_cis_scan_configurations")
     list_cis_scan_results_aggregated_by_checks_paginator: ListCisScanResultsAggregatedByChecksPaginator = client.get_paginator("list_cis_scan_results_aggregated_by_checks")
@@ -53,6 +55,7 @@ Usage::
 from .client import Inspector2Client
 from .paginator import (
     GetCisScanResultDetailsPaginator,
+    GetClustersForImagePaginator,
     ListAccountPermissionsPaginator,
     ListCisScanConfigurationsPaginator,
     ListCisScanResultsAggregatedByChecksPaginator,
@@ -74,6 +77,7 @@ Client = Inspector2Client
 __all__ = (
     "Client",
     "GetCisScanResultDetailsPaginator",
+    "GetClustersForImagePaginator",
     "Inspector2Client",
     "ListAccountPermissionsPaginator",
     "ListCisScanConfigurationsPaginator",

@@ -25,7 +25,11 @@ from botocore.client import BaseClient, ClientMeta
 from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
-from .paginator import ListIngestConfigurationsPaginator, ListPublicKeysPaginator
+from .paginator import (
+    ListIngestConfigurationsPaginator,
+    ListParticipantReplicasPaginator,
+    ListPublicKeysPaginator,
+)
 from .type_defs import (
     CreateEncoderConfigurationRequestTypeDef,
     CreateEncoderConfigurationResponseTypeDef,
@@ -69,6 +73,8 @@ from .type_defs import (
     ListIngestConfigurationsResponseTypeDef,
     ListParticipantEventsRequestTypeDef,
     ListParticipantEventsResponseTypeDef,
+    ListParticipantReplicasRequestTypeDef,
+    ListParticipantReplicasResponseTypeDef,
     ListParticipantsRequestTypeDef,
     ListParticipantsResponseTypeDef,
     ListPublicKeysRequestTypeDef,
@@ -83,7 +89,11 @@ from .type_defs import (
     ListTagsForResourceResponseTypeDef,
     StartCompositionRequestTypeDef,
     StartCompositionResponseTypeDef,
+    StartParticipantReplicationRequestTypeDef,
+    StartParticipantReplicationResponseTypeDef,
     StopCompositionRequestTypeDef,
+    StopParticipantReplicationRequestTypeDef,
+    StopParticipantReplicationResponseTypeDef,
     TagResourceRequestTypeDef,
     UntagResourceRequestTypeDef,
     UpdateIngestConfigurationRequestTypeDef,
@@ -390,6 +400,16 @@ class IvsrealtimeClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_participant_events)
         """
 
+    def list_participant_replicas(
+        self, **kwargs: Unpack[ListParticipantReplicasRequestTypeDef]
+    ) -> ListParticipantReplicasResponseTypeDef:
+        """
+        Lists all the replicas for a participant from a source stage.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_participant_replicas.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_participant_replicas)
+        """
+
     def list_participants(
         self, **kwargs: Unpack[ListParticipantsRequestTypeDef]
     ) -> ListParticipantsResponseTypeDef:
@@ -462,12 +482,33 @@ class IvsrealtimeClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#start_composition)
         """
 
+    def start_participant_replication(
+        self, **kwargs: Unpack[StartParticipantReplicationRequestTypeDef]
+    ) -> StartParticipantReplicationResponseTypeDef:
+        """
+        Starts replicating a publishing participant from a source stage to a
+        destination stage.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/start_participant_replication.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#start_participant_replication)
+        """
+
     def stop_composition(self, **kwargs: Unpack[StopCompositionRequestTypeDef]) -> Dict[str, Any]:
         """
         Stops and deletes a Composition resource.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/stop_composition.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#stop_composition)
+        """
+
+    def stop_participant_replication(
+        self, **kwargs: Unpack[StopParticipantReplicationRequestTypeDef]
+    ) -> StopParticipantReplicationResponseTypeDef:
+        """
+        Stops a replicated participant session.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/stop_participant_replication.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#stop_participant_replication)
         """
 
     def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
@@ -510,6 +551,17 @@ class IvsrealtimeClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_ingest_configurations"]
     ) -> ListIngestConfigurationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_participant_replicas"]
+    ) -> ListParticipantReplicasPaginator:
         """
         Create a paginator for an operation.
 

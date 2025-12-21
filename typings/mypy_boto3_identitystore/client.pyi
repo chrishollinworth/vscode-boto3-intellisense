@@ -254,7 +254,8 @@ class IdentityStoreClient(BaseClient):
     ) -> ListGroupMembershipsResponseTypeDef:
         """
         For the specified group in the specified identity store, returns the list of
-        all <code>GroupMembership</code> objects and returns results in paginated form.
+        all <code> GroupMembership</code> objects and returns results in paginated
+        form.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/client/list_group_memberships.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client/#list_group_memberships)
@@ -265,7 +266,8 @@ class IdentityStoreClient(BaseClient):
     ) -> ListGroupMembershipsForMemberResponseTypeDef:
         """
         For the specified member in the specified identity store, returns the list of
-        all <code>GroupMembership</code> objects and returns results in paginated form.
+        all <code> GroupMembership</code> objects and returns results in paginated
+        form.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/client/list_group_memberships_for_member.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client/#list_group_memberships_for_member)
@@ -289,8 +291,8 @@ class IdentityStoreClient(BaseClient):
 
     def update_group(self, **kwargs: Unpack[UpdateGroupRequestTypeDef]) -> Dict[str, Any]:
         """
-        For the specified group in the specified identity store, updates the group
-        metadata and attributes.
+        Updates the specified group metadata and attributes in the specified identity
+        store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/client/update_group.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client/#update_group)
@@ -298,8 +300,8 @@ class IdentityStoreClient(BaseClient):
 
     def update_user(self, **kwargs: Unpack[UpdateUserRequestTypeDef]) -> Dict[str, Any]:
         """
-        For the specified user in the specified identity store, updates the user
-        metadata and attributes.
+        Updates the specified user metadata and attributes in the specified identity
+        store.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/client/update_user.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client/#update_user)

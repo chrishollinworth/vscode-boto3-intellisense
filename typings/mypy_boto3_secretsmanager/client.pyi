@@ -266,8 +266,8 @@ class SecretsManagerClient(BaseClient):
         self, **kwargs: Unpack[PutSecretValueRequestTypeDef]
     ) -> PutSecretValueResponseTypeDef:
         """
-        Creates a new version with a new encrypted secret value and attaches it to the
-        secret.
+        Creates a new version of your secret by creating a new encrypted value and
+        attaching it to the secret.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager/client/put_secret_value.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client/#put_secret_value)

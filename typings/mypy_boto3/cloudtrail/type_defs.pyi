@@ -32,11 +32,16 @@ from .literals import (
     ImportStatusType,
     InsightsMetricDataTypeType,
     InsightTypeType,
+    ListInsightsDataDimensionKeyType,
     LookupAttributeKeyType,
+    MaxEventSizeType,
     QueryStatusType,
     ReadWriteTypeType,
     RefreshScheduleFrequencyUnitType,
     RefreshScheduleStatusType,
+    SourceEventCategoryType,
+    TemplateType,
+    TypeType,
 )
 
 if sys.version_info >= (3, 9):
@@ -58,9 +63,15 @@ __all__ = (
     "AdvancedFieldSelectorOutputTypeDef",
     "AdvancedFieldSelectorTypeDef",
     "AdvancedFieldSelectorUnionTypeDef",
+    "AggregationConfigurationOutputTypeDef",
+    "AggregationConfigurationTypeDef",
+    "AggregationConfigurationUnionTypeDef",
     "CancelQueryRequestTypeDef",
     "CancelQueryResponseTypeDef",
     "ChannelTypeDef",
+    "ContextKeySelectorOutputTypeDef",
+    "ContextKeySelectorTypeDef",
+    "ContextKeySelectorUnionTypeDef",
     "CreateChannelRequestTypeDef",
     "CreateChannelResponseTypeDef",
     "CreateDashboardRequestTypeDef",
@@ -99,6 +110,8 @@ __all__ = (
     "GetChannelResponseTypeDef",
     "GetDashboardRequestTypeDef",
     "GetDashboardResponseTypeDef",
+    "GetEventConfigurationRequestTypeDef",
+    "GetEventConfigurationResponseTypeDef",
     "GetEventDataStoreRequestTypeDef",
     "GetEventDataStoreResponseTypeDef",
     "GetEventSelectorsRequestTypeDef",
@@ -120,7 +133,9 @@ __all__ = (
     "ImportStatisticsTypeDef",
     "ImportsListItemTypeDef",
     "IngestionStatusTypeDef",
+    "InsightSelectorOutputTypeDef",
     "InsightSelectorTypeDef",
+    "InsightSelectorUnionTypeDef",
     "ListChannelsRequestTypeDef",
     "ListChannelsResponseTypeDef",
     "ListDashboardsRequestTypeDef",
@@ -133,6 +148,9 @@ __all__ = (
     "ListImportsRequestPaginateTypeDef",
     "ListImportsRequestTypeDef",
     "ListImportsResponseTypeDef",
+    "ListInsightsDataRequestPaginateTypeDef",
+    "ListInsightsDataRequestTypeDef",
+    "ListInsightsDataResponseTypeDef",
     "ListInsightsMetricDataRequestTypeDef",
     "ListInsightsMetricDataResponseTypeDef",
     "ListPublicKeysRequestPaginateTypeDef",
@@ -153,6 +171,8 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PartitionKeyTypeDef",
     "PublicKeyTypeDef",
+    "PutEventConfigurationRequestTypeDef",
+    "PutEventConfigurationResponseTypeDef",
     "PutEventSelectorsRequestTypeDef",
     "PutEventSelectorsResponseTypeDef",
     "PutInsightSelectorsRequestTypeDef",
@@ -226,6 +246,14 @@ class AdvancedFieldSelectorTypeDef(TypedDict):
     NotStartsWith: NotRequired[Sequence[str]]
     NotEndsWith: NotRequired[Sequence[str]]
 
+class AggregationConfigurationOutputTypeDef(TypedDict):
+    Templates: List[TemplateType]
+    EventCategory: Literal["Data"]
+
+class AggregationConfigurationTypeDef(TypedDict):
+    Templates: Sequence[TemplateType]
+    EventCategory: Literal["Data"]
+
 class CancelQueryRequestTypeDef(TypedDict):
     QueryId: str
     EventDataStore: NotRequired[str]
@@ -242,6 +270,20 @@ class ChannelTypeDef(TypedDict):
     ChannelArn: NotRequired[str]
     Name: NotRequired[str]
 
+ContextKeySelectorOutputTypeDef = TypedDict(
+    "ContextKeySelectorOutputTypeDef",
+    {
+        "Type": TypeType,
+        "Equals": List[str],
+    },
+)
+ContextKeySelectorTypeDef = TypedDict(
+    "ContextKeySelectorTypeDef",
+    {
+        "Type": TypeType,
+        "Equals": Sequence[str],
+    },
+)
 DestinationTypeDef = TypedDict(
     "DestinationTypeDef",
     {
@@ -365,6 +407,10 @@ class IngestionStatusTypeDef(TypedDict):
 class GetDashboardRequestTypeDef(TypedDict):
     DashboardId: str
 
+class GetEventConfigurationRequestTypeDef(TypedDict):
+    TrailName: NotRequired[str]
+    EventDataStore: NotRequired[str]
+
 class GetEventDataStoreRequestTypeDef(TypedDict):
     EventDataStore: str
 
@@ -393,8 +439,9 @@ class GetInsightSelectorsRequestTypeDef(TypedDict):
     TrailName: NotRequired[str]
     EventDataStore: NotRequired[str]
 
-class InsightSelectorTypeDef(TypedDict):
+class InsightSelectorOutputTypeDef(TypedDict):
     InsightType: NotRequired[InsightTypeType]
+    EventCategories: NotRequired[List[SourceEventCategoryType]]
 
 class GetQueryResultsRequestTypeDef(TypedDict):
     QueryId: str
@@ -435,6 +482,10 @@ class ImportsListItemTypeDef(TypedDict):
     Destinations: NotRequired[List[str]]
     CreatedTimestamp: NotRequired[datetime]
     UpdatedTimestamp: NotRequired[datetime]
+
+class InsightSelectorTypeDef(TypedDict):
+    InsightType: NotRequired[InsightTypeType]
+    EventCategories: NotRequired[Sequence[SourceEventCategoryType]]
 
 class ListChannelsRequestTypeDef(TypedDict):
     MaxResults: NotRequired[int]
@@ -596,6 +647,9 @@ class AdvancedEventSelectorOutputTypeDef(TypedDict):
 AdvancedFieldSelectorUnionTypeDef = Union[
     AdvancedFieldSelectorTypeDef, AdvancedFieldSelectorOutputTypeDef
 ]
+AggregationConfigurationUnionTypeDef = Union[
+    AggregationConfigurationTypeDef, AggregationConfigurationOutputTypeDef
+]
 
 class CancelQueryResponseTypeDef(TypedDict):
     QueryId: str
@@ -663,6 +717,7 @@ class GetTrailStatusResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class ListInsightsMetricDataResponseTypeDef(TypedDict):
+    TrailARN: str
     EventSource: str
     EventName: str
     InsightType: InsightTypeType
@@ -707,6 +762,24 @@ class ListChannelsResponseTypeDef(TypedDict):
     Channels: List[ChannelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
+
+class GetEventConfigurationResponseTypeDef(TypedDict):
+    TrailARN: str
+    EventDataStoreArn: str
+    MaxEventSize: MaxEventSizeType
+    ContextKeySelectors: List[ContextKeySelectorOutputTypeDef]
+    AggregationConfigurations: List[AggregationConfigurationOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutEventConfigurationResponseTypeDef(TypedDict):
+    TrailARN: str
+    EventDataStoreArn: str
+    MaxEventSize: MaxEventSizeType
+    ContextKeySelectors: List[ContextKeySelectorOutputTypeDef]
+    AggregationConfigurations: List[AggregationConfigurationOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ContextKeySelectorUnionTypeDef = Union[ContextKeySelectorTypeDef, ContextKeySelectorOutputTypeDef]
 
 class CreateChannelRequestTypeDef(TypedDict):
     Name: str
@@ -784,20 +857,14 @@ EventTypeDef = TypedDict(
 
 class GetInsightSelectorsResponseTypeDef(TypedDict):
     TrailARN: str
-    InsightSelectors: List[InsightSelectorTypeDef]
+    InsightSelectors: List[InsightSelectorOutputTypeDef]
     EventDataStoreArn: str
     InsightsDestination: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutInsightSelectorsRequestTypeDef(TypedDict):
-    InsightSelectors: Sequence[InsightSelectorTypeDef]
-    TrailName: NotRequired[str]
-    EventDataStore: NotRequired[str]
-    InsightsDestination: NotRequired[str]
-
 class PutInsightSelectorsResponseTypeDef(TypedDict):
     TrailARN: str
-    InsightSelectors: List[InsightSelectorTypeDef]
+    InsightSelectors: List[InsightSelectorOutputTypeDef]
     EventDataStoreArn: str
     InsightsDestination: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -823,6 +890,8 @@ class ListImportsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+InsightSelectorUnionTypeDef = Union[InsightSelectorTypeDef, InsightSelectorOutputTypeDef]
+
 class ListImportFailuresRequestPaginateTypeDef(TypedDict):
     ImportId: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
@@ -839,10 +908,28 @@ class ListTagsRequestPaginateTypeDef(TypedDict):
 class ListTrailsRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListInsightsDataRequestPaginateTypeDef(TypedDict):
+    InsightSource: str
+    DataType: Literal["InsightsEvents"]
+    Dimensions: NotRequired[Mapping[ListInsightsDataDimensionKeyType, str]]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInsightsDataRequestTypeDef(TypedDict):
+    InsightSource: str
+    DataType: Literal["InsightsEvents"]
+    Dimensions: NotRequired[Mapping[ListInsightsDataDimensionKeyType, str]]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
 class ListInsightsMetricDataRequestTypeDef(TypedDict):
     EventSource: str
     EventName: str
     InsightType: InsightTypeType
+    TrailName: NotRequired[str]
     ErrorCode: NotRequired[str]
     StartTime: NotRequired[TimestampTypeDef]
     EndTime: NotRequired[TimestampTypeDef]
@@ -1000,6 +1087,13 @@ class AdvancedEventSelectorTypeDef(TypedDict):
     FieldSelectors: Sequence[AdvancedFieldSelectorUnionTypeDef]
     Name: NotRequired[str]
 
+class PutEventConfigurationRequestTypeDef(TypedDict):
+    TrailName: NotRequired[str]
+    EventDataStore: NotRequired[str]
+    MaxEventSize: NotRequired[MaxEventSizeType]
+    ContextKeySelectors: NotRequired[Sequence[ContextKeySelectorUnionTypeDef]]
+    AggregationConfigurations: NotRequired[Sequence[AggregationConfigurationUnionTypeDef]]
+
 class GetEventSelectorsResponseTypeDef(TypedDict):
     TrailARN: str
     EventSelectors: List[EventSelectorOutputTypeDef]
@@ -1017,6 +1111,11 @@ class EventSelectorTypeDef(TypedDict):
     IncludeManagementEvents: NotRequired[bool]
     DataResources: NotRequired[Sequence[DataResourceUnionTypeDef]]
     ExcludeManagementEventSources: NotRequired[Sequence[str]]
+
+class ListInsightsDataResponseTypeDef(TypedDict):
+    Events: List[EventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class LookupEventsResponseTypeDef(TypedDict):
     Events: List[EventTypeDef]
@@ -1064,6 +1163,12 @@ class StopImportResponseTypeDef(TypedDict):
     EndEventTime: datetime
     ImportStatistics: ImportStatisticsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class PutInsightSelectorsRequestTypeDef(TypedDict):
+    InsightSelectors: Sequence[InsightSelectorUnionTypeDef]
+    TrailName: NotRequired[str]
+    EventDataStore: NotRequired[str]
+    InsightsDestination: NotRequired[str]
 
 class CreateDashboardRequestTypeDef(TypedDict):
     Name: str

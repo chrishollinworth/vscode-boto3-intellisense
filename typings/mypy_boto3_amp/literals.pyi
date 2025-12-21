@@ -23,40 +23,67 @@ else:
 
 __all__ = (
     "AlertManagerDefinitionStatusCodeType",
+    "AnomalyDetectorActiveWaiterName",
+    "AnomalyDetectorDeletedWaiterName",
+    "AnomalyDetectorStatusCodeType",
+    "ListAnomalyDetectorsPaginatorName",
     "ListRuleGroupsNamespacesPaginatorName",
     "ListScrapersPaginatorName",
     "ListWorkspacesPaginatorName",
     "LoggingConfigurationStatusCodeType",
     "PaginatorName",
     "PrometheusServiceServiceName",
+    "QueryLoggingConfigurationStatusCodeType",
     "RegionName",
     "ResourceServiceName",
     "RuleGroupsNamespaceStatusCodeType",
     "ScraperActiveWaiterName",
+    "ScraperComponentTypeType",
     "ScraperDeletedWaiterName",
+    "ScraperLoggingConfigurationStatusCodeType",
     "ScraperStatusCodeType",
     "ServiceName",
     "WaiterName",
     "WorkspaceActiveWaiterName",
     "WorkspaceConfigurationStatusCodeType",
     "WorkspaceDeletedWaiterName",
+    "WorkspacePolicyStatusCodeType",
     "WorkspaceStatusCodeType",
 )
 
 AlertManagerDefinitionStatusCodeType = Literal[
     "ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
 ]
+AnomalyDetectorActiveWaiterName = Literal["anomaly_detector_active"]
+AnomalyDetectorDeletedWaiterName = Literal["anomaly_detector_deleted"]
+AnomalyDetectorStatusCodeType = Literal[
+    "ACTIVE",
+    "CREATING",
+    "CREATION_FAILED",
+    "DELETING",
+    "DELETION_FAILED",
+    "UPDATE_FAILED",
+    "UPDATING",
+]
+ListAnomalyDetectorsPaginatorName = Literal["list_anomaly_detectors"]
 ListRuleGroupsNamespacesPaginatorName = Literal["list_rule_groups_namespaces"]
 ListScrapersPaginatorName = Literal["list_scrapers"]
 ListWorkspacesPaginatorName = Literal["list_workspaces"]
 LoggingConfigurationStatusCodeType = Literal[
     "ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
 ]
+QueryLoggingConfigurationStatusCodeType = Literal[
+    "ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
+]
 RuleGroupsNamespaceStatusCodeType = Literal[
     "ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
 ]
 ScraperActiveWaiterName = Literal["scraper_active"]
+ScraperComponentTypeType = Literal["COLLECTOR", "EXPORTER", "SERVICE_DISCOVERY"]
 ScraperDeletedWaiterName = Literal["scraper_deleted"]
+ScraperLoggingConfigurationStatusCodeType = Literal[
+    "ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
+]
 ScraperStatusCodeType = Literal[
     "ACTIVE",
     "CREATING",
@@ -69,6 +96,7 @@ ScraperStatusCodeType = Literal[
 WorkspaceActiveWaiterName = Literal["workspace_active"]
 WorkspaceConfigurationStatusCodeType = Literal["ACTIVE", "UPDATE_FAILED", "UPDATING"]
 WorkspaceDeletedWaiterName = Literal["workspace_deleted"]
+WorkspacePolicyStatusCodeType = Literal["ACTIVE", "CREATING", "DELETING", "UPDATING"]
 WorkspaceStatusCodeType = Literal["ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATING"]
 PrometheusServiceServiceName = Literal["amp"]
 ServiceName = Literal[
@@ -76,6 +104,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -96,7 +125,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -108,11 +137,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -161,6 +194,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -216,6 +250,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -258,7 +293,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -273,6 +307,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -296,8 +331,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -328,9 +361,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -340,17 +375,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -368,13 +406,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -389,20 +424,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -427,8 +464,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -468,43 +505,63 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
-PaginatorName = Literal["list_rule_groups_namespaces", "list_scrapers", "list_workspaces"]
-WaiterName = Literal["scraper_active", "scraper_deleted", "workspace_active", "workspace_deleted"]
+PaginatorName = Literal[
+    "list_anomaly_detectors", "list_rule_groups_namespaces", "list_scrapers", "list_workspaces"
+]
+WaiterName = Literal[
+    "anomaly_detector_active",
+    "anomaly_detector_deleted",
+    "scraper_active",
+    "scraper_deleted",
+    "workspace_active",
+    "workspace_deleted",
+]
 RegionName = Literal[
+    "af-south-1",
+    "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
+    "ap-northeast-3",
     "ap-south-1",
+    "ap-south-2",
     "ap-southeast-1",
     "ap-southeast-2",
+    "ap-southeast-3",
+    "ap-southeast-4",
+    "ap-southeast-5",
+    "ap-southeast-7",
     "ca-central-1",
+    "ca-west-1",
     "eu-central-1",
+    "eu-central-2",
     "eu-north-1",
+    "eu-south-1",
+    "eu-south-2",
     "eu-west-1",
     "eu-west-2",
     "eu-west-3",
+    "il-central-1",
+    "me-central-1",
+    "me-south-1",
+    "mx-central-1",
     "sa-east-1",
     "us-east-1",
     "us-east-2",
+    "us-west-1",
     "us-west-2",
 ]

@@ -18,7 +18,7 @@ from __future__ import annotations
 
 import sys
 from datetime import datetime
-from typing import Union
+from typing import Any, Union
 
 from .literals import (
     ActionSeverityType,
@@ -40,6 +40,7 @@ from .literals import (
     DryRunModeType,
     EngineTypeType,
     InboundConnectionStatusCodeType,
+    IndexStatusType,
     InitiatedByType,
     IPAddressTypeType,
     LogTypeType,
@@ -152,6 +153,8 @@ __all__ = (
     "CreateApplicationResponseTypeDef",
     "CreateDomainRequestTypeDef",
     "CreateDomainResponseTypeDef",
+    "CreateIndexRequestTypeDef",
+    "CreateIndexResponseTypeDef",
     "CreateOutboundConnectionRequestTypeDef",
     "CreateOutboundConnectionResponseTypeDef",
     "CreatePackageRequestTypeDef",
@@ -170,6 +173,8 @@ __all__ = (
     "DeleteDomainResponseTypeDef",
     "DeleteInboundConnectionRequestTypeDef",
     "DeleteInboundConnectionResponseTypeDef",
+    "DeleteIndexRequestTypeDef",
+    "DeleteIndexResponseTypeDef",
     "DeleteOutboundConnectionRequestTypeDef",
     "DeleteOutboundConnectionResponseTypeDef",
     "DeletePackageRequestTypeDef",
@@ -239,16 +244,21 @@ __all__ = (
     "GetCompatibleVersionsResponseTypeDef",
     "GetDataSourceRequestTypeDef",
     "GetDataSourceResponseTypeDef",
+    "GetDefaultApplicationSettingResponseTypeDef",
     "GetDirectQueryDataSourceRequestTypeDef",
     "GetDirectQueryDataSourceResponseTypeDef",
     "GetDomainMaintenanceStatusRequestTypeDef",
     "GetDomainMaintenanceStatusResponseTypeDef",
+    "GetIndexRequestTypeDef",
+    "GetIndexResponseTypeDef",
     "GetPackageVersionHistoryRequestTypeDef",
     "GetPackageVersionHistoryResponseTypeDef",
     "GetUpgradeHistoryRequestTypeDef",
     "GetUpgradeHistoryResponseTypeDef",
     "GetUpgradeStatusRequestTypeDef",
     "GetUpgradeStatusResponseTypeDef",
+    "IAMFederationOptionsInputTypeDef",
+    "IAMFederationOptionsOutputTypeDef",
     "IPAddressTypeStatusTypeDef",
     "IamIdentityCenterOptionsInputTypeDef",
     "IamIdentityCenterOptionsTypeDef",
@@ -321,6 +331,8 @@ __all__ = (
     "PluginPropertiesTypeDef",
     "PurchaseReservedInstanceOfferingRequestTypeDef",
     "PurchaseReservedInstanceOfferingResponseTypeDef",
+    "PutDefaultApplicationSettingRequestTypeDef",
+    "PutDefaultApplicationSettingResponseTypeDef",
     "RecurringChargeTypeDef",
     "RejectInboundConnectionRequestTypeDef",
     "RejectInboundConnectionResponseTypeDef",
@@ -330,12 +342,14 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RevokeVpcEndpointAccessRequestTypeDef",
     "S3GlueDataCatalogTypeDef",
+    "S3VectorsEngineTypeDef",
     "SAMLIdpTypeDef",
     "SAMLOptionsInputTypeDef",
     "SAMLOptionsOutputTypeDef",
     "ScheduledActionTypeDef",
     "ScheduledAutoTuneDetailsTypeDef",
     "SecurityLakeDirectQueryDataSourceTypeDef",
+    "ServerlessVectorAccelerationTypeDef",
     "ServiceSoftwareOptionsTypeDef",
     "SnapshotOptionsStatusTypeDef",
     "SnapshotOptionsTypeDef",
@@ -357,6 +371,8 @@ __all__ = (
     "UpdateDirectQueryDataSourceResponseTypeDef",
     "UpdateDomainConfigRequestTypeDef",
     "UpdateDomainConfigResponseTypeDef",
+    "UpdateIndexRequestTypeDef",
+    "UpdateIndexResponseTypeDef",
     "UpdatePackageRequestTypeDef",
     "UpdatePackageResponseTypeDef",
     "UpdatePackageScopeRequestTypeDef",
@@ -383,6 +399,12 @@ __all__ = (
 
 class NaturalLanguageQueryGenerationOptionsInputTypeDef(TypedDict):
     DesiredState: NotRequired[NaturalLanguageQueryGenerationDesiredStateType]
+
+class S3VectorsEngineTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class ServerlessVectorAccelerationTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
 
 class NaturalLanguageQueryGenerationOptionsOutputTypeDef(TypedDict):
     DesiredState: NotRequired[NaturalLanguageQueryGenerationDesiredStateType]
@@ -418,6 +440,11 @@ class AdditionalLimitTypeDef(TypedDict):
     LimitName: NotRequired[str]
     LimitValues: NotRequired[List[str]]
 
+class IAMFederationOptionsInputTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    SubjectKey: NotRequired[str]
+    RolesKey: NotRequired[str]
+
 class JWTOptionsInputTypeDef(TypedDict):
     Enabled: NotRequired[bool]
     SubjectKey: NotRequired[str]
@@ -428,6 +455,11 @@ class MasterUserOptionsTypeDef(TypedDict):
     MasterUserARN: NotRequired[str]
     MasterUserName: NotRequired[str]
     MasterUserPassword: NotRequired[str]
+
+class IAMFederationOptionsOutputTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    SubjectKey: NotRequired[str]
+    RolesKey: NotRequired[str]
 
 class JWTOptionsOutputTypeDef(TypedDict):
     Enabled: NotRequired[bool]
@@ -608,6 +640,11 @@ class VPCOptionsTypeDef(TypedDict):
     SubnetIds: NotRequired[Sequence[str]]
     SecurityGroupIds: NotRequired[Sequence[str]]
 
+class CreateIndexRequestTypeDef(TypedDict):
+    DomainName: str
+    IndexName: str
+    IndexSchema: Mapping[str, Any]
+
 class OutboundConnectionStatusTypeDef(TypedDict):
     StatusCode: NotRequired[OutboundConnectionStatusCodeType]
     Message: NotRequired[str]
@@ -651,6 +688,10 @@ class DeleteDomainRequestTypeDef(TypedDict):
 
 class DeleteInboundConnectionRequestTypeDef(TypedDict):
     ConnectionId: str
+
+class DeleteIndexRequestTypeDef(TypedDict):
+    DomainName: str
+    IndexName: str
 
 class DeleteOutboundConnectionRequestTypeDef(TypedDict):
     ConnectionId: str
@@ -815,6 +856,10 @@ class GetDomainMaintenanceStatusRequestTypeDef(TypedDict):
     DomainName: str
     MaintenanceId: str
 
+class GetIndexRequestTypeDef(TypedDict):
+    DomainName: str
+    IndexName: str
+
 class GetPackageVersionHistoryRequestTypeDef(TypedDict):
     PackageID: str
     MaxResults: NotRequired[int]
@@ -957,6 +1002,10 @@ class PurchaseReservedInstanceOfferingRequestTypeDef(TypedDict):
     ReservationName: str
     InstanceCount: NotRequired[int]
 
+class PutDefaultApplicationSettingRequestTypeDef(TypedDict):
+    applicationArn: str
+    setAsDefault: bool
+
 class RecurringChargeTypeDef(TypedDict):
     RecurringChargeAmount: NotRequired[float]
     RecurringChargeFrequency: NotRequired[str]
@@ -991,6 +1040,11 @@ class StorageTypeLimitTypeDef(TypedDict):
     LimitName: NotRequired[str]
     LimitValues: NotRequired[List[str]]
 
+class UpdateIndexRequestTypeDef(TypedDict):
+    DomainName: str
+    IndexName: str
+    IndexSchema: Mapping[str, Any]
+
 class UpdatePackageScopeRequestTypeDef(TypedDict):
     PackageID: str
     Operation: PackageScopeOperationEnumType
@@ -1019,11 +1073,15 @@ class AIMLOptionsInputTypeDef(TypedDict):
     NaturalLanguageQueryGenerationOptions: NotRequired[
         NaturalLanguageQueryGenerationOptionsInputTypeDef
     ]
+    S3VectorsEngine: NotRequired[S3VectorsEngineTypeDef]
+    ServerlessVectorAcceleration: NotRequired[ServerlessVectorAccelerationTypeDef]
 
 class AIMLOptionsOutputTypeDef(TypedDict):
     NaturalLanguageQueryGenerationOptions: NotRequired[
         NaturalLanguageQueryGenerationOptionsOutputTypeDef
     ]
+    S3VectorsEngine: NotRequired[S3VectorsEngineTypeDef]
+    ServerlessVectorAcceleration: NotRequired[ServerlessVectorAccelerationTypeDef]
 
 class AccessPoliciesStatusTypeDef(TypedDict):
     Options: str
@@ -1052,11 +1110,23 @@ class AddDirectQueryDataSourceResponseTypeDef(TypedDict):
     DataSourceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class CreateIndexResponseTypeDef(TypedDict):
+    Status: IndexStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class DeleteDataSourceResponseTypeDef(TypedDict):
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class DeleteIndexResponseTypeDef(TypedDict):
+    Status: IndexStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDefaultApplicationSettingResponseTypeDef(TypedDict):
+    applicationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetDomainMaintenanceStatusResponseTypeDef(TypedDict):
@@ -1066,6 +1136,10 @@ class GetDomainMaintenanceStatusResponseTypeDef(TypedDict):
     Action: MaintenanceTypeType
     CreatedAt: datetime
     UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIndexResponseTypeDef(TypedDict):
+    IndexSchema: Dict[str, Any]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetUpgradeStatusResponseTypeDef(TypedDict):
@@ -1084,6 +1158,10 @@ class PurchaseReservedInstanceOfferingResponseTypeDef(TypedDict):
     ReservationName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class PutDefaultApplicationSettingResponseTypeDef(TypedDict):
+    applicationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class StartDomainMaintenanceResponseTypeDef(TypedDict):
     MaintenanceId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1094,6 +1172,10 @@ class UpdateDataSourceResponseTypeDef(TypedDict):
 
 class UpdateDirectQueryDataSourceResponseTypeDef(TypedDict):
     DataSourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateIndexResponseTypeDef(TypedDict):
+    Status: IndexStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdatePackageScopeResponseTypeDef(TypedDict):
@@ -1203,6 +1285,7 @@ class CreateApplicationRequestTypeDef(TypedDict):
     iamIdentityCenterOptions: NotRequired[IamIdentityCenterOptionsInputTypeDef]
     appConfigs: NotRequired[Sequence[AppConfigTypeDef]]
     tagList: NotRequired[Sequence[TagTypeDef]]
+    kmsKeyArn: NotRequired[str]
 
 CreateApplicationResponseTypeDef = TypedDict(
     "CreateApplicationResponseTypeDef",
@@ -1215,6 +1298,7 @@ CreateApplicationResponseTypeDef = TypedDict(
         "appConfigs": List[AppConfigTypeDef],
         "tagList": List[TagTypeDef],
         "createdAt": datetime,
+        "kmsKeyArn": str,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -1231,6 +1315,7 @@ GetApplicationResponseTypeDef = TypedDict(
         "appConfigs": List[AppConfigTypeDef],
         "createdAt": datetime,
         "lastUpdatedAt": datetime,
+        "kmsKeyArn": str,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -1727,6 +1812,7 @@ class AdvancedSecurityOptionsInputTypeDef(TypedDict):
     MasterUserOptions: NotRequired[MasterUserOptionsTypeDef]
     SAMLOptions: NotRequired[SAMLOptionsInputTypeDef]
     JWTOptions: NotRequired[JWTOptionsInputTypeDef]
+    IAMFederationOptions: NotRequired[IAMFederationOptionsInputTypeDef]
     AnonymousAuthEnabled: NotRequired[bool]
 
 class AdvancedSecurityOptionsTypeDef(TypedDict):
@@ -1734,6 +1820,7 @@ class AdvancedSecurityOptionsTypeDef(TypedDict):
     InternalUserDatabaseEnabled: NotRequired[bool]
     SAMLOptions: NotRequired[SAMLOptionsOutputTypeDef]
     JWTOptions: NotRequired[JWTOptionsOutputTypeDef]
+    IAMFederationOptions: NotRequired[IAMFederationOptionsOutputTypeDef]
     AnonymousAuthDisableDate: NotRequired[datetime]
     AnonymousAuthEnabled: NotRequired[bool]
 

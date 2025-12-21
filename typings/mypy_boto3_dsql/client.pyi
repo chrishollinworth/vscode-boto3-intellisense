@@ -29,20 +29,23 @@ from .paginator import ListClustersPaginator
 from .type_defs import (
     CreateClusterInputTypeDef,
     CreateClusterOutputTypeDef,
-    CreateMultiRegionClustersInputTypeDef,
-    CreateMultiRegionClustersOutputTypeDef,
     DeleteClusterInputTypeDef,
     DeleteClusterOutputTypeDef,
-    DeleteMultiRegionClustersInputTypeDef,
+    DeleteClusterPolicyInputTypeDef,
+    DeleteClusterPolicyOutputTypeDef,
     EmptyResponseMetadataTypeDef,
     GetClusterInputTypeDef,
     GetClusterOutputTypeDef,
+    GetClusterPolicyInputTypeDef,
+    GetClusterPolicyOutputTypeDef,
     GetVpcEndpointServiceNameInputTypeDef,
     GetVpcEndpointServiceNameOutputTypeDef,
     ListClustersInputTypeDef,
     ListClustersOutputTypeDef,
     ListTagsForResourceInputTypeDef,
     ListTagsForResourceOutputTypeDef,
+    PutClusterPolicyInputTypeDef,
+    PutClusterPolicyOutputTypeDef,
     TagResourceInputTypeDef,
     UntagResourceInputTypeDef,
     UpdateClusterInputTypeDef,
@@ -111,20 +114,11 @@ class AuroraDSQLClient(BaseClient):
         self, **kwargs: Unpack[CreateClusterInputTypeDef]
     ) -> CreateClusterOutputTypeDef:
         """
-        Creates a cluster in Amazon Aurora DSQL.
+        The CreateCluster API allows you to create both single-Region clusters and
+        multi-Region clusters.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dsql/client/create_cluster.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dsql/client/#create_cluster)
-        """
-
-    def create_multi_region_clusters(
-        self, **kwargs: Unpack[CreateMultiRegionClustersInputTypeDef]
-    ) -> CreateMultiRegionClustersOutputTypeDef:
-        """
-        Creates multi-Region clusters in Amazon Aurora DSQL.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dsql/client/create_multi_region_clusters.html)
-        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dsql/client/#create_multi_region_clusters)
         """
 
     def delete_cluster(
@@ -137,14 +131,14 @@ class AuroraDSQLClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dsql/client/#delete_cluster)
         """
 
-    def delete_multi_region_clusters(
-        self, **kwargs: Unpack[DeleteMultiRegionClustersInputTypeDef]
-    ) -> EmptyResponseMetadataTypeDef:
+    def delete_cluster_policy(
+        self, **kwargs: Unpack[DeleteClusterPolicyInputTypeDef]
+    ) -> DeleteClusterPolicyOutputTypeDef:
         """
-        Deletes a multi-Region cluster in Amazon Aurora DSQL.
+        Deletes the resource-based policy attached to a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dsql/client/delete_multi_region_clusters.html)
-        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dsql/client/#delete_multi_region_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dsql/client/delete_cluster_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dsql/client/#delete_cluster_policy)
         """
 
     def get_cluster(self, **kwargs: Unpack[GetClusterInputTypeDef]) -> GetClusterOutputTypeDef:
@@ -153,6 +147,16 @@ class AuroraDSQLClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dsql/client/get_cluster.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dsql/client/#get_cluster)
+        """
+
+    def get_cluster_policy(
+        self, **kwargs: Unpack[GetClusterPolicyInputTypeDef]
+    ) -> GetClusterPolicyOutputTypeDef:
+        """
+        Retrieves the resource-based policy document attached to a cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dsql/client/get_cluster_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dsql/client/#get_cluster_policy)
         """
 
     def get_vpc_endpoint_service_name(
@@ -185,6 +189,16 @@ class AuroraDSQLClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dsql/client/#list_tags_for_resource)
         """
 
+    def put_cluster_policy(
+        self, **kwargs: Unpack[PutClusterPolicyInputTypeDef]
+    ) -> PutClusterPolicyOutputTypeDef:
+        """
+        Attaches a resource-based policy to a cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dsql/client/put_cluster_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dsql/client/#put_cluster_policy)
+        """
+
     def tag_resource(
         self, **kwargs: Unpack[TagResourceInputTypeDef]
     ) -> EmptyResponseMetadataTypeDef:
@@ -209,7 +223,8 @@ class AuroraDSQLClient(BaseClient):
         self, **kwargs: Unpack[UpdateClusterInputTypeDef]
     ) -> UpdateClusterOutputTypeDef:
         """
-        Updates a cluster.
+        The <i>UpdateCluster</i> API allows you to modify both single-Region and
+        multi-Region cluster configurations.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dsql/client/update_cluster.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dsql/client/#update_cluster)

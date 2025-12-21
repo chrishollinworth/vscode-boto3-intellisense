@@ -26,10 +26,14 @@ Usage::
         ListRecoveryPointsByBackupVaultPaginator,
         ListRecoveryPointsByLegalHoldPaginator,
         ListRecoveryPointsByResourcePaginator,
+        ListRestoreAccessBackupVaultsPaginator,
         ListRestoreJobsByProtectedResourcePaginator,
         ListRestoreJobsPaginator,
         ListRestoreTestingPlansPaginator,
         ListRestoreTestingSelectionsPaginator,
+        ListScanJobSummariesPaginator,
+        ListScanJobsPaginator,
+        ListTieringConfigurationsPaginator,
     )
 
     session = Session()
@@ -49,10 +53,14 @@ Usage::
     list_recovery_points_by_backup_vault_paginator: ListRecoveryPointsByBackupVaultPaginator = client.get_paginator("list_recovery_points_by_backup_vault")
     list_recovery_points_by_legal_hold_paginator: ListRecoveryPointsByLegalHoldPaginator = client.get_paginator("list_recovery_points_by_legal_hold")
     list_recovery_points_by_resource_paginator: ListRecoveryPointsByResourcePaginator = client.get_paginator("list_recovery_points_by_resource")
+    list_restore_access_backup_vaults_paginator: ListRestoreAccessBackupVaultsPaginator = client.get_paginator("list_restore_access_backup_vaults")
     list_restore_jobs_by_protected_resource_paginator: ListRestoreJobsByProtectedResourcePaginator = client.get_paginator("list_restore_jobs_by_protected_resource")
     list_restore_jobs_paginator: ListRestoreJobsPaginator = client.get_paginator("list_restore_jobs")
     list_restore_testing_plans_paginator: ListRestoreTestingPlansPaginator = client.get_paginator("list_restore_testing_plans")
     list_restore_testing_selections_paginator: ListRestoreTestingSelectionsPaginator = client.get_paginator("list_restore_testing_selections")
+    list_scan_job_summaries_paginator: ListScanJobSummariesPaginator = client.get_paginator("list_scan_job_summaries")
+    list_scan_jobs_paginator: ListScanJobsPaginator = client.get_paginator("list_scan_jobs")
+    list_tiering_configurations_paginator: ListTieringConfigurationsPaginator = client.get_paginator("list_tiering_configurations")
     ```
 """
 
@@ -72,10 +80,14 @@ from .paginator import (
     ListRecoveryPointsByBackupVaultPaginator,
     ListRecoveryPointsByLegalHoldPaginator,
     ListRecoveryPointsByResourcePaginator,
+    ListRestoreAccessBackupVaultsPaginator,
     ListRestoreJobsByProtectedResourcePaginator,
     ListRestoreJobsPaginator,
     ListRestoreTestingPlansPaginator,
     ListRestoreTestingSelectionsPaginator,
+    ListScanJobsPaginator,
+    ListScanJobSummariesPaginator,
+    ListTieringConfigurationsPaginator,
 )
 
 Client = BackupClient
@@ -97,8 +109,12 @@ __all__ = (
     "ListRecoveryPointsByBackupVaultPaginator",
     "ListRecoveryPointsByLegalHoldPaginator",
     "ListRecoveryPointsByResourcePaginator",
+    "ListRestoreAccessBackupVaultsPaginator",
     "ListRestoreJobsByProtectedResourcePaginator",
     "ListRestoreJobsPaginator",
     "ListRestoreTestingPlansPaginator",
     "ListRestoreTestingSelectionsPaginator",
+    "ListScanJobSummariesPaginator",
+    "ListScanJobsPaginator",
+    "ListTieringConfigurationsPaginator",
 )

@@ -50,7 +50,10 @@ from .literals import (
     Av1GopSizeUnitsType,
     Av1LevelType,
     Av1LookAheadRateControlType,
+    Av1RateControlModeType,
     Av1SceneChangeDetectType,
+    Av1SpatialAqType,
+    Av1TemporalAqType,
     AvailBlankingStateType,
     BandwidthReductionFilterStrengthType,
     BandwidthReductionPostFilterSharpeningType,
@@ -58,11 +61,13 @@ from .literals import (
     BlackoutSlateStateType,
     BurnInAlignmentType,
     BurnInBackgroundColorType,
+    BurnInDestinationSubtitleRowsType,
     BurnInFontColorType,
     BurnInOutlineColorType,
     BurnInShadowColorType,
     BurnInTeletextGridControlType,
     CdiInputResolutionType,
+    ChannelAlertStateType,
     ChannelClassType,
     ChannelPipelineIdToRestartType,
     ChannelPlacementGroupStateType,
@@ -71,6 +76,7 @@ from .literals import (
     CloudWatchAlarmTemplateStatisticType,
     CloudWatchAlarmTemplateTargetResourceTypeType,
     CloudWatchAlarmTemplateTreatMissingDataType,
+    ClusterAlertStateType,
     ClusterStateType,
     CmafId3BehaviorType,
     CmafIngestSegmentLengthUnitsType,
@@ -91,6 +97,7 @@ from .literals import (
     DvbSubDestinationFontColorType,
     DvbSubDestinationOutlineColorType,
     DvbSubDestinationShadowColorType,
+    DvbSubDestinationSubtitleRowsType,
     DvbSubDestinationTeletextGridControlType,
     DvbSubOcrLanguageType,
     Eac3AtmosCodingModeType,
@@ -153,6 +160,7 @@ from .literals import (
     H265ColorMetadataType,
     H265DeblockingType,
     H265FlickerAqType,
+    H265GopBReferenceType,
     H265GopSizeUnitsType,
     H265LevelType,
     H265LookAheadRateControlType,
@@ -162,15 +170,18 @@ from .literals import (
     H265RateControlModeType,
     H265ScanTypeType,
     H265SceneChangeDetectType,
+    H265SubGopLengthType,
     H265TierType,
     H265TilePaddingType,
     H265TimecodeInsertionBehaviorType,
     H265TreeblockSizeType,
     HlsAdMarkersType,
     HlsAkamaiHttpTransferModeType,
+    HlsAutoSelectType,
     HlsCaptionLanguageSettingType,
     HlsClientCacheType,
     HlsCodecSpecificationType,
+    HlsDefaultType,
     HlsDirectoryStructureType,
     HlsDiscontinuityTagsType,
     HlsEncryptionTypeType,
@@ -264,6 +275,7 @@ from .literals import (
     Mpeg2SubGopLengthType,
     Mpeg2TimecodeInsertionBehaviorType,
     MsSmoothH265PackagingTypeType,
+    MultiplexAlertStateType,
     MultiplexStateType,
     NetworkInputServerValidationType,
     NetworkInterfaceModeType,
@@ -287,6 +299,7 @@ from .literals import (
     ReservationSpecialFeatureType,
     ReservationStateType,
     ReservationVideoQualityType,
+    RouterEncryptionTypeType,
     RtmpCacheFullBehaviorType,
     RtmpCaptionDataType,
     RtmpOutputCertificateModeType,
@@ -354,6 +367,7 @@ __all__ = (
     "Ac3SettingsTypeDef",
     "AcceptInputDeviceTransferRequestTypeDef",
     "AccountConfigurationTypeDef",
+    "AdditionalDestinationsTypeDef",
     "AncillarySourceSettingsTypeDef",
     "AnywhereSettingsTypeDef",
     "ArchiveCdnSettingsTypeDef",
@@ -428,6 +442,7 @@ __all__ = (
     "CaptionSelectorTypeDef",
     "CaptionSelectorUnionTypeDef",
     "CdiInputSpecificationTypeDef",
+    "ChannelAlertTypeDef",
     "ChannelEgressEndpointTypeDef",
     "ChannelEngineVersionRequestTypeDef",
     "ChannelEngineVersionResponseTypeDef",
@@ -436,6 +451,7 @@ __all__ = (
     "ClaimDeviceRequestTypeDef",
     "CloudWatchAlarmTemplateGroupSummaryTypeDef",
     "CloudWatchAlarmTemplateSummaryTypeDef",
+    "ClusterAlertTypeDef",
     "ClusterNetworkSettingsCreateRequestTypeDef",
     "ClusterNetworkSettingsTypeDef",
     "ClusterNetworkSettingsUpdateRequestTypeDef",
@@ -688,6 +704,9 @@ __all__ = (
     "IpPoolTypeDef",
     "IpPoolUpdateRequestTypeDef",
     "KeyProviderSettingsTypeDef",
+    "ListAlertsRequestPaginateTypeDef",
+    "ListAlertsRequestTypeDef",
+    "ListAlertsResponseTypeDef",
     "ListChannelPlacementGroupsRequestPaginateTypeDef",
     "ListChannelPlacementGroupsRequestTypeDef",
     "ListChannelPlacementGroupsResponseTypeDef",
@@ -700,6 +719,9 @@ __all__ = (
     "ListCloudWatchAlarmTemplatesRequestPaginateTypeDef",
     "ListCloudWatchAlarmTemplatesRequestTypeDef",
     "ListCloudWatchAlarmTemplatesResponseTypeDef",
+    "ListClusterAlertsRequestPaginateTypeDef",
+    "ListClusterAlertsRequestTypeDef",
+    "ListClusterAlertsResponseTypeDef",
     "ListClustersRequestPaginateTypeDef",
     "ListClustersRequestTypeDef",
     "ListClustersResponseTypeDef",
@@ -721,6 +743,9 @@ __all__ = (
     "ListInputsRequestPaginateTypeDef",
     "ListInputsRequestTypeDef",
     "ListInputsResponseTypeDef",
+    "ListMultiplexAlertsRequestPaginateTypeDef",
+    "ListMultiplexAlertsRequestTypeDef",
+    "ListMultiplexAlertsResponseTypeDef",
     "ListMultiplexProgramsRequestPaginateTypeDef",
     "ListMultiplexProgramsRequestTypeDef",
     "ListMultiplexProgramsResponseTypeDef",
@@ -755,8 +780,13 @@ __all__ = (
     "MaintenanceUpdateSettingsTypeDef",
     "MediaConnectFlowRequestTypeDef",
     "MediaConnectFlowTypeDef",
+    "MediaPackageGroupSettingsOutputTypeDef",
     "MediaPackageGroupSettingsTypeDef",
     "MediaPackageOutputDestinationSettingsTypeDef",
+    "MediaPackageOutputSettingsTypeDef",
+    "MediaPackageV2DestinationSettingsTypeDef",
+    "MediaPackageV2GroupSettingsOutputTypeDef",
+    "MediaPackageV2GroupSettingsTypeDef",
     "MediaResourceNeighborTypeDef",
     "MediaResourceTypeDef",
     "MonitorDeploymentTypeDef",
@@ -777,6 +807,7 @@ __all__ = (
     "MulticastSourceCreateRequestTypeDef",
     "MulticastSourceTypeDef",
     "MulticastSourceUpdateRequestTypeDef",
+    "MultiplexAlertTypeDef",
     "MultiplexContainerSettingsTypeDef",
     "MultiplexM2tsSettingsTypeDef",
     "MultiplexMediaConnectOutputDestinationSettingsTypeDef",
@@ -840,6 +871,10 @@ __all__ = (
     "RouteCreateRequestTypeDef",
     "RouteTypeDef",
     "RouteUpdateRequestTypeDef",
+    "RouterDestinationSettingsTypeDef",
+    "RouterDestinationTypeDef",
+    "RouterInputSettingsTypeDef",
+    "RouterSettingsTypeDef",
     "RtmpGroupSettingsOutputTypeDef",
     "RtmpGroupSettingsTypeDef",
     "RtmpOutputSettingsTypeDef",
@@ -878,6 +913,7 @@ __all__ = (
     "Smpte2110ReceiverGroupSettingsTypeDef",
     "Smpte2110ReceiverGroupSettingsUnionTypeDef",
     "Smpte2110ReceiverGroupTypeDef",
+    "SpecialRouterSettingsTypeDef",
     "SrtCallerDecryptionRequestTypeDef",
     "SrtCallerDecryptionTypeDef",
     "SrtCallerSourceRequestTypeDef",
@@ -1013,6 +1049,9 @@ class AcceptInputDeviceTransferRequestTypeDef(TypedDict):
 class AccountConfigurationTypeDef(TypedDict):
     KmsKeyId: NotRequired[str]
 
+class OutputLocationRefTypeDef(TypedDict):
+    DestinationRefId: NotRequired[str]
+
 class AncillarySourceSettingsTypeDef(TypedDict):
     SourceAncillaryChannelNumber: NotRequired[int]
 
@@ -1022,9 +1061,6 @@ class AnywhereSettingsTypeDef(TypedDict):
 
 class ArchiveS3SettingsTypeDef(TypedDict):
     CannedAcl: NotRequired[S3CannedAclType]
-
-class OutputLocationRefTypeDef(TypedDict):
-    DestinationRefId: NotRequired[str]
 
 class InputChannelLevelTypeDef(TypedDict):
     Gain: int
@@ -1217,6 +1253,15 @@ class Scte27SourceSettingsTypeDef(TypedDict):
 class CdiInputSpecificationTypeDef(TypedDict):
     Resolution: NotRequired[CdiInputResolutionType]
 
+class ChannelAlertTypeDef(TypedDict):
+    AlertType: NotRequired[str]
+    ClearedTimestamp: NotRequired[datetime]
+    Id: NotRequired[str]
+    Message: NotRequired[str]
+    PipelineId: NotRequired[str]
+    SetTimestamp: NotRequired[datetime]
+    State: NotRequired[ChannelAlertStateType]
+
 class ChannelEgressEndpointTypeDef(TypedDict):
     SourceIp: NotRequired[str]
 
@@ -1279,6 +1324,16 @@ class CloudWatchAlarmTemplateSummaryTypeDef(TypedDict):
     Description: NotRequired[str]
     ModifiedAt: NotRequired[datetime]
     Tags: NotRequired[Dict[str, str]]
+
+class ClusterAlertTypeDef(TypedDict):
+    AlertType: NotRequired[str]
+    ChannelId: NotRequired[str]
+    ClearedTimestamp: NotRequired[datetime]
+    Id: NotRequired[str]
+    Message: NotRequired[str]
+    NodeId: NotRequired[str]
+    SetTimestamp: NotRequired[datetime]
+    State: NotRequired[ClusterAlertStateType]
 
 class InterfaceMappingCreateRequestTypeDef(TypedDict):
     LogicalInterfaceName: NotRequired[str]
@@ -1871,6 +1926,12 @@ class InputSdpLocationTypeDef(TypedDict):
 class IpPoolUpdateRequestTypeDef(TypedDict):
     Cidr: NotRequired[str]
 
+class ListAlertsRequestTypeDef(TypedDict):
+    ChannelId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    StateFilter: NotRequired[str]
+
 class ListChannelPlacementGroupsRequestTypeDef(TypedDict):
     ClusterId: str
     MaxResults: NotRequired[int]
@@ -1892,6 +1953,12 @@ class ListCloudWatchAlarmTemplatesRequestTypeDef(TypedDict):
     NextToken: NotRequired[str]
     Scope: NotRequired[str]
     SignalMapIdentifier: NotRequired[str]
+
+class ListClusterAlertsRequestTypeDef(TypedDict):
+    ClusterId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    StateFilter: NotRequired[str]
 
 class ListClustersRequestTypeDef(TypedDict):
     MaxResults: NotRequired[int]
@@ -1930,6 +1997,21 @@ class ListInputSecurityGroupsRequestTypeDef(TypedDict):
 class ListInputsRequestTypeDef(TypedDict):
     MaxResults: NotRequired[int]
     NextToken: NotRequired[str]
+
+class ListMultiplexAlertsRequestTypeDef(TypedDict):
+    MultiplexId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    StateFilter: NotRequired[str]
+
+class MultiplexAlertTypeDef(TypedDict):
+    AlertType: NotRequired[str]
+    ClearedTimestamp: NotRequired[datetime]
+    Id: NotRequired[str]
+    Message: NotRequired[str]
+    PipelineId: NotRequired[str]
+    SetTimestamp: NotRequired[datetime]
+    State: NotRequired[MultiplexAlertStateType]
 
 class ListMultiplexProgramsRequestTypeDef(TypedDict):
     MultiplexId: str
@@ -2046,6 +2128,12 @@ class MediaPackageOutputDestinationSettingsTypeDef(TypedDict):
     ChannelId: NotRequired[str]
     ChannelGroup: NotRequired[str]
     ChannelName: NotRequired[str]
+
+class MediaPackageV2DestinationSettingsTypeDef(TypedDict):
+    AudioGroupId: NotRequired[str]
+    AudioRenditionSets: NotRequired[str]
+    HlsAutoSelect: NotRequired[HlsAutoSelectType]
+    HlsDefault: NotRequired[HlsDefaultType]
 
 class MediaResourceNeighborTypeDef(TypedDict):
     Arn: str
@@ -2207,6 +2295,13 @@ class RouteUpdateRequestTypeDef(TypedDict):
     Cidr: NotRequired[str]
     Gateway: NotRequired[str]
 
+class RouterDestinationSettingsTypeDef(TypedDict):
+    AvailabilityZoneName: str
+
+class RouterDestinationTypeDef(TypedDict):
+    AvailabilityZoneName: NotRequired[str]
+    RouterOutputArn: NotRequired[str]
+
 class Scte35InputScheduleActionSettingsTypeDef(TypedDict):
     Mode: Scte35InputModeType
     InputAttachmentNameReference: NotRequired[str]
@@ -2240,6 +2335,9 @@ class SdiSourceMappingUpdateRequestTypeDef(TypedDict):
     CardNumber: NotRequired[int]
     ChannelNumber: NotRequired[int]
     SdiSource: NotRequired[str]
+
+class SpecialRouterSettingsTypeDef(TypedDict):
+    RouterArn: NotRequired[str]
 
 class SrtCallerDecryptionRequestTypeDef(TypedDict):
     Algorithm: NotRequired[AlgorithmType]
@@ -2356,10 +2454,7 @@ class VideoSelectorProgramIdTypeDef(TypedDict):
 class UpdateAccountConfigurationRequestTypeDef(TypedDict):
     AccountConfiguration: NotRequired[AccountConfigurationTypeDef]
 
-class ArchiveCdnSettingsTypeDef(TypedDict):
-    ArchiveS3Settings: NotRequired[ArchiveS3SettingsTypeDef]
-
-class MediaPackageGroupSettingsTypeDef(TypedDict):
+class AdditionalDestinationsTypeDef(TypedDict):
     Destination: OutputLocationRefTypeDef
 
 class MsSmoothGroupSettingsTypeDef(TypedDict):
@@ -2388,6 +2483,9 @@ class RtmpOutputSettingsTypeDef(TypedDict):
     CertificateMode: NotRequired[RtmpOutputCertificateModeType]
     ConnectionRetryInterval: NotRequired[int]
     NumRetries: NotRequired[int]
+
+class ArchiveCdnSettingsTypeDef(TypedDict):
+    ArchiveS3Settings: NotRequired[ArchiveS3SettingsTypeDef]
 
 class AudioChannelMappingOutputTypeDef(TypedDict):
     InputChannelLevels: List[InputChannelLevelTypeDef]
@@ -2450,6 +2548,7 @@ class BurnInDestinationSettingsTypeDef(TypedDict):
     TeletextGridControl: NotRequired[BurnInTeletextGridControlType]
     XPosition: NotRequired[int]
     YPosition: NotRequired[int]
+    SubtitleRows: NotRequired[BurnInDestinationSubtitleRowsType]
 
 class DvbSubDestinationSettingsTypeDef(TypedDict):
     Alignment: NotRequired[DvbSubDestinationAlignmentType]
@@ -2469,6 +2568,7 @@ class DvbSubDestinationSettingsTypeDef(TypedDict):
     TeletextGridControl: NotRequired[DvbSubDestinationTeletextGridControlType]
     XPosition: NotRequired[int]
     YPosition: NotRequired[int]
+    SubtitleRows: NotRequired[DvbSubDestinationSubtitleRowsType]
 
 class InputLossBehaviorTypeDef(TypedDict):
     BlackFrameMsec: NotRequired[int]
@@ -2545,6 +2645,7 @@ class H265ColorSpaceSettingsOutputTypeDef(TypedDict):
     Hdr10Settings: NotRequired[Hdr10SettingsTypeDef]
     Rec601Settings: NotRequired[Dict[str, Any]]
     Rec709Settings: NotRequired[Dict[str, Any]]
+    Hlg2020Settings: NotRequired[Dict[str, Any]]
 
 class H265ColorSpaceSettingsTypeDef(TypedDict):
     ColorSpacePassthroughSettings: NotRequired[Mapping[str, Any]]
@@ -2552,6 +2653,7 @@ class H265ColorSpaceSettingsTypeDef(TypedDict):
     Hdr10Settings: NotRequired[Hdr10SettingsTypeDef]
     Rec601Settings: NotRequired[Mapping[str, Any]]
     Rec709Settings: NotRequired[Mapping[str, Any]]
+    Hlg2020Settings: NotRequired[Mapping[str, Any]]
 
 class VideoSelectorColorSpaceSettingsTypeDef(TypedDict):
     Hdr10Settings: NotRequired[Hdr10SettingsTypeDef]
@@ -2768,9 +2870,38 @@ class UpdateEventBridgeRuleTemplateGroupResponseTypeDef(TypedDict):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+class MediaPackageV2GroupSettingsOutputTypeDef(TypedDict):
+    CaptionLanguageMappings: NotRequired[List[CaptionLanguageMappingTypeDef]]
+    Id3Behavior: NotRequired[CmafId3BehaviorType]
+    KlvBehavior: NotRequired[CmafKLVBehaviorType]
+    NielsenId3Behavior: NotRequired[CmafNielsenId3BehaviorType]
+    Scte35Type: NotRequired[Scte35TypeType]
+    SegmentLength: NotRequired[int]
+    SegmentLengthUnits: NotRequired[CmafIngestSegmentLengthUnitsType]
+    TimedMetadataId3Frame: NotRequired[CmafTimedMetadataId3FrameType]
+    TimedMetadataId3Period: NotRequired[int]
+    TimedMetadataPassthrough: NotRequired[CmafTimedMetadataPassthroughType]
+
+class MediaPackageV2GroupSettingsTypeDef(TypedDict):
+    CaptionLanguageMappings: NotRequired[Sequence[CaptionLanguageMappingTypeDef]]
+    Id3Behavior: NotRequired[CmafId3BehaviorType]
+    KlvBehavior: NotRequired[CmafKLVBehaviorType]
+    NielsenId3Behavior: NotRequired[CmafNielsenId3BehaviorType]
+    Scte35Type: NotRequired[Scte35TypeType]
+    SegmentLength: NotRequired[int]
+    SegmentLengthUnits: NotRequired[CmafIngestSegmentLengthUnitsType]
+    TimedMetadataId3Frame: NotRequired[CmafTimedMetadataId3FrameType]
+    TimedMetadataId3Period: NotRequired[int]
+    TimedMetadataPassthrough: NotRequired[CmafTimedMetadataPassthroughType]
+
 class TeletextSourceSettingsTypeDef(TypedDict):
     OutputRectangle: NotRequired[CaptionRectangleTypeDef]
     PageNumber: NotRequired[str]
+
+class ListAlertsResponseTypeDef(TypedDict):
+    Alerts: List[ChannelAlertTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class ListVersionsResponseTypeDef(TypedDict):
     Versions: List[ChannelEngineVersionResponseTypeDef]
@@ -2794,6 +2925,11 @@ class ListCloudWatchAlarmTemplatesResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class ListClusterAlertsResponseTypeDef(TypedDict):
+    Alerts: List[ClusterAlertTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
 class ClusterNetworkSettingsCreateRequestTypeDef(TypedDict):
     DefaultRoute: NotRequired[str]
     InterfaceMappings: NotRequired[Sequence[InterfaceMappingCreateRequestTypeDef]]
@@ -2805,42 +2941,6 @@ class ClusterNetworkSettingsTypeDef(TypedDict):
 class ClusterNetworkSettingsUpdateRequestTypeDef(TypedDict):
     DefaultRoute: NotRequired[str]
     InterfaceMappings: NotRequired[Sequence[InterfaceMappingUpdateRequestTypeDef]]
-
-class CmafIngestGroupSettingsOutputTypeDef(TypedDict):
-    Destination: OutputLocationRefTypeDef
-    NielsenId3Behavior: NotRequired[CmafNielsenId3BehaviorType]
-    Scte35Type: NotRequired[Scte35TypeType]
-    SegmentLength: NotRequired[int]
-    SegmentLengthUnits: NotRequired[CmafIngestSegmentLengthUnitsType]
-    SendDelayMs: NotRequired[int]
-    KlvBehavior: NotRequired[CmafKLVBehaviorType]
-    KlvNameModifier: NotRequired[str]
-    NielsenId3NameModifier: NotRequired[str]
-    Scte35NameModifier: NotRequired[str]
-    Id3Behavior: NotRequired[CmafId3BehaviorType]
-    Id3NameModifier: NotRequired[str]
-    CaptionLanguageMappings: NotRequired[List[CmafIngestCaptionLanguageMappingTypeDef]]
-    TimedMetadataId3Frame: NotRequired[CmafTimedMetadataId3FrameType]
-    TimedMetadataId3Period: NotRequired[int]
-    TimedMetadataPassthrough: NotRequired[CmafTimedMetadataPassthroughType]
-
-class CmafIngestGroupSettingsTypeDef(TypedDict):
-    Destination: OutputLocationRefTypeDef
-    NielsenId3Behavior: NotRequired[CmafNielsenId3BehaviorType]
-    Scte35Type: NotRequired[Scte35TypeType]
-    SegmentLength: NotRequired[int]
-    SegmentLengthUnits: NotRequired[CmafIngestSegmentLengthUnitsType]
-    SendDelayMs: NotRequired[int]
-    KlvBehavior: NotRequired[CmafKLVBehaviorType]
-    KlvNameModifier: NotRequired[str]
-    NielsenId3NameModifier: NotRequired[str]
-    Scte35NameModifier: NotRequired[str]
-    Id3Behavior: NotRequired[CmafId3BehaviorType]
-    Id3NameModifier: NotRequired[str]
-    CaptionLanguageMappings: NotRequired[Sequence[CmafIngestCaptionLanguageMappingTypeDef]]
-    TimedMetadataId3Frame: NotRequired[CmafTimedMetadataId3FrameType]
-    TimedMetadataId3Period: NotRequired[int]
-    TimedMetadataPassthrough: NotRequired[CmafTimedMetadataPassthroughType]
 
 class ColorCorrectionSettingsOutputTypeDef(TypedDict):
     GlobalColorCorrections: List[ColorCorrectionTypeDef]
@@ -3317,6 +3417,11 @@ class DescribeScheduleRequestPaginateTypeDef(TypedDict):
     ChannelId: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
+class ListAlertsRequestPaginateTypeDef(TypedDict):
+    ChannelId: str
+    StateFilter: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
 class ListChannelPlacementGroupsRequestPaginateTypeDef(TypedDict):
     ClusterId: str
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
@@ -3333,6 +3438,11 @@ class ListCloudWatchAlarmTemplatesRequestPaginateTypeDef(TypedDict):
     GroupIdentifier: NotRequired[str]
     Scope: NotRequired[str]
     SignalMapIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListClusterAlertsRequestPaginateTypeDef(TypedDict):
+    ClusterId: str
+    StateFilter: NotRequired[str]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListClustersRequestPaginateTypeDef(TypedDict):
@@ -3358,6 +3468,11 @@ class ListInputSecurityGroupsRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListInputsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMultiplexAlertsRequestPaginateTypeDef(TypedDict):
+    MultiplexId: str
+    StateFilter: NotRequired[str]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListMultiplexProgramsRequestPaginateTypeDef(TypedDict):
@@ -3568,6 +3683,11 @@ class ListInputDeviceTransfersResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class ListMultiplexAlertsResponseTypeDef(TypedDict):
+    Alerts: List[MultiplexAlertTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
 class ListMultiplexProgramsResponseTypeDef(TypedDict):
     MultiplexPrograms: List[MultiplexProgramSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3586,6 +3706,9 @@ class ListSignalMapsResponseTypeDef(TypedDict):
 class StandardHlsSettingsTypeDef(TypedDict):
     M3u8Settings: M3u8SettingsTypeDef
     AudioRenditionSets: NotRequired[str]
+
+class MediaPackageOutputSettingsTypeDef(TypedDict):
+    MediaPackageV2DestinationSettings: NotRequired[MediaPackageV2DestinationSettingsTypeDef]
 
 class MediaResourceTypeDef(TypedDict):
     Destinations: NotRequired[List[MediaResourceNeighborTypeDef]]
@@ -3650,6 +3773,7 @@ class OutputDestinationOutputTypeDef(TypedDict):
     MultiplexSettings: NotRequired[MultiplexProgramChannelDestinationSettingsTypeDef]
     Settings: NotRequired[List[OutputDestinationSettingsTypeDef]]
     SrtSettings: NotRequired[List[SrtOutputDestinationSettingsTypeDef]]
+    LogicalInterfaceNames: NotRequired[List[str]]
 
 class OutputDestinationTypeDef(TypedDict):
     Id: NotRequired[str]
@@ -3657,6 +3781,7 @@ class OutputDestinationTypeDef(TypedDict):
     MultiplexSettings: NotRequired[MultiplexProgramChannelDestinationSettingsTypeDef]
     Settings: NotRequired[Sequence[OutputDestinationSettingsTypeDef]]
     SrtSettings: NotRequired[Sequence[SrtOutputDestinationSettingsTypeDef]]
+    LogicalInterfaceNames: NotRequired[Sequence[str]]
 
 class PauseStateScheduleActionSettingsOutputTypeDef(TypedDict):
     Pipelines: NotRequired[List[PipelinePauseStateSettingsTypeDef]]
@@ -3669,6 +3794,16 @@ class UpdateNetworkRequestTypeDef(TypedDict):
     IpPools: NotRequired[Sequence[IpPoolUpdateRequestTypeDef]]
     Name: NotRequired[str]
     Routes: NotRequired[Sequence[RouteUpdateRequestTypeDef]]
+
+class RouterSettingsTypeDef(TypedDict):
+    Destinations: NotRequired[Sequence[RouterDestinationSettingsTypeDef]]
+    EncryptionType: NotRequired[RouterEncryptionTypeType]
+    SecretArn: NotRequired[str]
+
+class RouterInputSettingsTypeDef(TypedDict):
+    Destinations: NotRequired[List[RouterDestinationTypeDef]]
+    EncryptionType: NotRequired[RouterEncryptionTypeType]
+    SecretArn: NotRequired[str]
 
 class Scte35SegmentationDescriptorTypeDef(TypedDict):
     SegmentationCancelIndicator: Scte35SegmentationCancelIndicatorType
@@ -3716,6 +3851,44 @@ class ThumbnailDetailTypeDef(TypedDict):
 class VideoSelectorSettingsTypeDef(TypedDict):
     VideoSelectorPid: NotRequired[VideoSelectorPidTypeDef]
     VideoSelectorProgramId: NotRequired[VideoSelectorProgramIdTypeDef]
+
+class CmafIngestGroupSettingsOutputTypeDef(TypedDict):
+    Destination: OutputLocationRefTypeDef
+    NielsenId3Behavior: NotRequired[CmafNielsenId3BehaviorType]
+    Scte35Type: NotRequired[Scte35TypeType]
+    SegmentLength: NotRequired[int]
+    SegmentLengthUnits: NotRequired[CmafIngestSegmentLengthUnitsType]
+    SendDelayMs: NotRequired[int]
+    KlvBehavior: NotRequired[CmafKLVBehaviorType]
+    KlvNameModifier: NotRequired[str]
+    NielsenId3NameModifier: NotRequired[str]
+    Scte35NameModifier: NotRequired[str]
+    Id3Behavior: NotRequired[CmafId3BehaviorType]
+    Id3NameModifier: NotRequired[str]
+    CaptionLanguageMappings: NotRequired[List[CmafIngestCaptionLanguageMappingTypeDef]]
+    TimedMetadataId3Frame: NotRequired[CmafTimedMetadataId3FrameType]
+    TimedMetadataId3Period: NotRequired[int]
+    TimedMetadataPassthrough: NotRequired[CmafTimedMetadataPassthroughType]
+    AdditionalDestinations: NotRequired[List[AdditionalDestinationsTypeDef]]
+
+class CmafIngestGroupSettingsTypeDef(TypedDict):
+    Destination: OutputLocationRefTypeDef
+    NielsenId3Behavior: NotRequired[CmafNielsenId3BehaviorType]
+    Scte35Type: NotRequired[Scte35TypeType]
+    SegmentLength: NotRequired[int]
+    SegmentLengthUnits: NotRequired[CmafIngestSegmentLengthUnitsType]
+    SendDelayMs: NotRequired[int]
+    KlvBehavior: NotRequired[CmafKLVBehaviorType]
+    KlvNameModifier: NotRequired[str]
+    NielsenId3NameModifier: NotRequired[str]
+    Scte35NameModifier: NotRequired[str]
+    Id3Behavior: NotRequired[CmafId3BehaviorType]
+    Id3NameModifier: NotRequired[str]
+    CaptionLanguageMappings: NotRequired[Sequence[CmafIngestCaptionLanguageMappingTypeDef]]
+    TimedMetadataId3Frame: NotRequired[CmafTimedMetadataId3FrameType]
+    TimedMetadataId3Period: NotRequired[int]
+    TimedMetadataPassthrough: NotRequired[CmafTimedMetadataPassthroughType]
+    AdditionalDestinations: NotRequired[Sequence[AdditionalDestinationsTypeDef]]
 
 class ArchiveGroupSettingsTypeDef(TypedDict):
     Destination: OutputLocationRefTypeDef
@@ -3798,6 +3971,11 @@ class Av1SettingsOutputTypeDef(TypedDict):
     QvbrQualityLevel: NotRequired[int]
     SceneChangeDetect: NotRequired[Av1SceneChangeDetectType]
     TimecodeBurninSettings: NotRequired[TimecodeBurninSettingsTypeDef]
+    Bitrate: NotRequired[int]
+    RateControlMode: NotRequired[Av1RateControlModeType]
+    MinBitrate: NotRequired[int]
+    SpatialAq: NotRequired[Av1SpatialAqType]
+    TemporalAq: NotRequired[Av1TemporalAqType]
 
 class Av1SettingsTypeDef(TypedDict):
     FramerateDenominator: int
@@ -3817,10 +3995,23 @@ class Av1SettingsTypeDef(TypedDict):
     QvbrQualityLevel: NotRequired[int]
     SceneChangeDetect: NotRequired[Av1SceneChangeDetectType]
     TimecodeBurninSettings: NotRequired[TimecodeBurninSettingsTypeDef]
+    Bitrate: NotRequired[int]
+    RateControlMode: NotRequired[Av1RateControlModeType]
+    MinBitrate: NotRequired[int]
+    SpatialAq: NotRequired[Av1SpatialAqType]
+    TemporalAq: NotRequired[Av1TemporalAqType]
 
 class AvailConfigurationTypeDef(TypedDict):
     AvailSettings: NotRequired[AvailSettingsTypeDef]
     Scte35SegmentationScope: NotRequired[Scte35SegmentationScopeType]
+
+class MediaPackageGroupSettingsOutputTypeDef(TypedDict):
+    Destination: OutputLocationRefTypeDef
+    MediapackageV2GroupSettings: NotRequired[MediaPackageV2GroupSettingsOutputTypeDef]
+
+class MediaPackageGroupSettingsTypeDef(TypedDict):
+    Destination: OutputLocationRefTypeDef
+    MediapackageV2GroupSettings: NotRequired[MediaPackageV2GroupSettingsTypeDef]
 
 class CaptionSelectorSettingsOutputTypeDef(TypedDict):
     AncillarySourceSettings: NotRequired[AncillarySourceSettingsTypeDef]
@@ -4031,6 +4222,7 @@ class H264SettingsOutputTypeDef(TypedDict):
     TimecodeInsertion: NotRequired[H264TimecodeInsertionBehaviorType]
     TimecodeBurninSettings: NotRequired[TimecodeBurninSettingsTypeDef]
     MinQp: NotRequired[int]
+    MinBitrate: NotRequired[int]
 
 class H264SettingsTypeDef(TypedDict):
     AdaptiveQuantization: NotRequired[H264AdaptiveQuantizationType]
@@ -4076,6 +4268,7 @@ class H264SettingsTypeDef(TypedDict):
     TimecodeInsertion: NotRequired[H264TimecodeInsertionBehaviorType]
     TimecodeBurninSettings: NotRequired[TimecodeBurninSettingsTypeDef]
     MinQp: NotRequired[int]
+    MinBitrate: NotRequired[int]
 
 class H265SettingsOutputTypeDef(TypedDict):
     FramerateDenominator: int
@@ -4116,6 +4309,10 @@ class H265SettingsOutputTypeDef(TypedDict):
     TreeblockSize: NotRequired[H265TreeblockSizeType]
     MinQp: NotRequired[int]
     Deblocking: NotRequired[H265DeblockingType]
+    GopBReference: NotRequired[H265GopBReferenceType]
+    GopNumBFrames: NotRequired[int]
+    MinBitrate: NotRequired[int]
+    SubgopLength: NotRequired[H265SubGopLengthType]
 
 class H265SettingsTypeDef(TypedDict):
     FramerateDenominator: int
@@ -4156,6 +4353,10 @@ class H265SettingsTypeDef(TypedDict):
     TreeblockSize: NotRequired[H265TreeblockSizeType]
     MinQp: NotRequired[int]
     Deblocking: NotRequired[H265DeblockingType]
+    GopBReference: NotRequired[H265GopBReferenceType]
+    GopNumBFrames: NotRequired[int]
+    MinBitrate: NotRequired[int]
+    SubgopLength: NotRequired[H265SubGopLengthType]
 
 class Mpeg2SettingsTypeDef(TypedDict):
     FramerateDenominator: int
@@ -4803,7 +5004,7 @@ class OutputGroupSettingsOutputTypeDef(TypedDict):
     ArchiveGroupSettings: NotRequired[ArchiveGroupSettingsTypeDef]
     FrameCaptureGroupSettings: NotRequired[FrameCaptureGroupSettingsTypeDef]
     HlsGroupSettings: NotRequired[HlsGroupSettingsOutputTypeDef]
-    MediaPackageGroupSettings: NotRequired[MediaPackageGroupSettingsTypeDef]
+    MediaPackageGroupSettings: NotRequired[MediaPackageGroupSettingsOutputTypeDef]
     MsSmoothGroupSettings: NotRequired[MsSmoothGroupSettingsTypeDef]
     MultiplexGroupSettings: NotRequired[Dict[str, Any]]
     RtmpGroupSettings: NotRequired[RtmpGroupSettingsOutputTypeDef]
@@ -4891,6 +5092,7 @@ DescribeInputResponseTypeDef = TypedDict(
         "MulticastSettings": MulticastSettingsTypeDef,
         "Smpte2110ReceiverGroupSettings": Smpte2110ReceiverGroupSettingsOutputTypeDef,
         "SdiSources": List[str],
+        "RouterSettings": RouterInputSettingsTypeDef,
         "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
@@ -4918,6 +5120,7 @@ InputTypeDef = TypedDict(
         "MulticastSettings": NotRequired[MulticastSettingsTypeDef],
         "Smpte2110ReceiverGroupSettings": NotRequired[Smpte2110ReceiverGroupSettingsOutputTypeDef],
         "SdiSources": NotRequired[List[str]],
+        "RouterSettings": NotRequired[RouterInputSettingsTypeDef],
     },
 )
 Smpte2110ReceiverGroupSettingsUnionTypeDef = Union[
@@ -4928,7 +5131,7 @@ class OutputSettingsOutputTypeDef(TypedDict):
     ArchiveOutputSettings: NotRequired[ArchiveOutputSettingsOutputTypeDef]
     FrameCaptureOutputSettings: NotRequired[FrameCaptureOutputSettingsTypeDef]
     HlsOutputSettings: NotRequired[HlsOutputSettingsOutputTypeDef]
-    MediaPackageOutputSettings: NotRequired[Dict[str, Any]]
+    MediaPackageOutputSettings: NotRequired[MediaPackageOutputSettingsTypeDef]
     MsSmoothOutputSettings: NotRequired[MsSmoothOutputSettingsTypeDef]
     MultiplexOutputSettings: NotRequired[MultiplexOutputSettingsTypeDef]
     RtmpOutputSettings: NotRequired[RtmpOutputSettingsTypeDef]
@@ -4940,7 +5143,7 @@ class OutputSettingsTypeDef(TypedDict):
     ArchiveOutputSettings: NotRequired[ArchiveOutputSettingsTypeDef]
     FrameCaptureOutputSettings: NotRequired[FrameCaptureOutputSettingsTypeDef]
     HlsOutputSettings: NotRequired[HlsOutputSettingsTypeDef]
-    MediaPackageOutputSettings: NotRequired[Mapping[str, Any]]
+    MediaPackageOutputSettings: NotRequired[MediaPackageOutputSettingsTypeDef]
     MsSmoothOutputSettings: NotRequired[MsSmoothOutputSettingsTypeDef]
     MultiplexOutputSettings: NotRequired[MultiplexOutputSettingsTypeDef]
     RtmpOutputSettings: NotRequired[RtmpOutputSettingsTypeDef]
@@ -5011,6 +5214,7 @@ CreateInputRequestTypeDef = TypedDict(
         "MulticastSettings": NotRequired[MulticastSettingsCreateRequestTypeDef],
         "Smpte2110ReceiverGroupSettings": NotRequired[Smpte2110ReceiverGroupSettingsUnionTypeDef],
         "SdiSources": NotRequired[Sequence[str]],
+        "RouterSettings": NotRequired[RouterSettingsTypeDef],
     },
 )
 
@@ -5027,6 +5231,7 @@ class UpdateInputRequestTypeDef(TypedDict):
     MulticastSettings: NotRequired[MulticastSettingsUpdateRequestTypeDef]
     Smpte2110ReceiverGroupSettings: NotRequired[Smpte2110ReceiverGroupSettingsUnionTypeDef]
     SdiSources: NotRequired[Sequence[str]]
+    SpecialRouterSettings: NotRequired[SpecialRouterSettingsTypeDef]
 
 class ExtraTypeDef(TypedDict):
     OutputSettings: OutputSettingsOutputTypeDef

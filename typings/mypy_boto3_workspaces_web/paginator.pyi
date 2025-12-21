@@ -13,6 +13,7 @@ Usage::
     from mypy_boto3_workspaces_web.client import WorkSpacesWebClient
     from mypy_boto3_workspaces_web.paginator import (
         ListDataProtectionSettingsPaginator,
+        ListSessionLoggersPaginator,
         ListSessionsPaginator,
     )
 
@@ -20,6 +21,7 @@ Usage::
     client: WorkSpacesWebClient = session.client("workspaces-web")
 
     list_data_protection_settings_paginator: ListDataProtectionSettingsPaginator = client.get_paginator("list_data_protection_settings")
+    list_session_loggers_paginator: ListSessionLoggersPaginator = client.get_paginator("list_session_loggers")
     list_sessions_paginator: ListSessionsPaginator = client.get_paginator("list_sessions")
     ```
 """
@@ -34,6 +36,8 @@ from botocore.paginate import PageIterator, Paginator
 from .type_defs import (
     ListDataProtectionSettingsRequestPaginateTypeDef,
     ListDataProtectionSettingsResponseTypeDef,
+    ListSessionLoggersRequestPaginateTypeDef,
+    ListSessionLoggersResponseTypeDef,
     ListSessionsRequestPaginateTypeDef,
     ListSessionsResponseTypeDef,
 )
@@ -43,7 +47,11 @@ if sys.version_info >= (3, 12):
 else:
     from typing_extensions import Unpack
 
-__all__ = ("ListDataProtectionSettingsPaginator", "ListSessionsPaginator")
+__all__ = (
+    "ListDataProtectionSettingsPaginator",
+    "ListSessionLoggersPaginator",
+    "ListSessionsPaginator",
+)
 
 if TYPE_CHECKING:
     _ListDataProtectionSettingsPaginatorBase = Paginator[ListDataProtectionSettingsResponseTypeDef]
@@ -61,6 +69,24 @@ class ListDataProtectionSettingsPaginator(_ListDataProtectionSettingsPaginatorBa
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/paginator/ListDataProtectionSettings.html#WorkSpacesWeb.Paginator.ListDataProtectionSettings.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/paginators/#listdataprotectionsettingspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSessionLoggersPaginatorBase = Paginator[ListSessionLoggersResponseTypeDef]
+else:
+    _ListSessionLoggersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSessionLoggersPaginator(_ListSessionLoggersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/paginator/ListSessionLoggers.html#WorkSpacesWeb.Paginator.ListSessionLoggers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/paginators/#listsessionloggerspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSessionLoggersRequestPaginateTypeDef]
+    ) -> PageIterator[ListSessionLoggersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces-web/paginator/ListSessionLoggers.html#WorkSpacesWeb.Paginator.ListSessionLoggers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/paginators/#listsessionloggerspaginator)
         """
 
 if TYPE_CHECKING:

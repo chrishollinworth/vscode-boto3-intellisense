@@ -179,8 +179,9 @@ class GameLiftStreamsClient(BaseClient):
         self, **kwargs: Unpack[CreateStreamGroupInputTypeDef]
     ) -> CreateStreamGroupOutputTypeDef:
         """
-        Manage how Amazon GameLift Streams streams your applications by using a stream
-        group.
+        Stream groups manage how Amazon GameLift Streams allocates resources and
+        handles concurrent streams, allowing you to effectively manage capacity and
+        costs.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gameliftstreams/client/create_stream_group.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_gameliftstreams/client/#create_stream_group)
@@ -190,8 +191,8 @@ class GameLiftStreamsClient(BaseClient):
         self, **kwargs: Unpack[CreateStreamSessionConnectionInputTypeDef]
     ) -> CreateStreamSessionConnectionOutputTypeDef:
         """
-        Allows clients to reconnect to a recently disconnected stream session without
-        losing any data from the last session.
+        Enables clients to reconnect to a stream session while preserving all session
+        state and data in the disconnected session.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gameliftstreams/client/create_stream_session_connection.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_gameliftstreams/client/#create_stream_session_connection)

@@ -24,10 +24,15 @@ else:
 __all__ = (
     "ApplicationLogLevelType",
     "ArchitectureType",
+    "CapacityProviderPredefinedMetricTypeType",
+    "CapacityProviderScalingModeType",
+    "CapacityProviderStateType",
     "CodeSigningPolicyType",
     "EndPointTypeType",
     "EventSourceMappingMetricType",
     "EventSourcePositionType",
+    "EventTypeType",
+    "ExecutionStatusType",
     "FullDocumentType",
     "FunctionActiveV2WaiterName",
     "FunctionActiveWaiterName",
@@ -36,17 +41,25 @@ __all__ = (
     "FunctionUpdatedV2WaiterName",
     "FunctionUpdatedWaiterName",
     "FunctionUrlAuthTypeType",
+    "FunctionVersionLatestPublishedType",
     "FunctionVersionType",
+    "GetDurableExecutionHistoryPaginatorName",
+    "GetDurableExecutionStatePaginatorName",
     "InvocationTypeType",
     "InvokeModeType",
+    "KafkaSchemaRegistryAuthTypeType",
+    "KafkaSchemaValidationAttributeType",
     "LambdaServiceName",
     "LastUpdateStatusReasonCodeType",
     "LastUpdateStatusType",
     "ListAliasesPaginatorName",
+    "ListCapacityProvidersPaginatorName",
     "ListCodeSigningConfigsPaginatorName",
+    "ListDurableExecutionsByFunctionPaginatorName",
     "ListEventSourceMappingsPaginatorName",
     "ListFunctionEventInvokeConfigsPaginatorName",
     "ListFunctionUrlConfigsPaginatorName",
+    "ListFunctionVersionsByCapacityProviderPaginatorName",
     "ListFunctionsByCodeSigningConfigPaginatorName",
     "ListFunctionsPaginatorName",
     "ListLayerVersionsPaginatorName",
@@ -55,6 +68,9 @@ __all__ = (
     "ListVersionsByFunctionPaginatorName",
     "LogFormatType",
     "LogTypeType",
+    "OperationActionType",
+    "OperationStatusType",
+    "OperationTypeType",
     "PackageTypeType",
     "PaginatorName",
     "ProvisionedConcurrencyStatusEnumType",
@@ -64,6 +80,7 @@ __all__ = (
     "ResourceServiceName",
     "ResponseStreamingInvocationTypeType",
     "RuntimeType",
+    "SchemaRegistryEventRecordFormatType",
     "ServiceName",
     "SnapStartApplyOnType",
     "SnapStartOptimizationStatusType",
@@ -71,6 +88,7 @@ __all__ = (
     "StateReasonCodeType",
     "StateType",
     "SystemLogLevelType",
+    "TenantIsolationModeType",
     "TracingModeType",
     "UpdateRuntimeOnType",
     "WaiterName",
@@ -78,10 +96,40 @@ __all__ = (
 
 ApplicationLogLevelType = Literal["DEBUG", "ERROR", "FATAL", "INFO", "TRACE", "WARN"]
 ArchitectureType = Literal["arm64", "x86_64"]
+CapacityProviderPredefinedMetricTypeType = Literal["LambdaCapacityProviderAverageCPUUtilization"]
+CapacityProviderScalingModeType = Literal["Auto", "Manual"]
+CapacityProviderStateType = Literal["Active", "Deleting", "Failed", "Pending"]
 CodeSigningPolicyType = Literal["Enforce", "Warn"]
 EndPointTypeType = Literal["KAFKA_BOOTSTRAP_SERVERS"]
 EventSourceMappingMetricType = Literal["EventCount"]
 EventSourcePositionType = Literal["AT_TIMESTAMP", "LATEST", "TRIM_HORIZON"]
+EventTypeType = Literal[
+    "CallbackFailed",
+    "CallbackStarted",
+    "CallbackSucceeded",
+    "CallbackTimedOut",
+    "ChainedInvokeFailed",
+    "ChainedInvokeStarted",
+    "ChainedInvokeStopped",
+    "ChainedInvokeSucceeded",
+    "ChainedInvokeTimedOut",
+    "ContextFailed",
+    "ContextStarted",
+    "ContextSucceeded",
+    "ExecutionFailed",
+    "ExecutionStarted",
+    "ExecutionStopped",
+    "ExecutionSucceeded",
+    "ExecutionTimedOut",
+    "InvocationCompleted",
+    "StepFailed",
+    "StepStarted",
+    "StepSucceeded",
+    "WaitCancelled",
+    "WaitStarted",
+    "WaitSucceeded",
+]
+ExecutionStatusType = Literal["FAILED", "RUNNING", "STOPPED", "SUCCEEDED", "TIMED_OUT"]
 FullDocumentType = Literal["Default", "UpdateLookup"]
 FunctionActiveV2WaiterName = Literal["function_active_v2"]
 FunctionActiveWaiterName = Literal["function_active"]
@@ -90,19 +138,38 @@ FunctionResponseTypeType = Literal["ReportBatchItemFailures"]
 FunctionUpdatedV2WaiterName = Literal["function_updated_v2"]
 FunctionUpdatedWaiterName = Literal["function_updated"]
 FunctionUrlAuthTypeType = Literal["AWS_IAM", "NONE"]
+FunctionVersionLatestPublishedType = Literal["LATEST_PUBLISHED"]
 FunctionVersionType = Literal["ALL"]
+GetDurableExecutionHistoryPaginatorName = Literal["get_durable_execution_history"]
+GetDurableExecutionStatePaginatorName = Literal["get_durable_execution_state"]
 InvocationTypeType = Literal["DryRun", "Event", "RequestResponse"]
 InvokeModeType = Literal["BUFFERED", "RESPONSE_STREAM"]
+KafkaSchemaRegistryAuthTypeType = Literal[
+    "BASIC_AUTH", "CLIENT_CERTIFICATE_TLS_AUTH", "SERVER_ROOT_CA_CERTIFICATE"
+]
+KafkaSchemaValidationAttributeType = Literal["KEY", "VALUE"]
 LastUpdateStatusReasonCodeType = Literal[
+    "CapacityProviderScalingLimitExceeded",
     "DisabledKMSKey",
+    "DisallowedByVpcEncryptionControl",
+    "EC2RequestLimitExceeded",
     "EFSIOError",
     "EFSMountConnectivityError",
     "EFSMountFailure",
     "EFSMountTimeout",
     "EniLimitExceeded",
     "FunctionError",
+    "FunctionError.ExtensionInitError",
+    "FunctionError.InitResourceExhausted",
+    "FunctionError.InitTimeout",
+    "FunctionError.InvalidEntryPoint",
+    "FunctionError.InvalidWorkingDirectory",
+    "FunctionError.PermissionDenied",
+    "FunctionError.RuntimeInitError",
+    "FunctionError.TooManyExtensions",
     "ImageAccessDenied",
     "ImageDeleted",
+    "InsufficientCapacity",
     "InsufficientRolePermissions",
     "InternalError",
     "InvalidConfiguration",
@@ -115,13 +182,19 @@ LastUpdateStatusReasonCodeType = Literal[
     "KMSKeyAccessDenied",
     "KMSKeyNotFound",
     "SubnetOutOfIPAddresses",
+    "VcpuLimitExceeded",
 ]
 LastUpdateStatusType = Literal["Failed", "InProgress", "Successful"]
 ListAliasesPaginatorName = Literal["list_aliases"]
+ListCapacityProvidersPaginatorName = Literal["list_capacity_providers"]
 ListCodeSigningConfigsPaginatorName = Literal["list_code_signing_configs"]
+ListDurableExecutionsByFunctionPaginatorName = Literal["list_durable_executions_by_function"]
 ListEventSourceMappingsPaginatorName = Literal["list_event_source_mappings"]
 ListFunctionEventInvokeConfigsPaginatorName = Literal["list_function_event_invoke_configs"]
 ListFunctionUrlConfigsPaginatorName = Literal["list_function_url_configs"]
+ListFunctionVersionsByCapacityProviderPaginatorName = Literal[
+    "list_function_versions_by_capacity_provider"
+]
 ListFunctionsByCodeSigningConfigPaginatorName = Literal["list_functions_by_code_signing_config"]
 ListFunctionsPaginatorName = Literal["list_functions"]
 ListLayerVersionsPaginatorName = Literal["list_layer_versions"]
@@ -130,12 +203,18 @@ ListProvisionedConcurrencyConfigsPaginatorName = Literal["list_provisioned_concu
 ListVersionsByFunctionPaginatorName = Literal["list_versions_by_function"]
 LogFormatType = Literal["JSON", "Text"]
 LogTypeType = Literal["None", "Tail"]
+OperationActionType = Literal["CANCEL", "FAIL", "RETRY", "START", "SUCCEED"]
+OperationStatusType = Literal[
+    "CANCELLED", "FAILED", "PENDING", "READY", "STARTED", "STOPPED", "SUCCEEDED", "TIMED_OUT"
+]
+OperationTypeType = Literal["CALLBACK", "CHAINED_INVOKE", "CONTEXT", "EXECUTION", "STEP", "WAIT"]
 PackageTypeType = Literal["Image", "Zip"]
 ProvisionedConcurrencyStatusEnumType = Literal["FAILED", "IN_PROGRESS", "READY"]
 PublishedVersionActiveWaiterName = Literal["published_version_active"]
 RecursiveLoopType = Literal["Allow", "Terminate"]
 ResponseStreamingInvocationTypeType = Literal["DryRun", "RequestResponse"]
 RuntimeType = Literal[
+    "dotnet10",
     "dotnet6",
     "dotnet8",
     "dotnetcore1.0",
@@ -146,6 +225,7 @@ RuntimeType = Literal[
     "java11",
     "java17",
     "java21",
+    "java25",
     "java8",
     "java8.al2",
     "nodejs",
@@ -156,6 +236,7 @@ RuntimeType = Literal[
     "nodejs18.x",
     "nodejs20.x",
     "nodejs22.x",
+    "nodejs24.x",
     "nodejs4.3",
     "nodejs4.3-edge",
     "nodejs6.10",
@@ -168,6 +249,7 @@ RuntimeType = Literal[
     "python3.11",
     "python3.12",
     "python3.13",
+    "python3.14",
     "python3.6",
     "python3.7",
     "python3.8",
@@ -178,6 +260,7 @@ RuntimeType = Literal[
     "ruby3.3",
     "ruby3.4",
 ]
+SchemaRegistryEventRecordFormatType = Literal["JSON", "SOURCE"]
 SnapStartApplyOnType = Literal["None", "PublishedVersions"]
 SnapStartOptimizationStatusType = Literal["Off", "On"]
 SourceAccessTypeType = Literal[
@@ -191,17 +274,30 @@ SourceAccessTypeType = Literal[
     "VPC_SUBNET",
 ]
 StateReasonCodeType = Literal[
+    "CapacityProviderScalingLimitExceeded",
     "Creating",
     "DisabledKMSKey",
+    "DisallowedByVpcEncryptionControl",
+    "DrainingDurableExecutions",
+    "EC2RequestLimitExceeded",
     "EFSIOError",
     "EFSMountConnectivityError",
     "EFSMountFailure",
     "EFSMountTimeout",
     "EniLimitExceeded",
     "FunctionError",
+    "FunctionError.ExtensionInitError",
+    "FunctionError.InitResourceExhausted",
+    "FunctionError.InitTimeout",
+    "FunctionError.InvalidEntryPoint",
+    "FunctionError.InvalidWorkingDirectory",
+    "FunctionError.PermissionDenied",
+    "FunctionError.RuntimeInitError",
+    "FunctionError.TooManyExtensions",
     "Idle",
     "ImageAccessDenied",
     "ImageDeleted",
+    "InsufficientCapacity",
     "InsufficientRolePermissions",
     "InternalError",
     "InvalidConfiguration",
@@ -215,9 +311,20 @@ StateReasonCodeType = Literal[
     "KMSKeyNotFound",
     "Restoring",
     "SubnetOutOfIPAddresses",
+    "VcpuLimitExceeded",
 ]
-StateType = Literal["Active", "Failed", "Inactive", "Pending"]
+StateType = Literal[
+    "Active",
+    "ActiveNonInvocable",
+    "Deactivated",
+    "Deactivating",
+    "Deleting",
+    "Failed",
+    "Inactive",
+    "Pending",
+]
 SystemLogLevelType = Literal["DEBUG", "INFO", "WARN"]
+TenantIsolationModeType = Literal["PER_TENANT"]
 TracingModeType = Literal["Active", "PassThrough"]
 UpdateRuntimeOnType = Literal["Auto", "FunctionUpdate", "Manual"]
 LambdaServiceName = Literal["lambda"]
@@ -226,6 +333,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -246,7 +354,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -258,11 +366,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -311,6 +423,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -366,6 +479,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -408,7 +522,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -423,6 +536,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -446,8 +560,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -478,9 +590,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -490,17 +604,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -518,13 +635,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -539,20 +653,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -577,8 +693,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -618,33 +734,31 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
+    "get_durable_execution_history",
+    "get_durable_execution_state",
     "list_aliases",
+    "list_capacity_providers",
     "list_code_signing_configs",
+    "list_durable_executions_by_function",
     "list_event_source_mappings",
     "list_function_event_invoke_configs",
     "list_function_url_configs",
+    "list_function_versions_by_capacity_provider",
     "list_functions",
     "list_functions_by_code_signing_config",
     "list_layer_versions",
@@ -663,6 +777,7 @@ WaiterName = Literal[
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -673,6 +788,7 @@ RegionName = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ap-southeast-5",
+    "ap-southeast-6",
     "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",

@@ -33,6 +33,8 @@ from .type_defs import (
     ConverseResponseTypeDef,
     ConverseStreamRequestTypeDef,
     ConverseStreamResponseTypeDef,
+    CountTokensRequestTypeDef,
+    CountTokensResponseTypeDef,
     GetAsyncInvokeRequestTypeDef,
     GetAsyncInvokeResponseTypeDef,
     InvokeModelRequestTypeDef,
@@ -136,6 +138,16 @@ class BedrockRuntimeClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-runtime/client/converse_stream.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client/#converse_stream)
+        """
+
+    def count_tokens(
+        self, **kwargs: Unpack[CountTokensRequestTypeDef]
+    ) -> CountTokensResponseTypeDef:
+        """
+        Returns the token count for a given inference request.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-runtime/client/count_tokens.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client/#count_tokens)
         """
 
     def get_async_invoke(

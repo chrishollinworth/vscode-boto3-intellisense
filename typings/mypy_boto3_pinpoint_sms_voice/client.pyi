@@ -32,6 +32,8 @@ from .type_defs import (
     DeleteConfigurationSetRequestTypeDef,
     GetConfigurationSetEventDestinationsRequestTypeDef,
     GetConfigurationSetEventDestinationsResponseTypeDef,
+    ListConfigurationSetsRequestTypeDef,
+    ListConfigurationSetsResponseTypeDef,
     SendVoiceMessageRequestTypeDef,
     SendVoiceMessageResponseTypeDef,
     UpdateConfigurationSetEventDestinationRequestTypeDef,
@@ -144,6 +146,17 @@ class PinpointSMSVoiceClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/get_configuration_set_event_destinations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#get_configuration_set_event_destinations)
+        """
+
+    def list_configuration_sets(
+        self, **kwargs: Unpack[ListConfigurationSetsRequestTypeDef]
+    ) -> ListConfigurationSetsResponseTypeDef:
+        """
+        List all of the configuration sets associated with your Amazon Pinpoint account
+        in the current region.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/list_configuration_sets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#list_configuration_sets)
         """
 
     def send_voice_message(

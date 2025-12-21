@@ -13,6 +13,7 @@ Usage::
     from mypy_boto3_inspector2.client import Inspector2Client
     from mypy_boto3_inspector2.paginator import (
         GetCisScanResultDetailsPaginator,
+        GetClustersForImagePaginator,
         ListAccountPermissionsPaginator,
         ListCisScanConfigurationsPaginator,
         ListCisScanResultsAggregatedByChecksPaginator,
@@ -33,6 +34,7 @@ Usage::
     client: Inspector2Client = session.client("inspector2")
 
     get_cis_scan_result_details_paginator: GetCisScanResultDetailsPaginator = client.get_paginator("get_cis_scan_result_details")
+    get_clusters_for_image_paginator: GetClustersForImagePaginator = client.get_paginator("get_clusters_for_image")
     list_account_permissions_paginator: ListAccountPermissionsPaginator = client.get_paginator("list_account_permissions")
     list_cis_scan_configurations_paginator: ListCisScanConfigurationsPaginator = client.get_paginator("list_cis_scan_configurations")
     list_cis_scan_results_aggregated_by_checks_paginator: ListCisScanResultsAggregatedByChecksPaginator = client.get_paginator("list_cis_scan_results_aggregated_by_checks")
@@ -60,6 +62,8 @@ from botocore.paginate import PageIterator, Paginator
 from .type_defs import (
     GetCisScanResultDetailsRequestPaginateTypeDef,
     GetCisScanResultDetailsResponseTypeDef,
+    GetClustersForImageRequestPaginateTypeDef,
+    GetClustersForImageResponseTypeDef,
     ListAccountPermissionsRequestPaginateTypeDef,
     ListAccountPermissionsResponseTypeDef,
     ListCisScanConfigurationsRequestPaginateTypeDef,
@@ -97,6 +101,7 @@ else:
 
 __all__ = (
     "GetCisScanResultDetailsPaginator",
+    "GetClustersForImagePaginator",
     "ListAccountPermissionsPaginator",
     "ListCisScanConfigurationsPaginator",
     "ListCisScanResultsAggregatedByChecksPaginator",
@@ -129,6 +134,24 @@ class GetCisScanResultDetailsPaginator(_GetCisScanResultDetailsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/GetCisScanResultDetails.html#Inspector2.Paginator.GetCisScanResultDetails.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#getcisscanresultdetailspaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetClustersForImagePaginatorBase = Paginator[GetClustersForImageResponseTypeDef]
+else:
+    _GetClustersForImagePaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetClustersForImagePaginator(_GetClustersForImagePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/GetClustersForImage.html#Inspector2.Paginator.GetClustersForImage)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#getclustersforimagepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetClustersForImageRequestPaginateTypeDef]
+    ) -> PageIterator[GetClustersForImageResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/GetClustersForImage.html#Inspector2.Paginator.GetClustersForImage.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#getclustersforimagepaginator)
         """
 
 if TYPE_CHECKING:

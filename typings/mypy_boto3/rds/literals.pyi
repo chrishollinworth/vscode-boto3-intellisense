@@ -45,6 +45,7 @@ __all__ = (
     "DBSnapshotCompletedWaiterName",
     "DBSnapshotDeletedWaiterName",
     "DatabaseInsightsModeType",
+    "DefaultAuthSchemeType",
     "DescribeBlueGreenDeploymentsPaginatorName",
     "DescribeCertificatesPaginatorName",
     "DescribeDBClusterAutomatedBackupsPaginatorName",
@@ -58,6 +59,7 @@ __all__ = (
     "DescribeDBInstanceAutomatedBackupsPaginatorName",
     "DescribeDBInstancesPaginatorName",
     "DescribeDBLogFilesPaginatorName",
+    "DescribeDBMajorEngineVersionsPaginatorName",
     "DescribeDBParameterGroupsPaginatorName",
     "DescribeDBParametersPaginatorName",
     "DescribeDBProxiesPaginatorName",
@@ -85,14 +87,17 @@ __all__ = (
     "DescribeSourceRegionsPaginatorName",
     "DescribeTenantDatabasesPaginatorName",
     "DownloadDBLogFilePortionPaginatorName",
+    "EndpointNetworkTypeType",
     "EngineFamilyType",
     "ExportSourceTypeType",
     "FailoverStatusType",
     "GlobalClusterMemberSynchronizationStatusType",
     "IAMAuthModeType",
     "IntegrationStatusType",
+    "LifecycleSupportNameType",
     "LimitlessDatabaseStatusType",
     "LocalWriteForwardingStatusType",
+    "MasterUserAuthenticationTypeType",
     "PaginatorName",
     "RDSServiceName",
     "RegionName",
@@ -100,12 +105,14 @@ __all__ = (
     "ResourceServiceName",
     "ServiceName",
     "SourceTypeType",
+    "TargetConnectionNetworkTypeType",
     "TargetHealthReasonType",
     "TargetRoleType",
     "TargetStateType",
     "TargetTypeType",
     "TenantDatabaseAvailableWaiterName",
     "TenantDatabaseDeletedWaiterName",
+    "UpgradeRolloutOrderType",
     "WaiterName",
     "WriteForwardingStatusType",
 )
@@ -156,6 +163,7 @@ DBSnapshotAvailableWaiterName = Literal["db_snapshot_available"]
 DBSnapshotCompletedWaiterName = Literal["db_snapshot_completed"]
 DBSnapshotDeletedWaiterName = Literal["db_snapshot_deleted"]
 DatabaseInsightsModeType = Literal["advanced", "standard"]
+DefaultAuthSchemeType = Literal["IAM_AUTH", "NONE"]
 DescribeBlueGreenDeploymentsPaginatorName = Literal["describe_blue_green_deployments"]
 DescribeCertificatesPaginatorName = Literal["describe_certificates"]
 DescribeDBClusterAutomatedBackupsPaginatorName = Literal["describe_db_cluster_automated_backups"]
@@ -169,6 +177,7 @@ DescribeDBEngineVersionsPaginatorName = Literal["describe_db_engine_versions"]
 DescribeDBInstanceAutomatedBackupsPaginatorName = Literal["describe_db_instance_automated_backups"]
 DescribeDBInstancesPaginatorName = Literal["describe_db_instances"]
 DescribeDBLogFilesPaginatorName = Literal["describe_db_log_files"]
+DescribeDBMajorEngineVersionsPaginatorName = Literal["describe_db_major_engine_versions"]
 DescribeDBParameterGroupsPaginatorName = Literal["describe_db_parameter_groups"]
 DescribeDBParametersPaginatorName = Literal["describe_db_parameters"]
 DescribeDBProxiesPaginatorName = Literal["describe_db_proxies"]
@@ -200,6 +209,7 @@ DescribeReservedDBInstancesPaginatorName = Literal["describe_reserved_db_instanc
 DescribeSourceRegionsPaginatorName = Literal["describe_source_regions"]
 DescribeTenantDatabasesPaginatorName = Literal["describe_tenant_databases"]
 DownloadDBLogFilePortionPaginatorName = Literal["download_db_log_file_portion"]
+EndpointNetworkTypeType = Literal["DUAL", "IPV4", "IPV6"]
 EngineFamilyType = Literal["MYSQL", "POSTGRESQL", "SQLSERVER"]
 ExportSourceTypeType = Literal["CLUSTER", "SNAPSHOT"]
 FailoverStatusType = Literal["cancelling", "failing-over", "pending"]
@@ -207,6 +217,9 @@ GlobalClusterMemberSynchronizationStatusType = Literal["connected", "pending-res
 IAMAuthModeType = Literal["DISABLED", "ENABLED", "REQUIRED"]
 IntegrationStatusType = Literal[
     "active", "creating", "deleting", "failed", "modifying", "needs_attention", "syncing"
+]
+LifecycleSupportNameType = Literal[
+    "open-source-rds-extended-support", "open-source-rds-standard-support"
 ]
 LimitlessDatabaseStatusType = Literal[
     "active",
@@ -221,6 +234,7 @@ LimitlessDatabaseStatusType = Literal[
 LocalWriteForwardingStatusType = Literal[
     "disabled", "disabling", "enabled", "enabling", "requested"
 ]
+MasterUserAuthenticationTypeType = Literal["iam-db-auth", "password"]
 ReplicaModeType = Literal["mounted", "open-read-only"]
 SourceTypeType = Literal[
     "blue-green-deployment",
@@ -231,20 +245,25 @@ SourceTypeType = Literal[
     "db-parameter-group",
     "db-proxy",
     "db-security-group",
+    "db-shard-group",
     "db-snapshot",
+    "zero-etl",
 ]
+TargetConnectionNetworkTypeType = Literal["IPV4", "IPV6"]
 TargetHealthReasonType = Literal[
     "AUTH_FAILURE",
     "CONNECTION_FAILED",
     "INVALID_REPLICATION_STATE",
     "PENDING_PROXY_CAPACITY",
+    "PROMOTED",
     "UNREACHABLE",
 ]
 TargetRoleType = Literal["READ_ONLY", "READ_WRITE", "UNKNOWN"]
-TargetStateType = Literal["AVAILABLE", "REGISTERING", "UNAVAILABLE"]
+TargetStateType = Literal["AVAILABLE", "REGISTERING", "UNAVAILABLE", "UNUSED"]
 TargetTypeType = Literal["RDS_INSTANCE", "RDS_SERVERLESS_ENDPOINT", "TRACKED_CLUSTER"]
 TenantDatabaseAvailableWaiterName = Literal["tenant_database_available"]
 TenantDatabaseDeletedWaiterName = Literal["tenant_database_deleted"]
+UpgradeRolloutOrderType = Literal["first", "last", "second"]
 WriteForwardingStatusType = Literal["disabled", "disabling", "enabled", "enabling", "unknown"]
 RDSServiceName = Literal["rds"]
 ServiceName = Literal[
@@ -252,6 +271,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -272,7 +292,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -284,11 +304,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -337,6 +361,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -392,6 +417,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -434,7 +460,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -449,6 +474,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -472,8 +498,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -504,9 +528,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -516,17 +542,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -544,13 +573,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -565,20 +591,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -603,8 +631,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -644,26 +672,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "describe_blue_green_deployments",
@@ -679,6 +700,7 @@ PaginatorName = Literal[
     "describe_db_instance_automated_backups",
     "describe_db_instances",
     "describe_db_log_files",
+    "describe_db_major_engine_versions",
     "describe_db_parameter_groups",
     "describe_db_parameters",
     "describe_db_proxies",
@@ -723,6 +745,7 @@ WaiterName = Literal[
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -733,6 +756,7 @@ RegionName = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ap-southeast-5",
+    "ap-southeast-6",
     "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",

@@ -89,8 +89,12 @@ from .type_defs import (
     RestoreGraphFromSnapshotOutputTypeDef,
     StartExportTaskInputTypeDef,
     StartExportTaskOutputTypeDef,
+    StartGraphInputTypeDef,
+    StartGraphOutputTypeDef,
     StartImportTaskInputTypeDef,
     StartImportTaskOutputTypeDef,
+    StopGraphInputTypeDef,
+    StopGraphOutputTypeDef,
     TagResourceInputTypeDef,
     UntagResourceInputTypeDef,
     UpdateGraphInputTypeDef,
@@ -103,6 +107,7 @@ from .waiter import (
     GraphDeletedWaiter,
     GraphSnapshotAvailableWaiter,
     GraphSnapshotDeletedWaiter,
+    GraphStoppedWaiter,
     ImportTaskCancelledWaiter,
     ImportTaskSuccessfulWaiter,
     PrivateGraphEndpointAvailableWaiter,
@@ -437,6 +442,14 @@ class NeptuneGraphClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client/#start_export_task)
         """
 
+    def start_graph(self, **kwargs: Unpack[StartGraphInputTypeDef]) -> StartGraphOutputTypeDef:
+        """
+        Starts the specific graph.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune-graph/client/start_graph.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client/#start_graph)
+        """
+
     def start_import_task(
         self, **kwargs: Unpack[StartImportTaskInputTypeDef]
     ) -> StartImportTaskOutputTypeDef:
@@ -446,6 +459,14 @@ class NeptuneGraphClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune-graph/client/start_import_task.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client/#start_import_task)
+        """
+
+    def stop_graph(self, **kwargs: Unpack[StopGraphInputTypeDef]) -> StopGraphOutputTypeDef:
+        """
+        Stops the specific graph.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune-graph/client/stop_graph.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client/#stop_graph)
         """
 
     def tag_resource(self, **kwargs: Unpack[TagResourceInputTypeDef]) -> Dict[str, Any]:
@@ -586,6 +607,17 @@ class NeptuneGraphClient(BaseClient):
     def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["graph_snapshot_deleted"]
     ) -> GraphSnapshotDeletedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune-graph/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["graph_stopped"]
+    ) -> GraphStoppedWaiter:
         """
         Returns an object that can wait for some condition.
 

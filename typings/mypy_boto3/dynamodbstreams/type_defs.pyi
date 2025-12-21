@@ -34,9 +34,9 @@ if sys.version_info >= (3, 9):
 else:
     from typing import Dict, List
 if sys.version_info >= (3, 12):
-    from typing import NotRequired, TypedDict
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import NotRequired, TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AttributeValueTypeDef",
@@ -53,6 +53,7 @@ __all__ = (
     "RecordTypeDef",
     "ResponseMetadataTypeDef",
     "SequenceNumberRangeTypeDef",
+    "ShardFilterTypeDef",
     "ShardTypeDef",
     "StreamDescriptionTypeDef",
     "StreamRecordTypeDef",
@@ -71,10 +72,13 @@ class AttributeValueTypeDef(TypedDict):
     NULL: NotRequired[bool]
     BOOL: NotRequired[bool]
 
-class DescribeStreamInputTypeDef(TypedDict):
-    StreamArn: str
-    Limit: NotRequired[int]
-    ExclusiveStartShardId: NotRequired[str]
+ShardFilterTypeDef = TypedDict(
+    "ShardFilterTypeDef",
+    {
+        "Type": NotRequired[Literal["CHILD_SHARDS"]],
+        "ShardId": NotRequired[str],
+    },
+)
 
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
@@ -127,6 +131,12 @@ class StreamRecordTypeDef(TypedDict):
     SequenceNumber: NotRequired[str]
     SizeBytes: NotRequired[int]
     StreamViewType: NotRequired[StreamViewTypeType]
+
+class DescribeStreamInputTypeDef(TypedDict):
+    StreamArn: str
+    Limit: NotRequired[int]
+    ExclusiveStartShardId: NotRequired[str]
+    ShardFilter: NotRequired[ShardFilterTypeDef]
 
 class GetShardIteratorOutputTypeDef(TypedDict):
     ShardIterator: str

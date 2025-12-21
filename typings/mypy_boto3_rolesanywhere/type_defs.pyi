@@ -115,25 +115,25 @@ class TagTypeDef(TypedDict):
 class NotificationSettingTypeDef(TypedDict):
     enabled: bool
     event: NotificationEventType
-    channel: NotRequired[Literal["ALL"]]
     threshold: NotRequired[int]
+    channel: NotRequired[Literal["ALL"]]
 
 class CredentialSummaryTypeDef(TypedDict):
-    enabled: NotRequired[bool]
-    failed: NotRequired[bool]
-    issuer: NotRequired[str]
     seenAt: NotRequired[datetime]
     serialNumber: NotRequired[str]
+    issuer: NotRequired[str]
+    enabled: NotRequired[bool]
     x509CertificateData: NotRequired[str]
+    failed: NotRequired[bool]
 
 class CrlDetailTypeDef(TypedDict):
-    createdAt: NotRequired[datetime]
-    crlArn: NotRequired[str]
-    crlData: NotRequired[bytes]
     crlId: NotRequired[str]
-    enabled: NotRequired[bool]
+    crlArn: NotRequired[str]
     name: NotRequired[str]
+    enabled: NotRequired[bool]
+    crlData: NotRequired[bytes]
     trustAnchorArn: NotRequired[str]
+    createdAt: NotRequired[datetime]
     updatedAt: NotRequired[datetime]
 
 class ResponseMetadataTypeDef(TypedDict):
@@ -144,14 +144,14 @@ class ResponseMetadataTypeDef(TypedDict):
     HostId: NotRequired[str]
 
 class DeleteAttributeMappingRequestTypeDef(TypedDict):
-    certificateField: CertificateFieldType
     profileId: str
+    certificateField: CertificateFieldType
     specifiers: NotRequired[Sequence[str]]
 
 class InstancePropertyTypeDef(TypedDict):
-    failed: NotRequired[bool]
-    properties: NotRequired[Dict[str, str]]
     seenAt: NotRequired[datetime]
+    properties: NotRequired[Dict[str, str]]
+    failed: NotRequired[bool]
 
 class PaginatorConfigTypeDef(TypedDict):
     MaxItems: NotRequired[int]
@@ -175,13 +175,13 @@ class ListRequestTypeDef(TypedDict):
     pageSize: NotRequired[int]
 
 class SubjectSummaryTypeDef(TypedDict):
-    createdAt: NotRequired[datetime]
-    enabled: NotRequired[bool]
-    lastSeenAt: NotRequired[datetime]
     subjectArn: NotRequired[str]
     subjectId: NotRequired[str]
-    updatedAt: NotRequired[datetime]
+    enabled: NotRequired[bool]
     x509Subject: NotRequired[str]
+    lastSeenAt: NotRequired[datetime]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
 
 class ListTagsForResourceRequestTypeDef(TypedDict):
     resourceArn: str
@@ -189,9 +189,9 @@ class ListTagsForResourceRequestTypeDef(TypedDict):
 class NotificationSettingDetailTypeDef(TypedDict):
     enabled: bool
     event: NotificationEventType
+    threshold: NotRequired[int]
     channel: NotRequired[Literal["ALL"]]
     configuredBy: NotRequired[str]
-    threshold: NotRequired[int]
 
 class NotificationSettingKeyTypeDef(TypedDict):
     event: NotificationEventType
@@ -237,8 +237,8 @@ class ScalarTrustAnchorRequestTypeDef(TypedDict):
     trustAnchorId: str
 
 class SourceDataTypeDef(TypedDict):
-    acmPcaArn: NotRequired[str]
     x509CertificateData: NotRequired[str]
+    acmPcaArn: NotRequired[str]
 
 class UntagResourceRequestTypeDef(TypedDict):
     resourceArn: str
@@ -246,41 +246,41 @@ class UntagResourceRequestTypeDef(TypedDict):
 
 class UpdateProfileRequestTypeDef(TypedDict):
     profileId: str
-    acceptRoleSessionName: NotRequired[bool]
-    durationSeconds: NotRequired[int]
-    managedPolicyArns: NotRequired[Sequence[str]]
     name: NotRequired[str]
-    roleArns: NotRequired[Sequence[str]]
     sessionPolicy: NotRequired[str]
+    roleArns: NotRequired[Sequence[str]]
+    managedPolicyArns: NotRequired[Sequence[str]]
+    durationSeconds: NotRequired[int]
+    acceptRoleSessionName: NotRequired[bool]
 
 class AttributeMappingTypeDef(TypedDict):
     certificateField: NotRequired[CertificateFieldType]
     mappingRules: NotRequired[List[MappingRuleTypeDef]]
 
 class PutAttributeMappingRequestTypeDef(TypedDict):
+    profileId: str
     certificateField: CertificateFieldType
     mappingRules: Sequence[MappingRuleTypeDef]
-    profileId: str
 
 class UpdateCrlRequestTypeDef(TypedDict):
     crlId: str
-    crlData: NotRequired[BlobTypeDef]
     name: NotRequired[str]
+    crlData: NotRequired[BlobTypeDef]
 
 class CreateProfileRequestTypeDef(TypedDict):
     name: str
     roleArns: Sequence[str]
-    acceptRoleSessionName: NotRequired[bool]
-    durationSeconds: NotRequired[int]
-    enabled: NotRequired[bool]
-    managedPolicyArns: NotRequired[Sequence[str]]
     requireInstanceProperties: NotRequired[bool]
     sessionPolicy: NotRequired[str]
+    managedPolicyArns: NotRequired[Sequence[str]]
+    durationSeconds: NotRequired[int]
+    enabled: NotRequired[bool]
     tags: NotRequired[Sequence[TagTypeDef]]
+    acceptRoleSessionName: NotRequired[bool]
 
 class ImportCrlRequestTypeDef(TypedDict):
-    crlData: BlobTypeDef
     name: str
+    crlData: BlobTypeDef
     trustAnchorArn: str
     enabled: NotRequired[bool]
     tags: NotRequired[Sequence[TagTypeDef]]
@@ -290,8 +290,8 @@ class TagResourceRequestTypeDef(TypedDict):
     tags: Sequence[TagTypeDef]
 
 class PutNotificationSettingsRequestTypeDef(TypedDict):
-    notificationSettings: Sequence[NotificationSettingTypeDef]
     trustAnchorId: str
+    notificationSettings: Sequence[NotificationSettingTypeDef]
 
 class CrlDetailResponseTypeDef(TypedDict):
     crl: CrlDetailTypeDef
@@ -307,15 +307,15 @@ class ListTagsForResourceResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class SubjectDetailTypeDef(TypedDict):
-    createdAt: NotRequired[datetime]
-    credentials: NotRequired[List[CredentialSummaryTypeDef]]
-    enabled: NotRequired[bool]
-    instanceProperties: NotRequired[List[InstancePropertyTypeDef]]
-    lastSeenAt: NotRequired[datetime]
     subjectArn: NotRequired[str]
     subjectId: NotRequired[str]
-    updatedAt: NotRequired[datetime]
+    enabled: NotRequired[bool]
     x509Subject: NotRequired[str]
+    lastSeenAt: NotRequired[datetime]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+    credentials: NotRequired[List[CredentialSummaryTypeDef]]
+    instanceProperties: NotRequired[List[InstancePropertyTypeDef]]
 
 class ListRequestPaginateExtraExtraExtraTypeDef(TypedDict):
     pageSize: NotRequired[int]
@@ -339,28 +339,28 @@ class ListSubjectsResponseTypeDef(TypedDict):
     nextToken: NotRequired[str]
 
 class ResetNotificationSettingsRequestTypeDef(TypedDict):
-    notificationSettingKeys: Sequence[NotificationSettingKeyTypeDef]
     trustAnchorId: str
+    notificationSettingKeys: Sequence[NotificationSettingKeyTypeDef]
 
 class SourceTypeDef(TypedDict):
-    sourceData: NotRequired[SourceDataTypeDef]
     sourceType: NotRequired[TrustAnchorTypeType]
+    sourceData: NotRequired[SourceDataTypeDef]
 
 class ProfileDetailTypeDef(TypedDict):
+    profileId: NotRequired[str]
+    profileArn: NotRequired[str]
+    name: NotRequired[str]
+    requireInstanceProperties: NotRequired[bool]
+    enabled: NotRequired[bool]
+    createdBy: NotRequired[str]
+    sessionPolicy: NotRequired[str]
+    roleArns: NotRequired[List[str]]
+    managedPolicyArns: NotRequired[List[str]]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+    durationSeconds: NotRequired[int]
     acceptRoleSessionName: NotRequired[bool]
     attributeMappings: NotRequired[List[AttributeMappingTypeDef]]
-    createdAt: NotRequired[datetime]
-    createdBy: NotRequired[str]
-    durationSeconds: NotRequired[int]
-    enabled: NotRequired[bool]
-    managedPolicyArns: NotRequired[List[str]]
-    name: NotRequired[str]
-    profileArn: NotRequired[str]
-    profileId: NotRequired[str]
-    requireInstanceProperties: NotRequired[bool]
-    roleArns: NotRequired[List[str]]
-    sessionPolicy: NotRequired[str]
-    updatedAt: NotRequired[datetime]
 
 class SubjectDetailResponseTypeDef(TypedDict):
     subject: SubjectDetailTypeDef
@@ -370,18 +370,18 @@ class CreateTrustAnchorRequestTypeDef(TypedDict):
     name: str
     source: SourceTypeDef
     enabled: NotRequired[bool]
-    notificationSettings: NotRequired[Sequence[NotificationSettingTypeDef]]
     tags: NotRequired[Sequence[TagTypeDef]]
+    notificationSettings: NotRequired[Sequence[NotificationSettingTypeDef]]
 
 class TrustAnchorDetailTypeDef(TypedDict):
-    createdAt: NotRequired[datetime]
-    enabled: NotRequired[bool]
-    name: NotRequired[str]
-    notificationSettings: NotRequired[List[NotificationSettingDetailTypeDef]]
-    source: NotRequired[SourceTypeDef]
-    trustAnchorArn: NotRequired[str]
     trustAnchorId: NotRequired[str]
+    trustAnchorArn: NotRequired[str]
+    name: NotRequired[str]
+    source: NotRequired[SourceTypeDef]
+    enabled: NotRequired[bool]
+    createdAt: NotRequired[datetime]
     updatedAt: NotRequired[datetime]
+    notificationSettings: NotRequired[List[NotificationSettingDetailTypeDef]]
 
 class UpdateTrustAnchorRequestTypeDef(TypedDict):
     trustAnchorId: str

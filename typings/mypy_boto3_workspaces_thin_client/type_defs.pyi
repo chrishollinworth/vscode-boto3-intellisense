@@ -137,6 +137,7 @@ DeviceSummaryTypeDef = TypedDict(
         "createdAt": NotRequired[datetime],
         "updatedAt": NotRequired[datetime],
         "arn": NotRequired[str],
+        "lastUserId": NotRequired[str],
     },
 )
 DeviceTypeDef = TypedDict(
@@ -162,7 +163,7 @@ DeviceTypeDef = TypedDict(
         "updatedAt": NotRequired[datetime],
         "arn": NotRequired[str],
         "kmsKeyArn": NotRequired[str],
-        "tags": NotRequired[Dict[str, str]],
+        "lastUserId": NotRequired[str],
     },
 )
 MaintenanceWindowOutputTypeDef = TypedDict(
@@ -327,7 +328,6 @@ EnvironmentTypeDef = TypedDict(
         "updatedAt": NotRequired[datetime],
         "arn": NotRequired[str],
         "kmsKeyArn": NotRequired[str],
-        "tags": NotRequired[Dict[str, str]],
         "deviceCreationTags": NotRequired[Dict[str, str]],
     },
 )
@@ -357,7 +357,6 @@ SoftwareSetTypeDef = TypedDict(
         "validationStatus": NotRequired[SoftwareSetValidationStatusType],
         "software": NotRequired[List[SoftwareTypeDef]],
         "arn": NotRequired[str],
-        "tags": NotRequired[Dict[str, str]],
     },
 )
 

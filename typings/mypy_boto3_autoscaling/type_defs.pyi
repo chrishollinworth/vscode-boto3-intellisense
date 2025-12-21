@@ -44,6 +44,9 @@ from .literals import (
     PredefinedScalingMetricTypeType,
     PredictiveScalingMaxCapacityBreachBehaviorType,
     PredictiveScalingModeType,
+    RefreshStrategyType,
+    RetentionActionType,
+    RetryStrategyType,
     ScaleInProtectedInstancesType,
     ScalingActivityStatusCodeType,
     StandbyInstancesType,
@@ -170,6 +173,8 @@ __all__ = (
     "FilterTypeDef",
     "GetPredictiveScalingForecastAnswerTypeDef",
     "GetPredictiveScalingForecastTypeTypeDef",
+    "InstanceCollectionTypeDef",
+    "InstanceLifecyclePolicyTypeDef",
     "InstanceMaintenancePolicyTypeDef",
     "InstanceMetadataOptionsTypeDef",
     "InstanceMonitoringTypeDef",
@@ -187,6 +192,9 @@ __all__ = (
     "LaunchConfigurationNamesTypeTypeDef",
     "LaunchConfigurationTypeDef",
     "LaunchConfigurationsTypeTypeDef",
+    "LaunchInstancesErrorTypeDef",
+    "LaunchInstancesRequestTypeDef",
+    "LaunchInstancesResultTypeDef",
     "LaunchTemplateOutputTypeDef",
     "LaunchTemplateOverridesOutputTypeDef",
     "LaunchTemplateOverridesTypeDef",
@@ -245,6 +253,7 @@ __all__ = (
     "RefreshPreferencesTypeDef",
     "RefreshPreferencesUnionTypeDef",
     "ResponseMetadataTypeDef",
+    "RetentionTriggersTypeDef",
     "RollbackDetailsTypeDef",
     "RollbackInstanceRefreshAnswerTypeDef",
     "RollbackInstanceRefreshTypeTypeDef",
@@ -407,6 +416,7 @@ class EbsTypeDef(TypedDict):
 
 class CancelInstanceRefreshTypeTypeDef(TypedDict):
     AutoScalingGroupName: str
+    WaitForTransitioningInstances: NotRequired[bool]
 
 class CapacityForecastTypeDef(TypedDict):
     Timestamps: List[datetime]
@@ -617,6 +627,17 @@ class ExitStandbyQueryTypeDef(TypedDict):
     AutoScalingGroupName: str
     InstanceIds: NotRequired[Sequence[str]]
 
+class InstanceCollectionTypeDef(TypedDict):
+    InstanceType: NotRequired[str]
+    MarketType: NotRequired[str]
+    SubnetId: NotRequired[str]
+    AvailabilityZone: NotRequired[str]
+    AvailabilityZoneId: NotRequired[str]
+    InstanceIds: NotRequired[List[str]]
+
+class RetentionTriggersTypeDef(TypedDict):
+    TerminateHookAbandon: NotRequired[RetentionActionType]
+
 class InstanceRefreshLivePoolProgressTypeDef(TypedDict):
     PercentageComplete: NotRequired[int]
     InstancesToUpdate: NotRequired[int]
@@ -667,6 +688,24 @@ class LaunchConfigurationNamesTypeTypeDef(TypedDict):
     LaunchConfigurationNames: NotRequired[Sequence[str]]
     NextToken: NotRequired[str]
     MaxRecords: NotRequired[int]
+
+class LaunchInstancesErrorTypeDef(TypedDict):
+    InstanceType: NotRequired[str]
+    MarketType: NotRequired[str]
+    SubnetId: NotRequired[str]
+    AvailabilityZone: NotRequired[str]
+    AvailabilityZoneId: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class LaunchInstancesRequestTypeDef(TypedDict):
+    AutoScalingGroupName: str
+    RequestedCapacity: int
+    ClientToken: str
+    AvailabilityZones: NotRequired[Sequence[str]]
+    AvailabilityZoneIds: NotRequired[Sequence[str]]
+    SubnetIds: NotRequired[Sequence[str]]
+    RetryStrategy: NotRequired[RetryStrategyType]
 
 class PredefinedMetricSpecificationTypeDef(TypedDict):
     PredefinedMetricType: MetricTypeType
@@ -857,6 +896,7 @@ class DetachTrafficSourcesTypeTypeDef(TypedDict):
 
 class AutoScalingGroupNamesTypeTypeDef(TypedDict):
     AutoScalingGroupNames: NotRequired[Sequence[str]]
+    IncludeInstances: NotRequired[bool]
     NextToken: NotRequired[str]
     MaxRecords: NotRequired[int]
     Filters: NotRequired[Sequence[FilterTypeDef]]
@@ -868,6 +908,7 @@ class DescribeTagsTypeTypeDef(TypedDict):
 
 class AutoScalingGroupNamesTypePaginateTypeDef(TypedDict):
     AutoScalingGroupNames: NotRequired[Sequence[str]]
+    IncludeInstances: NotRequired[bool]
     Filters: NotRequired[Sequence[FilterTypeDef]]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
@@ -921,6 +962,7 @@ class AutoScalingInstanceDetailsTypeDef(TypedDict):
     InstanceType: NotRequired[str]
     LaunchConfigurationName: NotRequired[str]
     LaunchTemplate: NotRequired[LaunchTemplateSpecificationTypeDef]
+    ImageId: NotRequired[str]
     WeightedCapacity: NotRequired[str]
 
 class InstanceTypeDef(TypedDict):
@@ -932,6 +974,7 @@ class InstanceTypeDef(TypedDict):
     InstanceType: NotRequired[str]
     LaunchConfigurationName: NotRequired[str]
     LaunchTemplate: NotRequired[LaunchTemplateSpecificationTypeDef]
+    ImageId: NotRequired[str]
     WeightedCapacity: NotRequired[str]
 
 class TagsTypeTypeDef(TypedDict):
@@ -1055,6 +1098,9 @@ class DescribeTrafficSourcesResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
 
+class InstanceLifecyclePolicyTypeDef(TypedDict):
+    RetentionTriggers: NotRequired[RetentionTriggersTypeDef]
+
 class InstanceRefreshProgressDetailsTypeDef(TypedDict):
     LivePoolProgress: NotRequired[InstanceRefreshLivePoolProgressTypeDef]
     WarmPoolProgress: NotRequired[InstanceRefreshWarmPoolProgressTypeDef]
@@ -1072,6 +1118,13 @@ class WarmPoolConfigurationTypeDef(TypedDict):
     PoolState: NotRequired[WarmPoolStateType]
     Status: NotRequired[Literal["PendingDelete"]]
     InstanceReusePolicy: NotRequired[InstanceReusePolicyTypeDef]
+
+class LaunchInstancesResultTypeDef(TypedDict):
+    AutoScalingGroupName: str
+    ClientToken: str
+    Instances: List[InstanceCollectionTypeDef]
+    Errors: List[LaunchInstancesErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class ProcessesTypeTypeDef(TypedDict):
     Processes: List[ProcessTypeTypeDef]
@@ -1275,12 +1328,14 @@ class LaunchTemplateOverridesOutputTypeDef(TypedDict):
     WeightedCapacity: NotRequired[str]
     LaunchTemplateSpecification: NotRequired[LaunchTemplateSpecificationTypeDef]
     InstanceRequirements: NotRequired[InstanceRequirementsOutputTypeDef]
+    ImageId: NotRequired[str]
 
 class LaunchTemplateOverridesTypeDef(TypedDict):
     InstanceType: NotRequired[str]
     WeightedCapacity: NotRequired[str]
     LaunchTemplateSpecification: NotRequired[LaunchTemplateSpecificationTypeDef]
     InstanceRequirements: NotRequired[InstanceRequirementsTypeDef]
+    ImageId: NotRequired[str]
 
 class PredictiveScalingCustomizedCapacityMetricOutputTypeDef(TypedDict):
     MetricDataQueries: List[MetricDataQueryOutputTypeDef]
@@ -1440,6 +1495,7 @@ class AutoScalingGroupTypeDef(TypedDict):
     AvailabilityZoneDistribution: NotRequired[AvailabilityZoneDistributionTypeDef]
     AvailabilityZoneImpairmentPolicy: NotRequired[AvailabilityZoneImpairmentPolicyTypeDef]
     CapacityReservationSpecification: NotRequired[CapacityReservationSpecificationOutputTypeDef]
+    InstanceLifecyclePolicy: NotRequired[InstanceLifecyclePolicyTypeDef]
 
 class DesiredConfigurationOutputTypeDef(TypedDict):
     LaunchTemplate: NotRequired[LaunchTemplateSpecificationTypeDef]
@@ -1499,6 +1555,7 @@ class InstanceRefreshTypeDef(TypedDict):
     Preferences: NotRequired[RefreshPreferencesOutputTypeDef]
     DesiredConfiguration: NotRequired[DesiredConfigurationOutputTypeDef]
     RollbackDetails: NotRequired[RollbackDetailsTypeDef]
+    Strategy: NotRequired[RefreshStrategyType]
 
 DesiredConfigurationUnionTypeDef = Union[
     DesiredConfigurationTypeDef, DesiredConfigurationOutputTypeDef
@@ -1537,6 +1594,7 @@ class CreateAutoScalingGroupTypeTypeDef(TypedDict):
     AvailabilityZoneImpairmentPolicy: NotRequired[AvailabilityZoneImpairmentPolicyTypeDef]
     SkipZonalShiftValidation: NotRequired[bool]
     CapacityReservationSpecification: NotRequired[CapacityReservationSpecificationUnionTypeDef]
+    InstanceLifecyclePolicy: NotRequired[InstanceLifecyclePolicyTypeDef]
 
 class UpdateAutoScalingGroupTypeTypeDef(TypedDict):
     AutoScalingGroupName: str
@@ -1565,6 +1623,7 @@ class UpdateAutoScalingGroupTypeTypeDef(TypedDict):
     AvailabilityZoneImpairmentPolicy: NotRequired[AvailabilityZoneImpairmentPolicyTypeDef]
     SkipZonalShiftValidation: NotRequired[bool]
     CapacityReservationSpecification: NotRequired[CapacityReservationSpecificationUnionTypeDef]
+    InstanceLifecyclePolicy: NotRequired[InstanceLifecyclePolicyTypeDef]
 
 class PoliciesTypeTypeDef(TypedDict):
     ScalingPolicies: List[ScalingPolicyTypeDef]
@@ -1594,6 +1653,6 @@ class DescribeInstanceRefreshesAnswerTypeDef(TypedDict):
 
 class StartInstanceRefreshTypeTypeDef(TypedDict):
     AutoScalingGroupName: str
-    Strategy: NotRequired[Literal["Rolling"]]
+    Strategy: NotRequired[RefreshStrategyType]
     DesiredConfiguration: NotRequired[DesiredConfigurationUnionTypeDef]
     Preferences: NotRequired[RefreshPreferencesUnionTypeDef]

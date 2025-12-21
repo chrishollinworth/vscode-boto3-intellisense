@@ -25,7 +25,12 @@ from botocore.client import BaseClient, ClientMeta
 from botocore.errorfactory import BaseClientExceptions
 from botocore.exceptions import ClientError as BotocoreClientError
 
-from .paginator import ListCaseRulesPaginator, SearchCasesPaginator, SearchRelatedItemsPaginator
+from .paginator import (
+    ListCaseRulesPaginator,
+    SearchAllRelatedItemsPaginator,
+    SearchCasesPaginator,
+    SearchRelatedItemsPaginator,
+)
 from .type_defs import (
     BatchGetCaseRuleRequestTypeDef,
     BatchGetCaseRuleResponseTypeDef,
@@ -47,10 +52,12 @@ from .type_defs import (
     CreateRelatedItemResponseTypeDef,
     CreateTemplateRequestTypeDef,
     CreateTemplateResponseTypeDef,
+    DeleteCaseRequestTypeDef,
     DeleteCaseRuleRequestTypeDef,
     DeleteDomainRequestTypeDef,
     DeleteFieldRequestTypeDef,
     DeleteLayoutRequestTypeDef,
+    DeleteRelatedItemRequestTypeDef,
     DeleteTemplateRequestTypeDef,
     EmptyResponseMetadataTypeDef,
     GetCaseAuditEventsRequestTypeDef,
@@ -82,6 +89,8 @@ from .type_defs import (
     ListTemplatesRequestTypeDef,
     ListTemplatesResponseTypeDef,
     PutCaseEventConfigurationRequestTypeDef,
+    SearchAllRelatedItemsRequestTypeDef,
+    SearchAllRelatedItemsResponseTypeDef,
     SearchCasesRequestTypeDef,
     SearchCasesResponseTypeDef,
     SearchRelatedItemsRequestTypeDef,
@@ -186,8 +195,8 @@ class ConnectCasesClient(BaseClient):
 
     def create_case(self, **kwargs: Unpack[CreateCaseRequestTypeDef]) -> CreateCaseResponseTypeDef:
         """
-        If you provide a value for <code>PerformedBy.UserArn</code> you must also have
-        <a
+        <note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must
+        also have <a
         href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
         permission on the User ARN resource that you provide.
 
@@ -257,6 +266,15 @@ class ConnectCasesClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#create_template)
         """
 
+    def delete_case(self, **kwargs: Unpack[DeleteCaseRequestTypeDef]) -> Dict[str, Any]:
+        """
+        The DeleteCase API permanently deletes a case and all its associated resources
+        from the cases data store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/delete_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#delete_case)
+        """
+
     def delete_case_rule(self, **kwargs: Unpack[DeleteCaseRuleRequestTypeDef]) -> Dict[str, Any]:
         """
         Deletes a case rule.
@@ -287,6 +305,16 @@ class ConnectCasesClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/delete_layout.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#delete_layout)
+        """
+
+    def delete_related_item(
+        self, **kwargs: Unpack[DeleteRelatedItemRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the related item resource under a case.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/delete_related_item.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#delete_related_item)
         """
 
     def delete_template(self, **kwargs: Unpack[DeleteTemplateRequestTypeDef]) -> Dict[str, Any]:
@@ -439,6 +467,16 @@ class ConnectCasesClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#put_case_event_configuration)
         """
 
+    def search_all_related_items(
+        self, **kwargs: Unpack[SearchAllRelatedItemsRequestTypeDef]
+    ) -> SearchAllRelatedItemsResponseTypeDef:
+        """
+        Searches for related items across all cases within a domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/search_all_related_items.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#search_all_related_items)
+        """
+
     def search_cases(
         self, **kwargs: Unpack[SearchCasesRequestTypeDef]
     ) -> SearchCasesResponseTypeDef:
@@ -481,8 +519,8 @@ class ConnectCasesClient(BaseClient):
 
     def update_case(self, **kwargs: Unpack[UpdateCaseRequestTypeDef]) -> Dict[str, Any]:
         """
-        If you provide a value for <code>PerformedBy.UserArn</code> you must also have
-        <a
+        <note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must
+        also have <a
         href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
         permission on the User ARN resource that you provide.
 
@@ -526,6 +564,17 @@ class ConnectCasesClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_case_rules"]
     ) -> ListCaseRulesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_all_related_items"]
+    ) -> SearchAllRelatedItemsPaginator:
         """
         Create a paginator for an operation.
 

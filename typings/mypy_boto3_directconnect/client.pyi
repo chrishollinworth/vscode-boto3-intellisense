@@ -284,7 +284,7 @@ class DirectConnectClient(BaseClient):
     ) -> AssociateMacSecKeyResponseTypeDef:
         """
         Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity
-        Association Key (CAK) pair with an Direct Connect dedicated connection.
+        Association Key (CAK) pair with a Direct Connect connection.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/associate_mac_sec_key.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client/#associate_mac_sec_key)
@@ -733,8 +733,8 @@ class DirectConnectClient(BaseClient):
         self, **kwargs: Unpack[DisassociateMacSecKeyRequestTypeDef]
     ) -> DisassociateMacSecKeyResponseTypeDef:
         """
-        Removes the association between a MAC Security (MACsec) security key and an
-        Direct Connect dedicated connection.
+        Removes the association between a MAC Security (MACsec) security key and a
+        Direct Connect connection.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/disassociate_mac_sec_key.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client/#disassociate_mac_sec_key)
@@ -792,7 +792,7 @@ class DirectConnectClient(BaseClient):
         self, **kwargs: Unpack[UpdateConnectionRequestTypeDef]
     ) -> ConnectionResponseTypeDef:
         """
-        Updates the Direct Connect dedicated connection configuration.
+        Updates the Direct Connect connection configuration.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/update_connection.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client/#update_connection)

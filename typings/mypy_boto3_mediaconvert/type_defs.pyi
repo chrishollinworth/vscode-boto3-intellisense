@@ -24,6 +24,7 @@ from .literals import (
     AacAudioDescriptionBroadcasterMixType,
     AacCodecProfileType,
     AacCodingModeType,
+    AacLoudnessMeasurementModeType,
     AacRateControlModeType,
     AacRawFormatType,
     AacSpecificationType,
@@ -86,6 +87,7 @@ from .literals import (
     CaptionSourceByteRateLimitType,
     CaptionSourceConvertPaintOnToPopOnType,
     CaptionSourceTypeType,
+    CaptionSourceUpconvertSTLToTeletextType,
     ChromaPositionModeType,
     CmafClientCacheType,
     CmafCodecSpecificationType,
@@ -109,6 +111,7 @@ from .literals import (
     CmafWriteSegmentTimelineInRepresentationType,
     CmfcAudioDurationType,
     CmfcAudioTrackTypeType,
+    CmfcC2paManifestType,
     CmfcDescriptiveVideoServiceFlagType,
     CmfcIFrameOnlyManifestType,
     CmfcKlvMetadataType,
@@ -190,6 +193,7 @@ from .literals import (
     FileSourceTimeDeltaUnitsType,
     FontScriptType,
     FormatType,
+    FrameControlType,
     FrameMetricTypeType,
     GifFramerateControlType,
     GifFramerateConversionAlgorithmType,
@@ -233,6 +237,8 @@ from .literals import (
     H265GopBReferenceType,
     H265GopSizeUnitsType,
     H265InterlaceModeType,
+    H265MvOverPictureBoundariesType,
+    H265MvTemporalPredictorType,
     H265ParControlType,
     H265QualityTuningLevelType,
     H265RateControlModeType,
@@ -244,7 +250,9 @@ from .literals import (
     H265TelecineType,
     H265TemporalAdaptiveQuantizationType,
     H265TemporalIdsType,
+    H265TilePaddingType,
     H265TilesType,
+    H265TreeBlockSizeType,
     H265UnregisteredSeiTimecodeType,
     H265WriteMp4PackagingTypeType,
     HDRToSDRToneMapperType,
@@ -287,6 +295,8 @@ from .literals import (
     InputScanTypeType,
     InputTimecodeSourceType,
     JobPhaseType,
+    JobsQueryFilterKeyType,
+    JobsQueryStatusType,
     JobStatusType,
     JobTemplateListByType,
     LanguageCodeType,
@@ -319,12 +329,15 @@ from .literals import (
     MovMpeg2FourCCControlType,
     MovPaddingControlType,
     MovReferenceType,
+    Mp2AudioDescriptionMixType,
     Mp3RateControlModeType,
+    Mp4C2paManifestType,
     Mp4CslgAtomType,
     Mp4FreeSpaceBoxType,
     Mp4MoovPlacementType,
     MpdAccessibilityCaptionHintsType,
     MpdAudioDurationType,
+    MpdC2paManifestType,
     MpdCaptionContainerTypeType,
     MpdKlvMetadataType,
     MpdManifestMetadataSignalingType,
@@ -394,9 +407,12 @@ from .literals import (
     SampleRangeConversionType,
     ScalingBehaviorType,
     SccDestinationFramerateType,
+    ShareStatusType,
     SimulateReservedQueueType,
+    SlowPalPitchCorrectionType,
     SrtStylePassthroughType,
     StatusUpdateIntervalType,
+    TamsGapHandlingType,
     TeletextPageTypeType,
     TimecodeBurninPositionType,
     TimecodeSourceType,
@@ -425,6 +441,8 @@ from .literals import (
     VideoCodecType,
     VideoOverlayPlayBackModeType,
     VideoOverlayUnitType,
+    VideoSelectorModeType,
+    VideoSelectorTypeType,
     VideoTimecodeInsertionType,
     Vp8FramerateControlType,
     Vp8FramerateConversionAlgorithmType,
@@ -486,6 +504,7 @@ __all__ = (
     "AudioDescriptionOutputTypeDef",
     "AudioDescriptionTypeDef",
     "AudioNormalizationSettingsTypeDef",
+    "AudioPitchCorrectionSettingsTypeDef",
     "AudioPropertiesTypeDef",
     "AudioSelectorGroupOutputTypeDef",
     "AudioSelectorGroupTypeDef",
@@ -527,6 +546,7 @@ __all__ = (
     "CmafGroupSettingsTypeDef",
     "CmafImageBasedTrickPlaySettingsTypeDef",
     "CmfcSettingsTypeDef",
+    "CodecMetadataTypeDef",
     "ColorConversion3DLUTSettingTypeDef",
     "ColorCorrectorTypeDef",
     "ContainerSettingsOutputTypeDef",
@@ -540,6 +560,7 @@ __all__ = (
     "CreatePresetResponseTypeDef",
     "CreateQueueRequestTypeDef",
     "CreateQueueResponseTypeDef",
+    "CreateResourceShareRequestTypeDef",
     "DashAdditionalManifestOutputTypeDef",
     "DashAdditionalManifestTypeDef",
     "DashIsoEncryptionSettingsOutputTypeDef",
@@ -587,6 +608,8 @@ __all__ = (
     "GetJobResponseTypeDef",
     "GetJobTemplateRequestTypeDef",
     "GetJobTemplateResponseTypeDef",
+    "GetJobsQueryResultsRequestTypeDef",
+    "GetJobsQueryResultsResponseTypeDef",
     "GetPolicyResponseTypeDef",
     "GetPresetRequestTypeDef",
     "GetPresetResponseTypeDef",
@@ -619,6 +642,7 @@ __all__ = (
     "InputClippingTypeDef",
     "InputDecryptionSettingsTypeDef",
     "InputOutputTypeDef",
+    "InputTamsSettingsTypeDef",
     "InputTemplateOutputTypeDef",
     "InputTemplateTypeDef",
     "InputTypeDef",
@@ -634,6 +658,7 @@ __all__ = (
     "JobTemplateSettingsUnionTypeDef",
     "JobTemplateTypeDef",
     "JobTypeDef",
+    "JobsQueryFilterTypeDef",
     "KantarWatermarkSettingsTypeDef",
     "ListJobTemplatesRequestPaginateTypeDef",
     "ListJobTemplatesRequestTypeDef",
@@ -698,6 +723,7 @@ __all__ = (
     "OutputTypeDef",
     "PaginatorConfigTypeDef",
     "PartnerWatermarkingTypeDef",
+    "PassthroughSettingsTypeDef",
     "PolicyTypeDef",
     "PresetSettingsOutputTypeDef",
     "PresetSettingsTypeDef",
@@ -733,6 +759,8 @@ __all__ = (
     "SpekeKeyProviderOutputTypeDef",
     "SpekeKeyProviderTypeDef",
     "SrtDestinationSettingsTypeDef",
+    "StartJobsQueryRequestTypeDef",
+    "StartJobsQueryResponseTypeDef",
     "StaticKeyProviderTypeDef",
     "TagResourceRequestTypeDef",
     "TeletextDestinationSettingsOutputTypeDef",
@@ -761,6 +789,7 @@ __all__ = (
     "VideoDescriptionOutputTypeDef",
     "VideoDescriptionTypeDef",
     "VideoDetailTypeDef",
+    "VideoOverlayCropTypeDef",
     "VideoOverlayInputClippingTypeDef",
     "VideoOverlayInputOutputTypeDef",
     "VideoOverlayInputTypeDef",
@@ -771,6 +800,7 @@ __all__ = (
     "VideoPreprocessorOutputTypeDef",
     "VideoPreprocessorTypeDef",
     "VideoPropertiesTypeDef",
+    "VideoSelectorOutputTypeDef",
     "VideoSelectorTypeDef",
     "VorbisSettingsTypeDef",
     "Vp8SettingsTypeDef",
@@ -793,10 +823,13 @@ class AacSettingsTypeDef(TypedDict):
     Bitrate: NotRequired[int]
     CodecProfile: NotRequired[AacCodecProfileType]
     CodingMode: NotRequired[AacCodingModeType]
+    LoudnessMeasurementMode: NotRequired[AacLoudnessMeasurementModeType]
+    RapInterval: NotRequired[int]
     RateControlMode: NotRequired[AacRateControlModeType]
     RawFormat: NotRequired[AacRawFormatType]
     SampleRate: NotRequired[int]
     Specification: NotRequired[AacSpecificationType]
+    TargetLoudnessRange: NotRequired[int]
     VbrQuality: NotRequired[AacVbrQualityType]
 
 class Ac3SettingsTypeDef(TypedDict):
@@ -896,6 +929,7 @@ class FlacSettingsTypeDef(TypedDict):
     SampleRate: NotRequired[int]
 
 class Mp2SettingsTypeDef(TypedDict):
+    AudioDescriptionMix: NotRequired[Mp2AudioDescriptionMixType]
     Bitrate: NotRequired[int]
     Channels: NotRequired[int]
     SampleRate: NotRequired[int]
@@ -931,6 +965,9 @@ class AudioNormalizationSettingsTypeDef(TypedDict):
     PeakCalculation: NotRequired[AudioNormalizationPeakCalculationType]
     TargetLkfs: NotRequired[float]
     TruePeakLimiterThreshold: NotRequired[float]
+
+class AudioPitchCorrectionSettingsTypeDef(TypedDict):
+    SlowPalPitchCorrection: NotRequired[SlowPalPitchCorrectionType]
 
 class FrameRateTypeDef(TypedDict):
     Denominator: NotRequired[int]
@@ -1083,6 +1120,7 @@ class TeletextSourceSettingsTypeDef(TypedDict):
     PageNumber: NotRequired[str]
 
 class TrackSourceSettingsTypeDef(TypedDict):
+    StreamNumber: NotRequired[int]
     TrackNumber: NotRequired[int]
 
 class WebvttHlsSourceSettingsTypeDef(TypedDict):
@@ -1131,12 +1169,15 @@ class CmfcSettingsTypeDef(TypedDict):
     AudioGroupId: NotRequired[str]
     AudioRenditionSets: NotRequired[str]
     AudioTrackType: NotRequired[CmfcAudioTrackTypeType]
+    C2paManifest: NotRequired[CmfcC2paManifestType]
+    CertificateSecret: NotRequired[str]
     DescriptiveVideoServiceFlag: NotRequired[CmfcDescriptiveVideoServiceFlagType]
     IFrameOnlyManifest: NotRequired[CmfcIFrameOnlyManifestType]
     KlvMetadata: NotRequired[CmfcKlvMetadataType]
     ManifestMetadataSignaling: NotRequired[CmfcManifestMetadataSignalingType]
     Scte35Esam: NotRequired[CmfcScte35EsamType]
     Scte35Source: NotRequired[CmfcScte35SourceType]
+    SigningKmsKey: NotRequired[str]
     TimedMetadata: NotRequired[CmfcTimedMetadataType]
     TimedMetadataBoxVersion: NotRequired[CmfcTimedMetadataBoxVersionType]
     TimedMetadataSchemeIdUri: NotRequired[str]
@@ -1199,20 +1240,26 @@ class MovSettingsTypeDef(TypedDict):
 
 class Mp4SettingsTypeDef(TypedDict):
     AudioDuration: NotRequired[CmfcAudioDurationType]
+    C2paManifest: NotRequired[Mp4C2paManifestType]
+    CertificateSecret: NotRequired[str]
     CslgAtom: NotRequired[Mp4CslgAtomType]
     CttsVersion: NotRequired[int]
     FreeSpaceBox: NotRequired[Mp4FreeSpaceBoxType]
     MoovPlacement: NotRequired[Mp4MoovPlacementType]
     Mp4MajorBrand: NotRequired[str]
+    SigningKmsKey: NotRequired[str]
 
 class MpdSettingsTypeDef(TypedDict):
     AccessibilityCaptionHints: NotRequired[MpdAccessibilityCaptionHintsType]
     AudioDuration: NotRequired[MpdAudioDurationType]
+    C2paManifest: NotRequired[MpdC2paManifestType]
     CaptionContainerType: NotRequired[MpdCaptionContainerTypeType]
+    CertificateSecret: NotRequired[str]
     KlvMetadata: NotRequired[MpdKlvMetadataType]
     ManifestMetadataSignaling: NotRequired[MpdManifestMetadataSignalingType]
     Scte35Esam: NotRequired[MpdScte35EsamType]
     Scte35Source: NotRequired[MpdScte35SourceType]
+    SigningKmsKey: NotRequired[str]
     TimedMetadata: NotRequired[MpdTimedMetadataType]
     TimedMetadataBoxVersion: NotRequired[MpdTimedMetadataBoxVersionType]
     TimedMetadataSchemeIdUri: NotRequired[str]
@@ -1258,6 +1305,10 @@ class ReservationPlanSettingsTypeDef(TypedDict):
     Commitment: Literal["ONE_YEAR"]
     RenewalType: RenewalTypeType
     ReservedSlots: int
+
+class CreateResourceShareRequestTypeDef(TypedDict):
+    JobId: str
+    SupportCaseId: str
 
 class DashAdditionalManifestOutputTypeDef(TypedDict):
     ManifestNameModifier: NotRequired[str]
@@ -1363,6 +1414,9 @@ class GetJobRequestTypeDef(TypedDict):
 class GetJobTemplateRequestTypeDef(TypedDict):
     Name: str
 
+class GetJobsQueryResultsRequestTypeDef(TypedDict):
+    Id: str
+
 class PolicyTypeDef(TypedDict):
     HttpInputs: NotRequired[InputPolicyType]
     HttpsInputs: NotRequired[InputPolicyType]
@@ -1452,12 +1506,21 @@ class InputDecryptionSettingsTypeDef(TypedDict):
     InitializationVector: NotRequired[str]
     KmsKeyRegion: NotRequired[str]
 
+class InputTamsSettingsTypeDef(TypedDict):
+    AuthConnectionArn: NotRequired[str]
+    GapHandling: NotRequired[TamsGapHandlingType]
+    SourceId: NotRequired[str]
+    Timerange: NotRequired[str]
+
 class InputVideoGeneratorTypeDef(TypedDict):
     Channels: NotRequired[int]
     Duration: NotRequired[int]
     FramerateDenominator: NotRequired[int]
     FramerateNumerator: NotRequired[int]
+    Height: NotRequired[int]
+    ImageInput: NotRequired[str]
     SampleRate: NotRequired[int]
+    Width: NotRequired[int]
 
 class RectangleTypeDef(TypedDict):
     Height: NotRequired[int]
@@ -1528,6 +1591,10 @@ class TimingTypeDef(TypedDict):
 class WarningGroupTypeDef(TypedDict):
     Code: int
     Count: int
+
+class JobsQueryFilterTypeDef(TypedDict):
+    Key: NotRequired[JobsQueryFilterKeyType]
+    Values: NotRequired[Sequence[str]]
 
 class ListJobTemplatesRequestTypeDef(TypedDict):
     Category: NotRequired[str]
@@ -1693,6 +1760,10 @@ class VideoDetailTypeDef(TypedDict):
     HeightInPx: NotRequired[int]
     WidthInPx: NotRequired[int]
 
+class PassthroughSettingsTypeDef(TypedDict):
+    FrameControl: NotRequired[FrameControlType]
+    VideoSelectorMode: NotRequired[VideoSelectorModeType]
+
 class ProbeInputFileTypeDef(TypedDict):
     FileUrl: NotRequired[str]
 
@@ -1828,12 +1899,20 @@ class Vp9SettingsTypeDef(TypedDict):
     QualityTuningLevel: NotRequired[Vp9QualityTuningLevelType]
     RateControlMode: NotRequired[Literal["VBR"]]
 
+class VideoOverlayCropTypeDef(TypedDict):
+    Height: NotRequired[int]
+    Unit: NotRequired[VideoOverlayUnitType]
+    Width: NotRequired[int]
+    X: NotRequired[int]
+    Y: NotRequired[int]
+
 class VideoOverlayInputClippingTypeDef(TypedDict):
     EndTimecode: NotRequired[str]
     StartTimecode: NotRequired[str]
 
 class VideoOverlayPositionTypeDef(TypedDict):
     Height: NotRequired[int]
+    Opacity: NotRequired[int]
     Unit: NotRequired[VideoOverlayUnitType]
     Width: NotRequired[int]
     XPosition: NotRequired[int]
@@ -1891,13 +1970,16 @@ class AudioPropertiesTypeDef(TypedDict):
     LanguageCode: NotRequired[str]
     SampleRate: NotRequired[int]
 
-class VideoPropertiesTypeDef(TypedDict):
+class CodecMetadataTypeDef(TypedDict):
     BitDepth: NotRequired[int]
-    BitRate: NotRequired[int]
+    ChromaSubsampling: NotRequired[str]
+    CodedFrameRate: NotRequired[FrameRateTypeDef]
     ColorPrimaries: NotRequired[ColorPrimariesType]
-    FrameRate: NotRequired[FrameRateTypeDef]
     Height: NotRequired[int]
+    Level: NotRequired[str]
     MatrixCoefficients: NotRequired[MatrixCoefficientsType]
+    Profile: NotRequired[str]
+    ScanType: NotRequired[str]
     TransferCharacteristics: NotRequired[TransferCharacteristicsType]
     Width: NotRequired[int]
 
@@ -2014,6 +2096,7 @@ class FileSourceSettingsTypeDef(TypedDict):
     SourceFile: NotRequired[str]
     TimeDelta: NotRequired[int]
     TimeDeltaUnits: NotRequired[FileSourceTimeDeltaUnitsType]
+    UpconvertSTLToTeletext: NotRequired[CaptionSourceUpconvertSTLToTeletextType]
 
 class ChannelMappingOutputTypeDef(TypedDict):
     OutputChannels: NotRequired[List[OutputChannelMappingOutputTypeDef]]
@@ -2034,6 +2117,21 @@ class ColorCorrectorTypeDef(TypedDict):
     Saturation: NotRequired[int]
     SdrReferenceWhiteLevel: NotRequired[int]
 
+class VideoSelectorOutputTypeDef(TypedDict):
+    AlphaBehavior: NotRequired[AlphaBehaviorType]
+    ColorSpace: NotRequired[ColorSpaceType]
+    ColorSpaceUsage: NotRequired[ColorSpaceUsageType]
+    EmbeddedTimecodeOverride: NotRequired[EmbeddedTimecodeOverrideType]
+    Hdr10Metadata: NotRequired[Hdr10MetadataTypeDef]
+    MaxLuminance: NotRequired[int]
+    PadVideo: NotRequired[PadVideoType]
+    Pid: NotRequired[int]
+    ProgramNumber: NotRequired[int]
+    Rotate: NotRequired[InputRotateType]
+    SampleRange: NotRequired[InputSampleRangeType]
+    SelectorType: NotRequired[VideoSelectorTypeType]
+    Streams: NotRequired[List[int]]
+
 class VideoSelectorTypeDef(TypedDict):
     AlphaBehavior: NotRequired[AlphaBehaviorType]
     ColorSpace: NotRequired[ColorSpaceType]
@@ -2046,6 +2144,12 @@ class VideoSelectorTypeDef(TypedDict):
     ProgramNumber: NotRequired[int]
     Rotate: NotRequired[InputRotateType]
     SampleRange: NotRequired[InputSampleRangeType]
+    SelectorType: NotRequired[VideoSelectorTypeType]
+    Streams: NotRequired[Sequence[int]]
+
+class StartJobsQueryResponseTypeDef(TypedDict):
+    Id: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateQueueRequestTypeDef(TypedDict):
     Name: str
@@ -2284,6 +2388,8 @@ class H265SettingsOutputTypeDef(TypedDict):
     InterlaceMode: NotRequired[H265InterlaceModeType]
     MaxBitrate: NotRequired[int]
     MinIInterval: NotRequired[int]
+    MvOverPictureBoundaries: NotRequired[H265MvOverPictureBoundariesType]
+    MvTemporalPredictor: NotRequired[H265MvTemporalPredictorType]
     NumberBFramesBetweenReferenceFrames: NotRequired[int]
     NumberReferenceFrames: NotRequired[int]
     ParControl: NotRequired[H265ParControlType]
@@ -2302,7 +2408,11 @@ class H265SettingsOutputTypeDef(TypedDict):
     Telecine: NotRequired[H265TelecineType]
     TemporalAdaptiveQuantization: NotRequired[H265TemporalAdaptiveQuantizationType]
     TemporalIds: NotRequired[H265TemporalIdsType]
+    TileHeight: NotRequired[int]
+    TilePadding: NotRequired[H265TilePaddingType]
+    TileWidth: NotRequired[int]
     Tiles: NotRequired[H265TilesType]
+    TreeBlockSize: NotRequired[H265TreeBlockSizeType]
     UnregisteredSeiTimecode: NotRequired[H265UnregisteredSeiTimecodeType]
     WriteMp4PackagingType: NotRequired[H265WriteMp4PackagingTypeType]
 
@@ -2331,6 +2441,8 @@ class H265SettingsTypeDef(TypedDict):
     InterlaceMode: NotRequired[H265InterlaceModeType]
     MaxBitrate: NotRequired[int]
     MinIInterval: NotRequired[int]
+    MvOverPictureBoundaries: NotRequired[H265MvOverPictureBoundariesType]
+    MvTemporalPredictor: NotRequired[H265MvTemporalPredictorType]
     NumberBFramesBetweenReferenceFrames: NotRequired[int]
     NumberReferenceFrames: NotRequired[int]
     ParControl: NotRequired[H265ParControlType]
@@ -2349,7 +2461,11 @@ class H265SettingsTypeDef(TypedDict):
     Telecine: NotRequired[H265TelecineType]
     TemporalAdaptiveQuantization: NotRequired[H265TemporalAdaptiveQuantizationType]
     TemporalIds: NotRequired[H265TemporalIdsType]
+    TileHeight: NotRequired[int]
+    TilePadding: NotRequired[H265TilePaddingType]
+    TileWidth: NotRequired[int]
     Tiles: NotRequired[H265TilesType]
+    TreeBlockSize: NotRequired[H265TreeBlockSizeType]
     UnregisteredSeiTimecode: NotRequired[H265UnregisteredSeiTimecodeType]
     WriteMp4PackagingType: NotRequired[H265WriteMp4PackagingTypeType]
 
@@ -2374,6 +2490,12 @@ class ListVersionsResponseTypeDef(TypedDict):
     Versions: List[JobEngineVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: NotRequired[str]
+
+class StartJobsQueryRequestTypeDef(TypedDict):
+    FilterList: NotRequired[Sequence[JobsQueryFilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Order: NotRequired[OrderType]
 
 class ListTagsForResourceResponseTypeDef(TypedDict):
     ResourceTags: ResourceTagsTypeDef
@@ -2522,18 +2644,6 @@ class S3DestinationSettingsTypeDef(TypedDict):
     Encryption: NotRequired[S3EncryptionSettingsTypeDef]
     StorageClass: NotRequired[S3StorageClassType]
 
-class VideoOverlayInputOutputTypeDef(TypedDict):
-    FileInput: NotRequired[str]
-    InputClippings: NotRequired[List[VideoOverlayInputClippingTypeDef]]
-    TimecodeSource: NotRequired[InputTimecodeSourceType]
-    TimecodeStart: NotRequired[str]
-
-class VideoOverlayInputTypeDef(TypedDict):
-    FileInput: NotRequired[str]
-    InputClippings: NotRequired[Sequence[VideoOverlayInputClippingTypeDef]]
-    TimecodeSource: NotRequired[InputTimecodeSourceType]
-    TimecodeStart: NotRequired[str]
-
 class VideoOverlayTransitionTypeDef(TypedDict):
     EndPosition: NotRequired[VideoOverlayPositionTypeDef]
     EndTimecode: NotRequired[str]
@@ -2577,14 +2687,16 @@ class XavcSettingsTypeDef(TypedDict):
     XavcHdIntraCbgProfileSettings: NotRequired[XavcHdIntraCbgProfileSettingsTypeDef]
     XavcHdProfileSettings: NotRequired[XavcHdProfileSettingsTypeDef]
 
-class TrackTypeDef(TypedDict):
-    AudioProperties: NotRequired[AudioPropertiesTypeDef]
-    Codec: NotRequired[CodecType]
-    DataProperties: NotRequired[DataPropertiesTypeDef]
-    Duration: NotRequired[float]
-    Index: NotRequired[int]
-    TrackType: NotRequired[TrackTypeType]
-    VideoProperties: NotRequired[VideoPropertiesTypeDef]
+class VideoPropertiesTypeDef(TypedDict):
+    BitDepth: NotRequired[int]
+    BitRate: NotRequired[int]
+    CodecMetadata: NotRequired[CodecMetadataTypeDef]
+    ColorPrimaries: NotRequired[ColorPrimariesType]
+    FrameRate: NotRequired[FrameRateTypeDef]
+    Height: NotRequired[int]
+    MatrixCoefficients: NotRequired[MatrixCoefficientsType]
+    TransferCharacteristics: NotRequired[TransferCharacteristicsType]
+    Width: NotRequired[int]
 
 class AutomatedAbrSettingsOutputTypeDef(TypedDict):
     MaxAbrBitrate: NotRequired[int]
@@ -2787,22 +2899,6 @@ class UpdateQueueResponseTypeDef(TypedDict):
 class DestinationSettingsTypeDef(TypedDict):
     S3Settings: NotRequired[S3DestinationSettingsTypeDef]
 
-class VideoOverlayOutputTypeDef(TypedDict):
-    EndTimecode: NotRequired[str]
-    InitialPosition: NotRequired[VideoOverlayPositionTypeDef]
-    Input: NotRequired[VideoOverlayInputOutputTypeDef]
-    Playback: NotRequired[VideoOverlayPlayBackModeType]
-    StartTimecode: NotRequired[str]
-    Transitions: NotRequired[List[VideoOverlayTransitionTypeDef]]
-
-class VideoOverlayTypeDef(TypedDict):
-    EndTimecode: NotRequired[str]
-    InitialPosition: NotRequired[VideoOverlayPositionTypeDef]
-    Input: NotRequired[VideoOverlayInputTypeDef]
-    Playback: NotRequired[VideoOverlayPlayBackModeType]
-    StartTimecode: NotRequired[str]
-    Transitions: NotRequired[Sequence[VideoOverlayTransitionTypeDef]]
-
 class VideoCodecSettingsOutputTypeDef(TypedDict):
     Av1Settings: NotRequired[Av1SettingsOutputTypeDef]
     AvcIntraSettings: NotRequired[AvcIntraSettingsOutputTypeDef]
@@ -2812,6 +2908,7 @@ class VideoCodecSettingsOutputTypeDef(TypedDict):
     H264Settings: NotRequired[H264SettingsOutputTypeDef]
     H265Settings: NotRequired[H265SettingsOutputTypeDef]
     Mpeg2Settings: NotRequired[Mpeg2SettingsOutputTypeDef]
+    PassthroughSettings: NotRequired[PassthroughSettingsTypeDef]
     ProresSettings: NotRequired[ProresSettingsOutputTypeDef]
     UncompressedSettings: NotRequired[UncompressedSettingsTypeDef]
     Vc3Settings: NotRequired[Vc3SettingsTypeDef]
@@ -2828,6 +2925,7 @@ class VideoCodecSettingsTypeDef(TypedDict):
     H264Settings: NotRequired[H264SettingsTypeDef]
     H265Settings: NotRequired[H265SettingsTypeDef]
     Mpeg2Settings: NotRequired[Mpeg2SettingsTypeDef]
+    PassthroughSettings: NotRequired[PassthroughSettingsTypeDef]
     ProresSettings: NotRequired[ProresSettingsTypeDef]
     UncompressedSettings: NotRequired[UncompressedSettingsTypeDef]
     Vc3Settings: NotRequired[Vc3SettingsTypeDef]
@@ -2835,10 +2933,14 @@ class VideoCodecSettingsTypeDef(TypedDict):
     Vp9Settings: NotRequired[Vp9SettingsTypeDef]
     XavcSettings: NotRequired[XavcSettingsTypeDef]
 
-class ContainerTypeDef(TypedDict):
+class TrackTypeDef(TypedDict):
+    AudioProperties: NotRequired[AudioPropertiesTypeDef]
+    Codec: NotRequired[CodecType]
+    DataProperties: NotRequired[DataPropertiesTypeDef]
     Duration: NotRequired[float]
-    Format: NotRequired[FormatType]
-    Tracks: NotRequired[List[TrackTypeDef]]
+    Index: NotRequired[int]
+    TrackType: NotRequired[TrackTypeType]
+    VideoProperties: NotRequired[VideoPropertiesTypeDef]
 
 class AutomatedEncodingSettingsOutputTypeDef(TypedDict):
     AbrSettings: NotRequired[AutomatedAbrSettingsOutputTypeDef]
@@ -2854,6 +2956,7 @@ class CaptionSelectorTypeDef(TypedDict):
 class AudioDescriptionOutputTypeDef(TypedDict):
     AudioChannelTaggingSettings: NotRequired[AudioChannelTaggingSettingsOutputTypeDef]
     AudioNormalizationSettings: NotRequired[AudioNormalizationSettingsTypeDef]
+    AudioPitchCorrectionSettings: NotRequired[AudioPitchCorrectionSettingsTypeDef]
     AudioSourceName: NotRequired[str]
     AudioType: NotRequired[int]
     AudioTypeControl: NotRequired[AudioTypeControlType]
@@ -2876,11 +2979,13 @@ class AudioSelectorOutputTypeDef(TypedDict):
     ProgramSelection: NotRequired[int]
     RemixSettings: NotRequired[RemixSettingsOutputTypeDef]
     SelectorType: NotRequired[AudioSelectorTypeType]
+    Streams: NotRequired[List[int]]
     Tracks: NotRequired[List[int]]
 
 class AudioDescriptionTypeDef(TypedDict):
     AudioChannelTaggingSettings: NotRequired[AudioChannelTaggingSettingsTypeDef]
     AudioNormalizationSettings: NotRequired[AudioNormalizationSettingsTypeDef]
+    AudioPitchCorrectionSettings: NotRequired[AudioPitchCorrectionSettingsTypeDef]
     AudioSourceName: NotRequired[str]
     AudioType: NotRequired[int]
     AudioTypeControl: NotRequired[AudioTypeControlType]
@@ -2903,6 +3008,7 @@ class AudioSelectorTypeDef(TypedDict):
     ProgramSelection: NotRequired[int]
     RemixSettings: NotRequired[RemixSettingsTypeDef]
     SelectorType: NotRequired[AudioSelectorTypeType]
+    Streams: NotRequired[Sequence[int]]
     Tracks: NotRequired[Sequence[int]]
 
 class CmafGroupSettingsOutputTypeDef(TypedDict):
@@ -3147,118 +3253,24 @@ class VideoDescriptionTypeDef(TypedDict):
     VideoPreprocessors: NotRequired[VideoPreprocessorTypeDef]
     Width: NotRequired[int]
 
-ProbeResultTypeDef = TypedDict(
-    "ProbeResultTypeDef",
-    {
-        "Container": NotRequired[ContainerTypeDef],
-        "Metadata": NotRequired[MetadataTypeDef],
-        "TrackMappings": NotRequired[List[TrackMappingTypeDef]],
-    },
-)
+class ContainerTypeDef(TypedDict):
+    Duration: NotRequired[float]
+    Format: NotRequired[FormatType]
+    Tracks: NotRequired[List[TrackTypeDef]]
 
-class InputOutputTypeDef(TypedDict):
-    AdvancedInputFilter: NotRequired[AdvancedInputFilterType]
-    AdvancedInputFilterSettings: NotRequired[AdvancedInputFilterSettingsTypeDef]
-    AudioSelectorGroups: NotRequired[Dict[str, AudioSelectorGroupOutputTypeDef]]
+class VideoOverlayInputOutputTypeDef(TypedDict):
     AudioSelectors: NotRequired[Dict[str, AudioSelectorOutputTypeDef]]
-    CaptionSelectors: NotRequired[Dict[str, CaptionSelectorTypeDef]]
-    Crop: NotRequired[RectangleTypeDef]
-    DeblockFilter: NotRequired[InputDeblockFilterType]
-    DecryptionSettings: NotRequired[InputDecryptionSettingsTypeDef]
-    DenoiseFilter: NotRequired[InputDenoiseFilterType]
-    DolbyVisionMetadataXml: NotRequired[str]
-    DynamicAudioSelectors: NotRequired[Dict[str, DynamicAudioSelectorTypeDef]]
     FileInput: NotRequired[str]
-    FilterEnable: NotRequired[InputFilterEnableType]
-    FilterStrength: NotRequired[int]
-    ImageInserter: NotRequired[ImageInserterOutputTypeDef]
-    InputClippings: NotRequired[List[InputClippingTypeDef]]
-    InputScanType: NotRequired[InputScanTypeType]
-    Position: NotRequired[RectangleTypeDef]
-    ProgramNumber: NotRequired[int]
-    PsiControl: NotRequired[InputPsiControlType]
-    SupplementalImps: NotRequired[List[str]]
+    InputClippings: NotRequired[List[VideoOverlayInputClippingTypeDef]]
     TimecodeSource: NotRequired[InputTimecodeSourceType]
     TimecodeStart: NotRequired[str]
-    VideoGenerator: NotRequired[InputVideoGeneratorTypeDef]
-    VideoOverlays: NotRequired[List[VideoOverlayOutputTypeDef]]
-    VideoSelector: NotRequired[VideoSelectorTypeDef]
 
-class InputTemplateOutputTypeDef(TypedDict):
-    AdvancedInputFilter: NotRequired[AdvancedInputFilterType]
-    AdvancedInputFilterSettings: NotRequired[AdvancedInputFilterSettingsTypeDef]
-    AudioSelectorGroups: NotRequired[Dict[str, AudioSelectorGroupOutputTypeDef]]
-    AudioSelectors: NotRequired[Dict[str, AudioSelectorOutputTypeDef]]
-    CaptionSelectors: NotRequired[Dict[str, CaptionSelectorTypeDef]]
-    Crop: NotRequired[RectangleTypeDef]
-    DeblockFilter: NotRequired[InputDeblockFilterType]
-    DenoiseFilter: NotRequired[InputDenoiseFilterType]
-    DolbyVisionMetadataXml: NotRequired[str]
-    DynamicAudioSelectors: NotRequired[Dict[str, DynamicAudioSelectorTypeDef]]
-    FilterEnable: NotRequired[InputFilterEnableType]
-    FilterStrength: NotRequired[int]
-    ImageInserter: NotRequired[ImageInserterOutputTypeDef]
-    InputClippings: NotRequired[List[InputClippingTypeDef]]
-    InputScanType: NotRequired[InputScanTypeType]
-    Position: NotRequired[RectangleTypeDef]
-    ProgramNumber: NotRequired[int]
-    PsiControl: NotRequired[InputPsiControlType]
-    TimecodeSource: NotRequired[InputTimecodeSourceType]
-    TimecodeStart: NotRequired[str]
-    VideoOverlays: NotRequired[List[VideoOverlayOutputTypeDef]]
-    VideoSelector: NotRequired[VideoSelectorTypeDef]
-
-class InputTemplateTypeDef(TypedDict):
-    AdvancedInputFilter: NotRequired[AdvancedInputFilterType]
-    AdvancedInputFilterSettings: NotRequired[AdvancedInputFilterSettingsTypeDef]
-    AudioSelectorGroups: NotRequired[Mapping[str, AudioSelectorGroupTypeDef]]
+class VideoOverlayInputTypeDef(TypedDict):
     AudioSelectors: NotRequired[Mapping[str, AudioSelectorTypeDef]]
-    CaptionSelectors: NotRequired[Mapping[str, CaptionSelectorTypeDef]]
-    Crop: NotRequired[RectangleTypeDef]
-    DeblockFilter: NotRequired[InputDeblockFilterType]
-    DenoiseFilter: NotRequired[InputDenoiseFilterType]
-    DolbyVisionMetadataXml: NotRequired[str]
-    DynamicAudioSelectors: NotRequired[Mapping[str, DynamicAudioSelectorTypeDef]]
-    FilterEnable: NotRequired[InputFilterEnableType]
-    FilterStrength: NotRequired[int]
-    ImageInserter: NotRequired[ImageInserterTypeDef]
-    InputClippings: NotRequired[Sequence[InputClippingTypeDef]]
-    InputScanType: NotRequired[InputScanTypeType]
-    Position: NotRequired[RectangleTypeDef]
-    ProgramNumber: NotRequired[int]
-    PsiControl: NotRequired[InputPsiControlType]
-    TimecodeSource: NotRequired[InputTimecodeSourceType]
-    TimecodeStart: NotRequired[str]
-    VideoOverlays: NotRequired[Sequence[VideoOverlayTypeDef]]
-    VideoSelector: NotRequired[VideoSelectorTypeDef]
-
-class InputTypeDef(TypedDict):
-    AdvancedInputFilter: NotRequired[AdvancedInputFilterType]
-    AdvancedInputFilterSettings: NotRequired[AdvancedInputFilterSettingsTypeDef]
-    AudioSelectorGroups: NotRequired[Mapping[str, AudioSelectorGroupTypeDef]]
-    AudioSelectors: NotRequired[Mapping[str, AudioSelectorTypeDef]]
-    CaptionSelectors: NotRequired[Mapping[str, CaptionSelectorTypeDef]]
-    Crop: NotRequired[RectangleTypeDef]
-    DeblockFilter: NotRequired[InputDeblockFilterType]
-    DecryptionSettings: NotRequired[InputDecryptionSettingsTypeDef]
-    DenoiseFilter: NotRequired[InputDenoiseFilterType]
-    DolbyVisionMetadataXml: NotRequired[str]
-    DynamicAudioSelectors: NotRequired[Mapping[str, DynamicAudioSelectorTypeDef]]
     FileInput: NotRequired[str]
-    FilterEnable: NotRequired[InputFilterEnableType]
-    FilterStrength: NotRequired[int]
-    ImageInserter: NotRequired[ImageInserterTypeDef]
-    InputClippings: NotRequired[Sequence[InputClippingTypeDef]]
-    InputScanType: NotRequired[InputScanTypeType]
-    Position: NotRequired[RectangleTypeDef]
-    ProgramNumber: NotRequired[int]
-    PsiControl: NotRequired[InputPsiControlType]
-    SupplementalImps: NotRequired[Sequence[str]]
+    InputClippings: NotRequired[Sequence[VideoOverlayInputClippingTypeDef]]
     TimecodeSource: NotRequired[InputTimecodeSourceType]
     TimecodeStart: NotRequired[str]
-    VideoGenerator: NotRequired[InputVideoGeneratorTypeDef]
-    VideoOverlays: NotRequired[Sequence[VideoOverlayTypeDef]]
-    VideoSelector: NotRequired[VideoSelectorTypeDef]
 
 OutputGroupSettingsOutputTypeDef = TypedDict(
     "OutputGroupSettingsOutputTypeDef",
@@ -3317,9 +3329,32 @@ class PresetSettingsTypeDef(TypedDict):
     ContainerSettings: NotRequired[ContainerSettingsTypeDef]
     VideoDescription: NotRequired[VideoDescriptionTypeDef]
 
-class ProbeResponseTypeDef(TypedDict):
-    ProbeResults: List[ProbeResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+ProbeResultTypeDef = TypedDict(
+    "ProbeResultTypeDef",
+    {
+        "Container": NotRequired[ContainerTypeDef],
+        "Metadata": NotRequired[MetadataTypeDef],
+        "TrackMappings": NotRequired[List[TrackMappingTypeDef]],
+    },
+)
+
+class VideoOverlayOutputTypeDef(TypedDict):
+    Crop: NotRequired[VideoOverlayCropTypeDef]
+    EndTimecode: NotRequired[str]
+    InitialPosition: NotRequired[VideoOverlayPositionTypeDef]
+    Input: NotRequired[VideoOverlayInputOutputTypeDef]
+    Playback: NotRequired[VideoOverlayPlayBackModeType]
+    StartTimecode: NotRequired[str]
+    Transitions: NotRequired[List[VideoOverlayTransitionTypeDef]]
+
+class VideoOverlayTypeDef(TypedDict):
+    Crop: NotRequired[VideoOverlayCropTypeDef]
+    EndTimecode: NotRequired[str]
+    InitialPosition: NotRequired[VideoOverlayPositionTypeDef]
+    Input: NotRequired[VideoOverlayInputTypeDef]
+    Playback: NotRequired[VideoOverlayPlayBackModeType]
+    StartTimecode: NotRequired[str]
+    Transitions: NotRequired[Sequence[VideoOverlayTransitionTypeDef]]
 
 class OutputGroupOutputTypeDef(TypedDict):
     AutomatedEncodingSettings: NotRequired[AutomatedEncodingSettingsOutputTypeDef]
@@ -3350,6 +3385,146 @@ class OutputGroupTypeDef(TypedDict):
     Outputs: NotRequired[Sequence[OutputTypeDef]]
 
 PresetSettingsUnionTypeDef = Union[PresetSettingsTypeDef, PresetSettingsOutputTypeDef]
+
+class ProbeResponseTypeDef(TypedDict):
+    ProbeResults: List[ProbeResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InputOutputTypeDef(TypedDict):
+    AdvancedInputFilter: NotRequired[AdvancedInputFilterType]
+    AdvancedInputFilterSettings: NotRequired[AdvancedInputFilterSettingsTypeDef]
+    AudioSelectorGroups: NotRequired[Dict[str, AudioSelectorGroupOutputTypeDef]]
+    AudioSelectors: NotRequired[Dict[str, AudioSelectorOutputTypeDef]]
+    CaptionSelectors: NotRequired[Dict[str, CaptionSelectorTypeDef]]
+    Crop: NotRequired[RectangleTypeDef]
+    DeblockFilter: NotRequired[InputDeblockFilterType]
+    DecryptionSettings: NotRequired[InputDecryptionSettingsTypeDef]
+    DenoiseFilter: NotRequired[InputDenoiseFilterType]
+    DolbyVisionMetadataXml: NotRequired[str]
+    DynamicAudioSelectors: NotRequired[Dict[str, DynamicAudioSelectorTypeDef]]
+    FileInput: NotRequired[str]
+    FilterEnable: NotRequired[InputFilterEnableType]
+    FilterStrength: NotRequired[int]
+    ImageInserter: NotRequired[ImageInserterOutputTypeDef]
+    InputClippings: NotRequired[List[InputClippingTypeDef]]
+    InputScanType: NotRequired[InputScanTypeType]
+    Position: NotRequired[RectangleTypeDef]
+    ProgramNumber: NotRequired[int]
+    PsiControl: NotRequired[InputPsiControlType]
+    SupplementalImps: NotRequired[List[str]]
+    TamsSettings: NotRequired[InputTamsSettingsTypeDef]
+    TimecodeSource: NotRequired[InputTimecodeSourceType]
+    TimecodeStart: NotRequired[str]
+    VideoGenerator: NotRequired[InputVideoGeneratorTypeDef]
+    VideoOverlays: NotRequired[List[VideoOverlayOutputTypeDef]]
+    VideoSelector: NotRequired[VideoSelectorOutputTypeDef]
+
+class InputTemplateOutputTypeDef(TypedDict):
+    AdvancedInputFilter: NotRequired[AdvancedInputFilterType]
+    AdvancedInputFilterSettings: NotRequired[AdvancedInputFilterSettingsTypeDef]
+    AudioSelectorGroups: NotRequired[Dict[str, AudioSelectorGroupOutputTypeDef]]
+    AudioSelectors: NotRequired[Dict[str, AudioSelectorOutputTypeDef]]
+    CaptionSelectors: NotRequired[Dict[str, CaptionSelectorTypeDef]]
+    Crop: NotRequired[RectangleTypeDef]
+    DeblockFilter: NotRequired[InputDeblockFilterType]
+    DenoiseFilter: NotRequired[InputDenoiseFilterType]
+    DolbyVisionMetadataXml: NotRequired[str]
+    DynamicAudioSelectors: NotRequired[Dict[str, DynamicAudioSelectorTypeDef]]
+    FilterEnable: NotRequired[InputFilterEnableType]
+    FilterStrength: NotRequired[int]
+    ImageInserter: NotRequired[ImageInserterOutputTypeDef]
+    InputClippings: NotRequired[List[InputClippingTypeDef]]
+    InputScanType: NotRequired[InputScanTypeType]
+    Position: NotRequired[RectangleTypeDef]
+    ProgramNumber: NotRequired[int]
+    PsiControl: NotRequired[InputPsiControlType]
+    TimecodeSource: NotRequired[InputTimecodeSourceType]
+    TimecodeStart: NotRequired[str]
+    VideoOverlays: NotRequired[List[VideoOverlayOutputTypeDef]]
+    VideoSelector: NotRequired[VideoSelectorOutputTypeDef]
+
+class InputTemplateTypeDef(TypedDict):
+    AdvancedInputFilter: NotRequired[AdvancedInputFilterType]
+    AdvancedInputFilterSettings: NotRequired[AdvancedInputFilterSettingsTypeDef]
+    AudioSelectorGroups: NotRequired[Mapping[str, AudioSelectorGroupTypeDef]]
+    AudioSelectors: NotRequired[Mapping[str, AudioSelectorTypeDef]]
+    CaptionSelectors: NotRequired[Mapping[str, CaptionSelectorTypeDef]]
+    Crop: NotRequired[RectangleTypeDef]
+    DeblockFilter: NotRequired[InputDeblockFilterType]
+    DenoiseFilter: NotRequired[InputDenoiseFilterType]
+    DolbyVisionMetadataXml: NotRequired[str]
+    DynamicAudioSelectors: NotRequired[Mapping[str, DynamicAudioSelectorTypeDef]]
+    FilterEnable: NotRequired[InputFilterEnableType]
+    FilterStrength: NotRequired[int]
+    ImageInserter: NotRequired[ImageInserterTypeDef]
+    InputClippings: NotRequired[Sequence[InputClippingTypeDef]]
+    InputScanType: NotRequired[InputScanTypeType]
+    Position: NotRequired[RectangleTypeDef]
+    ProgramNumber: NotRequired[int]
+    PsiControl: NotRequired[InputPsiControlType]
+    TimecodeSource: NotRequired[InputTimecodeSourceType]
+    TimecodeStart: NotRequired[str]
+    VideoOverlays: NotRequired[Sequence[VideoOverlayTypeDef]]
+    VideoSelector: NotRequired[VideoSelectorTypeDef]
+
+class InputTypeDef(TypedDict):
+    AdvancedInputFilter: NotRequired[AdvancedInputFilterType]
+    AdvancedInputFilterSettings: NotRequired[AdvancedInputFilterSettingsTypeDef]
+    AudioSelectorGroups: NotRequired[Mapping[str, AudioSelectorGroupTypeDef]]
+    AudioSelectors: NotRequired[Mapping[str, AudioSelectorTypeDef]]
+    CaptionSelectors: NotRequired[Mapping[str, CaptionSelectorTypeDef]]
+    Crop: NotRequired[RectangleTypeDef]
+    DeblockFilter: NotRequired[InputDeblockFilterType]
+    DecryptionSettings: NotRequired[InputDecryptionSettingsTypeDef]
+    DenoiseFilter: NotRequired[InputDenoiseFilterType]
+    DolbyVisionMetadataXml: NotRequired[str]
+    DynamicAudioSelectors: NotRequired[Mapping[str, DynamicAudioSelectorTypeDef]]
+    FileInput: NotRequired[str]
+    FilterEnable: NotRequired[InputFilterEnableType]
+    FilterStrength: NotRequired[int]
+    ImageInserter: NotRequired[ImageInserterTypeDef]
+    InputClippings: NotRequired[Sequence[InputClippingTypeDef]]
+    InputScanType: NotRequired[InputScanTypeType]
+    Position: NotRequired[RectangleTypeDef]
+    ProgramNumber: NotRequired[int]
+    PsiControl: NotRequired[InputPsiControlType]
+    SupplementalImps: NotRequired[Sequence[str]]
+    TamsSettings: NotRequired[InputTamsSettingsTypeDef]
+    TimecodeSource: NotRequired[InputTimecodeSourceType]
+    TimecodeStart: NotRequired[str]
+    VideoGenerator: NotRequired[InputVideoGeneratorTypeDef]
+    VideoOverlays: NotRequired[Sequence[VideoOverlayTypeDef]]
+    VideoSelector: NotRequired[VideoSelectorTypeDef]
+
+class CreatePresetResponseTypeDef(TypedDict):
+    Preset: PresetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPresetResponseTypeDef(TypedDict):
+    Preset: PresetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPresetsResponseTypeDef(TypedDict):
+    Presets: List[PresetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdatePresetResponseTypeDef(TypedDict):
+    Preset: PresetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePresetRequestTypeDef(TypedDict):
+    Name: str
+    Settings: PresetSettingsUnionTypeDef
+    Category: NotRequired[str]
+    Description: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdatePresetRequestTypeDef(TypedDict):
+    Name: str
+    Category: NotRequired[str]
+    Description: NotRequired[str]
+    Settings: NotRequired[PresetSettingsUnionTypeDef]
 
 class JobSettingsOutputTypeDef(TypedDict):
     AdAvailOffset: NotRequired[int]
@@ -3383,39 +3558,6 @@ class JobTemplateSettingsOutputTypeDef(TypedDict):
     TimecodeConfig: NotRequired[TimecodeConfigTypeDef]
     TimedMetadataInsertion: NotRequired[TimedMetadataInsertionOutputTypeDef]
 
-class CreatePresetResponseTypeDef(TypedDict):
-    Preset: PresetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class GetPresetResponseTypeDef(TypedDict):
-    Preset: PresetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListPresetsResponseTypeDef(TypedDict):
-    Presets: List[PresetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: NotRequired[str]
-
-class UpdatePresetResponseTypeDef(TypedDict):
-    Preset: PresetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class JobSettingsTypeDef(TypedDict):
-    AdAvailOffset: NotRequired[int]
-    AvailBlanking: NotRequired[AvailBlankingTypeDef]
-    ColorConversion3DLUTSettings: NotRequired[Sequence[ColorConversion3DLUTSettingTypeDef]]
-    Esam: NotRequired[EsamSettingsTypeDef]
-    ExtendedDataServices: NotRequired[ExtendedDataServicesTypeDef]
-    FollowSource: NotRequired[int]
-    Inputs: NotRequired[Sequence[InputTypeDef]]
-    KantarWatermark: NotRequired[KantarWatermarkSettingsTypeDef]
-    MotionImageInserter: NotRequired[MotionImageInserterTypeDef]
-    NielsenConfiguration: NotRequired[NielsenConfigurationTypeDef]
-    NielsenNonLinearWatermark: NotRequired[NielsenNonLinearWatermarkSettingsTypeDef]
-    OutputGroups: NotRequired[Sequence[OutputGroupTypeDef]]
-    TimecodeConfig: NotRequired[TimecodeConfigTypeDef]
-    TimedMetadataInsertion: NotRequired[TimedMetadataInsertionTypeDef]
-
 class JobTemplateSettingsTypeDef(TypedDict):
     AdAvailOffset: NotRequired[int]
     AvailBlanking: NotRequired[AvailBlankingTypeDef]
@@ -3432,18 +3574,21 @@ class JobTemplateSettingsTypeDef(TypedDict):
     TimecodeConfig: NotRequired[TimecodeConfigTypeDef]
     TimedMetadataInsertion: NotRequired[TimedMetadataInsertionTypeDef]
 
-class CreatePresetRequestTypeDef(TypedDict):
-    Name: str
-    Settings: PresetSettingsUnionTypeDef
-    Category: NotRequired[str]
-    Description: NotRequired[str]
-    Tags: NotRequired[Mapping[str, str]]
-
-class UpdatePresetRequestTypeDef(TypedDict):
-    Name: str
-    Category: NotRequired[str]
-    Description: NotRequired[str]
-    Settings: NotRequired[PresetSettingsUnionTypeDef]
+class JobSettingsTypeDef(TypedDict):
+    AdAvailOffset: NotRequired[int]
+    AvailBlanking: NotRequired[AvailBlankingTypeDef]
+    ColorConversion3DLUTSettings: NotRequired[Sequence[ColorConversion3DLUTSettingTypeDef]]
+    Esam: NotRequired[EsamSettingsTypeDef]
+    ExtendedDataServices: NotRequired[ExtendedDataServicesTypeDef]
+    FollowSource: NotRequired[int]
+    Inputs: NotRequired[Sequence[InputTypeDef]]
+    KantarWatermark: NotRequired[KantarWatermarkSettingsTypeDef]
+    MotionImageInserter: NotRequired[MotionImageInserterTypeDef]
+    NielsenConfiguration: NotRequired[NielsenConfigurationTypeDef]
+    NielsenNonLinearWatermark: NotRequired[NielsenNonLinearWatermarkSettingsTypeDef]
+    OutputGroups: NotRequired[Sequence[OutputGroupTypeDef]]
+    TimecodeConfig: NotRequired[TimecodeConfigTypeDef]
+    TimedMetadataInsertion: NotRequired[TimedMetadataInsertionTypeDef]
 
 class JobTypeDef(TypedDict):
     Role: str
@@ -3463,12 +3608,14 @@ class JobTypeDef(TypedDict):
     JobEngineVersionUsed: NotRequired[str]
     JobPercentComplete: NotRequired[int]
     JobTemplate: NotRequired[str]
+    LastShareDetails: NotRequired[str]
     Messages: NotRequired[JobMessagesTypeDef]
     OutputGroupDetails: NotRequired[List[OutputGroupDetailTypeDef]]
     Priority: NotRequired[int]
     Queue: NotRequired[str]
     QueueTransitions: NotRequired[List[QueueTransitionTypeDef]]
     RetryCount: NotRequired[int]
+    ShareStatus: NotRequired[ShareStatusType]
     SimulateReservedQueue: NotRequired[SimulateReservedQueueType]
     Status: NotRequired[JobStatusType]
     StatusUpdateInterval: NotRequired[StatusUpdateIntervalType]
@@ -3494,10 +3641,10 @@ JobTemplateTypeDef = TypedDict(
         "Type": NotRequired[TypeType],
     },
 )
-JobSettingsUnionTypeDef = Union[JobSettingsTypeDef, JobSettingsOutputTypeDef]
 JobTemplateSettingsUnionTypeDef = Union[
     JobTemplateSettingsTypeDef, JobTemplateSettingsOutputTypeDef
 ]
+JobSettingsUnionTypeDef = Union[JobSettingsTypeDef, JobSettingsOutputTypeDef]
 
 class CreateJobResponseTypeDef(TypedDict):
     Job: JobTypeDef
@@ -3506,6 +3653,12 @@ class CreateJobResponseTypeDef(TypedDict):
 class GetJobResponseTypeDef(TypedDict):
     Job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+class GetJobsQueryResultsResponseTypeDef(TypedDict):
+    Jobs: List[JobTypeDef]
+    Status: JobsQueryStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 class ListJobsResponseTypeDef(TypedDict):
     Jobs: List[JobTypeDef]
@@ -3534,22 +3687,6 @@ class UpdateJobTemplateResponseTypeDef(TypedDict):
     JobTemplate: JobTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJobRequestTypeDef(TypedDict):
-    Role: str
-    Settings: JobSettingsUnionTypeDef
-    AccelerationSettings: NotRequired[AccelerationSettingsTypeDef]
-    BillingTagsSource: NotRequired[BillingTagsSourceType]
-    ClientRequestToken: NotRequired[str]
-    HopDestinations: NotRequired[Sequence[HopDestinationTypeDef]]
-    JobEngineVersion: NotRequired[str]
-    JobTemplate: NotRequired[str]
-    Priority: NotRequired[int]
-    Queue: NotRequired[str]
-    SimulateReservedQueue: NotRequired[SimulateReservedQueueType]
-    StatusUpdateInterval: NotRequired[StatusUpdateIntervalType]
-    Tags: NotRequired[Mapping[str, str]]
-    UserMetadata: NotRequired[Mapping[str, str]]
-
 class CreateJobTemplateRequestTypeDef(TypedDict):
     Name: str
     Settings: JobTemplateSettingsUnionTypeDef
@@ -3572,3 +3709,19 @@ class UpdateJobTemplateRequestTypeDef(TypedDict):
     Queue: NotRequired[str]
     Settings: NotRequired[JobTemplateSettingsUnionTypeDef]
     StatusUpdateInterval: NotRequired[StatusUpdateIntervalType]
+
+class CreateJobRequestTypeDef(TypedDict):
+    Role: str
+    Settings: JobSettingsUnionTypeDef
+    AccelerationSettings: NotRequired[AccelerationSettingsTypeDef]
+    BillingTagsSource: NotRequired[BillingTagsSourceType]
+    ClientRequestToken: NotRequired[str]
+    HopDestinations: NotRequired[Sequence[HopDestinationTypeDef]]
+    JobEngineVersion: NotRequired[str]
+    JobTemplate: NotRequired[str]
+    Priority: NotRequired[int]
+    Queue: NotRequired[str]
+    SimulateReservedQueue: NotRequired[SimulateReservedQueueType]
+    StatusUpdateInterval: NotRequired[StatusUpdateIntervalType]
+    Tags: NotRequired[Mapping[str, str]]
+    UserMetadata: NotRequired[Mapping[str, str]]

@@ -24,6 +24,7 @@ else:
 __all__ = (
     "AdminStatusType",
     "AutoEnableMembersType",
+    "ClusterStatusType",
     "CoverageFilterCriterionKeyType",
     "CoverageSortKeyType",
     "CoverageStatisticsTypeType",
@@ -33,10 +34,13 @@ __all__ = (
     "DataSourceType",
     "DescribeMalwareScansPaginatorName",
     "DestinationTypeType",
+    "DetectionSourceType",
     "DetectorFeatureResultType",
     "DetectorFeatureType",
     "DetectorStatusType",
     "EbsSnapshotPreservationType",
+    "EcsClusterStatusType",
+    "EcsLaunchTypeType",
     "FeatureAdditionalConfigurationType",
     "FeatureStatusType",
     "FeedbackType",
@@ -50,17 +54,25 @@ __all__ = (
     "IndicatorTypeType",
     "IpSetFormatType",
     "IpSetStatusType",
+    "KubernetesResourcesTypesType",
     "ListCoveragePaginatorName",
     "ListDetectorsPaginatorName",
     "ListFiltersPaginatorName",
     "ListFindingsPaginatorName",
     "ListIPSetsPaginatorName",
     "ListInvitationsPaginatorName",
+    "ListMalwareScansCriterionKeyType",
+    "ListMalwareScansPaginatorName",
     "ListMembersPaginatorName",
     "ListOrganizationAdminAccountsPaginatorName",
+    "ListThreatEntitySetsPaginatorName",
     "ListThreatIntelSetsPaginatorName",
+    "ListTrustedEntitySetsPaginatorName",
     "MalwareProtectionPlanStatusType",
     "MalwareProtectionPlanTaggingActionStatusType",
+    "MalwareProtectionResourceTypeType",
+    "MalwareProtectionScanStatusType",
+    "MalwareProtectionScanTypeType",
     "ManagementTypeType",
     "MfaStatusType",
     "NetworkDirectionType",
@@ -78,20 +90,29 @@ __all__ = (
     "RegionName",
     "ResourceServiceName",
     "ResourceTypeType",
+    "ScanCategoryType",
     "ScanCriterionKeyType",
+    "ScanResultStatusType",
     "ScanResultType",
+    "ScanStatusReasonType",
     "ScanStatusType",
     "ScanTypeType",
     "ServiceName",
     "SignalTypeType",
+    "ThreatEntitySetFormatType",
+    "ThreatEntitySetStatusType",
     "ThreatIntelSetFormatType",
     "ThreatIntelSetStatusType",
+    "TriggerTypeType",
+    "TrustedEntitySetFormatType",
+    "TrustedEntitySetStatusType",
     "UsageFeatureType",
     "UsageStatisticTypeType",
 )
 
 AdminStatusType = Literal["DISABLE_IN_PROGRESS", "ENABLED"]
 AutoEnableMembersType = Literal["ALL", "NEW", "NONE"]
+ClusterStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "PENDING", "UPDATING"]
 CoverageFilterCriterionKeyType = Literal[
     "ACCOUNT_ID",
     "ADDON_VERSION",
@@ -133,6 +154,7 @@ DataSourceType = Literal[
 ]
 DescribeMalwareScansPaginatorName = Literal["describe_malware_scans"]
 DestinationTypeType = Literal["S3"]
+DetectionSourceType = Literal["AMAZON", "BITDEFENDER"]
 DetectorFeatureResultType = Literal[
     "CLOUD_TRAIL",
     "DNS_LOGS",
@@ -156,6 +178,8 @@ DetectorFeatureType = Literal[
 ]
 DetectorStatusType = Literal["DISABLED", "ENABLED"]
 EbsSnapshotPreservationType = Literal["NO_RETENTION", "RETENTION_WITH_FINDING"]
+EcsClusterStatusType = Literal["ACTIVE", "DEPROVISIONING", "FAILED", "INACTIVE", "PROVISIONING"]
+EcsLaunchTypeType = Literal["EC2", "FARGATE"]
 FeatureAdditionalConfigurationType = Literal[
     "EC2_AGENT_MANAGEMENT", "ECS_FARGATE_AGENT_MANAGEMENT", "EKS_ADDON_MANAGEMENT"
 ]
@@ -164,7 +188,22 @@ FeedbackType = Literal["NOT_USEFUL", "USEFUL"]
 FilterActionType = Literal["ARCHIVE", "NOOP"]
 FindingPublishingFrequencyType = Literal["FIFTEEN_MINUTES", "ONE_HOUR", "SIX_HOURS"]
 FindingResourceTypeType = Literal[
-    "ACCESS_KEY", "EC2_INSTANCE", "EC2_NETWORK_INTERFACE", "S3_BUCKET", "S3_OBJECT"
+    "ACCESS_KEY",
+    "AUTOSCALING_AUTO_SCALING_GROUP",
+    "CLOUDFORMATION_STACK",
+    "CONTAINER",
+    "EC2_IMAGE",
+    "EC2_INSTANCE",
+    "EC2_LAUNCH_TEMPLATE",
+    "EC2_NETWORK_INTERFACE",
+    "EC2_VPC",
+    "ECS_CLUSTER",
+    "ECS_TASK",
+    "EKS_CLUSTER",
+    "IAM_INSTANCE_PROFILE",
+    "KUBERNETES_WORKLOAD",
+    "S3_BUCKET",
+    "S3_OBJECT",
 ]
 FindingStatisticTypeType = Literal["COUNT_BY_SEVERITY"]
 FreeTrialFeatureResultType = Literal[
@@ -184,9 +223,15 @@ GroupByTypeType = Literal["ACCOUNT", "DATE", "FINDING_TYPE", "RESOURCE", "SEVERI
 IndicatorTypeType = Literal[
     "ATTACK_TACTIC",
     "ATTACK_TECHNIQUE",
+    "CRYPTOMINING_DOMAIN",
+    "CRYPTOMINING_IP",
+    "CRYPTOMINING_PROCESS",
     "HIGH_RISK_API",
+    "MALICIOUS_DOMAIN",
     "MALICIOUS_IP",
+    "MALICIOUS_PROCESS",
     "SUSPICIOUS_NETWORK",
+    "SUSPICIOUS_PROCESS",
     "SUSPICIOUS_USER_AGENT",
     "TOR_IP",
     "UNUSUAL_API_FOR_ACCOUNT",
@@ -197,17 +242,54 @@ IpSetFormatType = Literal["ALIEN_VAULT", "FIRE_EYE", "OTX_CSV", "PROOF_POINT", "
 IpSetStatusType = Literal[
     "ACTIVATING", "ACTIVE", "DEACTIVATING", "DELETED", "DELETE_PENDING", "ERROR", "INACTIVE"
 ]
+KubernetesResourcesTypesType = Literal[
+    "CRONJOBS",
+    "DAEMONSETS",
+    "DEPLOYMENTS",
+    "JOBS",
+    "PODS",
+    "REPLICASETS",
+    "REPLICATIONCONTROLLERS",
+    "STATEFULSETS",
+]
 ListCoveragePaginatorName = Literal["list_coverage"]
 ListDetectorsPaginatorName = Literal["list_detectors"]
 ListFiltersPaginatorName = Literal["list_filters"]
 ListFindingsPaginatorName = Literal["list_findings"]
 ListIPSetsPaginatorName = Literal["list_ip_sets"]
 ListInvitationsPaginatorName = Literal["list_invitations"]
+ListMalwareScansCriterionKeyType = Literal[
+    "ACCOUNT_ID",
+    "GUARDDUTY_FINDING_ID",
+    "RESOURCE_ARN",
+    "RESOURCE_TYPE",
+    "SCAN_ID",
+    "SCAN_START_TIME",
+    "SCAN_STATUS",
+    "SCAN_TYPE",
+]
+ListMalwareScansPaginatorName = Literal["list_malware_scans"]
 ListMembersPaginatorName = Literal["list_members"]
 ListOrganizationAdminAccountsPaginatorName = Literal["list_organization_admin_accounts"]
+ListThreatEntitySetsPaginatorName = Literal["list_threat_entity_sets"]
 ListThreatIntelSetsPaginatorName = Literal["list_threat_intel_sets"]
+ListTrustedEntitySetsPaginatorName = Literal["list_trusted_entity_sets"]
 MalwareProtectionPlanStatusType = Literal["ACTIVE", "ERROR", "WARNING"]
 MalwareProtectionPlanTaggingActionStatusType = Literal["DISABLED", "ENABLED"]
+MalwareProtectionResourceTypeType = Literal[
+    "EBS_RECOVERY_POINT",
+    "EBS_SNAPSHOT",
+    "EBS_VOLUME",
+    "EC2_AMI",
+    "EC2_INSTANCE",
+    "EC2_RECOVERY_POINT",
+    "S3_BUCKET",
+    "S3_RECOVERY_POINT",
+]
+MalwareProtectionScanStatusType = Literal[
+    "COMPLETED", "COMPLETED_WITH_ISSUES", "FAILED", "RUNNING", "SKIPPED"
+]
+MalwareProtectionScanTypeType = Literal["BACKUP_INITIATED", "GUARDDUTY_INITIATED", "ON_DEMAND"]
 ManagementTypeType = Literal["AUTO_MANAGED", "DISABLED", "MANUAL"]
 MfaStatusType = Literal["DISABLED", "ENABLED"]
 NetworkDirectionType = Literal["INBOUND", "OUTBOUND"]
@@ -234,15 +316,56 @@ PublishingStatusType = Literal[
     "PENDING_VERIFICATION", "PUBLISHING", "STOPPED", "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY"
 ]
 ResourceTypeType = Literal["EC2", "ECS", "EKS"]
+ScanCategoryType = Literal["FULL_SCAN", "INCREMENTAL_SCAN"]
 ScanCriterionKeyType = Literal["EC2_INSTANCE_TAG"]
+ScanResultStatusType = Literal["NO_THREATS_FOUND", "THREATS_FOUND"]
 ScanResultType = Literal["CLEAN", "INFECTED"]
+ScanStatusReasonType = Literal[
+    "ACCESS_DENIED",
+    "AMI_SNAPSHOT_LIMIT_EXCEEDED",
+    "BASE_CREATED_AFTER_TARGET",
+    "BASE_RESOURCE_NOT_SCANNED",
+    "INCONSISTENT_SOURCE",
+    "INCREMENTAL_NO_DIFFERENCE",
+    "NO_EBS_VOLUMES_FOUND",
+    "RESOURCE_NOT_FOUND",
+    "RESOURCE_UNAVAILABLE",
+    "SNAPSHOT_SIZE_LIMIT_EXCEEDED",
+    "UNRELATED_RESOURCES",
+    "UNSUPPORTED_AMI",
+    "UNSUPPORTED_COMPOSITE_RECOVERY_POINT",
+    "UNSUPPORTED_FOR_INCREMENTAL",
+    "UNSUPPORTED_PRODUCT_CODE_TYPE",
+    "UNSUPPORTED_SNAPSHOT",
+]
 ScanStatusType = Literal["COMPLETED", "FAILED", "RUNNING", "SKIPPED"]
 ScanTypeType = Literal["GUARDDUTY_INITIATED", "ON_DEMAND"]
-SignalTypeType = Literal["CLOUD_TRAIL", "FINDING", "S3_DATA_EVENTS"]
+SignalTypeType = Literal[
+    "CLOUD_TRAIL",
+    "DNS_LOGS",
+    "EKS_AUDIT_LOGS",
+    "FINDING",
+    "FLOW_LOGS",
+    "RUNTIME_MONITORING",
+    "S3_DATA_EVENTS",
+]
+ThreatEntitySetFormatType = Literal[
+    "ALIEN_VAULT", "FIRE_EYE", "OTX_CSV", "PROOF_POINT", "STIX", "TXT"
+]
+ThreatEntitySetStatusType = Literal[
+    "ACTIVATING", "ACTIVE", "DEACTIVATING", "DELETED", "DELETE_PENDING", "ERROR", "INACTIVE"
+]
 ThreatIntelSetFormatType = Literal[
     "ALIEN_VAULT", "FIRE_EYE", "OTX_CSV", "PROOF_POINT", "STIX", "TXT"
 ]
 ThreatIntelSetStatusType = Literal[
+    "ACTIVATING", "ACTIVE", "DEACTIVATING", "DELETED", "DELETE_PENDING", "ERROR", "INACTIVE"
+]
+TriggerTypeType = Literal["BACKUP", "GUARDDUTY"]
+TrustedEntitySetFormatType = Literal[
+    "ALIEN_VAULT", "FIRE_EYE", "OTX_CSV", "PROOF_POINT", "STIX", "TXT"
+]
+TrustedEntitySetStatusType = Literal[
     "ACTIVATING", "ACTIVE", "DEACTIVATING", "DELETED", "DELETE_PENDING", "ERROR", "INACTIVE"
 ]
 UsageFeatureType = Literal[
@@ -274,6 +397,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -294,7 +418,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -306,11 +430,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -359,6 +487,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -414,6 +543,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -456,7 +586,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -471,6 +600,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -494,8 +624,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -526,9 +654,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -538,17 +668,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -566,13 +699,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -587,20 +717,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -625,8 +757,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -666,26 +798,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "describe_malware_scans",
@@ -695,13 +820,17 @@ PaginatorName = Literal[
     "list_findings",
     "list_invitations",
     "list_ip_sets",
+    "list_malware_scans",
     "list_members",
     "list_organization_admin_accounts",
+    "list_threat_entity_sets",
     "list_threat_intel_sets",
+    "list_trusted_entity_sets",
 ]
 RegionName = Literal[
     "af-south-1",
     "ap-east-1",
+    "ap-east-2",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",

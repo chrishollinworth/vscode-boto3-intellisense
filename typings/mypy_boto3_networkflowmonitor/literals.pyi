@@ -44,7 +44,13 @@ __all__ = (
 )
 
 DestinationCategoryType = Literal[
-    "AMAZON_DYNAMODB", "AMAZON_S3", "INTER_AZ", "INTER_VPC", "INTRA_AZ", "UNCLASSIFIED"
+    "AMAZON_DYNAMODB",
+    "AMAZON_S3",
+    "INTER_AZ",
+    "INTER_REGION",
+    "INTER_VPC",
+    "INTRA_AZ",
+    "UNCLASSIFIED",
 ]
 GetQueryResultsMonitorTopContributorsPaginatorName = Literal[
     "get_query_results_monitor_top_contributors"
@@ -86,14 +92,16 @@ MetricUnitType = Literal[
     "Terabytes",
     "Terabytes/Second",
 ]
-MonitorLocalResourceTypeType = Literal["AWS::AvailabilityZone", "AWS::EC2::Subnet", "AWS::EC2::VPC"]
+MonitorLocalResourceTypeType = Literal[
+    "AWS::AvailabilityZone", "AWS::EC2::Subnet", "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::Region"
+]
 MonitorMetricType = Literal["DATA_TRANSFERRED", "RETRANSMISSIONS", "ROUND_TRIP_TIME", "TIMEOUTS"]
 MonitorRemoteResourceTypeType = Literal[
-    "AWS::AWSService", "AWS::AvailabilityZone", "AWS::EC2::Subnet", "AWS::EC2::VPC"
+    "AWS::AWSService", "AWS::AvailabilityZone", "AWS::EC2::Subnet", "AWS::EC2::VPC", "AWS::Region"
 ]
 MonitorStatusType = Literal["ACTIVE", "DELETING", "ERROR", "INACTIVE", "PENDING"]
 QueryStatusType = Literal["CANCELED", "FAILED", "QUEUED", "RUNNING", "SUCCEEDED"]
-ScopeStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
+ScopeStatusType = Literal["DEACTIVATED", "DEACTIVATING", "FAILED", "IN_PROGRESS", "SUCCEEDED"]
 TargetTypeType = Literal["ACCOUNT"]
 WorkloadInsightsMetricType = Literal["DATA_TRANSFERRED", "RETRANSMISSIONS", "TIMEOUTS"]
 NetworkFlowMonitorServiceName = Literal["networkflowmonitor"]
@@ -102,6 +110,7 @@ ServiceName = Literal[
     "account",
     "acm",
     "acm-pca",
+    "aiops",
     "amp",
     "amplify",
     "amplifybackend",
@@ -122,7 +131,7 @@ ServiceName = Literal[
     "apprunner",
     "appstream",
     "appsync",
-    "apptest",
+    "arc-region-switch",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -134,11 +143,15 @@ ServiceName = Literal[
     "backup-gateway",
     "backupsearch",
     "batch",
+    "bcm-dashboards",
     "bcm-data-exports",
     "bcm-pricing-calculator",
+    "bcm-recommended-actions",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-agentcore",
+    "bedrock-agentcore-control",
     "bedrock-data-automation",
     "bedrock-data-automation-runtime",
     "bedrock-runtime",
@@ -187,6 +200,7 @@ ServiceName = Literal[
     "comprehend",
     "comprehendmedical",
     "compute-optimizer",
+    "compute-optimizer-automation",
     "config",
     "connect",
     "connect-contact-lens",
@@ -242,6 +256,7 @@ ServiceName = Literal[
     "es",
     "events",
     "evidently",
+    "evs",
     "finspace",
     "finspace-data",
     "firehose",
@@ -284,7 +299,6 @@ ServiceName = Literal[
     "iotdeviceadvisor",
     "iotevents",
     "iotevents-data",
-    "iotfleethub",
     "iotfleetwise",
     "iotsecuretunneling",
     "iotsitewise",
@@ -299,6 +313,7 @@ ServiceName = Literal[
     "kendra",
     "kendra-ranking",
     "keyspaces",
+    "keyspacesstreams",
     "kinesis",
     "kinesis-video-archived-media",
     "kinesis-video-media",
@@ -322,8 +337,6 @@ ServiceName = Literal[
     "location",
     "logs",
     "lookoutequipment",
-    "lookoutmetrics",
-    "lookoutvision",
     "m2",
     "machinelearning",
     "macie2",
@@ -354,9 +367,11 @@ ServiceName = Literal[
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
+    "mpa",
     "mq",
     "mturk",
     "mwaa",
+    "mwaa-serverless",
     "neptune",
     "neptune-graph",
     "neptunedata",
@@ -366,17 +381,20 @@ ServiceName = Literal[
     "networkmonitor",
     "notifications",
     "notificationscontacts",
+    "nova-act",
     "oam",
     "observabilityadmin",
+    "odb",
     "omics",
     "opensearch",
     "opensearchserverless",
-    "opsworks",
-    "opsworkscm",
     "organizations",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
     "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
@@ -394,13 +412,10 @@ ServiceName = Literal[
     "pipes",
     "polly",
     "pricing",
-    "privatenetworks",
     "proton",
     "qapps",
     "qbusiness",
     "qconnect",
-    "qldb",
-    "qldb-session",
     "quicksight",
     "ram",
     "rbin",
@@ -415,20 +430,22 @@ ServiceName = Literal[
     "resource-explorer-2",
     "resource-groups",
     "resourcegroupstaggingapi",
-    "robomaker",
     "rolesanywhere",
     "route53",
     "route53-recovery-cluster",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53globalresolver",
     "route53profiles",
     "route53resolver",
+    "rtbfabric",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
     "s3tables",
+    "s3vectors",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -453,8 +470,8 @@ ServiceName = Literal[
     "sesv2",
     "shield",
     "signer",
+    "signin",
     "simspaceweaver",
-    "sms",
     "snow-device-management",
     "snowball",
     "sns",
@@ -494,26 +511,19 @@ ServiceName = Literal[
     "waf-regional",
     "wafv2",
     "wellarchitected",
+    "wickr",
     "wisdom",
     "workdocs",
     "workmail",
     "workmailmessageflow",
     "workspaces",
+    "workspaces-instances",
     "workspaces-thin-client",
     "workspaces-web",
     "xray",
 ]
 ResourceServiceName = Literal[
-    "cloudformation",
-    "cloudwatch",
-    "dynamodb",
-    "ec2",
-    "glacier",
-    "iam",
-    "opsworks",
-    "s3",
-    "sns",
-    "sqs",
+    "cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"
 ]
 PaginatorName = Literal[
     "get_query_results_monitor_top_contributors",

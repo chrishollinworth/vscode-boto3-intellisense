@@ -27,6 +27,7 @@ Usage::
         ListMessageTemplatesPaginator,
         ListMessagesPaginator,
         ListQuickResponsesPaginator,
+        ListSpansPaginator,
         QConnectClient,
         QueryAssistantPaginator,
         SearchContentPaginator,
@@ -54,6 +55,7 @@ Usage::
     list_message_templates_paginator: ListMessageTemplatesPaginator = client.get_paginator("list_message_templates")
     list_messages_paginator: ListMessagesPaginator = client.get_paginator("list_messages")
     list_quick_responses_paginator: ListQuickResponsesPaginator = client.get_paginator("list_quick_responses")
+    list_spans_paginator: ListSpansPaginator = client.get_paginator("list_spans")
     query_assistant_paginator: QueryAssistantPaginator = client.get_paginator("query_assistant")
     search_content_paginator: SearchContentPaginator = client.get_paginator("search_content")
     search_message_templates_paginator: SearchMessageTemplatesPaginator = client.get_paginator("search_message_templates")
@@ -80,6 +82,7 @@ from .paginator import (
     ListMessageTemplatesPaginator,
     ListMessageTemplateVersionsPaginator,
     ListQuickResponsesPaginator,
+    ListSpansPaginator,
     QueryAssistantPaginator,
     SearchContentPaginator,
     SearchMessageTemplatesPaginator,
@@ -107,6 +110,7 @@ __all__ = (
     "ListMessageTemplatesPaginator",
     "ListMessagesPaginator",
     "ListQuickResponsesPaginator",
+    "ListSpansPaginator",
     "QConnectClient",
     "QueryAssistantPaginator",
     "SearchContentPaginator",

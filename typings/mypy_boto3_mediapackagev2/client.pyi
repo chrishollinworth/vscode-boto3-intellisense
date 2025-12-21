@@ -247,8 +247,7 @@ class Mediapackagev2Client(BaseClient):
 
     def get_channel(self, **kwargs: Unpack[GetChannelRequestTypeDef]) -> GetChannelResponseTypeDef:
         """
-        Retrieves the specified channel that's configured in AWS Elemental
-        MediaPackage, including the origin endpoints that are associated with it.
+        Retrieves the specified channel that's configured in AWS Elemental MediaPackage.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackagev2/client/get_channel.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client/#get_channel)
@@ -259,8 +258,7 @@ class Mediapackagev2Client(BaseClient):
     ) -> GetChannelGroupResponseTypeDef:
         """
         Retrieves the specified channel group that's configured in AWS Elemental
-        MediaPackage, including the channels and origin endpoints that are associated
-        with it.
+        MediaPackage.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackagev2/client/get_channel_group.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client/#get_channel_group)
@@ -325,8 +323,7 @@ class Mediapackagev2Client(BaseClient):
     ) -> ListChannelsResponseTypeDef:
         """
         Retrieves all channels in a specific channel group that are configured in AWS
-        Elemental MediaPackage, including the origin endpoints that are associated with
-        it.
+        Elemental MediaPackage.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackagev2/client/list_channels.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client/#list_channels)

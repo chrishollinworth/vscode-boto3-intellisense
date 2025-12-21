@@ -19,6 +19,9 @@ Usage::
         DescribeRulesPaginator,
         DescribeSSLPoliciesPaginator,
         DescribeTargetGroupsPaginator,
+        DescribeTrustStoreAssociationsPaginator,
+        DescribeTrustStoreRevocationsPaginator,
+        DescribeTrustStoresPaginator,
     )
 
     session = Session()
@@ -31,6 +34,9 @@ Usage::
     describe_rules_paginator: DescribeRulesPaginator = client.get_paginator("describe_rules")
     describe_ssl_policies_paginator: DescribeSSLPoliciesPaginator = client.get_paginator("describe_ssl_policies")
     describe_target_groups_paginator: DescribeTargetGroupsPaginator = client.get_paginator("describe_target_groups")
+    describe_trust_store_associations_paginator: DescribeTrustStoreAssociationsPaginator = client.get_paginator("describe_trust_store_associations")
+    describe_trust_store_revocations_paginator: DescribeTrustStoreRevocationsPaginator = client.get_paginator("describe_trust_store_revocations")
+    describe_trust_stores_paginator: DescribeTrustStoresPaginator = client.get_paginator("describe_trust_stores")
     ```
 """
 
@@ -56,6 +62,12 @@ from .type_defs import (
     DescribeSSLPoliciesOutputTypeDef,
     DescribeTargetGroupsInputPaginateTypeDef,
     DescribeTargetGroupsOutputTypeDef,
+    DescribeTrustStoreAssociationsInputPaginateTypeDef,
+    DescribeTrustStoreAssociationsOutputTypeDef,
+    DescribeTrustStoreRevocationsInputPaginateTypeDef,
+    DescribeTrustStoreRevocationsOutputTypeDef,
+    DescribeTrustStoresInputPaginateTypeDef,
+    DescribeTrustStoresOutputTypeDef,
 )
 
 if sys.version_info >= (3, 12):
@@ -71,6 +83,9 @@ __all__ = (
     "DescribeRulesPaginator",
     "DescribeSSLPoliciesPaginator",
     "DescribeTargetGroupsPaginator",
+    "DescribeTrustStoreAssociationsPaginator",
+    "DescribeTrustStoreRevocationsPaginator",
+    "DescribeTrustStoresPaginator",
 )
 
 if TYPE_CHECKING:
@@ -199,4 +214,62 @@ class DescribeTargetGroupsPaginator(_DescribeTargetGroupsPaginatorBase):
         """
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/paginator/DescribeTargetGroups.html#ElasticLoadBalancingv2.Paginator.DescribeTargetGroups.paginate)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators/#describetargetgroupspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeTrustStoreAssociationsPaginatorBase = Paginator[
+        DescribeTrustStoreAssociationsOutputTypeDef
+    ]
+else:
+    _DescribeTrustStoreAssociationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeTrustStoreAssociationsPaginator(_DescribeTrustStoreAssociationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/paginator/DescribeTrustStoreAssociations.html#ElasticLoadBalancingv2.Paginator.DescribeTrustStoreAssociations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators/#describetruststoreassociationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeTrustStoreAssociationsInputPaginateTypeDef]
+    ) -> PageIterator[DescribeTrustStoreAssociationsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/paginator/DescribeTrustStoreAssociations.html#ElasticLoadBalancingv2.Paginator.DescribeTrustStoreAssociations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators/#describetruststoreassociationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeTrustStoreRevocationsPaginatorBase = Paginator[
+        DescribeTrustStoreRevocationsOutputTypeDef
+    ]
+else:
+    _DescribeTrustStoreRevocationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeTrustStoreRevocationsPaginator(_DescribeTrustStoreRevocationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/paginator/DescribeTrustStoreRevocations.html#ElasticLoadBalancingv2.Paginator.DescribeTrustStoreRevocations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators/#describetruststorerevocationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeTrustStoreRevocationsInputPaginateTypeDef]
+    ) -> PageIterator[DescribeTrustStoreRevocationsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/paginator/DescribeTrustStoreRevocations.html#ElasticLoadBalancingv2.Paginator.DescribeTrustStoreRevocations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators/#describetruststorerevocationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeTrustStoresPaginatorBase = Paginator[DescribeTrustStoresOutputTypeDef]
+else:
+    _DescribeTrustStoresPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeTrustStoresPaginator(_DescribeTrustStoresPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/paginator/DescribeTrustStores.html#ElasticLoadBalancingv2.Paginator.DescribeTrustStores)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators/#describetruststorespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeTrustStoresInputPaginateTypeDef]
+    ) -> PageIterator[DescribeTrustStoresOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/paginator/DescribeTrustStores.html#ElasticLoadBalancingv2.Paginator.DescribeTrustStores.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators/#describetruststorespaginator)
         """

@@ -70,6 +70,7 @@ from .type_defs import (
     GetChannelMessageResponseTypeDef,
     GetChannelMessageStatusRequestTypeDef,
     GetChannelMessageStatusResponseTypeDef,
+    GetMessagingSessionEndpointRequestTypeDef,
     GetMessagingSessionEndpointResponseTypeDef,
     GetMessagingStreamingConfigurationsRequestTypeDef,
     GetMessagingStreamingConfigurationsResponseTypeDef,
@@ -444,7 +445,9 @@ class ChimeSDKMessagingClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client/#get_channel_message_status)
         """
 
-    def get_messaging_session_endpoint(self) -> GetMessagingSessionEndpointResponseTypeDef:
+    def get_messaging_session_endpoint(
+        self, **kwargs: Unpack[GetMessagingSessionEndpointRequestTypeDef]
+    ) -> GetMessagingSessionEndpointResponseTypeDef:
         """
         The details of the endpoint for the messaging session.
 
@@ -608,7 +611,7 @@ class ChimeSDKMessagingClient(BaseClient):
         self, **kwargs: Unpack[RedactChannelMessageRequestTypeDef]
     ) -> RedactChannelMessageResponseTypeDef:
         """
-        Redacts message content, but not metadata.
+        Redacts message content and metadata.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-messaging/client/redact_channel_message.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client/#redact_channel_message)

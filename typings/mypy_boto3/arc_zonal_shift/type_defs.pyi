@@ -44,6 +44,8 @@ else:
 __all__ = (
     "AutoshiftInResourceTypeDef",
     "AutoshiftSummaryTypeDef",
+    "CancelPracticeRunRequestTypeDef",
+    "CancelPracticeRunResponseTypeDef",
     "CancelZonalShiftRequestTypeDef",
     "ControlConditionTypeDef",
     "CreatePracticeRunConfigurationRequestTypeDef",
@@ -66,6 +68,8 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PracticeRunConfigurationTypeDef",
     "ResponseMetadataTypeDef",
+    "StartPracticeRunRequestTypeDef",
+    "StartPracticeRunResponseTypeDef",
     "StartZonalShiftRequestTypeDef",
     "UpdateAutoshiftObserverNotificationStatusRequestTypeDef",
     "UpdateAutoshiftObserverNotificationStatusResponseTypeDef",
@@ -90,16 +94,8 @@ class AutoshiftSummaryTypeDef(TypedDict):
     status: AutoshiftExecutionStatusType
     endTime: NotRequired[datetime]
 
-class CancelZonalShiftRequestTypeDef(TypedDict):
+class CancelPracticeRunRequestTypeDef(TypedDict):
     zonalShiftId: str
-
-ControlConditionTypeDef = TypedDict(
-    "ControlConditionTypeDef",
-    {
-        "alarmIdentifier": str,
-        "type": Literal["CLOUDWATCH"],
-    },
-)
 
 class ResponseMetadataTypeDef(TypedDict):
     RequestId: str
@@ -107,6 +103,17 @@ class ResponseMetadataTypeDef(TypedDict):
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: NotRequired[str]
+
+class CancelZonalShiftRequestTypeDef(TypedDict):
+    zonalShiftId: str
+
+ControlConditionTypeDef = TypedDict(
+    "ControlConditionTypeDef",
+    {
+        "type": Literal["CLOUDWATCH"],
+        "alarmIdentifier": str,
+    },
+)
 
 class DeletePracticeRunConfigurationRequestTypeDef(TypedDict):
     resourceIdentifier: str
@@ -116,14 +123,14 @@ class GetManagedResourceRequestTypeDef(TypedDict):
 
 class ZonalShiftInResourceTypeDef(TypedDict):
     appliedStatus: AppliedStatusType
-    awayFrom: str
-    comment: str
-    expiryTime: datetime
-    resourceIdentifier: str
-    startTime: datetime
     zonalShiftId: str
-    practiceRunOutcome: NotRequired[PracticeRunOutcomeType]
+    resourceIdentifier: str
+    awayFrom: str
+    expiryTime: datetime
+    startTime: datetime
+    comment: str
     shiftType: NotRequired[ShiftTypeType]
+    practiceRunOutcome: NotRequired[PracticeRunOutcomeType]
 
 class PaginatorConfigTypeDef(TypedDict):
     MaxItems: NotRequired[int]
@@ -131,36 +138,41 @@ class PaginatorConfigTypeDef(TypedDict):
     StartingToken: NotRequired[str]
 
 class ListAutoshiftsRequestTypeDef(TypedDict):
-    maxResults: NotRequired[int]
     nextToken: NotRequired[str]
     status: NotRequired[AutoshiftExecutionStatusType]
+    maxResults: NotRequired[int]
 
 class ListManagedResourcesRequestTypeDef(TypedDict):
-    maxResults: NotRequired[int]
     nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
 class ListZonalShiftsRequestTypeDef(TypedDict):
-    maxResults: NotRequired[int]
     nextToken: NotRequired[str]
-    resourceIdentifier: NotRequired[str]
     status: NotRequired[ZonalShiftStatusType]
+    maxResults: NotRequired[int]
+    resourceIdentifier: NotRequired[str]
 
 class ZonalShiftSummaryTypeDef(TypedDict):
-    awayFrom: str
-    comment: str
-    expiryTime: datetime
+    zonalShiftId: str
     resourceIdentifier: str
+    awayFrom: str
+    expiryTime: datetime
     startTime: datetime
     status: ZonalShiftStatusType
-    zonalShiftId: str
-    practiceRunOutcome: NotRequired[PracticeRunOutcomeType]
+    comment: str
     shiftType: NotRequired[ShiftTypeType]
+    practiceRunOutcome: NotRequired[PracticeRunOutcomeType]
 
-class StartZonalShiftRequestTypeDef(TypedDict):
+class StartPracticeRunRequestTypeDef(TypedDict):
+    resourceIdentifier: str
     awayFrom: str
     comment: str
-    expiresIn: str
+
+class StartZonalShiftRequestTypeDef(TypedDict):
     resourceIdentifier: str
+    awayFrom: str
+    expiresIn: str
+    comment: str
 
 class UpdateAutoshiftObserverNotificationStatusRequestTypeDef(TypedDict):
     status: AutoshiftObserverNotificationStatusType
@@ -174,25 +186,15 @@ class UpdateZonalShiftRequestTypeDef(TypedDict):
     comment: NotRequired[str]
     expiresIn: NotRequired[str]
 
-class CreatePracticeRunConfigurationRequestTypeDef(TypedDict):
-    outcomeAlarms: Sequence[ControlConditionTypeDef]
+class CancelPracticeRunResponseTypeDef(TypedDict):
+    zonalShiftId: str
     resourceIdentifier: str
-    blockedDates: NotRequired[Sequence[str]]
-    blockedWindows: NotRequired[Sequence[str]]
-    blockingAlarms: NotRequired[Sequence[ControlConditionTypeDef]]
-
-class PracticeRunConfigurationTypeDef(TypedDict):
-    outcomeAlarms: List[ControlConditionTypeDef]
-    blockedDates: NotRequired[List[str]]
-    blockedWindows: NotRequired[List[str]]
-    blockingAlarms: NotRequired[List[ControlConditionTypeDef]]
-
-class UpdatePracticeRunConfigurationRequestTypeDef(TypedDict):
-    resourceIdentifier: str
-    blockedDates: NotRequired[Sequence[str]]
-    blockedWindows: NotRequired[Sequence[str]]
-    blockingAlarms: NotRequired[Sequence[ControlConditionTypeDef]]
-    outcomeAlarms: NotRequired[Sequence[ControlConditionTypeDef]]
+    awayFrom: str
+    expiryTime: datetime
+    startTime: datetime
+    status: ZonalShiftStatusType
+    comment: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 class DeletePracticeRunConfigurationResponseTypeDef(TypedDict):
     arn: str
@@ -209,6 +211,16 @@ class ListAutoshiftsResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: NotRequired[str]
 
+class StartPracticeRunResponseTypeDef(TypedDict):
+    zonalShiftId: str
+    resourceIdentifier: str
+    awayFrom: str
+    expiryTime: datetime
+    startTime: datetime
+    status: ZonalShiftStatusType
+    comment: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class UpdateAutoshiftObserverNotificationStatusResponseTypeDef(TypedDict):
     status: AutoshiftObserverNotificationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -219,24 +231,47 @@ class UpdateZonalAutoshiftConfigurationResponseTypeDef(TypedDict):
     ResponseMetadata: ResponseMetadataTypeDef
 
 class ZonalShiftTypeDef(TypedDict):
-    awayFrom: str
-    comment: str
-    expiryTime: datetime
+    zonalShiftId: str
     resourceIdentifier: str
+    awayFrom: str
+    expiryTime: datetime
     startTime: datetime
     status: ZonalShiftStatusType
-    zonalShiftId: str
+    comment: str
     ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePracticeRunConfigurationRequestTypeDef(TypedDict):
+    resourceIdentifier: str
+    outcomeAlarms: Sequence[ControlConditionTypeDef]
+    blockedWindows: NotRequired[Sequence[str]]
+    blockedDates: NotRequired[Sequence[str]]
+    blockingAlarms: NotRequired[Sequence[ControlConditionTypeDef]]
+    allowedWindows: NotRequired[Sequence[str]]
+
+class PracticeRunConfigurationTypeDef(TypedDict):
+    outcomeAlarms: List[ControlConditionTypeDef]
+    blockingAlarms: NotRequired[List[ControlConditionTypeDef]]
+    blockedWindows: NotRequired[List[str]]
+    allowedWindows: NotRequired[List[str]]
+    blockedDates: NotRequired[List[str]]
+
+class UpdatePracticeRunConfigurationRequestTypeDef(TypedDict):
+    resourceIdentifier: str
+    blockedWindows: NotRequired[Sequence[str]]
+    blockedDates: NotRequired[Sequence[str]]
+    blockingAlarms: NotRequired[Sequence[ControlConditionTypeDef]]
+    allowedWindows: NotRequired[Sequence[str]]
+    outcomeAlarms: NotRequired[Sequence[ControlConditionTypeDef]]
 
 class ManagedResourceSummaryTypeDef(TypedDict):
     availabilityZones: List[str]
-    appliedWeights: NotRequired[Dict[str, float]]
     arn: NotRequired[str]
-    autoshifts: NotRequired[List[AutoshiftInResourceTypeDef]]
     name: NotRequired[str]
-    practiceRunStatus: NotRequired[ZonalAutoshiftStatusType]
-    zonalAutoshiftStatus: NotRequired[ZonalAutoshiftStatusType]
+    appliedWeights: NotRequired[Dict[str, float]]
     zonalShifts: NotRequired[List[ZonalShiftInResourceTypeDef]]
+    autoshifts: NotRequired[List[AutoshiftInResourceTypeDef]]
+    zonalAutoshiftStatus: NotRequired[ZonalAutoshiftStatusType]
+    practiceRunStatus: NotRequired[ZonalAutoshiftStatusType]
 
 class ListAutoshiftsRequestPaginateTypeDef(TypedDict):
     status: NotRequired[AutoshiftExecutionStatusType]
@@ -246,8 +281,8 @@ class ListManagedResourcesRequestPaginateTypeDef(TypedDict):
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListZonalShiftsRequestPaginateTypeDef(TypedDict):
-    resourceIdentifier: NotRequired[str]
     status: NotRequired[ZonalShiftStatusType]
+    resourceIdentifier: NotRequired[str]
     PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 class ListZonalShiftsResponseTypeDef(TypedDict):
@@ -258,25 +293,25 @@ class ListZonalShiftsResponseTypeDef(TypedDict):
 class CreatePracticeRunConfigurationResponseTypeDef(TypedDict):
     arn: str
     name: str
-    practiceRunConfiguration: PracticeRunConfigurationTypeDef
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
+    practiceRunConfiguration: PracticeRunConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 class GetManagedResourceResponseTypeDef(TypedDict):
-    appliedWeights: Dict[str, float]
     arn: str
-    autoshifts: List[AutoshiftInResourceTypeDef]
     name: str
+    appliedWeights: Dict[str, float]
+    zonalShifts: List[ZonalShiftInResourceTypeDef]
+    autoshifts: List[AutoshiftInResourceTypeDef]
     practiceRunConfiguration: PracticeRunConfigurationTypeDef
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
-    zonalShifts: List[ZonalShiftInResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdatePracticeRunConfigurationResponseTypeDef(TypedDict):
     arn: str
     name: str
-    practiceRunConfiguration: PracticeRunConfigurationTypeDef
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
+    practiceRunConfiguration: PracticeRunConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 class ListManagedResourcesResponseTypeDef(TypedDict):

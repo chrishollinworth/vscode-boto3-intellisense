@@ -8,9 +8,9 @@ Copyright 2025 Vlad Emelianov
 Usage::
 
     ```python
-    from mypy_boto3_braket.type_defs import ContainerImageTypeDef
+    from mypy_boto3_braket.type_defs import ActionMetadataTypeDef
 
-    data: ContainerImageTypeDef = ...
+    data: ActionMetadataTypeDef = ...
     ```
 """
 
@@ -18,12 +18,14 @@ from __future__ import annotations
 
 import sys
 from datetime import datetime
+from typing import Union
 
 from .literals import (
     CancellationStatusType,
     CompressionTypeType,
     DeviceStatusType,
     DeviceTypeType,
+    ExperimentalCapabilitiesEnablementTypeType,
     InstanceTypeType,
     JobEventTypeType,
     JobPrimaryStatusType,
@@ -46,6 +48,7 @@ else:
     from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ActionMetadataTypeDef",
     "AlgorithmSpecificationTypeDef",
     "AssociationTypeDef",
     "CancelJobRequestTypeDef",
@@ -57,10 +60,14 @@ __all__ = (
     "CreateJobResponseTypeDef",
     "CreateQuantumTaskRequestTypeDef",
     "CreateQuantumTaskResponseTypeDef",
+    "CreateSpendingLimitRequestTypeDef",
+    "CreateSpendingLimitResponseTypeDef",
     "DataSourceTypeDef",
+    "DeleteSpendingLimitRequestTypeDef",
     "DeviceConfigTypeDef",
     "DeviceQueueInfoTypeDef",
     "DeviceSummaryTypeDef",
+    "ExperimentalCapabilitiesTypeDef",
     "GetDeviceRequestTypeDef",
     "GetDeviceResponseTypeDef",
     "GetJobRequestTypeDef",
@@ -95,9 +102,24 @@ __all__ = (
     "SearchQuantumTasksRequestPaginateTypeDef",
     "SearchQuantumTasksRequestTypeDef",
     "SearchQuantumTasksResponseTypeDef",
+    "SearchSpendingLimitsFilterTypeDef",
+    "SearchSpendingLimitsRequestPaginateTypeDef",
+    "SearchSpendingLimitsRequestTypeDef",
+    "SearchSpendingLimitsResponseTypeDef",
+    "SpendingLimitSummaryTypeDef",
     "TagResourceRequestTypeDef",
+    "TimePeriodOutputTypeDef",
+    "TimePeriodTypeDef",
+    "TimePeriodUnionTypeDef",
+    "TimestampTypeDef",
     "UntagResourceRequestTypeDef",
+    "UpdateSpendingLimitRequestTypeDef",
 )
+
+class ActionMetadataTypeDef(TypedDict):
+    actionType: str
+    programCount: NotRequired[int]
+    executableCount: NotRequired[int]
 
 class ContainerImageTypeDef(TypedDict):
     uri: str
@@ -126,8 +148,8 @@ class ResponseMetadataTypeDef(TypedDict):
     HostId: NotRequired[str]
 
 class CancelQuantumTaskRequestTypeDef(TypedDict):
-    clientToken: str
     quantumTaskArn: str
+    clientToken: str
 
 class DeviceConfigTypeDef(TypedDict):
     device: str
@@ -148,8 +170,14 @@ class JobOutputDataConfigTypeDef(TypedDict):
 class JobStoppingConditionTypeDef(TypedDict):
     maxRuntimeInSeconds: NotRequired[int]
 
+class ExperimentalCapabilitiesTypeDef(TypedDict):
+    enabled: NotRequired[ExperimentalCapabilitiesEnablementTypeType]
+
 class S3DataSourceTypeDef(TypedDict):
     s3Uri: str
+
+class DeleteSpendingLimitRequestTypeDef(TypedDict):
+    spendingLimitArn: str
 
 class DeviceQueueInfoTypeDef(TypedDict):
     queue: QueueNameType
@@ -159,9 +187,9 @@ class DeviceQueueInfoTypeDef(TypedDict):
 class DeviceSummaryTypeDef(TypedDict):
     deviceArn: str
     deviceName: str
-    deviceStatus: DeviceStatusType
-    deviceType: DeviceTypeType
     providerName: str
+    deviceType: DeviceTypeType
+    deviceStatus: DeviceStatusType
 
 class GetDeviceRequestTypeDef(TypedDict):
     deviceArn: str
@@ -171,33 +199,33 @@ class GetJobRequestTypeDef(TypedDict):
     additionalAttributeNames: NotRequired[Sequence[Literal["QueueInfo"]]]
 
 class HybridJobQueueInfoTypeDef(TypedDict):
-    position: str
     queue: QueueNameType
+    position: str
     message: NotRequired[str]
 
 class JobEventDetailsTypeDef(TypedDict):
     eventType: NotRequired[JobEventTypeType]
-    message: NotRequired[str]
     timeOfEvent: NotRequired[datetime]
+    message: NotRequired[str]
 
 class GetQuantumTaskRequestTypeDef(TypedDict):
     quantumTaskArn: str
     additionalAttributeNames: NotRequired[Sequence[Literal["QueueInfo"]]]
 
 class QuantumTaskQueueInfoTypeDef(TypedDict):
-    position: str
     queue: QueueNameType
-    message: NotRequired[str]
+    position: str
     queuePriority: NotRequired[QueuePriorityType]
+    message: NotRequired[str]
 
 class JobSummaryTypeDef(TypedDict):
-    createdAt: datetime
-    device: str
+    status: JobPrimaryStatusType
     jobArn: str
     jobName: str
-    status: JobPrimaryStatusType
-    endedAt: NotRequired[datetime]
+    device: str
+    createdAt: datetime
     startedAt: NotRequired[datetime]
+    endedAt: NotRequired[datetime]
     tags: NotRequired[Dict[str, str]]
 
 class ListTagsForResourceRequestTypeDef(TypedDict):
@@ -209,13 +237,13 @@ class PaginatorConfigTypeDef(TypedDict):
     StartingToken: NotRequired[str]
 
 class QuantumTaskSummaryTypeDef(TypedDict):
-    createdAt: datetime
+    quantumTaskArn: str
+    status: QuantumTaskStatusType
     deviceArn: str
+    shots: int
     outputS3Bucket: str
     outputS3Directory: str
-    quantumTaskArn: str
-    shots: int
-    status: QuantumTaskStatusType
+    createdAt: datetime
     endedAt: NotRequired[datetime]
     tags: NotRequired[Dict[str, str]]
 
@@ -227,51 +255,53 @@ SearchJobsFilterTypeDef = TypedDict(
     "SearchJobsFilterTypeDef",
     {
         "name": str,
-        "operator": SearchJobsFilterOperatorType,
         "values": Sequence[str],
+        "operator": SearchJobsFilterOperatorType,
     },
 )
 SearchQuantumTasksFilterTypeDef = TypedDict(
     "SearchQuantumTasksFilterTypeDef",
     {
         "name": str,
-        "operator": SearchQuantumTasksFilterOperatorType,
         "values": Sequence[str],
+        "operator": SearchQuantumTasksFilterOperatorType,
     },
 )
+SearchSpendingLimitsFilterTypeDef = TypedDict(
+    "SearchSpendingLimitsFilterTypeDef",
+    {
+        "name": str,
+        "values": Sequence[str],
+        "operator": Literal["EQUAL"],
+    },
+)
+
+class TimePeriodOutputTypeDef(TypedDict):
+    startAt: datetime
+    endAt: datetime
 
 class TagResourceRequestTypeDef(TypedDict):
     resourceArn: str
     tags: Mapping[str, str]
+
+TimestampTypeDef = Union[datetime, str]
 
 class UntagResourceRequestTypeDef(TypedDict):
     resourceArn: str
     tagKeys: Sequence[str]
 
 class AlgorithmSpecificationTypeDef(TypedDict):
-    containerImage: NotRequired[ContainerImageTypeDef]
     scriptModeConfig: NotRequired[ScriptModeConfigTypeDef]
-
-class CreateQuantumTaskRequestTypeDef(TypedDict):
-    action: str
-    clientToken: str
-    deviceArn: str
-    outputS3Bucket: str
-    outputS3KeyPrefix: str
-    shots: int
-    associations: NotRequired[Sequence[AssociationTypeDef]]
-    deviceParameters: NotRequired[str]
-    jobToken: NotRequired[str]
-    tags: NotRequired[Mapping[str, str]]
+    containerImage: NotRequired[ContainerImageTypeDef]
 
 class CancelJobResponseTypeDef(TypedDict):
-    cancellationStatus: CancellationStatusType
     jobArn: str
+    cancellationStatus: CancellationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CancelQuantumTaskResponseTypeDef(TypedDict):
-    cancellationStatus: CancellationStatusType
     quantumTaskArn: str
+    cancellationStatus: CancellationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateJobResponseTypeDef(TypedDict):
@@ -282,21 +312,38 @@ class CreateQuantumTaskResponseTypeDef(TypedDict):
     quantumTaskArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+class CreateSpendingLimitResponseTypeDef(TypedDict):
+    spendingLimitArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 class ListTagsForResourceResponseTypeDef(TypedDict):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateQuantumTaskRequestTypeDef(TypedDict):
+    clientToken: str
+    deviceArn: str
+    shots: int
+    outputS3Bucket: str
+    outputS3KeyPrefix: str
+    action: str
+    deviceParameters: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    jobToken: NotRequired[str]
+    associations: NotRequired[Sequence[AssociationTypeDef]]
+    experimentalCapabilities: NotRequired[ExperimentalCapabilitiesTypeDef]
 
 class DataSourceTypeDef(TypedDict):
     s3DataSource: S3DataSourceTypeDef
 
 class GetDeviceResponseTypeDef(TypedDict):
     deviceArn: str
-    deviceCapabilities: str
     deviceName: str
-    deviceQueueInfo: List[DeviceQueueInfoTypeDef]
-    deviceStatus: DeviceStatusType
-    deviceType: DeviceTypeType
     providerName: str
+    deviceType: DeviceTypeType
+    deviceStatus: DeviceStatusType
+    deviceCapabilities: str
+    deviceQueueInfo: List[DeviceQueueInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class SearchDevicesResponseTypeDef(TypedDict):
@@ -305,20 +352,23 @@ class SearchDevicesResponseTypeDef(TypedDict):
     nextToken: NotRequired[str]
 
 class GetQuantumTaskResponseTypeDef(TypedDict):
-    associations: List[AssociationTypeDef]
-    createdAt: datetime
+    quantumTaskArn: str
+    status: QuantumTaskStatusType
+    failureReason: str
     deviceArn: str
     deviceParameters: str
-    endedAt: datetime
-    failureReason: str
-    jobArn: str
+    shots: int
     outputS3Bucket: str
     outputS3Directory: str
-    quantumTaskArn: str
-    queueInfo: QuantumTaskQueueInfoTypeDef
-    shots: int
-    status: QuantumTaskStatusType
+    createdAt: datetime
+    endedAt: datetime
     tags: Dict[str, str]
+    jobArn: str
+    queueInfo: QuantumTaskQueueInfoTypeDef
+    associations: List[AssociationTypeDef]
+    numSuccessfulShots: int
+    actionMetadata: ActionMetadataTypeDef
+    experimentalCapabilities: ExperimentalCapabilitiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 class SearchJobsResponseTypeDef(TypedDict):
@@ -337,8 +387,8 @@ class SearchDevicesRequestPaginateTypeDef(TypedDict):
 
 class SearchDevicesRequestTypeDef(TypedDict):
     filters: Sequence[SearchDevicesFilterTypeDef]
-    maxResults: NotRequired[int]
     nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
 class SearchJobsRequestPaginateTypeDef(TypedDict):
     filters: Sequence[SearchJobsFilterTypeDef]
@@ -346,8 +396,8 @@ class SearchJobsRequestPaginateTypeDef(TypedDict):
 
 class SearchJobsRequestTypeDef(TypedDict):
     filters: Sequence[SearchJobsFilterTypeDef]
-    maxResults: NotRequired[int]
     nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
 class SearchQuantumTasksRequestPaginateTypeDef(TypedDict):
     filters: Sequence[SearchQuantumTasksFilterTypeDef]
@@ -355,49 +405,93 @@ class SearchQuantumTasksRequestPaginateTypeDef(TypedDict):
 
 class SearchQuantumTasksRequestTypeDef(TypedDict):
     filters: Sequence[SearchQuantumTasksFilterTypeDef]
-    maxResults: NotRequired[int]
     nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SearchSpendingLimitsRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[SearchSpendingLimitsFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchSpendingLimitsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[SearchSpendingLimitsFilterTypeDef]]
+
+class SpendingLimitSummaryTypeDef(TypedDict):
+    spendingLimitArn: str
+    deviceArn: str
+    timePeriod: TimePeriodOutputTypeDef
+    spendingLimit: str
+    queuedSpend: str
+    totalSpend: str
+    createdAt: datetime
+    updatedAt: datetime
+    tags: NotRequired[Dict[str, str]]
+
+class TimePeriodTypeDef(TypedDict):
+    startAt: TimestampTypeDef
+    endAt: TimestampTypeDef
 
 class InputFileConfigTypeDef(TypedDict):
     channelName: str
     dataSource: DataSourceTypeDef
     contentType: NotRequired[str]
 
+class SearchSpendingLimitsResponseTypeDef(TypedDict):
+    spendingLimits: List[SpendingLimitSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+TimePeriodUnionTypeDef = Union[TimePeriodTypeDef, TimePeriodOutputTypeDef]
+
 class CreateJobRequestTypeDef(TypedDict):
-    algorithmSpecification: AlgorithmSpecificationTypeDef
     clientToken: str
-    deviceConfig: DeviceConfigTypeDef
-    instanceConfig: InstanceConfigTypeDef
-    jobName: str
+    algorithmSpecification: AlgorithmSpecificationTypeDef
     outputDataConfig: JobOutputDataConfigTypeDef
+    jobName: str
     roleArn: str
-    associations: NotRequired[Sequence[AssociationTypeDef]]
-    checkpointConfig: NotRequired[JobCheckpointConfigTypeDef]
-    hyperParameters: NotRequired[Mapping[str, str]]
+    instanceConfig: InstanceConfigTypeDef
+    deviceConfig: DeviceConfigTypeDef
     inputDataConfig: NotRequired[Sequence[InputFileConfigTypeDef]]
+    checkpointConfig: NotRequired[JobCheckpointConfigTypeDef]
     stoppingCondition: NotRequired[JobStoppingConditionTypeDef]
+    hyperParameters: NotRequired[Mapping[str, str]]
     tags: NotRequired[Mapping[str, str]]
+    associations: NotRequired[Sequence[AssociationTypeDef]]
 
 class GetJobResponseTypeDef(TypedDict):
-    algorithmSpecification: AlgorithmSpecificationTypeDef
-    associations: List[AssociationTypeDef]
-    billableDuration: int
-    checkpointConfig: JobCheckpointConfigTypeDef
-    createdAt: datetime
-    deviceConfig: DeviceConfigTypeDef
-    endedAt: datetime
-    events: List[JobEventDetailsTypeDef]
+    status: JobPrimaryStatusType
+    jobArn: str
+    roleArn: str
     failureReason: str
+    jobName: str
     hyperParameters: Dict[str, str]
     inputDataConfig: List[InputFileConfigTypeDef]
-    instanceConfig: InstanceConfigTypeDef
-    jobArn: str
-    jobName: str
     outputDataConfig: JobOutputDataConfigTypeDef
-    queueInfo: HybridJobQueueInfoTypeDef
-    roleArn: str
-    startedAt: datetime
-    status: JobPrimaryStatusType
     stoppingCondition: JobStoppingConditionTypeDef
+    checkpointConfig: JobCheckpointConfigTypeDef
+    algorithmSpecification: AlgorithmSpecificationTypeDef
+    instanceConfig: InstanceConfigTypeDef
+    createdAt: datetime
+    startedAt: datetime
+    endedAt: datetime
+    billableDuration: int
+    deviceConfig: DeviceConfigTypeDef
+    events: List[JobEventDetailsTypeDef]
     tags: Dict[str, str]
+    queueInfo: HybridJobQueueInfoTypeDef
+    associations: List[AssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSpendingLimitRequestTypeDef(TypedDict):
+    clientToken: str
+    deviceArn: str
+    spendingLimit: str
+    timePeriod: NotRequired[TimePeriodUnionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateSpendingLimitRequestTypeDef(TypedDict):
+    spendingLimitArn: str
+    clientToken: str
+    spendingLimit: NotRequired[str]
+    timePeriod: NotRequired[TimePeriodUnionTypeDef]

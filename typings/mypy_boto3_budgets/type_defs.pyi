@@ -31,6 +31,8 @@ from .literals import (
     DimensionType,
     EventTypeType,
     ExecutionTypeType,
+    HealthStatusReasonType,
+    HealthStatusValueType,
     MatchOptionType,
     MetricType,
     NotificationStateType,
@@ -118,6 +120,8 @@ __all__ = (
     "ExpressionOutputTypeDef",
     "ExpressionPaginatorTypeDef",
     "ExpressionTypeDef",
+    "HealthStatusOutputTypeDef",
+    "HealthStatusTypeDef",
     "HistoricalOptionsTypeDef",
     "IamActionDefinitionOutputTypeDef",
     "IamActionDefinitionTypeDef",
@@ -182,6 +186,11 @@ class CostTypesTypeDef(TypedDict):
     IncludeSupport: NotRequired[bool]
     IncludeDiscount: NotRequired[bool]
     UseAmortized: NotRequired[bool]
+
+class HealthStatusOutputTypeDef(TypedDict):
+    Status: NotRequired[HealthStatusValueType]
+    StatusReason: NotRequired[HealthStatusReasonType]
+    LastUpdatedTime: NotRequired[datetime]
 
 class SpendTypeDef(TypedDict):
     Amount: str
@@ -336,6 +345,11 @@ class AutoAdjustDataTypeDef(TypedDict):
     AutoAdjustType: AutoAdjustTypeType
     HistoricalOptions: NotRequired[HistoricalOptionsTypeDef]
     LastAutoAdjustTime: NotRequired[TimestampTypeDef]
+
+class HealthStatusTypeDef(TypedDict):
+    Status: NotRequired[HealthStatusValueType]
+    StatusReason: NotRequired[HealthStatusReasonType]
+    LastUpdatedTime: NotRequired[TimestampTypeDef]
 
 class TimePeriodTypeDef(TypedDict):
     Start: NotRequired[TimestampTypeDef]
@@ -508,6 +522,7 @@ class BudgetPerformanceHistoryTypeDef(TypedDict):
     CostFilters: NotRequired[Dict[str, List[str]]]
     CostTypes: NotRequired[CostTypesTypeDef]
     TimeUnit: NotRequired[TimeUnitType]
+    BillingViewArn: NotRequired[str]
     BudgetedAndActualAmountsList: NotRequired[List[BudgetedAndActualAmountsTypeDef]]
 
 class ActionTypeDef(TypedDict):
@@ -538,6 +553,8 @@ class BudgetOutputTypeDef(TypedDict):
     AutoAdjustData: NotRequired[AutoAdjustDataOutputTypeDef]
     FilterExpression: NotRequired[ExpressionOutputTypeDef]
     Metrics: NotRequired[List[MetricType]]
+    BillingViewArn: NotRequired[str]
+    HealthStatus: NotRequired[HealthStatusOutputTypeDef]
 
 class BudgetPaginatorTypeDef(TypedDict):
     BudgetName: str
@@ -553,6 +570,8 @@ class BudgetPaginatorTypeDef(TypedDict):
     AutoAdjustData: NotRequired[AutoAdjustDataOutputTypeDef]
     FilterExpression: NotRequired[ExpressionPaginatorTypeDef]
     Metrics: NotRequired[List[MetricType]]
+    BillingViewArn: NotRequired[str]
+    HealthStatus: NotRequired[HealthStatusOutputTypeDef]
 
 class BudgetTypeDef(TypedDict):
     BudgetName: str
@@ -568,6 +587,8 @@ class BudgetTypeDef(TypedDict):
     AutoAdjustData: NotRequired[AutoAdjustDataTypeDef]
     FilterExpression: NotRequired[ExpressionTypeDef]
     Metrics: NotRequired[Sequence[MetricType]]
+    BillingViewArn: NotRequired[str]
+    HealthStatus: NotRequired[HealthStatusTypeDef]
 
 class DescribeBudgetActionHistoriesRequestPaginateTypeDef(TypedDict):
     AccountId: str

@@ -19,6 +19,8 @@ Usage::
         DescribeEndpointsPaginator,
         DescribeEventSubscriptionsPaginator,
         DescribeEventsPaginator,
+        DescribeMetadataModelChildrenPaginator,
+        DescribeMetadataModelCreationsPaginator,
         DescribeOrderableReplicationInstancesPaginator,
         DescribeReplicationInstancesPaginator,
         DescribeReplicationSubnetGroupsPaginator,
@@ -55,6 +57,8 @@ Usage::
     describe_endpoints_paginator: DescribeEndpointsPaginator = client.get_paginator("describe_endpoints")
     describe_event_subscriptions_paginator: DescribeEventSubscriptionsPaginator = client.get_paginator("describe_event_subscriptions")
     describe_events_paginator: DescribeEventsPaginator = client.get_paginator("describe_events")
+    describe_metadata_model_children_paginator: DescribeMetadataModelChildrenPaginator = client.get_paginator("describe_metadata_model_children")
+    describe_metadata_model_creations_paginator: DescribeMetadataModelCreationsPaginator = client.get_paginator("describe_metadata_model_creations")
     describe_orderable_replication_instances_paginator: DescribeOrderableReplicationInstancesPaginator = client.get_paginator("describe_orderable_replication_instances")
     describe_replication_instances_paginator: DescribeReplicationInstancesPaginator = client.get_paginator("describe_replication_instances")
     describe_replication_subnet_groups_paginator: DescribeReplicationSubnetGroupsPaginator = client.get_paginator("describe_replication_subnet_groups")
@@ -74,6 +78,8 @@ from .paginator import (
     DescribeEndpointTypesPaginator,
     DescribeEventsPaginator,
     DescribeEventSubscriptionsPaginator,
+    DescribeMetadataModelChildrenPaginator,
+    DescribeMetadataModelCreationsPaginator,
     DescribeOrderableReplicationInstancesPaginator,
     DescribeReplicationInstancesPaginator,
     DescribeReplicationSubnetGroupsPaginator,
@@ -105,6 +111,8 @@ __all__ = (
     "DescribeEndpointsPaginator",
     "DescribeEventSubscriptionsPaginator",
     "DescribeEventsPaginator",
+    "DescribeMetadataModelChildrenPaginator",
+    "DescribeMetadataModelCreationsPaginator",
     "DescribeOrderableReplicationInstancesPaginator",
     "DescribeReplicationInstancesPaginator",
     "DescribeReplicationSubnetGroupsPaginator",

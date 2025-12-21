@@ -29,6 +29,7 @@ from .paginator import (
     GetChatControlsConfigurationPaginator,
     ListApplicationsPaginator,
     ListAttachmentsPaginator,
+    ListChatResponseConfigurationsPaginator,
     ListConversationsPaginator,
     ListDataAccessorsPaginator,
     ListDataSourcesPaginator,
@@ -65,6 +66,8 @@ from .type_defs import (
     CreateAnonymousWebExperienceUrlResponseTypeDef,
     CreateApplicationRequestTypeDef,
     CreateApplicationResponseTypeDef,
+    CreateChatResponseConfigurationRequestTypeDef,
+    CreateChatResponseConfigurationResponseTypeDef,
     CreateDataAccessorRequestTypeDef,
     CreateDataAccessorResponseTypeDef,
     CreateDataSourceRequestTypeDef,
@@ -83,6 +86,7 @@ from .type_defs import (
     DeleteApplicationRequestTypeDef,
     DeleteAttachmentRequestTypeDef,
     DeleteChatControlsConfigurationRequestTypeDef,
+    DeleteChatResponseConfigurationRequestTypeDef,
     DeleteConversationRequestTypeDef,
     DeleteDataAccessorRequestTypeDef,
     DeleteDataSourceRequestTypeDef,
@@ -98,10 +102,14 @@ from .type_defs import (
     GetApplicationResponseTypeDef,
     GetChatControlsConfigurationRequestTypeDef,
     GetChatControlsConfigurationResponseTypeDef,
+    GetChatResponseConfigurationRequestTypeDef,
+    GetChatResponseConfigurationResponseTypeDef,
     GetDataAccessorRequestTypeDef,
     GetDataAccessorResponseTypeDef,
     GetDataSourceRequestTypeDef,
     GetDataSourceResponseTypeDef,
+    GetDocumentContentRequestTypeDef,
+    GetDocumentContentResponseTypeDef,
     GetGroupRequestTypeDef,
     GetGroupResponseTypeDef,
     GetIndexRequestTypeDef,
@@ -122,6 +130,8 @@ from .type_defs import (
     ListApplicationsResponseTypeDef,
     ListAttachmentsRequestTypeDef,
     ListAttachmentsResponseTypeDef,
+    ListChatResponseConfigurationsRequestTypeDef,
+    ListChatResponseConfigurationsResponseTypeDef,
     ListConversationsRequestTypeDef,
     ListConversationsResponseTypeDef,
     ListDataAccessorsRequestTypeDef,
@@ -165,6 +175,7 @@ from .type_defs import (
     UntagResourceRequestTypeDef,
     UpdateApplicationRequestTypeDef,
     UpdateChatControlsConfigurationRequestTypeDef,
+    UpdateChatResponseConfigurationRequestTypeDef,
     UpdateDataAccessorRequestTypeDef,
     UpdateDataSourceRequestTypeDef,
     UpdateIndexRequestTypeDef,
@@ -328,6 +339,16 @@ class QBusinessClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#create_application)
         """
 
+    def create_chat_response_configuration(
+        self, **kwargs: Unpack[CreateChatResponseConfigurationRequestTypeDef]
+    ) -> CreateChatResponseConfigurationResponseTypeDef:
+        """
+        Creates a new chat response configuration for an Amazon Q Business application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/create_chat_response_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#create_chat_response_configuration)
+        """
+
     def create_data_accessor(
         self, **kwargs: Unpack[CreateDataAccessorRequestTypeDef]
     ) -> CreateDataAccessorResponseTypeDef:
@@ -435,6 +456,17 @@ class QBusinessClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/delete_chat_controls_configuration.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#delete_chat_controls_configuration)
+        """
+
+    def delete_chat_response_configuration(
+        self, **kwargs: Unpack[DeleteChatResponseConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a specified chat response configuration from an Amazon Q Business
+        application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/delete_chat_response_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#delete_chat_response_configuration)
         """
 
     def delete_conversation(
@@ -550,6 +582,17 @@ class QBusinessClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#get_chat_controls_configuration)
         """
 
+    def get_chat_response_configuration(
+        self, **kwargs: Unpack[GetChatResponseConfigurationRequestTypeDef]
+    ) -> GetChatResponseConfigurationResponseTypeDef:
+        """
+        Retrieves detailed information about a specific chat response configuration
+        from an Amazon Q Business application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/get_chat_response_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#get_chat_response_configuration)
+        """
+
     def get_data_accessor(
         self, **kwargs: Unpack[GetDataAccessorRequestTypeDef]
     ) -> GetDataAccessorResponseTypeDef:
@@ -568,6 +611,16 @@ class QBusinessClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/get_data_source.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#get_data_source)
+        """
+
+    def get_document_content(
+        self, **kwargs: Unpack[GetDocumentContentRequestTypeDef]
+    ) -> GetDocumentContentResponseTypeDef:
+        """
+        Retrieves the content of a document that was ingested into Amazon Q Business.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/get_document_content.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#get_document_content)
         """
 
     def get_group(self, **kwargs: Unpack[GetGroupRequestTypeDef]) -> GetGroupResponseTypeDef:
@@ -660,6 +713,17 @@ class QBusinessClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/list_attachments.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#list_attachments)
+        """
+
+    def list_chat_response_configurations(
+        self, **kwargs: Unpack[ListChatResponseConfigurationsRequestTypeDef]
+    ) -> ListChatResponseConfigurationsResponseTypeDef:
+        """
+        Retrieves a list of all chat response configurations available in a specified
+        Amazon Q Business application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/list_chat_response_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#list_chat_response_configurations)
         """
 
     def list_conversations(
@@ -912,6 +976,17 @@ class QBusinessClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#update_chat_controls_configuration)
         """
 
+    def update_chat_response_configuration(
+        self, **kwargs: Unpack[UpdateChatResponseConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Updates an existing chat response configuration in an Amazon Q Business
+        application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/update_chat_response_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#update_chat_response_configuration)
+        """
+
     def update_data_accessor(
         self, **kwargs: Unpack[UpdateDataAccessorRequestTypeDef]
     ) -> Dict[str, Any]:
@@ -1010,6 +1085,17 @@ class QBusinessClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_attachments"]
     ) -> ListAttachmentsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_chat_response_configurations"]
+    ) -> ListChatResponseConfigurationsPaginator:
         """
         Create a paginator for an operation.
 

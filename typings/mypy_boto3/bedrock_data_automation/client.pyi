@@ -27,6 +27,7 @@ from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import ListBlueprintsPaginator, ListDataAutomationProjectsPaginator
 from .type_defs import (
+    CopyBlueprintStageRequestTypeDef,
     CreateBlueprintRequestTypeDef,
     CreateBlueprintResponseTypeDef,
     CreateBlueprintVersionRequestTypeDef,
@@ -36,10 +37,14 @@ from .type_defs import (
     DeleteBlueprintRequestTypeDef,
     DeleteDataAutomationProjectRequestTypeDef,
     DeleteDataAutomationProjectResponseTypeDef,
+    GetBlueprintOptimizationStatusRequestTypeDef,
+    GetBlueprintOptimizationStatusResponseTypeDef,
     GetBlueprintRequestTypeDef,
     GetBlueprintResponseTypeDef,
     GetDataAutomationProjectRequestTypeDef,
     GetDataAutomationProjectResponseTypeDef,
+    InvokeBlueprintOptimizationAsyncRequestTypeDef,
+    InvokeBlueprintOptimizationAsyncResponseTypeDef,
     ListBlueprintsRequestTypeDef,
     ListBlueprintsResponseTypeDef,
     ListDataAutomationProjectsRequestTypeDef,
@@ -112,6 +117,16 @@ class DataAutomationforBedrockClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_data_automation/client/#generate_presigned_url)
         """
 
+    def copy_blueprint_stage(
+        self, **kwargs: Unpack[CopyBlueprintStageRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Copies a Blueprint from one stage to another.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-data-automation/client/copy_blueprint_stage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_data_automation/client/#copy_blueprint_stage)
+        """
+
     def create_blueprint(
         self, **kwargs: Unpack[CreateBlueprintRequestTypeDef]
     ) -> CreateBlueprintResponseTypeDef:
@@ -170,6 +185,16 @@ class DataAutomationforBedrockClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_data_automation/client/#get_blueprint)
         """
 
+    def get_blueprint_optimization_status(
+        self, **kwargs: Unpack[GetBlueprintOptimizationStatusRequestTypeDef]
+    ) -> GetBlueprintOptimizationStatusResponseTypeDef:
+        """
+        API used to get blueprint optimization status.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-data-automation/client/get_blueprint_optimization_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_data_automation/client/#get_blueprint_optimization_status)
+        """
+
     def get_data_automation_project(
         self, **kwargs: Unpack[GetDataAutomationProjectRequestTypeDef]
     ) -> GetDataAutomationProjectResponseTypeDef:
@@ -178,6 +203,16 @@ class DataAutomationforBedrockClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-data-automation/client/get_data_automation_project.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_data_automation/client/#get_data_automation_project)
+        """
+
+    def invoke_blueprint_optimization_async(
+        self, **kwargs: Unpack[InvokeBlueprintOptimizationAsyncRequestTypeDef]
+    ) -> InvokeBlueprintOptimizationAsyncResponseTypeDef:
+        """
+        Invoke an async job to perform Blueprint Optimization.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-data-automation/client/invoke_blueprint_optimization_async.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_data_automation/client/#invoke_blueprint_optimization_async)
         """
 
     def list_blueprints(

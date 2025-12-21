@@ -42,6 +42,7 @@ from .paginator import (
     ListMessageTemplatesPaginator,
     ListMessageTemplateVersionsPaginator,
     ListQuickResponsesPaginator,
+    ListSpansPaginator,
     QueryAssistantPaginator,
     SearchContentPaginator,
     SearchMessageTemplatesPaginator,
@@ -162,6 +163,8 @@ from .type_defs import (
     ListMessageTemplateVersionsResponseTypeDef,
     ListQuickResponsesRequestTypeDef,
     ListQuickResponsesResponseTypeDef,
+    ListSpansRequestTypeDef,
+    ListSpansResponseTypeDef,
     ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
     NotifyRecommendationsReceivedRequestTypeDef,
@@ -174,6 +177,8 @@ from .type_defs import (
     RemoveKnowledgeBaseTemplateUriRequestTypeDef,
     RenderMessageTemplateRequestTypeDef,
     RenderMessageTemplateResponseTypeDef,
+    RetrieveRequestTypeDef,
+    RetrieveResponseTypeDef,
     SearchContentRequestTypeDef,
     SearchContentResponseTypeDef,
     SearchMessageTemplatesRequestTypeDef,
@@ -231,12 +236,15 @@ class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
+    DependencyFailedException: Type[BotocoreClientError]
     PreconditionFailedException: Type[BotocoreClientError]
     RequestTimeoutException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
     ServiceQuotaExceededException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
     TooManyTagsException: Type[BotocoreClientError]
+    UnauthorizedException: Type[BotocoreClientError]
+    UnprocessableContentException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
 class QConnectClient(BaseClient):
@@ -731,7 +739,7 @@ class QConnectClient(BaseClient):
         self, **kwargs: Unpack[GetRecommendationsRequestTypeDef]
     ) -> GetRecommendationsResponseTypeDef:
         """
-        This API will be discontinued starting June 1, 2024.
+        <important> <p>This API will be discontinued starting June 1, 2024.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qconnect/client/get_recommendations.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client/#get_recommendations)
@@ -907,6 +915,16 @@ class QConnectClient(BaseClient):
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client/#list_quick_responses)
         """
 
+    def list_spans(self, **kwargs: Unpack[ListSpansRequestTypeDef]) -> ListSpansResponseTypeDef:
+        """
+        Retrieves AI agent execution traces for a session, providing granular
+        visibility into agent orchestration flows, LLM interactions, and tool
+        invocations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qconnect/client/list_spans.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client/#list_spans)
+        """
+
     def list_tags_for_resource(
         self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
@@ -942,7 +960,7 @@ class QConnectClient(BaseClient):
         self, **kwargs: Unpack[QueryAssistantRequestTypeDef]
     ) -> QueryAssistantResponseTypeDef:
         """
-        This API will be discontinued starting June 1, 2024.
+        <important> <p>This API will be discontinued starting June 1, 2024.
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qconnect/client/query_assistant.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client/#query_assistant)
@@ -978,6 +996,14 @@ class QConnectClient(BaseClient):
 
         [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qconnect/client/render_message_template.html)
         [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client/#render_message_template)
+        """
+
+    def retrieve(self, **kwargs: Unpack[RetrieveRequestTypeDef]) -> RetrieveResponseTypeDef:
+        """
+        Retrieves content from knowledge sources based on a query.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qconnect/client/retrieve.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client/#retrieve)
         """
 
     def search_content(
@@ -1349,6 +1375,17 @@ class QConnectClient(BaseClient):
     def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_quick_responses"]
     ) -> ListQuickResponsesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_spans"]
+    ) -> ListSpansPaginator:
         """
         Create a paginator for an operation.
 
